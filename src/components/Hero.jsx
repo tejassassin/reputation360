@@ -132,7 +132,7 @@ function Hero() {
           className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto"
         >
           <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-to-br from-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">
               <p className="font-heading font-bold text-4xl md:text-5xl text-green mb-2">
                 <StatNumber end={13} start={statsInView} />
@@ -146,7 +146,7 @@ function Hero() {
             </div>
           </div>
           <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-to-br from-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">
               <p className="font-heading font-bold text-4xl md:text-5xl text-green mb-2">
                 <StatNumber end={97} suffix="%" start={statsInView} />

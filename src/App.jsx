@@ -18,7 +18,11 @@ function App() {
         {/* Hero Section */}
         <Hero />
 
+      <section id="about">      
         <WhatWeBelieve />
+      </section>
+
+
         <WhatWeDo />
 
         {/* Features Section */}
@@ -74,10 +78,12 @@ function App() {
         </section> */}
 
         {/* Our Services Expandable Section */}
-        <OurServices />
+        <section id="services">
+          <OurServices />
+        </section>
 
         {/* About Section */}
-        <section id="about" className="py-20 bg-offwhite">
+        <section  className="py-20 bg-offwhite">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>

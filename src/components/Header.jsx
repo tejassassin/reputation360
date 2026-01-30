@@ -21,10 +21,10 @@ function Header() {
           </div>
           <nav className="hidden md:flex items-center gap-8">
             <a
-              href="#features"
+              href="/"
               className="font-heading font-medium text-sm hover:text-green transition-colors"
             >
-              Features
+              Home
             </a>
             <a
               href="#about"
