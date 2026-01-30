@@ -7,6 +7,7 @@ import Hero from "./components/Hero";
 import WhatWeBelieve from "./components/WhatWeBelieve";
 import WhatWeDo from "./components/WhatWeDo";
 import OurServices from "./components/OurServices";
+import WhoWeWorkWith from "./components/WhoWeWorkWith";
 
 function App() {
   return (
@@ -18,10 +19,9 @@ function App() {
         {/* Hero Section */}
         <Hero />
 
-      <section id="about">      
-        <WhatWeBelieve />
-      </section>
-
+        <section id="about">
+          <WhatWeBelieve />
+        </section>
 
         <WhatWeDo />
 
@@ -82,8 +82,12 @@ function App() {
           <OurServices />
         </section>
 
+        <section id="WhoWeworkWith">
+          <WhoWeWorkWith />
+        </section>
+
         {/* About Section */}
-        <section  className="py-20 bg-offwhite">
+        <section className="py-20 bg-offwhite">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -220,18 +224,24 @@ function App() {
                     </span>
                   )}
                   <h3
-                    className={`font-heading font-semibold text-xl mb-2 ${plan.featured ? "text-white" : "text-navy"}`}
+                    className={`font-heading font-semibold text-xl mb-2 ${
+                      plan.featured ? "text-white" : "text-navy"
+                    }`}
                   >
                     {plan.title}
                   </h3>
                   <div className="mb-6">
                     <span
-                      className={`font-heading font-bold text-4xl ${plan.featured ? "text-white" : "text-navy"}`}
+                      className={`font-heading font-bold text-4xl ${
+                        plan.featured ? "text-white" : "text-navy"
+                      }`}
                     >
                       {plan.price}
                     </span>
                     <span
-                      className={`font-body ${plan.featured ? "text-white/70" : "text-steel"}`}
+                      className={`font-body ${
+                        plan.featured ? "text-white/70" : "text-steel"
+                      }`}
                     >
                       {plan.period}
                     </span>
@@ -240,7 +250,9 @@ function App() {
                     {plan.features.map((feature, fidx) => (
                       <li key={fidx} className="flex items-center gap-2">
                         <svg
-                          className={`w-4 h-4 ${plan.featured ? "text-green" : "text-green"}`}
+                          className={`w-4 h-4 ${
+                            plan.featured ? "text-green" : "text-green"
+                          }`}
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -253,7 +265,9 @@ function App() {
                           />
                         </svg>
                         <span
-                          className={`font-body text-sm ${plan.featured ? "text-white/90" : "text-steel"}`}
+                          className={`font-body text-sm ${
+                            plan.featured ? "text-white/90" : "text-steel"
+                          }`}
                         >
                           {feature}
                         </span>
@@ -382,7 +396,7 @@ function App() {
                   >
                     {item}
                   </a>
-                ),
+                )
               )}
             </div>
           </div>

@@ -70,7 +70,7 @@ function Hero() {
             Take control of your
             <br className="hidden sm:block" />
             online reputation <Highlight>on your terms</Highlight>
-            <span className="text-white/50">,</span>
+            ,
             <br className="hidden sm:block" />
             <span className="text-white">not Google's.</span>
           </h1>
@@ -83,7 +83,7 @@ function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button className="group relative bg-green hover:bg-green/90 text-white font-heading font-semibold px-8 py-4 rounded-xl transition-all duration-300 text-lg shadow-lg shadow-green/25 hover:shadow-xl hover:shadow-green/30 hover:-translate-y-0.5">
+          <button className=" cursor-pointer group relative bg-green hover:bg-green/90 text-white font-heading font-semibold px-8 py-4 rounded-xl transition-all duration-300 text-lg shadow-lg shadow-green/25 hover:shadow-xl hover:shadow-green/30 hover:-translate-y-0.5">
             <span className="flex items-center gap-2">
               Start Free Trial
               <svg
@@ -101,7 +101,7 @@ function Hero() {
               </svg>
             </span>
           </button>
-          <button className="group border-2 border-white/30 hover:border-white/50 hover:bg-white/5 text-white font-heading font-medium px-8 py-4 rounded-xl transition-all duration-300 text-lg backdrop-blur-sm">
+          <button className="cursor-pointergroup border-2 border-white/30 hover:border-white/50 hover:bg-white/5 text-white font-heading font-medium px-8 py-4 rounded-xl transition-all duration-300 text-lg backdrop-blur-sm">
             <span className="flex items-center gap-2">
               <svg
                 className="w-5 h-5"
