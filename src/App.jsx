@@ -1,212 +1,22 @@
 import "./App.css";
 import logo from "./assets/Logo_360.png";
-import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import { ServicesExpandable } from "@/components/ui/expandable";
 import { useEffect, useState } from "react";
-
-function StatNumber({ end, suffix = "", duration = 1500 }) {
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    let startTimestamp;
-
-    const step = (timestamp) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      const nextValue = Math.floor(progress * end);
-      setValue(nextValue);
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
-    };
-
-    const id = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(id);
-  }, [end, duration]);
-
-  return (
-    <>
-      {value.toLocaleString()}
-      {suffix}
-    </>
-  );
-}
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import WhatWeDo from "./components/WhatWeDo";
 
 function App() {
   return (
     <div className="min-h-screen flex flex-col bg-offwhite">
       {/* Header */}
-      <header className="bg-navy text-white sticky top-0 z-50 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-2">
-              <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center pl-1">
-                <img
-                  src={logo}
-                  alt="Reputation360 logo"
-                  className="w-9 h-9 object-contain"
-                />
-              </div>
-              <span className="font-heading font-bold text-xl">
-                Reputation360
-              </span>
-            </div>
-            <nav className="hidden md:flex items-center gap-8">
-              <a
-                href="#features"
-                className="font-heading font-medium text-sm hover:text-green transition-colors"
-              >
-                Features
-              </a>
-              <a
-                href="#about"
-                className="font-heading font-medium text-sm hover:text-green transition-colors"
-              >
-                About
-              </a>
-              <a
-                href="#services"
-                className="font-heading font-medium text-sm hover:text-green transition-colors"
-              >
-                Services
-              </a>
-              <a
-                href="#contact"
-                className="font-heading font-medium text-sm hover:text-green transition-colors"
-              >
-                Contact
-              </a>
-            </nav>
-            <button className="bg-green hover:bg-green/90 text-white font-heading font-medium px-5 py-2 rounded-lg transition-colors">
-              Get Started
-            </button>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-linear-to-br from-navy via-slate to-navy text-white py-20 lg:py-32 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-            {/* Trust Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green"></span>
-              </span>
-              <span className="font-body text-sm text-white/90">
-                Trusted by 1,700+ businesses worldwide
-              </span>
-            </div>
+        <Hero />
 
-            <HeroHighlight containerClassName="h-auto bg-transparent dark:bg-transparent">
-              <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-7xl mb-8 leading-[1.1] tracking-tight">
-                Take control of your
-                <br className="hidden sm:block" />
-                online reputation <Highlight>on your terms</Highlight>
-                <span className="text-white/50">,</span>
-                <br className="hidden sm:block" />
-                <span className="text-white/60">not Google's.</span>
-              </h1>
-            </HeroHighlight>
-
-            <p className="font-body text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed">
-              Comprehensive reputation management solutions to help businesses
-              and individuals maintain a positive online presence and build
-              lasting trust.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="group relative bg-green hover:bg-green/90 text-white font-heading font-semibold px-8 py-4 rounded-xl transition-all duration-300 text-lg shadow-lg shadow-green/25 hover:shadow-xl hover:shadow-green/30 hover:-translate-y-0.5">
-                <span className="flex items-center gap-2">
-                  Start Free Trial
-                  <svg
-                    className="w-5 h-5 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button className="group border-2 border-white/30 hover:border-white/50 hover:bg-white/5 text-white font-heading font-medium px-8 py-4 rounded-xl transition-all duration-300 text-lg backdrop-blur-sm">
-                <span className="flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  Watch Demo
-                </span>
-              </button>
-            </div>
-
-            <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative">
-                  <p className="font-heading font-bold text-4xl md:text-5xl text-green mb-2">
-                    <StatNumber end={13} />
-                  </p>
-                  <p className="font-heading font-semibold text-white text-sm uppercase tracking-wider mb-1">
-                    Years Experience
-                  </p>
-                  <p className="font-body text-xs text-white/60">
-                    Online reputation management
-                  </p>
-                </div>
-              </div>
-              <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative">
-                  <p className="font-heading font-bold text-4xl md:text-5xl text-green mb-2">
-                    <StatNumber end={97} suffix="%" />
-                  </p>
-                  <p className="font-heading font-semibold text-white text-sm uppercase tracking-wider mb-1">
-                    Success Rate
-                  </p>
-                  <p className="font-body text-xs text-white/60">
-                    Pushing negative links off page one
-                  </p>
-                </div>
-              </div>
-              <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative">
-                  <p className="font-heading font-bold text-4xl md:text-5xl text-green mb-2">
-                    <StatNumber end={1700} suffix="+" />
-                  </p>
-                  <p className="font-heading font-semibold text-white text-sm uppercase tracking-wider mb-1">
-                    Happy Clients
-                  </p>
-                  <p className="font-body text-xs text-white/60">
-                    Successful suppression outcomes
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <WhatWeDo/>
 
         {/* Features Section */}
         <section id="features" className="py-20 bg-offwhite">
