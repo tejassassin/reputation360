@@ -77,7 +77,7 @@ export const AnimatedTestimonials = ({
                     duration: 0.4,
                     ease: "easeInOut",
                   }}
-                  className="absolute inset-0 origin-bottom overflow-hidden rounded-3xl border-2 border-slate/20 bg-offwhite shadow-lg shadow-slate/10"
+                  className="absolute inset-0 origin-bottom overflow-hidden rounded-3xl border-4 border-slate/20 bg-offwhite shadow-lg shadow-slate/10"
                 >
                   <img
                     src={testimonial.src}
@@ -112,12 +112,12 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-2xl font-bold text-black dark:text-white">
+            <h3 className="text-2xl font-bold text-navy   dark:text-white">
               {testimonials[active].name}
             </h3>
-            <p className="text-sm text-gray-500 dark:text-neutral-500">
+            <p className="text-sm text-slate dark:text-neutral-500">
               {testimonials[active].designation}
-            </p>
+            </p>  
             <motion.p className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
