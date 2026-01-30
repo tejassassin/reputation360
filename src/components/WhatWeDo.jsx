@@ -1,8 +1,10 @@
 import React from "react";
-
+import { Compare } from "./ui/compare";
+import firstImage from "../assets/before.png";
+import secondImage from "../assets/after.png";
 function WhatWeDo() {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
         <div className="lg:w-[60%] flex flex-col justify-center">
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy mb-6">
@@ -18,8 +20,15 @@ function WhatWeDo() {
           </p>
         </div>
 
-        <div className="lg:w-[40%] min-h-80 bg-steel/10 rounded-2xl flex items-center justify-center">
-          <div className="text-steel/50 font-body text-sm">Image</div>
+        <div className="lg:w-[50%] min-h-100 bg-steel/10 rounded-2xl flex items-center justify-center overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
+          <Compare
+            className="w-full h-full min-h-80"
+            firstImage={firstImage}
+            secondImage={secondImage}
+            firstImageClassName="object-cover w-full h-full"
+            secondImageClassname="object-cover w-full h-full"
+            slideMode="hover"
+          />
         </div>
       </div>
     </div>

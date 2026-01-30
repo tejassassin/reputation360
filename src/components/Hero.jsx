@@ -1,13 +1,32 @@
 import React from "react";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
-import StatNumber from "@/App";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function Hero() {
-  function StatNumber({ end, suffix = "", duration = 1500 }) {
+  const statsRef = useRef(null);
+  const [statsInView, setStatsInView] = useState(false);
+
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setStatsInView(true);
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -50px 0px" },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  function StatNumber({ end, suffix = "", duration = 1500, start = false }) {
     const [value, setValue] = useState(0);
 
     useEffect(() => {
+      if (!start) return;
+
       let startTimestamp;
 
       const step = (timestamp) => {
@@ -22,7 +41,7 @@ function Hero() {
 
       const id = requestAnimationFrame(step);
       return () => cancelAnimationFrame(id);
-    }, [end, duration]);
+    }, [end, duration, start]);
 
     return (
       <>
@@ -47,13 +66,13 @@ function Hero() {
         </div>
 
         <HeroHighlight containerClassName="h-auto bg-transparent dark:bg-transparent">
-          <h1 className="font-heading font-bold text-4xl md:text-3xl lg:text-6xl m-6 leading-[1.1] tracking-tight">
+          <h1 className="font-heading font-bold text-4xl md:text-3xl lg:text-5xl m-4 leading-[1.1] tracking-tight leading-tight">
             Take control of your
             <br className="hidden sm:block" />
             online reputation <Highlight>on your terms</Highlight>
             <span className="text-white/50">,</span>
             <br className="hidden sm:block" />
-            <span className="text-white/60">not Google's.</span>
+            <span className="text-white">not Google's.</span>
           </h1>
         </HeroHighlight>
 
@@ -108,12 +127,15 @@ function Hero() {
           </button>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div
+          ref={statsRef}
+          className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto"
+        >
           <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
             <div className="absolute inset-0 bg-gradient-to-br from-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">
               <p className="font-heading font-bold text-4xl md:text-5xl text-green mb-2">
-                <StatNumber end={13} />
+                <StatNumber end={13} start={statsInView} />
               </p>
               <p className="font-heading font-semibold text-white text-sm uppercase tracking-wider mb-1">
                 Years Experience
@@ -127,7 +149,7 @@ function Hero() {
             <div className="absolute inset-0 bg-gradient-to-br from-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">
               <p className="font-heading font-bold text-4xl md:text-5xl text-green mb-2">
-                <StatNumber end={97} suffix="%" />
+                <StatNumber end={97} suffix="%" start={statsInView} />
               </p>
               <p className="font-heading font-semibold text-white text-sm uppercase tracking-wider mb-1">
                 Success Rate
@@ -141,7 +163,7 @@ function Hero() {
             <div className="absolute inset-0 bg-gradient-to-br from-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">
               <p className="font-heading font-bold text-4xl md:text-5xl text-green mb-2">
-                <StatNumber end={1700} suffix="+" />
+                <StatNumber end={1700} suffix="+" start={statsInView} />
               </p>
               <p className="font-heading font-semibold text-white text-sm uppercase tracking-wider mb-1">
                 Happy Clients
