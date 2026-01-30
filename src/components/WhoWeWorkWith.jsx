@@ -34,7 +34,7 @@ function WhoWeWorkWith() {
   ];
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-      <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy my-4 m-auto text-center">
+      <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy mt-8 mb-4 m-auto text-center">
         Who we work with
       </h2>
       <AnimatedTestimonials testimonials={testimonials} />

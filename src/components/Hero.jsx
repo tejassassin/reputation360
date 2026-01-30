@@ -66,7 +66,7 @@ function Hero() {
         </div>
 
         <HeroHighlight containerClassName="h-auto bg-transparent dark:bg-transparent">
-          <h1 className="font-heading font-bold text-4xl md:text-3xl lg:text-5xl m-4 leading-[1.1] tracking-tight leading-tight">
+          <h1 className="font-heading font-bold text-4xl md:text-3xl lg:text-5xl m-8  tracking-tight leading-tight">
             Take control of your
             <br className="hidden sm:block" />
             online reputation <Highlight>on your terms</Highlight>
