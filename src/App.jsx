@@ -12,6 +12,7 @@ import Pricing from "./components/Pricing";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import HowItWorks from "./components/HowItWorks";
+import WhyClientsChoose from "./components/WhyClientsChoose";
 
 function App() {
   return (
@@ -39,13 +40,19 @@ function App() {
         <section id="HowWeWork" className=" bg-white">
           <HowItWorks />
         </section>
+        <section id="WhyClientsChoose" className="bg-offwhite">
+          <WhyClientsChoose />
+        </section>
 
-        <section id="Pricing" className="py-20 bg-pffwhite">
+
+        <section id="pricing" className="py-20 bg-white">
           <Pricing />
         </section>
         <section id="Contact">
           <Contact />
         </section>
+
+
       </main>
 
       <Footer />
