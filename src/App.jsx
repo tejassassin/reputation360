@@ -4,7 +4,9 @@ import { ServicesExpandable } from "@/components/ui/expandable";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import WhatWeBelieve from "./components/WhatWeBelieve";
 import WhatWeDo from "./components/WhatWeDo";
+import OurServices from "./components/OurServices";
 
 function App() {
   return (
@@ -16,10 +18,11 @@ function App() {
         {/* Hero Section */}
         <Hero />
 
-        <WhatWeDo/>
+        <WhatWeBelieve />
+        <WhatWeDo />
 
         {/* Features Section */}
-        <section id="features" className="py-20 bg-offwhite">
+        {/* <section id="features" className="py-20 bg-offwhite">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy mb-4">
@@ -68,23 +71,10 @@ function App() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Our Services Expandable Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy mb-4">
-                Our Services
-              </h2>
-              <p className="font-body text-steel max-w-2xl mx-auto">
-                Comprehensive solutions tailored to build, protect, and elevate
-                your brand's presence in the digital landscape.
-              </p>
-            </div>
-            <ServicesExpandable />
-          </div>
-        </section>
+        <OurServices />
 
         {/* About Section */}
         <section id="about" className="py-20 bg-offwhite">
