@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import {
   Navbar,
   NavBody,
@@ -9,7 +9,7 @@ import {
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
-} from './ui/resizable-navbar'
+} from "./ui/resizable-navbar";
 import logo from "../assets/Logo_360.png";
 
 const navItems = [
@@ -17,10 +17,10 @@ const navItems = [
   { name: "About", link: "#about" },
   { name: "Services", link: "#services" },
   { name: "Contact", link: "#contact" },
-]
+];
 
 function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <header className="bg-navy text-white sticky top-0 z-50 shadow-lg">
       {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,10 +74,7 @@ function Header() {
         <NavBody>
           <NavbarLogo logoSrc={logo} brandName="Reputation360" />
           <NavItems items={navItems} />
-          <div className="flex items-center gap-4">
-            <NavbarButton variant="secondary">Login</NavbarButton>
-            <NavbarButton variant="primary">Book a call</NavbarButton>
-          </div>
+          <NavbarButton variant="primary">Book a call</NavbarButton>
         </NavBody>
 
         {/* Mobile Navigation */}
@@ -105,7 +102,6 @@ function Header() {
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
-         
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
@@ -121,4 +117,4 @@ function Header() {
   );
 }
 
-export default Header
+export default Header;

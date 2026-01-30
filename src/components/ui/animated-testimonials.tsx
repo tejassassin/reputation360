@@ -77,7 +77,7 @@ export const AnimatedTestimonials = ({
                     duration: 0.4,
                     ease: "easeInOut",
                   }}
-                  className="absolute inset-0 origin-bottom overflow-hidden rounded-3xl border-4 border-slate/20 bg-offwhite shadow-lg shadow-slate/10"
+                  className="absolute inset-0 origin-bottom overflow-hidden rounded-3xl border-8 border-slate/20 bg-offwhite shadow-lg shadow-slate/10"
                 >
                   <img
                     src={testimonial.src}
