@@ -1,9 +1,9 @@
 import React from "react";
 import { AnimatedTestimonials } from "./ui/animated-testimonials";
-import individuals from "../assets/individuals.png";
+import individuals from "../assets/Individuals.png";
 import CEOs from "../assets/CEOs.png";
-import doctors from "../assets/doctors.png";
-import brands from "../assets/brands.png";
+import doctors from "../assets/Doctors.png";
+import brands from "../assets/Brands.png";
 
 function WhoWeWorkWith() {
   const testimonials = [
@@ -34,7 +34,7 @@ function WhoWeWorkWith() {
   ];
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-      <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy mb-4 m-auto text-center">
+      <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy my-4 m-auto text-center">
         Who we work with
       </h2>
       <AnimatedTestimonials testimonials={testimonials} />
