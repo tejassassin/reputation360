@@ -13,7 +13,7 @@ function WhyClientsChoose() {
   return (
     <section className="w-full py-12 px-4">
       <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy my-8 m-auto text-center">
-        Why clients choose Reputation360
+        Why Clients Choose Reputation360
       </h2>
       <div className="max-w-7xl mx-auto flex flex-nowrap justify-center gap-5 overflow-x-auto pb-2">
         {items.map(({ text, icon: Icon }, i) => (

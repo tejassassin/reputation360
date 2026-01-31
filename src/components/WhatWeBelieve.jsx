@@ -16,7 +16,7 @@ function WhatWeBelieve() {
           </p>
           <p className="font-body text-steel text-lg leading-relaxed">
             At Reputation360, we help individuals and brands own their narrative
-            — strategically and sustainably.
+            - strategically and sustainably.
           </p>
         </div>
 

@@ -45,9 +45,7 @@ function App() {
         </section>
 
 
-        <section id="pricing" className="py-20 bg-white">
-          <Pricing />
-        </section>
+     
         <section id="Contact">
           <Contact />
         </section>

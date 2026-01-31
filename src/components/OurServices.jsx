@@ -9,10 +9,7 @@ function OurServices() {
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy mb-4">
             Our Services
           </h2>
-          <p className="font-body text-steel max-w-xl mx-auto">
-            Comprehensive solutions tailored to build, protect, and elevate your <br />
-            brand's presence in the digital landscape.
-          </p>
+       
         </div>
         <ServicesExpandable />
       </div>

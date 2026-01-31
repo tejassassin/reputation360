@@ -80,7 +80,7 @@ export function ServicesExpandable() {
                 layoutId={`icon-${active.title}-${id}`}
                 className="w-full h-48 bg-linear-to-br from-navy to-slate flex items-center justify-center"
               >
-                <div className="w-24 h-24 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                <div className="w-24 h-24 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center [&_svg]:!text-white [&_svg]:!stroke-white">
                   {active.icon}
                 </div>
               </motion.div>
@@ -120,7 +120,7 @@ export function ServicesExpandable() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full space-y-2">
+      <ul className="max-w-5xl mx-auto w-full grid grid-cols-2 gap-2">
         {servicesCards.map((card) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
@@ -128,10 +128,10 @@ export function ServicesExpandable() {
             onClick={() => setActive(card)}
             className="p-3 flex flex-col md:flex-row justify-between items-center bg-white hover:bg-green/5 border-1 border-steel/40 hover:border-green/30 rounded-xl cursor-pointer transition-colors"
           >
-            <div className="flex gap-4 flex-col md:flex-row items-center w-[65%]">
+            <div className="flex gap-4 flex-col md:flex-row items-center w-[400px]">
               <motion.div
                 layoutId={`icon-${card.title}-${id}`}
-                className="w-14 h-14 bg-linear-to-br from-navy to-slate rounded-xl flex items-center justify-center shrink-0"
+                className="w-14 h-14 bg-navy rounded-xl flex items-center justify-center shrink-0 [&_svg]:!text-white [&_svg]:!stroke-white"
               >
                 {card.icon}
               </motion.div>
@@ -142,14 +142,28 @@ export function ServicesExpandable() {
                 >
                   {card.title}
                 </motion.h3>
-            
               </div>
             </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="px-4 py-2 text-sm rounded-full font-heading font-semibold text-white bg-green cursor-pointer hover:bg-green/90 hover:text-white  mt-4 md:mt-0 transition-colors"
+              className="px-4 py-2 text-sm rounded-full font-heading font-semibold text-white  cursor-pointer hover:bg-green/90 hover:text-white  mt-4 md:mt-0 transition-colors"
             >
-              {card.ctaText}
+              {/* {card.ctaText} */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="navy"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-down-right-icon lucide-arrow-down-right"
+              >
+                <path d="m7 7 10 10" />
+                <path d="M17 7v10H7" />
+              </svg>
             </motion.button>
           </motion.div>
         ))}

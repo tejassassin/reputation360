@@ -16,17 +16,19 @@ function WhatWeDo() {
 
         <div className="lg:w-[60%] flex flex-col justify-center">
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy mb-6">
-            What we do (in simple terms)
+            About Reputation360
           </h2>
           <p className="font-body text-steel text-lg leading-relaxed mb-4">
-            We help reduce the visibility of negative, misleading, or unfair
-            content on Google and strengthen accurate, positive results that
-            deserve to rank.
+            Reputation360 helps individuals and brands take control of how they
+            are perceived online. With 13 years of hands-on experience in online
+            reputation management, SEO, branding, content strategy, and digital
+            marketing, we build reputations that are credible, resilient, and
+            built to last.
           </p>
           <p className="font-body text-steel text-lg leading-relaxed">
-            Our focus: long-term reputation health - not quick fixes. We ensure
-            that your online reputation builds trust, safety, and future
-            opportunities for career growth and personal confidence.
+           Our focus is long-term reputation health, not quick fixes -
+            building trust, safety, and future opportunities for career growth
+            and personal confidence.
           </p>
         </div>
       </div>

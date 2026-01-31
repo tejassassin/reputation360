@@ -6,10 +6,12 @@ export const HeroHighlight = ({
   children,
   className,
   containerClassName,
+  disableDotPattern = false,
 }: {
   children: React.ReactNode;
   className?: string;
   containerClassName?: string;
+  disableDotPattern?: boolean;
 }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -45,58 +47,62 @@ export const HeroHighlight = ({
       )}
       onMouseMove={handleMouseMove}
     >
-      <div
-        className="pointer-events-none absolute inset-0 dark:hidden"
-        style={{
-          backgroundImage: dotPatterns.light.default,
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0 hidden dark:block"
-        style={{
-          backgroundImage: dotPatterns.dark.default,
-        }}
-      />
-      <motion.div
-        className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 dark:hidden"
-        style={{
-          backgroundImage: dotPatterns.light.hover,
-          WebkitMaskImage: useMotionTemplate`
-            radial-gradient(
-              200px circle at ${mouseX}px ${mouseY}px,
-              black 0%,
-              transparent 100%
-            )
-          `,
-          maskImage: useMotionTemplate`
-            radial-gradient(
-              200px circle at ${mouseX}px ${mouseY}px,
-              black 0%,
-              transparent 100%
-            )
-          `,
-        }}
-      />
-      <motion.div
-        className="pointer-events-none absolute inset-0 hidden opacity-0 transition duration-300 group-hover:opacity-100 dark:block"
-        style={{
-          backgroundImage: dotPatterns.dark.hover,
-          WebkitMaskImage: useMotionTemplate`
-            radial-gradient(
-              200px circle at ${mouseX}px ${mouseY}px,
-              black 0%,
-              transparent 100%
-            )
-          `,
-          maskImage: useMotionTemplate`
-            radial-gradient(
-              200px circle at ${mouseX}px ${mouseY}px,
-              black 0%,
-              transparent 100%
-            )
-          `,
-        }}
-      />
+      {!disableDotPattern && (
+        <>
+          <div
+            className="pointer-events-none absolute inset-0 dark:hidden"
+            style={{
+              backgroundImage: dotPatterns.light.default,
+            }}
+          />
+          <div
+            className="pointer-events-none absolute inset-0 hidden dark:block"
+            style={{
+              backgroundImage: dotPatterns.dark.default,
+            }}
+          />
+          <motion.div
+            className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 dark:hidden"
+            style={{
+              backgroundImage: dotPatterns.light.hover,
+              WebkitMaskImage: useMotionTemplate`
+                radial-gradient(
+                  200px circle at ${mouseX}px ${mouseY}px,
+                  black 0%,
+                  transparent 100%
+                )
+              `,
+              maskImage: useMotionTemplate`
+                radial-gradient(
+                  200px circle at ${mouseX}px ${mouseY}px,
+                  black 0%,
+                  transparent 100%
+                )
+              `,
+            }}
+          />
+          <motion.div
+            className="pointer-events-none absolute inset-0 hidden opacity-0 transition duration-300 group-hover:opacity-100 dark:block"
+            style={{
+              backgroundImage: dotPatterns.dark.hover,
+              WebkitMaskImage: useMotionTemplate`
+                radial-gradient(
+                  200px circle at ${mouseX}px ${mouseY}px,
+                  black 0%,
+                  transparent 100%
+                )
+              `,
+              maskImage: useMotionTemplate`
+                radial-gradient(
+                  200px circle at ${mouseX}px ${mouseY}px,
+                  black 0%,
+                  transparent 100%
+                )
+              `,
+            }}
+          />
+        </>
+      )}
 
       <div className={cn("relative z-20", className)}>{children}</div>
     </div>
