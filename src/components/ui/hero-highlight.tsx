@@ -50,13 +50,13 @@ export const HeroHighlight = ({
       {!disableDotPattern && (
         <>
           <div
-            className="pointer-events-none absolute inset-0 dark:hidden"
+            className="pointer-events-none absolute inset-0 opacity-20 dark:hidden"
             style={{
               backgroundImage: dotPatterns.light.default,
             }}
           />
           <div
-            className="pointer-events-none absolute inset-0 hidden dark:block"
+            className="pointer-events-none absolute inset-0 hidden opacity-50 dark:block"
             style={{
               backgroundImage: dotPatterns.dark.default,
             }}

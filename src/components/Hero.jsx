@@ -14,7 +14,7 @@ function Hero() {
       ([entry]) => {
         if (entry.isIntersecting) setStatsInView(true);
       },
-      { threshold: 0.2, rootMargin: "0px 0px -50px 0px" },
+      { threshold: 0.2, rootMargin: "0px 0px -50px 0px" }
     );
 
     observer.observe(el);
@@ -65,18 +65,16 @@ function Hero() {
           </span>
         </div>
 
-        <HeroHighlight containerClassName="h-auto bg-transparent dark:bg-transparent" disableDotPattern>
-          <h1 className="font-heading font-bold text-4xl md:text-3xl lg:text-5xl m-8  tracking-tight leading-tight">
+        <HeroHighlight containerClassName="h-auto bg-transparent dark:bg-transparent m-5">
+          <h1 className="font-heading font-bold text-4xl md:text-3xl lg:text-5xl m-4 leading-[1.1] tracking-tight leading-tight">
             Take control of your
             <br className="hidden sm:block" />
             online reputation <Highlight>on your terms</Highlight>
-            ,
+            <span className="text-white/90">,</span>
             <br className="hidden sm:block" />
-            <span className="text-white">not Google's.</span>
+            <span className="text-white">not Google's</span>
           </h1>
         </HeroHighlight>
-
-     
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button className=" cursor-pointer group relative bg-green hover:bg-green/90 text-white font-heading font-semibold px-8 py-4 rounded-xl transition-all duration-300 text-lg shadow-lg shadow-green/25 hover:shadow-xl hover:shadow-green/30 hover:-translate-y-0.5">
@@ -97,7 +95,6 @@ function Hero() {
               </svg>
             </span>
           </button>
-      
         </div>
 
         <div
