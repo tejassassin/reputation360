@@ -4,6 +4,7 @@ import individuals from "../assets/Individuals.png";
 import CEOs from "../assets/CEOs.png";
 import doctors from "../assets/Doctors.png";
 import brands from "../assets/Brands.png";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 function WhoWeWorkWith() {
   const testimonials = [
@@ -33,11 +34,46 @@ function WhoWeWorkWith() {
     },
   ];
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-      <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy mt-8 mb-4 m-auto text-center">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy mt-8  m-auto text-center">
         Who we work with
       </h2>
-      <AnimatedTestimonials testimonials={testimonials} />
+      {/* <AnimatedTestimonials testimonials={testimonials} />
+       */}
+
+      <div className="flex flex-nowrap justify-center gap-6 pb-2 scroll-smooth w-full ">
+        {testimonials.map((testimonial, index) => (
+          <CardContainer
+            key={index}
+            className="inter-var cursor-pointer shrink-0 w-64 sm:w-82 snap-center "
+          >
+            <CardBody className="bg-slate relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-full rounded-xl p-5 border flex flex-col">
+              <CardItem
+                translateZ="50"
+                className="text-lg font-bold text-white dark:text-green line-clamp-2"
+              >
+                {testimonial.name}
+              </CardItem>
+              <CardItem
+                as="p"
+                translateZ="60"
+                className="text-white text-sm mt-2 dark:text-neutral-300 line-clamp-3 flex-1 min-h-0"
+              >
+                {testimonial.quote}
+              </CardItem>
+              <CardItem translateZ="100" className="w-full mt-4 bg-white rounded-lg p-4 shrink-0">
+                <img
+                  src={testimonial.src}
+                  height={200}
+                  width={200}
+                  className="w-full h-auto rounded-lg  object-contain max-h-32"
+                  alt={testimonial.name}
+                />
+              </CardItem>
+            </CardBody>
+          </CardContainer>
+        ))}
+      </div>
     </div>
   );
 }

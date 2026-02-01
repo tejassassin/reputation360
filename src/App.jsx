@@ -13,13 +13,14 @@ import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import HowItWorks from "./components/HowItWorks";
 import WhyClientsChoose from "./components/WhyClientsChoose";
+import { Testimonials } from "./components/Testimonials";
 
 function App() {
   return (
     <div className="min-h-screen flex flex-col bg-offwhite">
       {/* Header + Hero fill first viewport */}
-      <div className="min-h-screen flex flex-col">
         <Header />
+      <div className="min-h-screen flex flex-col">
         <div className="flex-1 min-h-0">
           <Hero />
         </div>
@@ -35,11 +36,15 @@ function App() {
           <OurServices />
         </section>
 
-        <section id="WhoWeworkWith">
+        <section id="testimonials">
+          <Testimonials />
+        </section>
+
+        <section id="WhoWeworkWith" className="bg-white">
           <WhoWeWorkWith />
         </section>
 
-        <section id="HowWeWork" className=" bg-white">
+        <section id="HowWeWork" className=" bg-offwhite">
           <HowItWorks />
         </section>
         <section id="WhyClientsChoose" className="bg-offwhite">

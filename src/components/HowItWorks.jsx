@@ -31,7 +31,7 @@ function HowItWorks() {
     },
   ];
   return (
-    <div className="py-8 ">
+    <div className="py-4 ">
       <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy my-8 m-auto text-center">
         How Reputation360 works
       </h2>

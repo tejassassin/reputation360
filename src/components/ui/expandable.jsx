@@ -208,87 +208,107 @@ export const CloseIcon = () => {
 const servicesCards = [
   {
     title: "Online Reputation Management & Negative Link Suppression",
-    description:"",
+    description: "",
     icon: <ShieldCheck className="w-8 h-8 text-green" />,
     ctaText: "Learn More",
     ctaLink: "#contact",
     content: () => {
       return (
         <p>
-        We strengthen positive search results and reduce the visibility of harmful, misleading, or outdated content 
+          We strengthen positive search results and reduce the visibility of
+          harmful, misleading, or outdated content
         </p>
       );
     },
   },
   {
     title: "Branding",
-      description: "",
-    icon: <Palette className="w-8 h-8 text-green" />,
+    description: "",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-message-circle-heart-icon lucide-message-circle-heart"
+      >
+        <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+        <path d="M7.828 13.07A3 3 0 0 1 12 8.764a3 3 0 0 1 5.004 2.224 3 3 0 0 1-.832 2.083l-3.447 3.62a1 1 0 0 1-1.45-.001z" />
+      </svg>
+    ),
     ctaText: "Learn More",
     ctaLink: "#contact",
     content: () => {
       return (
         <p>
-         We help your audience recognize your brand the way you intend — building connection, trust, and momentum for growth.
-
+          We help your audience recognize your brand the way you intend —
+          building connection, trust, and momentum for growth.
         </p>
       );
     },
   },
   {
     title: "Content & Thought Leadership",
-    description:"",
+    description: "",
     icon: <FileText className="w-8 h-8 text-green" />,
     ctaText: "Learn More",
     ctaLink: "#contact",
     content: () => {
       return (
         <p>
-       Strategic content that builds authority, educates your audience, and positions you as a credible voice in your industry.
-
+          Strategic content that builds authority, educates your audience, and
+          positions you as a credible voice in your industry.
         </p>
       );
     },
   },
   {
     title: "Performance Marketing",
-    description:"",
+    description: "",
     icon: <TrendingUp className="w-8 h-8 text-green" />,
     ctaText: "Learn More",
     ctaLink: "#contact",
     content: () => {
       return (
         <p>
-      Paid campaigns designed to increase qualified leads, drive conversions, and accelerate business growth.
-
+          Paid campaigns designed to increase qualified leads, drive
+          conversions, and accelerate business growth.
         </p>
       );
     },
   },
   {
     title: "LinkedIn Personal Branding",
-    description:"",
+    description: "",
     icon: <Linkedin className="w-8 h-8 text-green" />,
     ctaText: "Learn More",
     ctaLink: "#contact",
     content: () => {
       return (
         <p>
-     Building authority and visibility through strategic storytelling, consistent high-quality content, and thought leadership that resonates with the right audience.
+          Building authority and visibility through strategic storytelling,
+          consistent high-quality content, and thought leadership that resonates
+          with the right audience.
         </p>
       );
     },
   },
   {
     title: "Consultation",
-    description:"",
+    description: "",
     icon: <MessageSquare className="w-8 h-8 text-green" />,
     ctaText: "Learn More",
     ctaLink: "#contact",
     content: () => {
       return (
         <p>
-        Strategic marketing consultation built on experience, not theory - offering clarity, course correction, and measurable impact.
+          Strategic marketing consultation built on experience, not theory -
+          offering clarity, course correction, and measurable impact.
         </p>
       );
     },
