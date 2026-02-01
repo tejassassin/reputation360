@@ -1,6 +1,7 @@
 import React from "react";
 import { ClipboardCheck, Lightbulb, Rocket, Activity } from "lucide-react";
 import { FocusCards } from "./ui/focus-cards";
+import stepsImage from "../assets/steps.jpeg";
 
 function HowItWorks() {
   const cards = [
@@ -34,7 +35,16 @@ function HowItWorks() {
       <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy my-8 m-auto text-center">
         How Reputation360 works
       </h2>
-      <FocusCards cards={cards} />
+      <div className="max-w-4xl mx-auto px-4">
+        <img
+          src={stepsImage}
+          alt="How Reputation360 works - steps"
+          className="w-full rounded-lg object-cover"
+        />
+      </div>
+      {/* <FocusCards cards={cards} /> */}
+
+
     </div>
   );
 }

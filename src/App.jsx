@@ -17,13 +17,15 @@ import WhyClientsChoose from "./components/WhyClientsChoose";
 function App() {
   return (
     <div className="min-h-screen flex flex-col bg-offwhite">
-      {/* Header */}
-      <Header />
+      {/* Header + Hero fill first viewport */}
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <div className="flex-1 min-h-0">
+          <Hero />
+        </div>
+      </div>
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <Hero />
-
         <section id="about">
           <WhatWeBelieve />
           <WhatWeDo />
@@ -44,13 +46,9 @@ function App() {
           <WhyClientsChoose />
         </section>
 
-
-     
         <section id="Contact">
           <Contact />
         </section>
-
-
       </main>
 
       <Footer />
