@@ -11,10 +11,8 @@ const caseStudies = [
       profile: "Mid-sized Consumer Electronics Brand (15 years in operation)",
       challengeType: "Product defect controversy & customer backlash",
       duration: "14 months",
-      excerpt:
-        "A consumer electronics brand faced reputational damage after a manufacturing defect in a flagship product led to customer complaints, refunds, and recalls. The issue escalated when national media and financial publications reported on it.",
       challenge:
-        "A founder in the industrial manufacturing sector faced reputational strain following a public leadership controversy that triggered speculative commentary and opinion-driven media coverage.",
+        "A consumer electronics brand with a 15-year operating history faced reputational damage after a manufacturing defect in a flagship product led to customer complaints, refunds, and recalls. The issue escalated when national media and financial publications reported on it.",
       challengeDrivers:
         "Negative visibility dominated Page 1–4 of Google, driven by:",
       challengeDriversList: [
@@ -54,37 +52,33 @@ const caseStudies = [
       profile: "48-year-old Founder & Managing Director",
       challengeType: "Leadership controversy & media speculation",
       duration: "12 months",
-      excerpt:
-        "A consumer electronics brand faced reputational damage after a manufacturing defect in a flagship product led to customer complaints, refunds, and recalls. The issue escalated when national media and financial publications reported on it.",
       challenge:
-        "A consumer electronics brand with a 15-year operating history faced reputational damage after a manufacturing defect in a flagship product led to customer complaints, refunds, and recalls. The issue escalated when national media and financial publications reported on it.",
-      challengeDrivers:
-        "Negative visibility dominated Page 1–4 of Google, driven by:",
+        "A founder in the industrial manufacturing sector faced reputational strain following a public leadership controversy that triggered speculative commentary and opinion-driven media coverage.",
+      challengeDrivers: "Negative narratives ranked across:",
       challengeDriversList: [
-        "Technology review platforms",
-        "Consumer complaint forums",
-        "Reddit discussion threads",
-        "Coverage by a leading financial newspaper (The Economic Times)",
+        "Industry publications",
+        "Commentary and opinion blogs",
+        "Syndicated business content platforms",
       ],
       challengeClosing:
-        "This began impacting sales conversations, distributor confidence, and long-term brand trust.",
+        "Page 1 and Page 2 were dominated by critical opinion pieces, affecting stakeholder and investor confidence.",
       objective:
-        "Contain crisis-driven narratives, rebalance search results, and restore commercial credibility without denying the issue or suppressing legitimate reporting.",
+        "Reposition the founder as a credible, forward-looking industry leader and remove speculative narratives from high-impact search results.",
       strategy: [
-        "Conducted a crisis-specific SERP analysis to identify which articles were driving the highest trust erosion",
-        "Created brand-led explanatory content addressing the issue, corrective measures, and quality improvements",
-        "Positioned follow-up content that contextualized the original negative news with resolution and accountability",
-        "Strengthened visibility of verified product pages, FAQs, and neutral third-party reviews",
-        "Reduced forum dominance by replacing speculative discussions with authoritative brand and media assets",
+        "Executed a LinkedIn-first reputation strategy, positioning the founder as a thought leader",
+        "Developed consistent leadership content around governance, operations, and long-term industry vision",
+        "Published long-form posts, commentary, and interviews designed to rank for name-based searches",
+        "Strengthened Google-visible profiles to reinforce leadership credibility",
+        "Gradually displaced opinion-driven content with expertise-led narratives",
       ],
       results: [
-        "82% of negative URLs pushed beyond Page 3",
-        "Page 1 dominated by controlled brand assets and neutral coverage",
-        "Brand search click-through rate improved by 38%",
-        "Distributor confidence and inbound sales inquiries stabilized",
+        "Negative opinion pieces removed from Page 1 and Page 2",
+        "Founder-authored content began ranking in the top 3 search results",
+        "Page 1 shifted toward leadership insight and professional authority",
+        "Noticeable improvement in investor and stakeholder sentiment",
       ],
       impact:
-        "The business regained control of its online narrative while maintaining transparency. Search results reflected a resolved product issue, not a failing brand—allowing the company to move forward without long-term reputational drag.",
+        "The founder’s digital presence reflected experience, stability, and leadership depth, allowing conversations to move away from controversy and back to business fundamentals.",
     },
   },
 
@@ -93,15 +87,13 @@ const caseStudies = [
     data: {
       caseStudy: true,
       title: "Financial Professional Reputation Recovery",
-      Industry: "Finance",
+      industry: "Finance",
       profile: "57-year-old Senior Financial Professional",
       challengeType: "Insider trading allegations & regulatory press",
       duration: "15 months",
-      excerpt:
-        "A consumer electronics brand faced reputational damage after a manufacturing defect in a flagship product led to customer complaints, refunds, and recalls. The issue escalated when national media and financial publications reported on it.",
       challenge:
-        "A senior financial professional faced reputational risk after being named in insider trading allegations, triggering regulatory disclosures and media attention.",
-      challengeDrivers: "Negative visibility was driven by:",
+        "A senior financial professional faced reputational risk after being named in insider trading allegations, triggering regulatory disclosures and media attention."   ,
+        challengeDrivers: "Negative visibility was driven by:",
       challengeDriversList: [
         "SEC.gov records",
         "Legal reporting platforms",
@@ -134,12 +126,10 @@ const caseStudies = [
     data: {
       caseStudy: true,
       title: "Medical & Healthcare Reputation Management",
-      Industry: "Healthcare",
+      industry: "Healthcare",
       profile: "39-year-old Practicing Doctor",
       challengeType: "Alleged clinical error & negative media coverage",
       duration: "11 months",
-      excerpt:
-        "A consumer electronics brand faced reputational damage after a manufacturing defect in a flagship product led to customer complaints, refunds, and recalls. The issue escalated when national media and financial publications reported on it.",
       challenge:
         "A practicing doctor faced reputational damage after an alleged procedural error during a clinical case. Although the matter was under internal review, it received attention across healthcare media platforms.",
       challengeDrivers: "Negative coverage ranked from:",
@@ -175,12 +165,10 @@ const caseStudies = [
     data: {
       caseStudy: true,
       title: "Student Reputation Recovery",
-      Industry: "Education",
+      industry: "Education",
       profile: "27-year-old University Student",
       challengeType: "Suspension & negative academic coverage",
       duration: "9 months",
-      excerpt:
-        "A consumer electronics brand faced reputational damage after a manufacturing defect in a flagship product led to customer complaints, refunds, and recalls. The issue escalated when national media and financial publications reported on it.",
       challenge:
         "A final-year university student faced reputational damage after a temporary suspension, which was reported by local education portals and discussed widely across academic forums.",
       challengeDrivers: "Negative visibility came from:",
@@ -215,12 +203,10 @@ function CaseStudies() {
   return (
     <section className="py-16 px-4  flex justify-center">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-heading text-3xl font-bold text-navy text-center mb-2">
+        <h2 className="font-heading text-3xl font-bold text-navy text-center mb-12">
           Case Studies
         </h2>
-        <p className="text-center text-steel max-w-xl mx-auto mb-10">
-          Real outcomes from reputation and search rebalancing work.
-        </p>
+
         <CardDeck caseStudies={caseStudies} />
       </div>
     </section>

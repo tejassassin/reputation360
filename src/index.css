@@ -255,3 +255,27 @@ h6 {
     @apply bg-background text-foreground;
   }
 }
+
+/* Themed scrollbar styles */
+.themed-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-slate) var(--color-offwhite);
+}
+
+.themed-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.themed-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-offwhite);
+  border-radius: 4px;
+}
+
+.themed-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-slate);
+  border-radius: 4px;
+}
+
+.themed-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-navy);
+}

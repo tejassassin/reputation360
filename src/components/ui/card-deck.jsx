@@ -3,10 +3,10 @@ import { X } from "lucide-react";
 
 // Card offsets for stacked effect - each card has different rotation and position
 const cardTransforms = [
-  { rotate: -6, translateX: -8, translateY: 4 },
-  { rotate: 6, translateX: 8, translateY: -4 },
-  { rotate: -3, translateX: -4, translateY: 8 },
-  { rotate: 3, translateX: 4, translateY: -8 },
+  { rotate: -8, translateX: -20, translateY: 10 },
+  { rotate: 8, translateX: 20, translateY: -10 },
+  { rotate: -5, translateX: -12, translateY: 18 },
+  { rotate: 5, translateX: 12, translateY: -18 },
 ];
 
 // Background colors for cards
@@ -37,7 +37,7 @@ function CaseStudyModal({ isOpen, onClose, caseStudy }) {
 
   return (
     <div
-      className="fixed inset-0 z-[1000] flex items-center justify-center p-4"
+      className="fixed inset-0 z-[1000] flex items-center justify-center p-4 "
       onClick={onClose}
     >
       {/* Backdrop */}
@@ -45,7 +45,7 @@ function CaseStudyModal({ isOpen, onClose, caseStudy }) {
 
       {/* Modal Content */}
       <div
-        className="relative bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+        className="relative bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl themed-scrollbar"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -54,26 +54,40 @@ function CaseStudyModal({ isOpen, onClose, caseStudy }) {
             onClick={onClose}
             className="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-full transition-colors"
           >
-            <X className="w-6 h-6" />
+            <X className="w-6 h-6 cursor-pointer" />
           </button>
           <p className="text-gold text-sm font-medium mb-1">Case Study</p>
           <h2 className="text-2xl font-bold font-heading">{data.title}</h2>
-          <div className="flex flex-wrap gap-4 mt-3 text-sm text-gray-300">
-            <span className="bg-white/10 px-3 py-1 rounded-full">
-              {data.industry}
-            </span>
-            <span className="bg-white/10 px-3 py-1 rounded-full">
-              {data.duration}
-            </span>
-          </div>
         </div>
 
         {/* Body */}
         <div className="p-6 space-y-6">
           {/* Profile */}
           <div>
-            <p className="text-steel text-sm">{data.profile}</p>
-            <p className="text-navy font-medium mt-1">{data.challengeType}</p>
+            <p className="text-steel text-sm">
+              <span className="text-navy font-bold w-[100px] inline-block">
+                Industry
+              </span>{" "}
+              : {data.industry}
+            </p>
+            <p className="text-steel text-sm">
+              <span className="text-navy font-bold w-[100px] inline-block">
+                Profile:
+              </span>{" "}
+              : {data.profile}
+            </p>
+            <p className="text-steel text-sm">
+              <span className="text-navy font-bold w-[100px] inline-block">
+                Challenge Type
+              </span>{" "}
+              : {data.challengeType}
+            </p>
+            <p className="text-steel text-sm">
+              <span className="text-navy font-bold w-[100px] inline-block">
+                Duration
+              </span>{" "}
+              : {data.duration}
+            </p>
           </div>
 
           {/* The Challenge */}
@@ -125,7 +139,7 @@ function CaseStudyModal({ isOpen, onClose, caseStudy }) {
               {data.results?.map((item, i) => (
                 <li
                   key={i}
-                  className="bg-green-50 border border-green-200 rounded-lg p-3 text-green-800 text-sm"
+                  className="bg-green-50 border border-green-200 rounded-lg p-3 text-green-800 text-sm flex items-center gap-2"
                 >
                   {item}
                 </li>
@@ -153,14 +167,22 @@ export default function CardDeck({ caseStudies }) {
 
   return (
     <>
-      <div className="card-container">
+      <div
+        className="card-container"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
         <div
           className="card-list"
           style={{
             position: "relative",
             width: "320px",
             height: "400px",
-            perspective: "1000px",
+            perspective: "1200px",
           }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => {
@@ -177,7 +199,7 @@ export default function CardDeck({ caseStudies }) {
 
               // Calculate spread position when deck is hovered
               const spreadX = isHovered
-                ? (index - (totalCards - 1) / 2) * 120
+                ? (index - (totalCards - 1) / 2) * 260
                 : 0;
 
               // Z-index: hovered card on top, otherwise stack order
@@ -196,14 +218,17 @@ export default function CardDeck({ caseStudies }) {
                     width: "280px",
                     height: "360px",
                     borderRadius: "16px",
-                    background: "linear-gradient(135deg, #1e3a5f 0%, #0f2744 100%)",
+                    background:
+                      "linear-gradient(135deg, #1e3a5f 0%, slate-900 100%)",
                     boxShadow: isCardHovered
                       ? "0 25px 50px -12px rgba(0, 0, 0, 0.4)"
                       : "0 10px 30px -5px rgba(0, 0, 0, 0.3)",
                     cursor: "pointer",
                     zIndex: zIndex,
                     transform: isHovered
-                      ? `translate(-50%, -50%) translateX(${spreadX}px) translateY(${isCardHovered ? -20 : 0}px) rotate(0deg) scale(${isCardHovered ? 1.05 : 1})`
+                      ? `translate(-50%, -50%) translateX(${spreadX}px) translateY(${
+                          isCardHovered ? -20 : 0
+                        }px) rotate(0deg) scale(${isCardHovered ? 1.05 : 1})`
                       : `translate(-50%, -50%) translateX(${transform.translateX}px) translateY(${transform.translateY}px) rotate(${transform.rotate}deg)`,
                     transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
                     display: "flex",
@@ -237,7 +262,7 @@ export default function CardDeck({ caseStudies }) {
                       {caseStudy.data.duration}
                     </div>
                     <div
-                      className="text-white text-sm font-medium flex items-center gap-1"
+                      className="text-green text-sm font-medium flex items-center gap-1"
                       style={{
                         opacity: isCardHovered ? 1 : 0,
                         transform: isCardHovered
