@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import HowItWorks from "./components/HowItWorks";
 import WhyClientsChoose from "./components/WhyClientsChoose";
+import CaseStudies from "./components/CaseStudies";
 import { Testimonials } from "./components/Testimonials";
 
 function App() {
@@ -49,6 +50,10 @@ function App() {
         </section>
         <section id="WhyClientsChoose" className="bg-offwhite">
           <WhyClientsChoose />
+        </section>
+
+        <section id="case-studies" className="bg-white">
+          <CaseStudies />
         </section>
 
         <section id="Contact">

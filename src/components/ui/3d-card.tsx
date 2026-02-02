@@ -1,8 +1,7 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 
-import React, {
+import * as React from "react";
+import {
   createContext,
   useState,
   useContext,
