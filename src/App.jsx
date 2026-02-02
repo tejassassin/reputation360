@@ -52,7 +52,7 @@ function App() {
           <WhyClientsChoose />
         </section>
 
-        <section id="case-studies" className="bg-white">
+        <section id="case-studies" className="bg-white flex justify-center">
           <CaseStudies />
         </section>
 

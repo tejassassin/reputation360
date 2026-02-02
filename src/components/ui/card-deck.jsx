@@ -15,6 +15,7 @@ const cardColors = [
   "linear-gradient(135deg, #2d5a87 0%, #1e3a5f 100%)",
   "linear-gradient(135deg, #3d7ab5 0%, #2d5a87 100%)",
   "linear-gradient(135deg, #4a8bc2 0%, #3d7ab5 100%)",
+  "linear-gradient(135deg, #57a8d0 0%, #4a8bc2 100%)",
 ];
 
 // Case Study Modal Component
@@ -195,7 +196,7 @@ export default function CardDeck({ caseStudies }) {
                     width: "280px",
                     height: "360px",
                     borderRadius: "16px",
-                    background: cardColor,
+                    background: "linear-gradient(135deg, #1e3a5f 0%, #0f2744 100%)",
                     boxShadow: isCardHovered
                       ? "0 25px 50px -12px rgba(0, 0, 0, 0.4)"
                       : "0 10px 30px -5px rgba(0, 0, 0, 0.3)",
@@ -214,7 +215,7 @@ export default function CardDeck({ caseStudies }) {
                 >
                   {/* Card Content */}
                   <div>
-                    <span className="text-gold text-xs font-medium uppercase tracking-wider">
+                    <span className="text-white text-xs font-medium uppercase tracking-wider">
                       Case Study
                     </span>
                     <h3 className="text-white text-xl font-bold mt-2 font-heading leading-tight">
@@ -223,20 +224,20 @@ export default function CardDeck({ caseStudies }) {
                   </div>
 
                   <div className="space-y-3">
-                    <div className="text-white/70 text-sm">
+                    <div className="text-white/90 text-sm">
                       <span className="block text-white/50 text-xs uppercase tracking-wider mb-1">
                         Industry
                       </span>
                       {caseStudy.data.industry}
                     </div>
-                    <div className="text-white/70 text-sm">
+                    <div className="text-white/90 text-sm">
                       <span className="block text-white/50 text-xs uppercase tracking-wider mb-1">
                         Duration
                       </span>
                       {caseStudy.data.duration}
                     </div>
                     <div
-                      className="text-gold text-sm font-medium flex items-center gap-1"
+                      className="text-white text-sm font-medium flex items-center gap-1"
                       style={{
                         opacity: isCardHovered ? 1 : 0,
                         transform: isCardHovered

@@ -213,7 +213,7 @@ const caseStudies = [
 
 function CaseStudies() {
   return (
-    <section className="py-16 px-4 bg-offwhite mx-auto">
+    <section className="py-16 px-4  flex justify-center">
       <div className="max-w-6xl mx-auto">
         <h2 className="font-heading text-3xl font-bold text-navy text-center mb-2">
           Case Studies
