@@ -219,7 +219,7 @@ export default function CardDeck({ caseStudies }) {
                     height: "360px",
                     borderRadius: "16px",
                     background:
-                      "linear-gradient(135deg, #1e3a5f 0%, slate-900 100%)",
+                      "linear-gradient(135deg, #1e3a5f 0%, #1f3b64 100%)",
                     boxShadow: isCardHovered
                       ? "0 25px 50px -12px rgba(0, 0, 0, 0.4)"
                       : "0 10px 30px -5px rgba(0, 0, 0, 0.3)",
