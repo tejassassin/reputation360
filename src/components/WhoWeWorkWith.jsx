@@ -10,26 +10,18 @@ function WhoWeWorkWith() {
   const testimonials = [
     {
       name: "Individuals",
-      quote:
-        "Personal branding and reputation management for everyday professionals. We help you stand out and build trust in your personal story.",
       src: individuals,
     },
     {
       name: "Founders, CEOs & Senior Executives",
-      quote:
-        "Executive presence and thought leadership at scale. Shape how the world sees you and your vision.",
       src: CEOs,
     },
     {
       name: "Doctors, lawyers & professionals",
-      quote:
-        "Trusted expertise and credibility in your field. Protect and strengthen your professional reputation.",
       src: doctors,
     },
     {
       name: "Brands and companies of all sizes",
-      quote:
-        "From startups to enterprises—reputation that drives growth. We turn your story into lasting trust.",
       src: brands,
     },
   ];
