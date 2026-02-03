@@ -45,7 +45,7 @@ function App() {
           <WhoWeWorkWith />
         </section>
 
-        <section id="HowWeWork" className=" bg-offwhite">
+        <section id="HowWeWork" className=" bg-white pb-10">
           <HowItWorks />
         </section>
         <section id="WhyClientsChoose" className="bg-offwhite">
