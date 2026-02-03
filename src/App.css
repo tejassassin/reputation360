@@ -1,1 +1,475 @@
-/* Tailwind handles all styling */
+/* Card Deck Styles */
+
+.card-container {
+  width: 100%;
+  height: auto;
+  margin: 2em 0;
+}
+
+.card-list {
+  transition: all 0.3s;
+  overflow-y: hidden;
+  display: flex;
+  padding: 3rem;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+/* Hide scrollbar but keep functionality */
+.card-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+.card-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.card-list::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.card-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.card-list .card-deck {
+  opacity: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  scroll-snap-align: start;
+  background-position: center;
+  box-shadow: -0.2rem 0 1.5rem rgba(0, 0, 0, 0.4);
+  min-width: 320px;
+  min-height: 380px;
+  transition: all 0.3s ease;
+  clear: both;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.card-list .card-deck:focus-within ~ .card-deck,
+.card-list .card-deck:hover ~ .card-deck {
+  transform: translateX(140px);
+}
+
+.card-list .card-deck:hover {
+  transform: translateY(-1.4rem);
+  box-shadow: -0.3rem 0.5rem 2rem rgba(0, 0, 0, 0.5);
+}
+
+.card-list .card-deck:not(:first-child) {
+  margin-left: -140px;
+}
+
+/* Card Content Styles */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+  color: white;
+}
+
+.card-industry {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.meta-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+  letter-spacing: 0.5px;
+}
+
+.meta-value {
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+.card-cta {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  text-align: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Modal Styles */
+.modal {
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1300;
+  padding: 2rem;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content-wrapper {
+  background: white;
+  border-radius: 1rem;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #666;
+  font-size: 32px;
+  font-weight: bold;
+  transition: 0.3s;
+  z-index: 10;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.close:hover,
+.close:focus {
+  color: #333;
+  background: #f0f0f0;
+  text-decoration: none;
+}
+
+/* Case Study Detail Styles */
+.case-study-detail {
+  padding: 2rem;
+  color: #333;
+}
+
+.detail-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.detail-industry {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #667eea;
+  font-weight: 600;
+  background: #f0f4ff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+}
+
+.detail-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.detail-meta-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.detail-profile {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.detail-duration {
+  font-size: 0.95rem;
+  color: #667eea;
+  font-weight: 600;
+}
+
+/* Detail Sections */
+.detail-section {
+  margin-bottom: 1.75rem;
+}
+
+.detail-section h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-section p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 0.75rem;
+}
+
+.challenge-drivers {
+  font-weight: 600;
+  color: #333;
+}
+
+.drivers-list,
+.strategy-list,
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0;
+}
+
+.drivers-list li,
+.strategy-list li,
+.results-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.drivers-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #f5576c;
+  font-weight: bold;
+}
+
+.strategy-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.results-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #43e97b;
+  font-weight: bold;
+}
+
+.impact-section {
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8f5e9 100%);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.impact-section h4 {
+  color: #667eea;
+}
+
+.impact-section p {
+  color: #333;
+  margin-bottom: 0;
+}
+
+/* Row and Project Card Styles */
+.row {
+  backface-visibility: hidden;
+  transition: filter 200ms ease-in;
+}
+
+.row:hover .project-card:not(:hover) {
+  filter: brightness(0.9) saturate(0) contrast(1) blur(1.5px);
+}
+
+.project-card {
+  cursor: pointer;
+  background-color: black;
+  backface-visibility: hidden;
+  border-radius: 1rem !important;
+  transition: transform 200ms ease-in;
+}
+
+.project-card:hover {
+  transform: scale(1.05) translateZ(0);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1170px) {
+  .modal-content-wrapper {
+    max-width: 95%;
+    margin: 1rem;
+  }
+
+  .case-study-detail {
+    padding: 1.5rem;
+  }
+
+  .detail-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-list {
+    padding: 1.5rem;
+    width: 100%;
+  }
+
+  .card-list .card-deck {
+    min-width: 280px;
+    min-height: 340px;
+  }
+
+  .card-list .card-deck:not(:first-child) {
+    margin-left: -100px;
+  }
+
+  .card-list .card-deck:focus-within ~ .card-deck,
+  .card-list .card-deck:hover ~ .card-deck {
+    transform: translateX(100px);
+  }
+
+  .card-list .card-deck:hover {
+    transform: translateY(-0.8rem);
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .modal {
+    padding: 1rem;
+  }
+
+  .modal-content-wrapper {
+    border-radius: 0.75rem;
+    max-height: 95vh;
+  }
+
+  .case-study-detail {
+    padding: 1rem;
+  }
+
+  .detail-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .detail-title {
+    font-size: 1.25rem;
+  }
+
+  .detail-meta-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .close {
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .card-list .card-deck {
+    min-width: 250px;
+    min-height: 300px;
+  }
+
+  .card-list .card-deck:not(:first-child) {
+    margin-left: -50px;
+  }
+
+  .card-list .card-deck:focus-within ~ .card-deck,
+  .card-list .card-deck:hover ~ .card-deck {
+    transform: translateX(50px);
+  }
+
+  .card-list .card-deck:hover {
+    transform: translateY(-0.4rem);
+  }
+
+  .card-content {
+    padding: 1rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .meta-value {
+    font-size: 0.8rem;
+  }
+}

@@ -203,10 +203,13 @@ function CaseStudies() {
   return (
     <section className="py-16 px-4  flex justify-center">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-heading text-3xl font-bold text-navy text-center mb-12">
-          Case Studies
+        <h2 className="font-heading text-3xl font-bold text-navy text-center mb-3">
+          Real World Case Studies
         </h2>
-
+            
+        <h3 className="font-heading text-xl font-bold text-steel text-center ">
+          Controlling the Narrative Online
+        </h3>
         <CardDeck caseStudies={caseStudies} />
       </div>
     </section>
