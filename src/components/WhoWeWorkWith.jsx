@@ -33,34 +33,37 @@ function WhoWeWorkWith() {
       {/* <AnimatedTestimonials testimonials={testimonials} />
        */}
 
-      <div className="flex flex-nowrap justify-center gap-6 pb-2 scroll-smooth w-full ">
+      <div className="flex flex-nowrap justify-center gap-6  scroll-smooth w-full ">
         {testimonials.map((testimonial, index) => (
           <CardContainer
             key={index}
-            className="inter-var cursor-pointer shrink-0 w-64 sm:w-82 snap-center "
+            className="cursor-pointer shrink-0 w-64 sm:w-82 snap-center "
           >
-            <CardBody className="bg-slate relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-full rounded-xl p-5 border flex flex-col">
-              <CardItem
-                translateZ="50"
-                className="text-lg font-bold text-white dark:text-green line-clamp-2"
-              >
-                {testimonial.name}
-              </CardItem>
+            <CardBody className=" relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-full rounded-xl  border flex flex-col items-center justify-center">
               <CardItem
                 as="p"
                 translateZ="60"
-                className="text-white text-sm mt-2 dark:text-neutral-300 line-clamp-3 flex-1 min-h-0"
+                className="text-white text-sm  dark:text-neutral-300 line-clamp-2 flex-1 min-h-0"
               >
                 {testimonial.quote}
               </CardItem>
-              <CardItem translateZ="100" className="w-full mt-4 bg-white rounded-lg p-4 shrink-0">
+              <CardItem
+                translateZ="100"
+                className="w-full  bg-white rounded-lg p-2 shrink-0"
+              >
                 <img
                   src={testimonial.src}
-                  height={200}
-                  width={200}
-                  className="w-full h-auto rounded-lg  object-contain max-h-32"
+                  height={140}
+                  width={140}
+                  className="w-full h-auto rounded-lg object-contain max-h-20"
                   alt={testimonial.name}
                 />
+              </CardItem>
+              <CardItem
+                translateZ="50"
+                className="text-lg font-bold text-navy line-clamp-2 text-center"
+              >
+                {testimonial.name}
               </CardItem>
             </CardBody>
           </CardContainer>
