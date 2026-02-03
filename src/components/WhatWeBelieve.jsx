@@ -1,7 +1,7 @@
 import React from "react";
 import { Compare } from "./ui/compare";
-import firstImage from "../assets/before.png";
-import secondImage from "../assets/after.png";
+import firstImage from "../assets/before1.jpeg";
+import secondImage from "../assets/after1.jpeg";
 function WhatWeBelieve() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -20,13 +20,13 @@ function WhatWeBelieve() {
           </p>
         </div>
 
-        <div className="lg:w-[60%] min-h-110 bg-steel/10 rounded-2xl flex items-center justify-center overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
+        <div className="lg:w-[60%] min-h-100 bg-steel/10 rounded-2xl flex items-center justify-center overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
           <Compare
             className="w-full h-full min-h-100"
             firstImage={firstImage}
             secondImage={secondImage}
-            firstImageClassName="object-cover w-full h-full"
-            secondImageClassname="object-cover w-full h-full"
+            firstImageClassName="object-contain w-full h-auto"
+            secondImageClassname="object-contain w-full h-auto"
             slideMode="hover"
           />
         </div>
