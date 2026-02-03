@@ -39,9 +39,9 @@ export default function CardDeck({ caseStudies }) {
                   "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
               }}
             >
-              <div className="card-content">
-                <span className="card-industry">{caseItem.data.industry}</span>
-                <h3 className="card-title">{caseItem.data.title}</h3>
+              <div className="card-content gap-2 flex flex-col">
+                {/* <span className="card-industry">{caseItem.data.industry}</span> */}
+                <h3 className="card-title ">{caseItem.data.title}</h3>
                 <div className="card-meta">
                   <div className="meta-item">
                     <span className="meta-label">Profile:</span>
