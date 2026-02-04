@@ -14,3 +14,14 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+
+Fonts - 
+1. Inter - Primary Brand Font
+Use Inter for: Headlines, Section titles, CTAs, Navigation, Metrics (“97% success rate”, “13+ years”)
+Suggested weights: 700 (Bold) → Hero headlines, 600 (SemiBold) → Section headings, 500 (Medium) → CTAs, labels
+
+2. Source Sans 3 - Secondary (Body) Font
+Use Source Sans 3 for: Body text, Long-form content, Case studies, Explanations, FAQs, blogs
+Suggested weights: 400 (Regular) → Body text, 500 (Medium) → Emphasis within paragraphs

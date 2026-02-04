@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col bg-offwhite">
       {/* Header + Hero fill first viewport */}
-        <Header />
+      <Header />
       <div className="min-h-screen flex flex-col">
         <div className="flex-1 min-h-0">
           <Hero />

@@ -1,6 +1,8 @@
 import React from "react";
 import { Compare } from "./ui/compare";
-import firstImage from "../assets/before1.jpeg";
+// import firstImage from "../assets/before1.jpeg";
+import firstImage from "../assets/before3.jpeg";
+
 import secondImage from "../assets/after1.jpeg";
 function WhatWeBelieve() {
   return (

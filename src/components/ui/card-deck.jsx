@@ -39,7 +39,7 @@ export default function CardDeck({ caseStudies }) {
                   "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
               }}
             >
-              <div className="card-content gap-2 flex flex-col">
+              <div className="card-content gap-6 flex flex-col">
                 {/* <span className="card-industry">{caseItem.data.industry}</span> */}
                 <h3 className="card-title ">{caseItem.data.title}</h3>
                 <div className="card-meta">
@@ -51,12 +51,12 @@ export default function CardDeck({ caseStudies }) {
                     <span className="meta-label">Duration:</span>
                     <span className="meta-value">{caseItem.data.duration}</span>
                   </div>
-                  <div className="meta-item">
+                  {/* <div className="meta-item">
                     <span className="meta-label">Challenge:</span>
                     <span className="meta-value">
                       {caseItem.data.challengeType}
                     </span>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="card-cta">Click to view details</div>
               </div>

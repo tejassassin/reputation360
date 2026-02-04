@@ -11,7 +11,7 @@
   overflow-y: hidden;
   display: flex;
   padding: 3rem;
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   overflow-x: scroll;
@@ -44,7 +44,7 @@
   scroll-snap-align: start;
   background-position: center;
   box-shadow: -0.2rem 0 1.5rem rgba(0, 0, 0, 0.4);
-  min-width: 340px;
+  min-width: 300px;
   min-height: 420px;
   transition: all 0.3s ease;
   clear: both;
@@ -58,7 +58,7 @@
 
 .card-list .card-deck:focus-within ~ .card-deck,
 .card-list .card-deck:hover ~ .card-deck {
-  transform: translateX(140px);
+  transform: translateX(40px);
 }
 
 .card-list .card-deck:hover {
@@ -67,7 +67,7 @@
 }
 
 .card-list .card-deck:not(:first-child) {
-  margin-left: -140px;
+  margin-left: -40px;
 }
 
 /* Card Content Styles */
@@ -406,12 +406,12 @@
   }
 
   .card-list .card-deck:not(:first-child) {
-    margin-left: -100px;
+    margin-left: -50px;
   }
 
   .card-list .card-deck:focus-within ~ .card-deck,
   .card-list .card-deck:hover ~ .card-deck {
-    transform: translateX(100px);
+    transform: translateX(50px);
   }
 
   .card-list .card-deck:hover {
@@ -470,7 +470,7 @@
 
   .card-list .card-deck:focus-within ~ .card-deck,
   .card-list .card-deck:hover ~ .card-deck {
-    transform: translateX(50px);
+    transform: translateX(75px);
   }
 
   .card-list .card-deck:hover {

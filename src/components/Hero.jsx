@@ -52,10 +52,10 @@ function Hero() {
   }
 
   return (
-    <section className="min-h-[calc(100svh-80px)] flex flex-col justify-center bg-linear-to-br from-navy via-slate to-navy text-white py-8 lg:py-10 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+    <section className="min-h-screen md:min-h-[calc(100vh-80px)] h-full flex-1 flex flex-col justify-center bg-linear-to-br from-navy via-slate to-navy text-white py-4 lg:py-6 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative h-full flex flex-col justify-center">
         {/* Trust Badge */}
-        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 ">
+        <div className="inline-flex w-fit items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 self-center">
           <span className="flex h-2 w-2 relative">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green"></span>
@@ -101,44 +101,44 @@ function Hero() {
           ref={statsRef}
           className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto"
         >
-          <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
+          <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 lg:p-6 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
             <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">
-              <p className="font-heading font-bold text-4xl md:text-5xl text-green mb-2">
+              <p className="font-heading font-bold text-3xl lg:text-5xl text-green mb-1 lg:mb-2">
                 <StatNumber end={13} start={statsInView} />
               </p>
-              <p className="font-heading font-semibold text-white text-sm uppercase tracking-wider mb-1">
+              <p className="font-heading font-semibold text-white text-xs lg:text-sm uppercase tracking-wider mb-1">
                 Years of Experience
               </p>
-              <p className="font-body text-xs text-white/60">
+              <p className="font-body text-xs text-white/60 hidden sm:block">
                 in online reputation management
               </p>
             </div>
           </div>
-          <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
+          <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 lg:p-6 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
             <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">
-              <p className="font-heading font-bold text-4xl md:text-5xl text-green mb-2">
+              <p className="font-heading font-bold text-3xl lg:text-5xl text-green mb-1 lg:mb-2">
                 <StatNumber end={97} suffix="%" start={statsInView} />
               </p>
-              <p className="font-heading font-semibold text-white text-sm uppercase tracking-wider mb-1">
+              <p className="font-heading font-semibold text-white text-xs lg:text-sm uppercase tracking-wider mb-1">
                 Success Rate
               </p>
-              <p className="font-body text-xs text-white/60">
+              <p className="font-body text-xs text-white/60 hidden sm:block">
                 in pushing negative links off page one
               </p>
             </div>
           </div>
-          <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
+          <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 lg:p-6 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
             <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">
-              <p className="font-heading font-bold text-4xl md:text-5xl text-green mb-2">
+              <p className="font-heading font-bold text-3xl lg:text-5xl text-green mb-1 lg:mb-2">
                 <StatNumber end={1700} suffix="+" start={statsInView} />
               </p>
-              <p className="font-heading font-semibold text-white text-sm uppercase tracking-wider mb-1">
+              <p className="font-heading font-semibold text-white text-xs lg:text-sm uppercase tracking-wider mb-1">
                 Happy Clients
               </p>
-              <p className="font-body text-xs text-white/60">
+              <p className="font-body text-xs text-white/60 hidden sm:block">
                 with successful suppression outcomes
               </p>
             </div>
