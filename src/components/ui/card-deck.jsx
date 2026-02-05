@@ -14,14 +14,17 @@ export default function CardDeck({ caseStudies }) {
     setShowModal(true);
   };
 
-  // Industry color mapping for visual variety
   const industryColors = {
-    "Consumer Electronics": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    "Consumer Electronics": "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)", // indigo → purple
+
     "Manufacturing & Industrial Services":
-      "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-    Finance: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-    Healthcare: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
-    Education: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+      "linear-gradient(135deg, #ec4899 0%, #f97316 100%)", // pink → orange
+
+    Finance: "linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)", // cyan → blue
+
+    Healthcare: "linear-gradient(135deg, #10b981 0%, #06b6d4 100%)", // emerald → cyan
+
+    Education: "linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)", // amber → red
   };
 
   return (
@@ -36,7 +39,7 @@ export default function CardDeck({ caseStudies }) {
               style={{
                 background:
                   industryColors[caseItem.data.industry] ||
-                  "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)",
               }}
             >
               <div className="card-content gap-6 flex flex-col">
