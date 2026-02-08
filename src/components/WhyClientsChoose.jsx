@@ -2,10 +2,10 @@ import React from "react";
 import { Calendar, PenTool, ShieldCheck, Lock, TrendingUp } from "lucide-react";
 
 const items = [
-  { text: "Clear timelines & realistic expectations", icon: Calendar },
-  { text: "Fully customized plans (no templates)", icon: PenTool },
-  { text: "100% white-hat SEO", icon: ShieldCheck },
   { text: "Confidential and discreet handling", icon: Lock },
+  { text: "Clear timelines & realistic expectations", icon: Calendar },
+  { text: "100% white-hat SEO", icon: ShieldCheck },
+  { text: "Fully customized plans (no templates)", icon: PenTool },
   { text: "Built for long-term visibility and protection", icon: TrendingUp },
 ];
 
@@ -15,7 +15,7 @@ function WhyClientsChoose() {
       <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy my-8 m-auto text-center">
         Why Clients Choose Reputation360
       </h2>
-      <div className="max-w-7xl mx-auto flex flex-nowrap justify-center gap-5 overflow-x-auto pb-2">
+      <div className="max-w-7xl mx-auto flex flex-nowrap justify-center gap-5 overflow-x-auto pb-2 ">
         {items.map(({ text, icon: Icon }, i) => (
           <div
             key={i}
@@ -24,7 +24,7 @@ function WhyClientsChoose() {
             <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-navy/8 text-green transition-colors group-hover:bg-green/15 group-hover:text-green">
               <Icon className="h-5 w-5" strokeWidth={2} />
             </div>
-            <p className="text-charcoal text-sm font-medium leading-snug">
+            <p className="text-charcoal text-md font-medium leading-snug">
               {text}
             </p>
           </div>

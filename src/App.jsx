@@ -37,11 +37,11 @@ function App() {
           <OurServices />
         </section>
 
-        <section id="testimonials">
+        <section id="testimonials" className="bg-offwhite">
           <Testimonials />
         </section>
 
-        <section id="WhoWeworkWith" className="bg-white">
+        <section id="WhoWeworkWith" className="">
           <WhoWeWorkWith />
         </section>
 

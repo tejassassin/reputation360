@@ -52,7 +52,7 @@ function Hero() {
   }
 
   return (
-    <section className="min-h-screen md:min-h-[calc(100vh-80px)] h-full flex-1 flex flex-col justify-center bg-linear-to-br from-navy via-slate to-navy text-white py-4 lg:py-6 overflow-hidden">
+    <section className="min-h-screen md:min-h-[calc(100vh-100px)] h-[calc(100vh-75px)] flex-1 flex flex-col justify-center bg-linear-to-br from-navy via-slate to-navy text-white py-4 lg:py-6 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative h-full flex flex-col justify-center">
         {/* Trust Badge */}
         <div className="inline-flex w-fit items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 self-center">
@@ -65,8 +65,8 @@ function Hero() {
           </span>
         </div>
 
-        <HeroHighlight containerClassName="h-auto bg-transparent dark:bg-transparent m-5">
-          <h1 className="font-heading font-bold text-4xl md:text-3xl lg:text-5xl m-4 leading-[1.1] tracking-tight leading-tight">
+        <HeroHighlight containerClassName="h-auto bg-transparent dark:bg-transparent ">
+          <h1 className="font-heading font-bold text-4xl md:text-2xl lg:text-5xl m-4 leading-[1.1] tracking-tight leading-tight">
             Take control of your
             <br className="hidden sm:block" />
             online reputation <Highlight>on your terms</Highlight>
@@ -74,6 +74,11 @@ function Hero() {
             <br className="hidden sm:block" />
             <span className="text-white">not Google's</span>
           </h1>
+
+          <p className="font-body text-white/90 text-lg m-4">
+            Because one negative result can quietly undermine years of
+            credibility.
+          </p>
         </HeroHighlight>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -99,7 +104,7 @@ function Hero() {
 
         <div
           ref={statsRef}
-          className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto"
+          className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto"
         >
           <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 lg:p-6 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
             <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />

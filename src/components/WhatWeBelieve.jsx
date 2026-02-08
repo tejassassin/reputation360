@@ -3,7 +3,9 @@ import { Compare } from "./ui/compare";
 // import firstImage from "../assets/before1.jpeg";
 import firstImage from "../assets/before3.jpeg";
 
-import secondImage from "../assets/after1.jpeg";
+// import secondImage from "../assets/after1.jpeg";
+import secondImage from "../assets/before4.jpeg";
+
 function WhatWeBelieve() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -14,8 +16,12 @@ function WhatWeBelieve() {
           </h2>
           <p className="font-body text-steel text-lg leading-relaxed mb-4">
             Your impression online should reflect who you truly are today, not
-            outdated, misleading, or one-sided search results.
+            outdated, misleading, or one-sided search results. Ignoring
+            reputation issues allows negative content to compound, gain
+            authority, and become harder to displace. Early intervention reduces
+            both cost and timeline.
           </p>
+
           <p className="font-body text-steel text-lg leading-relaxed">
             At Reputation360, we help individuals and brands own their narrative
             - strategically and sustainably.

@@ -39,24 +39,26 @@ function WhoWeWorkWith() {
             key={index}
             className="cursor-pointer shrink-0 w-64 sm:w-82 snap-center "
           >
-            <CardBody className=" relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-full rounded-xl  border flex flex-col items-center justify-center">
+            <CardBody className="hover:bg-green-50 bg-white py-4 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-full rounded-xl  border flex flex-col items-center justify-center hover ">
               <CardItem
                 as="p"
                 translateZ="60"
-                className="text-white text-sm  dark:text-neutral-300 line-clamp-2 flex-1 min-h-0"
+                className="text-white text-sm  dark:text-neutral-300 line-clamp-2 flex-1 min-h-0 "
               >
                 {testimonial.quote}
               </CardItem>
               <CardItem
                 translateZ="100"
-                className="w-full  bg-white rounded-lg p-2 shrink-0"
+                className="w-full rounded-lg shrink-0 py-6 bg-white overflow-hidden"
               >
-                <img
-                  src={testimonial.src}
-                  height={140}
-                  width={140}
-                  className="w-full h-auto rounded-lg object-contain max-h-20"
-                  alt={testimonial.name}
+                <div
+                  className="w-[70%] max-h-20 h-20 rounded-lg bg-navy [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] mx-auto transition-all duration-300 group-hover/card:w-1/3"
+                  style={{
+                    maskImage: `url(${testimonial.src})`,
+                    WebkitMaskImage: `url(${testimonial.src})`,
+                  }}
+                  role="img"
+                  aria-label={testimonial.name}
                 />
               </CardItem>
               <CardItem
