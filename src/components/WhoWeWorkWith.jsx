@@ -39,7 +39,7 @@ function WhoWeWorkWith() {
             key={index}
             className="cursor-pointer shrink-0 w-64 sm:w-82 snap-center "
           >
-            <CardBody className="hover:bg-green-50 bg-white py-4 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-full rounded-xl  border flex flex-col items-center justify-center hover ">
+            <CardBody className=" bg-white py-4 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-full rounded-xl  border flex flex-col items-center justify-center hover ">
               <CardItem
                 as="p"
                 translateZ="60"
@@ -49,10 +49,10 @@ function WhoWeWorkWith() {
               </CardItem>
               <CardItem
                 translateZ="100"
-                className="w-full rounded-lg shrink-0 py-6 bg-white overflow-hidden"
+                className="w-[70%] rounded-lg shrink-0 py-6  overflow-hidden "
               >
                 <div
-                  className="w-[70%] max-h-20 h-20 rounded-lg bg-navy [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] mx-auto transition-all duration-300 group-hover/card:w-1/3"
+                  className="max-h-20 h-20 rounded-lg bg-navy [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] mx-auto transition-all duration-300 group-hover/card:w-1/3"
                   style={{
                     maskImage: `url(${testimonial.src})`,
                     WebkitMaskImage: `url(${testimonial.src})`,
