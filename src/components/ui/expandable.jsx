@@ -308,6 +308,69 @@ const servicesCards = [
       );
     },
   },
+
+  {
+    title: "Content & Thought Leadership",
+    description: "",
+    icon: <FileText className="w-8 h-8 text-green" />,
+    ctaText: "Learn More",
+    ctaLink: "#contact",
+    content: () => {
+      return (
+        <p>
+          Strategic content that builds authority, educates your audience, and
+          positions you as a credible voice in your industry.
+        </p>
+      );
+    },
+  },
+  {
+    title: "LinkedIn Personal Branding",
+    description: "",
+    icon: <Linkedin className="w-8 h-8 text-green" />,
+    ctaText: "Learn More",
+    ctaLink: "#contact",
+    content: () => {
+      return (
+        <p>
+          Building authority and visibility through strategic storytelling,
+          consistent high-quality content, and thought leadership that resonates
+          with the right audience.
+        </p>
+      );
+    },
+  },
+  {
+    title: "Performance Marketing",
+    description: "",
+    icon: <TrendingUp className="w-8 h-8 text-green" />,
+    ctaText: "Learn More",
+    ctaLink: "#contact",
+    content: () => {
+      return (
+        <p>
+          Paid campaigns designed to increase qualified leads, drive
+          conversions, and accelerate business growth.
+        </p>
+      );
+    },
+  },
+
+  {
+    title: "Consultation",
+    description: "",
+    icon: <MessageSquare className="w-8 h-8 text-green" />,
+    ctaText: "Learn More",
+    ctaLink: "#contact",
+    content: () => {
+      return (
+        <p>
+          Strategic marketing consultation built on experience, not theory -
+          offering clarity, course correction, and measurable impact.
+        </p>
+      );
+    },
+  },
   {
     title: "Branding",
     description: "",
@@ -339,65 +402,10 @@ const servicesCards = [
       );
     },
   },
-  {
-    title: "Content & Thought Leadership",
-    description: "",
-    icon: <FileText className="w-8 h-8 text-green" />,
-    ctaText: "Learn More",
-    ctaLink: "#contact",
-    content: () => {
-      return (
-        <p>
-          Strategic content that builds authority, educates your audience, and
-          positions you as a credible voice in your industry.
-        </p>
-      );
-    },
-  },
-  {
-    title: "Performance Marketing",
-    description: "",
-    icon: <TrendingUp className="w-8 h-8 text-green" />,
-    ctaText: "Learn More",
-    ctaLink: "#contact",
-    content: () => {
-      return (
-        <p>
-          Paid campaigns designed to increase qualified leads, drive
-          conversions, and accelerate business growth.
-        </p>
-      );
-    },
-  },
-  {
-    title: "LinkedIn Personal Branding",
-    description: "",
-    icon: <Linkedin className="w-8 h-8 text-green" />,
-    ctaText: "Learn More",
-    ctaLink: "#contact",
-    content: () => {
-      return (
-        <p>
-          Building authority and visibility through strategic storytelling,
-          consistent high-quality content, and thought leadership that resonates
-          with the right audience.
-        </p>
-      );
-    },
-  },
-  {
-    title: "Consultation",
-    description: "",
-    icon: <MessageSquare className="w-8 h-8 text-green" />,
-    ctaText: "Learn More",
-    ctaLink: "#contact",
-    content: () => {
-      return (
-        <p>
-          Strategic marketing consultation built on experience, not theory -
-          offering clarity, course correction, and measurable impact.
-        </p>
-      );
-    },
-  },
+];
+
+export const serviceTitles = [
+  // ...content.map((c) => c.title),
+  "Online Reputation Management","Negative Link Suppression",
+  ...servicesCards.map((c) => c.title),
 ];

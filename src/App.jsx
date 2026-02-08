@@ -56,7 +56,7 @@ function App() {
           <CaseStudies />
         </section>
 
-        <section id="Contact">
+        <section>
           <Contact />
         </section>
       </main>

@@ -55,7 +55,7 @@ export default function CardDeck({ caseStudies }) {
                     <span className="meta-value">{caseItem.data.outcome}</span>
                   </div>
                 </div>
-                <div className="card-cta">Click to view details</div>
+                <div className="card-cta">Virw Case Study</div>
               </div>
             </div>
           ))}
@@ -81,17 +81,12 @@ export default function CardDeck({ caseStudies }) {
             {selectedCase && (
               <div className="case-study-detail">
                 <div className="detail-header">
-                  <span className="detail-industry">
-                    {selectedCase.data.industry}
-                  </span>
                   <h2 className="detail-title">{selectedCase.data.title}</h2>
-                  <div className="detail-meta-row">
-                    <span className="detail-profile">
-                      {selectedCase.data.profile}
-                    </span>
-                    <span className="detail-duration">
-                      {selectedCase.data.duration}
-                    </span>
+                  <div className="detail-meta">
+                    <p><strong >Industry:</strong> {selectedCase.data.industry}</p>
+                    <p><strong>Profile:</strong> {selectedCase.data.profile}</p>
+                    <p><strong>Challenge Type:</strong> {selectedCase.data.challengeType}</p>
+                    <p><strong>Duration:</strong> {selectedCase.data.duration}</p>
                   </div>
                 </div>
 
