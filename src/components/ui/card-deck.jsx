@@ -15,16 +15,11 @@ export default function CardDeck({ caseStudies }) {
   };
 
   const industryColors = {
-    "Consumer Electronics": "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)", // indigo → purple
-
-    "Manufacturing & Industrial Services":
-      "linear-gradient(135deg, #ec4899 0%, #f97316 100%)", // pink → orange
-
-    Finance: "linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)", // cyan → blue
-
-    Healthcare: "linear-gradient(135deg, #10b981 0%, #06b6d4 100%)", // emerald → cyan
-
-    Education: "linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)", // amber → red
+    "Consumer Electronics": "#f6cdcd",
+    "Manufacturing & Industrial Services": "#f0fff5",
+    Finance: "#fffef0",
+    Healthcare: "#d6dfff",
+    Education: "#fff4ff",
   };
 
   return (
@@ -54,12 +49,11 @@ export default function CardDeck({ caseStudies }) {
                     <span className="meta-label">Duration:</span>
                     <span className="meta-value">{caseItem.data.duration}</span>
                   </div>
-                  {/* <div className="meta-item">
-                    <span className="meta-label">Challenge:</span>
-                    <span className="meta-value">
-                      {caseItem.data.challengeType}
-                    </span>
-                  </div> */}
+
+                  <div className="meta-item">
+                    <span className="meta-label">Outcome:</span>
+                    <span className="meta-value">{caseItem.data.outcome}</span>
+                  </div>
                 </div>
                 <div className="card-cta">Click to view details</div>
               </div>

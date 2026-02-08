@@ -6,11 +6,12 @@ const caseStudies = [
     id: 1,
     data: {
       caseStudy: true,
-      title: "Business Reputation Recovery",
+      title: "Brand Trust Recovery",
       industry: "Consumer Electronics",
-      profile: "Mid-sized Consumer Electronics Brand (15 years in operation)",
+      profile: "Electronics Brand",
       challengeType: "Product defect controversy & customer backlash",
       duration: "14 months",
+      outcome: "92% negative results removed from Page 1-3",
       challenge:
         "A consumer electronics brand with a 15-year operating history faced reputational damage after a manufacturing defect in a flagship product led to customer complaints, refunds, and recalls. The issue escalated when national media and financial publications reported on it.",
       challengeDrivers:
@@ -47,11 +48,12 @@ const caseStudies = [
     id: 2,
     data: {
       caseStudy: true,
-      title: "Executive & Founder Reputation Management",
+      title: "Founder Reputation Management",
       industry: "Manufacturing & Industrial Services",
-      profile: "48-year-old Founder & Managing Director",
+      profile: "SaaS Founder",
       challengeType: "Leadership controversy & media speculation",
       duration: "12 months",
+      outcome: "Critical opinion content removed from Page 1-2",
       challenge:
         "A founder in the industrial manufacturing sector faced reputational strain following a public leadership controversy that triggered speculative commentary and opinion-driven media coverage.",
       challengeDrivers: "Negative narratives ranked across:",
@@ -86,14 +88,15 @@ const caseStudies = [
     id: 3,
     data: {
       caseStudy: true,
-      title: "Financial Professional Reputation Recovery",
+      title: "Restoring Professional Standing",
       industry: "Finance",
-      profile: "57-year-old Senior Financial Professional",
+      profile: "Senior Financial Professional",
       challengeType: "Insider trading allegations & regulatory press",
       duration: "15 months",
+      outcome: "SEC-linked content pushed beyond Page 2",
       challenge:
-        "A senior financial professional faced reputational risk after being named in insider trading allegations, triggering regulatory disclosures and media attention."   ,
-        challengeDrivers: "Negative visibility was driven by:",
+        "A senior financial professional faced reputational risk after being named in insider trading allegations, triggering regulatory disclosures and media attention.",
+      challengeDrivers: "Negative visibility was driven by:",
       challengeDriversList: [
         "SEC.gov records",
         "Legal reporting platforms",
@@ -125,11 +128,12 @@ const caseStudies = [
     id: 4,
     data: {
       caseStudy: true,
-      title: "Medical & Healthcare Reputation Management",
+      title: "Medical Reputation Management",
       industry: "Healthcare",
-      profile: "39-year-old Practicing Doctor",
+      profile: "Practicing Doctor",
       challengeType: "Alleged clinical error & negative media coverage",
       duration: "11 months",
+      outcome: "Verified medical profiles prioritized in search results",
       challenge:
         "A practicing doctor faced reputational damage after an alleged procedural error during a clinical case. Although the matter was under internal review, it received attention across healthcare media platforms.",
       challengeDrivers: "Negative coverage ranked from:",
@@ -166,9 +170,10 @@ const caseStudies = [
       caseStudy: true,
       title: "Student Reputation Recovery",
       industry: "Education",
-      profile: "27-year-old University Student",
+      profile: "University Student",
       challengeType: "Suspension & negative academic coverage",
       duration: "9 months",
+      outcome: "Text & image results realigned to academic content",
       challenge:
         "A final-year university student faced reputational damage after a temporary suspension, which was reported by local education portals and discussed widely across academic forums.",
       challengeDrivers: "Negative visibility came from:",

@@ -11,11 +11,10 @@ function Contact() {
           Ready to Take the Next Step?{" "}
         </h2>
         <p className="font-body text-white/80 max-w-2xl mx-auto mb-10">
-          A strong online reputation shapes your future. When it’s built
-          intentionally, it works in your favor.
+          Your reputation took years to build. Don’t let the internet decide its
+          future.
         </p>
         <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4 text-center">
-       
           <button className="cursor-pointer m-auto bg-green hover:bg-green/90 text-white font-heading font-semibold px-6 py-3 rounded-lg transition-colors whitespace-nowrap">
             Book a Free Consultation Call
           </button>
