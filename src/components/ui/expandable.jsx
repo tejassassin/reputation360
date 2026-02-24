@@ -74,7 +74,7 @@ export function ServicesExpandable() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-[500px] h-fit max-h-[90vh] flex flex-col bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden"
             >
               <motion.div
                 layoutId={`icon-${active.title}-${id}`}
@@ -108,7 +108,7 @@ export function ServicesExpandable() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="font-body text-steel text-sm md:text-base h-20 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                    className="font-body text-steel text-sm md:text-base h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
                   >
                     {typeof active.content === "function"
                       ? active.content()
@@ -121,25 +121,25 @@ export function ServicesExpandable() {
         ) : null}
       </AnimatePresence>
 
-      <ul className="max-w-5xl mx-auto w-[55%] grid grid-cols-1 gap-2 mb-3">
+      <ul className="max-w-5xl mx-auto w-full sm:w-[55%] grid grid-cols-1 gap-2 mb-3">
         {content.map((card) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             onClick={() => setActive(card)}
-            className="p-3 flex flex-col md:flex-row justify-between items-center bg-white hover:bg-green/5 border-1 border-steel/40 hover:border-green/30 rounded-xl cursor-pointer transition-colors"
+            className="p-3 flex flex-row justify-between items-center bg-white hover:bg-green/5 border-1 border-steel/40 hover:border-green/30 rounded-xl cursor-pointer transition-colors"
           >
-            <div className="flex gap-4 flex-col md:flex-row items-center w-[400px]">
+            <div className="flex gap-4 flex-row items-center min-w-0">
               <motion.div
                 layoutId={`icon-${card.title}-${id}`}
                 className="w-14 h-14 bg-navy rounded-xl flex items-center justify-center shrink-0 [&_svg]:!text-white [&_svg]:!stroke-white"
               >
                 {card.icon}
               </motion.div>
-              <div className="text-center md:text-left  ">
+              <div className="text-left min-w-0">
                 <motion.h3
                   layoutId={`title-${card.title}-${id} `}
-                  className="font-heading font-semibold text-navy dark:text-neutral-200 whitespace-nowrap"
+                  className="font-heading font-semibold text-navy dark:text-neutral-200 text-sm sm:text-base"
                 >
                   {card.title}
                 </motion.h3>
@@ -147,9 +147,8 @@ export function ServicesExpandable() {
             </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="px-4 py-2 text-sm rounded-full font-heading font-semibold text-white  cursor-pointer hover:bg-green/90 hover:text-white  mt-4 md:mt-0 transition-colors"
+              className="px-4 py-2 text-sm rounded-full font-heading font-semibold text-white cursor-pointer hover:bg-green/90 hover:text-white shrink-0 transition-colors"
             >
-              {/* {card.ctaText} */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -157,10 +156,9 @@ export function ServicesExpandable() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="navy"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-arrow-down-right-icon lucide-arrow-down-right"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path d="m7 7 10 10" />
                 <path d="M17 7v10H7" />
@@ -169,25 +167,25 @@ export function ServicesExpandable() {
           </motion.div>
         ))}
       </ul>
-      <ul className="max-w-5xl mx-auto w-full grid grid-cols-2 gap-2">
+      <ul className="max-w-5xl mx-auto w-full grid grid-cols-1 sm:grid-cols-2 gap-2">
         {servicesCards.map((card) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             onClick={() => setActive(card)}
-            className="p-3 flex flex-col md:flex-row justify-between items-center bg-white hover:bg-green/5 border-1 border-steel/40 hover:border-green/30 rounded-xl cursor-pointer transition-colors"
+            className="p-3 flex flex-row justify-between items-center bg-white hover:bg-green/5 border-1 border-steel/40 hover:border-green/30 rounded-xl cursor-pointer transition-colors"
           >
-            <div className="flex gap-4 flex-col md:flex-row items-center w-[400px]">
+            <div className="flex gap-4 flex-row items-center min-w-0">
               <motion.div
                 layoutId={`icon-${card.title}-${id}`}
                 className="w-14 h-14 bg-navy rounded-xl flex items-center justify-center shrink-0 [&_svg]:!text-white [&_svg]:!stroke-white"
               >
                 {card.icon}
               </motion.div>
-              <div className="text-center md:text-left  ">
+              <div className="text-left min-w-0">
                 <motion.h3
                   layoutId={`title-${card.title}-${id} `}
-                  className="font-heading font-semibold text-navy dark:text-neutral-200 whitespace-nowrap"
+                  className="font-heading font-semibold text-navy dark:text-neutral-200 text-sm sm:text-base"
                 >
                   {card.title}
                 </motion.h3>
@@ -195,9 +193,8 @@ export function ServicesExpandable() {
             </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="px-4 py-2 text-sm rounded-full font-heading font-semibold text-white  cursor-pointer hover:bg-green/90 hover:text-white  mt-4 md:mt-0 transition-colors"
+              className="px-4 py-2 text-sm rounded-full font-heading font-semibold text-white cursor-pointer hover:bg-green/90 hover:text-white shrink-0 transition-colors"
             >
-              {/* {card.ctaText} */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -205,10 +202,9 @@ export function ServicesExpandable() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="navy"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-arrow-down-right-icon lucide-arrow-down-right"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path d="m7 7 10 10" />
                 <path d="M17 7v10H7" />
@@ -266,10 +262,9 @@ const content = [
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-id-card-lanyard-icon lucide-id-card-lanyard"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <path d="M13.5 8h-3" />
         <path d="m15 2-1 2h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3" />
@@ -382,10 +377,9 @@ const servicesCards = [
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-message-circle-heart-icon lucide-message-circle-heart"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
         <path d="M7.828 13.07A3 3 0 0 1 12 8.764a3 3 0 0 1 5.004 2.224 3 3 0 0 1-.832 2.083l-3.447 3.62a1 1 0 0 1-1.45-.001z" />
