@@ -10,8 +10,9 @@
   transition: all 0.3s;
   overflow-y: hidden;
   display: flex;
-  padding: 3rem;
+  padding: 2rem 1.5rem;
   width: 100%;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   overflow-x: scroll;
@@ -207,7 +208,22 @@
 
 .detail-header {
   padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
   border-bottom: 2px solid #f0f0f0;
+}
+
+.detail-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.detail-meta p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
 }
 
 .detail-industry {
@@ -429,8 +445,12 @@
   }
 
   .detail-header {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     padding-bottom: 1rem;
+  }
+
+  .detail-meta p {
+    font-size: 0.85rem;
   }
 
   .detail-title {
@@ -452,8 +472,12 @@
 }
 
 @media screen and (max-width: 370px) {
+  .card-list {
+    padding: 1rem;
+  }
+
   .card-list .card-deck {
-    min-width: 270px;
+    min-width: 260px;
     min-height: 340px;
   }
 
@@ -488,11 +512,40 @@
   }
 
   .meta-value {
-    font-size: 0.5rem;
+    font-size: 0.8rem;
   }
 
   .card-cta {
     margin-top: 1rem;
     padding-top: 0.75rem;
+  }
+
+  .modal {
+    padding: 0;
+  }
+
+  .modal-content-wrapper {
+    border-radius: 0;
+    max-height: 100dvh;
+    height: 100dvh;
+  }
+
+  .case-study-detail {
+    padding: 0.85rem;
+  }
+
+  .detail-title {
+    font-size: 1.1rem;
+  }
+
+  .detail-section h4 {
+    font-size: 0.85rem;
+  }
+
+  .detail-section p,
+  .drivers-list li,
+  .strategy-list li,
+  .results-list li {
+    font-size: 0.85rem;
   }
 }

@@ -206,13 +206,12 @@ const caseStudies = [
 
 function CaseStudies() {
   return (
-    <section className="py-16 px-4  flex justify-center">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="font-heading text-3xl font-bold text-navy text-center mb-3">
+    <section className="py-10 sm:py-16 px-4 flex justify-center overflow-x-hidden">
+      <div className="max-w-6xl w-full mx-auto">
+        <h2 className="font-heading text-2xl sm:text-3xl font-bold text-navy text-center mb-2 sm:mb-3">
           Real World Case Studies
         </h2>
-            
-        <h3 className="font-heading text-xl font-bold text-steel text-center ">
+        <h3 className="font-heading text-lg sm:text-xl font-bold text-steel text-center mb-8 sm:mb-10">
           Controlling the Narrative Online
         </h3>
         <CardDeck caseStudies={caseStudies} />
