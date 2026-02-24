@@ -33,8 +33,8 @@ function WhatWeBelieve() {
             className="w-full h-full"
             firstImage={firstImage}
             secondImage={secondImage}
-            firstImageClassName="object-contain object-center w-full h-full"
-            secondImageClassname="object-contain object-center w-full h-full"
+            firstImageClassName="object-cover object-center w-full h-full"
+            secondImageClassname="object-cover object-center w-full h-full"
             slideMode="hover"
           />
         </div>

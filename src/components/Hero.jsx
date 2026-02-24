@@ -52,7 +52,7 @@ function Hero() {
   }
 
   return (
-    <section className="min-h-[100dvh] flex flex-col justify-center bg-linear-to-br from-navy via-slate to-navy text-white py-12 sm:py-8 lg:py-6 overflow-hidden">
+    <section className="h-[calc(100dvh-76px)] flex flex-col justify-center bg-linear-to-br from-navy via-slate to-navy text-white py-12 sm:py-8 lg:py-6 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative flex flex-col justify-center gap-6">
         {/* Trust Badge */}
         <div className="inline-flex w-fit items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 self-center">
