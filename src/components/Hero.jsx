@@ -53,7 +53,7 @@ function Hero() {
 
   return (
     <section className="min-h-[100dvh] flex flex-col justify-center bg-linear-to-br from-navy via-slate to-navy text-white py-12 sm:py-8 lg:py-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative flex flex-col justify-center gap-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative flex flex-col justify-center gap-6">
         {/* Trust Badge */}
         <div className="inline-flex w-fit items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 self-center">
           <span className="flex h-2 w-2 relative">
@@ -66,7 +66,7 @@ function Hero() {
         </div>
 
         <HeroHighlight containerClassName="h-auto bg-transparent dark:bg-transparent">
-          <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl mx-2 my-3 sm:m-4 leading-[1.15] tracking-tight">
+          <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl mx-2 my-4 sm:my-6 sm:mx-4 leading-[1.5] tracking-tight">
             Take control of your
             <br className="hidden sm:block" />
             online reputation <Highlight>on your terms</Highlight>
@@ -75,7 +75,7 @@ function Hero() {
             <span className="text-white">not Google's</span>
           </h1>
 
-          <p className="font-body text-white/90 text-base sm:text-lg mx-2 my-2 sm:m-4">
+          <p className="font-body text-white/90 text-base sm:text-lg mx-2 my-4 sm:mx-4 sm:mb-6">
             Because one negative result can quietly undermine years of
             credibility.
           </p>

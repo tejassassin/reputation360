@@ -28,13 +28,13 @@ function WhatWeBelieve() {
           </p>
         </div>
 
-        <div className="lg:w-[60%] min-h-100 bg-steel/10 rounded-2xl flex items-center justify-center overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
+        <div className="lg:w-[60%] h-72 sm:h-96 lg:h-auto lg:min-h-100 bg-steel/10 rounded-2xl flex items-center justify-center overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
           <Compare
-            className="w-full h-full min-h-100"
+            className="w-full h-full"
             firstImage={firstImage}
             secondImage={secondImage}
-            firstImageClassName="object-contain w-full h-auto"
-            secondImageClassname="object-contain w-full h-auto"
+            firstImageClassName="object-contain object-center w-full h-full"
+            secondImageClassname="object-contain object-center w-full h-full"
             slideMode="hover"
           />
         </div>
