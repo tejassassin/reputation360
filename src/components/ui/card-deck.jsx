@@ -74,11 +74,14 @@ export default function CardDeck({ caseStudies }) {
             className="modal-content-wrapper"
             onClick={(e) => e.stopPropagation()}
           >
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
+            <div className="modal-header">
+              <span className="close" onClick={closeModal}>
+                &times;
+              </span>
+            </div>
 
             {selectedCase && (
+              <div className="modal-body">
               <div className="case-study-detail">
                 <div className="detail-header">
                   <h2 className="detail-title">{selectedCase.data.title}</h2>
@@ -131,6 +134,7 @@ export default function CardDeck({ caseStudies }) {
                   <h4>Impact</h4>
                   <p>{selectedCase.data.impact}</p>
                 </div>
+              </div>
               </div>
             )}
           </div>

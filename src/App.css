@@ -157,9 +157,28 @@
   max-width: 800px;
   width: 100%;
   max-height: 90vh;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
   position: relative;
   animation: modalSlideIn 0.3s ease;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+  border-bottom: 1px solid #f0f0f0;
+  flex-shrink: 0;
+}
+
+.modal-body {
+  flex: 1;
+  overflow-y: auto;
 }
 
 @keyframes modalSlideIn {
@@ -175,14 +194,10 @@
 
 /* Close Button */
 .close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
   color: #666;
   font-size: 32px;
   font-weight: bold;
   transition: 0.3s;
-  z-index: 10;
   cursor: pointer;
   width: 40px;
   height: 40px;
@@ -190,7 +205,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(240, 240, 240, 0.9);
+  line-height: 1;
 }
 
 .close:hover,
@@ -432,12 +448,15 @@
   }
 
   .modal {
-    padding: 1rem;
+    padding: 0;
+    align-items: flex-end;
   }
 
   .modal-content-wrapper {
-    border-radius: 0.75rem;
-    max-height: 95vh;
+    border-radius: 1rem 1rem 0 0;
+    max-height: 95dvh;
+    height: 95dvh;
+    width: 100%;
   }
 
   .case-study-detail {
@@ -463,8 +482,6 @@
   }
 
   .close {
-    top: 10px;
-    right: 10px;
     font-size: 28px;
     width: 36px;
     height: 36px;
@@ -522,12 +539,14 @@
 
   .modal {
     padding: 0;
+    align-items: flex-end;
   }
 
   .modal-content-wrapper {
     border-radius: 0;
     max-height: 100dvh;
     height: 100dvh;
+    width: 100%;
   }
 
   .case-study-detail {
