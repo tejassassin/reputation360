@@ -19,13 +19,10 @@ import { Testimonials } from "./components/Testimonials";
 function App() {
   return (
     <div className="min-h-screen flex flex-col bg-offwhite">
-      {/* Header + Hero fill first viewport */}
+      {/* Fixed Header */}
       <Header />
-      <div className="min-h-screen flex flex-col">
-        <div className="flex-1 min-h-0">
-          <Hero />
-        </div>
-      </div>
+      {/* Hero fills first viewport */}
+      <Hero />
 
       <main className="flex-1">
         <section id="about">
