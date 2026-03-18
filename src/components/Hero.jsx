@@ -108,7 +108,7 @@ function Hero() {
         {/* Stats - Pushed to bottom */}
         <div
           ref={statsRef}
-          className="grid grid-cols-3 gap-2 sm:gap-4 lg:gap-6 max-w-4xl mx-auto w-full mt-4 sm:mt-6 shrink-0 pb-2"
+          className="grid grid-cols-3 gap-2 sm:gap-4 lg:gap-6 max-w-4xl mx-auto w-full shrink-0 mb-6 sm:mb-16"
         >
           <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 lg:p-5 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
             <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
