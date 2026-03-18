@@ -53,9 +53,9 @@ function Hero() {
 
   return (
     <section className="h-dvh flex flex-col bg-linear-to-br from-navy via-slate to-navy text-white overflow-hidden pt-16 sm:pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative flex-1 flex flex-col justify-between py-4 sm:py-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative flex-1 flex flex-col justify-evenly py-[2vh]">
         {/* Main Content - Centered */}
-        <div className="flex-1 flex flex-col justify-center gap-3 sm:gap-5">
+        <div className="flex flex-col justify-center items-center gap-[1.5vh] sm:gap-[2vh]">
           {/* Trust Badge */}
           <div className="inline-flex w-fit items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 self-center">
             <span className="flex h-2 w-2 relative">
@@ -108,7 +108,7 @@ function Hero() {
         {/* Stats - Pushed to bottom */}
         <div
           ref={statsRef}
-          className="grid grid-cols-3 gap-2 sm:gap-4 lg:gap-6 max-w-4xl mx-auto w-full shrink-0 mb-6 sm:mb-16"
+          className="grid grid-cols-3 gap-2 sm:gap-4 lg:gap-6 max-w-4xl mx-auto w-full shrink-0"
         >
           <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 lg:p-5 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
             <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
