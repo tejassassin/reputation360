@@ -26,6 +26,10 @@ interface NavItemsProps {
   items: {
     name: string;
     link: string;
+    children?: {
+      name: string;
+      link: string;
+    }[];
   }[];
   className?: string;
   onItemClick?: () => void;
@@ -125,21 +129,39 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       )}
     >
       {items.map((item, idx) => (
-        <a
+        <div
           onMouseEnter={() => setHovered(idx)}
-          onClick={onItemClick}
-          className="relative px-4 py-2 text-white hover:text-green"
+          className="relative"
           key={`link-${idx}`}
-          href={item.link}
         >
-          {hovered === idx && (
-            <motion.div
-              layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-white/10"
-            />
+          <a
+            onClick={onItemClick}
+            className="relative block px-4 py-2 text-white hover:text-green"
+            href={item.link}
+          >
+            {hovered === idx && (
+              <motion.div
+                layoutId="hovered"
+                className="absolute inset-0 h-full w-full rounded-full bg-white/10"
+              />
+            )}
+            <span className="relative z-20">{item.name}</span>
+          </a>
+          {item.children && item.children.length > 0 && hovered === idx && (
+            <div className="absolute left-0 top-full mt-2 min-w-44 rounded-lg border border-white/15 bg-navy/95 p-2 shadow-xl backdrop-blur-md">
+              {item.children.map((child) => (
+                <a
+                  key={`${item.name}-${child.name}`}
+                  href={child.link}
+                  onClick={onItemClick}
+                  className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/10 hover:text-green"
+                >
+                  {child.name}
+                </a>
+              ))}
+            </div>
           )}
-          <span className="relative z-20">{item.name}</span>
-        </a>
+        </div>
       ))}
     </motion.div>
   );

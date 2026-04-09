@@ -14,10 +14,14 @@ import logo from "../assets/Logo_360.png";
 
 const navItems = [
   { name: "Home", link: "/" },
-  { name: "About", link: "#about" },
-  { name: "Services", link: "#services" },
-  { name: "Case Studies", link: "#case-studies" },
-  { name: "Contact", link: "#contact" },
+  { name: "About", link: "/about" },
+  {
+    name: "Services",
+    link: "/services",
+    children: [{ name: "Financial Advisors", link: "/services/financial-advisors" }],
+  },
+  { name: "Case Studies", link: "/case-studies" },
+  { name: "Contact", link: "/contact" },
 ];
 
 function Header() {
@@ -75,7 +79,9 @@ function Header() {
         <NavBody>
           <NavbarLogo logoSrc={logo} brandName="Reputation360" />
           <NavItems items={navItems} />
-          <NavbarButton variant="primary">Book a call</NavbarButton>
+          <NavbarButton href="/contact" variant="primary">
+            Book a call
+          </NavbarButton>
         </NavBody>
 
         {/* Mobile Navigation */}
@@ -93,14 +99,25 @@ function Header() {
             onClose={() => setIsMobileMenuOpen(false)}
           >
             {navItems.map((item, idx) => (
-              <a
-                key={`mobile-link-${idx}`}
-                href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-white font-heading font-medium hover:text-green transition-colors"
-              >
-                <span className="block">{item.name}</span>
-              </a>
+              <div key={`mobile-link-${idx}`} className="w-full">
+                <a
+                  href={item.link}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="relative text-white font-heading font-medium hover:text-green transition-colors"
+                >
+                  <span className="block">{item.name}</span>
+                </a>
+                {item.children?.map((subItem) => (
+                  <a
+                    key={`mobile-sublink-${item.name}-${subItem.name}`}
+                    href={subItem.link}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="mt-2 ml-4 block text-sm text-white/85 font-heading hover:text-green transition-colors"
+                  >
+                    {subItem.name}
+                  </a>
+                ))}
+              </div>
             ))}
             <div className="flex w-full flex-col gap-4">
               <NavbarButton

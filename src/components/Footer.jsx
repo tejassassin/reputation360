@@ -29,10 +29,11 @@ function Footer() {
             <h4 className="font-heading font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               {[
-                { name: "About Us", link: "#about" },
-                { name: "Services", link: "#services" },
-                { name: "Case Studies", link: "#case-studies" },
-                { name: "Contact", link: "#contact" },
+                { name: "Home", link: "/" },
+                { name: "About Us", link: "/about" },
+                { name: "Services", link: "/services" },
+                { name: "Case Studies", link: "/case-studies" },
+                { name: "Contact", link: "/contact" },
               ].map((item, idx) => (
                 <li key={idx}>
                   <a
@@ -51,7 +52,7 @@ function Footer() {
               {serviceTitles.map((title, idx) => (
                 <li key={idx}>
                   <a
-                    href="#services"
+                    href="/services"
                     className="font-body text-white/60 text-sm hover:text-green transition-colors"
                   >
                     {title}
