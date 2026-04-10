@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { ChevronDown, ArrowRight } from "lucide-react";
+import { calendlyNewTabProps } from "../constants/scheduling";
 
 const CTA_BG_IMAGE =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuBbAPklAKn9fFP2nNIPWazVHI3ZwR5Yz1EHjtS59wpqZaZsgbvsTNnn2DY2Z2ZFVsKpsDYYxaRRDxxADi_bhK7JtnubjYTxyKAy79ytFJBnE-Ut3T5hmToXxlsN6GXzKBRpB6Zc4YG-hWln8NC9ZPRDndtm08dWYUo5CThtOE9yfBsmV6F7T-JijeQtJDN61rY3B08b8OrtjubvsRJRVLEEkZJWpNYHajsEylcxi2x9QBrKL0EmGJg1BBlZ9Y2pvvqDdUKcJx8v2mM";
@@ -7,7 +8,7 @@ const CTA_BG_IMAGE =
 function FaqAccordion({ question, defaultOpen, children }) {
   return (
     <details
-      className="faq-details group overflow-hidden rounded-xl bg-white shadow-sm"
+      className="faq-details group ha-lift overflow-hidden rounded-xl bg-white shadow-sm"
       defaultOpen={defaultOpen}
     >
       <summary className="flex cursor-pointer list-none items-center justify-between p-6 [&::-webkit-details-marker]:hidden">
@@ -113,7 +114,7 @@ function FaqsPage() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`font-headline-faq block rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-white ${
+                  className={`font-headline-faq ha-nudge block rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-white ${
                     link.active ? "text-[#1F3B64]" : "text-[#6B7280]"
                   }`}
                 >
@@ -338,7 +339,7 @@ function FaqsPage() {
               </div>
               <div className="shrink-0">
                 <a
-                  href="/contact"
+                  {...calendlyNewTabProps}
                   className="inline-flex items-center gap-3 rounded-xl bg-[#4CAF50] px-10 py-5 text-lg font-bold text-white shadow-xl shadow-black/20 transition-all hover:brightness-110 active:scale-95 md:hover:-translate-y-1"
                   style={{ fontFamily: '"Manrope", sans-serif' }}
                 >

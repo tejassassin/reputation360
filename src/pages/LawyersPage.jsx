@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   EyeOff,
   Search,
@@ -49,8 +50,8 @@ function LawyersPage() {
               </span>
             </div>
             <a
-              href="/contact"
-              className="mt-6 inline-flex w-full max-w-md items-center justify-center rounded-md bg-[#1a2b4b] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(26,43,75,0.22)] transition-colors hover:bg-[#243a5c]"
+              {...calendlyNewTabProps}
+              className="ha-pill mt-6 inline-flex w-full max-w-md items-center justify-center rounded-md bg-[#1a2b4b] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(26,43,75,0.22)] hover:bg-[#243a5c]"
             >
               Book a Free Confidential Consultation
             </a>
@@ -69,7 +70,7 @@ function LawyersPage() {
               conversation.
             </p>
             <div className="mt-8 space-y-3">
-              <div className="flex items-start gap-3 rounded-xl border border-[#e2e8f0] bg-white p-4 shadow-[0_4px_14px_rgba(26,43,75,0.06)] md:p-5">
+              <div className="ha-lift flex items-start gap-3 rounded-xl border border-[#e2e8f0] bg-white p-4 shadow-[0_4px_14px_rgba(26,43,75,0.06)] md:p-5">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#e8f0f8] text-[#1a2b4b]">
                   <Gavel className="h-5 w-5" strokeWidth={2} />
                 </div>
@@ -83,7 +84,7 @@ function LawyersPage() {
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 rounded-xl border border-[#e2e8f0] bg-white p-4 shadow-[0_4px_14px_rgba(26,43,75,0.06)] md:p-5">
+              <div className="ha-lift flex items-start gap-3 rounded-xl border border-[#e2e8f0] bg-white p-4 shadow-[0_4px_14px_rgba(26,43,75,0.06)] md:p-5">
                 <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#e8f0f8] text-[#1a2b4b]">
                   <Shield className="h-5 w-5" strokeWidth={2} />
                   <Lock className="absolute h-3 w-3 text-[#1a2b4b]" strokeWidth={2.75} />
@@ -98,7 +99,7 @@ function LawyersPage() {
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 rounded-xl border border-[#e2e8f0] border-b-[3px] border-b-[#4caf50] bg-white p-4 shadow-[0_4px_14px_rgba(26,43,75,0.06)] md:p-5">
+              <div className="ha-lift flex items-start gap-3 rounded-xl border border-[#e2e8f0] border-b-[3px] border-b-[#4caf50] bg-white p-4 shadow-[0_4px_14px_rgba(26,43,75,0.06)] md:p-5">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#e8f5e9] text-[#2e7d32]">
                   <BadgeCheck className="h-5 w-5" strokeWidth={2} />
                 </div>
@@ -154,7 +155,7 @@ function LawyersPage() {
           ].map(({ icon: Icon, title, body }) => (
             <div
               key={title}
-              className="rounded-2xl border border-[#e8eaf2] bg-white p-5 shadow-[0_4px_20px_rgba(26,43,75,0.07)] md:p-6"
+              className="ha-lift rounded-2xl border border-[#e8eaf2] bg-white p-5 shadow-[0_4px_20px_rgba(26,43,75,0.07)] md:p-6"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#fde8ea]">
                 <Icon className="h-5 w-5 text-[#c62828]" strokeWidth={2} />
@@ -168,8 +169,8 @@ function LawyersPage() {
             </div>
           ))}
           <a
-            href="/contact"
-            className="relative flex min-h-[220px] flex-col items-center justify-center overflow-hidden rounded-2xl bg-[#1a2b4b] p-8 text-center shadow-[0_8px_28px_rgba(26,43,75,0.2)] transition-colors hover:bg-[#243a5c] sm:min-h-0 lg:min-h-[280px]"
+            {...calendlyNewTabProps}
+            className="ha-lift relative flex min-h-[220px] flex-col items-center justify-center overflow-hidden rounded-2xl bg-[#1a2b4b] p-8 text-center shadow-[0_8px_28px_rgba(26,43,75,0.2)] hover:bg-[#243a5c] sm:min-h-0 lg:min-h-[280px]"
           >
             <Shield
               className="pointer-events-none absolute left-1/2 top-1/2 h-[min(85%,200px)] w-[min(85%,200px)] -translate-x-1/2 -translate-y-1/2 text-white/[0.06]"
@@ -197,7 +198,7 @@ function LawyersPage() {
           </p>
         </div>
         <div className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
-          <div className="rounded-2xl bg-[#dfe8f4] p-7 shadow-[0_8px_30px_rgba(26,43,75,0.08)] md:p-9">
+          <div className="ha-lift rounded-2xl bg-[#dfe8f4] p-7 shadow-[0_8px_30px_rgba(26,43,75,0.08)] md:p-9">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="min-w-0 flex-1">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#1a2b4b] text-white">
@@ -232,7 +233,7 @@ function LawyersPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl bg-[#dfe8f4] p-7 shadow-[0_8px_30px_rgba(26,43,75,0.08)] md:p-9">
+          <div className="ha-lift rounded-2xl bg-[#dfe8f4] p-7 shadow-[0_8px_30px_rgba(26,43,75,0.08)] md:p-9">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#1a2b4b] text-white">
               <Star className="h-[18px] w-[18px]" fill="currentColor" strokeWidth={0} />
             </div>
@@ -251,7 +252,7 @@ function LawyersPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl bg-[#1a2b4b] p-7 text-white shadow-[0_8px_30px_rgba(26,43,75,0.2)] md:p-9">
+          <div className="ha-lift rounded-2xl bg-[#1a2b4b] p-7 text-white shadow-[0_8px_30px_rgba(26,43,75,0.2)] md:p-9">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#7eb8e8] text-white">
               <UserCog className="h-[18px] w-[18px]" strokeWidth={2} />
             </div>
@@ -270,7 +271,7 @@ function LawyersPage() {
               ].map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-3 rounded-xl bg-white/[0.08] px-4 py-3.5"
+                  className="ha-lift flex items-center gap-3 rounded-xl bg-white/[0.08] px-4 py-3.5"
                 >
                   <Check className="h-4 w-4 shrink-0 text-[#7fe08a]" strokeWidth={2.5} />
                   <span className="text-sm font-semibold text-[#7fe08a]">{item}</span>
@@ -279,7 +280,7 @@ function LawyersPage() {
             </ul>
           </div>
 
-          <div className="rounded-2xl bg-[#dfe8f4] p-7 shadow-[0_8px_30px_rgba(26,43,75,0.08)] md:p-9">
+          <div className="ha-lift rounded-2xl bg-[#dfe8f4] p-7 shadow-[0_8px_30px_rgba(26,43,75,0.08)] md:p-9">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#b8d4ec] text-[#1a2b4b]">
               <Newspaper className="h-[18px] w-[18px]" strokeWidth={2} />
             </div>
@@ -336,8 +337,8 @@ function LawyersPage() {
             digital standing with absolute discretion and precision.
           </p>
           <a
-            href="/contact"
-            className="mt-8 inline-flex items-center justify-center rounded-lg bg-[#4caf50] px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#43a047]"
+            {...calendlyNewTabProps}
+            className="ha-pill mt-8 inline-flex items-center justify-center rounded-lg bg-[#4caf50] px-8 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-[#43a047]"
           >
             Book a Free Confidential Consultation
           </a>

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   BarChart3,
   Shield,
@@ -52,8 +53,8 @@ function ExecutivesPage() {
             </p>
             <div className="pt-1">
               <a
-                href="/contact"
-                className="group inline-flex items-center gap-2 rounded-md bg-[#02254d] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(2,37,77,0.22)] transition-colors hover:bg-[#35618e] active:scale-[0.98]"
+                {...calendlyNewTabProps}
+                className="group ha-pill inline-flex items-center gap-2 rounded-md bg-[#02254d] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(2,37,77,0.22)] hover:bg-[#35618e] active:scale-[0.98]"
               >
                 Book a Confidential Consultation
                 <ArrowRight
@@ -150,7 +151,7 @@ function ExecutivesPage() {
             ].map(({ icon: Icon, title, text }) => (
               <article
                 key={title}
-                className="flex flex-col gap-5 rounded-xl border border-[#c4c6d0]/20 bg-white p-6 shadow-sm transition-shadow hover:shadow-md md:gap-6 md:p-8"
+                className="ha-lift flex flex-col gap-5 rounded-xl border border-[#c4c6d0]/20 bg-white p-6 shadow-sm md:gap-6 md:p-8"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#1f3b64] text-[#78dc77] md:h-12 md:w-12 md:rounded-xl">
                   <Icon className="h-5 w-5 md:h-6 md:w-6" strokeWidth={2} />
@@ -233,8 +234,8 @@ function ExecutivesPage() {
             in every room you enter.
           </p>
           <a
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-lg bg-[#02254d] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_28px_rgba(2,37,77,0.25)] transition-colors hover:bg-[#35618e] md:text-base"
+            {...calendlyNewTabProps}
+            className="ha-pill inline-flex items-center justify-center rounded-lg bg-[#02254d] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_28px_rgba(2,37,77,0.25)] hover:bg-[#35618e] md:text-base"
           >
             Book a Confidential Executive Consultation
           </a>

@@ -1,4 +1,5 @@
 import React from "react";
+import { calendlyNewTabProps } from "@/constants/scheduling";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import { useState, useEffect, useRef } from "react";
 
@@ -84,11 +85,14 @@ function Hero() {
           </HeroHighlight>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-2 sm:px-0">
-            <button className="w-full sm:w-auto cursor-pointer group relative bg-green hover:bg-green/90 text-white font-heading font-semibold px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 text-base sm:text-lg shadow-lg shadow-green/25 hover:shadow-xl hover:shadow-green/30 hover:-translate-y-0.5">
+            <a
+              {...calendlyNewTabProps}
+              className="ha-pill group relative w-full cursor-pointer rounded-xl bg-green px-8 py-3 text-center text-base font-heading font-semibold text-white shadow-lg shadow-green/25 transition-all duration-300 hover:bg-green/90 hover:shadow-xl hover:shadow-green/30 sm:w-auto sm:py-4 sm:text-lg"
+            >
               <span className="flex items-center justify-center gap-2">
                 Book a Free Consultation
                 <svg
-                  className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                  className="h-5 w-5 transition-transform group-hover:translate-x-1"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -101,7 +105,7 @@ function Hero() {
                   />
                 </svg>
               </span>
-            </button>
+            </a>
           </div>
         </div>
 

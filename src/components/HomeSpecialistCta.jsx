@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { calendlyNewTabProps } from "../constants/scheduling";
 
 const CTA_BG_IMAGE =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuBeKCd6wG7nMnapa0BpqEi-y4rWxlfA8Igz6oReg1Bfe3zHcnIkkX0IpU5Tx_RcFiZIykA6Nk4h-AXVrdESIx26ZKq3gnPfpP290hbbHM0mlfkFYuM0l58MCkD7vHIlRulV27eEzUCpvxc2njKLi2EiJ71gh_fsjzGMB7sNSt__gyu6UVSr5CPqBRtJVhEVgA9kKwpbhh3Oh40Sm27h6FlSSn9l7YFmyyU-1AX41rjmQKKHYFcCOfuX6kagakBcXoyeZ1oSVBJXY2k";
@@ -22,8 +23,8 @@ function HomeSpecialistCta() {
             <span className="block">on Google, we can help.</span>
           </h2>
           <a
-            href="/contact"
-            className="inline-flex items-center gap-3 rounded-xl bg-[#78dc77] px-10 py-4 text-sm font-bold text-[#002c06] shadow-lg shadow-[#78dc77]/20 transition-all hover:scale-[1.02] active:scale-95 md:text-base"
+            {...calendlyNewTabProps}
+            className="ha-pill inline-flex items-center gap-3 rounded-xl bg-[#78dc77] px-10 py-4 text-sm font-bold text-[#002c06] shadow-lg shadow-[#78dc77]/20 transition-all hover:scale-[1.02] active:scale-95 md:text-base"
           >
             Speak to a Specialist
             <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />

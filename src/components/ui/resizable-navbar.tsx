@@ -141,7 +141,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
               }
               onItemClick?.();
             }}
-            className="relative block px-4 py-2 text-white hover:text-green"
+            className="relative block rounded-full px-4 py-2 text-white transition-transform duration-200 hover:scale-110 hover:text-green"
             href={item.link}
           >
             {hovered === idx && (
@@ -159,7 +159,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                   key={`${item.name}-${child.name}`}
                   href={child.link}
                   onClick={onItemClick}
-                  className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/10 hover:text-green"
+                  className="ha-nudge block rounded-md px-3 py-2 text-sm text-white transition-colors hover:bg-white/15 hover:text-green hover:shadow-[inset_0_0_0_1px_rgba(120,220,119,0.35)]"
                 >
                   {child.name}
                 </a>
@@ -267,7 +267,7 @@ export const NavbarLogo = ({
   return (
     <a
       href="/"
-      className="relative z-20 mr-6 flex shrink-0 items-center gap-2 py-1 pr-2 text-white font-heading font-bold text-xl lg:mr-10"
+      className="relative z-20 mr-6 flex shrink-0 items-center gap-2 py-1 pr-2 text-white font-heading font-bold text-xl transition-transform duration-200 hover:scale-[1.02] lg:mr-10"
     >
       {logoSrc ? (
         <div className="w-13 h-13  rounded-full bg-white flex items-center justify-center shrink-0 pl-0.5">
@@ -310,7 +310,7 @@ export const NavbarButton = ({
   | React.ComponentPropsWithoutRef<"button">
 )) => {
   const baseStyles =
-    "px-5 py-2 rounded-lg text-sm font-heading font-medium relative cursor-pointer transition-colors inline-block text-center";
+    "px-5 py-2 rounded-lg text-sm font-heading font-medium relative cursor-pointer transition-all duration-200 inline-block text-center hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-green/25";
 
   const variantStyles = {
     primary: "bg-green hover:bg-green/90 text-white",

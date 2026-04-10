@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react";
+import { calendlyNewTabProps } from "../constants/scheduling";
 
 function Contact() {
   return (
@@ -15,9 +16,12 @@ function Contact() {
           future.
         </p>
         <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4 text-center">
-          <button className="cursor-pointer m-auto bg-green hover:bg-green/90 text-white font-heading font-semibold px-6 py-3 rounded-lg transition-colors whitespace-nowrap">
+          <a
+            {...calendlyNewTabProps}
+            className="ha-pill m-auto inline-block cursor-pointer rounded-lg bg-green px-6 py-3 font-heading font-semibold whitespace-nowrap text-white transition-colors hover:bg-green/90"
+          >
             Book a Free Consultation Call
-          </button>
+          </a>
         </div>
       </div>
     </section>

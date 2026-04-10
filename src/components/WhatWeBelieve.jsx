@@ -28,7 +28,7 @@ function WhatWeBelieve() {
           </p>
         </div>
 
-        <div className="lg:w-[60%] h-72 sm:h-96 lg:h-auto lg:min-h-100 bg-steel/10 rounded-2xl flex items-center justify-center overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
+        <div className="ha-lift flex h-72 items-center justify-center overflow-hidden rounded-2xl bg-steel/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)] sm:h-96 lg:h-auto lg:min-h-100 lg:w-[60%]">
           <Compare
             className="w-full h-full"
             firstImage={firstImage}

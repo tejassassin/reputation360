@@ -1,3 +1,4 @@
+import { calendlyNewTabProps } from "../constants/scheduling";
 import { FileText, TrendingUp, WandSparkles, Settings } from "lucide-react";
 import {
   CircleCheck,
@@ -81,8 +82,8 @@ function ServicesAbout() {
             outdated or unfair results.
           </p>
           <a
-            href="/contact"
-            className="mt-7 inline-flex rounded-md bg-navy px-5 py-3 text-sm font-semibold text-white hover:bg-navy/90"
+            {...calendlyNewTabProps}
+            className="ha-pill mt-7 inline-flex rounded-md bg-navy px-5 py-3 text-sm font-semibold text-white hover:bg-navy/90"
           >
             BOOK YOUR FREE CONSULTATION
           </a>
@@ -109,7 +110,7 @@ function ServicesAbout() {
             {whatWeDoCards.map((card) => (
               <article
                 key={card.title}
-                className="rounded-2xl border border-navy/10 bg-white p-5 shadow-sm transition-all duration-250 ease-out hover:-translate-y-1.5 hover:bg-[#f6fdf3] hover:border-[#d9f1d2] hover:shadow-[0_12px_28px_rgba(31,59,100,0.12)]"
+                className="ha-lift rounded-2xl border border-navy/10 bg-white p-5 shadow-sm hover:bg-[#f6fdf3] hover:border-[#d9f1d2]"
               >
                 <div
                   className={`h-12 w-12 rounded-xl text-sm font-semibold grid place-items-center ${card.iconClass}`}
@@ -135,7 +136,7 @@ function ServicesAbout() {
             The Honest Answer about Digital Deletion
           </p>
           <div className="mt-10 overflow-hidden rounded-4xl shadow-[0_20px_45px_rgba(15,23,42,0.15)] grid md:grid-cols-2">
-            <article className="bg-white p-10 md:p-12 transition-all duration-250 ease-out hover:-translate-y-1 hover:bg-[#f8fff5]">
+            <article className="ha-lift bg-white p-10 md:p-12 hover:bg-[#f8fff5]">
               <div className="flex items-center gap-4">
                 <div className="h-11 w-11 rounded-xl bg-[#fff3f2] text-[#c73f3a] grid place-items-center">
                   <BadgeX className="h-5 w-5" />
@@ -164,7 +165,7 @@ function ServicesAbout() {
                 </li>
               </ul>
             </article>
-            <article className="bg-[#072f5f] text-white p-10 md:p-12 transition-all duration-250 ease-out hover:-translate-y-1 hover:shadow-[0_10px_24px_rgba(7,47,95,0.35)]">
+            <article className="ha-lift bg-[#072f5f] p-10 text-white md:p-12">
               <div className="flex items-center gap-4">
                 <div className="h-11 w-11 rounded-xl bg-[#1f5c67] text-[#90f08f] grid place-items-center">
                   <EyeOff className="h-5 w-5" />
@@ -208,7 +209,7 @@ function ServicesAbout() {
             {timeline.map((step) => (
               <article
                 key={step.month}
-                className="px-1 transition-all duration-250 ease-out hover:-translate-y-1"
+                className="ha-lift px-1"
               >
                 <div
                   className={`h-12 w-12 rounded-xl grid place-items-center font-semibold text-lg ${step.iconClass}`}
@@ -235,7 +236,7 @@ function ServicesAbout() {
             Services
           </h3>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]">
-            <article className="md:col-span-2 rounded-[26px] bg-[#dfe5f6] border border-navy/10 p-6 transition-all duration-250 ease-out hover:-translate-y-1 hover:bg-[#f6fdf3] hover:border-[#d9f1d2] hover:shadow-[0_12px_24px_rgba(31,59,100,0.12)]">
+            <article className="ha-lift md:col-span-2 rounded-[26px] border border-navy/10 bg-[#dfe5f6] p-6 hover:border-[#d9f1d2] hover:bg-[#f6fdf3]">
               <Newspaper className="h-6 w-6 text-[#1f3b64]" />
               <h4 className="mt-4 font-heading text-[22px] md:text-[18px] leading-[1.2] font-semibold text-[#0f2343]">
                 Employer Branding &amp; Talent Reputation
@@ -246,7 +247,7 @@ function ServicesAbout() {
               </p>
             </article>
 
-            <article className="rounded-[26px] bg-white border border-navy/10 p-6 transition-all duration-250 ease-out hover:-translate-y-1 hover:bg-[#f6fdf3] hover:border-[#d9f1d2] hover:shadow-[0_12px_24px_rgba(31,59,100,0.12)]">
+            <article className="ha-lift rounded-[26px] border border-navy/10 bg-white p-6 hover:border-[#d9f1d2] hover:bg-[#f6fdf3]">
               <UserCircle2 className="h-6 w-6 text-[#3b6488]" />
               <h4 className="mt-10 font-heading text-[22px] md:text-[18px] leading-[1.2] font-semibold text-[#142844]">
                 LinkedIn Branding
@@ -256,7 +257,7 @@ function ServicesAbout() {
               </p>
             </article>
 
-            <article className="md:row-span-2 rounded-[26px] bg-[#0b376a] border border-navy/20 p-6 text-white flex flex-col transition-all duration-250 ease-out hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(11,55,106,0.35)]">
+            <article className="ha-lift flex flex-col rounded-[26px] border border-navy/20 bg-[#0b376a] p-6 text-white md:row-span-2">
               <BrainCog className="ml-auto h-20 w-20 text-white/20" />
               <div className="mt-auto">
                 <h4 className="font-heading text-[24px] md:text-[18px] leading-[1.1] font-semibold">
@@ -271,7 +272,7 @@ function ServicesAbout() {
               </div>
             </article>
 
-            <article className="rounded-[26px] bg-[#d7f0db] border border-[#b8dfc0] p-6 transition-all duration-250 ease-out hover:-translate-y-1 hover:bg-[#f6fdf3] hover:border-[#d9f1d2] hover:shadow-[0_12px_24px_rgba(31,59,100,0.12)]">
+            <article className="ha-lift rounded-[26px] border border-[#b8dfc0] bg-[#d7f0db] p-6 hover:border-[#d9f1d2] hover:bg-[#f6fdf3]">
               <ArrowUpRight className="h-6 w-6 text-[#123d1e]" />
               <h4 className="mt-9 font-heading text-[22px] md:text-[18px] leading-[1.18] font-semibold text-[#13273f]">
                 Performance
@@ -283,7 +284,7 @@ function ServicesAbout() {
               </p>
             </article>
 
-            <article className="md:col-span-2 rounded-[26px] bg-white border border-navy/10 p-6 transition-all duration-250 ease-out hover:-translate-y-1 hover:bg-[#f6fdf3] hover:border-[#d9f1d2] hover:shadow-[0_12px_24px_rgba(31,59,100,0.12)]">
+            <article className="ha-lift md:col-span-2 rounded-[26px] border border-navy/10 bg-white p-6 hover:border-[#d9f1d2] hover:bg-[#f6fdf3]">
               <MessageSquareText className="h-6 w-6 text-[#1f3b64]" />
               <div className="mt-6 flex items-start justify-between gap-6">
                 <div>
@@ -313,8 +314,8 @@ function ServicesAbout() {
           </p>
           <div className="mt-7 flex justify-center">
             <a
-              href="/contact"
-              className="inline-flex rounded-md bg-green px-5 py-3 text-sm font-semibold text-white hover:bg-green/90"
+              {...calendlyNewTabProps}
+              className="ha-pill inline-flex rounded-md bg-green px-5 py-3 text-sm font-semibold text-white hover:bg-green/90"
             >
               BOOK YOUR FREE CONSULTATION
             </a>

@@ -6,7 +6,7 @@ function WhatWeDo() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-stretch">
-        <div className="lg:w-[60%] rounded-2xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
+        <div className="ha-lift lg:w-[60%] overflow-hidden rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
           <img
             src={image}
             alt="What We Do"

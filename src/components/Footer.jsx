@@ -38,7 +38,7 @@ function Footer() {
                 <li key={idx}>
                   <a
                     href={item.link}
-                    className="font-body text-white/60 text-sm hover:text-green transition-colors"
+                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
                   >
                     {item.name}
                   </a>
@@ -53,7 +53,7 @@ function Footer() {
                 <li key={idx}>
                   <a
                     href="/services"
-                    className="font-body text-white/60 text-sm hover:text-green transition-colors"
+                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
                   >
                     {title}
                   </a>
@@ -68,7 +68,7 @@ function Footer() {
                 <span className="block text-white/80 mb-1">Get in touch:</span>
                 <a
                   href="mailto:hello@reputation360.in"
-                  className="hover:text-green transition-colors"
+                  className="ha-nudge inline-block rounded px-0.5 transition-colors hover:text-green"
                 >
                   Contact us — hello@reputation360.in
                 </a>
@@ -82,10 +82,10 @@ function Footer() {
                     href="https://www.linkedin.com/company/reputation360online/?viewAsMember=true"
                     target="_blank"
                     aria-label="LinkedIn"
-                    className="text-white/60 hover:text-green transition-colors"
+                    className="ha-glow inline-flex rounded-full p-1 text-white/60 transition-colors hover:text-green"
                   >
                     <svg
-                      className="w-5 h-5"
+                      className="h-5 w-5"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -97,10 +97,10 @@ function Footer() {
                     href="https://www.instagram.com/reputation360_online?igsh=ZThlOHpieWVpaWF1&utm_source=qr"
                     target="_blank"
                     aria-label="Instagram"
-                    className="text-white/60 hover:text-green transition-colors"
+                    className="ha-glow inline-flex rounded-full p-1 text-white/60 transition-colors hover:text-green"
                   >
                     <svg
-                      className="w-5 h-5"
+                      className="h-5 w-5"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -112,10 +112,10 @@ function Footer() {
                     href="https://www.facebook.com/profile.php?id=61572090900344&mibextid=ZbWKwL"
                     target="_blank"
                     aria-label="Facebook"
-                    className="text-white/60 hover:text-green transition-colors"
+                    className="ha-glow inline-flex rounded-full p-1 text-white/60 transition-colors hover:text-green"
                   >
                     <svg
-                      className="w-5 h-5"
+                      className="h-5 w-5"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -143,7 +143,7 @@ function Footer() {
                 <a
                   key={idx}
                   href="#"
-                  className="font-body text-white/50 text-sm hover:text-green transition-colors"
+                  className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/50 transition-colors hover:text-green"
                 >
                   {item}
                 </a>

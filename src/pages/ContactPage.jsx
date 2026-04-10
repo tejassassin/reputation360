@@ -7,6 +7,7 @@ import {
   ExternalLink,
   Lock,
 } from "lucide-react";
+import { calendlyNewTabProps } from "../constants/scheduling";
 
 const heroOfficeImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuCZgDbY4alombYjpJ_X7p50nBGt2AvPwsXAhfGbobNwLXwQHkaOjhWI9qRob0JEDIzjLZCMnadngtxzZnWhJcApUhh9DQeelYUPsIMBKBD46tvitFyyhiEzYhhzyTwjd4AaRW8JdT81sqWRA3Eab8rBBW-1pK2A4H80b4V1SnhORA72_6-Y4my-A9eXYJZ1i8FDPw1Y-nPIwdalKRxIik80FagXFnCAOblCne5P6szyRSVzbAlyvSSsGsppsQwXJk9gVzgcGBsR3qo";
@@ -72,7 +73,7 @@ function ContactPage() {
             <div className="mt-6 flex flex-wrap gap-3 md:mt-8">
               <a
                 href="#contact-form"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#02254d] px-8 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:bg-[#35618e] active:scale-[0.98] md:text-base"
+                className="ha-pill inline-flex items-center gap-2 rounded-xl bg-[#02254d] px-8 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-[#35618e] active:scale-[0.98] md:text-base"
               >
                 Get My Assessment
                 <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
@@ -98,7 +99,7 @@ function ContactPage() {
           </div>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-6">
             {/* Book a Call */}
-            <div className="group flex flex-col items-stretch gap-8 rounded-[1.75rem] bg-white p-6 shadow-sm md:col-span-8 md:flex-row md:items-center md:justify-between md:rounded-[2rem] md:p-10">
+            <div className="group ha-lift flex flex-col items-stretch gap-8 rounded-[1.75rem] bg-white p-6 shadow-sm md:col-span-8 md:flex-row md:items-center md:justify-between md:rounded-[2rem] md:p-10">
               <div className="min-w-0 flex-1">
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#02254d]/5 md:mb-6 md:h-14 md:w-14">
                   <Calendar
@@ -115,8 +116,8 @@ function ContactPage() {
                   business hours.
                 </p>
                 <a
-                  href="#email-inquiry"
-                  className="mt-5 inline-flex rounded-xl bg-[#02254d] px-8 py-3.5 text-sm font-bold text-white shadow-md transition-all hover:bg-[#35618e] active:scale-[0.98] md:mt-6 md:text-base"
+                  {...calendlyNewTabProps}
+                  className="ha-pill mt-5 inline-flex rounded-xl bg-[#02254d] px-8 py-3.5 text-sm font-bold text-white shadow-md hover:bg-[#35618e] active:scale-[0.98] md:mt-6 md:text-base"
                 >
                   Schedule Meeting
                 </a>
@@ -131,7 +132,7 @@ function ContactPage() {
             </div>
 
             {/* WhatsApp */}
-            <div className="flex flex-col justify-between rounded-[1.75rem] border-2 border-[#78dc77]/20 bg-[#78dc77]/10 p-6 md:col-span-4 md:rounded-[2rem] md:p-10">
+            <div className="ha-lift flex flex-col justify-between rounded-[1.75rem] border-2 border-[#78dc77]/20 bg-[#78dc77]/10 p-6 md:col-span-4 md:rounded-[2rem] md:p-10">
               <div>
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#78dc77] md:mb-6 md:h-14 md:w-14">
                   <MessageCircle
@@ -151,7 +152,7 @@ function ContactPage() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#56b958] px-8 py-3.5 text-sm font-bold text-white transition-all hover:opacity-90 active:scale-[0.98] md:mt-8 md:text-base"
+                className="ha-pill mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#56b958] px-8 py-3.5 text-sm font-bold text-white hover:opacity-90 active:scale-[0.98] md:mt-8 md:text-base"
               >
                 Message Now
                 <ExternalLink className="h-4 w-4" strokeWidth={2.25} />
@@ -172,7 +173,7 @@ function ContactPage() {
                 </h3>
                 <a
                   href="mailto:hello@reputation360.in"
-                  className="mt-3 block text-[15px] text-[#8ca6d5] md:mt-4 md:text-lg"
+                  className="ha-nudge mt-3 block w-fit text-[15px] text-[#8ca6d5] md:mt-4 md:text-lg"
                 >
                   hello@reputation360.in
                 </a>
@@ -208,7 +209,7 @@ function ContactPage() {
                 />
                 <button
                   type="submit"
-                  className="rounded-xl bg-[#78dc77] py-3.5 text-sm font-bold text-[#002204] transition-all hover:opacity-90 md:col-span-2 md:text-base"
+                  className="ha-pill rounded-xl bg-[#78dc77] py-3.5 text-sm font-bold text-[#002204] hover:opacity-90 md:col-span-2 md:text-base"
                 >
                   Send Email Inquiry
                 </button>

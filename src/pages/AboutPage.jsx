@@ -9,6 +9,7 @@ import {
   Gavel,
   Building2,
 } from "lucide-react";
+import { calendlyNewTabProps } from "../constants/scheduling";
 
 const skylineImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDFuOG9-w2ZZQdESOpWQNLPhhZ0Rtqn3ZhPA9rSRGp1yGAvsowBQkLxfwNqdYXTNMolIFO4cyyPLah9wO0_PhwJokPIIph_IHpvVbWJ48plfCys1CX8P4OexI_LsyzWv8QUdtw8GUCBE9zaOg3GeKXtDXLtlt2f0q8rSig128ia4NaUAfx-ZVCseb--IoGIyteiHcXimJ6dUSv-MphcdyDRZI0dv8e5o-3A1Mdt2dnZf-AdVpvbmBEQSUOQebieElsnXy8q70sdEP4";
@@ -127,7 +128,7 @@ function AboutPage() {
               text: "Our methods are 100% white-hat. We do not use shortcuts that create short-term results and long-term risk. Everything we build is designed to last.",
             },
           ].map(({ icon: Icon, title, text }) => (
-            <div key={title} className="group">
+            <div key={title} className="group ha-lift rounded-2xl px-2 py-4 md:px-4 md:py-6">
               <div className="mb-6 flex justify-center md:mb-8">
                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-lg shadow-[#02254d]/5 transition-all duration-300 group-hover:bg-[#02254d] group-hover:text-white md:h-20 md:w-20 md:rounded-3xl">
                   <Icon className="h-8 w-8 text-[#02254d] transition-colors group-hover:text-white md:h-9 md:w-9" strokeWidth={2} />
@@ -233,7 +234,7 @@ function AboutPage() {
               <a
                 key={label}
                 href={href}
-                className="flex flex-col items-center rounded-xl border border-white/10 bg-[#1f3b64]/50 p-5 text-center backdrop-blur-sm transition-colors hover:bg-[#1f3b64]/70 md:p-8"
+                className="ha-lift flex flex-col items-center rounded-xl border border-white/10 bg-[#1f3b64]/50 p-5 text-center backdrop-blur-sm hover:bg-[#1f3b64]/70 md:p-8"
               >
                 <Icon
                   className="mb-3 h-7 w-7 text-[#78dc77] md:mb-4 md:h-8 md:w-8"
@@ -304,7 +305,7 @@ function AboutPage() {
               ensure it reflects the truth of your achievements.
             </p>
             <a
-              href="/contact"
+              {...calendlyNewTabProps}
               className="mt-8 inline-block rounded-full bg-[#02254d] px-10 py-3.5 text-sm font-bold text-white shadow-xl shadow-[#02254d]/20 transition-all hover:bg-[#35618e] active:scale-[0.98] md:mt-10 md:px-12 md:py-4 md:text-base"
             >
               Book a Free Consultation

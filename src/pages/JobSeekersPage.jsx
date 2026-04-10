@@ -1,3 +1,4 @@
+import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   ShieldCheck,
   Search,
@@ -30,8 +31,8 @@ function JobSeekersPage() {
               value before a recruiter ever hits 'Search'.
             </p>
             <a
-              href="/contact"
-              className="mt-6 inline-flex items-center gap-2 rounded-[8px] bg-[#153f70] px-5 py-3 text-sm font-semibold text-white hover:bg-[#0b3c75] shadow-[0_8px_18px_rgba(7,47,95,0.24)] transition-colors"
+              {...calendlyNewTabProps}
+              className="ha-pill mt-6 inline-flex items-center gap-2 rounded-[8px] bg-[#153f70] px-5 py-3 text-sm font-semibold text-white shadow-[0_8px_18px_rgba(7,47,95,0.24)] hover:bg-[#0b3c75]"
             >
               Get a Free Reputation Audit
             </a>
@@ -56,7 +57,7 @@ function JobSeekersPage() {
             ].map((item) => (
               <article
                 key={item.title}
-                className="rounded-3xl border border-[#dbe3e8] bg-white px-4 py-4 md:px-5 md:py-5 shadow-[0_10px_24px_rgba(20,40,70,0.10)]"
+                className="ha-lift rounded-3xl border border-[#dbe3e8] bg-white px-4 py-4 shadow-[0_10px_24px_rgba(20,40,70,0.10)] md:px-5 md:py-5"
               >
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 shrink-0">{item.icon}</div>
@@ -168,7 +169,7 @@ function JobSeekersPage() {
 
         <section className="mt-28 md:mt-32 grid md:grid-cols-[1.05fr_1fr] gap-10 md:gap-12 items-start">
           <div className="grid grid-cols-2 gap-4">
-            <article className="rounded-2xl border border-[#d8deea] bg-[#e6eaf8] p-7 md:p-8 min-h-[210px]">
+            <article className="ha-lift min-h-[210px] rounded-2xl border border-[#d8deea] bg-[#e6eaf8] p-7 md:p-8">
               <div className="h-8 w-8 rounded-full grid place-items-center text-[#1f3b64]">
                 <Eye className="h-5 w-5" />
               </div>
@@ -180,7 +181,7 @@ function JobSeekersPage() {
                 read in full.
               </p>
             </article>
-            <article className="rounded-2xl border border-[#d8deea] bg-[#e6eaf8] p-7 md:p-8 min-h-[210px]">
+            <article className="ha-lift min-h-[210px] rounded-2xl border border-[#d8deea] bg-[#e6eaf8] p-7 md:p-8">
               <div className="h-8 w-8 rounded-full grid place-items-center text-[#1f3b64]">
                 <Search className="h-5 w-5" />
               </div>
@@ -218,7 +219,7 @@ function JobSeekersPage() {
           </p>
 
           <div className="mt-10 grid md:grid-cols-[2fr_1fr] gap-4">
-            <article className="rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7 min-h-[230px] flex flex-col">
+            <article className="ha-lift flex min-h-[230px] flex-col rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7">
               <Newspaper className="h-6 w-6 text-[#89e89a]" />
               <h4 className="mt-6 font-heading text-[17px] md:text-[20px] leading-[1.2] font-semibold text-[#17375f]">
                 Old News &amp; Legal Records
@@ -232,7 +233,7 @@ function JobSeekersPage() {
               </div>
             </article>
 
-            <article className="rounded-3xl bg-[#072f5f] border border-[#0b3f79] p-6 md:p-7 text-white min-h-[230px]">
+            <article className="ha-lift min-h-[230px] rounded-3xl border border-[#0b3f79] bg-[#072f5f] p-6 text-white md:p-7">
               <UserRoundX className="h-6 w-6 text-[#8ce596]" />
               <h4 className="mt-6 font-heading text-[17px] md:text-[20px] leading-[1.2] font-semibold">
                 Irrelevant Social Content
@@ -245,7 +246,7 @@ function JobSeekersPage() {
           </div>
 
           <div className="mt-4 grid md:grid-cols-3 gap-4">
-            <article className="rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7 min-h-[190px]">
+            <article className="ha-lift min-h-[190px] rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7">
               <Activity className="h-6 w-6 text-[#1f3b64]" />
               <h4 className="mt-6 font-heading text-[16px] md:text-[18px] leading-[1.2] font-semibold text-[#17375f]">
                 Mistaken Identity
@@ -256,7 +257,7 @@ function JobSeekersPage() {
               </p>
             </article>
 
-            <article className="rounded-3xl border border-[#0b3f79] bg-[#072f5f] p-6 md:p-7 min-h-[190px] text-white">
+            <article className="ha-lift min-h-[190px] rounded-3xl border border-[#0b3f79] bg-[#072f5f] p-6 text-white md:p-7">
               <BadgeCheck className="h-6 w-6 text-[#8ce596]" />
               <h4 className="mt-6 font-heading text-[16px] md:text-[18px] leading-[1.2] font-semibold">
                 Defamation and Fiction
@@ -267,7 +268,7 @@ function JobSeekersPage() {
               </p>
             </article>
 
-            <article className="rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7 min-h-[190px]">
+            <article className="ha-lift min-h-[190px] rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7">
               <Hammer className="h-6 w-6 text-[#1f3b64]" />
               <h4 className="mt-6 font-heading text-[16px] md:text-[18px] leading-[1.2] font-semibold text-[#17375f]">
                 Media Mentions
@@ -306,7 +307,7 @@ function JobSeekersPage() {
               ].map((item) => (
                 <article
                   key={item.num}
-                  className="flex flex-col items-center text-center"
+                  className="ha-lift flex flex-col items-center rounded-xl px-3 py-4 text-center"
                 >
                   <div className="grid h-14 w-14 place-items-center rounded-xl bg-[#1d3557] text-lg font-bold text-white shadow-[0_0_0_1px_rgba(255,255,255,0.35),0_4px_14px_rgba(29,53,87,0.35)]">
                     {item.num}
@@ -356,7 +357,7 @@ function JobSeekersPage() {
               confidential, thorough, and free.
             </p>
             <a
-              href="/contact"
+              {...calendlyNewTabProps}
               className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#48bb78] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_4px_14px_rgba(72,187,120,0.45)] transition-colors hover:bg-[#38a169]"
             >
               Get Your Free Reputation Audit

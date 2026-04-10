@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   BookOpen,
   Wrench,
@@ -61,7 +62,7 @@ function GuidePage() {
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="#ch1"
-                className="font-guide-headline flex items-center gap-3 rounded-xl bg-[#02254d] px-8 py-4 font-bold text-white shadow-lg transition-all hover:bg-[#35618e]"
+                className="font-guide-headline ha-pill flex items-center gap-3 rounded-xl bg-[#02254d] px-8 py-4 font-bold text-white shadow-lg hover:bg-[#35618e]"
               >
                 Start Reading Chapters
                 <ArrowDown className="h-5 w-5" aria-hidden />
@@ -81,7 +82,7 @@ function GuidePage() {
             <a
               key={id}
               href={`#${id}`}
-              className="shrink-0 rounded-full border border-[#dce2f7] bg-white px-4 py-2 text-xs font-semibold whitespace-nowrap text-[#02254d]"
+              className="ha-pill shrink-0 rounded-full border border-[#dce2f7] bg-white px-4 py-2 text-xs font-semibold whitespace-nowrap text-[#02254d]"
             >
               {label}
             </a>
@@ -104,8 +105,8 @@ function GuidePage() {
                   href={`#${id}`}
                   className={
                     idx === 0
-                      ? "flex items-center gap-3 border-l-4 border-[#78dc77] pl-4 font-bold text-[#02254d]"
-                      : "flex items-center gap-3 rounded-lg py-1 pl-4 text-slate-500 transition-all hover:bg-white hover:text-[#02254d]"
+                      ? "ha-nudge flex items-center gap-3 rounded-lg border-l-4 border-[#78dc77] py-1 pl-4 font-bold text-[#02254d]"
+                      : "ha-nudge flex items-center gap-3 rounded-lg py-1 pl-4 text-slate-500 transition-all hover:bg-white hover:text-[#02254d]"
                   }
                 >
                   <Icon className="h-5 w-5 shrink-0" aria-hidden />
@@ -155,7 +156,7 @@ function GuidePage() {
                 ].map(({ Icon, title, text }) => (
                   <div
                     key={title}
-                    className="rounded-2xl bg-white p-6 shadow-sm"
+                    className="ha-lift rounded-2xl bg-white p-6 shadow-sm"
                   >
                     <Icon
                       className="mb-4 h-8 w-8 text-[#35618e]"
@@ -182,7 +183,7 @@ function GuidePage() {
               </h2>
             </div>
             <div className="grid h-auto grid-rows-none gap-6 md:h-[500px] md:grid-cols-4 md:grid-rows-2">
-              <div className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-[#02254d] p-10 text-white md:col-span-2 md:row-span-2">
+              <div className="group ha-lift relative flex flex-col justify-between overflow-hidden rounded-3xl bg-[#02254d] p-10 text-white md:col-span-2 md:row-span-2">
                 <div className="relative z-10">
                   <div className="mb-4 text-7xl font-black">92%</div>
                   <h4 className="font-guide-headline mb-4 text-2xl font-bold">
@@ -200,21 +201,21 @@ function GuidePage() {
                   aria-hidden
                 />
               </div>
-              <div className="flex flex-col justify-center rounded-3xl bg-[#78dc77] p-8 text-[#02254d] md:col-span-1">
+              <div className="ha-lift flex flex-col justify-center rounded-3xl bg-[#78dc77] p-8 text-[#02254d] md:col-span-1">
                 <div className="mb-2 text-4xl font-black">77%</div>
                 <p className="font-bold leading-tight">
                   of recruiters and HR managers screen candidates online before
                   an interview.
                 </p>
               </div>
-              <div className="flex flex-col justify-center rounded-3xl bg-[#9fcafd] p-8 text-[#275582] md:col-span-1">
+              <div className="ha-lift flex flex-col justify-center rounded-3xl bg-[#9fcafd] p-8 text-[#275582] md:col-span-1">
                 <div className="mb-2 text-4xl font-black">84%</div>
                 <p className="font-bold leading-tight">
                   of patients and clients trust online reviews as much as
                   personal recommendations.
                 </p>
               </div>
-              <div className="flex items-center justify-between rounded-3xl bg-[#dce2f7] p-8 md:col-span-2">
+              <div className="ha-lift flex items-center justify-between rounded-3xl bg-[#dce2f7] p-8 md:col-span-2">
                 <div className="max-w-[60%]">
                   <div className="mb-2 text-4xl font-black text-[#ba1a1a]">
                     22%
@@ -243,7 +244,7 @@ function GuidePage() {
               </h2>
             </div>
             <div className="grid gap-8 md:grid-cols-2">
-              <div className="rounded-3xl border border-slate-100 bg-white p-10 shadow-sm">
+              <div className="ha-lift rounded-3xl border border-slate-100 bg-white p-10 shadow-sm">
                 <div className="mb-6 flex items-center gap-4">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#ffdad6]">
                     <Trash2 className="h-7 w-7 text-[#ba1a1a]" aria-hidden />
@@ -269,7 +270,7 @@ function GuidePage() {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-3xl border border-slate-100 bg-white p-10 shadow-sm">
+              <div className="ha-lift rounded-3xl border border-slate-100 bg-white p-10 shadow-sm">
                 <div className="mb-6 flex items-center gap-4">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#9fcafd]">
                     <Layers className="h-7 w-7 text-[#275582]" aria-hidden />
@@ -328,7 +329,7 @@ function GuidePage() {
               ].map(({ num, title, body }) => (
                 <div
                   key={num}
-                  className="chapter-card group flex items-center gap-8 rounded-3xl bg-[#e9edff] p-8 transition-colors hover:bg-[#e1e8fd]"
+                  className="chapter-card group ha-lift flex items-center gap-8 rounded-3xl bg-[#e9edff] p-8 transition-colors hover:bg-[#e1e8fd]"
                 >
                   <div className="chapter-number font-guide-headline text-3xl font-black text-[#35618e]/30 transition-colors group-hover:text-[#35618e]">
                     {num}
@@ -379,7 +380,7 @@ function GuidePage() {
                     ].map(({ Icon, text }) => (
                       <div
                         key={text}
-                        className="flex items-center gap-4 rounded-xl bg-white/5 p-4"
+                        className="ha-lift flex items-center gap-4 rounded-xl bg-white/5 p-4"
                       >
                         <Icon
                           className="h-6 w-6 shrink-0 text-[#78dc77]"
@@ -390,7 +391,7 @@ function GuidePage() {
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-col items-center justify-center space-y-8 rounded-3xl border border-white/10 bg-white/10 p-10 text-center backdrop-blur-md">
+                <div className="ha-lift flex flex-col items-center justify-center space-y-8 rounded-3xl border border-white/10 bg-white/10 p-10 text-center backdrop-blur-md">
                   <h4 className="font-guide-headline text-2xl font-bold">
                     Ready to take control?
                   </h4>
@@ -399,8 +400,8 @@ function GuidePage() {
                     strategists.
                   </p>
                   <a
-                    href="/contact"
-                    className="font-guide-headline rounded-full bg-[#78dc77] px-10 py-5 text-lg font-extrabold text-[#02254d] shadow-xl transition-all hover:bg-white"
+                    {...calendlyNewTabProps}
+                    className="font-guide-headline ha-pill rounded-full bg-[#78dc77] px-10 py-5 text-lg font-extrabold text-[#02254d] shadow-xl hover:bg-white"
                   >
                     Book Your Free Consultation
                   </a>

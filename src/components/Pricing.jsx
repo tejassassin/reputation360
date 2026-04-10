@@ -55,8 +55,8 @@ function Pricing() {
             key={idx}
             className={`rounded-2xl p-8 ${
               plan.featured
-                ? "bg-navy text-white ring-4 ring-green scale-105"
-                : "bg-white border border-steel/10"
+                ? "bg-navy text-white ring-4 ring-green scale-105 transition-[box-shadow,transform] duration-200 hover:shadow-[0_22px_48px_-14px_rgba(2,37,77,0.35)] hover:ring-[3px] hover:ring-[rgba(120,220,119,0.55)]"
+                : "ha-lift border border-steel/10 bg-white"
             }`}
           >
             {plan.featured && (
@@ -116,10 +116,10 @@ function Pricing() {
               ))}
             </ul>
             <button
-              className={`w-full py-3 rounded-lg font-heading font-medium transition-colors ${
+              className={`ha-pill w-full rounded-lg py-3 font-heading font-medium ${
                 plan.featured
-                  ? "bg-green hover:bg-green/90 text-white"
-                  : "bg-navy hover:bg-navy/90 text-white"
+                  ? "bg-green text-white hover:bg-green/90"
+                  : "bg-navy text-white hover:bg-navy/90"
               }`}
             >
               Get Started

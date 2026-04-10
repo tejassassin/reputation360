@@ -1,3 +1,4 @@
+import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   EyeOff,
   Gavel,
@@ -26,8 +27,8 @@ function DoctorsPage() {
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-lg bg-[#1a2b4b] px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-colors hover:bg-[#243a5c]"
+                {...calendlyNewTabProps}
+                className="ha-pill inline-flex items-center justify-center rounded-lg bg-[#1a2b4b] px-6 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-[#243a5c]"
               >
                 Get a Free Reputation Audit
               </a>
@@ -99,7 +100,7 @@ function DoctorsPage() {
           <div className="mt-2 h-1 w-16 rounded-full bg-[#4caf50]" />
           <div className="mt-10 grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
             <div className="space-y-8">
-              <article className="flex gap-4">
+              <article className="ha-lift flex gap-4 rounded-xl border border-transparent p-3 hover:border-[#e3ecf7] hover:bg-white">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e3ecf7] text-[#1f3b64]">
                   <EyeOff className="h-5 w-5" strokeWidth={2} />
                 </div>
@@ -114,7 +115,7 @@ function DoctorsPage() {
                   </p>
                 </div>
               </article>
-              <article className="flex gap-4">
+              <article className="ha-lift flex gap-4 rounded-xl border border-transparent p-3 hover:border-[#e3ecf7] hover:bg-white">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e3ecf7] text-[#1f3b64]">
                   <Gavel className="h-5 w-5" strokeWidth={2} />
                 </div>
@@ -129,7 +130,7 @@ function DoctorsPage() {
                   </p>
                 </div>
               </article>
-              <article className="flex gap-4">
+              <article className="ha-lift flex gap-4 rounded-xl border border-transparent p-3 hover:border-[#e3ecf7] hover:bg-white">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e3ecf7] text-[#1f3b64]">
                   <ShieldCheck className="h-5 w-5" strokeWidth={2} />
                 </div>
@@ -170,8 +171,8 @@ function DoctorsPage() {
           profile.
         </p>
         <a
-          href="/contact"
-          className="mt-10 inline-flex items-center justify-center rounded-lg bg-[#1D3557] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_6px_20px_rgba(29,53,87,0.28)] transition-colors hover:bg-[#152a45]"
+          {...calendlyNewTabProps}
+          className="ha-pill mt-10 inline-flex items-center justify-center rounded-lg bg-[#1D3557] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_6px_20px_rgba(29,53,87,0.28)] hover:bg-[#152a45]"
         >
           Book a Free Confidential Consultation
         </a>

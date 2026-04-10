@@ -40,7 +40,7 @@ function WhoWeWorkWith() {
         {categories.map(({ title, description, Icon }) => (
           <div
             key={title}
-            className="group relative overflow-hidden rounded-xl border border-transparent bg-white p-8 transition-all duration-300 hover:border-[#dce2f7] hover:shadow-2xl hover:shadow-[#02254d]/5"
+            className="ha-lift group relative overflow-hidden rounded-xl border border-transparent bg-white p-8 transition-all duration-300 hover:border-[#dce2f7] hover:shadow-2xl hover:shadow-[#02254d]/5"
           >
             <div className="absolute -top-12 -right-12 h-24 w-24 rounded-bl-full bg-[#78dc77]/5 transition-transform group-hover:scale-150" />
             <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#f1f3ff] text-[#78dc77]">

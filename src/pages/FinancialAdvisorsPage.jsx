@@ -1,3 +1,4 @@
+import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   ShieldCheck,
   FileWarning,
@@ -30,8 +31,8 @@ function FinancialAdvisorsPage() {
               integrity before a prospect ever hits 'Search'.
             </p>
             <a
-              href="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-[10px] bg-[#072f5f] px-7 py-4 text-base md:text-lg font-semibold text-white hover:bg-[#0b3c75] shadow-[0_8px_20px_rgba(7,47,95,0.28)]"
+              {...calendlyNewTabProps}
+              className="ha-pill mt-8 inline-flex items-center gap-2 rounded-[10px] bg-[#072f5f] px-7 py-4 text-base font-semibold text-white shadow-[0_8px_20px_rgba(7,47,95,0.28)] hover:bg-[#0b3c75] md:text-lg"
             >
               Book a Free Confidential Consultation
             </a>
@@ -56,7 +57,7 @@ function FinancialAdvisorsPage() {
             ].map((item) => (
               <article
                 key={item.title}
-                className="rounded-2xl border border-[#d9e3e9] bg-white px-5 py-5 shadow-[0_8px_20px_rgba(15,23,42,0.08)]"
+                className="ha-lift rounded-2xl border border-[#d9e3e9] bg-white px-5 py-5 shadow-[0_8px_20px_rgba(15,23,42,0.08)]"
               >
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5">{item.icon}</div>
@@ -110,7 +111,7 @@ function FinancialAdvisorsPage() {
 
         <section className="mt-28 md:mt-32 grid md:grid-cols-[1.05fr_1fr] gap-10 md:gap-12 items-start">
           <div className="grid grid-cols-2 gap-4">
-            <article className="rounded-2xl border border-[#d8deea] bg-[#e6eaf8] p-7 md:p-8 min-h-[210px]">
+            <article className="ha-lift min-h-[210px] rounded-2xl border border-[#d8deea] bg-[#e6eaf8] p-7 md:p-8">
               <div className="h-8 w-8 rounded-full grid place-items-center text-[#1f3b64]">
                 <Eye className="h-5 w-5" />
               </div>
@@ -122,7 +123,7 @@ function FinancialAdvisorsPage() {
                 first thing prospects see.
               </p>
             </article>
-            <article className="rounded-2xl border border-[#d8deea] bg-[#e6eaf8] p-7 md:p-8 min-h-[210px]">
+            <article className="ha-lift min-h-[210px] rounded-2xl border border-[#d8deea] bg-[#e6eaf8] p-7 md:p-8">
               <div className="h-8 w-8 rounded-full grid place-items-center text-[#1f3b64]">
                 <Search className="h-5 w-5" />
               </div>
@@ -164,7 +165,7 @@ function FinancialAdvisorsPage() {
           </p>
 
           <div className="mt-10 grid md:grid-cols-[2fr_1fr] gap-4">
-            <article className="rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7 min-h-[230px] flex flex-col">
+            <article className="ha-lift flex min-h-[230px] flex-col rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7">
               <Search className="h-6 w-6 text-[#89e89a]" />
               <h4 className="mt-6 font-heading text-[17px] md:text-[20px] leading-[1.2] font-semibold text-[#17375f]">
                 SEC Enforcement &amp; Proceedings
@@ -192,7 +193,7 @@ function FinancialAdvisorsPage() {
           </div>
 
           <div className="mt-4 grid md:grid-cols-3 gap-4">
-            <article className="rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7 min-h-[190px]">
+            <article className="ha-lift min-h-[190px] rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7">
               <Activity className="h-6 w-6 text-[#1f3b64]" />
               <h4 className="mt-6 font-heading text-[16px] md:text-[18px] leading-[1.2] font-semibold text-[#17375f]">
                 Outdated News Stories
@@ -203,7 +204,7 @@ function FinancialAdvisorsPage() {
               </p>
             </article>
 
-            <article className="rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7 min-h-[190px]">
+            <article className="ha-lift min-h-[190px] rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7">
               <FileWarning className="h-6 w-6 text-[#1f3b64]" />
               <h4 className="mt-6 font-heading text-[16px] md:text-[18px] leading-[1.2] font-semibold text-[#17375f]">
                 Competitor Content
@@ -214,7 +215,7 @@ function FinancialAdvisorsPage() {
               </p>
             </article>
 
-            <article className="rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7 min-h-[190px]">
+            <article className="ha-lift min-h-[190px] rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7">
               <AlertTriangle className="h-6 w-6 text-[#1f3b64]" />
               <h4 className="mt-6 font-heading text-[16px] md:text-[18px] leading-[1.2] font-semibold text-[#17375f]">
                 Media Mentions
@@ -257,7 +258,7 @@ function FinancialAdvisorsPage() {
             ].map((item) => (
               <article
                 key={item.title}
-                className="rounded-2xl bg-transparent"
+                className="ha-lift rounded-2xl bg-transparent px-2 py-3"
               >
                 <div className="h-12 w-12 rounded-xl bg-[#edf0ff] grid place-items-center text-[#123a66]">
                   {item.icon}
@@ -292,8 +293,8 @@ function FinancialAdvisorsPage() {
             record. Let us build your visibility with compliance and confidence.
           </p>
           <a
-            href="/contact"
-            className="mt-6 inline-flex items-center gap-2 rounded-md bg-[#072f5f] px-5 py-3 text-sm font-semibold text-white hover:bg-[#0b3c75]"
+            {...calendlyNewTabProps}
+            className="ha-pill mt-6 inline-flex items-center gap-2 rounded-md bg-[#072f5f] px-5 py-3 text-sm font-semibold text-white hover:bg-[#0b3c75]"
           >
             Book a Free Advisor Consultation
             <ChevronRight className="h-4 w-4" />

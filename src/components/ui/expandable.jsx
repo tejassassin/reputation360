@@ -127,19 +127,19 @@ export function ServicesExpandable() {
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             onClick={() => setActive(card)}
-            className="p-3 flex flex-row justify-between items-center bg-white hover:bg-green/5 border-1 border-steel/40 hover:border-green/30 rounded-xl cursor-pointer transition-colors"
+            className="ha-lift flex flex-row cursor-pointer items-center justify-between rounded-xl border-1 border-steel/40 bg-white p-3 transition-colors hover:border-green/30 hover:bg-green/5"
           >
-            <div className="flex gap-4 flex-row items-center min-w-0">
+            <div className="flex min-w-0 flex-row items-center gap-4">
               <motion.div
                 layoutId={`icon-${card.title}-${id}`}
-                className="w-14 h-14 bg-navy rounded-xl flex items-center justify-center shrink-0 [&_svg]:!text-white [&_svg]:!stroke-white"
+                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-navy [&_svg]:!stroke-white [&_svg]:!text-white"
               >
                 {card.icon}
               </motion.div>
-              <div className="text-left min-w-0">
+              <div className="min-w-0 text-left">
                 <motion.h3
                   layoutId={`title-${card.title}-${id} `}
-                  className="font-heading font-semibold text-navy dark:text-neutral-200 text-sm sm:text-base"
+                  className="font-heading text-sm font-semibold text-navy sm:text-base dark:text-neutral-200"
                 >
                   {card.title}
                 </motion.h3>
@@ -147,7 +147,7 @@ export function ServicesExpandable() {
             </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="px-4 py-2 text-sm rounded-full font-heading font-semibold text-white cursor-pointer hover:bg-green/90 hover:text-white shrink-0 transition-colors"
+              className="shrink-0 cursor-pointer rounded-full px-4 py-2 font-heading text-sm font-semibold text-white transition-colors hover:bg-green/90 hover:text-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -167,25 +167,25 @@ export function ServicesExpandable() {
           </motion.div>
         ))}
       </ul>
-      <ul className="max-w-5xl mx-auto w-full grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <ul className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-2 sm:grid-cols-2">
         {servicesCards.map((card) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             onClick={() => setActive(card)}
-            className="p-3 flex flex-row justify-between items-center bg-white hover:bg-green/5 border-1 border-steel/40 hover:border-green/30 rounded-xl cursor-pointer transition-colors"
+            className="ha-lift flex cursor-pointer flex-row items-center justify-between rounded-xl border-1 border-steel/40 bg-white p-3 transition-colors hover:border-green/30 hover:bg-green/5"
           >
-            <div className="flex gap-4 flex-row items-center min-w-0">
+            <div className="flex min-w-0 flex-row items-center gap-4">
               <motion.div
                 layoutId={`icon-${card.title}-${id}`}
-                className="w-14 h-14 bg-navy rounded-xl flex items-center justify-center shrink-0 [&_svg]:!text-white [&_svg]:!stroke-white"
+                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-navy [&_svg]:!stroke-white [&_svg]:!text-white"
               >
                 {card.icon}
               </motion.div>
-              <div className="text-left min-w-0">
+              <div className="min-w-0 text-left">
                 <motion.h3
                   layoutId={`title-${card.title}-${id} `}
-                  className="font-heading font-semibold text-navy dark:text-neutral-200 text-sm sm:text-base"
+                  className="font-heading text-sm font-semibold text-navy sm:text-base dark:text-neutral-200"
                 >
                   {card.title}
                 </motion.h3>
@@ -193,7 +193,7 @@ export function ServicesExpandable() {
             </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="px-4 py-2 text-sm rounded-full font-heading font-semibold text-white cursor-pointer hover:bg-green/90 hover:text-white shrink-0 transition-colors"
+              className="shrink-0 cursor-pointer rounded-full px-4 py-2 font-heading text-sm font-semibold text-white transition-colors hover:bg-green/90 hover:text-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

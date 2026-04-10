@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { BadgeCheck, ArrowRight, ArrowUpRight } from "lucide-react";
+import { calendlyNewTabProps } from "../constants/scheduling";
 
 const HERO_IMG =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuB9RkcKxX1nZCRrBRIu6rOONYqsNVBW7ImSuvITVmOpUNdh9vHBQk72dRRSVg466yzV7FRLVAR74vtVn6mQM0qSQN7nwSKV5FRcqM2cRWLPZgV0I9AcJ4dx6eKagNgJmw90lkVLTGDucXhp4xEv1BziO3gnOT71pR9W2Me9zrfnNhsuERyYBIMHr21Picl79YYv-_eICE0qZQ-fU8O-bUpr5Nvt-K4QLuuTjb8c1GJuhLQBP1XrKDHjlV0QvXkwWydskHpIgIc5xa8";
@@ -132,7 +133,7 @@ function InsightsBlogsPage() {
             </div>
             <button
               type="button"
-              className="group flex items-center gap-2 self-start font-semibold text-[#35618e] sm:self-auto"
+              className="group ha-nudge flex items-center gap-2 self-start font-semibold text-[#35618e] sm:self-auto"
             >
               <span>View all features</span>
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -140,7 +141,7 @@ function InsightsBlogsPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
-            <div className="group relative flex min-h-[500px] flex-col justify-end overflow-hidden rounded-xl bg-[#02254d] p-8 text-white md:col-span-2 md:row-span-2">
+            <div className="group ha-lift relative flex min-h-[500px] flex-col justify-end overflow-hidden rounded-xl bg-[#02254d] p-8 text-white md:col-span-2 md:row-span-2">
               <div className="absolute inset-0 z-0">
                 <img
                   src={FEATURED_LARGE_IMG}
@@ -175,7 +176,7 @@ function InsightsBlogsPage() {
               </div>
             </div>
 
-            <div className="glass-card group flex flex-col justify-between rounded-xl border-none p-6 transition-colors hover:bg-[#e1e8fd] md:col-span-2">
+            <div className="glass-card group ha-lift flex flex-col justify-between rounded-xl border-none p-6 transition-colors hover:bg-[#e1e8fd] md:col-span-2">
               <div>
                 <span className="mb-3 block text-xs font-bold tracking-widest text-[#35618e] uppercase">
                   Crisis Management
@@ -194,7 +195,7 @@ function InsightsBlogsPage() {
               </div>
             </div>
 
-            <div className="group flex flex-col justify-between rounded-xl border-none bg-white p-6 transition-shadow hover:shadow-xl md:col-span-1">
+            <div className="group ha-lift flex flex-col justify-between rounded-xl border-none bg-white p-6 transition-shadow hover:shadow-xl md:col-span-1">
               <div>
                 <span className="mb-3 inline-block rounded bg-[#00450e] px-2 py-0.5 text-[10px] font-bold tracking-widest text-[#78dc77] uppercase">
                   Legal
@@ -209,7 +210,7 @@ function InsightsBlogsPage() {
               </div>
             </div>
 
-            <div className="group flex flex-col justify-between rounded-xl border-none bg-white p-6 transition-shadow hover:shadow-xl md:col-span-1">
+            <div className="group ha-lift flex flex-col justify-between rounded-xl border-none bg-white p-6 transition-shadow hover:shadow-xl md:col-span-1">
               <div>
                 <span className="mb-3 block text-xs font-bold tracking-widest text-[#35618e] uppercase">
                   Corporate
@@ -239,7 +240,7 @@ function InsightsBlogsPage() {
                 key={label}
                 type="button"
                 onClick={() => setActiveFilter(label)}
-                className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
+                className={`ha-pill rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
                   activeFilter === label
                     ? "bg-[#02254d] text-white"
                     : "bg-[#e9edff] text-[#43474e] hover:bg-[#e1e8fd]"
@@ -258,7 +259,7 @@ function InsightsBlogsPage() {
         ) : (
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
             {filteredArticles.map((article) => (
-              <article key={article.id} className="group">
+              <article key={article.id} className="group ha-lift rounded-xl">
                 <div className="mb-6 aspect-video overflow-hidden rounded-xl">
                   <img
                     src={article.image}
@@ -288,7 +289,7 @@ function InsightsBlogsPage() {
         <div className="mt-16 flex justify-center">
           <button
             type="button"
-            className="rounded-xl bg-[#dce2f7] px-8 py-3 font-bold text-[#02254d] transition-all duration-300 hover:bg-[#02254d] hover:text-white"
+            className="ha-pill rounded-xl bg-[#dce2f7] px-8 py-3 font-bold text-[#02254d] transition-all duration-300 hover:bg-[#02254d] hover:text-white"
           >
             Load More Insights
           </button>
@@ -324,7 +325,7 @@ function InsightsBlogsPage() {
                 />
                 <button
                   type="submit"
-                  className="rounded-xl bg-[#78dc77] py-4 text-lg font-bold text-[#005313] transition-all hover:scale-[1.02] active:scale-[0.98]"
+                  className="ha-pill rounded-xl bg-[#78dc77] py-4 text-lg font-bold text-[#005313] active:scale-[0.98]"
                 >
                   Subscribe to the Briefing
                 </button>
@@ -349,14 +350,14 @@ function InsightsBlogsPage() {
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <a
-              href="/contact"
-              className="rounded-xl bg-[#02254d] px-10 py-5 text-lg font-bold text-white shadow-xl shadow-[#02254d]/20 transition-all hover:scale-105"
+              {...calendlyNewTabProps}
+              className="ha-pill rounded-xl bg-[#02254d] px-10 py-5 text-lg font-bold text-white shadow-xl shadow-[#02254d]/20"
             >
               Book a Free Consultation
             </a>
             <a
-              href="/contact"
-              className="rounded-xl border border-[#dce2f7] bg-white px-10 py-5 text-lg font-bold text-[#02254d] transition-all hover:bg-[#e9edff]"
+              {...calendlyNewTabProps}
+              className="ha-pill rounded-xl border border-[#dce2f7] bg-white px-10 py-5 text-lg font-bold text-[#02254d] hover:bg-[#e9edff]"
             >
               Speak with a Partner
             </a>

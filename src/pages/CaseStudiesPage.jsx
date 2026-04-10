@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
+import { calendlyNewTabProps } from "../constants/scheduling";
 
 const cases = [
   {
@@ -252,7 +253,7 @@ function CaseStudySection({ study }) {
 
   const imageCol = (
     <div>
-      <div className="group/img relative overflow-hidden rounded-2xl shadow-2xl">
+      <div className="group/img ha-lift relative overflow-hidden rounded-2xl shadow-2xl">
         <img
           alt={study.imageAlt}
           className="aspect-video w-full object-cover transition-transform duration-700 group-hover/img:scale-105"
@@ -260,7 +261,7 @@ function CaseStudySection({ study }) {
         />
         <MetricBadge metric={study.metric} />
       </div>
-      <div className="mt-6 rounded-2xl border border-[#c4c6d0]/10 bg-white p-6 shadow-sm md:mt-8 md:p-8">
+      <div className="ha-lift mt-6 rounded-2xl border border-[#c4c6d0]/10 bg-white p-6 shadow-sm md:mt-8 md:p-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
           {study.columns.map((col) => (
             <div key={col.title}>
@@ -275,7 +276,7 @@ function CaseStudySection({ study }) {
         </div>
         <a
           href="/contact"
-          className="group/btn mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#35618e] transition-all hover:gap-3 md:mt-8"
+          className="group/btn ha-nudge mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#35618e] hover:gap-3 md:mt-8"
         >
           {study.linkText}
           <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
@@ -349,14 +350,14 @@ export default function CaseStudiesPage() {
           </p>
           <div className="relative z-10 mt-8 flex flex-col items-center justify-center gap-3 md:mt-10 md:flex-row md:gap-4">
             <a
-              href="/contact"
-              className="inline-flex w-full items-center justify-center rounded-xl bg-[#78dc77] px-10 py-3.5 text-sm font-bold text-[#002204] shadow-lg shadow-[#00450e]/30 transition-all hover:bg-white active:scale-[0.98] md:w-auto md:text-base lg:px-12 lg:py-4 lg:text-lg"
+              {...calendlyNewTabProps}
+              className="ha-pill inline-flex w-full items-center justify-center rounded-xl bg-[#78dc77] px-10 py-3.5 text-sm font-bold text-[#002204] shadow-lg shadow-[#00450e]/30 hover:bg-white active:scale-[0.98] md:w-auto md:text-base lg:px-12 lg:py-4 lg:text-lg"
             >
               Get My Free Audit
             </a>
             <a
-              href="/contact"
-              className="inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/10 px-10 py-3.5 text-sm font-bold text-white backdrop-blur-md transition-all hover:bg-white/20 md:w-auto md:text-base lg:px-12 lg:py-4 lg:text-lg"
+              {...calendlyNewTabProps}
+              className="ha-pill inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/10 px-10 py-3.5 text-sm font-bold text-white backdrop-blur-md hover:bg-white/20 md:w-auto md:text-base lg:px-12 lg:py-4 lg:text-lg"
             >
               Talk to an Expert
             </a>

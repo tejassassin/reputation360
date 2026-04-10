@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   TrendingUp,
   TrendingDown,
@@ -47,15 +48,15 @@ function BusinessesPage() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3 pt-1 md:gap-4">
               <a
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#02254d] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(2,37,77,0.2)] transition-colors hover:bg-[#35618e] active:scale-[0.98]"
+                {...calendlyNewTabProps}
+                className="ha-pill inline-flex items-center gap-2 rounded-xl bg-[#02254d] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(2,37,77,0.2)] hover:bg-[#35618e] active:scale-[0.98]"
               >
                 Audit Your Reputation
                 <TrendingUp className="h-4 w-4" strokeWidth={2.25} />
               </a>
               <a
                 href="/case-studies"
-                className="inline-flex items-center rounded-xl bg-[#e1e8fd] px-8 py-3.5 text-sm font-semibold text-[#02254d] transition-colors hover:bg-[#dce2f7]"
+                className="ha-pill inline-flex items-center rounded-xl bg-[#e1e8fd] px-8 py-3.5 text-sm font-semibold text-[#02254d] hover:bg-[#dce2f7]"
               >
                 View Case Studies
               </a>
@@ -152,7 +153,7 @@ function BusinessesPage() {
             ].map(({ icon: Icon, iconWrap, title, items }) => (
               <article
                 key={title}
-                className="rounded-3xl border border-[#c4c6d0]/10 bg-white p-6 shadow-sm transition-shadow hover:shadow-md md:p-8"
+                className="ha-lift rounded-3xl border border-[#c4c6d0]/10 bg-white p-6 shadow-sm md:p-8"
               >
                 <div
                   className={`mb-5 flex h-12 w-12 items-center justify-center rounded-full ${iconWrap}`}
@@ -192,7 +193,7 @@ function BusinessesPage() {
             </p>
           </div>
           <div className="grid grid-cols-12 gap-5 md:gap-6">
-            <div className="group col-span-12 flex flex-col justify-between rounded-3xl border border-[#c4c6d0]/10 bg-white p-6 transition-all duration-300 hover:bg-[#02254d] md:col-span-7 md:p-10">
+            <div className="group ha-lift col-span-12 flex flex-col justify-between rounded-3xl border border-[#c4c6d0]/10 bg-white p-6 transition-colors duration-300 hover:bg-[#02254d] md:col-span-7 md:p-10">
               <div>
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-[#e9edff] transition-colors group-hover:bg-[#1f3b64] md:mb-8 md:h-14 md:w-14">
                   <Shield
@@ -217,7 +218,7 @@ function BusinessesPage() {
               </div>
             </div>
 
-            <div className="col-span-12 flex flex-col justify-center rounded-3xl bg-[#00450e] p-6 md:col-span-5 md:p-10">
+            <div className="ha-lift col-span-12 flex flex-col justify-center rounded-3xl bg-[#00450e] p-6 md:col-span-5 md:p-10">
               <div className="text-white">
                 <h3 className="mb-3 font-heading text-xl font-bold md:text-2xl">
                   Digital Brand Growth
@@ -237,7 +238,7 @@ function BusinessesPage() {
               </div>
             </div>
 
-            <div className="col-span-12 rounded-3xl bg-[#02254d] p-6 text-white md:col-span-5 md:p-10">
+            <div className="ha-lift col-span-12 rounded-3xl bg-[#02254d] p-6 text-white md:col-span-5 md:p-10">
               <h3 className="mb-3 font-heading text-xl font-bold md:text-2xl">
                 Brand Search Optimisation
               </h3>
@@ -260,7 +261,7 @@ function BusinessesPage() {
               </div>
             </div>
 
-            <div className="col-span-12 flex flex-col items-stretch gap-6 rounded-3xl border border-[#c4c6d0]/10 bg-white p-6 md:col-span-7 md:flex-row md:items-center md:gap-10 md:p-10">
+            <div className="ha-lift col-span-12 flex flex-col items-stretch gap-6 rounded-3xl border border-[#c4c6d0]/10 bg-white p-6 md:col-span-7 md:flex-row md:items-center md:gap-10 md:p-10">
               <div className="min-w-0 flex-1">
                 <h3 className="mb-3 font-heading text-xl font-bold text-[#02254d] md:text-2xl">
                   Competitor Response
@@ -304,8 +305,8 @@ function BusinessesPage() {
           </p>
           <div className="mt-8 flex flex-col items-center justify-center md:mt-10">
             <a
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-xl bg-[#78dc77] px-10 py-3.5 text-sm font-bold text-[#002204] shadow-2xl transition-colors hover:bg-[#94f990] md:px-12 md:py-4 md:text-base"
+              {...calendlyNewTabProps}
+              className="ha-pill inline-flex items-center justify-center rounded-xl bg-[#78dc77] px-10 py-3.5 text-sm font-bold text-[#002204] shadow-2xl hover:bg-[#94f990] md:px-12 md:py-4 md:text-base"
             >
               Book a Free Business Consultation
             </a>

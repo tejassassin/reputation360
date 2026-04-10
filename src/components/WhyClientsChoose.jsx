@@ -19,7 +19,7 @@ function WhyClientsChoose() {
         {items.map(({ text, icon: Icon }, i) => (
           <div
             key={i}
-            className={`cursor-pointer group rounded-xl border border-navy/10 bg-white px-5 py-5 text-center shadow-md transition-all duration-300 hover:border-green/30 hover:shadow-lg hover:-translate-y-0.5 md:w-55 md:shrink-0${i === items.length - 1 && items.length % 2 !== 0 ? " col-span-2 mx-auto w-full max-w-[calc(50%-10px)]" : ""}`}
+            className={`ha-lift group cursor-pointer rounded-xl border border-navy/10 bg-white px-5 py-5 text-center shadow-md transition-all duration-300 hover:border-green/30 hover:shadow-lg hover:-translate-y-0.5 md:w-55 md:shrink-0${i === items.length - 1 && items.length % 2 !== 0 ? " col-span-2 mx-auto w-full max-w-[calc(50%-10px)]" : ""}`}
           >
             <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-navy/8 text-green transition-colors group-hover:bg-green/15 group-hover:text-green">
               <Icon className="h-5 w-5" strokeWidth={2} />
