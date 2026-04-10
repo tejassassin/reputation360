@@ -36,29 +36,25 @@ const whatWeDoCards = [
 const timeline = [
   {
     month: "Weeks 1 to 4",
-    title: "Audit & Strategy Live",
-    text: "Deep analysis of search landscape and technical deployment of initial assets.",
+    text: "Audit complete, strategy live, initial content published and indexed.",
     icon: "1",
     iconClass: "bg-[#1f3b64] text-white",
   },
   {
     month: "Months 2 to 4",
-    title: "Measurable Movement",
-    text: "Early indexing of new content and initial ranking shifts observed in monitoring.",
+    text: "Measurable movement in rankings. Positive properties gaining traction.",
     icon: "2",
     iconClass: "bg-[#7fb4e6] text-white",
   },
   {
     month: "Months 5 to 8",
-    title: "Significant Displacement",
-    text: "Negative links begin to transition from Page 1 to Page 2 or lower.",
+    text: "Significant displacement of primary negative results for most cases.",
     icon: "3",
     iconClass: "bg-[#6f92bf] text-white",
   },
   {
     month: "Months 8 to 12",
-    title: "Substantial Transformation",
-    text: "The search landscape is fully re-architected. Long-term maintenance phase begins.",
+    text: "Substantial transformation complete. Negative content pushed well beyond visible search pages.",
     icon: "4",
     iconClass: "bg-[#95ef9e] text-[#0f3b1d]",
   },
@@ -69,10 +65,7 @@ function ServicesAbout() {
     <section className="bg-offwhite">
       <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-20 space-y-16 md:space-y-20">
         <div className="rounded-3xl bg-[#f2f5ff] px-6 py-10 md:px-12 md:py-14">
-          <span className="inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-semibold text-navy/70">
-            COMPLETE BRAND REPUTATION SYSTEM
-          </span>
-          <h2 className="mt-6 max-w-3xl font-heading text-4xl md:text-5xl leading-tight text-navy font-bold">
+          <h2 className="max-w-3xl font-heading text-4xl font-bold leading-tight text-navy md:text-5xl">
             You Worked Hard to Build Your Reputation. We Make Sure Google
             Reflects It.
           </h2>
@@ -102,7 +95,7 @@ function ServicesAbout() {
             </div>
             <div className="inline-flex items-center gap-2 rounded-lg bg-[#dff7dc] px-4 py-2 text-sm font-semibold text-[#123d1e]">
               <Settings className="h-4 w-4" />
-              <span>98% Success Rate in Tier 1 Suppression</span>
+              <span>98% success clearing page 1</span>
             </div>
           </div>
 
@@ -201,28 +194,22 @@ function ServicesAbout() {
           <h3 className="text-center font-heading text-3xl text-navy font-bold tracking-tight">
             How Long Does It Take?
           </h3>
-          <p className="text-center text-navy/70 mt-3 text-base max-w-4xl mx-auto leading-relaxed">
-            Reputation management is a marathon of precision. Here is the
-            trajectory of a typical Tier 1 engagement.
+          <p className="mx-auto mt-3 max-w-4xl text-center text-base leading-relaxed text-navy/70">
+            Search results do not reorganise overnight. Here is an honest timeline
+            for most situations.
           </p>
           <div className="mt-14 grid gap-8 md:grid-cols-4">
             {timeline.map((step) => (
-              <article
-                key={step.month}
-                className="ha-lift px-1"
-              >
+              <article key={step.month} className="ha-lift px-1">
                 <div
-                  className={`h-12 w-12 rounded-xl grid place-items-center font-semibold text-lg ${step.iconClass}`}
+                  className={`grid h-12 w-12 place-items-center rounded-xl text-lg font-semibold ${step.iconClass}`}
                 >
                   {step.icon}
                 </div>
-                <p className="mt-6 text-lg text-navy font-semibold">
+                <p className="mt-6 text-lg font-semibold text-navy">
                   {step.month}
                 </p>
-                <h4 className="mt-2 font-heading text-lg leading-tight text-navy font-semibold">
-                  {step.title}
-                </h4>
-                <div className="mt-2 h-px bg-navy/20 w-full" />
+                <div className="mt-2 h-px w-full bg-navy/20" />
                 <p className="mt-4 text-base leading-relaxed text-navy/75">
                   {step.text}
                 </p>
