@@ -24,6 +24,7 @@ const navItems = [
       { name: "Job Seekers", link: "/services/job-seekers" },
       { name: "Doctors", link: "/services/doctors" },
       { name: "Lawyers and Attorneys", link: "/services/lawyers" },
+      { name: "Executives", link: "/services/executives" },
     ],
   },
   { name: "Case Studies", link: "/case-studies" },
