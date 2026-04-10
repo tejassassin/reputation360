@@ -64,7 +64,7 @@ function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green"></span>
             </span>
             <span className="font-body text-xs sm:text-sm text-white/90">
-              Trusted by 1,700+ clients globally
+              Trusted by 1,100+ clients globally
             </span>
           </div>
 
@@ -118,7 +118,7 @@ function Hero() {
             <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">
               <p className="font-heading font-bold text-xl sm:text-3xl lg:text-5xl text-green mb-0.5 lg:mb-1">
-                <StatNumber end={13} start={statsInView} />
+                <StatNumber end={7} start={statsInView} />
               </p>
               <p className="font-heading font-semibold text-white text-[9px] sm:text-xs lg:text-sm uppercase tracking-wider mb-0.5">
                 Years of Experience
@@ -146,7 +146,7 @@ function Hero() {
             <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">
               <p className="font-heading font-bold text-xl sm:text-3xl lg:text-5xl text-green mb-0.5 lg:mb-1">
-                <StatNumber end={1700} suffix="+" start={statsInView} />
+                <StatNumber end={1100} suffix="+" start={statsInView} />
               </p>
               <p className="font-heading font-semibold text-white text-[9px] sm:text-xs lg:text-sm uppercase tracking-wider mb-0.5">
                 Happy Clients

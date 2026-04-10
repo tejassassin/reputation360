@@ -19,7 +19,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 Fonts - 
 1. Inter - Primary Brand Font
-Use Inter for: Headlines, Section titles, CTAs, Navigation, Metrics (“97% success rate”, “13+ years”)
+Use Inter for: Headlines, Section titles, CTAs, Navigation, Metrics (“97% success rate”, “7+ years”)
 Suggested weights: 700 (Bold) → Hero headlines, 600 (SemiBold) → Section headings, 500 (Medium) → CTAs, labels
 
 2. Source Sans 3 - Secondary (Body) Font

@@ -20,7 +20,7 @@ function WhatWeDo() {
           </h2>
           <p className="font-body text-steel text-lg leading-relaxed mb-4">
             Reputation360 helps individuals and brands take control of how they
-            are perceived online. With 13 years of hands-on experience in online
+            are perceived online. With seven years of hands-on experience in online
             reputation management, SEO, branding, content strategy, and digital
             marketing, we build reputations that are credible, resilient, and
             built to last.

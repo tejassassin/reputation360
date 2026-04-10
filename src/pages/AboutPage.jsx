@@ -62,7 +62,7 @@ function AboutPage() {
               internet portrayed them.
             </p>
             <p className="mt-4 text-[15px] leading-relaxed text-[#43474e] md:mt-5 md:text-[16px]">
-              Over 13 years and more than 1,700 client engagements, we have built
+              Over seven years and more than 1,100 client engagements, we have built
               the expertise, methodology, and track record to change that. Our
               team works across reputation management, SEO, content strategy,
               branding, and digital growth - because lasting reputation health
@@ -71,7 +71,7 @@ function AboutPage() {
           </div>
           <div className="flex flex-col items-center justify-center rounded-3xl bg-[#02254d] p-8 text-center text-white md:col-span-4 md:p-10">
             <span className="font-heading text-5xl font-extrabold text-[#78dc77] md:text-6xl">
-              13
+              7
             </span>
             <span className="mt-2 text-[10px] font-semibold uppercase tracking-widest opacity-90 md:text-xs">
               Years of Expertise
@@ -79,7 +79,7 @@ function AboutPage() {
           </div>
           <div className="flex flex-col items-center justify-center rounded-3xl bg-[#dce2f7] p-8 text-center md:col-span-4 md:p-10">
             <span className="font-heading text-5xl font-extrabold text-[#02254d] md:text-6xl">
-              1,700+
+              1,100+
             </span>
             <span className="mt-2 text-[10px] font-semibold uppercase tracking-widest text-[#43474e] md:text-xs">
               Engagements Completed

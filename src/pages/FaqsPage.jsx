@@ -78,7 +78,7 @@ function FaqsPage() {
           <div className="grid w-full max-w-4xl grid-cols-1 gap-6 md:grid-cols-3">
             <div className="rounded-full border border-[#E5E7EB]/50 bg-[#E8EDF4] p-8 text-center">
               <div className="font-headline-faq mb-1 text-4xl font-extrabold text-[#1F3B64]">
-                13+
+                7+
               </div>
               <div className="font-body text-sm tracking-wide text-[#6B7280]">
                 Years Experience
@@ -86,7 +86,7 @@ function FaqsPage() {
             </div>
             <div className="rounded-full border border-[#2E5B88]/20 bg-[#2E5B88]/10 p-8 text-center">
               <div className="font-headline-faq mb-1 text-4xl font-extrabold text-[#2E5B88]">
-                1,700+
+                1,100+
               </div>
               <div className="font-body text-sm tracking-wide text-[#6B7280]">
                 Client Engagements
@@ -297,7 +297,7 @@ function FaqsPage() {
                 providing you with transparent monthly progress reports.
               </FaqAccordion>
               <FaqAccordion question="Do you work with individuals as well as businesses?">
-                Yes. Over 13 years and 1,700+ engagements, we have worked with
+                Yes. Over seven years and 1,100+ engagements, we have worked with
                 Fortune 500 CEOs, public figures, and private individuals, as
                 well as mid-sized to large corporations. Whether the target
                 search term is a personal name or a global brand, the technical

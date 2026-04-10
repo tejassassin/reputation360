@@ -69,7 +69,7 @@ function InsightsBlogsPage() {
 
   useEffect(() => {
     const previous = document.title;
-    document.title = "Insights From 13 Years of Reputation Work | Reputation360";
+    document.title = "Insights From Seven Years of Reputation Work | Reputation360";
     return () => {
       document.title = previous;
     };
@@ -95,7 +95,7 @@ function InsightsBlogsPage() {
               <span>Expert Insights</span>
             </div>
             <h1 className="font-insights-headline mb-8 text-5xl leading-tight font-extrabold tracking-tight text-[#02254d] md:text-6xl">
-              Insights From 13 Years of <br />
+              Insights From Seven Years of <br />
               <span className="text-[#35618e]">Reputation Work</span>
             </h1>
             <p className="max-w-2xl text-xl leading-relaxed font-light text-[#43474e]">
