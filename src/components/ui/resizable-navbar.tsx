@@ -131,7 +131,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       {items.map((item, idx) => (
         <div
           onMouseEnter={() => setHovered(idx)}
-          className="relative"
+          className={cn("relative", idx === 0 && "ml-8 lg:ml-14")}
           key={`link-${idx}`}
         >
           <a
@@ -267,7 +267,7 @@ export const NavbarLogo = ({
   return (
     <a
       href="/"
-      className="relative z-20 mr-4 flex items-center gap-2 px-[-50px] py-1 text-white font-heading font-bold text-xl"
+      className="relative z-20 mr-6 flex shrink-0 items-center gap-2 py-1 pr-2 text-white font-heading font-bold text-xl lg:mr-10"
     >
       {logoSrc ? (
         <div className="w-13 h-13  rounded-full bg-white flex items-center justify-center shrink-0 pl-0.5">
