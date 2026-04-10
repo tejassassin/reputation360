@@ -29,7 +29,7 @@ function AboutPage() {
       <section className="relative overflow-hidden bg-[#f1f3ff] px-4 pb-14 pt-10 md:px-8 md:pb-18 md:pt-14">
         <div className="relative z-10 mx-auto max-w-6xl">
           <h1 className="max-w-4xl font-heading text-[30px] font-bold leading-[1.1] tracking-tight text-[#02254d] md:text-[40px] lg:text-[44px]">
-            We Have Been Protecting Reputations Since 2013.{" "}
+            We Have Been Protecting Reputations Since 2007.{" "}
             <br className="hidden sm:block" />
             <span className="bg-gradient-to-br from-[#02254d] to-[#35618e] bg-clip-text text-transparent">
               Here Is What We Have Learned.
@@ -58,7 +58,7 @@ function AboutPage() {
             <p className="mt-4 text-[15px] leading-relaxed text-[#43474e] md:text-[16px]">
               Reputation360 was founded on a singular observation: judgments are
               formed via search engines long before a conversation begins. In
-              2013, we saw a gap between who leaders truly are and how the
+              2007, we saw a gap between who leaders truly are and how the
               internet portrayed them.
             </p>
             <p className="mt-4 text-[15px] leading-relaxed text-[#43474e] md:mt-5 md:text-[16px]">

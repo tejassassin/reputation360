@@ -22,7 +22,7 @@ function Footer() {
             </div>
             <p className="font-body text-white/60 text-sm max-w-xs">
               Your trusted partner in building and protecting online reputation
-              since 2013.
+              since 2007.
             </p>
           </div>
           <div>
