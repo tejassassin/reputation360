@@ -31,16 +31,9 @@ function WhoWeWorkWith() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 md:px-8 lg:py-20">
       <div className="mb-12 text-center md:mb-16">
-        <span className="mb-4 block text-xs font-bold tracking-widest text-[#78dc77] uppercase">
-          Tailored Strategies
-        </span>
-        <h2 className="font-heading mb-5 text-4xl font-extrabold tracking-tight text-[#02254d] md:text-5xl">
+        <h2 className="font-heading text-4xl font-extrabold tracking-tight text-[#02254d] md:text-5xl">
           Who we work with
         </h2>
-        <p className="mx-auto max-w-2xl text-lg leading-relaxed text-[#43474e]">
-          Precision reputation management crafted for those whose digital
-          footprint is their most valuable asset.
-        </p>
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
