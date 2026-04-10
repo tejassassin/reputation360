@@ -102,7 +102,7 @@ function BusinessesPage() {
               <p>
                 A negative article, an aggressive review, or a complaint ranking
                 above your own website can quietly redirect business away from
-                you every day — without you ever knowing it is happening.
+                you every day - without you ever knowing it is happening.
               </p>
             </div>
           </div>
@@ -180,7 +180,7 @@ function BusinessesPage() {
         </div>
       </section>
 
-      {/* Bento — What Reputation360 Does */}
+      {/* Bento - What Reputation360 Does */}
       <section className="bg-[#f1f3ff] px-4 py-14 md:px-8 md:py-18">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 md:mb-12">

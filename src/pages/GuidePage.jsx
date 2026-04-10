@@ -39,7 +39,7 @@ function GuidePage() {
 
   return (
     <div className="guide-page bg-[#f9f9ff] text-[#141b2b]">
-      {/* Hero — site header is fixed; pt clears it */}
+      {/* Hero - site header is fixed; pt clears it */}
       <header className="relative overflow-hidden px-4 pb-24 pt-28 md:px-8 md:pt-32">
         <div className="mx-auto flex max-w-7xl flex-col items-center text-center">
           <div className="z-10">
@@ -172,7 +172,7 @@ function GuidePage() {
             </div>
           </section>
 
-          {/* Chapter 2 — Bento (HTML maps sidebar “Brand Auditing” to this block) */}
+          {/* Chapter 2 - Bento (HTML maps sidebar “Brand Auditing” to this block) */}
           <section className="scroll-mt-32" id="ch2">
             <div className="mb-8 flex items-baseline gap-4">
               <span className="font-guide-headline text-6xl leading-none font-black text-[#78dc77]/40">

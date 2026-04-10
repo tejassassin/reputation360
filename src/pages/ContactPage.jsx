@@ -38,7 +38,7 @@ function ContactPage() {
 
   function handleEmailSubmit(e) {
     e.preventDefault();
-    const subject = encodeURIComponent("Contact inquiry — Reputation360");
+    const subject = encodeURIComponent("Contact inquiry - Reputation360");
     const body = encodeURIComponent(
       `Name: ${name}\nBest time to reach: ${bestTime}\n\n${briefNote}`,
     );

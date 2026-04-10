@@ -68,7 +68,7 @@ function FaqsPage() {
           </span>
           <h1 className="font-headline-faq mb-8 max-w-5xl text-4xl leading-[1.1] font-extrabold tracking-tighter text-[#1F3B64] md:text-6xl lg:text-7xl">
             Your online reputation is not something that just happens to you.{" "}
-            <span className="text-[#2E5B88]">It is built</span> — either
+            <span className="text-[#2E5B88]">It is built</span> - either
             deliberately or by default.
           </h1>
           <p className="mb-12 max-w-2xl text-lg font-light text-[#6B7280] md:text-xl">
@@ -141,8 +141,8 @@ function FaqsPage() {
               <FaqAccordion question="How does suppression actually work? What is happening behind the scenes?">
                 Suppression uses a displacement strategy based on three pillars:
                 authority, relevance, and freshness. We develop a network of
-                high-authority assets—think major news outlets, professional
-                profiles, and curated websites—that search engines naturally
+                high-authority assets-think major news outlets, professional
+                profiles, and curated websites-that search engines naturally
                 prefer. By optimizing these assets to be more relevant and
                 &quot;fresher&quot; than negative content, we push undesirable
                 links down to the deeper pages of search results where they are
@@ -173,7 +173,7 @@ function FaqsPage() {
                 typically applies to content that violates platform terms of
                 service, contains copyrighted material, or is subject to
                 &quot;Right to be Forgotten&quot; laws. If content is legally
-                defensible by the publisher, we pivot to suppression—ensuring
+                defensible by the publisher, we pivot to suppression-ensuring
                 that even if it exists, it does not impact your reputation.
               </FaqAccordion>
               <FaqAccordion question="Can a negative news article be removed from Google?">
@@ -232,7 +232,7 @@ function FaqsPage() {
               </FaqAccordion>
               <FaqAccordion question="What if results do not move as expected?">
                 Algorithms are dynamic. If movement stalls, we conduct a deep-dive
-                re-assessment and adapt our strategy—pivoting content themes or
+                re-assessment and adapt our strategy-pivoting content themes or
                 increasing PR outreach. Our 97% success rate across active
                 campaigns is a result of this persistence; we don&apos;t stop
                 until the target search landscape is achieved.
@@ -250,7 +250,7 @@ function FaqsPage() {
             <FaqSection id="section-4" title="Compliance & Ethics">
               <FaqAccordion question={"Is what you do compliant with Google's guidelines?"}>
                 Yes. We operate 100% &quot;white-hat.&quot; Our methodology is
-                built on providing genuine value to the web—creating authentic
+                built on providing genuine value to the web-creating authentic
                 content, earning real mentions from authoritative sites, and
                 improving the accuracy of information. We do not use bots, link
                 farms, or deceptive tactics that could lead to penalties.
@@ -279,7 +279,7 @@ function FaqsPage() {
                 search results. We&apos;ll identify the technical reasons for
                 negative content ranking, assess the &quot;strength&quot; of
                 those links, and provide a high-level roadmap of how we would
-                address them. There is no pressure—just data-backed insight
+                address them. There is no pressure-just data-backed insight
                 into your specific situation.
               </FaqAccordion>
               <FaqAccordion question="How quickly can work begin after I decide to proceed?">

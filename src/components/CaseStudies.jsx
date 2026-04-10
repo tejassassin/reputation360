@@ -40,7 +40,7 @@ const caseStudies = [
         "Distributor confidence and inbound sales inquiries stabilized",
       ],
       impact:
-        "The business regained control of its online narrative while maintaining transparency. Search results reflected a resolved product issue, not a failing brand—allowing the company to move forward without long-term reputational drag.",
+        "The business regained control of its online narrative while maintaining transparency. Search results reflected a resolved product issue, not a failing brand-allowing the company to move forward without long-term reputational drag.",
     },
   },
 

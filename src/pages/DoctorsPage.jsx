@@ -149,7 +149,7 @@ function DoctorsPage() {
             <div className="flex w-full shrink-0 justify-center md:justify-end">
               <img
                 src="/doctors-hud-card.png"
-                alt="Clinical excellence — safe protocols and 100% client confidentiality"
+                alt="Clinical excellence - safe protocols and 100% client confidentiality"
                 width={705}
                 height={634}
                 className="block h-auto w-full max-w-[440px]"

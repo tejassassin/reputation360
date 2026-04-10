@@ -292,7 +292,7 @@ function JobSeekersPage() {
                 {
                   num: "01",
                   title: "Audit",
-                  text: "We run the same search a recruiter would run and show you exactly what they see—no filters, just reality.",
+                  text: "We run the same search a recruiter would run and show you exactly what they see-no filters, just reality.",
                 },
                 {
                   num: "02",

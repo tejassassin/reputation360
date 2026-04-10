@@ -224,7 +224,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* Hover affordance — cards, tabs, pills, nav targets (respect reduced motion) */
+/* Hover affordance - cards, tabs, pills, nav targets (respect reduced motion) */
 /* -------------------------------------------------------------------------- */
 .ha-lift {
   transition:

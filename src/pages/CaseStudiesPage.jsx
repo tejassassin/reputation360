@@ -90,7 +90,7 @@ const cases = [
       },
       {
         title: "Strategy",
-        text: "Deployment of 'Authority Sites'—highly-indexed personal domain networks that featured verifiable credentials, verified white papers, and historical performance audits.",
+        text: "Deployment of 'Authority Sites'-highly-indexed personal domain networks that featured verifiable credentials, verified white papers, and historical performance audits.",
       },
     ],
     linkText: "Examine Digital Shield",

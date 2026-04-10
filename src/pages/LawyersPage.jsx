@@ -65,8 +65,8 @@ function LawyersPage() {
             </div>
             <p className="mt-3 text-[14px] font-medium leading-[1.6] text-[#1a2b4b] md:text-[15px]">
               Prospective clients and referral sources search your name first.
-              What they see—bar complaints, unflattering case coverage, or thin
-              directory profiles—often decides whether you ever get the
+              What they see-bar complaints, unflattering case coverage, or thin
+              directory profiles-often decides whether you ever get the
               conversation.
             </p>
             <div className="mt-8 space-y-3">
@@ -261,7 +261,7 @@ function LawyersPage() {
             </h3>
             <p className="mt-3 text-[14px] leading-[1.65] text-white/75 md:text-[15px]">
               We publish authoritative legal commentary and professional insight
-              pieces in your name — content that positions you as the credible
+              pieces in your name - content that positions you as the credible
               choice and the leading expert in your specific practice area.
             </p>
             <ul className="mt-6 space-y-3">

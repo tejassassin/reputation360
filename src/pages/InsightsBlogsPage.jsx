@@ -100,7 +100,7 @@ function InsightsBlogsPage() {
             </h1>
             <p className="max-w-2xl text-xl leading-relaxed font-light text-[#43474e]">
               No recycled advice. No generic lists. Every article here is
-              written by practitioners with real client experience — covering the
+              written by practitioners with real client experience - covering the
               topics that matter most to professionals, executives, and
               businesses navigating online reputation in 2026.
             </p>

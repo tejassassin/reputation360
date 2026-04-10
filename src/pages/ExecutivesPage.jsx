@@ -11,7 +11,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-/* Reference imagery (AIDA exports) — same assets as provided HTML */
+/* Reference imagery (AIDA exports) - same assets as provided HTML */
 const heroImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDGa7p06z_2IPtxtlwdSmPcAYw1vGdkQs4ZB9-JThiL4ULvzVIiZtiHrt_BkuNBpnoNnZb69DUDcgcCDPZIGpszaKn3S0tzQ7tM-Z2ZGGjYCG4CxDTyO3Gh8MmoVSgSc99sYjivVzoI32DRfY7YVLjtksQEgUeyA1ZVHbsp80NRg847rPim2gcG1VDpitr-KxKOUx-iqGmqhwyxGfZrifVChfoFZBuzD8mUe-jNjH1ZjyNS0IOpxS6TwfmvhOodgs8KBUAg9YpMmUI";
 const narrativeImage =
@@ -28,7 +28,7 @@ function ExecutivesPage() {
 
   return (
     <main className="flex-1 bg-[#f9f9ff] pt-28 md:pt-32">
-      {/* Hero — type scale aligned with Lawyers / other industry pages */}
+      {/* Hero - type scale aligned with Lawyers / other industry pages */}
       <section className="relative flex min-h-[58vh] items-center overflow-hidden py-10 md:min-h-[62vh] md:py-14">
         <div className="absolute inset-0 z-0">
           <img
@@ -192,7 +192,7 @@ function ExecutivesPage() {
               {
                 icon: BarChart3,
                 title: "Full digital audit",
-                text: "We analyse your complete search footprint — name, company associations, past ventures, media coverage — and map every threat and opportunity.",
+                text: "We analyse your complete search footprint - name, company associations, past ventures, media coverage - and map every threat and opportunity.",
               },
               {
                 icon: Shield,
@@ -202,7 +202,7 @@ function ExecutivesPage() {
               {
                 icon: Star,
                 title: "Executive presence building",
-                text: "LinkedIn optimisation, thought leadership content, media profile building — we build a digital presence that reflects your authority and status.",
+                text: "LinkedIn optimisation, thought leadership content, media profile building - we build a digital presence that reflects your authority and status.",
               },
             ].map(({ icon: Icon, title, text }) => (
               <div key={title} className="space-y-4 md:space-y-5">

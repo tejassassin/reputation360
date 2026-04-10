@@ -390,7 +390,7 @@ const servicesCards = [
     content: () => {
       return (
         <p>
-          We help your audience recognize your brand the way you intend —
+          We help your audience recognize your brand the way you intend -
           building connection, trust, and momentum for growth.
         </p>
       );

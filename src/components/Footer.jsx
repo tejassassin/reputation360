@@ -70,7 +70,7 @@ function Footer() {
                   href="mailto:hello@reputation360.in"
                   className="ha-nudge inline-block rounded px-0.5 transition-colors hover:text-green"
                 >
-                  Contact us — hello@reputation360.in
+                  Contact us - hello@reputation360.in
                 </a>
               </li>
               <li>

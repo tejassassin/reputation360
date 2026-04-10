@@ -14,9 +14,6 @@ import { calendlyNewTabProps } from "../constants/scheduling";
 const skylineImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDFuOG9-w2ZZQdESOpWQNLPhhZ0Rtqn3ZhPA9rSRGp1yGAvsowBQkLxfwNqdYXTNMolIFO4cyyPLah9wO0_PhwJokPIIph_IHpvVbWJ48plfCys1CX8P4OexI_LsyzWv8QUdtw8GUCBE9zaOg3GeKXtDXLtlt2f0q8rSig128ia4NaUAfx-ZVCseb--IoGIyteiHcXimJ6dUSv-MphcdyDRZI0dv8e5o-3A1Mdt2dnZf-AdVpvbmBEQSUOQebieElsnXy8q70sdEP4";
 
-const whatWeDoImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBRHmGYx5k8Y9IXmjz0qp0z0FrHQSilFyoFc3BwdyrViCUn7S5sV8WMamWnYcOD5voesOdWy0sidVp3Ip49wU01_CrxIsz2EB_WCWbmPDih4_E8spKuU9Uv4NeELrTkcZFwEv9_bbwZq0z-SI_R2qhggQuZXH3O9xLHlMX02BhtfXeiKflznBVJDSScOYq6gJR_dnr9Ij9iQFeJWVV1n2GOYoMIoBWb5SYPrXKhT6JP4-_l3B-5m0ZkpGIs2oMyntqHW2LMxhnZlw4";
-
 function AboutPage() {
   useEffect(() => {
     const previous = document.title;
@@ -31,9 +28,6 @@ function AboutPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#f1f3ff] px-4 pb-14 pt-10 md:px-8 md:pb-18 md:pt-14">
         <div className="relative z-10 mx-auto max-w-6xl">
-          <span className="mb-4 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#56b958] md:mb-5 md:text-xs">
-            Established 2013
-          </span>
           <h1 className="max-w-4xl font-heading text-[30px] font-bold leading-[1.1] tracking-tight text-[#02254d] md:text-[40px] lg:text-[44px]">
             We Have Been Protecting Reputations Since 2013.{" "}
             <br className="hidden sm:block" />
@@ -71,7 +65,7 @@ function AboutPage() {
               Over 13 years and more than 1,700 client engagements, we have built
               the expertise, methodology, and track record to change that. Our
               team works across reputation management, SEO, content strategy,
-              branding, and digital growth — because lasting reputation health
+              branding, and digital growth - because lasting reputation health
               requires all of these working together.
             </p>
           </div>
@@ -147,61 +141,46 @@ function AboutPage() {
 
       {/* What We Do */}
       <section className="bg-[#f9f9ff] px-4 py-14 md:px-8 md:py-18">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 md:flex-row md:gap-14 lg:gap-16">
-          <div className="w-full md:w-1/2">
-            <div className="relative aspect-square overflow-hidden rounded-3xl">
-              <img
-                alt="Abstract network visualization"
-                className="h-full w-full object-cover"
-                src={whatWeDoImage}
-              />
-              <div
-                className="absolute inset-0 bg-gradient-to-tr from-[#02254d]/40 to-transparent"
-                aria-hidden
-              />
-            </div>
-          </div>
-          <div className="w-full md:w-1/2">
-            <h2 className="font-heading text-[26px] font-bold text-[#02254d] md:text-[32px]">
-              What We Do
-            </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-[#43474e] md:mt-6 md:text-[16px] lg:text-lg">
-              We don&apos;t just &ldquo;remove links.&rdquo; We take a holistic
-              digital presence approach that recalibrates how you are perceived
-              globally.
-            </p>
-            <ul className="mt-6 space-y-5 md:mt-8 md:space-y-6">
-              {[
-                {
-                  title: "Strategic Suppression",
-                  text: "Moving outdated or inaccurate information where it can no longer harm your trajectory.",
-                },
-                {
-                  title: "Authority Building",
-                  text: "Curation of a digital footprint that reflects your true professional standing.",
-                },
-                {
-                  title: "Constant Monitoring",
-                  text: "Real-time alerts and rapid response teams for emerging threats.",
-                },
-              ].map((item) => (
-                <li key={item.title} className="flex items-start gap-3 md:gap-4">
-                  <CheckCircle2
-                    className="mt-0.5 h-5 w-5 shrink-0 text-[#56b958] md:h-6 md:w-6"
-                    strokeWidth={2}
-                  />
-                  <div>
-                    <h4 className="font-heading font-bold text-[#02254d]">
-                      {item.title}
-                    </h4>
-                    <p className="mt-1 text-[14px] text-[#43474e] md:text-[15px]">
-                      {item.text}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="font-heading text-[26px] font-bold text-[#02254d] md:text-[32px]">
+            What We Do
+          </h2>
+          <p className="mt-4 text-[15px] leading-relaxed text-[#43474e] md:mt-6 md:text-[16px] lg:text-lg">
+            We don&apos;t just &ldquo;remove links.&rdquo; We take a holistic
+            digital presence approach that recalibrates how you are perceived
+            globally.
+          </p>
+          <ul className="mx-auto mt-8 max-w-xl space-y-5 text-left md:mt-10 md:space-y-6">
+            {[
+              {
+                title: "Strategic Suppression",
+                text: "Moving outdated or inaccurate information where it can no longer harm your trajectory.",
+              },
+              {
+                title: "Authority Building",
+                text: "Curation of a digital footprint that reflects your true professional standing.",
+              },
+              {
+                title: "Constant Monitoring",
+                text: "Real-time alerts and rapid response teams for emerging threats.",
+              },
+            ].map((item) => (
+              <li key={item.title} className="flex items-start gap-3 md:gap-4">
+                <CheckCircle2
+                  className="mt-0.5 h-5 w-5 shrink-0 text-[#56b958] md:h-6 md:w-6"
+                  strokeWidth={2}
+                />
+                <div>
+                  <h4 className="font-heading font-bold text-[#02254d]">
+                    {item.title}
+                  </h4>
+                  <p className="mt-1 text-[14px] text-[#43474e] md:text-[15px]">
+                    {item.text}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -306,7 +285,7 @@ function AboutPage() {
             </p>
             <a
               {...calendlyNewTabProps}
-              className="mt-8 inline-block rounded-full bg-[#02254d] px-10 py-3.5 text-sm font-bold text-white shadow-xl shadow-[#02254d]/20 transition-all hover:bg-[#35618e] active:scale-[0.98] md:mt-10 md:px-12 md:py-4 md:text-base"
+              className="mt-8 inline-block rounded-full border-2 border-[#02254d] bg-white px-10 py-3.5 text-sm font-bold text-[#02254d] shadow-md transition-colors duration-200 hover:bg-[#02254d] hover:text-white active:scale-[0.98] md:mt-10 md:px-12 md:py-4 md:text-base"
             >
               Book a Free Consultation
             </a>
