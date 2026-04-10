@@ -4,28 +4,28 @@ import React from "react";
 const STEPS = [
   {
     num: "01",
-    label: "1. Audit –",
+    label: "Audit",
     text: "We assess your current search results and risks",
     square: "bg-[#1d3557]",
     notchUp: "border-b-[#0f2438]",
   },
   {
     num: "02",
-    label: "2. Strategy –",
+    label: "Strategy",
     text: "A custom plan based on your goals and urgency",
     square: "bg-[#5cb85c]",
     notchUp: "border-b-[#3a703a]",
   },
   {
     num: "03",
-    label: "3. Execution –",
+    label: "Execution",
     text: "SEO-driven content, authority building & asset control",
     square: "bg-[#1b75bb]",
     notchUp: "border-b-[#0f4a73]",
   },
   {
     num: "04",
-    label: "4. Monitoring –",
+    label: "Monitoring",
     text: "Ongoing tracking and adjustments",
     square: "bg-[#45b39d]",
     notchUp: "border-b-[#2a7a6b]",
@@ -42,9 +42,9 @@ function RibbonSquare({ num, square, notchUp }) {
           aria-hidden
         />
         <div
-          className={`relative z-10 flex h-[5.75rem] w-[5.75rem] items-center justify-center sm:h-[6.25rem] sm:w-[6.25rem] ${square} shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_3px_8px_rgba(0,0,0,0.2)]`}
+          className={`relative z-10 flex h-[4.75rem] w-[4.75rem] items-center justify-center sm:h-20 sm:w-20 ${square} shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_3px_8px_rgba(0,0,0,0.2)]`}
         >
-          <span className="font-heading text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+          <span className="font-heading text-xl font-bold tracking-tight text-white sm:text-2xl">
             {num}
           </span>
         </div>
@@ -74,7 +74,7 @@ function HowItWorks() {
               square={step.square}
               notchUp={step.notchUp}
             />
-            <h3 className="font-heading mt-5 text-base font-bold text-[#1d3557]">
+            <h3 className="font-heading mt-5 text-xl font-bold text-[#1d3557]">
               {step.label}
             </h3>
             <p className="font-body mt-2 max-w-xs text-sm leading-relaxed text-[#43474e]">
@@ -87,9 +87,9 @@ function HowItWorks() {
       {/* Desktop: horizontal bar + four columns */}
       <div className="relative mx-auto hidden max-w-6xl px-6 md:block lg:px-10">
         {/* Continuous track (same navy as step 01) */}
-        {/* Bar centered on squares (sm: 6.25rem tall → center 3.125rem; bar h-4) */}
+        {/* Bar centered on squares (sm: 5rem tall → center 2.5rem; bar h-4 → top 2rem) */}
         <div
-          className="pointer-events-none absolute left-8 right-8 top-[2.625rem] z-0 h-4 rounded-[2px] bg-[#1d3557] lg:left-12 lg:right-12"
+          className="pointer-events-none absolute left-8 right-8 top-[2rem] z-0 h-4 rounded-[2px] bg-[#1d3557] lg:left-12 lg:right-12"
           aria-hidden
         />
 
@@ -104,7 +104,7 @@ function HowItWorks() {
                 square={step.square}
                 notchUp={step.notchUp}
               />
-              <h3 className="font-heading mt-6 text-[15px] font-bold leading-snug text-[#1d3557] lg:text-base">
+              <h3 className="font-heading mt-6 text-xl font-bold leading-snug text-[#1d3557] lg:text-2xl">
                 {step.label}
               </h3>
               <p className="font-body mt-2 max-w-[11.5rem] text-[13px] leading-relaxed text-[#43474e] lg:max-w-[13rem] lg:text-sm">
