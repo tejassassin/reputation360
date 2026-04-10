@@ -23,6 +23,7 @@ const navItems = [
       { name: "Financial Advisors", link: "/services/financial-advisors" },
       { name: "Job Seekers", link: "/services/job-seekers" },
       { name: "Doctors", link: "/services/doctors" },
+      { name: "Lawyers and Attorneys", link: "/services/lawyers" },
     ],
   },
   { name: "Case Studies", link: "/case-studies" },
