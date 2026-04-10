@@ -15,10 +15,15 @@ import logo from "../assets/Logo_360.png";
 const navItems = [
   { name: "Home", link: "/" },
   { name: "About", link: "/about" },
+  { name: "Services", link: "/services" },
   {
-    name: "Services",
-    link: "/services",
-    children: [{ name: "Financial Advisors", link: "/services/financial-advisors" }],
+    name: "Industry",
+    link: "/services/financial-advisors",
+    children: [
+      { name: "Financial Advisors", link: "/services/financial-advisors" },
+      { name: "Job Seekers", link: "/services/job-seekers" },
+      { name: "Doctors", link: "/services/doctors" },
+    ],
   },
   { name: "Case Studies", link: "/case-studies" },
   { name: "Contact", link: "/contact" },
