@@ -10,6 +10,7 @@ import JobSeekersPage from "./pages/JobSeekersPage.jsx";
 import DoctorsPage from "./pages/DoctorsPage.jsx";
 import LawyersPage from "./pages/LawyersPage.jsx";
 import ExecutivesPage from "./pages/ExecutivesPage.jsx";
+import BusinessesPage from "./pages/BusinessesPage.jsx";
 import CaseStudiesPage from "./pages/CaseStudiesPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 
@@ -24,6 +25,7 @@ else if (normalizedPath === "/services/job-seekers") page = <JobSeekersPage />;
 else if (normalizedPath === "/services/doctors") page = <DoctorsPage />;
 else if (normalizedPath === "/services/lawyers") page = <LawyersPage />;
 else if (normalizedPath === "/services/executives") page = <ExecutivesPage />;
+else if (normalizedPath === "/services/businesses") page = <BusinessesPage />;
 else if (normalizedPath === "/case-studies") page = <CaseStudiesPage />;
 else if (normalizedPath === "/contact") page = <ContactPage />;
 
