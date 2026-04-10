@@ -1,16 +1,309 @@
 import { useEffect } from "react";
-import {
-  AlertTriangle,
-  Target,
-  Stethoscope,
-  Monitor,
-  CheckCircle2,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-const case01Image =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDIw5emNnB4e2MmRFAADZOqnx8MTS3Ub41fhDl4ak4FuSeLgdLcJHRuCmLcnaSyXMNlDkkIcud_yRMlKDdsSAsGqba9TiayM-O2FQpzyRn3MtQIJcvz-sLKK0jLUZ2SIbQI90RcnffEvY7wBWkLc8GKsgMSN0GmsFA-pY9OaohIpGyA_4SGC8gOLGF86J1s9PN6zQergg-pV15v1vWpd1-mYm2wq4ap_pvjWcuO3h1J7WqmjCgtRXQYFllgrnz64WuP5mQRtifZ7Ww";
+const cases = [
+  {
+    tag: "Product Crisis",
+    title: "Rebuilding Trust After a Product Crisis",
+    meta: {
+      Industry: "Consumer Tech",
+      Duration: "8 Months",
+      Profile: "SaaS Enterprise",
+      Challenge: "Global Recall",
+    },
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCtXKFAY42IBbvAzbljXQqubiqxJanQZYgYkIHrthKu-yS7cGGER4cZ9tlN1FkGMS5MCIVtu7RfQ81mNLrQ_80rL8NjkCdifolS93NuPYc0jgjeH8VIyEXhjVjuIGqNMxH0ePnWVO55z-9r1vxKIvx_fdRNKPKacx0da-8YoHy_GsjMJMbJbsMxBwrBWEbXCeW3fldA9KJ6vl-X649oV7R_jdm8whkEeEgOshDbSxpj1S13S9hVs1Yv7Y8AYOf1c1kE0XdjOdRnRoE",
+    imageAlt: "Server hardware with blue lighting in a corporate environment",
+    metric: {
+      position: "bottom-right",
+      variant: "green",
+      main: "94%",
+      sub: "Negative Results Suppressed",
+    },
+    columns: [
+      {
+        title: "The Challenge",
+        text: "A widespread software security vulnerability led to a global product recall, resulting in thousands of negative press articles and a 40% drop in brand sentiment across search engines.",
+      },
+      {
+        title: "The Result",
+        text: "Restored Page 1 neutrality within 6 months. Developed an authoritative transparency portal that now serves as the primary source of truth for industry security standards.",
+      },
+    ],
+    linkText: "Read Comprehensive Analysis",
+    imageFirst: false,
+  },
+  {
+    tag: "Executive/Founder",
+    title: "Executive & Founder Reputation Management",
+    meta: {
+      Industry: "Private Equity",
+      Duration: "12 Months",
+      Profile: "UHNW Individual",
+      Challenge: "Legal Legacy",
+    },
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuANTdQzlT2R0BH3fbV0RG0HAtDHvIDBgVaKdMderHa-_zgiqqulDo5qUE6sgc613ZHxawB3pE-ju1Rt4K259i5EbED6uRIkY0ixn5JVQypQ0vypLvuhoqxGEuCg5zGHJ__56lyfB8iQuGW_KXEkCLtRM9ITV_dPpulmMFNKxpRBYa7F5XTSEXiKyxpyMHl0kQABKaClGEZijdJauIl1SM7MlMPQHQLPiLhZrhNqqsfTraZtY3y4ztzUClVQBrrf13ejNGz6nUPmkqQ",
+    imageAlt: "Executive office with city view at dusk",
+    metric: {
+      position: "top-left",
+      variant: "navy",
+      main: "#1",
+      sub: "Ranking for Primary Bio",
+    },
+    columns: [
+      {
+        title: "The Strategy",
+        text: "Aggressive content creation focusing on the founder's philanthropic efforts and industry thought leadership to push down legacy dispute articles from previous legal battles.",
+      },
+      {
+        title: "Impact",
+        text: "Achieved complete control over the first two pages of search results. Investor confidence scores increased by 65% during the subsequent funding round.",
+      },
+    ],
+    linkText: "View Executive Roadmap",
+    imageFirst: true,
+  },
+  {
+    tag: "Financial Services",
+    title: "Financial Professional Reputation Recovery",
+    meta: {
+      Industry: "Asset Management",
+      Duration: "5 Months",
+      Profile: "Fund Manager",
+      Challenge: "Misinformation",
+    },
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuA556HkcU4EcVY1uQkZ-V16WL9Re2jAF0Do6fkg65qIf8DUoe66d32wN9NCN1clrxg5yeFTpjkWCzX3lnXoC2X6ZmwGKOhjCq6fSmzjlcky9sQ-jiXgK2-OqT8tVGiWu3qnAbQX8Xclcq5HlXNlj6zHP7vf4XVxErq88tfWrYImIbvfBDpKyGKFMz7qY8Yla6IvAex8bkihEC6F0rNpDnh5INfTHPvnnYM7qVjw-6mdSMT_q5E1JsZmDkUKefnyMuQ8h-Bp2vhmlIs",
+    imageAlt: "Desk with tablet showing financial data",
+    metric: {
+      position: "bottom-left",
+      variant: "white",
+      main: "88%",
+      sub: "Regulatory Trust Restoration",
+    },
+    columns: [
+      {
+        title: "Objective",
+        text: "Counteract a smear campaign launched by a former competitor that triggered unnecessary scrutiny from regulatory compliance bots and potential clients.",
+      },
+      {
+        title: "Strategy",
+        text: "Deployment of 'Authority Sites'—highly-indexed personal domain networks that featured verifiable credentials, verified white papers, and historical performance audits.",
+      },
+    ],
+    linkText: "Examine Digital Shield",
+    imageFirst: false,
+  },
+  {
+    tag: "Medical & Healthcare",
+    title: "Clinical Reputation Management",
+    meta: {
+      Industry: "Healthcare",
+      Duration: "10 Months",
+      Profile: "Surgery Center",
+      Challenge: "Review Bombing",
+    },
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDhVJBFixt5r1JghMYDeRovl7j6CWSC24bE7YalUefnjDVMgz_xljxTMwTrBUoILuLD3S_ZPLscQbNKqSFVvPX1IOZw3VgMB7gHKRVQnQ8RLBMNlxiTI3WJIep7dXAhSli5mcZLRY8q9Nq2vg4YBjrC2y-QUgZYD_CaXwiog7RaGQRWTN76XOdbgWRi1FT6OjG0gDQqqI1zAgIwv51sG1Eore3khHCCmbLysTTn9iQsp6PRonU6T6QGLQTNA4eECOHdLQXMCasxBqw",
+    imageAlt: "Bright modern medical hallway",
+    metric: {
+      position: "bottom-right",
+      variant: "green",
+      main: "4.8★",
+      sub: "Avg Rating Reclaimed",
+    },
+    columns: [
+      {
+        title: "The Challenge",
+        text: "A coordinated attack on review platforms by a disgruntled patient group threatened the clinical reputation of a leading orthopedic surgery center.",
+      },
+      {
+        title: "Solution",
+        text: "Implemented an automated HIPAA-compliant feedback loop that encouraged genuine patient voices to share their positive experiences across Google and Healthgrades.",
+      },
+    ],
+    linkText: "View Healthcare Success",
+    imageFirst: true,
+  },
+  {
+    tag: "Academic/Student",
+    title: "Student Reputation Recovery",
+    meta: {
+      Industry: "Higher Education",
+      Duration: "3 Months",
+      Profile: "Graduate Candidate",
+      Challenge: "Social Disclosure",
+    },
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuApDrfqAozsOwRXFj-BVPSF4HIEuVnHKafQicFeDBGS_gYgVtsKNUlaqtGD8EpDIpDVRBCti1DrWe_QUJaYbZ09OkLBwVqjxFZJw08f8ehCXcwq70JpUeCy13vtSJxhJRw3j91D3u0r_BuWBKCtut5b7K8iLBFXXTXYAEivSwlni2QR22PqXvQB7azlvBhGtJDKQ9xVgDtYd6mh7LyTpZdZZjxyav1Ue6xh6-OzSdEtnzarKSVVTjnlOO9_rLpbV1eebwixSZ8s8sw",
+    imageAlt: "Sunlit university library",
+    metric: {
+      position: "top-right",
+      variant: "navySolid",
+      main: "100%",
+      sub: "Content Remediated",
+    },
+    columns: [
+      {
+        title: "The Challenge",
+        text: "Improper social media activity from early adolescence surfaced during a background check for a high-profile PhD residency program.",
+      },
+      {
+        title: "Results",
+        text: "Successfully negotiated the removal of legacy content under 'Right to be Forgotten' frameworks and established a professional scholarly portfolio.",
+      },
+    ],
+    linkText: "Read Recovery Case",
+    imageFirst: false,
+  },
+];
 
-function CaseStudiesPage() {
+function MetricBadge({ metric }) {
+  const pos =
+    metric.position === "bottom-right"
+      ? "bottom-6 right-6"
+      : metric.position === "bottom-left"
+        ? "bottom-6 left-6"
+        : metric.position === "top-left"
+          ? "top-6 left-6"
+          : "top-6 right-6";
+
+  if (metric.variant === "green") {
+    return (
+      <div
+        className={`absolute ${pos} rounded-2xl bg-[#78dc77]/95 p-4 shadow-xl backdrop-blur-md md:p-6`}
+      >
+        <span className="block font-heading text-4xl font-black text-[#002204] md:text-5xl">
+          {metric.main}
+        </span>
+        <span className="text-xs font-bold uppercase tracking-tight text-[#002204] md:text-sm">
+          {metric.sub}
+        </span>
+      </div>
+    );
+  }
+  if (metric.variant === "navy") {
+    return (
+      <div
+        className={`absolute ${pos} rounded-2xl border border-white/10 bg-[#02254d]/95 p-4 shadow-xl backdrop-blur-md md:p-6`}
+      >
+        <span className="block font-heading text-4xl font-black text-[#78dc77] md:text-5xl">
+          {metric.main}
+        </span>
+        <span className="text-xs font-bold uppercase tracking-tight text-white md:text-sm">
+          {metric.sub}
+        </span>
+      </div>
+    );
+  }
+  if (metric.variant === "white") {
+    return (
+      <div
+        className={`absolute ${pos} rounded-2xl bg-white/90 p-4 shadow-xl backdrop-blur-lg md:p-6`}
+      >
+        <span className="block font-heading text-4xl font-black text-[#35618e] md:text-5xl">
+          {metric.main}
+        </span>
+        <span className="text-xs font-bold uppercase tracking-tight text-[#43474e] md:text-sm">
+          {metric.sub}
+        </span>
+      </div>
+    );
+  }
+  /* navySolid */
+  return (
+    <div
+      className={`absolute ${pos} rounded-2xl bg-[#1f3b64] p-4 text-white shadow-xl md:p-6`}
+    >
+      <span className="block font-heading text-4xl font-black text-[#94f990] md:text-5xl">
+        {metric.main}
+      </span>
+      <span className="text-xs font-bold uppercase tracking-tight md:text-sm">
+        {metric.sub}
+      </span>
+    </div>
+  );
+}
+
+function CaseStudySection({ study }) {
+  const metaEntries = Object.entries(study.meta);
+
+  const textCol = (
+    <div className="space-y-5 md:space-y-6">
+      <div className="inline-flex items-center rounded-full bg-[#e1e8fd] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#02254d] md:text-xs">
+        {study.tag}
+      </div>
+      <h2 className="font-heading text-2xl font-bold leading-tight text-[#02254d] md:text-3xl lg:text-4xl">
+        {study.title}
+      </h2>
+      <div className="grid grid-cols-2 gap-3 pt-2 text-sm md:gap-4">
+        {metaEntries.map(([k, v]) => (
+          <div key={k} className="rounded-xl bg-[#f1f3ff] p-3 md:p-4">
+            <span className="mb-1 block text-[10px] font-semibold uppercase tracking-wider text-[#74777f]">
+              {k}
+            </span>
+            <span className="font-bold text-[#02254d]">{v}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const imageCol = (
+    <div>
+      <div className="group/img relative overflow-hidden rounded-2xl shadow-2xl">
+        <img
+          alt={study.imageAlt}
+          className="aspect-video w-full object-cover transition-transform duration-700 group-hover/img:scale-105"
+          src={study.image}
+        />
+        <MetricBadge metric={study.metric} />
+      </div>
+      <div className="mt-6 rounded-2xl border border-[#c4c6d0]/10 bg-white p-6 shadow-sm md:mt-8 md:p-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
+          {study.columns.map((col) => (
+            <div key={col.title}>
+              <h4 className="mb-2 font-heading font-bold text-[#02254d] md:mb-3">
+                {col.title}
+              </h4>
+              <p className="text-sm leading-relaxed text-[#43474e]">
+                {col.text}
+              </p>
+            </div>
+          ))}
+        </div>
+        <a
+          href="/contact"
+          className="group/btn mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#35618e] transition-all hover:gap-3 md:mt-8"
+        >
+          {study.linkText}
+          <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
+        </a>
+      </div>
+    </div>
+  );
+
+  return (
+    <section className="group">
+      <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
+        {study.imageFirst ? (
+          <>
+            <div className="order-2 lg:order-1 lg:col-span-7">{imageCol}</div>
+            <div className="order-1 lg:order-2 lg:col-span-5">{textCol}</div>
+          </>
+        ) : (
+          <>
+            <div className="lg:col-span-5">{textCol}</div>
+            <div className="lg:col-span-7">{imageCol}</div>
+          </>
+        )}
+      </div>
+    </section>
+  );
+}
+
+export default function CaseStudiesPage() {
   useEffect(() => {
     const previous = document.title;
     document.title = "Case Studies | Reputation360";
@@ -21,338 +314,55 @@ function CaseStudiesPage() {
 
   return (
     <main className="flex-1 bg-[#f9f9ff] pt-28 md:pt-32">
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-[#f1f3ff] px-4 py-14 md:px-8 md:py-18">
-        <div className="relative z-10 mx-auto max-w-6xl">
-          <div className="max-w-3xl">
-            <h1 className="font-heading text-[30px] font-bold leading-tight tracking-tight text-[#02254d] md:text-[40px] lg:text-[44px]">
-              Real Clients. <br className="hidden sm:block" />
-              Real Outcomes. <br className="hidden sm:block" />
-              <span className="text-[#78dc77]">Real Search Results.</span>
-            </h1>
-            <p className="mt-6 text-[15px] font-light leading-relaxed text-[#43474e] md:mt-8 md:text-[16px] lg:text-[17px]">
-              Every case is different. The threat, the industry, the timeline —
-              all unique. What is consistent is our commitment to results that
-              hold and our absolute commitment to protecting every client&apos;s
-              confidentiality.
-            </p>
-            <p className="mt-5 border-l-4 border-[#78dc77] pl-4 text-[14px] font-medium italic text-[#35618e] md:text-[15px]">
-              The cases below are drawn from real engagements with all
-              identifying details anonymised.
-            </p>
-          </div>
-        </div>
-        <div
-          className="pointer-events-none absolute top-0 right-0 h-[min(800px,120vw)] w-[min(800px,120vw)] translate-x-1/4 -translate-y-1/2 rounded-full bg-[#1f3b64]/5 blur-3xl"
-          aria-hidden
-        />
-      </section>
+      <header className="mx-auto mb-14 max-w-6xl px-4 text-center md:mb-20 md:px-8">
+        <h1 className="font-heading text-[30px] font-extrabold leading-tight tracking-tight text-[#02254d] md:text-[44px] lg:text-[52px]">
+          <span className="block">Restoring Reputation</span>
+          <span className="mt-1 block text-[#35618e] md:mt-1.5">
+            Across Industries
+          </span>
+        </h1>
+        <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-relaxed text-[#43474e] md:mt-6 md:text-[16px] lg:text-lg">
+          Detailed analysis of how we restore trust, neutralize misinformation,
+          and rebuild digital legacies for the world&apos;s most critical
+          stakeholders.
+        </p>
+      </header>
 
-      {/* Case studies */}
-      <section className="mx-auto max-w-6xl px-4 py-14 md:px-8 md:py-18">
-        <div className="flex flex-col gap-12 md:gap-16">
-          {/* Case 01 */}
-          <article className="flex flex-col overflow-hidden rounded-[1.75rem] bg-white shadow-[0px_20px_40px_rgba(20,27,43,0.06)] lg:flex-row lg:rounded-[2rem]">
-            <div className="relative min-h-[280px] lg:w-1/3 lg:min-h-[400px]">
-              <img
-                alt="Corporate architecture"
-                className="absolute inset-0 h-full w-full object-cover"
-                src={case01Image}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#02254d]/80 to-transparent" />
-              <div className="absolute bottom-6 left-6 text-white md:bottom-8 md:left-8">
-                <span className="mb-2 inline-block rounded-full bg-[#78dc77] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#02254d]">
-                  Case Study 01
-                </span>
-                <h3 className="font-heading text-xl font-bold md:text-2xl lg:text-3xl">
-                  Restoring Professional Standing
-                </h3>
-              </div>
-            </div>
-            <div className="flex flex-1 flex-col space-y-8 p-6 md:p-10 lg:w-2/3 lg:space-y-10 lg:p-12">
-              <div className="grid grid-cols-1 gap-6 border-b border-[#c4c6d0]/20 pb-8 md:grid-cols-3 md:gap-8">
-                <div>
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-[#74777f]">
-                    Profile
-                  </p>
-                  <p className="font-semibold text-[#02254d]">
-                    Senior Financial Professional
-                  </p>
-                </div>
-                <div>
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-[#74777f]">
-                    Duration
-                  </p>
-                  <p className="font-semibold text-[#02254d]">15 Months</p>
-                </div>
-                <div>
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-[#74777f]">
-                    Outcome
-                  </p>
-                  <p className="font-bold text-[#78dc77]">SEC Content Suppressed</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
-                <div className="space-y-3">
-                  <h4 className="flex items-center gap-2 font-heading text-base font-bold text-[#02254d] md:text-lg">
-                    <AlertTriangle
-                      className="h-5 w-5 shrink-0 text-[#adc7f8]"
-                      strokeWidth={2}
-                    />
-                    The Situation
-                  </h4>
-                  <p className="text-[14px] leading-relaxed text-[#43474e] md:text-[15px]">
-                    A senior financial professional had SEC-linked content
-                    appearing prominently in search results for their name. The
-                    content referenced proceedings that had been resolved, but it
-                    ranked on the first page and was affecting professional
-                    relationships.
-                  </p>
-                </div>
-                <div className="space-y-3">
-                  <h4 className="flex items-center gap-2 font-heading text-base font-bold text-[#02254d] md:text-lg">
-                    <Target
-                      className="h-5 w-5 shrink-0 text-[#adc7f8]"
-                      strokeWidth={2}
-                    />
-                    The Approach
-                  </h4>
-                  <p className="text-[14px] leading-relaxed text-[#43474e] md:text-[15px]">
-                    We built a comprehensive digital presence strategy —
-                    optimising LinkedIn, creating a professional website, and
-                    publishing authored content on respected financial platforms
-                    with complete discretion.
-                  </p>
-                </div>
-              </div>
-              <div className="rounded-xl bg-[#f1f3ff] p-5 md:p-6">
-                <h4 className="mb-2 font-heading text-base font-bold text-[#02254d] md:text-lg">
-                  The Outcome
-                </h4>
-                <p className="text-[14px] leading-relaxed text-[#43474e] md:text-[15px]">
-                  Within 15 months, SEC-linked content moved beyond page two. The
-                  top results were entirely professional and positive. New
-                  business activity resumed without search results derailing
-                  conversations.
-                </p>
-              </div>
-            </div>
-          </article>
+      <div className="mx-auto max-w-6xl space-y-20 px-4 md:space-y-28 md:px-8 lg:space-y-32">
+        {cases.map((study) => (
+          <CaseStudySection key={study.title} study={study} />
+        ))}
+      </div>
 
-          {/* Cases 02 & 03 */}
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
-            {/* Case 02 */}
-            <article className="flex flex-col justify-between rounded-[1.75rem] bg-white p-6 shadow-[0px_20px_40px_rgba(20,27,43,0.06)] md:rounded-[2rem] md:p-10">
-              <div>
-                <div className="mb-6 flex items-start justify-between md:mb-8">
-                  <div className="rounded-2xl bg-[#02254d]/5 p-3">
-                    <Stethoscope
-                      className="h-7 w-7 text-[#02254d] md:h-8 md:w-8"
-                      strokeWidth={2}
-                    />
-                  </div>
-                  <span className="rounded-full bg-[#d1e4ff] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#02254d]">
-                    Case Study 02
-                  </span>
-                </div>
-                <h3 className="mb-4 font-heading text-xl font-bold text-[#02254d] md:text-2xl">
-                  Medical Reputation Management
-                </h3>
-                <div className="mb-6 grid grid-cols-2 gap-3 md:mb-8 md:gap-4">
-                  <div className="rounded-xl bg-[#f9f9ff] p-3 md:p-4">
-                    <p className="text-[10px] font-bold uppercase text-[#74777f]">
-                      Profile
-                    </p>
-                    <p className="text-sm font-semibold text-[#02254d]">
-                      Practicing Doctor
-                    </p>
-                  </div>
-                  <div className="rounded-xl bg-[#f9f9ff] p-3 md:p-4">
-                    <p className="text-[10px] font-bold uppercase text-[#74777f]">
-                      Duration
-                    </p>
-                    <p className="text-sm font-semibold text-[#02254d]">
-                      11 Months
-                    </p>
-                  </div>
-                </div>
-                <div className="space-y-5 md:space-y-6">
-                  <div>
-                    <p className="mb-2 text-sm font-bold text-[#02254d]">
-                      The Situation
-                    </p>
-                    <p className="text-sm leading-relaxed text-[#43474e]">
-                      A practicing doctor had a healthcare aggregator featuring
-                      negative patient ratings ranking above their own clinic
-                      website.
-                    </p>
-                  </div>
-                  <div>
-                    <p className="mb-2 text-sm font-bold text-[#02254d]">
-                      The Approach
-                    </p>
-                    <p className="text-sm leading-relaxed text-[#43474e]">
-                      Built an authoritative content ecosystem, optimized the
-                      clinic website and directory profiles, and published
-                      patient education content.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-8 border-t border-[#c4c6d0]/10 pt-6">
-                <p className="text-sm font-bold text-[#78dc77]">
-                  OUTCOME: Verified medical profiles prioritised in search; new
-                  patient bookings increased.
-                </p>
-              </div>
-            </article>
-
-            {/* Case 03 */}
-            <article className="flex flex-col justify-between rounded-[1.75rem] bg-[#02254d] p-6 text-white shadow-[0px_20px_40px_rgba(20,27,43,0.1)] md:rounded-[2rem] md:p-10">
-              <div>
-                <div className="mb-6 flex items-start justify-between md:mb-8">
-                  <div className="rounded-2xl bg-white/10 p-3">
-                    <Monitor
-                      className="h-7 w-7 text-[#78dc77] md:h-8 md:w-8"
-                      strokeWidth={2}
-                    />
-                  </div>
-                  <span className="rounded-full bg-[#78dc77] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#02254d]">
-                    Case Study 03
-                  </span>
-                </div>
-                <h3 className="mb-4 font-heading text-xl font-bold md:text-2xl">
-                  Brand Trust Recovery
-                </h3>
-                <div className="mb-6 grid grid-cols-2 gap-3 md:mb-8 md:gap-4">
-                  <div className="rounded-xl bg-white/5 p-3 md:p-4">
-                    <p className="text-[10px] font-bold uppercase text-[#adc7f8]">
-                      Profile
-                    </p>
-                    <p className="text-sm font-semibold">Electronics Brand</p>
-                  </div>
-                  <div className="rounded-xl bg-white/5 p-3 md:p-4">
-                    <p className="text-[10px] font-bold uppercase text-[#adc7f8]">
-                      Duration
-                    </p>
-                    <p className="text-sm font-semibold">14 Months</p>
-                  </div>
-                </div>
-                <div className="space-y-5 md:space-y-6">
-                  <div>
-                    <p className="mb-2 text-sm font-bold text-[#78dc77]">
-                      The Situation
-                    </p>
-                    <p className="text-sm leading-relaxed text-white/80">
-                      Coordinated negative content in search results—a mix of
-                      press coverage, review-based content, and competitor-driven
-                      material.
-                    </p>
-                  </div>
-                  <div>
-                    <p className="mb-2 text-sm font-bold text-[#78dc77]">
-                      The Approach
-                    </p>
-                    <p className="text-sm leading-relaxed text-white/80">
-                      Multi-channel suppression and brand presence strategy
-                      including press mentions, social profile optimization, and
-                      SEO reinforcement.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-8 border-t border-white/10 pt-6">
-                <p className="text-sm font-bold text-[#78dc77]">
-                  OUTCOME: 92% negative results removed from Pages 1 to 3;
-                  Brand website returned to #1.
-                </p>
-              </div>
-            </article>
-          </div>
-
-          {/* Case 04 */}
-          <article className="flex flex-col items-stretch gap-10 rounded-[1.75rem] bg-[#f1f3ff] p-6 md:flex-row md:gap-12 md:rounded-[2rem] md:p-10 lg:p-12">
-            <div className="w-full space-y-5 md:w-1/2 md:space-y-6">
-              <span className="inline-block rounded-full bg-[#c4c6d0]/30 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#02254d]">
-                Case Study 04
-              </span>
-              <h3 className="font-heading text-2xl font-bold text-[#02254d] md:text-3xl lg:text-4xl">
-                Founder Reputation Management
-              </h3>
-              <p className="text-[15px] leading-relaxed text-[#43474e] md:text-lg">
-                Critical opinion content was appearing in search results, creating
-                friction in investor conversations during fundraising.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3 text-sm font-medium text-[#35618e] md:text-base">
-                  <CheckCircle2
-                    className="h-5 w-5 shrink-0 text-[#78dc77]"
-                    strokeWidth={2}
-                  />
-                  Profile: SaaS Founder | Duration: 12 Months
-                </li>
-                <li className="flex items-center gap-3 text-sm font-medium text-[#35618e] md:text-base">
-                  <CheckCircle2
-                    className="h-5 w-5 shrink-0 text-[#78dc77]"
-                    strokeWidth={2}
-                  />
-                  Outcome: Critical content removed from Pages 1 to 2
-                </li>
-              </ul>
-            </div>
-            <div className="w-full rounded-3xl border border-[#c4c6d0]/10 bg-white p-6 shadow-sm md:w-1/2 md:p-8">
-              <div className="space-y-6">
-                <div>
-                  <h5 className="mb-2 text-[10px] font-bold uppercase text-[#74777f]">
-                    The Approach
-                  </h5>
-                  <p className="text-sm leading-relaxed text-[#141b2b]">
-                    Developed a personal brand strategy including LinkedIn, a
-                    personal website, and guest-published thought leadership,
-                    alongside direct outreach for removal of egregious content.
-                  </p>
-                </div>
-                <div className="rounded-2xl border-l-4 border-[#78dc77] bg-[#78dc77]/10 p-5 md:p-6">
-                  <h5 className="mb-1 text-sm font-bold text-[#02254d]">
-                    Final Outcome
-                  </h5>
-                  <p className="text-sm italic text-[#02254d]/80">
-                    &ldquo;The founder&apos;s results were led by their
-                    professional profiles and published articles—a narrative that
-                    supported their fundraising conversations.&rdquo;
-                  </p>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="relative overflow-hidden bg-[#02254d] px-4 py-14 md:px-8 md:py-18">
-        <div className="pointer-events-none absolute inset-0 opacity-10" aria-hidden>
-          <div className="absolute top-0 left-0 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#78dc77] blur-[100px]" />
-          <div className="absolute right-0 bottom-0 h-72 w-72 translate-x-1/2 translate-y-1/2 rounded-full bg-[#d1e4ff] blur-[100px]" />
-        </div>
-        <div className="relative z-10 mx-auto max-w-6xl text-center">
-          <h2 className="font-heading text-[26px] font-bold text-white md:text-[36px] lg:text-[40px]">
-            Start Your Own Success Story
+      <section className="mx-auto mt-20 max-w-4xl px-4 pb-16 md:mt-28 md:px-8 md:pb-24">
+        <div className="relative overflow-hidden rounded-[1.75rem] bg-[#02254d] p-10 text-center shadow-2xl md:rounded-[2rem] md:p-16 lg:p-20">
+          <div className="pointer-events-none absolute top-0 right-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-[#35618e]/20 blur-3xl" />
+          <div className="pointer-events-none absolute bottom-0 left-0 h-64 w-64 -translate-x-1/2 translate-y-1/2 rounded-full bg-[#78dc77]/10 blur-3xl" />
+          <h2 className="relative z-10 font-heading text-[26px] font-extrabold text-white md:text-4xl lg:text-5xl">
+            Start Your Own{" "}
+            <span className="text-[#78dc77]">Success Story.</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-[15px] text-[#adc7f8] md:mt-6 md:text-[17px] lg:text-xl">
-            Begin with a free consultation. We will review your search results,
-            tell you what we see, and give you an honest picture of what is
-            achievable.
+          <p className="relative z-10 mx-auto mt-4 max-w-2xl text-[15px] text-[#8ca6d5] md:mt-6 md:text-[17px] lg:text-lg">
+            Your reputation is your most valuable asset. Don&apos;t leave it to
+            chance. Partner with Reputation360 and take control of your digital
+            narrative today.
           </p>
-          <a
-            href="/contact"
-            className="mt-8 inline-flex items-center justify-center rounded-xl bg-[#78dc77] px-10 py-3.5 text-sm font-bold text-[#02254d] shadow-lg transition-all hover:bg-white active:scale-[0.98] md:mt-10 md:px-12 md:py-4 md:text-base lg:text-lg"
-          >
-            Book Your Free Consultation
-          </a>
+          <div className="relative z-10 mt-8 flex flex-col items-center justify-center gap-3 md:mt-10 md:flex-row md:gap-4">
+            <a
+              href="/contact"
+              className="inline-flex w-full items-center justify-center rounded-xl bg-[#78dc77] px-10 py-3.5 text-sm font-bold text-[#002204] shadow-lg shadow-[#00450e]/30 transition-all hover:bg-white active:scale-[0.98] md:w-auto md:text-base lg:px-12 lg:py-4 lg:text-lg"
+            >
+              Get My Free Audit
+            </a>
+            <a
+              href="/contact"
+              className="inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/10 px-10 py-3.5 text-sm font-bold text-white backdrop-blur-md transition-all hover:bg-white/20 md:w-auto md:text-base lg:px-12 lg:py-4 lg:text-lg"
+            >
+              Talk to an Expert
+            </a>
+          </div>
         </div>
       </section>
     </main>
   );
 }
-
-export default CaseStudiesPage;
