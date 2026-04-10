@@ -175,3 +175,16 @@
 .themed-scrollbar::-webkit-scrollbar-thumb:hover {
   background: var(--color-navy);
 }
+
+/* FAQ page: native <details> chevron + typography (matches design HTML) */
+.faq-page {
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.faq-page .font-headline-faq {
+  font-family: "Manrope", system-ui, sans-serif;
+}
+
+.faq-details[open] .faq-chevron {
+  transform: rotate(180deg);
+}

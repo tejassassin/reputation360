@@ -39,6 +39,15 @@ const navItems = [
     ],
   },
   { name: "Case Studies", link: "/case-studies" },
+  {
+    name: "Resources",
+    link: "#",
+    children: [
+      { name: "Blogs", link: "/resources/blogs" },
+      { name: "Guide", link: "/resources/guide" },
+      { name: "FAQs", link: "/resources/faqs" },
+    ],
+  },
 ];
 
 function Header() {
@@ -119,7 +128,13 @@ function Header() {
               <div key={`mobile-link-${idx}`} className="w-full">
                 <a
                   href={item.link}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    if (item.link === "#" && item.children?.length) {
+                      e.preventDefault();
+                      return;
+                    }
+                    setIsMobileMenuOpen(false);
+                  }}
                   className="relative text-white font-heading font-medium hover:text-green transition-colors"
                 >
                   <span className="block">{item.name}</span>

@@ -135,7 +135,12 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           key={`link-${idx}`}
         >
           <a
-            onClick={onItemClick}
+            onClick={(e) => {
+              if (item.link === "#") {
+                e.preventDefault();
+              }
+              onItemClick?.();
+            }}
             className="relative block px-4 py-2 text-white hover:text-green"
             href={item.link}
           >
