@@ -4,25 +4,25 @@ const categories = [
   {
     title: "Individuals",
     description:
-      "Personal brand protection for high-net-worth individuals seeking to reclaim their search narrative.",
+      "Take control of what people find when they search your name online.",
     Icon: User,
   },
   {
-    title: "Founders, CEOs & Senior Executives",
+    title: "Founders, CEOs & Executives",
     description:
-      "Safeguarding leadership legacy through strategic content promotion and crisis suppression.",
+      "Protect your leadership reputation and ensure your vision and impact come through clearly.",
     Icon: Briefcase,
   },
   {
-    title: "Doctors, lawyers & professionals",
+    title: "Doctors, Lawyers & Professionals",
     description:
-      "Industry-specific compliance-ready strategies to maintain impeccable professional standing.",
+      "One negative article can damage your business. We help you build a positive brand online.",
     Icon: Scale,
   },
   {
-    title: "Brands and companies of all sizes",
+    title: "Businesses & Brands",
     description:
-      "Scalable solutions for corporate entities to dominate their industry search landscape globally.",
+      "Own your industry online through powerful branding and a strong search presence.",
     Icon: Building,
   },
 ];
