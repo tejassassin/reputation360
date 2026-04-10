@@ -43,7 +43,7 @@ const navItems = [
     name: "Resources",
     link: "#",
     children: [
-      { name: "Blogs", link: "/resources/blogs" },
+      { name: "Insights & Blogs", link: "/resources/blogs" },
       { name: "Guide", link: "/resources/guide" },
       { name: "FAQs", link: "/resources/faqs" },
     ],

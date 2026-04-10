@@ -15,6 +15,7 @@ import CaseStudiesPage from "./pages/CaseStudiesPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import ResourcePlaceholderPage from "./pages/ResourcePlaceholderPage.jsx";
 import FaqsPage from "./pages/FaqsPage.jsx";
+import InsightsBlogsPage from "./pages/InsightsBlogsPage.jsx";
 
 const normalizedPath = window.location.pathname.replace(/\/+$/, "") || "/";
 
@@ -31,7 +32,7 @@ else if (normalizedPath === "/services/businesses") page = <BusinessesPage />;
 else if (normalizedPath === "/case-studies") page = <CaseStudiesPage />;
 else if (normalizedPath === "/contact") page = <ContactPage />;
 else if (normalizedPath === "/resources/blogs")
-  page = <ResourcePlaceholderPage title="Blogs" />;
+  page = <InsightsBlogsPage />;
 else if (normalizedPath === "/resources/guide")
   page = <ResourcePlaceholderPage title="Guide" />;
 else if (normalizedPath === "/resources/faqs") page = <FaqsPage />;

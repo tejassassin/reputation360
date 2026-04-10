@@ -188,3 +188,18 @@
 .faq-details[open] .faq-chevron {
   transform: rotate(180deg);
 }
+
+/* Insights / Blogs page */
+.insights-page .font-insights-headline {
+  font-family: "Manrope", system-ui, sans-serif;
+}
+
+.insights-page {
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
