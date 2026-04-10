@@ -7,6 +7,7 @@ import WhoWeWorkWith from "../components/WhoWeWorkWith";
 import HowItWorks from "../components/HowItWorks";
 import WhyClientsChoose from "../components/WhyClientsChoose";
 import CaseStudies from "../components/CaseStudies";
+import HomeSpecialistCta from "../components/HomeSpecialistCta";
 import Contact from "../components/Contact";
 
 function HomePage() {
@@ -24,7 +25,7 @@ function HomePage() {
         <section className="bg-offwhite">
           <Testimonials />
         </section>
-        <section>
+        <section className="bg-[#f9f9ff]">
           <WhoWeWorkWith />
         </section>
         <section className="bg-white pb-10">
@@ -33,9 +34,10 @@ function HomePage() {
         <section className="bg-offwhite">
           <WhyClientsChoose />
         </section>
-        <section className="bg-white flex justify-center">
+        <section className="flex justify-center bg-white">
           <CaseStudies />
         </section>
+        <HomeSpecialistCta />
         <section>
           <Contact />
         </section>

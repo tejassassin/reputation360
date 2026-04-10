@@ -1,66 +1,65 @@
-import React from "react";
-import { AnimatedTestimonials } from "./ui/animated-testimonials";
-import individuals from "../assets/Individuals.png";
-import CEOs from "../assets/CEOs.png";
-import doctors from "../assets/Doctors.png";
-import brands from "../assets/Brands.png";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { User, Briefcase, Scale, Building } from "lucide-react";
+
+const categories = [
+  {
+    title: "Individuals",
+    description:
+      "Personal brand protection for high-net-worth individuals seeking to reclaim their search narrative.",
+    Icon: User,
+  },
+  {
+    title: "Founders, CEOs & Senior Executives",
+    description:
+      "Safeguarding leadership legacy through strategic content promotion and crisis suppression.",
+    Icon: Briefcase,
+  },
+  {
+    title: "Doctors, lawyers & professionals",
+    description:
+      "Industry-specific compliance-ready strategies to maintain impeccable professional standing.",
+    Icon: Scale,
+  },
+  {
+    title: "Brands and companies of all sizes",
+    description:
+      "Scalable solutions for corporate entities to dominate their industry search landscape globally.",
+    Icon: Building,
+  },
+];
 
 function WhoWeWorkWith() {
-  const testimonials = [
-    {
-      name: "Individuals",
-      src: individuals,
-    },
-    {
-      name: "Founders, CEOs & Senior Executives",
-      src: CEOs,
-    },
-    {
-      name: "Doctors, lawyers & professionals",
-      src: doctors,
-    },
-    {
-      name: "Brands and companies of all sizes",
-      src: brands,
-    },
-  ];
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-      <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-navy mt-4 mb-0 text-center">
-        Who we work with
-      </h2>
+    <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 md:px-8 lg:py-20">
+      <div className="mb-12 text-center md:mb-16">
+        <span className="mb-4 block text-xs font-bold tracking-widest text-[#78dc77] uppercase">
+          Tailored Strategies
+        </span>
+        <h2 className="font-heading mb-5 text-4xl font-extrabold tracking-tight text-[#02254d] md:text-5xl">
+          Who we work with
+        </h2>
+        <p className="mx-auto max-w-2xl text-lg leading-relaxed text-[#43474e]">
+          Precision reputation management crafted for those whose digital
+          footprint is their most valuable asset.
+        </p>
+      </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-        {testimonials.map((testimonial, index) => (
-          <CardContainer
-            key={index}
-            className="cursor-pointer w-full"
-            containerClassName="py-3 sm:py-4"
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {categories.map(({ title, description, Icon }) => (
+          <div
+            key={title}
+            className="group relative overflow-hidden rounded-xl border border-transparent bg-white p-8 transition-all duration-300 hover:border-[#dce2f7] hover:shadow-2xl hover:shadow-[#02254d]/5"
           >
-            <CardBody className="bg-white py-4 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-full rounded-xl border flex flex-col items-center justify-center">
-              <CardItem
-                translateZ="100"
-                className="w-[70%] rounded-lg shrink-0 py-4 sm:py-6 overflow-hidden"
-              >
-                <div
-                  className="max-h-16 h-16 sm:max-h-20 sm:h-20 rounded-lg bg-navy [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] mx-auto transition-all duration-300 group-hover/card:w-1/3"
-                  style={{
-                    maskImage: `url(${testimonial.src})`,
-                    WebkitMaskImage: `url(${testimonial.src})`,
-                  }}
-                  role="img"
-                  aria-label={testimonial.name}
-                />
-              </CardItem>
-              <CardItem
-                translateZ="50"
-                className="text-sm sm:text-base lg:text-lg font-bold text-navy text-center px-2 pb-2"
-              >
-                {testimonial.name}
-              </CardItem>
-            </CardBody>
-          </CardContainer>
+            <div className="absolute -top-12 -right-12 h-24 w-24 rounded-bl-full bg-[#78dc77]/5 transition-transform group-hover:scale-150" />
+            <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#f1f3ff] text-[#78dc77]">
+              <Icon className="h-7 w-7 stroke-[1.75]" aria-hidden />
+            </div>
+            <h3 className="font-heading mb-4 text-xl leading-snug font-bold text-[#02254d]">
+              {title}
+            </h3>
+            <p className="text-sm leading-relaxed text-[#43474e]">
+              {description}
+            </p>
+          </div>
         ))}
       </div>
     </div>
