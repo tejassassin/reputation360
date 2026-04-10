@@ -1,20 +1,20 @@
 import { useEffect } from "react";
 import {
-  Search,
+  BarChart3,
   Shield,
   Star,
-  Diamond,
+  ShieldCheck,
+  Handshake,
   Users,
   Newspaper,
   ArrowRight,
 } from "lucide-react";
 
-const heroBg =
-  "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=2400&q=80";
-const inseparableImage =
-  "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80";
-const darkSectionWatermark =
-  "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=80";
+/* Reference imagery (AIDA exports) — same assets as provided HTML */
+const heroImage =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuDGa7p06z_2IPtxtlwdSmPcAYw1vGdkQs4ZB9-JThiL4ULvzVIiZtiHrt_BkuNBpnoNnZb69DUDcgcCDPZIGpszaKn3S0tzQ7tM-Z2ZGGjYCG4CxDTyO3Gh8MmoVSgSc99sYjivVzoI32DRfY7YVLjtksQEgUeyA1ZVHbsp80NRg847rPim2gcG1VDpitr-KxKOUx-iqGmqhwyxGfZrifVChfoFZBuzD8mUe-jNjH1ZjyNS0IOpxS6TwfmvhOodgs8KBUAg9YpMmUI";
+const narrativeImage =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuAXR5jfeoIOVRqrWX2aYRGdKzHFPco6ILXJCSObSw2mq2o5bmp5qktKN4oIYbAXTfG20odb4mDhGhxuu-x37L6SV4yF60-j5SB7RU-j8o6Mapd0X-tQzn4_UCx3wWuNYtklZjqLwe3Q7Zq5RrGgU539WeVsm12meNFJa7teyh1YM1dLUtpFdWeC7WiQ3uKhYA0uG9iZZIMwWuzv8U2jmbBqfLw7CveFQ-GWoNdRKvOrXTX2LV25jKcu7bxpLg5A9nYDGrDpKF-TikE";
 
 function ExecutivesPage() {
   useEffect(() => {
@@ -26,122 +26,143 @@ function ExecutivesPage() {
   }, []);
 
   return (
-    <main className="flex-1 bg-white pt-28 md:pt-32">
-      {/* Hero */}
-      <section
-        className="relative overflow-hidden bg-[#1a2b4b] px-4 py-14 md:px-8 md:py-20"
-        style={{
-          backgroundImage: `linear-gradient(105deg, rgba(26,43,75,0.92) 0%, rgba(26,43,75,0.78) 45%, rgba(26,43,75,0.55) 100%), url(${heroBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="relative mx-auto max-w-6xl">
-          <p className="inline-flex rounded-full bg-[#b8d9f0] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#1a2b4b]">
-            Executive series
-          </p>
-          <h1 className="mt-6 max-w-2xl font-heading text-[32px] font-bold leading-[1.12] text-white md:text-[44px] lg:text-[48px]">
-            Your Name is Your Most Strategic Asset.
-          </h1>
-          <p className="mt-6 max-w-xl text-[16px] leading-[1.65] text-white/90 md:text-[17px]">
-            In the upper tiers of leadership, personal and corporate reputation
-            are one and the same. We ensure yours reflects your authority.
-          </p>
-          <a
-            href="/contact"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#1a2b4b] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_6px_24px_rgba(0,0,0,0.25)] ring-2 ring-white/25 transition-colors hover:bg-[#243a5c]"
-          >
-            Book a Confidential Consultation
-            <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-          </a>
+    <main className="flex-1 bg-[#f9f9ff] pt-28 md:pt-32">
+      {/* Hero — type scale aligned with Lawyers / other industry pages */}
+      <section className="relative flex min-h-[58vh] items-center overflow-hidden py-10 md:min-h-[62vh] md:py-14">
+        <div className="absolute inset-0 z-0">
+          <img
+            alt="Modern glass skyscrapers"
+            className="h-full w-full object-cover brightness-[0.97]"
+            src={heroImage}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#f9f9ff] via-[#f9f9ff]/80 to-transparent" />
+        </div>
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-8">
+          <div className="max-w-3xl space-y-5 md:space-y-6">
+            <div className="inline-flex items-center rounded-full bg-[#9fcafd] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[#275582]">
+              Executive Series
+            </div>
+            <h1 className="font-heading text-[30px] font-bold leading-[1.1] text-[#02254d] md:text-[40px] lg:text-[44px]">
+              Your Name is Your <br className="hidden sm:block" />
+              Most Strategic Asset.
+            </h1>
+            <p className="max-w-2xl text-[15px] font-medium leading-[1.65] text-[#43474e] md:text-[16px]">
+              In the upper tiers of leadership, personal and corporate reputation
+              are one and the same. We ensure yours reflects your authority.
+            </p>
+            <div className="pt-1">
+              <a
+                href="/contact"
+                className="group inline-flex items-center gap-2 rounded-md bg-[#02254d] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(2,37,77,0.22)] transition-colors hover:bg-[#35618e] active:scale-[0.98]"
+              >
+                Book a Confidential Consultation
+                <ArrowRight
+                  className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                  strokeWidth={2.25}
+                />
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* The Inseparable Link */}
-      <section className="grid md:grid-cols-2">
-        <div
-          className="relative min-h-[320px] bg-[#0f1f38] bg-cover bg-center md:min-h-[520px]"
-          style={{ backgroundImage: `url(${inseparableImage})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/40 to-transparent" />
-          <div className="absolute bottom-0 left-0 p-8 md:p-10">
-            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#7fe08a]">
-              The Inseparable Link
-            </p>
-            <div className="mt-2 h-0.5 w-12 bg-[#4caf50]" />
+      {/* Narrative / The Inseparable Link */}
+      <section className="relative overflow-hidden border-y border-[#c4c6d0]/30 bg-white">
+        <div className="flex min-h-[480px] flex-col md:min-h-[520px] md:flex-row">
+          <div className="relative min-h-[280px] w-full overflow-hidden bg-[#02254d] md:w-1/2 md:min-h-0">
+            <img
+              alt="Executive in professional setting"
+              className="h-full min-h-[280px] w-full object-cover opacity-80 mix-blend-overlay md:min-h-[520px]"
+              src={narrativeImage}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#02254d]/80 to-transparent" />
+            <div className="absolute bottom-8 left-8 right-8 md:bottom-10 md:left-10 md:right-10">
+              <div className="mb-1.5 font-heading text-[15px] font-bold text-[#78dc77] md:text-base">
+                The Inseparable Link
+              </div>
+              <div className="h-0.5 w-14 rounded-full bg-[#78dc77] md:h-1 md:w-16" />
+            </div>
           </div>
-        </div>
-        <div className="flex flex-col justify-center bg-white px-6 py-12 md:px-12 md:py-16 lg:px-14">
-          <h2 className="font-heading text-[24px] font-bold leading-tight text-[#1a2b4b] md:text-[28px] lg:text-[30px]">
-            For Executives, Personal Reputation and Business Reputation Are
-            Inseparable.
-          </h2>
-          <p className="mt-5 text-[15px] leading-[1.7] text-[#5a6578] md:text-[16px]">
-            Investors, boards, and partners do not separate your name from your
-            company. A single search shapes how they perceive judgment, stability,
-            and fit—before anyone reads your bio or hears your pitch.
-          </p>
-          <p className="mt-4 text-[15px] leading-[1.7] text-[#5a6578] md:text-[16px]">
-            What appears on page one is often treated as fact. We help senior
-            leaders ensure that narrative reflects the record they have built—not
-            fragments, headlines, or outdated context.
-          </p>
-          <blockquote className="mt-8 rounded-lg border border-[#e8ecf2] border-l-4 border-l-[#4caf50] bg-white p-6 shadow-[0_8px_30px_rgba(26,43,75,0.08)]">
-            <p className="text-[15px] italic leading-[1.65] text-[#3d4f63] md:text-[16px]">
-              Reputation360 works with founders, CEOs, and senior leaders who
-              understand that their name is a strategic asset — and who want to
-              manage it accordingly.
-            </p>
-          </blockquote>
+          <div className="flex w-full items-center bg-[#f9f9ff] px-6 py-12 md:w-1/2 md:px-12 md:py-16 lg:px-14">
+            <div className="space-y-6 md:space-y-8">
+              <h2 className="font-heading text-[24px] font-bold leading-tight text-[#02254d] md:text-[28px] lg:text-[30px]">
+                For Executives, Personal Reputation and Business Reputation Are
+                Inseparable.
+              </h2>
+              <div className="space-y-4 text-[15px] leading-[1.75] text-[#43474e] md:space-y-5 md:text-[16px]">
+                <p>
+                  When investors, partners, board members, or press search your
+                  name, what they find shapes their view of everything you
+                  represent.
+                </p>
+                <p>
+                  A clean, authoritative digital presence builds confidence
+                  before a conversation starts. Anything else creates friction in
+                  exactly the situations where you can least afford it.
+                </p>
+                <div className="relative rounded-xl border-l-4 border-[#78dc77] bg-white p-6 shadow-sm md:p-7">
+                  <p className="font-heading text-[15px] font-semibold italic leading-snug text-[#02254d] md:text-[16px]">
+                    &ldquo;Reputation360 works with founders, CEOs, and senior
+                    leaders who understand that their name is a strategic asset
+                    &mdash; and who want to manage it accordingly.&rdquo;
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* What Is at Stake */}
-      <section className="bg-[#f5f7fa] px-4 py-14 md:px-8 md:py-20">
+      <section className="bg-[#f1f3ff] px-4 py-14 md:px-8 md:py-18">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-heading text-[26px] font-bold text-[#1a2b4b] md:text-[32px]">
-            What Is at Stake
-          </h2>
-          <p className="mt-4 max-w-2xl text-[15px] leading-[1.65] text-[#5a6578] md:text-[16px]">
-            At the executive level, search results influence decisions long before
-            a meeting is booked. These are the areas most often affected.
-          </p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 md:gap-6">
+          <div className="mb-10 max-w-2xl md:mb-12">
+            <h2 className="mb-3 font-heading text-[26px] font-bold text-[#02254d] md:text-[32px]">
+              What Is at Stake
+            </h2>
+            <p className="text-[15px] leading-[1.65] text-[#43474e] md:text-[16px]">
+              In the high-stakes environment of executive leadership, your
+              digital footprint is your first introduction.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
             {[
               {
-                icon: Shield,
+                icon: ShieldCheck,
                 title: "Board and investor confidence",
-                text: "Directors and capital partners routinely search leadership names. Gaps or negative signals can slow diligence, weaken references, or shift the tone of the room.",
+                text: "Directors and shareholders search you before major decisions. What they find shapes their trust in your leadership.",
               },
               {
-                icon: Diamond,
+                icon: Handshake,
                 title: "Deal flow and partnerships",
-                text: "Strategic conversations often begin with a name search. What appears first can accelerate trust—or introduce friction no deck can fully undo.",
+                text: "Strategic partners research your background. Anything damaging they find creates a conversation you did not want to have.",
               },
               {
                 icon: Users,
                 title: "Talent acquisition",
-                text: "Top performers assess your leadership footprint before they engage. A coherent, authoritative presence helps you attract people who share your standard.",
+                text: "Senior candidates you are trying to recruit research you. A strong digital presence attracts exceptional people.",
               },
               {
                 icon: Newspaper,
                 title: "Media interactions",
-                text: "Coverage and commentary linger in search. We help ensure current, accurate, and on-message material sits where stakeholders actually look.",
+                text: "Journalists research your background before interviews. Old controversies resurface when your name is prominent and unprotected.",
               },
             ].map(({ icon: Icon, title, text }) => (
               <article
                 key={title}
-                className="rounded-xl border border-[#e2e8f0] bg-white p-6 shadow-sm md:p-8"
+                className="flex flex-col gap-5 rounded-xl border border-[#c4c6d0]/20 bg-white p-6 shadow-sm transition-shadow hover:shadow-md md:gap-6 md:p-8"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-md bg-[#4caf50] text-white">
-                  <Icon className="h-5 w-5" strokeWidth={2} />
+                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#1f3b64] text-[#78dc77] md:h-12 md:w-12 md:rounded-xl">
+                  <Icon className="h-5 w-5 md:h-6 md:w-6" strokeWidth={2} />
                 </div>
-                <h3 className="mt-5 font-heading text-lg font-bold text-[#1a2b4b] md:text-xl">
-                  {title}
-                </h3>
-                <p className="mt-3 text-[14px] leading-[1.65] text-[#5a6578] md:text-[15px]">
-                  {text}
-                </p>
+                <div>
+                  <h3 className="mb-2 font-heading text-lg font-bold text-[#02254d] md:text-xl">
+                    {title}
+                  </h3>
+                  <p className="text-[14px] leading-[1.65] text-[#43474e] md:text-[15px]">
+                    {text}
+                  </p>
+                </div>
               </article>
             ))}
           </div>
@@ -149,46 +170,46 @@ function ExecutivesPage() {
       </section>
 
       {/* What Reputation360 Provides */}
-      <section className="relative overflow-hidden bg-[#1a2b4b] px-4 py-16 md:px-8 md:py-20">
-        <div
-          className="pointer-events-none absolute -right-8 bottom-0 top-0 w-[min(55%,480px)] opacity-[0.12] md:opacity-[0.15]"
-          style={{
-            backgroundImage: `url(${darkSectionWatermark})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          aria-hidden
-        />
-        <div className="relative mx-auto max-w-6xl">
-          <h2 className="font-heading text-[26px] font-bold text-white md:text-[32px]">
-            What Reputation360 Provides
-          </h2>
-          <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+      <section className="relative overflow-hidden bg-[#02254d] px-4 py-14 md:px-8 md:py-18">
+        <div className="absolute top-0 right-0 h-full w-1/3 opacity-10">
+          <img
+            alt=""
+            className="h-full w-full object-cover"
+            src={narrativeImage}
+            aria-hidden
+          />
+        </div>
+        <div className="relative z-10 mx-auto max-w-6xl">
+          <div className="mb-10 md:mb-12">
+            <h2 className="mb-3 font-heading text-[26px] font-bold text-white md:text-[32px]">
+              What Reputation360 Provides
+            </h2>
+            <div className="h-1 w-16 rounded-full bg-[#78dc77] md:h-1.5 md:w-20" />
+          </div>
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
             {[
               {
-                icon: Search,
+                icon: BarChart3,
                 title: "Full digital audit",
-                text: "We analyze your complete search footprint—news, profiles, directories, and AI-visible references—so priorities are clear and the plan is precise.",
+                text: "We analyse your complete search footprint — name, company associations, past ventures, media coverage — and map every threat and opportunity.",
               },
               {
                 icon: Shield,
                 title: "Negative suppression",
-                text: "We displace damaging content from visible search pages using ethical, durable assets aligned with how search actually ranks results.",
+                text: "We displace damaging content from visible search pages using proven strategies built for lasting results.",
               },
               {
                 icon: Star,
                 title: "Executive presence building",
-                text: "LinkedIn optimization, thought leadership content, and media-profile building so what people find reinforces authority and intent.",
+                text: "LinkedIn optimisation, thought leadership content, media profile building — we build a digital presence that reflects your authority and status.",
               },
             ].map(({ icon: Icon, title, text }) => (
-              <div key={title}>
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#4caf50]/20 text-[#7fe08a]">
-                  <Icon className="h-6 w-6" strokeWidth={2} />
-                </div>
-                <h3 className="mt-5 font-heading text-lg font-bold text-white md:text-xl">
+              <div key={title} className="space-y-4 md:space-y-5">
+                <Icon className="h-8 w-8 text-[#78dc77] md:h-9 md:w-9" strokeWidth={2} />
+                <h3 className="font-heading text-lg font-bold text-white md:text-xl">
                   {title}
                 </h3>
-                <p className="mt-3 text-[14px] leading-[1.7] text-white/75 md:text-[15px]">
+                <p className="text-[14px] leading-[1.7] text-[#8ca6d5] md:text-[15px]">
                   {text}
                 </p>
               </div>
@@ -197,21 +218,23 @@ function ExecutivesPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="bg-[#e8eaf3] px-4 py-16 text-center md:px-8 md:py-24">
+      {/* Closing */}
+      <section className="bg-[#f9f9ff] px-4 py-16 text-center md:px-8 md:py-20">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-heading text-[26px] font-bold leading-tight text-[#1a2b4b] md:text-[34px]">
-            Lead With Confidence.{" "}
-            <span className="text-[#4caf50]">Let Your Reputation Precede You.</span>
+          <h2 className="mb-6 font-heading text-[26px] font-bold leading-tight tracking-tight text-[#02254d] md:text-[34px]">
+            Lead With Confidence. <br />
+            <span className="text-[#56b958]">
+              Let Your Reputation Precede You.
+            </span>
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-[1.7] text-[#5a6578] md:text-[16px]">
-            The right online presence does not just protect you. It opens doors—to
-            capital, talent, and partnerships—by making your record legible the
-            moment someone searches your name.
+          <p className="mb-8 text-[15px] leading-[1.7] text-[#43474e] md:mb-10 md:text-[16px]">
+            The right online presence does not just protect you. It opens doors.
+            Reputation360 builds the kind of executive profile that works for you
+            in every room you enter.
           </p>
           <a
             href="/contact"
-            className="mt-10 inline-flex items-center justify-center rounded-lg bg-[#1a2b4b] px-10 py-4 text-sm font-semibold text-white shadow-[0_8px_28px_rgba(26,43,75,0.25)] transition-colors hover:bg-[#243a5c] md:text-base"
+            className="inline-flex items-center justify-center rounded-lg bg-[#02254d] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_28px_rgba(2,37,77,0.25)] transition-colors hover:bg-[#35618e] md:text-base"
           >
             Book a Confidential Executive Consultation
           </a>
