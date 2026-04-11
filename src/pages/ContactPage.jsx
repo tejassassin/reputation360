@@ -1,16 +1,12 @@
 import { useEffect, useId, useState } from "react";
 import {
   Calendar,
-  MessageCircle,
   Mail,
-  ArrowRight,
   ExternalLink,
   Lock,
 } from "lucide-react";
+import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
-
-const heroOfficeImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCZgDbY4alombYjpJ_X7p50nBGt2AvPwsXAhfGbobNwLXwQHkaOjhWI9qRob0JEDIzjLZCMnadngtxzZnWhJcApUhh9DQeelYUPsIMBKBD46tvitFyyhiEzYhhzyTwjd4AaRW8JdT81sqWRA3Eab8rBBW-1pK2A4H80b4V1SnhORA72_6-Y4my-A9eXYJZ1i8FDPw1Y-nPIwdalKRxIik80FagXFnCAOblCne5P6szyRSVzbAlyvSSsGsppsQwXJk9gVzgcGBsR3qo";
 
 const calendarTabletImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuA-iNftxgB4MVtLYmaJLpcpPMCdIk9bo4K2vUXyEA2ZXH-BZhmfhL-8HD6Jt2GOFScH55bygI0bbHScErBYwqc9LNb_6eQBZuMJGi1trXwBsc3cLY_Av8Z34IJp_bM6r1CbUuzjq7-RNw4S1ffC5pcP2vOKqu5G6XAyqQVOS8MtT6wy6zLz3pSH77EgfqPgBDruvU6u1_vrhBJ-BCgrYislzYdg4iPWvU41nIaZO_AVY90uuI5seopRat1VNUXWv2d1Qw5hnw5knwU";
@@ -47,42 +43,6 @@ function ContactPage() {
 
   return (
     <main className="flex-1 bg-[#f9f9ff] pt-28 md:pt-32">
-      {/* Hero */}
-      <section className="relative flex min-h-[min(100vh,720px)] items-center overflow-hidden px-4 py-14 md:px-8 md:py-20">
-        <div className="absolute inset-0 z-0">
-          <img
-            alt=""
-            className="h-full w-full object-cover"
-            src={heroOfficeImage}
-            aria-hidden
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#f9f9ff] via-[#f9f9ff]/90 to-transparent" />
-        </div>
-        <div className="relative z-10 mx-auto w-full max-w-6xl">
-          <h1 className="font-heading text-[36px] font-bold tracking-tight text-[#02254d] md:text-[52px] lg:text-[56px]">
-            Let&apos;s Talk.
-          </h1>
-          <div className="mt-6 max-w-2xl rounded-[1.75rem] border border-white/20 bg-white/40 p-6 shadow-2xl backdrop-blur-md md:mt-8 md:rounded-[2rem] md:p-10 lg:p-12">
-            <p className="text-[15px] leading-[1.7] text-[#43474e] md:text-[16px] lg:text-[17px]">
-              You have a situation. You want to know what can be done. In 30
-              minutes, we will look at your search results together, give you an
-              honest assessment, and tell you precisely what Reputation360 can
-              achieve and how long it will realistically take. No commitment
-              required. No sales pressure.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3 md:mt-8">
-              <a
-                href="#contact-form"
-                className="ha-pill inline-flex items-center gap-2 rounded-xl bg-[#02254d] px-8 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-[#35618e] active:scale-[0.98] md:text-base"
-              >
-                Get My Assessment
-                <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* How to Reach Us */}
       <section
         id="contact-form"
@@ -90,9 +50,9 @@ function ContactPage() {
       >
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 md:mb-12">
-            <h2 className="font-heading text-[26px] font-bold text-[#02254d] md:text-[32px]">
+            <h1 className="font-heading text-[26px] font-bold text-[#02254d] md:text-[32px]">
               How to Reach Us
-            </h2>
+            </h1>
             <p className="mt-3 text-[15px] text-[#43474e] md:text-[16px]">
               Choose the channel that best suits your current situation.
             </p>
@@ -111,9 +71,8 @@ function ContactPage() {
                   Book a Call
                 </h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-[#43474e] md:mt-4 md:text-lg">
-                  Use the form on this page or schedule a consultation. Our
-                  average response time for initial enquiries is within 2
-                  business hours.
+                  Every reputation challenge is different. Book a call and
+                  we&apos;ll tailor a strategy to yours.
                 </p>
                 <a
                   {...calendlyNewTabProps}
@@ -135,17 +94,18 @@ function ContactPage() {
             <div className="ha-lift flex flex-col justify-between rounded-[1.75rem] border-2 border-[#78dc77]/20 bg-[#78dc77]/10 p-6 md:col-span-4 md:rounded-[2rem] md:p-10">
               <div>
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#78dc77] md:mb-6 md:h-14 md:w-14">
-                  <MessageCircle
-                    className="h-6 w-6 text-[#56b958] md:h-7 md:w-7"
-                    strokeWidth={2}
+                  <IconBrandWhatsapp
+                    className="h-7 w-7 text-white md:h-8 md:w-8"
+                    stroke={1.25}
+                    aria-hidden
                   />
                 </div>
                 <h3 className="font-heading text-xl font-bold text-[#56b958] md:text-2xl">
                   WhatsApp
                 </h3>
                 <p className="mt-3 text-[15px] text-[#43474e] md:mt-4">
-                  The fastest route for immediate questions or urgent crisis
-                  management situations.
+                  When something needs immediate attention, this is the fastest
+                  way to reach us.
                 </p>
               </div>
               <a
