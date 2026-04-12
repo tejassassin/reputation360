@@ -97,7 +97,7 @@ export function ServicesExpandable() {
                     type="button"
                     layoutId={`button-${active.title}-${id}`}
                     onClick={() => setActive(null)}
-                    className="px-4 py-3 text-sm rounded-full font-heading font-semibold bg-green hover:bg-green/80 text-white transition-colors shrink-0 cursor-pointer"
+                    className="shrink-0 cursor-pointer rounded-full bg-navy px-4 py-3 font-heading text-sm font-semibold text-white shadow-sm ring-1 ring-navy/15 transition-colors hover:bg-[#2a5082]"
                   >
                     Close
                   </motion.button>
@@ -148,7 +148,7 @@ export function ServicesExpandable() {
             <motion.button
               layoutId={`button-${card.title}-${id}`}
               type="button"
-              className="shrink-0 cursor-pointer rounded-full bg-green px-3 py-2 font-heading text-sm font-semibold text-white transition-colors hover:bg-green/90"
+              className="shrink-0 cursor-pointer rounded-full bg-navy px-3 py-2 font-heading text-sm font-semibold text-white shadow-sm ring-1 ring-navy/15 transition-colors hover:bg-[#2a5082]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -196,7 +196,7 @@ export function ServicesExpandable() {
             <motion.button
               layoutId={`button-${card.title}-${id}`}
               type="button"
-              className="shrink-0 cursor-pointer rounded-full bg-green px-3 py-2 font-heading text-sm font-semibold text-white transition-colors hover:bg-green/90"
+              className="shrink-0 cursor-pointer rounded-full bg-navy px-3 py-2 font-heading text-sm font-semibold text-white shadow-sm ring-1 ring-navy/15 transition-colors hover:bg-[#2a5082]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
