@@ -335,15 +335,18 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* We are driven by outcomes */}
+      {/* What Drives Us */}
       <section className="bg-slate-50 pt-12 pb-20 md:pt-14 md:pb-28">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-12 text-center md:mb-14">
             <h2
               className={`${headlineFont} mb-4 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
             >
-              We are driven by outcomes. Real ones.
+              What Drives Us
             </h2>
+            <p className="font-body mx-auto mb-4 max-w-4xl text-balance text-lg font-semibold leading-snug text-[#2E5B88] md:text-xl">
+              We are driven by outcomes. Real ones.
+            </p>
             <p className="mx-auto max-w-4xl text-balance text-base leading-relaxed text-slate-600 md:text-lg">
               The happy faces of clients who finally have their reputation back.
               The peace of mind that comes with knowing your name tells your
