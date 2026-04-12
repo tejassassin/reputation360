@@ -26,6 +26,12 @@ function contactFormReturnUrl() {
   return `https://reputation360.in${CONTACT_FORM_THANKS_PATH}`;
 }
 
+const CONTACT_PAGE_TESTIMONIAL = {
+  text: `I'll be honest - I was sceptical. But that one 30-minute call changed everything. I felt heard, I felt understood, and I felt assured. Eleven months later, my reputation is restored, my peace of mind is back, and I can finally move forward. I will be forever grateful to Reputation360`,
+  role: "Financial Leader",
+  name: "Martin Luze",
+};
+
 /**
  * Winding road - x spread for ~2.1:1 viewBox so `aspect-ratio` + `w-full`
  * fills wide layouts without empty side gutters.
@@ -422,6 +428,20 @@ function ContactPage() {
                 </button>
               </form>
             </div>
+
+            <figure className="mt-10 md:col-span-12 md:mt-14 lg:mt-16">
+              <blockquote className="mx-auto m-0 max-w-4xl text-center">
+                <p className="m-0 font-heading text-[15px] font-normal italic leading-relaxed tracking-normal text-[#43474e] md:text-[17px]">
+                  &ldquo;{CONTACT_PAGE_TESTIMONIAL.text}&rdquo;
+                </p>
+                <p className="mt-5 font-heading text-[15px] font-normal leading-relaxed tracking-normal not-italic text-[#43474e] md:mt-6 md:text-[17px]">
+                  <span className="whitespace-nowrap">
+                    &mdash; {CONTACT_PAGE_TESTIMONIAL.role},{" "}
+                    <cite className="not-italic">{CONTACT_PAGE_TESTIMONIAL.name}</cite>
+                  </span>
+                </p>
+              </blockquote>
+            </figure>
           </div>
         </div>
       </section>
