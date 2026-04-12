@@ -147,7 +147,8 @@ export function ServicesExpandable() {
             </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="shrink-0 cursor-pointer rounded-full px-4 py-2 font-heading text-sm font-semibold text-white transition-colors hover:bg-green/90 hover:text-white"
+              type="button"
+              className="shrink-0 cursor-pointer rounded-full bg-green px-3 py-2 font-heading text-sm font-semibold text-white transition-colors hover:bg-green/90"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -155,10 +156,11 @@ export function ServicesExpandable() {
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="navy"
+                stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className="text-white"
               >
                 <path d="m7 7 10 10" />
                 <path d="M17 7v10H7" />
@@ -193,7 +195,8 @@ export function ServicesExpandable() {
             </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="shrink-0 cursor-pointer rounded-full px-4 py-2 font-heading text-sm font-semibold text-white transition-colors hover:bg-green/90 hover:text-white"
+              type="button"
+              className="shrink-0 cursor-pointer rounded-full bg-green px-3 py-2 font-heading text-sm font-semibold text-white transition-colors hover:bg-green/90"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -201,10 +204,11 @@ export function ServicesExpandable() {
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="navy"
+                stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className="text-white"
               >
                 <path d="m7 7 10 10" />
                 <path d="M17 7v10H7" />

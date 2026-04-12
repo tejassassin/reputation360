@@ -285,7 +285,7 @@ function AboutPage() {
             </p>
             <a
               {...calendlyNewTabProps}
-              className="mt-8 inline-block rounded-full border-2 border-[#02254d] bg-white px-10 py-3.5 text-sm font-bold text-[#02254d] shadow-md transition-colors duration-200 hover:bg-[#02254d] hover:text-white active:scale-[0.98] md:mt-10 md:px-12 md:py-4 md:text-base"
+              className="mt-8 inline-block rounded-full bg-[#02254d] px-10 py-3.5 text-sm font-bold text-white shadow-md transition-colors duration-200 hover:bg-[#35618e] active:scale-[0.98] md:mt-10 md:px-12 md:py-4 md:text-base"
             >
               Book a Free Consultation
             </a>

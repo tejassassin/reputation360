@@ -212,10 +212,10 @@ function LawyersPage() {
                   search pages through content creation and profile optimisation.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-2">
-                  <span className="rounded-full bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.08em] text-[#1a2b4b] shadow-sm">
+                  <span className="rounded-full bg-[#1a2b4b] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.08em] text-white shadow-sm">
                     Technical SEO
                   </span>
-                  <span className="rounded-full bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.08em] text-[#1a2b4b] shadow-sm">
+                  <span className="rounded-full bg-[#1a2b4b] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.08em] text-white shadow-sm">
                     Content dilution
                   </span>
                 </div>

@@ -20,7 +20,7 @@ function FinancialAdvisorsPage() {
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 space-y-10">
         <section className="rounded-[6px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-8 py-12 md:px-10 md:py-14 grid gap-8 md:grid-cols-[1.05fr_0.95fr] items-start">
           <div className="max-w-[640px]">
-            <p className="inline-flex rounded-xl bg-[#6fe980] px-4 py-2 text-xs tracking-[0.16em] font-semibold uppercase text-[#103a24]">
+            <p className="inline-flex rounded-xl bg-[#2a8c3e] px-4 py-2 text-xs tracking-[0.16em] font-semibold uppercase text-white">
               Who we serve?
             </p>
             <h1 className="mt-7 font-heading text-5xl md:text-6xl leading-[1.02] text-[#0f2e58] font-bold">

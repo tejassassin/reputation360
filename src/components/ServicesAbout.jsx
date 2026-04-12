@@ -23,13 +23,13 @@ const whatWeDoCards = [
     title: "Positive Content Creation",
     text: "We publish high-quality content across trusted channels to strengthen your reputation footprint.",
     icon: <FileText className="h-4 w-4" />,
-    iconClass: "bg-[#9ec7ef] text-[#1f3b64]",
+    iconClass: "bg-[#1f3b64] text-white",
   },
   {
     title: "Brand & Visibility Growth",
     text: "From profile optimization to social proof, we help your brand look credible and discoverable.",
     icon: <TrendingUp className="h-4 w-4" />,
-    iconClass: "bg-[#95ef9e] text-black",
+    iconClass: "bg-[#2a8c3e] text-white",
   },
 ];
 
@@ -56,7 +56,7 @@ const timeline = [
     month: "Months 8 to 12",
     text: "Substantial transformation complete. Negative content pushed well beyond visible search pages.",
     icon: "4",
-    iconClass: "bg-[#95ef9e] text-[#0f3b1d]",
+    iconClass: "bg-[#2a8c3e] text-white",
   },
 ];
 
@@ -93,7 +93,7 @@ function ServicesAbout() {
                 building to make your reputation work for your business.
               </p>
             </div>
-            <div className="inline-flex items-center gap-2 rounded-lg bg-[#dff7dc] px-4 py-2 text-sm font-semibold text-[#123d1e]">
+            <div className="inline-flex items-center gap-2 rounded-lg bg-[#1e4627] px-4 py-2 text-sm font-semibold text-white">
               <Settings className="h-4 w-4" />
               <span>98% success clearing page 1</span>
             </div>

@@ -33,7 +33,7 @@ function BusinessesPage() {
       <section className="relative flex min-h-[58vh] items-center justify-center overflow-hidden bg-[#f9f9ff] py-10 md:min-h-[65vh] md:py-14">
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 text-center md:px-8">
           <div className="mx-auto max-w-4xl space-y-5 md:space-y-6">
-            <span className="inline-block rounded-full bg-[#d1e4ff] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[#001d36]">
+            <span className="inline-block rounded-full bg-[#02254d] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white">
               Digital Presence Management
             </span>
             <h1 className="font-heading text-[30px] font-bold leading-[1.12] tracking-tight text-[#02254d] md:text-[40px] lg:text-[44px]">
@@ -56,7 +56,7 @@ function BusinessesPage() {
               </a>
               <a
                 href="/case-studies"
-                className="ha-pill inline-flex items-center rounded-xl bg-[#e1e8fd] px-8 py-3.5 text-sm font-semibold text-[#02254d] hover:bg-[#dce2f7]"
+                className="ha-pill inline-flex items-center rounded-xl bg-[#1f3b64] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(2,37,77,0.2)] hover:bg-[#35618e] active:scale-[0.98]"
               >
                 View Case Studies
               </a>
@@ -125,7 +125,7 @@ function BusinessesPage() {
             {[
               {
                 icon: TrendingDown,
-                iconWrap: "bg-[#ffdad6] text-[#ba1a1a]",
+                iconWrap: "bg-[#ba1a1a] text-white",
                 title: "Declining Lead Quality",
                 items: [
                   "High-value prospects disengaging early in the sales cycle.",
@@ -134,7 +134,7 @@ function BusinessesPage() {
               },
               {
                 icon: UserSearch,
-                iconWrap: "bg-[#9fcafd] text-[#184975]",
+                iconWrap: "bg-[#184975] text-white",
                 title: "Talent Acquisition Struggles",
                 items: [
                   'Top-tier candidates rejecting offers after "doing their research."',
@@ -143,7 +143,7 @@ function BusinessesPage() {
               },
               {
                 icon: Scale,
-                iconWrap: "bg-[#94f990] text-[#002204]",
+                iconWrap: "bg-[#2a8c3e] text-white",
                 title: "Valuation & Partnership Risk",
                 items: [
                   "Negative press impacting due diligence during M&A.",
@@ -306,7 +306,7 @@ function BusinessesPage() {
           <div className="mt-8 flex flex-col items-center justify-center md:mt-10">
             <a
               {...calendlyNewTabProps}
-              className="ha-pill inline-flex items-center justify-center rounded-xl bg-[#78dc77] px-10 py-3.5 text-sm font-bold text-[#002204] shadow-2xl hover:bg-[#94f990] md:px-12 md:py-4 md:text-base"
+              className="ha-pill inline-flex items-center justify-center rounded-xl bg-[#78dc77] px-10 py-3.5 text-sm font-bold text-white shadow-2xl hover:bg-[#94f990] md:px-12 md:py-4 md:text-base"
             >
               Book a Free Business Consultation
             </a>

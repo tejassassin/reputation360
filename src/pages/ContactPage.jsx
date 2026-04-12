@@ -1,10 +1,5 @@
 import { useEffect, useId, useState } from "react";
-import {
-  Calendar,
-  Mail,
-  ExternalLink,
-  Lock,
-} from "lucide-react";
+import { Calendar, Mail, ExternalLink, Lock } from "lucide-react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
 
@@ -13,6 +8,202 @@ const calendarTabletImage =
 
 /** WhatsApp: digits only with country code (no +). Update for your business line. */
 const WHATSAPP_PHONE = "919910000000";
+
+/**
+ * Winding road - x spread for ~2.1:1 viewBox so `aspect-ratio` + `w-full`
+ * fills wide layouts without empty side gutters.
+ */
+const AUTHORITY_ROADMAP_PATH_D =
+  "M 80 400 Q 339 400 512 350 T 944 450 T 1375 300 T 1980 150";
+
+const GROWTH = "#4CAF50";
+const NAVY = "#1F3B64";
+
+/** Milestone geometry - wide layout + `foreignObject` for copy. */
+const AUTHORITY_ROADMAP_MILESTONES = [
+  {
+    n: 1,
+    title: "Book a Call",
+    text: "You take the first step by scheduling a free 30-minute consultation at a time that works for you.",
+    green: true,
+    line: { x1: 201, y1: 400, x2: 201, y2: 280 },
+    anchor: { cx: 201, cy: 400 },
+    ring: { cx: 201, cy: 240 },
+    num: { x: 201, y: 252 },
+    fo: { x: 18, y: -10, w: 366, h: 188 },
+  },
+  {
+    n: 2,
+    title: "Discovery & Assessment",
+    text: "We get on a confidential call to understand your situation - the reputation damage, your goals, and everything we need to know.",
+    green: false,
+    line: { x1: 477, y1: 365, x2: 477, y2: 480 },
+    anchor: { cx: 477, cy: 365 },
+    ring: { cx: 477, cy: 520 },
+    num: { x: 477, y: 532 },
+    fo: { x: 284, y: 582, w: 386, h: 200 },
+  },
+  {
+    n: 3,
+    title: "Digital Audit",
+    text: "We conduct a thorough audit of your digital footprint, identifying exactly what needs to be addressed.",
+    green: true,
+    line: { x1: 719, y1: 405, x2: 719, y2: 290 },
+    anchor: { cx: 719, cy: 405 },
+    ring: { cx: 719, cy: 250 },
+    num: { x: 719, y: 262 },
+    fo: { x: 526, y: 0, w: 386, h: 188 },
+  },
+  {
+    n: 4,
+    title: "Tailored Strategy & Proposal",
+    text: "We present a clear, personalised plan built around your needs and send a formal proposal for your review.",
+    green: false,
+    line: { x1: 961, y1: 445, x2: 961, y2: 550 },
+    anchor: { cx: 961, cy: 445 },
+    ring: { cx: 961, cy: 590 },
+    num: { x: 961, y: 602 },
+    fo: { x: 768, y: 652, w: 386, h: 220 },
+  },
+  {
+    n: 5,
+    title: "Contract & Onboarding",
+    text: "Once you're happy, we sign the contract, gather everything we need, and set the foundation for your campaign.",
+    green: true,
+    line: { x1: 1220, y1: 360, x2: 1220, y2: 240 },
+    anchor: { cx: 1220, cy: 360 },
+    ring: { cx: 1220, cy: 200 },
+    num: { x: 1220, y: 212 },
+    fo: { x: 1027, y: -50, w: 386, h: 188 },
+  },
+  {
+    n: 6,
+    title: "Ecosystem Build",
+    text: "We build or rebuild your digital presence - social media profiles, websites, and your full online ecosystem.",
+    green: false,
+    line: { x1: 1479, y1: 260, x2: 1479, y2: 380 },
+    anchor: { cx: 1479, cy: 260 },
+    ring: { cx: 1479, cy: 420 },
+    num: { x: 1479, y: 432 },
+    fo: { x: 1286, y: 482, w: 386, h: 200 },
+  },
+  {
+    n: 7,
+    title: "Active Execution & Reporting",
+    text: "Your strategy goes live. We execute across all channels, manage your content, and keep you updated with regular progress reports.",
+    green: true,
+    line: { x1: 1702, y1: 205, x2: 1702, y2: 95 },
+    anchor: { cx: 1702, cy: 205 },
+    ring: { cx: 1702, cy: 50 },
+    num: { x: 1702, y: 62 },
+    fo: { x: 1509, y: -204, w: 386, h: 192 },
+  },
+  {
+    n: 8,
+    title: "Reputation Restored",
+    text: "A stronger, cleaner, and more authoritative digital presence - and a client who moves forward with confidence.",
+    green: false,
+    line: { x1: 1928, y1: 160, x2: 1928, y2: 280 },
+    anchor: { cx: 1928, cy: 160 },
+    ring: { cx: 1928, cy: 320 },
+    num: { x: 1928, y: 332 },
+    fo: { x: 1718, y: 382, w: 382, h: 200 },
+  },
+];
+
+function ContactAuthorityRoadmap() {
+  return (
+    <div className="-mx-4 overflow-x-auto px-4 pb-2 md:mx-0 md:overflow-visible md:px-0 md:pb-0">
+      <div className="relative mx-auto w-[min(1120px,140vw)] max-w-none shrink-0 md:aspect-[2100/1120] md:w-full md:min-w-0">
+        <svg
+          className="h-auto w-full overflow-visible md:absolute md:inset-0 md:h-full"
+          viewBox="0 -210 2100 1120"
+          preserveAspectRatio="xMidYMid meet"
+          role="img"
+          aria-label="Eight-step journey roadmap"
+        >
+          <path
+            d={AUTHORITY_ROADMAP_PATH_D}
+            fill="none"
+            stroke="#293040"
+            strokeWidth={56}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d={AUTHORITY_ROADMAP_PATH_D}
+            fill="none"
+            stroke="#f8fafc"
+            strokeWidth={2}
+            strokeDasharray="12 12"
+            strokeOpacity={0.55}
+            strokeLinecap="round"
+          />
+          {AUTHORITY_ROADMAP_MILESTONES.map((m) => {
+            const fill = m.green ? GROWTH : NAVY;
+            const label = String(m.n).padStart(2, "0");
+            return (
+              <g key={m.n}>
+                <line
+                  x1={m.line.x1}
+                  y1={m.line.y1}
+                  x2={m.line.x2}
+                  y2={m.line.y2}
+                  stroke={fill}
+                  strokeWidth={2}
+                />
+                <circle cx={m.anchor.cx} cy={m.anchor.cy} r={10} fill={fill} />
+                <circle
+                  cx={m.ring.cx}
+                  cy={m.ring.cy}
+                  r={50}
+                  fill={fill}
+                  className="drop-shadow-[0_8px_24px_rgba(0,0,0,0.18)]"
+                />
+                <text
+                  x={m.num.x}
+                  y={m.num.y}
+                  fill="#ffffff"
+                  stroke="rgba(15, 23, 42, 0.45)"
+                  strokeWidth={3}
+                  strokeLinejoin="round"
+                  textAnchor="middle"
+                  className="pointer-events-none font-heading text-[30px] font-extrabold md:text-[34px]"
+                  style={{
+                    fontVariantNumeric: "tabular-nums",
+                    paintOrder: "stroke fill",
+                  }}
+                >
+                  {label}
+                </text>
+                <foreignObject
+                  x={m.fo.x}
+                  y={m.fo.y}
+                  width={m.fo.w}
+                  height={m.fo.h}
+                >
+                  <div
+                    xmlns="http://www.w3.org/1999/xhtml"
+                    className={`flex h-full min-h-0 flex-col gap-1 px-1 text-center md:px-2 ${
+                      m.green ? "justify-end" : "justify-start"
+                    }`}
+                  >
+                    <h4 className="font-heading text-[17px] font-bold leading-snug text-[#02254d] md:text-[19px]">
+                      {m.title}
+                    </h4>
+                    <p className="font-heading text-[15px] font-normal leading-relaxed tracking-normal text-[#43474e] md:text-[17px]">
+                      {m.text}
+                    </p>
+                  </div>
+                </foreignObject>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+    </div>
+  );
+}
 
 function ContactPage() {
   const gridPatternId = useId().replace(/:/g, "");
@@ -169,7 +360,7 @@ function ContactPage() {
                 />
                 <button
                   type="submit"
-                  className="ha-pill rounded-xl bg-[#78dc77] py-3.5 text-sm font-bold text-[#002204] hover:opacity-90 md:col-span-2 md:text-base"
+                  className="ha-pill rounded-xl bg-[#78dc77] py-3.5 text-sm font-bold text-white hover:opacity-90 md:col-span-2 md:text-base"
                 >
                   Send Email Inquiry
                 </button>
@@ -179,72 +370,24 @@ function ContactPage() {
         </div>
       </section>
 
-      {/* What Happens Next */}
+      {/* What Happens Next - SVG roadmap (reference layout) */}
       <section className="bg-[#f9f9ff] px-4 py-14 md:px-8 md:py-18">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 text-center md:mb-16">
-            <h2 className="font-heading text-[26px] font-bold text-[#02254d] md:text-[32px]">
-              What Happens Next
+        <div className="mx-auto max-w-7xl 2xl:max-w-[min(90rem,calc(100vw-3rem))]">
+          <div className="mb-8 text-center md:mb-10">
+            <h2 className="font-heading text-[28px] font-bold tracking-tight text-[#02254d] md:text-[40px]">
+              What Happens{" "}
+              <span className="text-[#4CAF50]">Next</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-[15px] text-[#43474e] md:text-[16px]">
-              A transparent roadmap of our engagement from first contact to
-              strategic execution.
+            <p className="mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-[#43474e] md:text-[16px]">
+              A transparent roadmap of your journey from first contact to a
+              thriving digital reputation.
             </p>
           </div>
-          <div className="relative">
-            <div className="absolute top-8 left-0 hidden h-0.5 w-full -translate-y-1/2 bg-[#c4c6d0]/30 md:block md:top-10" />
-            <div className="relative z-10 grid grid-cols-1 gap-10 md:grid-cols-5 md:gap-6 lg:gap-8">
-              {[
-                {
-                  n: 1,
-                  title: "Audit",
-                  text: "We review your enquiry and run an initial assessment of your digital footprint.",
-                  circle: "bg-[#dce2f7] text-[#02254d] shadow-md",
-                },
-                {
-                  n: 2,
-                  title: "Schedule",
-                  text: "We schedule a 30-minute call at your convenience to discuss findings.",
-                  circle: "bg-[#dce2f7] text-[#02254d] shadow-md",
-                },
-                {
-                  n: 3,
-                  title: "Call",
-                  text: "On the call, we walk through exactly what we see and provide recommendations.",
-                  circle: "bg-[#02254d] text-white shadow-xl",
-                },
-                {
-                  n: 4,
-                  title: "Active",
-                  text: "If you proceed, your personalized strategy is active within 5 business days.",
-                  circle: "bg-[#dce2f7] text-[#02254d] shadow-md",
-                },
-                {
-                  n: 5,
-                  title: "Clarity",
-                  text: "If you do not proceed, you walk away with a clearer picture at no cost.",
-                  circle: "bg-[#78dc77] text-[#56b958] shadow-md",
-                },
-              ].map((step) => (
-                <div
-                  key={step.n}
-                  className="flex flex-col items-center text-center"
-                >
-                  <div
-                    className={`mb-4 flex h-14 w-14 items-center justify-center rounded-full border-4 border-[#f9f9ff] font-heading text-lg font-black md:mb-6 md:h-16 md:w-16 md:text-xl ${step.circle}`}
-                  >
-                    {step.n}
-                  </div>
-                  <h4 className="font-heading text-base font-bold text-[#02254d] md:text-lg">
-                    {step.title}
-                  </h4>
-                  <p className="mt-2 text-[13px] leading-relaxed text-[#43474e] md:text-sm">
-                    {step.text}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+
+          <p className="mb-3 text-center text-[11px] text-[#5c6578] md:hidden">
+            Scroll sideways to see the full journey.
+          </p>
+          <ContactAuthorityRoadmap />
         </div>
       </section>
 

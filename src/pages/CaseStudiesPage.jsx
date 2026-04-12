@@ -232,7 +232,7 @@ function CaseStudySection({ study }) {
 
   const textCol = (
     <div className="space-y-5 md:space-y-6">
-      <div className="inline-flex items-center rounded-full bg-[#e1e8fd] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#02254d] md:text-xs">
+      <div className="inline-flex items-center rounded-full bg-[#02254d] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white md:text-xs">
         {study.tag}
       </div>
       <h2 className="font-heading text-2xl font-bold leading-tight text-[#02254d] md:text-3xl lg:text-4xl">
@@ -351,7 +351,7 @@ export default function CaseStudiesPage() {
           <div className="relative z-10 mt-8 flex flex-col items-center justify-center gap-3 md:mt-10 md:flex-row md:gap-4">
             <a
               {...calendlyNewTabProps}
-              className="ha-pill inline-flex w-full items-center justify-center rounded-xl bg-[#78dc77] px-10 py-3.5 text-sm font-bold text-[#002204] shadow-lg shadow-[#00450e]/30 hover:bg-white active:scale-[0.98] md:w-auto md:text-base lg:px-12 lg:py-4 lg:text-lg"
+              className="ha-pill inline-flex w-full items-center justify-center rounded-xl bg-[#78dc77] px-10 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#00450e]/30 hover:bg-[#94f990] hover:text-white active:scale-[0.98] md:w-auto md:text-base lg:px-12 lg:py-4 lg:text-lg"
             >
               Get My Free Audit
             </a>

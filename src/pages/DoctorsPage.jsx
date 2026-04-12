@@ -13,7 +13,7 @@ function DoctorsPage() {
       <section className="bg-[#f8f9fa] px-4 py-10 md:px-8 md:py-14">
         <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.05fr_0.95fr] md:items-start">
           <div>
-            <p className="inline-flex rounded-full bg-[#d6e8f7] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[#1a2b4b]">
+            <p className="inline-flex rounded-full bg-[#1a2b4b] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white">
               Healthcare Elite
             </p>
             <h1 className="mt-5 font-heading text-[32px] font-bold leading-[1.08] text-[#1a2b4b] md:text-[42px] lg:text-[46px]">
@@ -32,7 +32,7 @@ function DoctorsPage() {
               >
                 Get a Free Reputation Audit
               </a>
-              <span className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-[#e2e6ea] bg-white px-5 py-3.5 text-sm font-semibold text-[#1a2b4b] shadow-sm">
+              <span className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#1a2b4b] px-5 py-3.5 text-sm font-semibold text-white shadow-sm">
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#4caf50] text-white">
                   <Check className="h-4 w-4" strokeWidth={3} />
                 </span>

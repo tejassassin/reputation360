@@ -43,7 +43,7 @@ function GuidePage() {
       <header className="relative overflow-hidden px-4 pb-24 pt-28 md:px-8 md:pt-32">
         <div className="mx-auto flex max-w-7xl flex-col items-center text-center">
           <div className="z-10">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#94f990] px-3 py-1 text-xs font-bold tracking-widest text-[#002204] uppercase">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#2a8c3e] px-3 py-1 text-xs font-bold tracking-widest text-white uppercase">
               <span className="h-2 w-2 rounded-full bg-[#56b958]" />
               2026 Strategy Guide
             </div>
@@ -82,7 +82,7 @@ function GuidePage() {
             <a
               key={id}
               href={`#${id}`}
-              className="ha-pill shrink-0 rounded-full border border-[#dce2f7] bg-white px-4 py-2 text-xs font-semibold whitespace-nowrap text-[#02254d]"
+              className="ha-pill shrink-0 rounded-full bg-[#02254d] px-4 py-2 text-xs font-semibold whitespace-nowrap text-white hover:bg-[#35618e]"
             >
               {label}
             </a>
@@ -401,7 +401,7 @@ function GuidePage() {
                   </p>
                   <a
                     {...calendlyNewTabProps}
-                    className="font-guide-headline ha-pill rounded-full bg-[#78dc77] px-10 py-5 text-lg font-extrabold text-[#02254d] shadow-xl hover:bg-white"
+                    className="font-guide-headline ha-pill rounded-full bg-[#78dc77] px-10 py-5 text-lg font-extrabold text-white shadow-xl hover:bg-[#56b958] hover:text-white"
                   >
                     Book Your Free Consultation
                   </a>

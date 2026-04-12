@@ -90,7 +90,7 @@ function InsightsBlogsPage() {
       <header className="relative mx-auto max-w-7xl overflow-hidden px-6 pb-24 pt-12 md:px-8 md:pt-16">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
           <div className="lg:col-span-8">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#94f990] px-3 py-1 text-xs font-bold tracking-widest text-[#005313] uppercase">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#2a8c3e] px-3 py-1 text-xs font-bold tracking-widest text-white uppercase">
               <BadgeCheck className="h-3.5 w-3.5 shrink-0" aria-hidden />
               <span>Expert Insights</span>
             </div>
@@ -133,7 +133,7 @@ function InsightsBlogsPage() {
             </div>
             <button
               type="button"
-              className="group ha-nudge flex items-center gap-2 self-start font-semibold text-[#35618e] sm:self-auto"
+              className="group ha-nudge flex items-center gap-2 self-start rounded-lg bg-[#02254d] px-4 py-2.5 font-semibold text-white transition-colors hover:bg-[#35618e] sm:self-auto"
             >
               <span>View all features</span>
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -243,7 +243,7 @@ function InsightsBlogsPage() {
                 className={`ha-pill rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
                   activeFilter === label
                     ? "bg-[#02254d] text-white"
-                    : "bg-[#e9edff] text-[#43474e] hover:bg-[#e1e8fd]"
+                    : "bg-[#35618e] text-white hover:bg-[#02254d]"
                 }`}
               >
                 {label}
@@ -289,7 +289,7 @@ function InsightsBlogsPage() {
         <div className="mt-16 flex justify-center">
           <button
             type="button"
-            className="ha-pill rounded-xl bg-[#dce2f7] px-8 py-3 font-bold text-[#02254d] transition-all duration-300 hover:bg-[#02254d] hover:text-white"
+            className="ha-pill rounded-xl bg-[#02254d] px-8 py-3 font-bold text-white transition-all duration-300 hover:bg-[#35618e]"
           >
             Load More Insights
           </button>
@@ -325,7 +325,7 @@ function InsightsBlogsPage() {
                 />
                 <button
                   type="submit"
-                  className="ha-pill rounded-xl bg-[#78dc77] py-4 text-lg font-bold text-[#005313] active:scale-[0.98]"
+                  className="ha-pill rounded-xl bg-[#78dc77] py-4 text-lg font-bold text-white active:scale-[0.98]"
                 >
                   Subscribe to the Briefing
                 </button>
@@ -357,7 +357,7 @@ function InsightsBlogsPage() {
             </a>
             <a
               {...calendlyNewTabProps}
-              className="ha-pill rounded-xl border border-[#dce2f7] bg-white px-10 py-5 text-lg font-bold text-[#02254d] hover:bg-[#e9edff]"
+              className="ha-pill rounded-xl bg-[#02254d] px-10 py-5 text-lg font-bold text-white shadow-xl shadow-[#02254d]/20 hover:bg-[#35618e]"
             >
               Speak with a Partner
             </a>

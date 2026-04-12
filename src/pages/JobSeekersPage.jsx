@@ -20,7 +20,7 @@ function JobSeekersPage() {
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 space-y-10">
         <section className="rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:px-4 md:py-7 grid gap-5 md:grid-cols-[1.03fr_0.97fr] items-start">
           <div className="max-w-[570px]">
-            <p className="inline-flex rounded-xl bg-[#74ea86] px-3.5 py-1.5 text-[10px] tracking-[0.14em] font-semibold uppercase text-[#103a24] shadow-[0_2px_6px_rgba(116,234,134,0.35)]">
+            <p className="inline-flex rounded-xl bg-[#2a8c3e] px-3.5 py-1.5 text-[10px] tracking-[0.14em] font-semibold uppercase text-white shadow-[0_2px_6px_rgba(42,140,62,0.35)]">
               JOB SEEKER SOLUTIONS
             </p>
             <h1 className="mt-4 font-heading text-[34px] md:text-[40px] leading-[1.02] text-[#0f2e58] font-bold tracking-tight max-w-[520px]">
