@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion as Motion } from "motion/react";
 import {
   GraduationCap,
   Stethoscope,
   BarChart3,
   Store,
+  CircleArrowRight,
   User,
   Landmark,
   Gavel,
@@ -11,40 +13,88 @@ import {
   Briefcase,
   XCircle,
   Star,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
 
 const IMG_HERO =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDZxwP0ZvKL-Sn6lv_i9bPP-sHJByxa_l07VO40dZRT9XakSZkHI-BBYnxDhoQaK_umCL6d_CSQTdBl2UdKnYIEKuATss1bvouEPWbgqq1UTLSQqWHFfjMZZRNp_0ZipLR6avyPNE_rSrWmoBvV3FT0XDvnRuEsqQkdi80_TRShfB7fkPNA-vRfZroSYu6b9ZNYXYkWHQNbYvvkZN2dn96CWdD23L6urVXJ_-cLew24alxXZvwN9TGXAan3r0DJc8ACbs2BpCpgucc";
 
-const IMG_PEN =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCZM8CtPbkg8TpHt5Sv0vWALyy01_XP2gra6J7X-1NnMrV1lJ7IpIHtxGvZ-M0sESv48Smj1FXyDThRwM6Kbko3oZJypnltlAPhPJjzlGFO6wxBrRxo8kgW1Wv2Oc8l75CvH-s2lKqn4S_feI6TOaW26VOg8gu6t7GAdUGbRAk7FtM2DcJeQtIMcS9PlJb86phwdZgRTKtakDEiAklNRKT-mi7wSVyUCEKvKjb5Lebw3vJOpwXVDTrefwLmfBFz8ADVJkYKPV2B2OM";
-
 const IMG_MAP =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDAuoKNykbon_ONixwj4-paZvw6Uqm6Ye_H2j_EV6_SHshlgFYZLlUZO88MsCDh-_V5ZlqSn7LuN6vxcMeco4Qu_CDcVLsbvdz8yfrmrunnvnu3gMD51AnuNyq3XP7TVkVUuZZnfzI7hLcDDHEeE52hVHtDxOV1GWyNkae-OjZ1rZKugmZ70SaCmoCMsw-cNU_WN16084-Rf62DoLjnWrlnkXxW310RMehlYCTLlonqks_CWIqf_vt2SnofCi7Br7dzp6D7wxZsHMg";
 
 const headlineFont = "font-[Manrope,Inter,sans-serif]";
 
-const outcomeCards = [
+/** What Drives Us — interactive personas (grid order: row1, row2). */
+const whatDrivesPersonas = [
   {
+    id: "student",
     icon: GraduationCap,
-    title: "Student",
-    text: "The student who finally lands the job they worked years for.",
+    label: "Student",
+    cardLine: "Lands the job they worked years for",
+    panelKicker: "THE STUDENT",
+    detailSegments: [
+      {
+        text: "Recruiters kept landing on an incomplete picture. ",
+        tone: "muted",
+      },
+      {
+        text: "When the first page finally told the truth, the offer came through.",
+        tone: "navy",
+      },
+    ],
   },
   {
+    id: "doctor",
     icon: Stethoscope,
-    title: "Doctor",
-    text: "The doctor whose clinic fills again.",
+    label: "Doctor",
+    cardLine: "Brings patients back through the door",
+    panelKicker: "THE DOCTOR",
+    detailSegments: [
+      {
+        text: "Prospective patients saw a fragmented story first. ",
+        tone: "muted",
+      },
+      {
+        text: "When accurate, trustworthy context ranked first, the schedule filled again.",
+        tone: "navy",
+      },
+    ],
   },
   {
+    id: "executive",
     icon: BarChart3,
-    title: "Executive",
-    text: "The executive who walks into a boardroom with confidence restored.",
+    label: "Executive",
+    cardLine: "Walks into the boardroom with confidence restored",
+    panelKicker: "THE EXECUTIVE",
+    detailSegments: [
+      {
+        text: "Due diligence surfaced an old headline out of context. ",
+        tone: "muted",
+      },
+      {
+        text: "Once the full story led the results, the room could focus on the future.",
+        tone: "navy",
+      },
+    ],
   },
   {
+    id: "business-owner",
     icon: Store,
-    title: "Business Owner",
-    text: "Ensuring search results reflect operational excellence and customer satisfaction rather than outlier complaints.",
+    label: "Business Owner",
+    cardLine: "Closes the deal they almost lost",
+    panelKicker: "THE BUSINESS OWNER",
+    detailSegments: [
+      {
+        text: "A deal was slipping away because of what showed up when the investor searched. ",
+        tone: "muted",
+      },
+      {
+        text: "When the right story ranked first, the deal closed.",
+        tone: "navy",
+      },
+    ],
   },
 ];
 
@@ -161,7 +211,350 @@ const testimonials = [
   },
 ];
 
+/** In-page navigation (one-pager anchors). IDs must match section `id`s. */
+const aboutSectionNav = [
+  { id: "how-it-began", label: "How It All Began" },
+  { id: "reality-we-face", label: "The Reality We Are Up Against" },
+  { id: "what-drives-us", label: "What Drives Us" },
+  { id: "who-we-are", label: "Who Are We" },
+  { id: "who-we-serve", label: "Who We Serve" },
+  { id: "how-we-work", label: "How We Work" },
+  { id: "what-we-dont", label: "What We Don't Do" },
+  { id: "our-promise", label: "Our Promise to You" },
+  { id: "we-are-global", label: "We Are Global" },
+  { id: "client-stories", label: "What Our Clients Say" },
+];
+
+const aboutScrollTargetClass =
+  "scroll-mt-36 md:scroll-mt-40";
+
+/** Same vertical rhythm as How It All Began -> The Reality (pb-12 + pt-8, md: pb-16 + pt-10). */
+const aboutSectionSpacing = "pt-8 pb-12 md:pt-10 md:pb-16";
+/** First story block after the hero keeps a bit more top air. */
+const aboutFirstContentSpacing = "pt-20 pb-12 md:pt-28 md:pb-16";
+
+const howItBeganSteps = [
+  {
+    id: "call",
+    kicker: "The call",
+    headline: "A phone call we will never forget.",
+    body: "Our story starts with a phone call we will never forget. A seasoned financial leader with thirty years of an unblemished career came to us in distress. A wrongful case had been filed against him.",
+  },
+  {
+    id: "verdict",
+    kicker: "The verdict",
+    headline: "He fought it. The court acquitted him.",
+    body: "He was proven innocent. Justice was served. His record was clear. But the internet never moved on.",
+  },
+  {
+    id: "damage",
+    kicker: "The damage",
+    headline: "The stories stayed. The truth didn't rank.",
+    body: "News publications that had covered the original case never updated their stories. Every time a potential client, a business partner, or an investor searched his name, those articles appeared first. His thirty years of achievement, his relationships, his credibility — all overshadowed by links that told an incomplete and deeply unfair story.",
+  },
+  {
+    id: "realisation",
+    kicker: "The realisation",
+    headline: "That moment changed everything for us.",
+    body: "We realised that in today's world, your online footprint can outlive a verdict — and that people deserve a fair, complete picture of who they are.",
+  },
+];
+
+const howItBeganClosing =
+  "Your Google search results can be more powerful than your actual record. A court can acquit you. The internet may not. That is why Reputation360 exists.";
+
+function HowItAllBeganStory() {
+  const [activeStep, setActiveStep] = useState(0);
+  const lastIndex = howItBeganSteps.length - 1;
+
+  return (
+    <section
+      id="how-it-began"
+      className={`border-y border-slate-200 bg-slate-50 ${aboutFirstContentSpacing} ${aboutScrollTargetClass}`}
+    >
+      <div className="mx-auto max-w-3xl px-6 lg:max-w-4xl">
+        <div>
+            <p
+              className={`${headlineFont} text-xs font-semibold uppercase tracking-[0.2em] text-[#4CAF50]`}
+            >
+              Our story
+            </p>
+            <h2
+              className={`${headlineFont} mt-2 mb-6 text-3xl font-extrabold text-[#1F3B64] md:text-4xl`}
+            >
+              How It All Began
+            </h2>
+
+            <div
+              className="mt-8"
+              role="list"
+              aria-label="Story beats — use Previous and Next or select a step"
+            >
+              {howItBeganSteps.map((step, i) => {
+                const isActive = i === activeStep;
+                const isComplete = i < activeStep;
+                return (
+                  <div key={step.id} className="flex gap-4" role="listitem">
+                    <div className="flex w-11 shrink-0 flex-col items-center">
+                      <button
+                        type="button"
+                        aria-pressed={isActive}
+                        aria-label={`${step.kicker}: ${step.headline}`}
+                        onClick={() => setActiveStep(i)}
+                        className={`relative z-[1] mt-1.5 h-4 w-4 shrink-0 rounded-full border-2 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] ${
+                          isActive
+                            ? "border-[#4CAF50] bg-[#4CAF50] shadow-sm ring-4 ring-[#4CAF50]/25"
+                            : isComplete
+                              ? "border-[#1F3B64] bg-[#1F3B64]"
+                              : "border-slate-300 bg-white hover:border-[#2E5B88]"
+                        }`}
+                      />
+                      {i < lastIndex ? (
+                        <div
+                          className={`mt-0.5 w-0.5 flex-1 min-h-[2.75rem] rounded-full transition-colors ${
+                            i < activeStep ? "bg-[#1F3B64]" : "bg-slate-200"
+                          }`}
+                          aria-hidden
+                        />
+                      ) : null}
+                    </div>
+                    <button
+                      type="button"
+                      aria-pressed={isActive}
+                      onClick={() => setActiveStep(i)}
+                      className="min-w-0 flex-1 rounded-xl pb-8 text-left transition-colors hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] md:pb-10"
+                    >
+                      <span
+                        className={`${headlineFont} text-[11px] font-semibold uppercase tracking-[0.16em] md:text-xs ${
+                          isActive
+                            ? "text-[#4CAF50]"
+                            : isComplete
+                              ? "text-slate-400"
+                              : "text-slate-400"
+                        }`}
+                      >
+                        {step.kicker}
+                      </span>
+                      <h3
+                        className={`${headlineFont} mt-1.5 text-lg font-extrabold leading-snug text-[#1F3B64] md:text-xl`}
+                      >
+                        {step.headline}
+                      </h3>
+                      {isActive ? (
+                        <p className="font-body mt-3 max-w-xl text-[15px] leading-relaxed text-slate-600 md:text-base">
+                          {step.body}
+                        </p>
+                      ) : null}
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+
+            {activeStep === lastIndex ? (
+              <p
+                className="font-body mt-2 max-w-xl border-l-[3px] border-[#4CAF50] pl-4 text-[15px] font-medium leading-relaxed text-slate-700 md:text-base"
+                role="status"
+              >
+                {howItBeganClosing}
+              </p>
+            ) : null}
+
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 pt-6">
+              <div className="flex flex-wrap gap-3">
+                <button
+                  type="button"
+                  disabled={activeStep === 0}
+                  onClick={() => setActiveStep((s) => Math.max(0, s - 1))}
+                  className={`${headlineFont} inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-[#1F3B64] shadow-sm transition hover:border-slate-300 hover:bg-slate-50 disabled:pointer-events-none disabled:opacity-40`}
+                >
+                  <ChevronLeft className="h-4 w-4 shrink-0" aria-hidden />
+                  Prev
+                </button>
+                <button
+                  type="button"
+                  disabled={activeStep === lastIndex}
+                  onClick={() =>
+                    setActiveStep((s) => Math.min(lastIndex, s + 1))
+                  }
+                  className={`${headlineFont} inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-[#1F3B64] shadow-sm transition hover:border-slate-300 hover:bg-slate-50 disabled:pointer-events-none disabled:opacity-40`}
+                >
+                  Next
+                  <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
+                </button>
+              </div>
+              <p
+                className={`${headlineFont} text-sm tabular-nums text-slate-500`}
+              >
+                {activeStep + 1} of {howItBeganSteps.length}
+              </p>
+            </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WhatDrivesUsSection() {
+  const [activeId, setActiveId] = useState("business-owner");
+  const active =
+    whatDrivesPersonas.find((p) => p.id === activeId) ?? whatDrivesPersonas[0];
+
+  return (
+    <section
+      id="what-drives-us"
+      className={`bg-white ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+    >
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="mb-10 md:mb-12">
+          <div className="mb-6 flex items-center gap-4">
+            <span
+              className={`${headlineFont} shrink-0 text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#4CAF50] sm:text-xs`}
+            >
+              What Drives Us
+            </span>
+            <div className="h-px min-w-0 flex-1 bg-slate-200" aria-hidden />
+          </div>
+          <h2
+            className={`${headlineFont} max-w-3xl text-3xl font-extrabold leading-tight text-[#1F3B64] md:text-[2rem]`}
+          >
+            We are driven by outcomes. Real ones.
+          </h2>
+          <p className="font-body mt-5 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
+            The peace of mind that comes with knowing{" "}
+            <strong className="font-semibold text-[#1F3B64]">
+              your name tells your true story
+            </strong>{" "}
+            — the jobs secured, the clients won, the deals closed, and the
+            careers rebuilt.
+          </p>
+        </div>
+
+        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
+          {whatDrivesPersonas.map((persona) => {
+            const isActive = persona.id === activeId;
+            const Icon = persona.icon;
+            return (
+              <button
+                key={persona.id}
+                type="button"
+                onClick={() => setActiveId(persona.id)}
+                aria-pressed={isActive}
+                className={`group relative flex flex-col rounded-2xl border p-6 text-left transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 md:p-7 ${
+                  isActive
+                    ? "border-[#1F3B64] bg-[#1F3B64] shadow-lg ring-1 ring-[#1F3B64]/20"
+                    : "border-slate-200/90 bg-white shadow-sm hover:border-slate-300 hover:shadow-md"
+                }`}
+              >
+                {isActive ? (
+                  <div
+                    className="pointer-events-none absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-[#4CAF50]"
+                    aria-hidden
+                  />
+                ) : null}
+                <div
+                  className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl transition-colors duration-300 ${
+                    isActive
+                      ? "bg-transparent text-[#4CAF50]"
+                      : "bg-sky-100/90 text-[#2E5B88]"
+                  }`}
+                >
+                  {isActive ? (
+                    <CircleArrowRight className="h-8 w-8" strokeWidth={2} />
+                  ) : (
+                    <Icon className="h-6 w-6" strokeWidth={2} />
+                  )}
+                </div>
+                <span
+                  className={`${headlineFont} mb-2 text-[11px] font-bold uppercase tracking-[0.18em] ${
+                    isActive ? "text-[#4CAF50]" : "text-slate-500"
+                  }`}
+                >
+                  {persona.label}
+                </span>
+                <span
+                  className={`${headlineFont} text-base font-bold leading-snug md:text-[17px] ${
+                    isActive ? "text-white" : "text-[#1F3B64]"
+                  }`}
+                >
+                  {persona.cardLine}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        <div
+          className="mx-auto mt-8 max-w-4xl overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-50/90 shadow-sm sm:mt-10"
+          role="region"
+          aria-live="polite"
+          aria-label={`Story: ${active.panelKicker}`}
+        >
+          <div className="flex min-h-[8.5rem]">
+            <div
+              className="w-1 shrink-0 bg-[#4CAF50]"
+              aria-hidden
+            />
+            <div className="min-w-0 flex-1 px-5 py-5 sm:px-7 sm:py-6">
+              <p
+                className={`${headlineFont} mb-3 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#4CAF50]`}
+              >
+                {active.panelKicker}
+              </p>
+              <AnimatePresence mode="wait">
+                <Motion.div
+                  key={active.id}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <p className="text-[15px] leading-relaxed text-slate-600 md:text-base">
+                    {active.detailSegments.map((seg, i) =>
+                      seg.tone === "navy" ? (
+                        <span
+                          key={i}
+                          className="font-semibold text-[#1F3B64]"
+                        >
+                          {seg.text}
+                        </span>
+                      ) : (
+                        <span key={i}>{seg.text}</span>
+                      ),
+                    )}
+                  </p>
+                </Motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-auto mt-10 flex max-w-4xl items-start justify-center gap-3 text-left sm:mt-12 sm:justify-start">
+          <span
+            className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#4CAF50]"
+            aria-hidden
+          />
+          <p className="max-w-3xl text-[15px] leading-relaxed md:text-base">
+            <span className={`${headlineFont} font-bold text-[#1F3B64]`}>
+              These are not metrics.{" "}
+            </span>
+            <span className="text-slate-600">
+              These are lives changed. And every single one of them is why we
+              show up every day.
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function AboutPage() {
+  const [activeSectionId, setActiveSectionId] = useState(
+    () => aboutSectionNav[0]?.id ?? "",
+  );
+  const scrollRafRef = useRef(0);
+
   useEffect(() => {
     const previous = document.title;
     document.title = "Our Story | Reputation360";
@@ -170,8 +563,85 @@ function AboutPage() {
     };
   }, []);
 
+  useEffect(() => {
+    const syncFromHash = () => {
+      const id = window.location.hash.slice(1);
+      if (aboutSectionNav.some((s) => s.id === id)) {
+        setActiveSectionId(id);
+      }
+    };
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
+    return () => window.removeEventListener("hashchange", syncFromHash);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = aboutSectionNav.map((s) => s.id);
+
+    const updateActiveFromScroll = () => {
+      if (scrollRafRef.current !== 0) return;
+      const frameId = window.requestAnimationFrame(() => {
+        scrollRafRef.current = 0;
+        const line =
+          window.innerWidth >= 768
+            ? Math.min(200, window.innerHeight * 0.22)
+            : Math.min(176, window.innerHeight * 0.2);
+        let current = sectionIds[0];
+        for (const id of sectionIds) {
+          const el = document.getElementById(id);
+          if (!el) continue;
+          const { top } = el.getBoundingClientRect();
+          if (top <= line) current = id;
+        }
+        setActiveSectionId((prev) => (prev === current ? prev : current));
+      });
+      scrollRafRef.current = frameId;
+    };
+
+    updateActiveFromScroll();
+    window.addEventListener("scroll", updateActiveFromScroll, { passive: true });
+    window.addEventListener("resize", updateActiveFromScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", updateActiveFromScroll);
+      window.removeEventListener("resize", updateActiveFromScroll);
+      if (scrollRafRef.current) {
+        window.cancelAnimationFrame(scrollRafRef.current);
+        scrollRafRef.current = 0;
+      }
+    };
+  }, []);
+
   return (
     <main className="flex-1 bg-[#F8FAFC] pt-28 text-slate-800 md:pt-32">
+      <nav
+        aria-label="Sections on this page"
+        className={`sticky top-28 z-30 border-b border-slate-200/90 bg-[#F8FAFC]/95 shadow-sm backdrop-blur-md md:top-32`}
+      >
+        <div className="mx-auto max-w-7xl px-4 py-3 md:px-6">
+          <ul className="flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] md:flex-wrap md:justify-center md:gap-2.5 md:overflow-x-visible md:pb-0 [&::-webkit-scrollbar]:hidden">
+            {aboutSectionNav.map(({ id, label }) => {
+              const isActive = activeSectionId === id;
+              return (
+                <li key={id} className="shrink-0">
+                  <a
+                    href={`#${id}`}
+                    aria-current={isActive ? "location" : undefined}
+                    onClick={() => setActiveSectionId(id)}
+                    className={`${headlineFont} inline-flex rounded-full border px-3.5 py-2 text-xs transition-all duration-200 md:px-4 md:text-[13px] ${
+                      isActive
+                        ? "border-[#4CAF50] bg-[#4CAF50]/18 font-bold text-[#1F3B64] shadow-sm ring-2 ring-[#4CAF50]/30"
+                        : "border-transparent font-semibold text-[#2E5B88] hover:border-slate-200 hover:bg-white hover:text-[#1F3B64] active:scale-[0.98]"
+                    } `}
+                  >
+                    {label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </nav>
+
       {/* Hero */}
       <header className="relative bg-white pb-20 pt-12 md:pb-28 md:pt-16">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20">
@@ -218,76 +688,13 @@ function AboutPage() {
         </div>
       </header>
 
-      {/* How It All Began */}
-      <section className="border-y border-slate-200 bg-slate-50 pt-20 pb-12 md:pt-28 md:pb-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
-            <div className="relative group">
-              <div className="absolute -inset-4 -rotate-2 rounded-3xl border-2 border-[#4CAF50]/20 transition-transform duration-500 group-hover:rotate-0" />
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                <img
-                  alt="Fountain pen and documents"
-                  className="h-[480px] w-full object-cover md:h-[600px]"
-                  src={IMG_PEN}
-                />
-                <div
-                  className="absolute inset-0 bg-[#1F3B64]/10 mix-blend-multiply"
-                  aria-hidden
-                />
-              </div>
-            </div>
-            <div className="space-y-10">
-              <div>
-                <h2
-                  className={`${headlineFont} mb-5 text-3xl font-extrabold text-[#1F3B64] md:text-4xl`}
-                >
-                  How It All Began
-                </h2>
-                <div className="h-2 w-24 rounded-full bg-[#4CAF50]" />
-              </div>
-              <div className="relative max-w-full overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch]">
-                <span
-                  className="absolute -left-1 -top-2 font-serif text-5xl leading-none text-[#4CAF50]/20 md:-left-6 md:text-6xl"
-                  aria-hidden
-                >
-                  &ldquo;
-                </span>
-                <p
-                  className={`${headlineFont} relative z-10 whitespace-nowrap text-xl font-bold italic leading-snug text-[#1F3B64] md:text-2xl lg:text-[1.65rem]`}
-                >
-                  I was acquitted in a court of law, but sentenced for life in the court of public opinion.
-                </p>
-              </div>
-              <div className="space-y-5 text-[15px] leading-relaxed text-slate-600 md:text-base">
-                <p>
-                  Our story starts with a phone call we will never forget. A
-                  seasoned financial leader with thirty years of an unblemished
-                  career came to us in distress. A wrongful case had been filed
-                  against him. He fought it. The court acquitted him. He was
-                  proven innocent. But the internet never moved on.
-                </p>
-                <p>
-                  News publications that had covered the original case never
-                  updated their stories. Every time a potential client, a
-                  business partner, or an investor searched his name, those
-                  articles appeared first. His thirty years of achievement, his
-                  relationships, his credibility — all overshadowed by links
-                  that told an incomplete and deeply unfair story.
-                </p>
-                <p>
-                  That moment changed everything for us. We realised that in
-                  today&apos;s world, your Google search results can be more
-                  powerful than your actual record. A court can acquit you. The
-                  internet may not. That is why Reputation360 exists.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HowItAllBeganStory />
 
       {/* The Reality We Are Up Against — two-column stats + quote (layout matches brand) */}
-      <section className="border-y border-slate-200/80 bg-[#f8fafc] pt-8 pb-8 md:pt-10 md:pb-10">
+      <section
+        id="reality-we-face"
+        className={`border-y border-slate-200/80 bg-[#f8fafc] ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+      >
         <div className="mx-auto max-w-5xl px-6 text-center">
           <h2
             className={`${headlineFont} mb-8 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
@@ -335,58 +742,18 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* What Drives Us */}
-      <section className="bg-slate-50 pt-12 pb-20 md:pt-14 md:pb-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12 text-center md:mb-14">
-            <h2
-              className={`${headlineFont} mb-4 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
-            >
-              What Drives Us
-            </h2>
-            <p className="font-body mx-auto mb-4 max-w-4xl text-balance text-lg font-semibold leading-snug text-[#2E5B88] md:text-xl">
-              We are driven by outcomes. Real ones.
-            </p>
-            <p className="mx-auto max-w-4xl text-balance text-base leading-relaxed text-slate-600 md:text-lg">
-              The happy faces of clients who finally have their reputation back.
-              The peace of mind that comes with knowing your name tells your
-              true story. The jobs secured, the clients won, the deals closed,
-              and the careers rebuilt — because the right people finally saw the
-              right story.
-            </p>
-          </div>
-          <div className="mb-14 grid gap-6 md:mb-16 md:grid-cols-2 lg:grid-cols-4">
-            {outcomeCards.map(({ icon: Icon, title, text }) => (
-              <div
-                key={title}
-                className="flex flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-              >
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-[#1F3B64]/5 text-[#1F3B64]">
-                  <Icon className="h-7 w-7" strokeWidth={2} />
-                </div>
-                <h3 className={`${headlineFont} mb-3 text-lg font-extrabold text-[#1F3B64]`}>
-                  {title}
-                </h3>
-                <p className="text-sm leading-relaxed text-slate-600">{text}</p>
-              </div>
-            ))}
-          </div>
-          <p
-            className={`${headlineFont} mx-auto max-w-3xl text-center text-lg font-extrabold italic leading-snug text-[#1F3B64] md:text-xl`}
-          >
-            &ldquo;These are not metrics. These are lives changed. And every
-            single one of them is why we show up every day.&rdquo;
-          </p>
-        </div>
-      </section>
+      <WhatDrivesUsSection />
 
-      {/* Who We Are */}
-      <section className="border-y border-slate-200 bg-slate-50 py-20 md:py-28">
+      {/* Who Are We */}
+      <section
+        id="who-we-are"
+        className={`border-y border-slate-200 bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+      >
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2
             className={`${headlineFont} mb-8 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
           >
-            Who We Are
+            Who Are We
           </h2>
           <div className="space-y-5 text-[15px] leading-relaxed text-slate-600 md:text-base">
             <p>
@@ -409,7 +776,10 @@ function AboutPage() {
       </section>
 
       {/* Who We Serve */}
-      <section className="bg-white py-20 md:py-28">
+      <section
+        id="who-we-serve"
+        className={`bg-white ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+      >
         <div className="mx-auto max-w-7xl px-6">
           <h2
             className={`${headlineFont} mb-10 text-center text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
@@ -442,7 +812,10 @@ function AboutPage() {
       </section>
 
       {/* How We Work */}
-      <section className="bg-slate-50 py-20 md:py-28">
+      <section
+        id="how-we-work"
+        className={`bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+      >
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-12 text-center md:mb-16">
             <h2 className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}>
@@ -476,7 +849,10 @@ function AboutPage() {
       </section>
 
       {/* What We Don't Do */}
-      <section className="bg-slate-900 py-20 text-white md:py-28">
+      <section
+        id="what-we-dont"
+        className={`bg-slate-900 ${aboutSectionSpacing} text-white ${aboutScrollTargetClass}`}
+      >
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-12 text-center md:mb-16">
             <h2 className={`${headlineFont} mb-4 text-3xl font-extrabold text-[#4CAF50] md:text-[2rem]`}>
@@ -517,7 +893,10 @@ function AboutPage() {
       </section>
 
       {/* Our Promise to You */}
-      <section className="bg-white py-20 md:py-28">
+      <section
+        id="our-promise"
+        className={`bg-white ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+      >
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-12 text-center md:mb-16">
             <h2 className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}>
@@ -541,7 +920,10 @@ function AboutPage() {
       </section>
 
       {/* We Are Global */}
-      <section className="overflow-hidden border-t border-slate-200 bg-slate-50 py-20 md:py-28">
+      <section
+        id="we-are-global"
+        className={`overflow-hidden border-t border-slate-200 bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+      >
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-12 text-center md:mb-16">
             <h2
@@ -604,7 +986,10 @@ function AboutPage() {
       </section>
 
       {/* What Our Clients Say */}
-      <section className="bg-slate-50 py-20 md:py-28">
+      <section
+        id="client-stories"
+        className={`bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+      >
         <div className="mx-auto max-w-7xl px-6">
           <h2
             className={`${headlineFont} mb-10 text-center text-2xl font-extrabold text-[#1F3B64] md:text-3xl`}
@@ -644,7 +1029,7 @@ function AboutPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-white py-20 md:py-28">
+      <section className={`bg-white ${aboutSectionSpacing}`}>
         <div className="mx-auto max-w-6xl px-6">
           <div className="relative overflow-hidden rounded-[2.5rem] bg-[#1F3B64] p-10 text-center shadow-2xl md:rounded-[3rem] md:p-16 lg:p-20">
             <div className="relative z-10">
