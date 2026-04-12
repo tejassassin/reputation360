@@ -13,6 +13,19 @@ const WHATSAPP_PHONE = "919910000000";
 const CONTACT_INBOX_EMAIL = "hello@reputation360.in";
 const CONTACT_FORM_SUBMIT_URL = `https://formsubmit.co/${CONTACT_INBOX_EMAIL}`;
 
+/** Shown in the auto-reply FormSubmit sends to the visitor (native POST only; not with AJAX). */
+const CONTACT_FORM_AUTORESPONSE =
+  "Thank you for your message. We have received your information. We'll get back to you ASAP.";
+
+const CONTACT_FORM_THANKS_PATH = "/contact?thanks=1";
+
+function contactFormReturnUrl() {
+  if (typeof window !== "undefined" && window.location?.origin) {
+    return `${window.location.origin}${CONTACT_FORM_THANKS_PATH}`;
+  }
+  return `https://reputation360.in${CONTACT_FORM_THANKS_PATH}`;
+}
+
 /**
  * Winding road - x spread for ~2.1:1 viewBox so `aspect-ratio` + `w-full`
  * fills wide layouts without empty side gutters.
@@ -214,12 +227,16 @@ function ContactPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [briefNote, setBriefNote] = useState("");
-  const [emailFormStatus, setEmailFormStatus] = useState("idle");
-  const [emailFormMessage, setEmailFormMessage] = useState("");
+  const [showFormThanks, setShowFormThanks] = useState(false);
 
   useEffect(() => {
     const previous = document.title;
     document.title = "Contact | Reputation360";
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("thanks") === "1") {
+      setShowFormThanks(true);
+      window.history.replaceState({}, "", "/contact");
+    }
     return () => {
       document.title = previous;
     };
@@ -228,50 +245,6 @@ function ContactPage() {
   const whatsappHref = `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent(
     "Hello, I would like to connect with Reputation360.",
   )}`;
-
-  async function handleEmailSubmit(e) {
-    e.preventDefault();
-    setEmailFormStatus("submitting");
-    setEmailFormMessage("");
-
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("message", briefNote.trim() || "(No brief note provided)");
-    formData.append("_subject", "Contact inquiry - Reputation360");
-    formData.append("_replyto", email);
-    formData.append("_template", "table");
-
-    try {
-      const res = await fetch(CONTACT_FORM_SUBMIT_URL, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
-      const data = await res.json().catch(() => ({}));
-      if (res.ok) {
-        setEmailFormStatus("success");
-        setEmailFormMessage(
-          "Thanks - your message was sent. We will get back to you soon.",
-        );
-        setName("");
-        setEmail("");
-        setBriefNote("");
-      } else {
-        setEmailFormStatus("error");
-        setEmailFormMessage(
-          typeof data.message === "string"
-            ? data.message
-            : "Could not send right now. Please email us directly.",
-        );
-      }
-    } catch {
-      setEmailFormStatus("error");
-      setEmailFormMessage(
-        "Network error. Please email us directly at hello@reputation360.in.",
-      );
-    }
-  }
 
   return (
     <main className="flex-1 bg-[#f9f9ff] pt-28 md:pt-32">
@@ -375,9 +348,44 @@ function ContactPage() {
                 </p>
               </div>
               <form
+                action={CONTACT_FORM_SUBMIT_URL}
+                method="POST"
                 className="grid w-full grid-cols-1 gap-4 md:w-2/3 md:grid-cols-2"
-                onSubmit={handleEmailSubmit}
               >
+                <div className="hidden" aria-hidden>
+                  <input
+                    type="hidden"
+                    name="_subject"
+                    defaultValue="Contact inquiry - Reputation360"
+                  />
+                  <input type="hidden" name="_template" defaultValue="table" />
+                  <input
+                    type="hidden"
+                    name="_next"
+                    defaultValue={contactFormReturnUrl()}
+                  />
+                  <input
+                    type="hidden"
+                    name="_autoresponse"
+                    defaultValue={CONTACT_FORM_AUTORESPONSE}
+                  />
+                  <input
+                    type="hidden"
+                    name="_replyto"
+                    value={email}
+                    readOnly
+                  />
+                </div>
+                {showFormThanks ? (
+                  <p
+                    role="status"
+                    className="rounded-lg border border-[#78dc77]/40 bg-[#78dc77]/15 px-4 py-3 text-sm leading-relaxed text-[#b8f5b9] md:col-span-2"
+                  >
+                    Thanks - your message was sent. You should receive a
+                    confirmation email from us shortly (check spam if you do not see
+                    it).
+                  </p>
+                ) : null}
                 <input
                   type="text"
                   name="name"
@@ -408,25 +416,10 @@ function ContactPage() {
                 />
                 <button
                   type="submit"
-                  disabled={emailFormStatus === "submitting"}
-                  className="ha-pill rounded-xl bg-[#78dc77] py-3.5 text-sm font-bold text-white hover:opacity-90 enabled:cursor-pointer disabled:cursor-not-allowed disabled:opacity-60 md:col-span-2 md:text-base"
+                  className="ha-pill rounded-xl bg-[#78dc77] py-3.5 text-sm font-bold text-white hover:opacity-90 md:col-span-2 md:text-base"
                 >
-                  {emailFormStatus === "submitting"
-                    ? "Sending…"
-                    : "Send Email Inquiry"}
+                  Send Email Inquiry
                 </button>
-                {emailFormMessage ? (
-                  <p
-                    role="status"
-                    className={`md:col-span-2 ${
-                      emailFormStatus === "success"
-                        ? "text-[#b8f5b9]"
-                        : "text-amber-200"
-                    } text-sm leading-relaxed`}
-                  >
-                    {emailFormMessage}
-                  </p>
-                ) : null}
               </form>
             </div>
           </div>
