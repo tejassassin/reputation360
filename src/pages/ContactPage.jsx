@@ -9,6 +9,10 @@ const calendarTabletImage =
 /** WhatsApp: digits only with country code (no +). Update for your business line. */
 const WHATSAPP_PHONE = "919910000000";
 
+/** Inbox for contact form submissions (FormSubmit forwards to this address). */
+const CONTACT_INBOX_EMAIL = "hello@reputation360.in";
+const CONTACT_FORM_SUBMIT_URL = `https://formsubmit.co/${CONTACT_INBOX_EMAIL}`;
+
 /**
  * Winding road - x spread for ~2.1:1 viewBox so `aspect-ratio` + `w-full`
  * fills wide layouts without empty side gutters.
@@ -210,6 +214,8 @@ function ContactPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [briefNote, setBriefNote] = useState("");
+  const [emailFormStatus, setEmailFormStatus] = useState("idle");
+  const [emailFormMessage, setEmailFormMessage] = useState("");
 
   useEffect(() => {
     const previous = document.title;
@@ -223,13 +229,48 @@ function ContactPage() {
     "Hello, I would like to connect with Reputation360.",
   )}`;
 
-  function handleEmailSubmit(e) {
+  async function handleEmailSubmit(e) {
     e.preventDefault();
-    const subject = encodeURIComponent("Contact inquiry - Reputation360");
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\n${briefNote}`,
-    );
-    window.location.href = `mailto:hello@reputation360.in?subject=${subject}&body=${body}`;
+    setEmailFormStatus("submitting");
+    setEmailFormMessage("");
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("message", briefNote.trim() || "(No brief note provided)");
+    formData.append("_subject", "Contact inquiry - Reputation360");
+    formData.append("_replyto", email);
+    formData.append("_template", "table");
+
+    try {
+      const res = await fetch(CONTACT_FORM_SUBMIT_URL, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        setEmailFormStatus("success");
+        setEmailFormMessage(
+          "Thanks - your message was sent. We will get back to you soon.",
+        );
+        setName("");
+        setEmail("");
+        setBriefNote("");
+      } else {
+        setEmailFormStatus("error");
+        setEmailFormMessage(
+          typeof data.message === "string"
+            ? data.message
+            : "Could not send right now. Please email us directly.",
+        );
+      }
+    } catch {
+      setEmailFormStatus("error");
+      setEmailFormMessage(
+        "Network error. Please email us directly at hello@reputation360.in.",
+      );
+    }
   }
 
   return (
@@ -324,10 +365,10 @@ function ContactPage() {
                   Email
                 </h3>
                 <a
-                  href="mailto:hello@reputation360.in"
+                  href={`mailto:${CONTACT_INBOX_EMAIL}`}
                   className="ha-nudge mt-3 block w-fit text-[15px] text-[#8ca6d5] md:mt-4 md:text-lg"
                 >
-                  hello@reputation360.in
+                  {CONTACT_INBOX_EMAIL}
                 </a>
                 <p className="mt-2 text-xs text-[#8ca6d5] md:text-sm">
                   Expect a detailed response within 8 hours.
@@ -339,7 +380,9 @@ function ContactPage() {
               >
                 <input
                   type="text"
+                  name="name"
                   required
+                  autoComplete="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your Name *"
@@ -347,13 +390,16 @@ function ContactPage() {
                 />
                 <input
                   type="email"
+                  name="email"
                   required
+                  autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email Address *"
                   className="rounded-t-lg border-b border-white/20 bg-white/5 px-4 py-3.5 text-[15px] text-white outline-none placeholder:text-white/40 focus:border-[#78dc77] md:py-4"
                 />
                 <textarea
+                  name="message"
                   value={briefNote}
                   onChange={(e) => setBriefNote(e.target.value)}
                   placeholder="Brief note (optional)"
@@ -362,10 +408,25 @@ function ContactPage() {
                 />
                 <button
                   type="submit"
-                  className="ha-pill rounded-xl bg-[#78dc77] py-3.5 text-sm font-bold text-white hover:opacity-90 md:col-span-2 md:text-base"
+                  disabled={emailFormStatus === "submitting"}
+                  className="ha-pill rounded-xl bg-[#78dc77] py-3.5 text-sm font-bold text-white hover:opacity-90 enabled:cursor-pointer disabled:cursor-not-allowed disabled:opacity-60 md:col-span-2 md:text-base"
                 >
-                  Send Email Inquiry
+                  {emailFormStatus === "submitting"
+                    ? "Sending…"
+                    : "Send Email Inquiry"}
                 </button>
+                {emailFormMessage ? (
+                  <p
+                    role="status"
+                    className={`md:col-span-2 ${
+                      emailFormStatus === "success"
+                        ? "text-[#b8f5b9]"
+                        : "text-amber-200"
+                    } text-sm leading-relaxed`}
+                  >
+                    {emailFormMessage}
+                  </p>
+                ) : null}
               </form>
             </div>
           </div>
