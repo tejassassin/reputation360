@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import {
-  BadgeCheck,
   GraduationCap,
   Stethoscope,
   BarChart3,
@@ -177,10 +176,6 @@ function AboutPage() {
       <header className="relative bg-white pb-20 pt-12 md:pb-28 md:pt-16">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20">
           <div className="relative z-10">
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-slate-600">
-              <BadgeCheck className="h-4 w-4 text-[#4CAF50]" strokeWidth={2} />
-              About Reputation360
-            </div>
             <h1
               className={`${headlineFont} mb-6 text-3xl font-extrabold leading-[1.15] text-[#1F3B64] md:text-4xl lg:text-[2.65rem]`}
             >
@@ -291,89 +286,51 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* The Reality We Are Up Against — narrative timeline */}
-      <section className="border-y border-slate-200/80 bg-[#f8fafc] pt-8 pb-6 md:pt-10 md:pb-8">
-        <div className="mx-auto max-w-3xl px-6">
+      {/* The Reality We Are Up Against — two-column stats + quote (layout matches brand) */}
+      <section className="border-y border-slate-200/80 bg-[#f8fafc] pt-8 pb-8 md:pt-10 md:pb-10">
+        <div className="mx-auto max-w-5xl px-6 text-center">
           <h2
-            className={`${headlineFont} max-w-xl text-2xl font-extrabold tracking-tight text-[#1F3B64] md:text-[1.65rem]`}
+            className={`${headlineFont} mb-8 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
           >
             The Reality We Are Up Against
           </h2>
-          <div className="mt-3 h-0.5 w-12 rounded-full bg-[#4CAF50] md:mt-4" />
 
-          <div className="relative mt-8 md:mt-10">
-            <div
-              className="pointer-events-none absolute left-4 top-9 bottom-9 w-px bg-gradient-to-b from-[#4CAF50] via-slate-200 to-slate-300 md:left-5 md:top-11 md:bottom-11"
-              aria-hidden
-            />
-            <ol
-              className="m-0 list-none p-0"
-              aria-label="How online search shapes reputation"
-            >
-              <li className="relative flex gap-4 pb-8 md:gap-5 md:pb-10">
-              <div className="relative z-[1] flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#4CAF50] text-xs font-bold text-white shadow ring-4 ring-[#f8fafc] md:h-10 md:w-10 md:text-sm">
-                1
+          <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 text-center shadow-sm md:p-8">
+              <div
+                className={`${headlineFont} mb-3 text-5xl font-extrabold tabular-nums leading-none text-[#4CAF50] md:text-6xl`}
+              >
+                80%
               </div>
-              <div className="min-w-0 pt-0.5">
-                <p className="text-[15px] leading-relaxed text-slate-700 md:text-base">
-                  <span
-                    className={`${headlineFont} mr-1 text-xl font-extrabold tabular-nums text-[#4CAF50] md:text-2xl`}
-                  >
-                    80%
-                  </span>
-                  of people search online before making a decision — whether that
-                  is hiring someone, partnering with a business, choosing a
-                  doctor, or closing an investment deal.
-                </p>
+              <p className="text-[15px] leading-relaxed text-slate-700 md:text-base">
+                of people search online before making a decision — whether that
+                is hiring someone, partnering with a business, choosing a doctor,
+                or closing an investment deal.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 text-center shadow-sm md:p-8">
+              <div
+                className={`${headlineFont} mb-3 text-5xl font-extrabold tabular-nums leading-none text-[#2E5B88] md:text-6xl`}
+              >
+                70%
               </div>
-              </li>
+              <p className="text-[15px] leading-relaxed text-slate-700 md:text-base">
+                of people form an opinion about someone based on the first page of
+                Google results alone.
+              </p>
+            </div>
+          </div>
 
-              <li className="relative flex gap-4 pb-8 md:gap-5 md:pb-10">
-              <div className="relative z-[1] flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-[#2E5B88] bg-white text-xs font-bold text-[#2E5B88] shadow-sm ring-4 ring-[#f8fafc] md:h-10 md:w-10 md:text-sm">
-                2
-              </div>
-              <div className="min-w-0 pt-0.5">
-                <p className="text-[15px] leading-relaxed text-slate-700 md:text-base">
-                  And studies show that nearly{" "}
-                  <span
-                    className={`${headlineFont} text-xl font-extrabold text-[#2E5B88] md:text-2xl`}
-                  >
-                    70%
-                  </span>{" "}
-                  of people form an opinion about someone based on the first page
-                  of Google results alone.
-                </p>
-              </div>
-              </li>
-
-              <li className="relative flex gap-4 pb-8 md:gap-5 md:pb-8">
-              <div className="relative z-[1] flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#1F3B64] text-xs font-bold text-white shadow ring-4 ring-[#f8fafc] md:h-10 md:w-10 md:text-sm">
-                3
-              </div>
-              <div className="min-w-0 rounded-r-xl border border-slate-200/90 border-l-4 border-l-[#4CAF50] bg-white py-3.5 pl-4 pr-4 shadow-sm md:py-4 md:pl-5">
-                <p
-                  className={`${headlineFont} text-[15px] font-medium leading-relaxed text-[#1F3B64] md:text-[15.5px]`}
-                >
-                  One negative link quietly undoes years of hard work. It shapes
-                  opinions before a conversation even begins. It costs
-                  opportunities that are never offered and deals that are never
-                  closed.
-                </p>
-              </div>
-              </li>
-
-              <li className="relative flex gap-4 md:gap-5">
-              <div className="relative z-[1] flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-200 text-xs font-bold text-slate-600 ring-4 ring-[#f8fafc] md:h-10 md:w-10 md:text-sm">
-                4
-              </div>
-              <div className="min-w-0 pt-0.5">
-                <p className="text-sm leading-relaxed text-slate-600 md:text-[15px]">
-                  Most people never even know what they are losing. We exist to
-                  change that.
-                </p>
-              </div>
-              </li>
-            </ol>
+          <div className="mx-auto mt-8 max-w-3xl text-center md:mt-10">
+            <p className="font-body text-[15px] font-normal leading-relaxed text-slate-700 md:text-base">
+              One negative link quietly undoes years of hard work. It shapes
+              opinions before a conversation even begins. It costs opportunities
+              that are never offered and deals that are never closed. Most people
+              never even know what they are losing.{" "}
+              <strong className="font-bold text-[#1F3B64]">
+                We exist to change that.
+              </strong>
+            </p>
           </div>
         </div>
       </section>
