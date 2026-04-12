@@ -113,8 +113,8 @@ const AUTHORITY_ROADMAP_MILESTONES = [
 
 function ContactAuthorityRoadmap() {
   return (
-    <div className="-mx-4 overflow-x-auto px-4 pb-2 md:mx-0 md:overflow-visible md:px-0 md:pb-0">
-      <div className="relative mx-auto w-[min(1120px,140vw)] max-w-none shrink-0 md:aspect-[2100/1120] md:w-full md:min-w-0">
+    <div className="-mx-4 overflow-x-auto px-4 pb-2 md:mx-0 md:-mt-5 md:overflow-visible md:px-0 md:pb-0 lg:-mt-7">
+      <div className="relative mx-auto w-[min(1120px,140vw)] max-w-none shrink-0 md:aspect-[2100/1120] md:w-full md:min-w-0 md:-mb-14 lg:-mb-20">
         <svg
           className="h-auto w-full overflow-visible md:absolute md:inset-0 md:h-full"
           viewBox="0 -210 2100 1120"
@@ -208,7 +208,7 @@ function ContactAuthorityRoadmap() {
 function ContactPage() {
   const gridPatternId = useId().replace(/:/g, "");
   const [name, setName] = useState("");
-  const [bestTime, setBestTime] = useState("");
+  const [email, setEmail] = useState("");
   const [briefNote, setBriefNote] = useState("");
 
   useEffect(() => {
@@ -227,7 +227,7 @@ function ContactPage() {
     e.preventDefault();
     const subject = encodeURIComponent("Contact inquiry - Reputation360");
     const body = encodeURIComponent(
-      `Name: ${name}\nBest time to reach: ${bestTime}\n\n${briefNote}`,
+      `Name: ${name}\nEmail: ${email}\n\n${briefNote}`,
     );
     window.location.href = `mailto:hello@reputation360.in?subject=${subject}&body=${body}`;
   }
@@ -245,7 +245,7 @@ function ContactPage() {
               How to Reach Us
             </h1>
             <p className="mt-3 text-[15px] text-[#43474e] md:text-[16px]">
-              Choose the channel that best suits your current situation.
+              Reach out through whichever channel feels most convenient to you.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-6">
@@ -262,8 +262,9 @@ function ContactPage() {
                   Book a Call
                 </h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-[#43474e] md:mt-4 md:text-lg">
-                  Every reputation challenge is different. Book a call and
-                  we&apos;ll tailor a strategy to yours.
+                  Every reputation challenge is unique. Book a call and
+                  we&apos;ll listen - understanding your situation, your concerns,
+                  and what you&apos;re hoping to achieve.
                 </p>
                 <a
                   {...calendlyNewTabProps}
@@ -294,9 +295,9 @@ function ContactPage() {
                 <h3 className="font-heading text-xl font-bold text-[#56b958] md:text-2xl">
                   WhatsApp
                 </h3>
-                <p className="mt-3 text-[15px] text-[#43474e] md:mt-4">
-                  When something needs immediate attention, this is the fastest
-                  way to reach us.
+                <p className="mt-3 text-[15px] leading-relaxed text-[#43474e] md:mt-4 md:text-lg">
+                  When something needs immediate attention, this is the fastest way
+                  to reach us.
                 </p>
               </div>
               <a
@@ -329,7 +330,7 @@ function ContactPage() {
                   hello@reputation360.in
                 </a>
                 <p className="mt-2 text-xs text-[#8ca6d5] md:text-sm">
-                  Expect a detailed response within 24 hours.
+                  Expect a detailed response within 8 hours.
                 </p>
               </div>
               <form
@@ -341,20 +342,21 @@ function ContactPage() {
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Your Name"
+                  placeholder="Your Name *"
                   className="rounded-t-lg border-b border-white/20 bg-white/5 px-4 py-3.5 text-[15px] text-white outline-none placeholder:text-white/40 focus:border-[#78dc77] md:py-4"
                 />
                 <input
-                  type="text"
-                  value={bestTime}
-                  onChange={(e) => setBestTime(e.target.value)}
-                  placeholder="Best Time to Reach"
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email Address *"
                   className="rounded-t-lg border-b border-white/20 bg-white/5 px-4 py-3.5 text-[15px] text-white outline-none placeholder:text-white/40 focus:border-[#78dc77] md:py-4"
                 />
                 <textarea
                   value={briefNote}
                   onChange={(e) => setBriefNote(e.target.value)}
-                  placeholder="Brief Note"
+                  placeholder="Brief note (optional)"
                   rows={4}
                   className="h-24 resize-none rounded-t-lg border-b border-white/20 bg-white/5 px-4 py-3.5 text-[15px] text-white outline-none placeholder:text-white/40 focus:border-[#78dc77] md:col-span-2 md:py-4"
                 />
@@ -371,20 +373,20 @@ function ContactPage() {
       </section>
 
       {/* What Happens Next - SVG roadmap (reference layout) */}
-      <section className="bg-[#f9f9ff] px-4 py-14 md:px-8 md:py-18">
+      <section className="bg-[#f9f9ff] px-4 pt-14 pb-2 md:px-8 md:pt-16 md:pb-3">
         <div className="mx-auto max-w-7xl 2xl:max-w-[min(90rem,calc(100vw-3rem))]">
-          <div className="mb-8 text-center md:mb-10">
+          <div className="mb-1 text-center md:mb-2">
             <h2 className="font-heading text-[28px] font-bold tracking-tight text-[#02254d] md:text-[40px]">
               What Happens{" "}
               <span className="text-[#4CAF50]">Next</span>
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-[#43474e] md:text-[16px]">
+            <p className="mx-auto mt-1.5 max-w-2xl text-[15px] leading-relaxed text-[#43474e] md:text-[16px]">
               A transparent roadmap of your journey from first contact to a
               thriving digital reputation.
             </p>
           </div>
 
-          <p className="mb-3 text-center text-[11px] text-[#5c6578] md:hidden">
+          <p className="mb-1 text-center text-[11px] text-[#5c6578] md:hidden">
             Scroll sideways to see the full journey.
           </p>
           <ContactAuthorityRoadmap />
@@ -392,7 +394,7 @@ function ContactPage() {
       </section>
 
       {/* Confidentiality */}
-      <section className="px-4 py-14 md:px-8 md:py-18">
+      <section className="px-4 pt-2 pb-14 md:px-8 md:pt-3 md:pb-16">
         <div className="mx-auto max-w-5xl">
           <div className="relative overflow-hidden rounded-[2rem] bg-[#1f3b64] p-10 text-white shadow-2xl md:rounded-[3rem] md:p-16 lg:p-20">
             <div
@@ -434,12 +436,12 @@ function ContactPage() {
                 <h2 className="font-heading text-[26px] font-bold md:text-3xl lg:text-4xl">
                   Everything Is Confidential
                 </h2>
-                <p className="mt-4 text-[15px] leading-relaxed text-[#8ca6d5] md:mt-6 md:text-[17px]">
-                  Everything you share with us is treated with complete
-                  confidentiality. We do not discuss client situations with third
-                  parties, reference engagements publicly, or share any
-                  information you provide. Our security architecture ensures your
-                  data remains protected at all times.
+                <p className="mt-4 text-[15px] leading-relaxed text-white md:mt-6 md:text-[17px]">
+                  Everything you share with us stays with us - no exceptions. We do
+                  not discuss client situations with third parties, reference
+                  engagements publicly, or share any information you provide. Our
+                  security architecture ensures your data remains protected at all
+                  times. Your privacy is a commitment we stand behind unconditionally.
                 </p>
               </div>
             </div>
