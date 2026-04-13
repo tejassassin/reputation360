@@ -52,13 +52,13 @@ const pageOneTransformationScenarios = [
     label: "Individual",
     intro:
       "What a typical page one transformation looks like for an individual:",
-    beforeHeader: "Before — page 1 today",
-    afterHeader: "After — page 1 at month 11",
+    beforeHeader: "Before - page 1 today",
+    afterHeader: "After - page 1 at month 11",
     beforeItems: [
       {
         crumb: "regionalnews.com › metro › courts",
         title: "Court filing resurfaced as top story",
-        text: "A years-old case file ranks above your own site — often with an inflammatory headline.",
+        text: "A years-old case file ranks above your own site - often with an inflammatory headline.",
       },
       {
         crumb: "reddit.com › r › ask › thread",
@@ -75,7 +75,7 @@ const pageOneTransformationScenarios = [
       {
         crumb: "yourname.com › about",
         title: "Verified personal site & biography",
-        text: "Clear narrative, credentials, and contact — written to match how people search for you.",
+        text: "Clear narrative, credentials, and contact - written to match how people search for you.",
       },
       {
         crumb: "linkedin.com › in › profile",
@@ -95,8 +95,8 @@ const pageOneTransformationScenarios = [
     label: "Company",
     intro:
       "What a typical page one transformation looks like for a company or brand:",
-    beforeHeader: "Before — page 1 today",
-    afterHeader: "After — page 1 at month 11",
+    beforeHeader: "Before - page 1 today",
+    afterHeader: "After - page 1 at month 11",
     beforeItems: [
       {
         crumb: "complaintsboard.com › listing",
@@ -167,7 +167,7 @@ const removalVsSuppressionDirect = [
     Icon: ShieldCheck,
   },
   {
-    text: "Right to be forgotten — GDPR-eligible (EU/UK)",
+    text: "Right to be forgotten - GDPR-eligible (EU/UK)",
     dot: "green",
     Icon: Globe2,
   },
@@ -193,7 +193,7 @@ const serviceTimelinePhases = [
     range: "Weeks 1–4",
     label: "Audit & launch",
     detail:
-      "We map everything search engines currently show about you — every result, how strong it is, and how suppressible it is. Your strategy is set, content goes live on trusted sites, and you get your first report.",
+      "We map everything search engines currently show about you - every result, how strong it is, and how suppressible it is. Your strategy is set, content goes live on trusted sites, and you get your first report.",
   },
   {
     id: "phase-02",
@@ -201,7 +201,7 @@ const serviceTimelinePhases = [
     range: "Months 2–4",
     label: "Early movement",
     detail:
-      "Your new content starts ranking. Positive results begin climbing. You will see measurable movement in your monthly report — this is where you first see the strategy working.",
+      "Your new content starts ranking. Positive results begin climbing. You will see measurable movement in your monthly report - this is where you first see the strategy working.",
   },
   {
     id: "phase-03",
@@ -270,7 +270,7 @@ function FlagshipSuppressionSection() {
       <p className="mt-5 max-w-3xl text-base leading-relaxed text-navy/75 md:text-lg">
         Our primary service. We audit everything search engines surface about you,
         build a content strategy that outranks harmful results, and systematically
-        push negative links beyond page one — where virtually no one will find them.
+        push negative links beyond page one - where virtually no one will find them.
       </p>
 
       <div className="mt-8 flex flex-col gap-4 border-t border-navy/10 pt-8 lg:flex-row lg:items-end lg:justify-between">
@@ -418,7 +418,7 @@ function ServicesAbout() {
           <p className="mt-5 max-w-3xl text-navy/75 text-base leading-relaxed md:text-lg">
             Every day a damaging result sits on page one, it costs you clients,
             deals, and trust. Reputation360 manages what people find when they
-            search your name — pushing harmful content down and replacing it with
+            search your name - pushing harmful content down and replacing it with
             a search presence that reflects your real authority.
           </p>
           <aside
@@ -437,7 +437,7 @@ function ServicesAbout() {
                 </span>
                 A negative result in positions 1–3 can cause up to 60% of
                 prospective clients to disengage before making contact. Every month
-                without intervention compounds the damage — lost deals, declined
+                without intervention compounds the damage - lost deals, declined
                 introductions, abandoned applications.
               </p>
             </div>
@@ -498,7 +498,7 @@ function ServicesAbout() {
               </h3>
               <p className="mt-3 max-w-2xl text-navy/70">
                 Every figure below comes from a completed engagement. We share them
-                so you can walk in knowing what success looks like — and how long it
+                so you can walk in knowing what success looks like - and how long it
                 realistically takes to get there.
               </p>
             </div>
@@ -538,14 +538,14 @@ function ServicesAbout() {
           </h3>
           <p className="mx-auto mt-4 max-w-3xl text-center text-base leading-relaxed text-navy/70 md:text-lg">
             Not every negative result can be permanently deleted. Here is an honest
-            breakdown of both routes — most clients benefit from a combination.
+            breakdown of both routes - most clients benefit from a combination.
           </p>
           <div className="mt-8 grid w-full min-w-0 grid-cols-1 overflow-hidden rounded-2xl border border-navy/12 shadow-[0_18px_44px_-20px_rgba(15,35,60,0.18)] md:grid-cols-2 md:items-stretch md:[grid-template-columns:minmax(0,1fr)_minmax(0,1fr)]">
             <article
               role="button"
               tabIndex={0}
               aria-pressed={removalFocus === "direct"}
-              aria-label="Direct removal — select to highlight this option"
+              aria-label="Direct removal - select to highlight this option"
               onClick={() => setRemovalFocus("direct")}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
@@ -631,7 +631,7 @@ function ServicesAbout() {
               role="button"
               tabIndex={0}
               aria-pressed={removalFocus === "suppression"}
-              aria-label="Suppression strategy — select to highlight this option"
+              aria-label="Suppression strategy - select to highlight this option"
               onClick={() => setRemovalFocus("suppression")}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
@@ -677,7 +677,7 @@ function ServicesAbout() {
                   <p className="mt-3 max-w-none text-sm leading-relaxed text-white/88 sm:text-[15px]">
                     The most reliable and broadly applicable method. We build content
                     that outranks negative results and pushes them to page 3 and beyond
-                    — effective even for content that cannot be removed.
+                    - effective even for content that cannot be removed.
                   </p>
                   <ul className="mt-5 w-full min-w-0 space-y-2.5 text-sm leading-snug text-white/92 sm:text-[15px]">
                     {removalVsSuppressionStrategy.map((item) => {
@@ -827,7 +827,7 @@ function ServicesAbout() {
               </h4>
               <p className="mt-5 text-[14px] leading-relaxed text-[#1a2c48]/85 md:text-[15px] md:leading-relaxed">
                 The best candidates have options. We make sure your company is the
-                one they choose — by shaping a workplace narrative that reflects your
+                one they choose - by shaping a workplace narrative that reflects your
                 culture, your values, and the opportunity you actually offer.
               </p>
             </article>
@@ -840,7 +840,7 @@ function ServicesAbout() {
               <p className="mt-5 text-[14px] leading-relaxed text-[#1a2c48]/85 md:text-[15px] md:leading-relaxed">
                 A well-built LinkedIn presence opens doors before you knock. We craft
                 profiles and content strategies that position you as the authority you
-                are — and keep you visible to the people who matter most in your
+                are - and keep you visible to the people who matter most in your
                 industry.
               </p>
             </article>
@@ -855,7 +855,7 @@ function ServicesAbout() {
                 </h4>
                 <p className="mt-4 text-[14px] leading-relaxed text-white/88 md:text-[15px] md:leading-relaxed">
                   Your expertise deserves an audience. We secure editorial placements
-                  in the publications your industry reads — so your insights reach the
+                  in the publications your industry reads - so your insights reach the
                   clients, partners, and peers who shape your next opportunity.
                 </p>
               </div>
@@ -870,7 +870,7 @@ function ServicesAbout() {
               </h4>
               <p className="mt-5 text-[14px] leading-relaxed text-[#1a2c48]/85 md:text-[15px] md:leading-relaxed">
                 Visibility without strategy is noise. We run targeted campaigns that put
-                the right message in front of the right audience — driving measurable
+                the right message in front of the right audience - driving measurable
                 outcomes for your brand, your content, and your business goals.
               </p>
             </article>
@@ -884,7 +884,7 @@ function ServicesAbout() {
                   </h4>
                   <p className="mt-3 text-[14px] leading-relaxed text-[#1a2c48]/85 md:text-[15px] md:leading-relaxed">
                     Every brand has a story. We help you find it, sharpen it, and
-                    communicate it consistently — across every channel, every
+                    communicate it consistently - across every channel, every
                     touchpoint, and every conversation that matters to your growth.
                   </p>
                 </div>

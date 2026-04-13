@@ -34,7 +34,7 @@ const JOB_SEEKER_PROBLEM_TILES = [
     id: "news-legal",
     label: "News & legal press",
     description:
-      "News articles from a difficult period—a legal matter, a workplace dispute, a business failure—that still rank when someone searches your name.",
+      "News articles from a difficult period-a legal matter, a workplace dispute, a business failure-that still rank when someone searches your name.",
     Icon: Newspaper,
   },
   {
@@ -62,14 +62,14 @@ const JOB_SEEKER_PROBLEM_TILES = [
     id: "employer-reviews",
     label: "Employer reviews",
     description:
-      "Negative Glassdoor, Indeed, or similar references if you were previously in a leadership or visible role—and they follow you in search.",
+      "Negative Glassdoor, Indeed, or similar references if you were previously in a leadership or visible role-and they follow you in search.",
     Icon: Star,
   },
   {
     id: "same-name",
     label: "Mistaken identity",
     description:
-      "Results for a different person who shares your name—creating confusion before a recruiter ever opens your profile.",
+      "Results for a different person who shares your name-creating confusion before a recruiter ever opens your profile.",
     Icon: UserSearch,
   },
   {
@@ -126,32 +126,32 @@ const JOB_SEEKER_SCALE_METRICS = [
 const REPUTATION360_FA_STEPS = [
   {
     step: 1,
-    headline: "Step 1 — Complete Search Audit (Week 1)",
+    headline: "Step 1 - Complete Search Audit (Week 1)",
     body: "We map every result appearing for your name, your firm name, and common search combinations. We assess the strength of each negative entry and identify exactly what we are working with.",
     Icon: Map,
   },
   {
     step: 2,
-    headline: "Step 2 — Suppression Strategy Design (Weeks 1–2)",
-    body: "We design a content and SEO strategy specific to your situation, built to push negative results beyond page two — where fewer than 0.5% of searchers ever look.",
+    headline: "Step 2 - Suppression Strategy Design (Weeks 1–2)",
+    body: "We design a content and SEO strategy specific to your situation, built to push negative results beyond page two - where fewer than 0.5% of searchers ever look.",
     Icon: Target,
   },
   {
     step: 3,
-    headline: "Step 3 — Content and Presence Building (Months 1–4)",
+    headline: "Step 3 - Content and Presence Building (Months 1–4)",
     body: "We build your authoritative digital footprint: LinkedIn profile optimization, a professional website or thought leadership hub, financial commentary and expert articles on high-authority platforms, optimized profiles on financial directories, and supporting professional properties.",
     Icon: Layers,
   },
   {
     step: 4,
-    headline: "Step 4 — Ranking Displacement (Months 3–8)",
+    headline: "Step 4 - Ranking Displacement (Months 3–8)",
     body: "As your positive properties gain authority, they begin outranking the negative content. We monitor rankings weekly and adjust strategy as results move.",
     Icon: BarChart3,
   },
   {
     step: 5,
-    headline: "Step 5 — Long-Term Maintenance (Month 8 onward)",
-    body: "Once negative content is displaced, we maintain the presence that replaced it — ensuring it holds position and continues working in your favor.",
+    headline: "Step 5 - Long-Term Maintenance (Month 8 onward)",
+    body: "Once negative content is displaced, we maintain the presence that replaced it - ensuring it holds position and continues working in your favor.",
     Icon: RefreshCw,
   },
 ];
@@ -225,21 +225,21 @@ const WHY_DIFFICULT_JOB_SEEKER_PILLARS = [
     id: "on-your-own",
     label: "On your own",
     hook: "No dedicated team to manage your public footprint.",
-    body: "Unlike a business that can invest in ongoing brand management, a job seeker is typically navigating this alone — often during an already stressful period of transition.",
+    body: "Unlike a business that can invest in ongoing brand management, a job seeker is typically navigating this alone - often during an already stressful period of transition.",
     Icon: UserSearch,
   },
   {
     id: "silent-signals",
     label: "Silent signals",
     hook: "Silence rarely means your search results are fine.",
-    body: "There is also a timing problem. The damage is happening now, with every application you submit — but you will not receive clear feedback telling you that your search results are the issue. You may interpret silence as a skills gap or a competitive market, when the real obstacle is something Google is showing that you have never even looked at.",
+    body: "There is also a timing problem. The damage is happening now, with every application you submit - but you will not receive clear feedback telling you that your search results are the issue. You may interpret silence as a skills gap or a competitive market, when the real obstacle is something Google is showing that you have never even looked at.",
     Icon: MessagesSquare,
   },
   {
     id: "practical-path",
     label: "The practical path forward",
     hook: "What actually moves what recruiters see first.",
-    body: "Every week your search results remain unchanged is another set of opportunities quietly closing. Building a stronger, more authoritative online presence is how negative content gets displaced from the first page of results — the page that decides whether you get a call.",
+    body: "Every week your search results remain unchanged is another set of opportunities quietly closing. Building a stronger, more authoritative online presence is how negative content gets displaced from the first page of results - the page that decides whether you get a call.",
     Icon: TrendingUp,
   },
 ];
@@ -375,7 +375,7 @@ function JobSeekersWhyDifficultSection() {
         Why This Is Particularly Difficult for Job Seekers
       </h2>
       <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
-        Three realities job seekers hit in search — tap each to read the full
+        Three realities job seekers hit in search - tap each to read the full
         context.
       </p>
 
@@ -453,9 +453,9 @@ function JobSeekersWhyDifficultSection() {
   );
 }
 
-/** Title after "Step N —" for compact step tiles; falls back to full headline. */
+/** Title after "Step N -" for compact step tiles; falls back to full headline. */
 function faWhatWeDoStepLabel(headline) {
-  const m = headline.match(/^Step\s+\d+\s+\u2014\s*(.+)$/);
+  const m = headline.match(/^Step\s+\d+\s+-\s*(.+)$/);
   return m ? m[1].trim() : headline;
 }
 
@@ -917,7 +917,7 @@ function JobSeekersProblemSection() {
 
       <p className="mt-8 rounded-xl border border-[#1f3b64]/10 bg-[#f8fafc] px-4 py-3.5 text-center text-[14px] font-semibold leading-snug text-[#0f2e58] md:px-6 md:text-[15px]">
         Any one of these on page one when a recruiter searches your name can
-        quietly remove you from consideration—often before you ever find out why.
+        quietly remove you from consideration-often before you ever find out why.
       </p>
     </section>
   );

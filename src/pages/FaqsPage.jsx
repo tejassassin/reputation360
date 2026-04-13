@@ -62,7 +62,7 @@ function FaqsPage() {
             deliberately or by default.
           </h1>
           <p className="mb-12 max-w-2xl text-lg font-light text-[#6B7280] md:text-xl">
-            Not sure if this applies to you? Book a free call — we&apos;ll figure
+            Not sure if this applies to you? Book a free call - we&apos;ll figure
             it out together.
           </p>
           <div
@@ -124,21 +124,21 @@ function FaqsPage() {
                   <p>It covers three core activities:</p>
                   <ul className="ml-5 list-disc space-y-2">
                     <li>
-                      <strong>Monitoring</strong> — understanding what is being
+                      <strong>Monitoring</strong> - understanding what is being
                       said and where it appears
                     </li>
                     <li>
-                      <strong>Suppression</strong> — pushing down content that
+                      <strong>Suppression</strong> - pushing down content that
                       is harmful or misleading
                     </li>
                     <li>
-                      <strong>Promotion</strong> — building accurate, positive
+                      <strong>Promotion</strong> - building accurate, positive
                       content that reflects who you are today
                     </li>
                   </ul>
                   <p>
                     ORM is not about hiding the truth. It is about ensuring a
-                    fair, complete picture is what people find — not the most
+                    fair, complete picture is what people find - not the most
                     outdated or sensational version of your story.
                   </p>
                 </div>
@@ -158,12 +158,12 @@ function FaqsPage() {
                     </li>
                     <li>
                       We create content across multiple websites, social media
-                      platforms, LinkedIn, and public directories — each built
+                      platforms, LinkedIn, and public directories - each built
                       to rank for your name
                     </li>
                     <li>
                       As this content gains traction, it pushes negative results
-                      further down — to page 3, 4, or even page 6 of Google
+                      further down - to page 3, 4, or even page 6 of Google
                     </li>
                     <li>
                       The negative content technically remains, but becomes
@@ -176,7 +176,7 @@ function FaqsPage() {
 
               <FaqAccordion question="Does ORM actually make a difference, or do people just find the negative content anyway?">
                 <div className="space-y-4">
-                  <p>Yes — it makes a significant, measurable difference.</p>
+                  <p>Yes - it makes a significant, measurable difference.</p>
                   <p>Here is why:</p>
                   <ul className="ml-5 list-disc space-y-2">
                     <li>92% of all search traffic stays on the first visible page of Google</li>
@@ -198,7 +198,7 @@ function FaqsPage() {
               <FaqAccordion question="Will managing my reputation affect my existing positive search results?">
                 <div className="space-y-4">
                   <p>
-                    No — your existing positive results are protected and built
+                    No - your existing positive results are protected and built
                     upon, not displaced.
                   </p>
                   <ul className="ml-5 list-disc space-y-2">
@@ -269,7 +269,7 @@ function FaqsPage() {
                     </li>
                     <li>
                       Reputation management focuses specifically on what appears
-                      in search results — ensuring that when someone searches your
+                      in search results - ensuring that when someone searches your
                       name, they find an accurate and professional picture
                     </li>
                     <li>
@@ -290,7 +290,7 @@ function FaqsPage() {
               <FaqAccordion question="Can negative content be completely removed from the internet?">
                 <div className="space-y-4">
                   <p>
-                    Sometimes yes — but often no. It depends entirely on the
+                    Sometimes yes - but often no. It depends entirely on the
                     nature and source of the content.
                   </p>
                   <p>
@@ -312,7 +312,7 @@ function FaqsPage() {
                   </ul>
                   <p>
                     Where genuine removal is possible, we pursue it. Where it is
-                    not, suppression achieves the same practical outcome — the
+                    not, suppression achieves the same practical outcome - the
                     content remains technically, but no one searching your name
                     will find it.
                   </p>
@@ -322,7 +322,7 @@ function FaqsPage() {
               <FaqAccordion question="Can a negative news article be removed from Google?">
                 <div className="space-y-4">
                   <p>
-                    Direct removal is rarely possible — but it does not need to
+                    Direct removal is rarely possible - but it does not need to
                     be removed to become invisible.
                   </p>
                   <ul className="ml-5 list-disc space-y-2">
@@ -339,7 +339,7 @@ function FaqsPage() {
                       sustained suppression strategy
                     </li>
                     <li>
-                      News sites carry high domain authority — but that authority
+                      News sites carry high domain authority - but that authority
                       can be outpaced over a period of months
                     </li>
                     <li>
@@ -355,7 +355,7 @@ function FaqsPage() {
                 <div className="space-y-4">
                   <ul className="ml-5 list-disc space-y-2">
                     <li>
-                      Removal means the content is taken down entirely — it no
+                      Removal means the content is taken down entirely - it no
                       longer exists anywhere online
                     </li>
                     <li>
@@ -367,10 +367,10 @@ function FaqsPage() {
                     </li>
                     <li>
                       When content is suppressed to page three or beyond, the
-                      real-world impact is identical to removal — no one finds it
+                      real-world impact is identical to removal - no one finds it
                     </li>
                     <li>
-                      Removal is always pursued where possible — when it is not
+                      Removal is always pursued where possible - when it is not
                       achievable, suppression delivers the same outcome in
                       practice
                     </li>
@@ -381,7 +381,7 @@ function FaqsPage() {
               <FaqAccordion question="Can social media posts or profiles be suppressed?">
                 <div className="space-y-4">
                   <p>
-                    Yes — social media results can be addressed through both
+                    Yes - social media results can be addressed through both
                     suppression and direct removal where applicable.
                   </p>
                   <ul className="ml-5 list-disc space-y-2">
@@ -398,7 +398,7 @@ function FaqsPage() {
                       guidelines, we also pursue direct removal requests
                     </li>
                     <li>
-                      The goal is the same as with any other content — ensure that
+                      The goal is the same as with any other content - ensure that
                       what appears on page one of Google reflects the right
                       picture
                     </li>
@@ -411,25 +411,25 @@ function FaqsPage() {
               <FaqAccordion question="How long does reputation management take to show results?">
                 <div className="space-y-4">
                   <p>
-                    Search results do not reorganise overnight — but progress is
+                    Search results do not reorganise overnight - but progress is
                     measurable and consistent.
                   </p>
                   <p>Here is an honest timeline for most engagements:</p>
                   <ul className="ml-5 list-disc space-y-2">
                     <li>
-                      <strong>Weeks 1–4</strong> — Audit complete, strategy live,
+                      <strong>Weeks 1–4</strong> - Audit complete, strategy live,
                       initial content published and indexed
                     </li>
                     <li>
-                      <strong>Months 2–4</strong> — Measurable movement in
+                      <strong>Months 2–4</strong> - Measurable movement in
                       rankings, positive content gaining traction
                     </li>
                     <li>
-                      <strong>Months 5–8</strong> — Significant displacement of
+                      <strong>Months 5–8</strong> - Significant displacement of
                       primary negative results in most cases
                     </li>
                     <li>
-                      <strong>Months 8–12</strong> — Substantial transformation
+                      <strong>Months 8–12</strong> - Substantial transformation
                       complete for the large majority of cases
                     </li>
                   </ul>
@@ -447,7 +447,7 @@ function FaqsPage() {
 
               <FaqAccordion question="What if results do not move as expected?">
                 <div className="space-y-4">
-                  <p>We adapt — and you will always know exactly what is happening.</p>
+                  <p>We adapt - and you will always know exactly what is happening.</p>
                   <ul className="ml-5 list-disc space-y-2">
                     <li>
                       Progress is monitored continuously throughout your
@@ -455,7 +455,7 @@ function FaqsPage() {
                     </li>
                     <li>
                       If something is not moving as projected, we adjust the
-                      strategy — increasing content velocity, expanding the
+                      strategy - increasing content velocity, expanding the
                       content footprint, or shifting platforms
                     </li>
                     <li>
@@ -477,7 +477,7 @@ function FaqsPage() {
                   <ul className="ml-5 list-disc space-y-2">
                     <li>
                       We build your positive presence on genuine, high-authority
-                      content — not shortcuts that search engines can reverse
+                      content - not shortcuts that search engines can reverse
                     </li>
                     <li>
                       A strong LinkedIn, a personal website, published articles,
@@ -505,7 +505,7 @@ function FaqsPage() {
                 <div className="space-y-4">
                   <p>
                     Success is measured by the transformation of your search
-                    results — clearly, visibly, and consistently.
+                    results - clearly, visibly, and consistently.
                   </p>
                   <ul className="ml-5 list-disc space-y-2">
                     <li>
@@ -513,7 +513,7 @@ function FaqsPage() {
                       associated with your name throughout the engagement
                     </li>
                     <li>
-                      Progress is documented and shared with you regularly — you
+                      Progress is documented and shared with you regularly - you
                       never have to ask
                     </li>
                     <li>
@@ -532,7 +532,7 @@ function FaqsPage() {
               <FaqAccordion question="Do you guarantee results?">
                 <div className="space-y-4">
                   <p>
-                    We do not offer guarantees — and we believe that transparency
+                    We do not offer guarantees - and we believe that transparency
                     is a mark of integrity, not a limitation.
                   </p>
                   <p>
@@ -556,7 +556,7 @@ function FaqsPage() {
                     <li>A team that stays committed until the work is done</li>
                   </ul>
                   <p>
-                    Our track record speaks for itself — we will give you an
+                    Our track record speaks for itself - we will give you an
                     honest assessment of what is achievable in your situation
                     before you commit to anything
                   </p>
@@ -567,14 +567,14 @@ function FaqsPage() {
             <FaqSection id="section-4" title="Compliance & Ethics">
               <FaqAccordion question="Is what you do compliant with Google's guidelines?">
                 <div className="space-y-4">
-                  <p>Yes — 100% white-hat, always.</p>
+                  <p>Yes - 100% white-hat, always.</p>
                   <ul className="ml-5 list-disc space-y-2">
                     <li>
                       We do not use link schemes, fake profiles, artificial
                       signals, or any tactics that violate Google&apos;s guidelines
                     </li>
                     <li>
-                      Every piece of content we build is real — real LinkedIn
+                      Every piece of content we build is real - real LinkedIn
                       profiles, real published articles, real professional
                       websites
                     </li>
@@ -583,7 +583,7 @@ function FaqsPage() {
                       because anything has been manipulated
                     </li>
                     <li>
-                      This is also why our results hold over time — manipulative
+                      This is also why our results hold over time - manipulative
                       tactics create short-term results and long-term risk
                     </li>
                     <li>We build for permanence</li>
@@ -593,7 +593,7 @@ function FaqsPage() {
 
               <FaqAccordion question="Is it ethical to suppress negative search results?">
                 <div className="space-y-4">
-                  <p>Yes — and here is why.</p>
+                  <p>Yes - and here is why.</p>
                   <p>
                     One negative search result can overshadow years of hard work,
                     years of dedication, and years of outstanding service to
@@ -604,8 +604,8 @@ function FaqsPage() {
                   </p>
                   <p>
                     Suppressing a negative result is not about hiding something. It
-                    is about ensuring your true identity — defined by your
-                    achievements, your expertise, and your contributions — is what
+                    is about ensuring your true identity - defined by your
+                    achievements, your expertise, and your contributions - is what
                     the world sees first.
                   </p>
                   <ul className="ml-5 list-disc space-y-2">
@@ -616,7 +616,7 @@ function FaqsPage() {
                     </li>
                     <li>
                       A settled case from years ago that follows someone
-                      indefinitely is not justice — it is a distortion
+                      indefinitely is not justice - it is a distortion
                     </li>
                     <li>
                       It is entirely ethical to ensure a fair, complete, and
@@ -625,7 +625,7 @@ function FaqsPage() {
                     </li>
                     <li>
                       We help build and promote positive content that genuinely
-                      reflects your story — so that your narrative is shaped by your
+                      reflects your story - so that your narrative is shaped by your
                       work, not by one moment someone else chose to amplify
                     </li>
                   </ul>
@@ -635,7 +635,7 @@ function FaqsPage() {
               <FaqAccordion question="Will anyone know I am working with a reputation management company?">
                 <div className="space-y-4">
                   <p>
-                    No — our work is completely indistinguishable from a strong,
+                    No - our work is completely indistinguishable from a strong,
                     independently built professional presence.
                   </p>
                   <ul className="ml-5 list-disc space-y-2">
@@ -663,7 +663,7 @@ function FaqsPage() {
 
               <FaqAccordion question="Do you ever decline to take on a client?">
                 <div className="space-y-4">
-                  <p>Yes — and we are selective about it.</p>
+                  <p>Yes - and we are selective about it.</p>
                   <ul className="ml-5 list-disc space-y-2">
                     <li>
                       We only represent clients whose reputations are genuinely
@@ -726,7 +726,7 @@ function FaqsPage() {
                     <li>We conduct a full audit of your search footprint</li>
                     <li>
                       A fully custom strategy is designed around your specific
-                      situation — no templates, ever
+                      situation - no templates, ever
                     </li>
                     <li>Execution begins promptly once the strategy is confirmed</li>
                     <li>
@@ -741,7 +741,7 @@ function FaqsPage() {
               <FaqAccordion question="How involved do I need to be during the process?">
                 <div className="space-y-4">
                   <p>
-                    It entirely depends on you — and every level of involvement is
+                    It entirely depends on you - and every level of involvement is
                     fully accommodated.
                   </p>
                   <p>
@@ -780,11 +780,11 @@ function FaqsPage() {
 
               <FaqAccordion question="During the campaign, how easy is it to reach out to you?">
                 <div className="space-y-4">
-                  <p>We are available for you 24/7 — always.</p>
+                  <p>We are available for you 24/7 - always.</p>
                   <ul className="ml-5 list-disc space-y-2">
                     <li>You can call or email us at any point during your campaign</li>
                     <li>
-                      We respond to all calls and emails within 8 hours — without
+                      We respond to all calls and emails within 8 hours - without
                       exception
                     </li>
                     <li>You will never feel like you are chasing us or waiting in the dark</li>
@@ -793,7 +793,7 @@ function FaqsPage() {
                       respect, and care they deserve
                     </li>
                     <li>
-                      Your campaign matters to us — and so does making sure you
+                      Your campaign matters to us - and so does making sure you
                       always feel that way
                     </li>
                   </ul>
@@ -803,7 +803,7 @@ function FaqsPage() {
               <FaqAccordion question="Do you work with individuals as well as businesses?">
                 <div className="space-y-4">
                   <p>
-                    Yes — our experience spans both individuals and businesses
+                    Yes - our experience spans both individuals and businesses
                     across industries.
                   </p>
                   <p>
@@ -825,7 +825,7 @@ function FaqsPage() {
                     </li>
                   </ul>
                   <p>
-                    The underlying challenge is the same — search results that do
+                    The underlying challenge is the same - search results that do
                     not accurately represent the full picture. The strategy varies,
                     but our depth of experience covers both comprehensively.
                   </p>
@@ -835,19 +835,19 @@ function FaqsPage() {
               <FaqAccordion question="Can you help if I already tried managing my reputation myself?">
                 <div className="space-y-4">
                   <p>
-                    Yes — and this is one of the most common situations we
+                    Yes - and this is one of the most common situations we
                     encounter.
                   </p>
                   <ul className="ml-5 list-disc space-y-2">
                     <li>
-                      Many clients come to us after trying their own strategies — a
-                      LinkedIn refresh, a new website, some published articles — and
+                      Many clients come to us after trying their own strategies - a
+                      LinkedIn refresh, a new website, some published articles - and
                       finding the negative content has not moved
                     </li>
                     <li>The reason is almost always authority</li>
                     <li>
                       High-authority negative sources require a sustained,
-                      expert-led campaign to displace — something individual efforts
+                      expert-led campaign to displace - something individual efforts
                       rarely achieve at the required scale
                     </li>
                     <li>
@@ -856,7 +856,7 @@ function FaqsPage() {
                       where to start
                     </li>
                     <li>
-                      Our experience means we do not experiment — we execute with
+                      Our experience means we do not experiment - we execute with
                       precision from day one
                     </li>
                   </ul>
@@ -865,7 +865,7 @@ function FaqsPage() {
 
               <FaqAccordion question="Will I have a dedicated point of contact throughout the process?">
                 <div className="space-y-4">
-                  <p>Yes — always.</p>
+                  <p>Yes - always.</p>
                   <ul className="ml-5 list-disc space-y-2">
                     <li>
                       Every client is assigned a dedicated account manager from the
@@ -873,7 +873,7 @@ function FaqsPage() {
                     </li>
                     <li>
                       Your account manager stays with you through to final delivery
-                      — you are never passed between teams
+                      - you are never passed between teams
                     </li>
                     <li>
                       They know your case inside out and are your single consistent
@@ -898,7 +898,7 @@ function FaqsPage() {
                     </li>
                     <li>
                       What drives us is the impact the work has on our clients&apos;
-                      lives — not the scale of the engagement
+                      lives - not the scale of the engagement
                     </li>
                     <li>
                       If your online reputation is affecting your opportunities,
@@ -915,7 +915,7 @@ function FaqsPage() {
               <FaqAccordion question="What information do I need to share with you to get started?">
                 <div className="space-y-4">
                   <p>
-                    Very little is needed upfront — and nothing is compulsory beyond
+                    Very little is needed upfront - and nothing is compulsory beyond
                     the basics.
                   </p>
                   <p>
@@ -936,7 +936,7 @@ function FaqsPage() {
                     <li>Topics or interests you would like to be associated with</li>
                   </ul>
                   <p>
-                    None of this is required upfront — but the more context you
+                    None of this is required upfront - but the more context you
                     share, the more precisely we can shape your narrative from day
                     one.
                   </p>
@@ -945,7 +945,7 @@ function FaqsPage() {
 
               <FaqAccordion question="Do you sign a confidentiality agreement?">
                 <div className="space-y-4">
-                  <p>Yes — always, and without hesitation.</p>
+                  <p>Yes - always, and without hesitation.</p>
                   <ul className="ml-5 list-disc space-y-2">
                     <li>
                       We sign a mutual confidentiality agreement before any detailed

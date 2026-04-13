@@ -26,13 +26,13 @@ const IMG_HERO =
 const IMG_MAP =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDAuoKNykbon_ONixwj4-paZvw6Uqm6Ye_H2j_EV6_SHshlgFYZLlUZO88MsCDh-_V5ZlqSn7LuN6vxcMeco4Qu_CDcVLsbvdz8yfrmrunnvnu3gMD51AnuNyq3XP7TVkVUuZZnfzI7hLcDDHEeE52hVHtDxOV1GWyNkae-OjZ1rZKugmZ70SaCmoCMsw-cNU_WN16084-Rf62DoLjnWrlnkXxW310RMehlYCTLlonqks_CWIqf_vt2SnofCi7Br7dzp6D7wxZsHMg";
 
-/** Hub positions (% of map) — x,y match viewBox 0–100 for route SVG. */
+/** Hub positions (% of map) - x,y match viewBox 0–100 for route SVG. */
 const globalHubs = [
   {
     id: "nyc",
     label: "New York Hub",
     blurb:
-      "Americas leadership — client partners, delivery, and strategy aligned to your time zone.",
+      "Americas leadership - client partners, delivery, and strategy aligned to your time zone.",
     top: "35%",
     left: "22%",
     x: 22,
@@ -79,7 +79,7 @@ const globalHubRoutes = [
 
 const headlineFont = "font-[Manrope,Inter,sans-serif]";
 
-/** What Drives Us — interactive personas (grid order: row1, row2). */
+/** What Drives Us - interactive personas (grid order: row1, row2). */
 const whatDrivesPersonas = [
   {
     id: "student",
@@ -127,7 +127,7 @@ const whatDrivesPersonas = [
         tone: "muted",
       },
       {
-        text: "an old headline lost its power — and the room shifted its attention to what mattered.",
+        text: "an old headline lost its power - and the room shifted its attention to what mattered.",
         tone: "navy",
       },
     ],
@@ -193,19 +193,19 @@ const howWeWorkSteps = [
   {
     n: "02",
     title: "Strategy",
-    text: "No templates. No copy-paste solutions. We build a fully customised plan around your specific situation, your goals, and your timeline — with clear milestones from day one.",
+    text: "No templates. No copy-paste solutions. We build a fully customised plan around your specific situation, your goals, and your timeline - with clear milestones from day one.",
   },
   {
     n: "03",
     title: "Execute & Protect",
-    text: "We get to work. Our global team implements your strategy, monitors results continuously, and adapts in real time. We do not stop until the right narrative is in place — and we stay vigilant to protect it long after.",
+    text: "We get to work. Our global team implements your strategy, monitors results continuously, and adapts in real time. We do not stop until the right narrative is in place - and we stay vigilant to protect it long after.",
   },
 ];
 
 const whatWeDont = [
   {
     title: "No Unethical Engagements",
-    text: "We are selective — and we are proud of it. Integrity is at the core of everything we do. We only take on clients whose reputations are worth restoring. We do not represent individuals involved in exploitation, organised crime, or conduct that causes deliberate harm to others.",
+    text: "We are selective - and we are proud of it. Integrity is at the core of everything we do. We only take on clients whose reputations are worth restoring. We do not represent individuals involved in exploitation, organised crime, or conduct that causes deliberate harm to others.",
   },
   {
     title: "No Black-Hat Tactics",
@@ -217,7 +217,7 @@ const whatWeDont = [
   },
   {
     title: "No Templates",
-    text: "Every client situation is different. Your plan is built entirely around your specific circumstances — never borrowed from someone else's case.",
+    text: "Every client situation is different. Your plan is built entirely around your specific circumstances - never borrowed from someone else's case.",
   },
   {
     title: "No Compromise on Privacy",
@@ -230,7 +230,7 @@ const whatWeDont = [
 ];
 
 const promises = [
-  "Every client is treated as our most important client — regardless of the size of the engagement.",
+  "Every client is treated as our most important client - regardless of the size of the engagement.",
   "Your situation stays completely confidential. We never reference a client case without explicit permission. Ever.",
   "We will tell you the truth, even when it is uncomfortable. If something is more complex than expected, you will hear it from us first.",
   "We are with you for the long term. If results take longer than expected, we stay committed until we get there.",
@@ -262,13 +262,13 @@ const testimonials = [
   },
   {
     id: "ecommerce-founder-apac",
-    quote: `"A competitor planted fake reviews across three platforms and our rating dropped overnight. Reputation360 didn't just suppress the damage — they built something strong enough that it couldn't happen again. Revenue recovered within a quarter."`,
+    quote: `"A competitor planted fake reviews across three platforms and our rating dropped overnight. Reputation360 didn't just suppress the damage - they built something strong enough that it couldn't happen again. Revenue recovered within a quarter."`,
     name: "Founder, E-commerce Brand",
     role: "Asia-Pacific",
   },
   {
     id: "csuite-financial",
-    quote: `"I walked into a board meeting and watched someone Google me mid-presentation. I knew exactly what they were seeing. That was the moment I called Reputation360. Six months later, what comes up when you search me is who I actually am — not a headline from eight years ago."`,
+    quote: `"I walked into a board meeting and watched someone Google me mid-presentation. I knew exactly what they were seeing. That was the moment I called Reputation360. Six months later, what comes up when you search me is who I actually am - not a headline from eight years ago."`,
     name: "C-Suite Executive",
     role: "Financial Services",
   },
@@ -343,13 +343,13 @@ const howItBeganSteps = [
     id: "damage",
     kicker: "The damage",
     headline: "The stories stayed. The truth didn't rank.",
-    body: "News publications that had covered the original case never updated their stories. Every time a potential client, a business partner, or an investor searched his name, those articles appeared first. His thirty years of achievement, his relationships, his credibility — all overshadowed by links that told an incomplete and deeply unfair story.",
+    body: "News publications that had covered the original case never updated their stories. Every time a potential client, a business partner, or an investor searched his name, those articles appeared first. His thirty years of achievement, his relationships, his credibility - all overshadowed by links that told an incomplete and deeply unfair story.",
   },
   {
     id: "realisation",
     kicker: "The realisation",
     headline: "That moment changed everything for us.",
-    body: "We realised that in today's world, your online footprint can outlive a verdict — and that people deserve a fair, complete picture of who they are.",
+    body: "We realised that in today's world, your online footprint can outlive a verdict - and that people deserve a fair, complete picture of who they are.",
   },
 ];
 
@@ -381,7 +381,7 @@ function HowItAllBeganStory() {
             <div
               className="mt-8"
               role="list"
-              aria-label="Story beats — use Previous and Next or select a step"
+              aria-label="Story beats - use Previous and Next or select a step"
             >
               {howItBeganSteps.map((step, i) => {
                 const isActive = i === activeStep;
@@ -515,7 +515,7 @@ function WhatDrivesUsSection() {
             <strong className="font-semibold text-[#1F3B64]">
               your name tells your true story
             </strong>{" "}
-            — the jobs secured, the clients won, the deals closed, and the
+            - the jobs secured, the clients won, the deals closed, and the
             careers rebuilt.
           </p>
         </div>
@@ -1136,7 +1136,7 @@ function AboutPage() {
 
       <HowItAllBeganStory />
 
-      {/* The Reality We Are Up Against — two-column stats + quote (layout matches brand) */}
+      {/* The Reality We Are Up Against - two-column stats + quote (layout matches brand) */}
       <section
         id="reality-we-face"
         className={`border-y border-slate-200/80 bg-[#f8fafc] ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
@@ -1156,7 +1156,7 @@ function AboutPage() {
                 80%
               </div>
               <p className="text-[15px] leading-relaxed text-slate-700 md:text-base">
-                of people search online before making a decision — whether that
+                of people search online before making a decision - whether that
                 is hiring someone, partnering with a business, choosing a doctor,
                 or closing an investment deal.
               </p>
@@ -1206,10 +1206,10 @@ function AboutPage() {
               Reputation360 is a team of 47 specialists working across the globe
               to deliver round-the-clock protection for our clients. Since 2019,
               we have served clients across law, medicine, finance, e-commerce,
-              manufacturing, and professional services — from individuals and
+              manufacturing, and professional services - from individuals and
               students to senior executives and global brands. We work across
               reputation management, content strategy, LinkedIn branding,
-              employer branding, and search suppression — all under one roof,
+              employer branding, and search suppression - all under one roof,
               for one purpose.
             </p>
             <p

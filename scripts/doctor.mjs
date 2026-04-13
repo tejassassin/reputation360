@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 process.chdir(root);
 
-console.log("\nReputation360 — local dev check\n");
+console.log("\nReputation360 - local dev check\n");
 
 console.log("  Node version:", process.version);
 console.log("  Project folder:", root);

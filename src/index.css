@@ -128,7 +128,7 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-/* Services — Who We Work With: explicit font sizes live in global CSS so
+/* Services - Who We Work With: explicit font sizes live in global CSS so
    production always matches design even if a utility bundle is stale or incomplete. */
 @layer components {
   h3.who-we-work-with-heading {
@@ -309,7 +309,7 @@
   }
 }
 
-/* About page — client testimonials carousel (react-multi-carousel)
+/* About page - client testimonials carousel (react-multi-carousel)
    Horizontal overflow hidden so only one full “page” of slides is visible (no peek of the next column). */
 .testimonial-carousel .react-multi-carousel-list {
   overflow-x: clip;

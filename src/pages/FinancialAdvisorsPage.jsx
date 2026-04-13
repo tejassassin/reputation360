@@ -103,32 +103,32 @@ const FINANCIAL_ADVISOR_PROBLEM_TILES = [
 const REPUTATION360_FA_STEPS = [
   {
     step: 1,
-    headline: "Step 1 — Complete Search Audit (Week 1)",
+    headline: "Step 1 - Complete Search Audit (Week 1)",
     body: "We map every result appearing for your name, your firm name, and common search combinations. We assess the strength of each negative entry and identify exactly what we are working with.",
     Icon: Map,
   },
   {
     step: 2,
-    headline: "Step 2 — Suppression Strategy Design (Weeks 1–2)",
-    body: "We design a content and SEO strategy specific to your situation, built to push negative results beyond page two — where fewer than 0.5% of searchers ever look.",
+    headline: "Step 2 - Suppression Strategy Design (Weeks 1–2)",
+    body: "We design a content and SEO strategy specific to your situation, built to push negative results beyond page two - where fewer than 0.5% of searchers ever look.",
     Icon: Target,
   },
   {
     step: 3,
-    headline: "Step 3 — Content and Presence Building (Months 1–4)",
+    headline: "Step 3 - Content and Presence Building (Months 1–4)",
     body: "We build your authoritative digital footprint: LinkedIn profile optimization, a professional website or thought leadership hub, financial commentary and expert articles on high-authority platforms, optimized profiles on financial directories, and supporting professional properties.",
     Icon: Layers,
   },
   {
     step: 4,
-    headline: "Step 4 — Ranking Displacement (Months 3–8)",
+    headline: "Step 4 - Ranking Displacement (Months 3–8)",
     body: "As your positive properties gain authority, they begin outranking the negative content. We monitor rankings weekly and adjust strategy as results move.",
     Icon: BarChart3,
   },
   {
     step: 5,
-    headline: "Step 5 — Long-Term Maintenance (Month 8 onward)",
-    body: "Once negative content is displaced, we maintain the presence that replaced it — ensuring it holds position and continues working in your favor.",
+    headline: "Step 5 - Long-Term Maintenance (Month 8 onward)",
+    body: "Once negative content is displaced, we maintain the presence that replaced it - ensuring it holds position and continues working in your favor.",
     Icon: RefreshCw,
   },
 ];
@@ -180,7 +180,7 @@ const FINANCIAL_ADVISOR_FAQ_ITEMS = [
     id: "discretion",
     question: "Will my clients or colleagues know I am doing this?",
     answer:
-      "No. Everything we do is outward-facing content building. The content we create — articles, profiles, website — simply appears as a natural part of your professional digital presence.",
+      "No. Everything we do is outward-facing content building. The content we create - articles, profiles, website - simply appears as a natural part of your professional digital presence.",
   },
   {
     id: "timeline-results",
@@ -192,7 +192,7 @@ const FINANCIAL_ADVISOR_FAQ_ITEMS = [
     id: "removal-vs-suppression",
     question: "What if removal is possible?",
     answer:
-      "Where genuine removal is possible — through privacy law requests, platform policy, or direct publisher outreach — we pursue it. Removal is always the preferred outcome. Suppression is the strategy we deploy when removal is not achievable.",
+      "Where genuine removal is possible - through privacy law requests, platform policy, or direct publisher outreach - we pursue it. Removal is always the preferred outcome. Suppression is the strategy we deploy when removal is not achievable.",
   },
 ];
 
@@ -217,7 +217,7 @@ function FinancialAdvisorsProblemSection() {
         <p className="max-w-2xl text-[14px] leading-relaxed text-[#3f4f66] md:text-[15px] md:leading-[1.55]">
           Your reputation lives in places you do not control. Regulatory
           databases, financial news archives, complaint portals, and aggregator
-          sites all rank prominently for advisor names — and all of them are
+          sites all rank prominently for advisor names - and all of them are
           indexed by Google.
         </p>
       </div>
@@ -470,7 +470,7 @@ const WHY_HARDER_PILLARS = [
     id: "limited-response",
     label: "Limited response",
     hook: "Public replies can trigger more regulatory exposure.",
-    body: "You also cannot respond publicly to many complaints without risking further regulatory scrutiny. A single complaint can generate multiple pages of indexed content — and your options for direct response are severely limited.",
+    body: "You also cannot respond publicly to many complaints without risking further regulatory scrutiny. A single complaint can generate multiple pages of indexed content - and your options for direct response are severely limited.",
     Icon: ShieldAlert,
   },
   {
@@ -496,7 +496,7 @@ function FinancialAdvisorsWhyHarderSection() {
         Why This Is Harder for You Than Most
       </h2>
       <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
-        Three constraints advisors hit in search — tap each to read the full
+        Three constraints advisors hit in search - tap each to read the full
         context.
       </p>
 
@@ -574,9 +574,9 @@ function FinancialAdvisorsWhyHarderSection() {
   );
 }
 
-/** Title after "Step N —" for compact step tiles; falls back to full headline. */
+/** Title after "Step N -" for compact step tiles; falls back to full headline. */
 function faWhatWeDoStepLabel(headline) {
-  const m = headline.match(/^Step\s+\d+\s+\u2014\s*(.+)$/);
+  const m = headline.match(/^Step\s+\d+\s+-\s*(.+)$/);
   return m ? m[1].trim() : headline;
 }
 
@@ -1043,7 +1043,7 @@ function FinancialAdvisorsPage() {
               <div className="mt-6 space-y-3 border-t border-white/15 pt-6 text-sm font-semibold leading-relaxed text-[#86e991] md:text-[15px] md:leading-relaxed">
                 <p>
                   If what appears is a regulatory disclosure, a news article covering
-                  an investigation, or a complaint on a financial forum — they
+                  an investigation, or a complaint on a financial forum - they
                   quietly move on.
                 </p>
                 <p>You never find out.</p>
