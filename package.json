@@ -4,10 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node scripts/dev.mjs",
+    "start": "npm run dev",
+    "doctor": "node scripts/doctor.mjs",
+    "build": "node scripts/dev.mjs build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "node scripts/dev.mjs preview"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.36.1",

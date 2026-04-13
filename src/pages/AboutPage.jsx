@@ -10,11 +10,11 @@ import {
   Landmark,
   Gavel,
   Building2,
-  Briefcase,
   XCircle,
   Star,
   ChevronLeft,
   ChevronRight,
+  Train,
 } from "lucide-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
 
@@ -70,11 +70,11 @@ const whatDrivesPersonas = [
     panelKicker: "THE EXECUTIVE",
     detailSegments: [
       {
-        text: "Due diligence surfaced an old headline out of context. ",
+        text: "The moment the full story led the results, ",
         tone: "muted",
       },
       {
-        text: "Once the full story led the results, the room could focus on the future.",
+        text: "an old headline lost its power — and the room shifted its attention to what mattered.",
         tone: "navy",
       },
     ],
@@ -129,12 +129,6 @@ const whoWeServe = [
     title: "Businesses and Companies",
     text: "E-commerce, manufacturing, and consumer brands protecting their market reputation",
   },
-  {
-    icon: Briefcase,
-    title: "Professionals",
-    text: "Career-driven individuals taking control of how they appear online",
-    wide: true,
-  },
 ];
 
 const howWeWorkSteps = [
@@ -142,19 +136,16 @@ const howWeWorkSteps = [
     n: "01",
     title: "Audit",
     text: "We start by understanding exactly where you stand. We analyse your current online presence, identify what is working against you, and map out the full picture before recommending anything.",
-    highlight: false,
   },
   {
     n: "02",
     title: "Strategy",
     text: "No templates. No copy-paste solutions. We build a fully customised plan around your specific situation, your goals, and your timeline — with clear milestones from day one.",
-    highlight: false,
   },
   {
     n: "03",
     title: "Execute & Protect",
     text: "We get to work. Our global team implements your strategy, monitors results continuously, and adapts in real time. We do not stop until the right narrative is in place — and we stay vigilant to protect it long after.",
-    highlight: true,
   },
 ];
 
@@ -406,21 +397,18 @@ function WhatDrivesUsSection() {
       className={`bg-white ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
     >
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-10 md:mb-12">
-          <div className="mb-6 flex items-center gap-4">
-            <span
-              className={`${headlineFont} shrink-0 text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#4CAF50] sm:text-xs`}
-            >
-              What Drives Us
-            </span>
-            <div className="h-px min-w-0 flex-1 bg-slate-200" aria-hidden />
-          </div>
+        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-12">
           <h2
-            className={`${headlineFont} max-w-3xl text-3xl font-extrabold leading-tight text-[#1F3B64] md:text-[2rem]`}
+            className={`${headlineFont} text-3xl font-extrabold leading-tight text-[#1F3B64] md:text-[2rem]`}
+          >
+            What Drives Us
+          </h2>
+          <p
+            className={`${headlineFont} mx-auto mt-4 max-w-2xl text-balance text-lg font-semibold leading-snug text-[#2E5B88] md:text-xl`}
           >
             We are driven by outcomes. Real ones.
-          </h2>
-          <p className="font-body mt-5 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
+          </p>
+          <p className="font-body mx-auto mt-5 text-balance text-base leading-relaxed text-slate-600 md:text-lg">
             The peace of mind that comes with knowing{" "}
             <strong className="font-semibold text-[#1F3B64]">
               your name tells your true story
@@ -440,7 +428,7 @@ function WhatDrivesUsSection() {
                 type="button"
                 onClick={() => setActiveId(persona.id)}
                 aria-pressed={isActive}
-                className={`group relative flex flex-col rounded-2xl border p-6 text-left transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 md:p-7 ${
+                className={`group relative flex flex-col rounded-2xl border p-6 text-left transition-[border-color,background-color,box-shadow,transform] duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 md:p-7 ${
                   isActive
                     ? "border-[#1F3B64] bg-[#1F3B64] shadow-lg ring-1 ring-[#1F3B64]/20"
                     : "border-slate-200/90 bg-white shadow-sm hover:border-slate-300 hover:shadow-md"
@@ -453,7 +441,7 @@ function WhatDrivesUsSection() {
                   />
                 ) : null}
                 <div
-                  className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl transition-colors duration-300 ${
+                  className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl transition-colors duration-500 ease-out ${
                     isActive
                       ? "bg-transparent text-[#4CAF50]"
                       : "bg-sky-100/90 text-[#2E5B88]"
@@ -466,14 +454,14 @@ function WhatDrivesUsSection() {
                   )}
                 </div>
                 <span
-                  className={`${headlineFont} mb-2 text-[11px] font-bold uppercase tracking-[0.18em] ${
+                  className={`${headlineFont} mb-2 text-[11px] font-bold uppercase tracking-[0.18em] transition-colors duration-500 ease-out ${
                     isActive ? "text-[#4CAF50]" : "text-slate-500"
                   }`}
                 >
                   {persona.label}
                 </span>
                 <span
-                  className={`${headlineFont} text-base font-bold leading-snug md:text-[17px] ${
+                  className={`${headlineFont} text-base font-bold leading-snug transition-colors duration-500 ease-out md:text-[17px] ${
                     isActive ? "text-white" : "text-[#1F3B64]"
                   }`}
                 >
@@ -495,20 +483,25 @@ function WhatDrivesUsSection() {
               className="w-1 shrink-0 bg-[#4CAF50]"
               aria-hidden
             />
-            <div className="min-w-0 flex-1 px-5 py-5 sm:px-7 sm:py-6">
-              <p
-                className={`${headlineFont} mb-3 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#4CAF50]`}
-              >
-                {active.panelKicker}
-              </p>
-              <AnimatePresence mode="wait">
+            <div className="grid min-w-0 flex-1 grid-cols-1 grid-rows-1 px-5 py-5 sm:px-7 sm:py-6">
+              <AnimatePresence initial={false} mode="sync">
                 <Motion.div
                   key={active.id}
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -4 }}
-                  transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{
+                    duration: 0.48,
+                    ease: [0.33, 0, 0.17, 1],
+                  }}
+                  className="col-start-1 row-start-1 min-w-0 max-w-full"
+                  style={{ willChange: "opacity" }}
                 >
+                  <p
+                    className={`${headlineFont} mb-3 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#4CAF50]`}
+                  >
+                    {active.panelKicker}
+                  </p>
                   <p className="text-[15px] leading-relaxed text-slate-600 md:text-base">
                     {active.detailSegments.map((seg, i) =>
                       seg.tone === "navy" ? (
@@ -529,12 +522,8 @@ function WhatDrivesUsSection() {
           </div>
         </div>
 
-        <div className="mx-auto mt-10 flex max-w-4xl items-start justify-center gap-3 text-left sm:mt-12 sm:justify-start">
-          <span
-            className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#4CAF50]"
-            aria-hidden
-          />
-          <p className="max-w-3xl text-[15px] leading-relaxed md:text-base">
+        <div className="mx-auto mt-10 max-w-4xl text-center sm:mt-12 sm:text-left">
+          <p className="mx-auto max-w-3xl text-[15px] leading-relaxed md:text-base">
             <span className={`${headlineFont} font-bold text-[#1F3B64]`}>
               These are not metrics.{" "}
             </span>
@@ -543,6 +532,84 @@ function WhatDrivesUsSection() {
               show up every day.
             </span>
           </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HowWeWorkSection() {
+  const [activeStep, setActiveStep] = useState(2);
+  const [vehicleVisible, setVehicleVisible] = useState(false);
+  /** Step 01: start of track; 02: center; 03: end of track (mirrors start). */
+  const markerLeftPct =
+    activeStep === 0 ? 7 : activeStep === 1 ? 50 : 93;
+
+  return (
+    <section
+      id="how-we-work"
+      className={`bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+    >
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-12 text-center md:mb-16">
+          <h2
+            className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
+          >
+            How We Work
+          </h2>
+        </div>
+        <div className="relative grid gap-14 md:grid-cols-3 md:gap-8">
+          <div
+            className="pointer-events-none absolute left-0 right-0 top-[5.25rem] z-[1] hidden md:block"
+            aria-hidden
+          >
+            <div className="relative h-px w-full bg-slate-200">
+              {vehicleVisible ? (
+                <div
+                  className="absolute top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-[#4CAF50] text-white shadow-md ring-2 ring-[#4CAF50]/25 transition-[left] duration-[2200ms] ease-in-out"
+                  style={{ left: `${markerLeftPct}%` }}
+                >
+                  <Train className="h-4 w-4" strokeWidth={2.25} aria-hidden />
+                </div>
+              ) : null}
+            </div>
+          </div>
+
+          {howWeWorkSteps.map((step, i) => {
+            const active = i === activeStep;
+            return (
+              <div key={step.n} className="relative z-10 space-y-6 text-center">
+                <button
+                  type="button"
+                  aria-pressed={active}
+                  aria-label={`Step ${step.n}: ${step.title}`}
+                  onClick={() => {
+                    if (i === 0) setVehicleVisible(true);
+                    setActiveStep(i);
+                  }}
+                  className={`mx-auto flex h-20 w-20 items-center justify-center rounded-full shadow-lg transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 md:h-[5.25rem] md:w-[5.25rem] ${
+                    active
+                      ? "scale-105 bg-[#1F3B64] text-[#4CAF50] ring-4 ring-[#1F3B64]/15 md:ring-8"
+                      : "border-2 border-slate-100 bg-white text-[#1F3B64] hover:scale-[1.04] hover:border-[#4CAF50]/55 hover:shadow-md hover:ring-2 hover:ring-[#4CAF50]/30"
+                  }`}
+                >
+                  <span
+                    className={`${headlineFont} text-xl font-extrabold md:text-2xl`}
+                  >
+                    {step.n}
+                  </span>
+                </button>
+                <div className="space-y-2">
+                  <h3
+                    className={`${headlineFont} text-lg font-extrabold text-[#1F3B64] md:text-xl`}
+                  >
+                    {step.title}
+                  </h3>
+                  <p className="px-4 leading-relaxed text-slate-600">{step.text}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -757,7 +824,7 @@ function AboutPage() {
           </h2>
           <div className="space-y-5 text-[15px] leading-relaxed text-slate-600 md:text-base">
             <p>
-              Reputation360 is a team of 50 specialists working across the globe
+              Reputation360 is a team of 47 specialists working across the globe
               to deliver round-the-clock protection for our clients. Since 2019,
               we have served clients across law, medicine, finance, e-commerce,
               manufacturing, and professional services — from individuals and
@@ -811,42 +878,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* How We Work */}
-      <section
-        id="how-we-work"
-        className={`bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12 text-center md:mb-16">
-            <h2 className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}>
-              How We Work
-            </h2>
-          </div>
-          <div className="relative grid gap-16 md:grid-cols-3">
-            <div
-              className="absolute left-0 top-12 z-0 hidden h-px w-full bg-slate-200 md:block"
-              aria-hidden
-            />
-            {howWeWorkSteps.map(({ n, title, text, highlight }) => (
-              <div key={n} className="relative z-10 space-y-6 text-center">
-                <div
-                  className={`mx-auto flex h-20 w-20 items-center justify-center rounded-full shadow-lg md:h-[5.25rem] md:w-[5.25rem] ${highlight ? "bg-[#1F3B64] text-[#4CAF50] ring-4 ring-[#1F3B64]/10 md:ring-8" : "border-2 border-slate-100 bg-white text-[#1F3B64]"}`}
-                >
-                  <span className={`${headlineFont} text-xl font-extrabold md:text-2xl`}>
-                    {n}
-                  </span>
-                </div>
-                <div className="space-y-2">
-                  <h3 className={`${headlineFont} text-lg font-extrabold text-[#1F3B64] md:text-xl`}>
-                    {title}
-                  </h3>
-                  <p className="px-4 leading-relaxed text-slate-600">{text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HowWeWorkSection />
 
       {/* What We Don't Do */}
       <section

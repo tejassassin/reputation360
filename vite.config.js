@@ -14,4 +14,17 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Listen on all interfaces so both http://localhost:5173 and http://127.0.0.1:5173 work.
+  server: {
+    host: true,
+    port: 5173,
+    strictPort: false,
+    open: true,
+  },
+  preview: {
+    host: true,
+    port: 4173,
+    strictPort: false,
+    open: true,
+  },
 });
