@@ -900,9 +900,6 @@ function ServicesAbout() {
           <h3 className="text-center font-heading text-3xl font-bold tracking-tight text-navy md:text-4xl">
             Who We Work With
           </h3>
-          <p className="mx-auto mt-3 max-w-xl text-center text-sm text-navy/55">
-            Choose a category to read who we support — tap again to close.
-          </p>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-8 md:gap-5">
             {whoWeWorkWithCards.map((card, i) => {
               const expanded = whoWeExpanded === i;
