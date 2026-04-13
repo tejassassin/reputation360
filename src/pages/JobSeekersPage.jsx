@@ -10,7 +10,6 @@ import {
   Newspaper,
   Eye,
   UserSearch,
-  FileText,
   Globe2,
   Scale,
   Star,
@@ -979,46 +978,21 @@ function JobSeekersPage() {
 
         <JobSeekersFaqSection />
 
-        <section className="mt-16 md:mt-20 bg-white px-4 py-12 text-center md:py-16">
-          <h3 className="mx-auto max-w-3xl font-heading text-[28px] font-bold leading-tight text-[#1a365d] md:text-[36px] md:leading-[1.2] lg:text-[40px]">
-            Your Search Results Should Open Doors, Not Close Them
-          </h3>
-          <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-[1.6] text-[#4a5568] md:text-[16px]">
-            A past chapter should not quietly block a future opportunity. If your
-            search results are working against you, Reputation360 can change that
-            narrative permanently.
+        <section className="rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
+          <p className="mx-auto max-w-3xl font-heading text-[19px] font-semibold leading-snug text-white md:text-[23px] md:leading-snug">
+            Your past does not have to follow you into every future opportunity.{" "}
+            <span className="font-bold">
+              We make sure the first thing a recruiter finds is the professional you
+              are today.
+            </span>
           </p>
-          <p className="mt-6 inline-flex items-center justify-center gap-2 text-[15px] font-semibold text-[#48bb78]">
-            <ShieldCheck className="h-5 w-5 shrink-0" strokeWidth={2} />
-            Professional &amp; Confidential Service
-          </p>
-        </section>
-
-        <section className="px-4 pb-14 md:pb-16">
-          <div
-            className="mx-auto max-w-5xl rounded-[36px] px-6 py-12 text-center text-white shadow-[0_16px_40px_rgba(26,54,93,0.25)] md:px-12 md:py-14"
-            style={{
-              backgroundColor: "#1a365d",
-              backgroundImage:
-                "radial-gradient(circle, rgba(147, 197, 253, 0.22) 1px, transparent 1px)",
-              backgroundSize: "14px 14px",
-            }}
+          <a
+            {...calendlyNewTabProps}
+            className="ha-pill mt-7 inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 text-sm font-semibold text-[#072f5f] shadow-sm hover:bg-[#e8eef5]"
           >
-            <h3 className="font-heading text-[30px] font-bold leading-tight md:text-[40px] lg:text-[44px]">
-              Ready for a clean slate?
-            </h3>
-            <p className="mx-auto mt-4 max-w-xl text-[15px] leading-[1.55] text-white/95 md:text-[16px]">
-              Start with a comprehensive audit of your digital presence. It&apos;s
-              confidential, thorough, and free.
-            </p>
-            <a
-              {...calendlyNewTabProps}
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#48bb78] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_4px_14px_rgba(72,187,120,0.45)] transition-colors hover:bg-[#38a169]"
-            >
-              Book a Free Confidential Consultation
-              <FileText className="h-4 w-4" strokeWidth={2} />
-            </a>
-          </div>
+            Book a Free Confidential Consultation
+            <ChevronRight className="h-4 w-4" aria-hidden />
+          </a>
         </section>
       </div>
     </main>
