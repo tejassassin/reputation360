@@ -922,7 +922,7 @@ function ServicesAbout() {
                     }
                     className="flex w-full items-start justify-between gap-3 p-6 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-navy/30 md:p-7 md:pl-8 md:pr-6"
                   >
-                    <h4 className="min-w-0 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
+                    <h4 className="min-w-0 font-heading text-base font-bold leading-snug text-navy md:text-lg">
                       {card.title}
                     </h4>
                     <ChevronDown
