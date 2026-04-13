@@ -620,35 +620,42 @@ function JobSeekersMarketInsightBanner() {
     <section id="job-seeker-market-insight" className="mt-10 scroll-mt-28 md:mt-12">
       <div className="flex flex-col gap-8 rounded-[28px] bg-[linear-gradient(90deg,#1b3152_0%,#243d5c_55%,#2a4668_100%)] px-6 py-8 text-white shadow-[0_12px_32px_rgba(27,49,82,0.25)] md:flex-row md:items-center md:justify-between md:gap-10 md:px-10 md:py-10">
         <div className="min-w-0 flex-1">
-          <p className="inline-flex rounded-full bg-[#24403b] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#66bb6a]">
+          <p className="inline-flex rounded-full bg-[#24403b] px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[#66bb6a] md:px-3 md:py-1 md:text-[10px]">
             Market Insight
           </p>
-          <h2 className="mt-4 font-heading text-[28px] font-bold leading-[1.15] md:text-[36px] lg:text-[42px]">
+          <h2 className="mt-3 font-heading text-[19px] font-bold leading-[1.24] md:mt-4 md:text-[24px] lg:text-[27px]">
             <span className="text-[#4eab66]">77%</span>
             <span className="text-white">
               {" "}
-              of recruiters research candidates online before the first call.
+              of recruiters research candidates online before they call.{" "}
+            </span>
+            <span className="text-[#4eab66]">56%</span>
+            <span className="text-white">
+              {" "}
+              have eliminated a candidate based on something they found online.
             </span>
           </h2>
-          <p className="mt-4 text-[14px] leading-[1.5] text-white/90 md:text-[15px]">
-            Over <strong className="font-semibold text-white">56%</strong> have
-            rejected a candidate based on what they found.{" "}
-            <em className="text-white/80">(Source: CareerBuilder)</em>
+          <p className="mt-2.5 font-heading text-[14px] font-semibold leading-snug text-white md:mt-3 md:text-[16px]">
+            Make sure they like what they find.
+          </p>
+          <p className="mt-2 text-[12px] leading-relaxed text-white/80 md:mt-2.5 md:text-[13px]">
+            (Source: CareerBuilder Annual Candidate Behaviour Report; Jobvite
+            Recruiter Nation Survey)
           </p>
         </div>
         <div className="flex shrink-0 justify-center md:justify-end">
-          <div className="flex h-[88px] w-[88px] items-center justify-center rounded-2xl border-2 border-[#4eab66] bg-transparent md:h-[100px] md:w-[100px]">
-            <div className="relative flex h-14 w-14 items-center justify-center md:h-16 md:w-16">
+          <div className="flex h-[76px] w-[76px] items-center justify-center rounded-2xl border-2 border-[#4eab66] bg-transparent md:h-[88px] md:w-[88px]">
+            <div className="relative flex h-11 w-11 items-center justify-center md:h-[52px] md:w-[52px]">
               <Search
                 className="absolute text-white"
                 strokeWidth={1.75}
-                size={56}
+                size={46}
                 aria-hidden
               />
               <Check
                 className="relative z-10 text-white"
                 strokeWidth={3}
-                size={22}
+                size={18}
                 style={{ marginTop: "-4px" }}
                 aria-hidden
               />
