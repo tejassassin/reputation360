@@ -18,26 +18,26 @@ function FinancialAdvisorsPage() {
   return (
     <main className="flex-1 pt-28 md:pt-32 bg-offwhite">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 space-y-10">
-        <section className="rounded-[6px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-8 py-12 md:px-10 md:py-14 grid gap-8 md:grid-cols-[1.05fr_0.95fr] items-start">
-          <div className="max-w-[640px]">
-            <p className="inline-flex rounded-xl bg-[#2a8c3e] px-4 py-2 text-xs tracking-[0.16em] font-semibold uppercase text-white">
+        <section className="rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:px-4 md:py-7 grid gap-5 md:grid-cols-[1.03fr_0.97fr] items-start">
+          <div className="max-w-[570px]">
+            <p className="inline-flex rounded-xl bg-[#2a8c3e] px-3.5 py-1.5 text-[10px] tracking-[0.14em] font-semibold uppercase text-white shadow-[0_2px_6px_rgba(42,140,62,0.35)]">
               Who we serve?
             </p>
-            <h1 className="mt-7 font-heading text-4xl font-bold leading-[1.08] text-[#0f2e58] md:text-5xl md:leading-[1.05]">
+            <h1 className="mt-4 font-heading text-[34px] md:text-[40px] leading-[1.02] text-[#0f2e58] font-bold tracking-tight max-w-[520px]">
               Your Clients Research You Before Every Meeting. What Are They
               Finding?
             </h1>
-            <p className="mt-7 max-w-[560px] text-base font-medium leading-relaxed text-[#4f5f75] md:text-lg md:leading-relaxed">
+            <p className="mt-5 text-[#4f5f75] text-[15px] md:text-[16px] leading-[1.5] max-w-[520px]">
               The wrong answer to that question costs more than you think.
             </p>
             <a
               {...calendlyNewTabProps}
-              className="ha-pill mt-8 inline-flex items-center gap-2 rounded-[10px] bg-[#072f5f] px-7 py-4 text-base font-semibold text-white shadow-[0_8px_20px_rgba(7,47,95,0.28)] hover:bg-[#0b3c75] md:text-lg"
+              className="ha-pill mt-6 inline-flex items-center gap-2 rounded-[8px] bg-[#153f70] px-5 py-3 text-sm font-semibold text-white shadow-[0_8px_18px_rgba(7,47,95,0.24)] hover:bg-[#0b3c75]"
             >
               Book a Free Confidential Consultation
             </a>
           </div>
-          <div className="space-y-4 pt-2">
+          <div className="rounded-[6px] bg-[linear-gradient(180deg,#e8f5ef_0%,#e7f4ee_100%)] px-3 py-3 md:px-4 md:py-4 space-y-3 pt-1">
             {[
               {
                 title: "Trust Restored",
@@ -57,15 +57,15 @@ function FinancialAdvisorsPage() {
             ].map((item) => (
               <article
                 key={item.title}
-                className="ha-lift rounded-2xl border border-[#d9e3e9] bg-white px-5 py-5 shadow-[0_8px_20px_rgba(15,23,42,0.08)]"
+                className="ha-lift rounded-3xl border border-[#dbe3e8] bg-white px-4 py-4 shadow-[0_10px_24px_rgba(20,40,70,0.10)] md:px-5 md:py-5"
               >
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5">{item.icon}</div>
+                  <div className="mt-0.5 shrink-0">{item.icon}</div>
                   <div>
-                    <h3 className="text-xl md:text-2xl leading-tight font-semibold text-[#1f3b64]">
+                    <h3 className="text-[15px] md:text-[16px] leading-tight font-semibold text-[#1f3b64]">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-sm md:text-base leading-[1.45] text-[#5d6c80]">
+                    <p className="mt-1.5 text-[12px] md:text-[13px] leading-[1.5] text-[#5d6c80]">
                       {item.text}
                     </p>
                   </div>
@@ -75,27 +75,45 @@ function FinancialAdvisorsPage() {
           </div>
         </section>
 
-        <section className="mt-10 md:mt-14 grid md:grid-cols-[1fr_1fr] overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_14px_30px_rgba(16,35,64,0.2)]">
-          <div
-            className="min-h-[360px] md:min-h-[520px] bg-[#062a53] bg-cover bg-center"
-            style={{ backgroundImage: "url('/finra-invisible-leak.png')" }}
-          />
+        <section className="mt-10 md:mt-14 grid md:grid-cols-[1fr_1fr] overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)]">
+          {/* Same layering pattern as Job Seekers “moment” panel: image + wash + HTML pill (no text baked into art showing through) */}
+          <div className="relative min-h-[360px] md:min-h-[520px]">
+            <div
+              className="absolute inset-0 bg-cover bg-[center_22%]"
+              style={{ backgroundImage: "url('/finra-invisible-leak.png')" }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#041a30]/95 via-[#072f5f]/80 to-[#0d4a7a]/65" />
+            <div className="relative flex min-h-[360px] flex-col justify-end p-8 text-white md:min-h-[520px] md:p-10">
+              <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[#4a1528] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white">
+                <span className="h-2 w-2 shrink-0 rounded-full bg-red-500" />
+                THE INVISIBLE LEAK
+              </div>
+            </div>
+          </div>
           <div className="bg-[#072f5f] text-white p-8 md:p-10">
             <div className="rounded-2xl border border-white/10 bg-white/7 px-5 py-6 md:px-6 md:py-7">
-              <p className="text-sm leading-relaxed text-white/90 md:text-[15px] md:leading-relaxed">
-                A prospective client searches your name before taking your call.
-                In under sixty seconds, they have formed a judgment. Not based on
-                your track record. Not based on your certifications or your years
-                in practice. Based entirely on what Google decided to show them.
-              </p>
-              <p className="mt-5 text-sm font-semibold leading-relaxed text-[#86e991] md:text-[15px] md:leading-relaxed">
-                If what appears is a regulatory disclosure, a news article covering
-                an investigation, or a complaint on a financial forum — they quietly
-                move on. You never find out.{" "}
-                <span className="text-base font-semibold italic text-white/90 md:text-[17px]">
+              <div className="space-y-3 text-sm leading-relaxed text-white/90 md:text-[15px] md:leading-relaxed">
+                <p>
+                  A prospective client searches your name before taking your call.
+                </p>
+                <p>In under sixty seconds, they have formed a judgment.</p>
+                <p>
+                  Not based on your track record. Not based on your certifications
+                  or your years in practice.
+                </p>
+                <p>Based entirely on what Google decided to show them.</p>
+              </div>
+              <div className="mt-6 space-y-3 border-t border-white/15 pt-6 text-sm font-semibold leading-relaxed text-[#86e991] md:text-[15px] md:leading-relaxed">
+                <p>
+                  If what appears is a regulatory disclosure, a news article covering
+                  an investigation, or a complaint on a financial forum — they
+                  quietly move on.
+                </p>
+                <p>You never find out.</p>
+                <p className="text-base font-semibold italic text-white/90 md:text-[17px]">
                   But it keeps happening.
-                </span>
-              </p>
+                </p>
+              </div>
             </div>
             <p className="mt-7 inline-flex items-center gap-2 text-[#8ce596] tracking-[0.14em] uppercase text-[10px] font-semibold">
               <AlertTriangle className="h-3 w-3" />
