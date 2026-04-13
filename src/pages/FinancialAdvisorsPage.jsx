@@ -27,19 +27,9 @@ function FinancialAdvisorsPage() {
               Your Clients Research You Before Every Meeting. What Are They
               Finding?
             </h1>
-            <div className="mt-7 max-w-[560px] space-y-4 text-base leading-relaxed text-[#4f5f75] md:text-lg md:leading-relaxed">
-              <p>
-                A prospective client searches your name before taking your call.
-                In under sixty seconds, they have formed a judgment. Not based on
-                your track record. Not based on your certifications or your years in
-                practice. Based entirely on what Google decided to show them.
-              </p>
-              <p>
-                If what appears is a regulatory disclosure, a news article covering
-                an investigation, or a complaint on a financial forum — they
-                quietly move on. You never find out. But it keeps happening.
-              </p>
-            </div>
+            <p className="mt-7 max-w-[560px] text-base font-medium leading-relaxed text-[#4f5f75] md:text-lg md:leading-relaxed">
+              The wrong answer to that question costs more than you think.
+            </p>
             <a
               {...calendlyNewTabProps}
               className="ha-pill mt-8 inline-flex items-center gap-2 rounded-[10px] bg-[#072f5f] px-7 py-4 text-base font-semibold text-white shadow-[0_8px_20px_rgba(7,47,95,0.28)] hover:bg-[#0b3c75] md:text-lg"
