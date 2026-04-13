@@ -278,3 +278,10 @@
     box-shadow: 0 0 0 2px rgba(120, 220, 119, 0.55);
   }
 }
+
+/* About page — client testimonials carousel (react-multi-carousel)
+   Horizontal overflow hidden so only one full “page” of slides is visible (no peek of the next column). */
+.testimonial-carousel .react-multi-carousel-list {
+  overflow-x: clip;
+  overflow-y: visible;
+}

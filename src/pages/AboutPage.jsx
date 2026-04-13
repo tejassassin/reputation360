@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { AnimatePresence, motion as Motion } from "motion/react";
 import {
   GraduationCap,
@@ -23,6 +25,57 @@ const IMG_HERO =
 
 const IMG_MAP =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDAuoKNykbon_ONixwj4-paZvw6Uqm6Ye_H2j_EV6_SHshlgFYZLlUZO88MsCDh-_V5ZlqSn7LuN6vxcMeco4Qu_CDcVLsbvdz8yfrmrunnvnu3gMD51AnuNyq3XP7TVkVUuZZnfzI7hLcDDHEeE52hVHtDxOV1GWyNkae-OjZ1rZKugmZ70SaCmoCMsw-cNU_WN16084-Rf62DoLjnWrlnkXxW310RMehlYCTLlonqks_CWIqf_vt2SnofCi7Br7dzp6D7wxZsHMg";
+
+/** Hub positions (% of map) — x,y match viewBox 0–100 for route SVG. */
+const globalHubs = [
+  {
+    id: "nyc",
+    label: "New York Hub",
+    blurb:
+      "Americas leadership — client partners, delivery, and strategy aligned to your time zone.",
+    top: "35%",
+    left: "22%",
+    x: 22,
+    y: 35,
+  },
+  {
+    id: "london",
+    label: "London Hub",
+    blurb:
+      "European operations and senior reputation counsel for complex, cross-border matters.",
+    top: "28%",
+    left: "46%",
+    x: 46,
+    y: 28,
+  },
+  {
+    id: "dubai",
+    label: "Dubai Hub",
+    blurb:
+      "Middle East & Africa coverage with the same global standards and response times.",
+    top: "45%",
+    left: "58%",
+    x: 58,
+    y: 45,
+  },
+  {
+    id: "singapore",
+    label: "Singapore Hub",
+    blurb:
+      "Asia-Pacific coordination and round-the-clock monitoring desks for the region.",
+    top: "68%",
+    left: "81%",
+    x: 81,
+    y: 68,
+  },
+];
+
+/** Curved routes between hubs (same coordinate space as markers). */
+const globalHubRoutes = [
+  "M22,35 Q34,31 46,28",
+  "M46,28 Q52,37 58,45",
+  "M58,45 Q70,56 81,68",
+];
 
 const headlineFont = "font-[Manrope,Inter,sans-serif]";
 
@@ -187,24 +240,69 @@ const promises = [
 
 const testimonials = [
   {
+    id: "financial-professional",
     quote:
       '"I had almost given up on rebuilding my career after a false accusation. Reputation360 gave me my life back."',
     name: "Financial Professional",
     role: "Investment Banking Lead",
   },
   {
+    id: "physician-chief",
     quote:
       '"Within six months, the negative articles were gone from page one. My practice grew significantly."',
     name: "Physician",
     role: "Chief of Medicine",
   },
   {
+    id: "senior-executive-coo",
     quote:
       '"They treated my situation with complete discretion. The results were beyond what I expected."',
     name: "Senior Executive",
     role: "Fortune 500 COO",
   },
+  {
+    id: "ecommerce-founder-apac",
+    quote: `"A competitor planted fake reviews across three platforms and our rating dropped overnight. Reputation360 didn't just suppress the damage — they built something strong enough that it couldn't happen again. Revenue recovered within a quarter."`,
+    name: "Founder, E-commerce Brand",
+    role: "Asia-Pacific",
+  },
+  {
+    id: "csuite-financial",
+    quote: `"I walked into a board meeting and watched someone Google me mid-presentation. I knew exactly what they were seeing. That was the moment I called Reputation360. Six months later, what comes up when you search me is who I actually am — not a headline from eight years ago."`,
+    name: "C-Suite Executive",
+    role: "Financial Services",
+  },
+  {
+    id: "gp-dubai",
+    quote: `"One anonymous review had been sitting on the first page of my results for three years. My appointment numbers dropped. I tried everything myself before finding Reputation360. Seven months later, my clinic is full again and that review is nowhere to be found."`,
+    name: "General Practitioner",
+    role: "Dubai",
+  },
+  {
+    id: "graduate-marketing",
+    quote: `"I graduated with a first-class degree and couldn't get past the first interview. A photo from years ago kept surfacing. Within four months of working with Reputation360, it was gone. I got three offers in the same week. I genuinely cannot explain what that meant to me."`,
+    name: "Graduate",
+    role: "Marketing Sector",
+  },
 ];
+
+const testimonialCarouselResponsive = {
+  desktop: {
+    breakpoint: { max: 4000, min: 1024 },
+    items: 3,
+    slidesToSlide: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 640 },
+    items: 2,
+    slidesToSlide: 2,
+  },
+  mobile: {
+    breakpoint: { max: 640, min: 0 },
+    items: 1,
+    slidesToSlide: 1,
+  },
+};
 
 /** In-page navigation (one-pager anchors). IDs must match section `id`s. */
 const aboutSectionNav = [
@@ -620,6 +718,283 @@ function HowWeWorkSection() {
   );
 }
 
+function WeAreGlobalSection() {
+  const [selectedHubId, setSelectedHubId] = useState(null);
+
+  return (
+    <section
+      id="we-are-global"
+      className={`overflow-hidden border-t border-slate-200 bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+    >
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-12 text-center md:mb-16">
+          <h2
+            className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
+          >
+            We Are Global
+          </h2>
+          <p className="text-base font-medium text-slate-600 md:text-lg">
+            Wherever you are, we are already there.
+          </p>
+        </div>
+
+        <div className="relative mb-10 md:mb-12">
+          <div className="relative aspect-[16/10] rounded-3xl border border-slate-300/90 bg-[#b9d4ea] shadow-lg ring-1 ring-slate-400/25 md:aspect-[2/1]">
+            <div className="absolute inset-0 overflow-hidden rounded-3xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)]">
+              <img
+                alt="World map showing Reputation360 hub locations"
+                className="h-full w-full select-none object-cover object-center contrast-[1.03] saturate-[1.05]"
+                draggable={false}
+                src={IMG_MAP}
+              />
+              <svg
+                className="pointer-events-none absolute inset-0 h-full w-full text-[#4CAF50]"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                aria-hidden
+              >
+                <defs>
+                  <linearGradient
+                    id="hubRouteGlow"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stopColor="currentColor" stopOpacity="0.15" />
+                    <stop offset="50%" stopColor="currentColor" stopOpacity="0.65" />
+                    <stop offset="100%" stopColor="currentColor" stopOpacity="0.15" />
+                  </linearGradient>
+                </defs>
+                {globalHubRoutes.map((d, i) => (
+                  <path
+                    key={i}
+                    d={d}
+                    fill="none"
+                    stroke="url(#hubRouteGlow)"
+                    strokeLinecap="round"
+                    strokeWidth="0.55"
+                    vectorEffect="nonScalingStroke"
+                    className="opacity-80"
+                  />
+                ))}
+                {globalHubRoutes.map((d, i) => (
+                  <path
+                    key={`dash-${i}`}
+                    d={d}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeDasharray="1.2 1.4"
+                    strokeLinecap="round"
+                    strokeWidth="0.22"
+                    vectorEffect="nonScalingStroke"
+                    className="opacity-90"
+                  />
+                ))}
+              </svg>
+            </div>
+
+            {globalHubs.map((hub) => {
+              const selected = selectedHubId === hub.id;
+              return (
+                <button
+                  key={hub.id}
+                  type="button"
+                  aria-pressed={selected}
+                  aria-label={hub.label}
+                  onClick={() =>
+                    setSelectedHubId((id) => (id === hub.id ? null : hub.id))
+                  }
+                  className={`absolute z-20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
+                    selected ? "scale-105" : "hover:scale-105"
+                  } transition-transform duration-200 ease-out`}
+                  style={{
+                    top: hub.top,
+                    left: hub.left,
+                    transform: "translate(-50%, -50%)",
+                  }}
+                >
+                  <span className="relative inline-block">
+                    <span className="relative flex h-10 w-10 items-center justify-center">
+                      {selected ? (
+                        <span
+                          className="motion-safe:absolute motion-safe:inset-0 motion-safe:animate-ping rounded-full bg-[#4CAF50]/35"
+                          aria-hidden
+                        />
+                      ) : null}
+                      <span
+                        className={`relative flex h-4 w-4 rounded-full border-2 border-white bg-[#4CAF50] shadow-md transition-[box-shadow,transform] duration-200 ${
+                          selected
+                            ? "scale-125 shadow-lg shadow-[#4CAF50]/60 ring-2 ring-white/90"
+                            : "shadow-[#4CAF50]/40 hover:shadow-lg hover:shadow-[#4CAF50]/55"
+                        }`}
+                      />
+                    </span>
+                    {selected ? (
+                      <span
+                        className={`${headlineFont} pointer-events-none absolute left-1/2 top-full z-30 mt-1.5 -translate-x-1/2 whitespace-nowrap rounded-md bg-white/95 px-2 py-1 text-[9px] font-extrabold uppercase tracking-[0.14em] text-[#1F3B64] shadow-md ring-1 ring-slate-200/90`}
+                      >
+                        {hub.label.toUpperCase()}
+                      </span>
+                    ) : null}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-8 text-center lg:grid-cols-4">
+          {[
+            ["47", "Specialists"],
+            ["Global", "Time Zones"],
+            ["24/7", "Coverage"],
+            ["30+", "Countries"],
+          ].map(([k, v]) => (
+            <div key={v} className="space-y-2">
+              <p
+                className={`${headlineFont} text-2xl font-extrabold text-[#1F3B64] md:text-3xl`}
+              >
+                {k}
+              </p>
+              <p className="text-sm font-bold uppercase tracking-widest text-slate-500">
+                {v}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ClientStoriesSection() {
+  const carouselRef = useRef(null);
+  const [nav, setNav] = useState({
+    currentSlide: 0,
+    slidesToShow: 3,
+    totalItems: testimonials.length,
+  });
+
+  const syncNavFromCarousel = () => {
+    const inst = carouselRef.current;
+    if (!inst?.getState) return;
+    const s = inst.getState();
+    setNav({
+      currentSlide: s.currentSlide,
+      slidesToShow: s.slidesToShow || 1,
+      totalItems: s.totalItems,
+    });
+  };
+
+  useEffect(() => {
+    const id = window.requestAnimationFrame(() => syncNavFromCarousel());
+    return () => window.cancelAnimationFrame(id);
+  }, []);
+
+  const atEnd =
+    nav.slidesToShow > 0 &&
+    nav.currentSlide + nav.slidesToShow >= nav.totalItems;
+  const atStart = nav.currentSlide <= 0;
+
+  const navButtonClass =
+    "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-[#1F3B64] shadow-sm transition enabled:hover:border-[#4CAF50] enabled:hover:text-[#2d8a3e] disabled:cursor-not-allowed disabled:opacity-40";
+
+  return (
+    <section
+      id="client-stories"
+      className={`bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+    >
+      <div className="mx-auto max-w-7xl px-6">
+        <h2
+          className={`${headlineFont} mb-10 text-center text-2xl font-extrabold text-[#1F3B64] md:text-3xl`}
+        >
+          What Our Clients Say
+        </h2>
+        <div className="testimonial-carousel flex flex-row items-stretch gap-4 md:gap-6 lg:gap-8">
+          <div className="flex shrink-0 items-center md:border-r md:border-slate-200 md:pr-5 lg:pr-6">
+            <button
+              type="button"
+              disabled={atStart}
+              onClick={() => {
+                carouselRef.current?.previous();
+                window.requestAnimationFrame(() => syncNavFromCarousel());
+              }}
+              className={navButtonClass}
+              aria-label="Previous testimonials"
+            >
+              <ChevronLeft className="h-5 w-5" strokeWidth={2} />
+            </button>
+          </div>
+          <div className="min-w-0 flex-1 py-2">
+            <Carousel
+              ref={carouselRef}
+              arrows={false}
+              autoPlay={false}
+              centerMode={false}
+              className="pb-1"
+              containerClass="relative"
+              draggable
+              focusOnSelect={false}
+              infinite={false}
+              itemClass="px-2 md:px-3 lg:px-5"
+              keyBoardControl
+              minimumTouchDrag={40}
+              partialVisible={false}
+              responsive={testimonialCarouselResponsive}
+              showDots={false}
+              swipeable
+              transitionDuration={450}
+              afterChange={() => syncNavFromCarousel()}
+            >
+              {testimonials.map((t) => (
+                <div key={t.id}>
+                  <div className="flex h-full flex-col justify-between rounded-3xl border border-slate-200 bg-white p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:p-12">
+                    <div>
+                      <div className="mb-10 flex gap-1 text-[#4CAF50]">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star
+                            key={i}
+                            className="h-4 w-4 fill-[#4CAF50] text-[#4CAF50]"
+                            strokeWidth={1.5}
+                          />
+                        ))}
+                      </div>
+                      <p className="mb-8 text-base font-medium leading-relaxed text-[#1F3B64]/90 md:text-[17px]">
+                        {t.quote}
+                      </p>
+                    </div>
+                    <div className="border-t border-slate-100 pt-8">
+                      <p className="font-extrabold text-[#1F3B64]">{t.name}</p>
+                      <p className="mt-1 text-xs font-bold uppercase tracking-widest text-slate-400">
+                        {t.role}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Carousel>
+          </div>
+          <div className="flex shrink-0 items-center md:border-l md:border-slate-200 md:pl-5 lg:pl-6">
+            <button
+              type="button"
+              disabled={atEnd}
+              onClick={() => {
+                carouselRef.current?.next();
+                window.requestAnimationFrame(() => syncNavFromCarousel());
+              }}
+              className={navButtonClass}
+              aria-label="Next testimonials"
+            >
+              <ChevronRight className="h-5 w-5" strokeWidth={2} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function AboutPage() {
   const [activeSectionId, setActiveSectionId] = useState(
     () => aboutSectionNav[0]?.id ?? "",
@@ -945,114 +1320,9 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* We Are Global */}
-      <section
-        id="we-are-global"
-        className={`overflow-hidden border-t border-slate-200 bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12 text-center md:mb-16">
-            <h2
-              className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
-            >
-              We Are Global
-            </h2>
-            <p className="text-base font-medium text-slate-600 md:text-lg">
-              Wherever you are, we are already there.
-            </p>
-          </div>
-          <div className="relative mb-16">
-            <div className="relative aspect-[21/9] overflow-hidden rounded-[2rem] border border-slate-200 bg-[#1F3B64]/5 md:aspect-[3/1]">
-              <img
-                alt="World map representing global presence"
-                className="h-full w-full object-cover opacity-60 grayscale transition-all duration-700 hover:grayscale-0 mix-blend-multiply"
-                src={IMG_MAP}
-              />
-              {[
-                { label: "NEW YORK HUB", top: "35%", left: "22%", delay: "0s" },
-                { label: "LONDON HUB", top: "28%", left: "46%", delay: "0.5s" },
-                { label: "DUBAI HUB", top: "45%", left: "58%", delay: "1s" },
-                { label: "SINGAPORE HUB", top: "68%", left: "81%", delay: "1.5s" },
-              ].map((hub) => (
-                <div
-                  key={hub.label}
-                  className="group absolute cursor-default"
-                  style={{ top: hub.top, left: hub.left }}
-                >
-                  <div
-                    className="absolute h-4 w-4 animate-ping rounded-full bg-[#4CAF50]"
-                    style={{ animationDelay: hub.delay }}
-                  />
-                  <div className="relative h-4 w-4 rounded-full border-2 border-white bg-[#4CAF50] shadow-lg shadow-[#4CAF50]/50" />
-                  <div className="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded bg-[#1F3B64] px-3 py-1 text-[10px] font-extrabold text-white opacity-0 shadow-xl transition-opacity group-hover:opacity-100">
-                    {hub.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-8 text-center lg:grid-cols-4">
-            {[
-              ["50", "Specialists"],
-              ["Global", "Time Zones"],
-              ["24/7", "Coverage"],
-              ["30+", "Countries"],
-            ].map(([k, v]) => (
-              <div key={v} className="space-y-2">
-                <p className={`${headlineFont} text-2xl font-extrabold text-[#1F3B64] md:text-3xl`}>
-                  {k}
-                </p>
-                <p className="text-sm font-bold uppercase tracking-widest text-slate-500">
-                  {v}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WeAreGlobalSection />
 
-      {/* What Our Clients Say */}
-      <section
-        id="client-stories"
-        className={`bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <h2
-            className={`${headlineFont} mb-10 text-center text-2xl font-extrabold text-[#1F3B64] md:text-3xl`}
-          >
-            What Our Clients Say
-          </h2>
-          <div className="grid gap-10 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:p-12"
-              >
-                <div>
-                  <div className="mb-10 flex gap-1 text-[#4CAF50]">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-4 w-4 fill-[#4CAF50] text-[#4CAF50]"
-                        strokeWidth={1.5}
-                      />
-                    ))}
-                  </div>
-                  <p className="mb-8 text-base font-medium leading-relaxed text-[#1F3B64]/90 md:text-[17px]">
-                    {t.quote}
-                  </p>
-                </div>
-                <div className="border-t border-slate-100 pt-8">
-                  <p className="font-extrabold text-[#1F3B64]">{t.name}</p>
-                  <p className="mt-1 text-xs font-bold uppercase tracking-widest text-slate-400">
-                    {t.role}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ClientStoriesSection />
 
       {/* Final CTA */}
       <section className={`bg-white ${aboutSectionSpacing}`}>
