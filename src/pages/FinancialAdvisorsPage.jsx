@@ -3,10 +3,8 @@ import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   ShieldCheck,
   FileWarning,
-  Search,
   AlertTriangle,
   Star,
-  Eye,
   Activity,
   ChevronRight,
   Map,
@@ -24,6 +22,8 @@ import {
   UserSearch,
   TrendingUp,
   DollarSign,
+  Lock,
+  ShieldAlert,
 } from "lucide-react";
 
 const FINANCIAL_ADVISOR_PROBLEM_TILES = [
@@ -342,6 +342,114 @@ function FinancialAdvisorsScaleSection() {
   );
 }
 
+const WHY_HARDER_PILLARS = [
+  {
+    id: "permanent",
+    label: "Permanent record",
+    hook: "Source material survives closure, payment, or time.",
+    body: "Regulatory records are permanent. A FINRA disclosure or SEC order, once public, cannot be erased from the source. News articles covering proceedings do not disappear because a case was resolved or a penalty was paid.",
+    Icon: Lock,
+  },
+  {
+    id: "limited-response",
+    label: "Limited response",
+    hook: "Public replies can trigger more regulatory exposure.",
+    body: "You also cannot respond publicly to many complaints without risking further regulatory scrutiny. A single complaint can generate multiple pages of indexed content — and your options for direct response are severely limited.",
+    Icon: ShieldAlert,
+  },
+  {
+    id: "suppression",
+    label: "Suppression path",
+    hook: "Authority at scale is what moves rankings.",
+    body: "This is why suppression is the most effective strategy available: building a stronger, more authoritative presence that displaces negative content from visible search results.",
+    Icon: TrendingUp,
+  },
+];
+
+function FinancialAdvisorsWhyHarderSection() {
+  const [active, setActive] = useState(0);
+  const pillar = WHY_HARDER_PILLARS[active];
+  const ActiveIcon = pillar.Icon;
+
+  return (
+    <section
+      id="why-harder-than-most"
+      className="mt-16 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 md:mt-20 md:px-9 md:py-11"
+    >
+      <div className="mx-auto max-w-4xl text-center md:text-left">
+        <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
+          Why This Is Harder for You Than Most
+        </h2>
+        <p className="mx-auto mt-2 max-w-xl text-[13px] text-[#5d6c80] md:mx-0">
+          Three constraints advisors hit in search — tap each to read the full
+          context.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-8 grid max-w-5xl gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {WHY_HARDER_PILLARS.map((p, i) => {
+            const Icon = p.Icon;
+            const selected = active === i;
+            return (
+              <button
+                key={p.id}
+                type="button"
+                aria-pressed={selected}
+                aria-label={`${p.label}: ${p.body}`}
+                onClick={() => setActive(i)}
+                className={`flex flex-col items-center rounded-2xl border px-3 py-4 text-center outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#1f3b64]/30 focus-visible:ring-offset-2 sm:py-5 ${
+                  selected
+                    ? "border-[#1f3b64] bg-white shadow-[0_12px_28px_-14px_rgba(31,59,100,0.22)] ring-1 ring-[#1f3b64]/15"
+                    : "border-[#dfe6ee] bg-white/70 hover:border-[#1f3b64]/25 hover:bg-white"
+                }`}
+              >
+                <span
+                  className={`flex h-11 w-11 items-center justify-center rounded-xl ${
+                    selected
+                      ? "bg-[#eef2ff] text-[#1f3b64]"
+                      : "bg-[#f0f2f7] text-[#1f3b64]/80"
+                  }`}
+                >
+                  <Icon className="h-5 w-5" aria-hidden />
+                </span>
+                <span className="mt-3 font-heading text-[13px] font-semibold leading-tight text-[#0f2e58] md:text-sm">
+                  {p.label}
+                </span>
+                <span className="mt-2 text-[11px] leading-snug text-[#5d6c80] md:text-[12px]">
+                  {p.hook}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        <aside
+          className="flex flex-col justify-center rounded-2xl border border-[#1f3b64]/10 bg-white p-5 shadow-sm md:p-6 lg:sticky lg:top-28 lg:self-start"
+          aria-live="polite"
+        >
+          <div className="flex items-start gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#eef2ff] text-[#1f3b64]">
+              <ActiveIcon className="h-5 w-5" aria-hidden />
+            </span>
+            <div className="min-w-0">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#1f3b64]/45">
+                Full context
+              </p>
+              <p className="mt-1 font-heading text-sm font-semibold text-[#0f2e58] md:text-base">
+                {pillar.label}
+              </p>
+            </div>
+          </div>
+          <p className="mt-4 text-[14px] leading-relaxed text-[#3f4f66] md:text-[15px] md:leading-relaxed">
+            {pillar.body}
+          </p>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
 function FinancialAdvisorsPage() {
   return (
     <main className="flex-1 pt-28 md:pt-32 bg-offwhite">
@@ -454,124 +562,7 @@ function FinancialAdvisorsPage() {
 
         <FinancialAdvisorsScaleSection />
 
-        <section className="mt-28 md:mt-32 grid md:grid-cols-[1.05fr_1fr] gap-10 md:gap-12 items-start">
-          <div className="grid grid-cols-2 gap-4">
-            <article className="ha-lift min-h-[210px] rounded-2xl border border-[#d8deea] bg-[#e6eaf8] p-7 md:p-8">
-              <div className="h-8 w-8 rounded-full grid place-items-center text-[#1f3b64]">
-                <Eye className="h-5 w-5" />
-              </div>
-              <h3 className="mt-8 font-heading text-[16px] md:text-[18px] leading-tight font-semibold text-[#1a2f4f]">
-                Public &amp; Permanent
-              </h3>
-              <p className="mt-5 text-[13px] md:text-[14px] leading-[1.45] text-[#4f5f75]">
-                BrokerCheck records are indexed by search engines, making them the
-                first thing prospects see.
-              </p>
-            </article>
-            <article className="ha-lift min-h-[210px] rounded-2xl border border-[#d8deea] bg-[#e6eaf8] p-7 md:p-8">
-              <div className="h-8 w-8 rounded-full grid place-items-center text-[#1f3b64]">
-                <Search className="h-5 w-5" />
-              </div>
-              <h3 className="mt-8 font-heading text-[16px] md:text-[18px] leading-tight font-semibold text-[#1a2f4f]">
-                Google Indexed
-              </h3>
-              <p className="mt-5 text-[13px] md:text-[14px] leading-[1.45] text-[#4f5f75]">
-                Regulatory filings often outrank your personal or firm website in
-                organic search results.
-              </p>
-            </article>
-          </div>
-          <div className="pt-1">
-            <h2 className="font-heading text-[30px] md:text-[42px] leading-[1.1] text-[#0f2e58] font-bold">
-              The FINRA BrokerCheck Problem
-            </h2>
-            <p className="mt-5 text-[#3f4f66] text-[16px] md:text-[17px] leading-[1.6]">
-              For financial advisors, FINRA BrokerCheck is more than a regulatory
-              requirement - it is a public storefront. When a disclosure appears,
-              it often lingers as a permanent stain on the first page of Google,
-              regardless of the context or age of the incident.
-            </p>
-            <p className="mt-6 text-[#3f4f66] text-[16px] md:text-[17px] leading-[1.6]">
-              Reputation360 specializes in neutralizing these threats. We don't
-              just complain to regulators; we leverage strategic, authoritative
-              content to push negative disclosures beyond the first page,
-              reclaiming your digital identity.
-            </p>
-          </div>
-        </section>
-
-        <section className="mt-20 md:mt-24 -mx-4 md:-mx-6 px-4 md:px-6 py-12 md:py-14 bg-[#edeef9]">
-          <h3 className="text-center font-heading text-[24px] md:text-[30px] leading-[1.15] text-[#0f2e58] font-bold">
-            Other Reputation Threats
-          </h3>
-          <p className="text-center text-[#5a6780] mt-3 text-[12px] md:text-[13px] leading-[1.45] max-w-3xl mx-auto">
-            Beyond BrokerCheck, the digital landscape for financial professionals
-            is fraught with regulatory and social pitfalls.
-          </p>
-
-          <div className="mt-10 grid md:grid-cols-[2fr_1fr] gap-4">
-            <article className="ha-lift flex min-h-[230px] flex-col rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7">
-              <Search className="h-6 w-6 text-[#89e89a]" />
-              <h4 className="mt-6 font-heading text-[17px] md:text-[20px] leading-[1.2] font-semibold text-[#17375f]">
-                SEC Enforcement &amp; Proceedings
-              </h4>
-              <p className="mt-4 text-[12px] md:text-[13px] leading-[1.55] text-[#4f5f75] max-w-[95%]">
-                Public notices of SEC enforcement actions can be devastating for
-                institutional credibility and retail trust alike. We create a
-                buffer of positive authority.
-              </p>
-              <div className="mt-auto pt-6 border-t border-[#e6eaf2] text-[10px] md:text-[11px] tracking-[0.16em] uppercase font-semibold text-[#3d506d]">
-                Vulnerability Level: Critical
-              </div>
-            </article>
-
-            <article className="rounded-3xl bg-[#072f5f] border border-[#0b3f79] p-6 md:p-7 text-white min-h-[230px]">
-              <Star className="h-6 w-6 text-[#8ce596]" />
-              <h4 className="mt-6 font-heading text-[17px] md:text-[20px] leading-[1.2] font-semibold">
-                Negative Reviews
-              </h4>
-              <p className="mt-4 text-[12px] md:text-[13px] leading-[1.55] text-white/82">
-                Unfair client reviews on third-party platforms that bypass
-                traditional compliance channels.
-              </p>
-            </article>
-          </div>
-
-          <div className="mt-4 grid md:grid-cols-3 gap-4">
-            <article className="ha-lift min-h-[190px] rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7">
-              <Activity className="h-6 w-6 text-[#1f3b64]" />
-              <h4 className="mt-6 font-heading text-[16px] md:text-[18px] leading-[1.2] font-semibold text-[#17375f]">
-                Outdated News Stories
-              </h4>
-              <p className="mt-3 text-[12px] md:text-[13px] leading-[1.5] text-[#4f5f75]">
-                Decades-old regulatory proceedings that no longer reflect your
-                current practice or standards.
-              </p>
-            </article>
-
-            <article className="ha-lift min-h-[190px] rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7">
-              <FileWarning className="h-6 w-6 text-[#1f3b64]" />
-              <h4 className="mt-6 font-heading text-[16px] md:text-[18px] leading-[1.2] font-semibold text-[#17375f]">
-                Competitor Content
-              </h4>
-              <p className="mt-3 text-[12px] md:text-[13px] leading-[1.5] text-[#4f5f75]">
-                Aggressive marketing tactics or SEO-driven articles designed to
-                capitalize on your name search.
-              </p>
-            </article>
-
-            <article className="ha-lift min-h-[190px] rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7">
-              <AlertTriangle className="h-6 w-6 text-[#1f3b64]" />
-              <h4 className="mt-6 font-heading text-[16px] md:text-[18px] leading-[1.2] font-semibold text-[#17375f]">
-                Media Mentions
-              </h4>
-              <p className="mt-3 text-[12px] md:text-[13px] leading-[1.5] text-[#4f5f75]">
-                Regulatory reports picked up by local or industry news outlets
-                that dominate your name's SERP.
-              </p>
-            </article>
-          </div>
-        </section>
+        <FinancialAdvisorsWhyHarderSection />
 
         <section className="mt-20 md:mt-24">
           <h3 className="font-heading text-[24px] md:text-[26px] leading-[1.15] text-[#0f2e58] font-bold">
