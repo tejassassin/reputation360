@@ -897,7 +897,7 @@ function ServicesAbout() {
         </div>
 
         <div id="who-we-work-with" className="scroll-mt-28">
-          <h3 className="text-center font-heading text-3xl font-bold tracking-tight text-navy md:text-4xl">
+          <h3 className="who-we-work-with-heading text-center font-heading font-bold tracking-tight text-navy">
             Who We Work With
           </h3>
           <div className="mt-6 grid grid-cols-1 items-start gap-4 sm:grid-cols-2 md:mt-8 md:gap-5">
@@ -922,7 +922,7 @@ function ServicesAbout() {
                     }
                     className="flex w-full items-start justify-between gap-3 p-6 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-navy/30 md:p-7 md:pl-8 md:pr-6"
                   >
-                    <h4 className="min-w-0 font-heading text-base font-bold leading-snug text-navy md:text-lg">
+                    <h4 className="who-we-work-with-trigger min-w-0 font-heading font-bold text-navy">
                       {card.title}
                     </h4>
                     <ChevronDown

@@ -128,6 +128,30 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Services — Who We Work With: explicit font sizes live in global CSS so
+   production always matches design even if a utility bundle is stale or incomplete. */
+@layer components {
+  h3.who-we-work-with-heading {
+    font-size: 1.875rem; /* text-3xl */
+    line-height: 1.2;
+  }
+  @media (min-width: 768px) {
+    h3.who-we-work-with-heading {
+      font-size: 2.25rem; /* text-4xl */
+    }
+  }
+  h4.who-we-work-with-trigger {
+    font-size: 1rem; /* text-base */
+    line-height: 1.375;
+    font-weight: 700;
+  }
+  @media (min-width: 768px) {
+    h4.who-we-work-with-trigger {
+      font-size: 1.125rem; /* text-lg */
+    }
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
