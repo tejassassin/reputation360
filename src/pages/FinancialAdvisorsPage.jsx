@@ -6,7 +6,11 @@ import {
   AlertTriangle,
   Star,
   Activity,
+  ChevronLeft,
   ChevronRight,
+  CalendarRange,
+  CheckCircle2,
+  Sparkles,
   Map,
   Target,
   Layers,
@@ -125,6 +129,36 @@ const REPUTATION360_FA_STEPS = [
     Icon: RefreshCw,
   },
 ];
+
+const REALISTIC_TIMELINE_PHASES = [
+  {
+    id: "weeks-1-4",
+    window: "Weeks 1–4",
+    body: "Audit complete. Strategy live. Initial content published and indexed.",
+    Icon: CalendarRange,
+  },
+  {
+    id: "months-2-4",
+    window: "Months 2–4",
+    body: "Measurable ranking movement. Positive properties gaining traction.",
+    Icon: TrendingUp,
+  },
+  {
+    id: "months-4-7",
+    window: "Months 4–7",
+    body: "Primary negative results displaced for most cases.",
+    Icon: CheckCircle2,
+  },
+  {
+    id: "months-8-12",
+    window: "Months 8–12",
+    body: "Substantial transformation complete. Negative content pushed well beyond visible pages.",
+    Icon: Sparkles,
+  },
+];
+
+const REALISTIC_TIMELINE_DISCLAIMER =
+  "Results vary based on the authority of the negative content and the number of negative results; we will give you an honest assessment in your first consultation.";
 
 function FinancialAdvisorsProblemSection() {
   const [active, setActive] = useState(0);
@@ -410,17 +444,15 @@ function FinancialAdvisorsWhyHarderSection() {
       id="why-harder-than-most"
       className="mt-16 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 md:mt-20 md:px-9 md:py-11"
     >
-      <div className="mx-auto max-w-4xl text-center md:text-left">
-        <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-          Why This Is Harder for You Than Most
-        </h2>
-        <p className="mx-auto mt-2 max-w-xl text-[13px] text-[#5d6c80] md:mx-0">
-          Three constraints advisors hit in search — tap each to read the full
-          context.
-        </p>
-      </div>
+      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
+        Why This Is Harder for You Than Most
+      </h2>
+      <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
+        Three constraints advisors hit in search — tap each to read the full
+        context.
+      </p>
 
-      <div className="mx-auto mt-8 grid max-w-5xl gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
+      <div className="mt-8 grid max-w-5xl gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           {WHY_HARDER_PILLARS.map((p, i) => {
             const Icon = p.Icon;
@@ -500,17 +532,15 @@ function FinancialAdvisorsWhatReputation360Section() {
       id="what-reputation360-does"
       className="mt-16 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 md:mt-20 md:px-9 md:py-11"
     >
-      <div className="mx-auto max-w-4xl text-center md:text-left">
-        <h3 className="font-heading text-[24px] font-bold leading-[1.15] text-[#0f2e58] md:text-[26px]">
-          What Reputation360 Does
-        </h3>
-        <div className="mx-auto mt-3 h-1.5 w-20 rounded-full bg-[#79df86] md:mx-0" />
-        <p className="mx-auto mt-3 max-w-xl text-[13px] text-[#5d6c80] md:mx-0">
-          Tap a step to read the full headline and description in the panel.
-        </p>
-      </div>
+      <h3 className="max-w-4xl font-heading text-[24px] font-bold leading-[1.15] text-[#0f2e58] md:text-[26px]">
+        What Reputation360 Does
+      </h3>
+      <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
+      <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
+        Tap a step to read the full headline and description in the panel.
+      </p>
 
-      <div className="mx-auto mt-8 grid max-w-5xl gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-stretch lg:gap-8">
+      <div className="mt-8 grid max-w-5xl gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-stretch lg:gap-8">
         <div>
           <ul className="flex list-none flex-row gap-2 overflow-x-auto pb-1 pl-0 [-ms-overflow-style:none] [scrollbar-width:none] lg:flex-col lg:gap-2.5 lg:overflow-visible [&::-webkit-scrollbar]:hidden">
             {REPUTATION360_FA_STEPS.map((stepItem, i) => {
@@ -560,7 +590,7 @@ function FinancialAdvisorsWhatReputation360Section() {
               );
             })}
           </ul>
-          <p className="mt-2 text-center text-[11px] text-[#5d6c80] lg:hidden">
+          <p className="mt-2 text-left text-[11px] text-[#5d6c80] lg:hidden">
             Swipe horizontally to see all steps
           </p>
         </div>
@@ -592,6 +622,175 @@ function FinancialAdvisorsWhatReputation360Section() {
           </p>
         </aside>
       </div>
+    </section>
+  );
+}
+
+function FinancialAdvisorsRealisticTimelineSection() {
+  const [active, setActive] = useState(0);
+  const n = REALISTIC_TIMELINE_PHASES.length;
+  const phase = REALISTIC_TIMELINE_PHASES[active];
+  const ActiveIcon = phase.Icon;
+
+  return (
+    <section
+      id="realistic-timeline"
+      className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-white px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
+    >
+      <h3
+        id="realistic-timeline-heading"
+        className="max-w-4xl font-heading text-[24px] font-bold leading-[1.15] text-[#0f2e58] md:text-[28px]"
+      >
+        Realistic Timeline
+      </h3>
+      <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
+      <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
+        Tap a phase, use{" "}
+        <span className="whitespace-nowrap font-medium text-[#3f4f66]">
+          Previous / Next
+        </span>
+        , or focus the timeline below and press arrow keys, Home, or End.
+      </p>
+
+      <div
+        role="group"
+        aria-labelledby="realistic-timeline-heading"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+            e.preventDefault();
+            setActive((i) => Math.min(n - 1, i + 1));
+          }
+          if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+            e.preventDefault();
+            setActive((i) => Math.max(0, i - 1));
+          }
+          if (e.key === "Home") {
+            e.preventDefault();
+            setActive(0);
+          }
+          if (e.key === "End") {
+            e.preventDefault();
+            setActive(n - 1);
+          }
+        }}
+        className="mt-8 max-w-5xl rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-[#1f3b64]/30 focus-visible:ring-offset-2 md:rounded-2xl"
+      >
+        <div className="relative -mx-1 overflow-x-auto pb-2 pl-1 [-ms-overflow-style:none] [scrollbar-width:none] md:mx-0 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden">
+          <div className="flex min-w-[min(100%,560px)] flex-row flex-nowrap items-center px-1 md:min-w-0 md:px-0">
+            {REALISTIC_TIMELINE_PHASES.flatMap((p, i) => {
+              const Icon = p.Icon;
+              const selected = active === i;
+              const btn = (
+                <button
+                  key={`rt-node-${p.id}`}
+                  type="button"
+                  aria-pressed={selected}
+                  aria-label={`${p.window}: ${p.body}`}
+                  onClick={() => setActive(i)}
+                  className={`group flex shrink-0 flex-col items-center rounded-2xl px-2 py-2 outline-none transition-opacity focus-visible:ring-2 focus-visible:ring-[#1f3b64]/35 focus-visible:ring-offset-2 md:px-3 md:py-2 ${
+                    selected ? "" : "opacity-[0.88] hover:opacity-100"
+                  }`}
+                >
+                  <span
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-[color,box-shadow,background-color] duration-200 md:h-11 md:w-11 ${
+                      selected
+                        ? "bg-[#e8eef9] text-[#0f2e58] shadow-[inset_0_0_0_2px_#0f2e58]"
+                        : "bg-[#f0f2f7] text-[#1f3b64]/75 group-hover:text-[#1f3b64]"
+                    }`}
+                  >
+                    <Icon
+                      className="h-6 w-6 md:h-5 md:w-5"
+                      aria-hidden
+                      strokeWidth={selected ? 2.25 : 1.75}
+                      absoluteStrokeWidth
+                    />
+                  </span>
+                  <span
+                    className={`mt-2 max-w-[7.5rem] text-center font-heading text-[10px] font-bold leading-tight tracking-wide md:max-w-none md:text-[11px] ${
+                      selected ? "text-[#0f2e58]" : "text-[#5d6c80]"
+                    }`}
+                  >
+                    {p.window}
+                  </span>
+                </button>
+              );
+              if (i >= n - 1) {
+                return [btn];
+              }
+              const seg = (
+                <div
+                  key={`rt-seg-${p.id}`}
+                  className={`mx-1.5 h-1 min-w-[1.25rem] flex-1 rounded-full transition-colors duration-300 md:mx-3 ${
+                    active > i ? "bg-[#0f2e58]" : "bg-[#e5eaf2]"
+                  }`}
+                  aria-hidden
+                />
+              );
+              return [btn, seg];
+            })}
+          </div>
+        </div>
+        <p className="mt-1 text-left text-[11px] text-[#5d6c80] md:hidden">
+          Swipe the timeline to see every phase. Bars fill as you advance.
+        </p>
+
+        <aside
+          aria-live="polite"
+          aria-labelledby="realistic-timeline-heading"
+          className="mt-5 rounded-2xl border border-[#1f3b64]/10 bg-[#f8f9fc] p-5 shadow-sm md:mt-8 md:p-7"
+        >
+          <div className="flex flex-wrap items-center gap-3 border-b border-[#dfe6ee] pb-4 md:gap-4">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e8eef9] text-[#0f2e58] shadow-[inset_0_0_0_2px_#0f2e58] md:h-14 md:w-14">
+              <ActiveIcon
+                className="h-6 w-6 md:h-7 md:w-7"
+                aria-hidden
+                strokeWidth={2.25}
+                absoluteStrokeWidth
+              />
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#1f3b64]/45">
+                Selected phase
+              </p>
+              <p className="mt-1 font-heading text-[18px] font-bold leading-snug text-[#0f2e58] md:text-xl">
+                {phase.window}
+              </p>
+            </div>
+            <span className="rounded-full bg-white px-3 py-1 font-heading text-xs font-bold text-[#1f3b64] ring-1 ring-[#dfe6ee] tabular-nums md:ml-auto">
+              {active + 1} / {n}
+            </span>
+          </div>
+          <p className="mt-4 text-[15px] leading-relaxed text-[#3f4f66] md:mt-5 md:text-[16px] md:leading-relaxed">
+            {phase.body}
+          </p>
+        </aside>
+
+        <div className="mt-5 flex flex-wrap items-center justify-start gap-3 md:mt-6">
+          <button
+            type="button"
+            className="inline-flex items-center gap-1.5 rounded-full border border-[#dfe6ee] bg-white px-4 py-2.5 text-sm font-semibold text-[#0f2e58] shadow-sm transition-colors hover:border-[#1f3b64]/30 hover:bg-[#f8f9fc] disabled:pointer-events-none disabled:opacity-40"
+            disabled={active === 0}
+            onClick={() => setActive((i) => Math.max(0, i - 1))}
+          >
+            <ChevronLeft className="h-4 w-4" aria-hidden />
+            Previous phase
+          </button>
+          <button
+            type="button"
+            className="inline-flex items-center gap-1.5 rounded-full border border-[#dfe6ee] bg-white px-4 py-2.5 text-sm font-semibold text-[#0f2e58] shadow-sm transition-colors hover:border-[#1f3b64]/30 hover:bg-[#f8f9fc] disabled:pointer-events-none disabled:opacity-40"
+            disabled={active === n - 1}
+            onClick={() => setActive((i) => Math.min(n - 1, i + 1))}
+          >
+            Next phase
+            <ChevronRight className="h-4 w-4" aria-hidden />
+          </button>
+        </div>
+      </div>
+
+      <p className="mt-6 w-full min-w-0 overflow-x-auto whitespace-nowrap pb-1 text-left text-[12px] leading-relaxed text-[#5d6c80] [scrollbar-width:thin] md:mt-8 md:text-[13px]">
+        {REALISTIC_TIMELINE_DISCLAIMER}
+      </p>
     </section>
   );
 }
@@ -711,6 +910,8 @@ function FinancialAdvisorsPage() {
         <FinancialAdvisorsWhyHarderSection />
 
         <FinancialAdvisorsWhatReputation360Section />
+
+        <FinancialAdvisorsRealisticTimelineSection />
 
         <section className="mt-14 md:mt-16 -mx-4 md:-mx-6 rounded-none bg-[#244a7d] px-6 py-14 md:py-16 text-center text-white">
           <p className="font-heading text-[32px] md:text-[56px] leading-[1.12] font-semibold max-w-5xl mx-auto">
