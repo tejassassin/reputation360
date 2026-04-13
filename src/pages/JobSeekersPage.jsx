@@ -220,6 +220,30 @@ const JOB_SEEKER_FAQ_ITEMS = [
   },
 ];
 
+const WHY_DIFFICULT_JOB_SEEKER_PILLARS = [
+  {
+    id: "on-your-own",
+    label: "On your own",
+    hook: "No dedicated team to manage your public footprint.",
+    body: "Unlike a business that can invest in ongoing brand management, a job seeker is typically navigating this alone — often during an already stressful period of transition.",
+    Icon: UserSearch,
+  },
+  {
+    id: "silent-signals",
+    label: "Silent signals",
+    hook: "Silence rarely means your search results are fine.",
+    body: "There is also a timing problem. The damage is happening now, with every application you submit — but you will not receive clear feedback telling you that your search results are the issue. You may interpret silence as a skills gap or a competitive market, when the real obstacle is something Google is showing that you have never even looked at.",
+    Icon: MessagesSquare,
+  },
+  {
+    id: "practical-path",
+    label: "The practical path forward",
+    hook: "What actually moves what recruiters see first.",
+    body: "Every week your search results remain unchanged is another set of opportunities quietly closing. Building a stronger, more authoritative online presence is how negative content gets displaced from the first page of results — the page that decides whether you get a call.",
+    Icon: TrendingUp,
+  },
+];
+
 function JobSeekersScaleSection() {
   const [active, setActive] = useState(0);
   const [entered, setEntered] = useState(false);
@@ -338,33 +362,92 @@ function JobSeekersScaleSection() {
 }
 
 function JobSeekersWhyDifficultSection() {
+  const [active, setActive] = useState(0);
+  const pillar = WHY_DIFFICULT_JOB_SEEKER_PILLARS[active];
+  const ActiveIcon = pillar.Icon;
+
   return (
     <section
       id="why-particularly-difficult-job-seekers"
-      className="mt-16 scroll-mt-28 rounded-[24px] border border-[#e4e6ec] bg-[#f9f9f9] px-6 py-10 md:mt-20 md:px-12 md:py-14"
+      className="mt-16 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 md:mt-20 md:px-9 md:py-11"
     >
-      <div className="mx-auto max-w-3xl text-left">
-        <h2 className="font-serif text-[24px] font-bold leading-[1.2] text-[#141820] md:text-[30px] md:leading-[1.15]">
-          Why This Is Particularly Difficult for Job Seekers
-        </h2>
-        <div className="mt-8 space-y-6 font-serif text-[16px] leading-[1.75] text-[#252830] md:text-[17px] md:leading-[1.78]">
-          <p>
-            Unlike a business that can invest in ongoing brand management, a job
-            seeker is typically navigating this alone — often during an already
-            stressful period of transition.
-          </p>
-          <p>
-            There is also a timing problem. The damage is happening now, with
-            every application you submit — but you will not receive clear feedback
-            telling you that your search results are the issue. You may interpret
-            silence as a skills gap or a competitive market, when the real obstacle
-            is something Google is showing that you have never even looked at.
-          </p>
-          <p>
-            Every week your search results remain unchanged is another set of
-            opportunities quietly closing.
-          </p>
+      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
+        Why This Is Particularly Difficult for Job Seekers
+      </h2>
+      <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
+        Three realities job seekers hit in search — tap each to read the full
+        context.
+      </p>
+
+      <div className="mt-8 grid max-w-5xl gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {WHY_DIFFICULT_JOB_SEEKER_PILLARS.map((p, i) => {
+            const Icon = p.Icon;
+            const selected = active === i;
+            return (
+              <button
+                key={p.id}
+                type="button"
+                aria-pressed={selected}
+                aria-label={`${p.label}: ${p.body}`}
+                onClick={() => setActive(i)}
+                className={`flex flex-col items-center rounded-2xl border px-3 py-4 text-center outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#1f3b64]/30 focus-visible:ring-offset-2 sm:py-5 ${
+                  selected
+                    ? "border-[#1f3b64] bg-white shadow-[0_12px_28px_-14px_rgba(31,59,100,0.22)] ring-1 ring-[#1f3b64]/15"
+                    : "border-[#dfe6ee] bg-white/70 hover:border-[#1f3b64]/25 hover:bg-white"
+                }`}
+              >
+                <span
+                  className={`flex h-11 w-11 items-center justify-center rounded-xl shadow-sm transition-[background-color,color,box-shadow] duration-200 ${
+                    selected
+                      ? "bg-[#1f3b64] text-white shadow-[0_6px_16px_-4px_rgba(31,59,100,0.45)]"
+                      : "bg-[#f0f2f7] text-[#1f3b64]/80"
+                  }`}
+                >
+                  <Icon
+                    className="h-5 w-5"
+                    aria-hidden
+                    strokeWidth={selected ? 2.25 : 1.75}
+                    absoluteStrokeWidth
+                  />
+                </span>
+                <span className="mt-3 font-heading text-[13px] font-semibold leading-tight text-[#0f2e58] md:text-sm">
+                  {p.label}
+                </span>
+                <span className="mt-2 text-[11px] leading-snug text-[#5d6c80] md:text-[12px]">
+                  {p.hook}
+                </span>
+              </button>
+            );
+          })}
         </div>
+
+        <aside
+          className="flex flex-col justify-center rounded-2xl border border-[#1f3b64]/10 bg-white p-5 shadow-sm md:p-6 lg:sticky lg:top-28 lg:self-start"
+          aria-live="polite"
+        >
+          <div className="flex items-start gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white shadow-md md:h-11 md:w-11">
+              <ActiveIcon
+                className="h-5 w-5 md:h-6 md:w-6"
+                aria-hidden
+                strokeWidth={2.25}
+                absoluteStrokeWidth
+              />
+            </span>
+            <div className="min-w-0">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#1f3b64]/45">
+                Full context
+              </p>
+              <p className="mt-1 font-heading text-sm font-semibold text-[#0f2e58] md:text-base">
+                {pillar.label}
+              </p>
+            </div>
+          </div>
+          <p className="mt-4 text-[14px] leading-relaxed text-[#3f4f66] md:text-[15px] md:leading-relaxed">
+            {pillar.body}
+          </p>
+        </aside>
       </div>
     </section>
   );
