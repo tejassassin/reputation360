@@ -584,7 +584,7 @@ function HowWeWorkSection() {
                   aria-pressed={active}
                   aria-label={`Step ${step.n}: ${step.title}`}
                   onClick={() => {
-                    if (i === 0) setVehicleVisible(true);
+                    setVehicleVisible(true);
                     setActiveStep(i);
                   }}
                   className={`mx-auto flex h-20 w-20 items-center justify-center rounded-full shadow-lg transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 md:h-[5.25rem] md:w-[5.25rem] ${
