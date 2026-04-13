@@ -91,27 +91,20 @@ function FinancialAdvisorsPage() {
             style={{ backgroundImage: "url('/finra-invisible-leak.png')" }}
           />
           <div className="bg-[#072f5f] text-white p-8 md:p-10">
-            <div className="border-l-2 border-[#88e498] pl-4">
-              <p className="text-white/70 italic text-xs md:text-[15px] leading-[1.5]">
-                "The first thing they find is not your experience, your firm
-                profile, or your track record. It is a BrokerCheck entry
-                referencing a disclosure from years ago."
+            <div className="rounded-2xl border border-white/10 bg-white/7 px-5 py-6 md:px-6 md:py-7">
+              <p className="text-sm leading-relaxed text-white/90 md:text-[15px] md:leading-relaxed">
+                A prospective client searches your name before taking your call.
+                In under sixty seconds, they have formed a judgment. Not based on
+                your track record. Not based on your certifications or your years
+                in practice. Based entirely on what Google decided to show them.
               </p>
-            </div>
-            <p className="mt-6 text-white/65 text-[11px] md:text-[12px]">
-              A case that was settled. An allegation that was never sustained.
-            </p>
-            <p className="mt-4 text-white font-semibold text-lg md:text-[20px] leading-tight">
-              They do not ask you about it.
-            </p>
-            <div className="mt-6 rounded-2xl border border-white/10 bg-white/7 px-5 py-5">
-              <p className="text-[#86e991] text-sm md:text-[15px] font-semibold leading-[1.4]">
-                If what appears is a regulatory disclosure, a news article
-                covering an investigation, or a complaint on a financial forum —
-                they quietly move on. You never find out.
-              </p>
-              <p className="mt-2 text-white/85 italic text-base md:text-[17px] font-semibold">
-                But it keeps happening.
+              <p className="mt-5 text-sm font-semibold leading-relaxed text-[#86e991] md:text-[15px] md:leading-relaxed">
+                If what appears is a regulatory disclosure, a news article covering
+                an investigation, or a complaint on a financial forum — they quietly
+                move on. You never find out.{" "}
+                <span className="text-base font-semibold italic text-white/90 md:text-[17px]">
+                  But it keeps happening.
+                </span>
               </p>
             </div>
             <p className="mt-7 inline-flex items-center gap-2 text-[#8ce596] tracking-[0.14em] uppercase text-[10px] font-semibold">
