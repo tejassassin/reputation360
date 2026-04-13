@@ -106,7 +106,9 @@ function FinancialAdvisorsPage() {
             </p>
             <div className="mt-6 rounded-2xl border border-white/10 bg-white/7 px-5 py-5">
               <p className="text-[#86e991] text-sm md:text-[15px] font-semibold leading-[1.4]">
-                They quietly move their assets. You never find out.
+                If what appears is a regulatory disclosure, a news article
+                covering an investigation, or a complaint on a financial forum —
+                they quietly move on. You never find out.
               </p>
               <p className="mt-2 text-white/85 italic text-base md:text-[17px] font-semibold">
                 But it keeps happening.
