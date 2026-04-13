@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   ShieldCheck,
@@ -12,7 +13,181 @@ import {
   BadgeCheck,
   Zap,
   EyeOff,
+  Scale,
+  Landmark,
+  Newspaper,
+  ClipboardList,
+  MessagesSquare,
+  Linkedin,
+  Globe2,
+  History,
 } from "lucide-react";
+
+const FINANCIAL_ADVISOR_PROBLEM_TILES = [
+  {
+    id: "finra",
+    label: "FINRA BrokerCheck",
+    description:
+      "FINRA BrokerCheck disclosures and enforcement actions",
+    Icon: ShieldCheck,
+  },
+  {
+    id: "sec",
+    label: "SEC records",
+    description:
+      "SEC investigation records and administrative proceedings",
+    Icon: Scale,
+  },
+  {
+    id: "cftc",
+    label: "CFTC & state",
+    description:
+      "CFTC and state securities regulator disciplinary records",
+    Icon: Landmark,
+  },
+  {
+    id: "press",
+    label: "Financial press",
+    description:
+      "Wall Street Journal, Bloomberg, Reuters, and MarketWatch coverage of regulatory proceedings",
+    Icon: Newspaper,
+  },
+  {
+    id: "cfpb",
+    label: "CFPB & portals",
+    description:
+      "Complaints filed on CFPB, state attorney general portals, and consumer forums",
+    Icon: ClipboardList,
+  },
+  {
+    id: "reviews",
+    label: "Reviews & listings",
+    description:
+      "Negative client reviews on Google Business, Yelp, and financial aggregator directories",
+    Icon: Star,
+  },
+  {
+    id: "forums",
+    label: "Forums",
+    description:
+      "Forum discussions on Reddit, Bogleheads, and financial communities mentioning your name",
+    Icon: MessagesSquare,
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn & social",
+    description:
+      "LinkedIn posts or articles by disgruntled former clients or colleagues",
+    Icon: Linkedin,
+  },
+  {
+    id: "news",
+    label: "Archived news",
+    description:
+      "Old news coverage of market events where your name or firm was mentioned critically",
+    Icon: History,
+  },
+];
+
+function FinancialAdvisorsProblemSection() {
+  const [active, setActive] = useState(0);
+  const activeTile = FINANCIAL_ADVISOR_PROBLEM_TILES[active];
+  const ActiveIcon = activeTile.Icon;
+
+  return (
+    <section
+      id="problem-financial-professionals-face"
+      className="mt-12 scroll-mt-28 rounded-[24px] border border-[#d9e3ea] bg-white px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.07)] md:mt-16 md:px-9 md:py-11"
+    >
+      <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
+        The Problem Financial Professionals Face
+      </h2>
+
+      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-start">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#e8ecf7] text-[#1f3b64]">
+          <Globe2 className="h-5 w-5" aria-hidden />
+        </div>
+        <p className="max-w-2xl text-[14px] leading-relaxed text-[#3f4f66] md:text-[15px] md:leading-[1.55]">
+          Your reputation lives in places you do not control. Regulatory
+          databases, financial news archives, complaint portals, and aggregator
+          sites all rank prominently for advisor names — and all of them are
+          indexed by Google.
+        </p>
+      </div>
+
+      <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e8f0] pb-4">
+        <h3 className="font-heading text-base font-semibold text-[#0f2e58] md:text-lg">
+          Where damaging content typically appears:
+        </h3>
+        <p className="text-xs font-medium text-[#5d6c80] md:text-[13px]">
+          Tap an icon to see the full context
+        </p>
+      </div>
+
+      <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_minmax(280px,360px)] lg:items-start">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {FINANCIAL_ADVISOR_PROBLEM_TILES.map((tile, i) => {
+            const Icon = tile.Icon;
+            const selected = active === i;
+            return (
+              <button
+                key={tile.id}
+                type="button"
+                aria-pressed={selected}
+                aria-label={`${tile.label}. ${selected ? "Showing details" : "Show details"}`}
+                onClick={() => setActive(i)}
+                className={`group flex flex-col items-center gap-2.5 rounded-2xl border px-2.5 py-3.5 text-center outline-none transition-[border-color,box-shadow,background-color,transform] duration-200 focus-visible:ring-2 focus-visible:ring-navy/35 focus-visible:ring-offset-2 motion-safe:active:scale-[0.98] md:px-3 md:py-4 ${
+                  selected
+                    ? "border-[#1f3b64] bg-[#eef2ff] shadow-[0_10px_26px_-12px_rgba(31,59,100,0.35)] ring-2 ring-[#1f3b64]/15"
+                    : "border-[#dfe6ee] bg-[#fafbfd] hover:border-[#1f3b64]/28 hover:bg-white hover:shadow-[0_8px_22px_-14px_rgba(31,59,100,0.18)]"
+                }`}
+              >
+                <span
+                  className={`flex h-11 w-11 items-center justify-center rounded-xl bg-white text-[#1f3b64] shadow-sm transition-transform duration-200 md:h-12 md:w-12 ${
+                    selected ? "scale-105" : "group-hover:scale-105"
+                  }`}
+                >
+                  <Icon className="h-5 w-5 md:h-6 md:w-6" aria-hidden />
+                </span>
+                <span className="text-[11px] font-semibold leading-snug text-[#0f2e58] md:text-xs">
+                  {tile.label}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        <aside
+          className="rounded-2xl border border-[#1f3b64]/12 bg-[linear-gradient(160deg,#f4f6fc_0%,#eef2fb_55%,#e8edf8_100%)] p-5 md:p-6 lg:sticky lg:top-28"
+          aria-live="polite"
+          aria-label="Selected risk source"
+        >
+          <div className="flex items-start gap-3">
+            <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[#1f3b64] shadow-sm">
+              <ActiveIcon className="h-5 w-5" aria-hidden />
+            </span>
+            <div className="min-w-0">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-navy/45">
+                Selected source
+              </p>
+              <p className="mt-1 font-heading text-sm font-semibold text-[#0f2e58] md:text-base">
+                {activeTile.label}
+              </p>
+            </div>
+          </div>
+          <p className="mt-4 text-[14px] leading-relaxed text-[#3f4f66] md:text-[15px] md:leading-relaxed">
+            {activeTile.description}
+          </p>
+        </aside>
+      </div>
+
+      <p className="mt-8 rounded-xl border border-[#1f3b64]/10 bg-[#f8fafc] px-4 py-3.5 text-center text-[14px] font-semibold leading-snug text-[#0f2e58] md:px-6 md:text-[15px]">
+        Any one of these, sitting on page one of Google for your name, is silently
+        redirecting clients away from you every day.
+      </p>
+    </section>
+  );
+}
 
 function FinancialAdvisorsPage() {
   return (
@@ -121,6 +296,8 @@ function FinancialAdvisorsPage() {
             </p>
           </div>
         </section>
+
+        <FinancialAdvisorsProblemSection />
 
         <section className="mt-28 md:mt-32 grid md:grid-cols-[1.05fr_1fr] gap-10 md:gap-12 items-start">
           <div className="grid grid-cols-2 gap-4">
