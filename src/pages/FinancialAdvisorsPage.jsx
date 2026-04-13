@@ -8,9 +8,10 @@ import {
   Activity,
   ChevronRight,
   Map,
-  BadgeCheck,
-  Zap,
-  EyeOff,
+  Target,
+  Layers,
+  BarChart3,
+  RefreshCw,
   Scale,
   Landmark,
   Newspaper,
@@ -89,6 +90,39 @@ const FINANCIAL_ADVISOR_PROBLEM_TILES = [
     description:
       "Old news coverage of market events where your name or firm was mentioned critically",
     Icon: History,
+  },
+];
+
+const REPUTATION360_FA_STEPS = [
+  {
+    step: 1,
+    headline: "Step 1 — Complete Search Audit (Week 1)",
+    body: "We map every result appearing for your name, your firm name, and common search combinations. We assess the strength of each negative entry and identify exactly what we are working with.",
+    Icon: Map,
+  },
+  {
+    step: 2,
+    headline: "Step 2 — Suppression Strategy Design (Weeks 1–2)",
+    body: "We design a content and SEO strategy specific to your situation, built to push negative results beyond page two — where fewer than 0.5% of searchers ever look.",
+    Icon: Target,
+  },
+  {
+    step: 3,
+    headline: "Step 3 — Content and Presence Building (Months 1–4)",
+    body: "We build your authoritative digital footprint: LinkedIn profile optimization, a professional website or thought leadership hub, financial commentary and expert articles on high-authority platforms, optimized profiles on financial directories, and supporting professional properties.",
+    Icon: Layers,
+  },
+  {
+    step: 4,
+    headline: "Step 4 — Ranking Displacement (Months 3–8)",
+    body: "As your positive properties gain authority, they begin outranking the negative content. We monitor rankings weekly and adjust strategy as results move.",
+    Icon: BarChart3,
+  },
+  {
+    step: 5,
+    headline: "Step 5 — Long-Term Maintenance (Month 8 onward)",
+    body: "Once negative content is displaced, we maintain the presence that replaced it — ensuring it holds position and continues working in your favor.",
+    Icon: RefreshCw,
   },
 ];
 
@@ -564,50 +598,44 @@ function FinancialAdvisorsPage() {
 
         <FinancialAdvisorsWhyHarderSection />
 
-        <section className="mt-20 md:mt-24">
+        <section
+          id="what-reputation360-does"
+          className="mt-20 scroll-mt-28 md:mt-24"
+        >
           <h3 className="font-heading text-[24px] md:text-[26px] leading-[1.15] text-[#0f2e58] font-bold">
             What Reputation360 Does
           </h3>
           <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
-          <div className="mt-10 grid md:grid-cols-4 gap-6">
-            {[
-              {
-                icon: <Map className="h-4 w-4 stroke-[2.2]" />,
-                title: "01. Audit",
-                text: "We perform a comprehensive mapping of all Google, Bing, and industry-specific results impacting your name.",
-              },
-              {
-                icon: <BadgeCheck className="h-4 w-4 stroke-[2.2]" />,
-                title: "02. Strategy",
-                text: "Custom suppression campaigns designed to push negative links to the second or third page of search results.",
-              },
-              {
-                icon: <Zap className="h-4 w-4 stroke-[2.2]" />,
-                title: "03. Execution",
-                text: "We build high-authority digital assets and editorial content that outrank and bury regulatory disclosures.",
-              },
-              {
-                icon: <EyeOff className="h-4 w-4 stroke-[2.2]" />,
-                title: "04. Discretion",
-                text: "Our work is invisible. We work quietly in the background to ensure your reputation shift feels organic and permanent.",
-              },
-            ].map((item) => (
-              <article
-                key={item.title}
-                className="ha-lift rounded-2xl bg-transparent px-2 py-3"
-              >
-                <div className="h-12 w-12 rounded-xl bg-[#edf0ff] grid place-items-center text-[#123a66]">
-                  {item.icon}
-                </div>
-                <h4 className="mt-4 font-heading text-[18px] md:text-[20px] leading-[1.2] font-semibold text-[#17375f]">
-                  {item.title}
-                </h4>
-                <p className="mt-3 text-[13px] md:text-[14px] leading-[1.55] text-[#4f5f75]">
-                  {item.text}
-                </p>
-              </article>
-            ))}
-          </div>
+          <ol className="mt-10 max-w-3xl space-y-5">
+            {REPUTATION360_FA_STEPS.map((item) => {
+              const StepIcon = item.Icon;
+              return (
+                <li key={item.step}>
+                  <article className="ha-lift flex gap-4 rounded-2xl border border-[#dfe6ee] bg-white p-5 shadow-[0_8px_24px_-12px_rgba(31,59,100,0.08)] md:gap-5 md:p-6">
+                    <div className="flex shrink-0 flex-col items-center gap-2">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#edf0ff] font-heading text-sm font-bold text-[#1f3b64] md:h-12 md:w-12 md:text-base">
+                        {item.step}
+                      </span>
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f5f7fc] text-[#1f3b64] md:h-11 md:w-11">
+                        <StepIcon
+                          className="h-5 w-5 md:h-[22px] md:w-[22px]"
+                          aria-hidden
+                        />
+                      </span>
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="font-heading text-[16px] font-semibold leading-snug text-[#0f2e58] md:text-[17px]">
+                        {item.headline}
+                      </h4>
+                      <p className="mt-3 text-[13px] leading-relaxed text-[#4f5f75] md:text-[14px] md:leading-relaxed">
+                        {item.body}
+                      </p>
+                    </div>
+                  </article>
+                </li>
+              );
+            })}
+          </ol>
         </section>
 
         <section className="mt-14 md:mt-16 -mx-4 md:-mx-6 rounded-none bg-[#244a7d] px-6 py-14 md:py-16 text-center text-white">
