@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { FaqAccordion } from "../components/FaqAccordion";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   ShieldCheck,
@@ -159,6 +160,39 @@ const REALISTIC_TIMELINE_PHASES = [
 
 const REALISTIC_TIMELINE_DISCLAIMER =
   "Results vary based on the authority of the negative content and the number of negative results; we will give you an honest assessment in your first consultation.";
+
+const FINANCIAL_ADVISOR_FAQ_ITEMS = [
+  {
+    id: "legal-ethical",
+    question: "Is reputation suppression legal and ethical?",
+    answer:
+      "Entirely. We do not alter, hack, or tamper with any existing content. We build new, legitimate, high-quality content that earns its ranking through genuine authority.",
+  },
+  {
+    id: "finra-brokercheck",
+    question: "Can FINRA BrokerCheck records actually be suppressed?",
+    answer:
+      "The records remain on FINRA's database. What changes is whether those pages appear prominently when someone searches your name on Google. Through content strategy and SEO, it is entirely possible to move those results to page two or beyond.",
+  },
+  {
+    id: "discretion",
+    question: "Will my clients or colleagues know I am doing this?",
+    answer:
+      "No. Everything we do is outward-facing content building. The content we create — articles, profiles, website — simply appears as a natural part of your professional digital presence.",
+  },
+  {
+    id: "timeline-results",
+    question: "How long before I see results?",
+    answer:
+      "Meaningful displacement of primary negative results typically takes eight to twelve months, depending on the strength of what we are working against. We will give you a case-specific estimate in your initial consultation.",
+  },
+  {
+    id: "removal-vs-suppression",
+    question: "What if removal is possible?",
+    answer:
+      "Where genuine removal is possible — through privacy law requests, platform policy, or direct publisher outreach — we pursue it. Removal is always the preferred outcome. Suppression is the strategy we deploy when removal is not achievable.",
+  },
+];
 
 function FinancialAdvisorsProblemSection() {
   const [active, setActive] = useState(0);
@@ -626,6 +660,34 @@ function FinancialAdvisorsWhatReputation360Section() {
   );
 }
 
+function FinancialAdvisorsFaqSection() {
+  return (
+    <section
+      id="financial-advisor-faqs"
+      className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
+    >
+      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
+        FAQs
+      </h2>
+      <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
+      <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px]">
+        Tap a question to expand or collapse the answer.
+      </p>
+      <div className="mt-8 max-w-4xl space-y-4">
+        {FINANCIAL_ADVISOR_FAQ_ITEMS.map((item, index) => (
+          <FaqAccordion
+            key={item.id}
+            question={item.question}
+            defaultOpen={index === 0}
+          >
+            <p className="text-[15px] leading-relaxed">{item.answer}</p>
+          </FaqAccordion>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function FinancialAdvisorsRealisticTimelineSection() {
   const [active, setActive] = useState(0);
   const n = REALISTIC_TIMELINE_PHASES.length;
@@ -912,6 +974,8 @@ function FinancialAdvisorsPage() {
         <FinancialAdvisorsWhatReputation360Section />
 
         <FinancialAdvisorsRealisticTimelineSection />
+
+        <FinancialAdvisorsFaqSection />
 
         <section className="mt-14 md:mt-16 -mx-4 md:-mx-6 rounded-none bg-[#244a7d] px-6 py-14 md:py-16 text-center text-white">
           <p className="font-heading text-[32px] md:text-[56px] leading-[1.12] font-semibold max-w-5xl mx-auto">

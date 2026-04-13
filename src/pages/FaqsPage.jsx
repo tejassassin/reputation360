@@ -1,31 +1,10 @@
 import { useEffect } from "react";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { FaqAccordion } from "../components/FaqAccordion";
 import { calendlyNewTabProps } from "../constants/scheduling";
 
 const CTA_BG_IMAGE =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuBbAPklAKn9fFP2nNIPWazVHI3ZwR5Yz1EHjtS59wpqZaZsgbvsTNnn2DY2Z2ZFVsKpsDYYxaRRDxxADi_bhK7JtnubjYTxyKAy79ytFJBnE-Ut3T5hmToXxlsN6GXzKBRpB6Zc4YG-hWln8NC9ZPRDndtm08dWYUo5CThtOE9yfBsmV6F7T-JijeQtJDN61rY3B08b8OrtjubvsRJRVLEEkZJWpNYHajsEylcxi2x9QBrKL0EmGJg1BBlZ9Y2pvvqDdUKcJx8v2mM";
-
-function FaqAccordion({ question, defaultOpen, children }) {
-  return (
-    <details
-      className="faq-details group ha-lift overflow-hidden rounded-xl bg-white shadow-sm"
-      defaultOpen={defaultOpen}
-    >
-      <summary className="flex cursor-pointer list-none items-center justify-between p-6 [&::-webkit-details-marker]:hidden">
-        <span className="font-headline-faq text-lg font-semibold text-[#1F3B64]">
-          {question}
-        </span>
-        <ChevronDown
-          className="faq-chevron h-6 w-6 shrink-0 text-[#4CAF50] transition-transform"
-          aria-hidden
-        />
-      </summary>
-      <div className="border-t border-[#F5F7FA] px-6 pt-4 pb-6 leading-relaxed text-[#6B7280]">
-        {children}
-      </div>
-    </details>
-  );
-}
 
 function FaqSection({ id, title, children }) {
   return (
