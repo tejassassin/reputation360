@@ -484,6 +484,118 @@ function FinancialAdvisorsWhyHarderSection() {
   );
 }
 
+/** Title after "Step N —" for compact step tiles; falls back to full headline. */
+function faWhatWeDoStepLabel(headline) {
+  const m = headline.match(/^Step\s+\d+\s+\u2014\s*(.+)$/);
+  return m ? m[1].trim() : headline;
+}
+
+function FinancialAdvisorsWhatReputation360Section() {
+  const [active, setActive] = useState(0);
+  const item = REPUTATION360_FA_STEPS[active];
+  const ActiveIcon = item.Icon;
+
+  return (
+    <section
+      id="what-reputation360-does"
+      className="mt-16 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 md:mt-20 md:px-9 md:py-11"
+    >
+      <div className="mx-auto max-w-4xl text-center md:text-left">
+        <h3 className="font-heading text-[24px] font-bold leading-[1.15] text-[#0f2e58] md:text-[26px]">
+          What Reputation360 Does
+        </h3>
+        <div className="mx-auto mt-3 h-1.5 w-20 rounded-full bg-[#79df86] md:mx-0" />
+        <p className="mx-auto mt-3 max-w-xl text-[13px] text-[#5d6c80] md:mx-0">
+          Tap a step to read the full headline and description in the panel.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-8 grid max-w-5xl gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-stretch lg:gap-8">
+        <div>
+          <ul className="flex list-none flex-row gap-2 overflow-x-auto pb-1 pl-0 [-ms-overflow-style:none] [scrollbar-width:none] lg:flex-col lg:gap-2.5 lg:overflow-visible [&::-webkit-scrollbar]:hidden">
+            {REPUTATION360_FA_STEPS.map((stepItem, i) => {
+              const Icon = stepItem.Icon;
+              const selected = active === i;
+              const shortLabel = faWhatWeDoStepLabel(stepItem.headline);
+              return (
+                <li
+                  key={stepItem.step}
+                  className="min-w-0 shrink-0 lg:w-full lg:shrink"
+                >
+                  <button
+                    type="button"
+                    aria-pressed={selected}
+                    aria-label={`${stepItem.headline}. ${selected ? "Details shown in panel" : "Show this step in panel"}`}
+                    onClick={() => setActive(i)}
+                    className={`flex w-[min(280px,88vw)] items-center gap-3 rounded-2xl border px-3.5 py-3 text-left outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#1f3b64]/30 focus-visible:ring-offset-2 lg:w-full lg:px-4 lg:py-3.5 ${
+                      selected
+                        ? "border-[#1f3b64] bg-white shadow-[0_12px_28px_-14px_rgba(31,59,100,0.22)] ring-1 ring-[#1f3b64]/15"
+                        : "border-[#dfe6ee] bg-white/70 hover:border-[#1f3b64]/25 hover:bg-white"
+                    }`}
+                  >
+                    <span
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-[color,box-shadow,background-color] duration-200 ${
+                        selected
+                          ? "bg-[#e8eef9] text-[#0f2e58] shadow-[inset_0_0_0_2px_#0f2e58]"
+                          : "bg-[#f0f2f7] text-[#1f3b64]/80"
+                      }`}
+                    >
+                      <Icon
+                        className="h-5 w-5"
+                        aria-hidden
+                        strokeWidth={selected ? 2.25 : 1.75}
+                        absoluteStrokeWidth
+                      />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="font-heading text-[11px] font-bold tracking-wide text-[#1f3b64]/65 md:text-xs">
+                        Step {stepItem.step}
+                      </span>
+                      <span className="mt-0.5 block font-heading text-[13px] font-semibold leading-snug text-[#0f2e58] md:text-sm">
+                        {shortLabel}
+                      </span>
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="mt-2 text-center text-[11px] text-[#5d6c80] lg:hidden">
+            Swipe horizontally to see all steps
+          </p>
+        </div>
+
+        <aside
+          className="flex flex-col rounded-2xl border border-[#1f3b64]/10 bg-white p-5 shadow-sm md:p-6 lg:sticky lg:top-28 lg:self-start"
+          aria-live="polite"
+        >
+          <div className="flex items-start gap-3">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#e8eef9] text-[#0f2e58] shadow-[inset_0_0_0_2px_#0f2e58] md:h-12 md:w-12">
+              <ActiveIcon
+                className="h-5 w-5 text-[#0f2e58] md:h-6 md:w-6"
+                aria-hidden
+                strokeWidth={2.25}
+                absoluteStrokeWidth
+              />
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#1f3b64]/45">
+                This step
+              </p>
+              <h4 className="mt-1 font-heading text-[15px] font-bold leading-snug text-[#0f2e58] md:text-base">
+                {item.headline}
+              </h4>
+            </div>
+          </div>
+          <p className="mt-4 text-[14px] leading-relaxed text-[#3f4f66] md:mt-5 md:text-[15px] md:leading-relaxed">
+            {item.body}
+          </p>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
 function FinancialAdvisorsPage() {
   return (
     <main className="flex-1 pt-28 md:pt-32 bg-offwhite">
@@ -598,45 +710,7 @@ function FinancialAdvisorsPage() {
 
         <FinancialAdvisorsWhyHarderSection />
 
-        <section
-          id="what-reputation360-does"
-          className="mt-20 scroll-mt-28 md:mt-24"
-        >
-          <h3 className="font-heading text-[24px] md:text-[26px] leading-[1.15] text-[#0f2e58] font-bold">
-            What Reputation360 Does
-          </h3>
-          <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
-          <ol className="mt-10 max-w-3xl space-y-5">
-            {REPUTATION360_FA_STEPS.map((item) => {
-              const StepIcon = item.Icon;
-              return (
-                <li key={item.step}>
-                  <article className="ha-lift flex gap-4 rounded-2xl border border-[#dfe6ee] bg-white p-5 shadow-[0_8px_24px_-12px_rgba(31,59,100,0.08)] md:gap-5 md:p-6">
-                    <div className="flex shrink-0 flex-col items-center gap-2">
-                      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#edf0ff] font-heading text-sm font-bold text-[#1f3b64] md:h-12 md:w-12 md:text-base">
-                        {item.step}
-                      </span>
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f5f7fc] text-[#1f3b64] md:h-11 md:w-11">
-                        <StepIcon
-                          className="h-5 w-5 md:h-[22px] md:w-[22px]"
-                          aria-hidden
-                        />
-                      </span>
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="font-heading text-[16px] font-semibold leading-snug text-[#0f2e58] md:text-[17px]">
-                        {item.headline}
-                      </h4>
-                      <p className="mt-3 text-[13px] leading-relaxed text-[#4f5f75] md:text-[14px] md:leading-relaxed">
-                        {item.body}
-                      </p>
-                    </div>
-                  </article>
-                </li>
-              );
-            })}
-          </ol>
-        </section>
+        <FinancialAdvisorsWhatReputation360Section />
 
         <section className="mt-14 md:mt-16 -mx-4 md:-mx-6 rounded-none bg-[#244a7d] px-6 py-14 md:py-16 text-center text-white">
           <p className="font-heading text-[32px] md:text-[56px] leading-[1.12] font-semibold max-w-5xl mx-auto">
