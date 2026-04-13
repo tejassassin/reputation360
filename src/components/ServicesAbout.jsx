@@ -22,6 +22,7 @@ import {
   Share2,
   FileWarning,
   LineChart,
+  ChevronDown,
 } from "lucide-react";
 
 const whatWeDoCards = [
@@ -142,7 +143,7 @@ const ourResultsCards = [
       "Based on 200+ client engagements, 2019–2024. Results vary by case complexity and source authority.",
   },
   {
-    stat: "8–11 mo",
+    stat: "8–11 months",
     body: "Typical time to meaningful page one displacement for most cases",
     footnote:
       "Moderate cases. High-authority sources or active media coverage may take longer.",
@@ -185,30 +186,61 @@ const removalVsSuppressionStrategy = [
   { text: "Any situation requiring long-term search control", Icon: LineChart },
 ];
 
-const timeline = [
+const serviceTimelinePhases = [
   {
-    month: "Weeks 1 to 4",
-    text: "Audit complete, strategy live, initial content published and indexed.",
-    icon: "1",
-    iconClass: "bg-[#1f3b64] text-white",
+    id: "phase-01",
+    phase: "01",
+    range: "Weeks 1–4",
+    label: "Audit & launch",
+    detail:
+      "We map everything search engines currently show about you — every result, how strong it is, and how suppressible it is. Your strategy is set, content goes live on trusted sites, and you get your first report.",
   },
   {
-    month: "Months 2 to 4",
-    text: "Measurable movement in rankings. Positive properties gaining traction.",
-    icon: "2",
-    iconClass: "bg-[#7fb4e6] text-white",
+    id: "phase-02",
+    phase: "02",
+    range: "Months 2–4",
+    label: "Early movement",
+    detail:
+      "Your new content starts ranking. Positive results begin climbing. You will see measurable movement in your monthly report — this is where you first see the strategy working.",
   },
   {
-    month: "Months 5 to 8",
-    text: "Significant displacement of primary negative results for most cases.",
-    icon: "3",
-    iconClass: "bg-[#6f92bf] text-white",
+    id: "phase-03",
+    phase: "03",
+    range: "Months 5–8",
+    label: "Significant shift",
+    detail:
+      "For most clients, the main negative results drop off page one during this window. Positive content holds its positions. We keep publishing to reinforce and protect the gains made.",
   },
   {
-    month: "Months 8 to 12",
-    text: "Substantial transformation complete. Negative content pushed well beyond visible search pages.",
-    icon: "4",
-    iconClass: "bg-[#2a8c3e] text-white",
+    id: "phase-04",
+    phase: "04",
+    range: "Months 8–11",
+    label: "Full transformation",
+    detail:
+      "Substantial transformation holds: unwanted content stays deep in results while what competes for page one reflects your priorities. Cadence moves to protection and selective publishing so positions stay stable.",
+  },
+];
+
+const whoWeWorkWithCards = [
+  {
+    id: "individuals",
+    title: "Individuals",
+    body: "Anyone whose online presence does not reflect who they truly are.",
+  },
+  {
+    id: "executives",
+    title: "Founders, CEOs & executives",
+    body: "Leaders ensuring their influence and legacy are represented accurately online.",
+  },
+  {
+    id: "professionals",
+    title: "Doctors, lawyers & professionals",
+    body: "Physicians, Lawyers, Professionals and healthcare professionals managing their digital standing.",
+  },
+  {
+    id: "businesses",
+    title: "Businesses & brands",
+    body: "E-commerce, manufacturing, and consumer brands protecting their market reputation.",
   },
 ];
 
@@ -357,6 +389,9 @@ function FlagshipSuppressionSection() {
 
 function ServicesAbout() {
   const [removalFocus, setRemovalFocus] = useState(null);
+  const [timelinePhase, setTimelinePhase] = useState(0);
+  /** Index of expanded "Who we work with" card; null = all descriptions collapsed */
+  const [whoWeExpanded, setWhoWeExpanded] = useState(null);
 
   const removalLeftShell =
     "ha-lift relative flex h-full min-h-full min-w-0 w-full flex-col border-0 p-5 text-left outline-none transition-[box-shadow,background-color,ring,opacity] duration-200 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-navy/35 sm:p-6 md:p-7";
@@ -673,56 +708,140 @@ function ServicesAbout() {
         </div>
 
         <div>
-          <h3 className="text-center font-heading text-3xl text-navy font-bold tracking-tight">
+          <h3 className="text-center font-heading text-3xl font-bold tracking-tight text-navy md:text-4xl">
             How Long Does It Take?
           </h3>
-          <p className="mx-auto mt-3 max-w-4xl text-center text-base leading-relaxed text-navy/70">
-            Search results do not reorganise overnight. Here is an honest timeline
-            for most situations.
+          <p className="mx-auto mt-3 max-w-2xl text-center text-sm font-medium text-navy/55">
+            Click any phase to see what it involves.
           </p>
-          <div className="mt-14 grid gap-8 md:grid-cols-4">
-            {timeline.map((step) => (
-              <article key={step.month} className="ha-lift px-1">
-                <div
-                  className={`grid h-12 w-12 place-items-center rounded-xl text-lg font-semibold ${step.iconClass}`}
-                >
-                  {step.icon}
-                </div>
-                <p className="mt-6 text-lg font-semibold text-navy">
-                  {step.month}
+
+          <div className="mx-auto mt-8 max-w-5xl overflow-hidden rounded-xl border border-navy/12 bg-white shadow-[0_12px_40px_-24px_rgba(31,59,100,0.12)] md:mt-10 md:rounded-2xl">
+            <div
+              className="grid grid-cols-2 divide-x divide-navy/[0.08] border-b border-navy/10 md:grid-cols-4"
+              role="tablist"
+              aria-label="Campaign timeline phases"
+            >
+              {serviceTimelinePhases.map((ph, i) => {
+                const selected = timelinePhase === i;
+                return (
+                  <button
+                    key={ph.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={selected}
+                    id={`timeline-tab-${ph.id}`}
+                    aria-controls={`timeline-panel-${ph.id}`}
+                    onClick={() => setTimelinePhase(i)}
+                    onKeyDown={(e) => {
+                      if (e.key === "ArrowRight") {
+                        e.preventDefault();
+                        setTimelinePhase((p) =>
+                          Math.min(serviceTimelinePhases.length - 1, p + 1),
+                        );
+                      }
+                      if (e.key === "ArrowLeft") {
+                        e.preventDefault();
+                        setTimelinePhase((p) => Math.max(0, p - 1));
+                      }
+                      if (e.key === "Home") {
+                        e.preventDefault();
+                        setTimelinePhase(0);
+                      }
+                      if (e.key === "End") {
+                        e.preventDefault();
+                        setTimelinePhase(serviceTimelinePhases.length - 1);
+                      }
+                    }}
+                    className={`group relative px-3 py-4 text-left outline-none transition-[background-color,box-shadow,transform] duration-200 focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-navy/30 md:px-5 md:py-5 ${
+                      selected
+                        ? "bg-[#f2f5ff] shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]"
+                        : "bg-white hover:bg-[#f8fafc] hover:shadow-[inset_0_0_0_1px_rgba(31,59,100,0.04)] motion-safe:active:scale-[0.99]"
+                    }`}
+                  >
+                    <span
+                      className={`absolute left-3 right-3 top-0 h-[3px] rounded-b-full transition-colors duration-200 md:left-4 md:right-4 ${
+                        selected
+                          ? "bg-gradient-to-r from-[#1f3b64] via-[#2e5b88] to-[#2a8c3e]"
+                          : "bg-transparent group-hover:bg-navy/12"
+                      }`}
+                      aria-hidden
+                    />
+                    <span
+                      className={`inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] transition-colors duration-200 ${
+                        selected
+                          ? "bg-navy text-white shadow-sm"
+                          : "bg-navy/[0.08] text-navy/55 group-hover:bg-navy/[0.12] group-hover:text-navy/70"
+                      }`}
+                    >
+                      Phase {ph.phase}
+                    </span>
+                    <span
+                      className={`mt-2.5 block font-heading text-[15px] font-bold tracking-tight md:text-lg ${
+                        selected ? "text-navy" : "text-navy/88 group-hover:text-navy"
+                      }`}
+                    >
+                      {ph.range}
+                    </span>
+                    <span
+                      className={`mt-1 block text-[11px] font-medium leading-snug md:text-xs ${
+                        selected
+                          ? "text-navy/65"
+                          : "text-navy/55 group-hover:text-navy/65"
+                      }`}
+                    >
+                      {ph.label}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+            <AnimatePresence mode="wait" initial={false}>
+              <Motion.div
+                key={serviceTimelinePhases[timelinePhase].id}
+                id={`timeline-panel-${serviceTimelinePhases[timelinePhase].id}`}
+                role="tabpanel"
+                aria-labelledby={`timeline-tab-${serviceTimelinePhases[timelinePhase].id}`}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                className="w-full min-w-0 border-t border-navy/[0.06] bg-[#f2f5ff] px-4 py-5 md:px-8 md:py-7"
+              >
+                <p className="w-full max-w-none text-pretty text-sm leading-relaxed text-navy/85 md:text-base md:leading-relaxed">
+                  {serviceTimelinePhases[timelinePhase].detail}
                 </p>
-                <div className="mt-2 h-px w-full bg-navy/20" />
-                <p className="mt-4 text-base leading-relaxed text-navy/75">
-                  {step.text}
-                </p>
-              </article>
-            ))}
+              </Motion.div>
+            </AnimatePresence>
           </div>
         </div>
 
         <div>
-          <h3 className="text-center font-heading text-3xl text-navy font-bold">
-            Services
+          <h3 className="text-center font-heading text-3xl font-bold tracking-tight text-navy md:text-4xl">
+            Other Services
           </h3>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]">
+          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-4">
             <article className="ha-lift md:col-span-2 rounded-[26px] border border-navy/10 bg-[#dfe5f6] p-6 hover:border-[#d9f1d2] hover:bg-[#f6fdf3]">
               <Newspaper className="h-6 w-6 text-[#1f3b64]" />
               <h4 className="mt-4 font-heading text-[22px] md:text-[18px] leading-[1.2] font-semibold text-[#0f2343]">
                 Employer Branding &amp; Talent Reputation
               </h4>
-              <p className="mt-7 text-[15px] md:text-[13px] leading-[1.45] text-[#1a2c48]/85 max-w-[92%]">
-                Make your company the first choice for elite talent through positive
-                narrative control.
+              <p className="mt-5 text-[14px] leading-relaxed text-[#1a2c48]/85 md:text-[15px] md:leading-relaxed">
+                The best candidates have options. We make sure your company is the
+                one they choose — by shaping a workplace narrative that reflects your
+                culture, your values, and the opportunity you actually offer.
               </p>
             </article>
 
             <article className="ha-lift rounded-[26px] border border-navy/10 bg-white p-6 hover:border-[#d9f1d2] hover:bg-[#f6fdf3]">
               <UserCircle2 className="h-6 w-6 text-[#3b6488]" />
-              <h4 className="mt-10 font-heading text-[22px] md:text-[18px] leading-[1.2] font-semibold text-[#142844]">
+              <h4 className="mt-6 font-heading text-[22px] md:text-[18px] leading-[1.2] font-semibold text-[#142844] md:mt-8">
                 LinkedIn Branding
               </h4>
-              <p className="mt-7 text-[14px] md:text-[13px] leading-[1.45] text-[#1a2c48]/85 max-w-[95%]">
-                Elevating executive profiles to industry-leader status.
+              <p className="mt-5 text-[14px] leading-relaxed text-[#1a2c48]/85 md:text-[15px] md:leading-relaxed">
+                A well-built LinkedIn presence opens doors before you knock. We craft
+                profiles and content strategies that position you as the authority you
+                are — and keep you visible to the people who matter most in your
+                industry.
               </p>
             </article>
 
@@ -734,35 +853,39 @@ function ServicesAbout() {
                   <br />
                   Leadership
                 </h4>
-                <p className="mt-4 text-[14px] md:text-[13px] leading-[1.45] text-white/85">
-                  Curated editorial placements in high-authority professional
-                  publications.
+                <p className="mt-4 text-[14px] leading-relaxed text-white/88 md:text-[15px] md:leading-relaxed">
+                  Your expertise deserves an audience. We secure editorial placements
+                  in the publications your industry reads — so your insights reach the
+                  clients, partners, and peers who shape your next opportunity.
                 </p>
               </div>
             </article>
 
             <article className="ha-lift rounded-[26px] border border-[#b8dfc0] bg-[#d7f0db] p-6 hover:border-[#d9f1d2] hover:bg-[#f6fdf3]">
               <ArrowUpRight className="h-6 w-6 text-[#123d1e]" />
-              <h4 className="mt-9 font-heading text-[22px] md:text-[18px] leading-[1.18] font-semibold text-[#13273f]">
+              <h4 className="mt-6 font-heading text-[22px] md:text-[18px] leading-[1.18] font-semibold text-[#13273f] md:mt-8">
                 Performance
                 <br />
                 Marketing
               </h4>
-              <p className="mt-6 text-[14px] md:text-[13px] leading-[1.45] text-[#1a2c48]/85 max-w-[95%]">
-                Targeted campaigns to boost specific positive assets.
+              <p className="mt-5 text-[14px] leading-relaxed text-[#1a2c48]/85 md:text-[15px] md:leading-relaxed">
+                Visibility without strategy is noise. We run targeted campaigns that put
+                the right message in front of the right audience — driving measurable
+                outcomes for your brand, your content, and your business goals.
               </p>
             </article>
 
             <article className="ha-lift md:col-span-2 rounded-[26px] border border-navy/10 bg-white p-6 hover:border-[#d9f1d2] hover:bg-[#f6fdf3]">
               <MessageSquareText className="h-6 w-6 text-[#1f3b64]" />
               <div className="mt-6 flex items-start justify-between gap-6">
-                <div>
+                <div className="min-w-0">
                   <h4 className="font-heading text-[22px] md:text-[18px] leading-[1.2] font-semibold text-[#111f37]">
                     Consultation &amp; Branding
                   </h4>
-                  <p className="mt-3 text-[14px] md:text-[13px] leading-[1.45] text-[#1a2c48]/85 max-w-[92%]">
-                    One-on-one strategic advisory for high-net-worth individuals and
-                    crisis-ready corporations.
+                  <p className="mt-3 text-[14px] leading-relaxed text-[#1a2c48]/85 md:text-[15px] md:leading-relaxed">
+                    Every brand has a story. We help you find it, sharpen it, and
+                    communicate it consistently — across every channel, every
+                    touchpoint, and every conversation that matters to your growth.
                   </p>
                 </div>
                 <div className="mt-2 inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#072f5f] text-white">
@@ -770,6 +893,69 @@ function ServicesAbout() {
                 </div>
               </div>
             </article>
+          </div>
+        </div>
+
+        <div id="who-we-work-with" className="scroll-mt-28">
+          <h3 className="text-center font-heading text-3xl font-bold tracking-tight text-navy md:text-4xl">
+            Who We Work With
+          </h3>
+          <p className="mx-auto mt-3 max-w-xl text-center text-sm text-navy/55">
+            Choose a category to read who we support — tap again to close.
+          </p>
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-8 md:gap-5">
+            {whoWeWorkWithCards.map((card, i) => {
+              const expanded = whoWeExpanded === i;
+              return (
+                <div
+                  key={card.id}
+                  className={`overflow-hidden rounded-2xl border bg-white transition-[border-color,box-shadow] duration-200 ${
+                    expanded
+                      ? "border-navy/25 shadow-md ring-2 ring-navy/10"
+                      : "border-navy/10 shadow-sm hover:border-navy/18 hover:shadow-[0_12px_32px_-18px_rgba(31,59,100,0.1)]"
+                  }`}
+                >
+                  <button
+                    type="button"
+                    aria-expanded={expanded}
+                    aria-controls={`who-desc-${card.id}`}
+                    id={`who-trigger-${card.id}`}
+                    onClick={() =>
+                      setWhoWeExpanded((prev) => (prev === i ? null : i))
+                    }
+                    className="flex w-full items-start justify-between gap-3 p-6 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-navy/30 md:p-7 md:pl-8 md:pr-6"
+                  >
+                    <h4 className="min-w-0 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
+                      {card.title}
+                    </h4>
+                    <ChevronDown
+                      className={`mt-0.5 h-5 w-5 shrink-0 text-navy/40 transition-transform duration-200 ${
+                        expanded ? "rotate-180 text-navy/70" : ""
+                      }`}
+                      aria-hidden
+                    />
+                  </button>
+                  <div
+                    className={`grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${
+                      expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <div className="min-h-0 overflow-hidden">
+                      <div
+                        id={`who-desc-${card.id}`}
+                        role="region"
+                        aria-labelledby={`who-trigger-${card.id}`}
+                        className="border-t border-navy/10 px-6 pb-6 pt-1 md:px-8 md:pb-7"
+                      >
+                        <p className="text-sm leading-relaxed text-navy/75 md:text-[15px] md:leading-relaxed">
+                          {card.body}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
