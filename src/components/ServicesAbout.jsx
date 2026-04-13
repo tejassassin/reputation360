@@ -229,17 +229,17 @@ const whoWeWorkWithCards = [
   },
   {
     id: "executives",
-    title: "Founders, CEOs & executives",
+    title: "Founders, CEOs & Executives",
     body: "Leaders ensuring their influence and legacy are represented accurately online.",
   },
   {
     id: "professionals",
-    title: "Doctors, lawyers & professionals",
+    title: "Doctors, Lawyers & Professionals",
     body: "Physicians, Lawyers, Professionals and healthcare professionals managing their digital standing.",
   },
   {
     id: "businesses",
-    title: "Businesses & brands",
+    title: "Businesses & Brands",
     body: "E-commerce, manufacturing, and consumer brands protecting their market reputation.",
   },
 ];
