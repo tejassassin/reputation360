@@ -6,9 +6,6 @@ import {
   AlertTriangle,
   UserRoundX,
   Newspaper,
-  BadgeCheck,
-  Hammer,
-  Activity,
   Eye,
   UserSearch,
   FileText,
@@ -862,121 +859,7 @@ function JobSeekersPage() {
 
         <JobSeekersRealisticTimelineSection />
 
-        <section className="mt-28 md:mt-32 grid md:grid-cols-[1.05fr_1fr] gap-10 md:gap-12 items-start">
-          <div className="grid grid-cols-2 gap-4">
-            <article className="ha-lift min-h-[210px] rounded-2xl border border-[#d8deea] bg-[#e6eaf8] p-7 md:p-8">
-              <div className="h-8 w-8 rounded-full grid place-items-center text-[#1f3b64]">
-                <Eye className="h-5 w-5" />
-              </div>
-              <h3 className="mt-8 font-heading text-[16px] md:text-[18px] leading-tight font-semibold text-[#1a2f4f]">
-                Public &amp; Visible
-              </h3>
-              <p className="mt-5 text-[13px] md:text-[14px] leading-[1.45] text-[#4f5f75]">
-                Search results shape recruiter perception before your resume is
-                read in full.
-              </p>
-            </article>
-            <article className="ha-lift min-h-[210px] rounded-2xl border border-[#d8deea] bg-[#e6eaf8] p-7 md:p-8">
-              <div className="h-8 w-8 rounded-full grid place-items-center text-[#1f3b64]">
-                <Search className="h-5 w-5" />
-              </div>
-              <h3 className="mt-8 font-heading text-[16px] md:text-[18px] leading-tight font-semibold text-[#1a2f4f]">
-                Recruiter Indexed
-              </h3>
-              <p className="mt-5 text-[13px] md:text-[14px] leading-[1.45] text-[#4f5f75]">
-                Employer-side checks often surface outdated links ahead of current
-                professional achievements.
-              </p>
-            </article>
-          </div>
-          <div className="pt-1">
-            <h2 className="font-heading text-[30px] md:text-[42px] leading-[1.1] text-[#0f2e58] font-bold">
-              What Can Show Up Against You
-            </h2>
-            <p className="mt-5 text-[#3f4f66] text-[16px] md:text-[17px] leading-[1.6]">
-              Old media mentions, forum commentary, and irrelevant profile links
-              can rank unexpectedly and create doubt.
-            </p>
-            <p className="mt-6 text-[#3f4f66] text-[16px] md:text-[17px] leading-[1.6]">
-              We focus on practical suppression and content elevation so recruiters
-              see evidence of capability, not noise.
-            </p>
-          </div>
-        </section>
-
-        <section className="mt-20 md:mt-24 -mx-4 md:-mx-6 px-4 md:px-6 py-12 md:py-14 bg-[#edeef9]">
-          <h3 className="text-center font-heading text-[24px] md:text-[30px] leading-[1.15] text-[#0f2e58] font-bold">
-            What Can Show Up Against You
-          </h3>
-          <p className="text-center text-[#5a6780] mt-3 text-[12px] md:text-[13px] leading-[1.45] max-w-3xl mx-auto">
-            Different search results can affect recruiter confidence before first
-            contact.
-          </p>
-
-          <div className="mt-10 grid md:grid-cols-[2fr_1fr] gap-4">
-            <article className="ha-lift flex min-h-[230px] flex-col rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7">
-              <Newspaper className="h-6 w-6 text-[#89e89a]" />
-              <h4 className="mt-6 font-heading text-[17px] md:text-[20px] leading-[1.2] font-semibold text-[#17375f]">
-                Old News &amp; Legal Records
-              </h4>
-              <p className="mt-4 text-[12px] md:text-[13px] leading-[1.55] text-[#4f5f75] max-w-[95%]">
-                Historical stories or legal references that no longer represent
-                who you are today.
-              </p>
-              <div className="mt-auto pt-6 border-t border-[#e6eaf2] text-[10px] md:text-[11px] tracking-[0.16em] uppercase font-semibold text-[#3d506d]">
-                Visibility Level: High
-              </div>
-            </article>
-
-            <article className="ha-lift min-h-[230px] rounded-3xl border border-[#0b3f79] bg-[#072f5f] p-6 text-white md:p-7">
-              <UserRoundX className="h-6 w-6 text-[#8ce596]" />
-              <h4 className="mt-6 font-heading text-[17px] md:text-[20px] leading-[1.2] font-semibold">
-                Irrelevant Social Content
-              </h4>
-              <p className="mt-4 text-[12px] md:text-[13px] leading-[1.55] text-white/82">
-                Personal posts or mismatched profiles that dilute professional
-                credibility.
-              </p>
-            </article>
-          </div>
-
-          <div className="mt-4 grid md:grid-cols-3 gap-4">
-            <article className="ha-lift min-h-[190px] rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7">
-              <Activity className="h-6 w-6 text-[#1f3b64]" />
-              <h4 className="mt-6 font-heading text-[16px] md:text-[18px] leading-[1.2] font-semibold text-[#17375f]">
-                Mistaken Identity
-              </h4>
-              <p className="mt-3 text-[12px] md:text-[13px] leading-[1.5] text-[#4f5f75]">
-                Similar-name profiles or records that create confusion in search
-                results.
-              </p>
-            </article>
-
-            <article className="ha-lift min-h-[190px] rounded-3xl border border-[#0b3f79] bg-[#072f5f] p-6 text-white md:p-7">
-              <BadgeCheck className="h-6 w-6 text-[#8ce596]" />
-              <h4 className="mt-6 font-heading text-[16px] md:text-[18px] leading-[1.2] font-semibold">
-                Defamation and Fiction
-              </h4>
-              <p className="mt-3 text-[12px] md:text-[13px] leading-[1.5] text-white/82">
-                False or misleading online material that does not reflect your real
-                trajectory.
-              </p>
-            </article>
-
-            <article className="ha-lift min-h-[190px] rounded-3xl border border-[#d9dfeb] bg-white p-6 md:p-7">
-              <Hammer className="h-6 w-6 text-[#1f3b64]" />
-              <h4 className="mt-6 font-heading text-[16px] md:text-[18px] leading-[1.2] font-semibold text-[#17375f]">
-                Media Mentions
-              </h4>
-              <p className="mt-3 text-[12px] md:text-[13px] leading-[1.5] text-[#4f5f75]">
-                Mentions that over-index a past issue and suppress your current
-                achievements.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section className="bg-white px-4 py-12 text-center md:py-16">
+        <section className="mt-16 md:mt-20 bg-white px-4 py-12 text-center md:py-16">
           <h3 className="mx-auto max-w-3xl font-heading text-[28px] font-bold leading-tight text-[#1a365d] md:text-[36px] md:leading-[1.2] lg:text-[40px]">
             Your Search Results Should Open Doors, Not Close Them
           </h3>
