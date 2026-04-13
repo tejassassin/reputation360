@@ -984,7 +984,7 @@ function JobSeekersPage() {
               Your past does not have to follow you into every future opportunity.
             </span>
             <span className="mt-2 block whitespace-nowrap text-[19px] font-semibold md:text-[23px]">
-              We make sure the first thing a recruiter finds is the professional you are today.
+              We make sure it doesn&apos;t.
             </span>
           </p>
           <a
