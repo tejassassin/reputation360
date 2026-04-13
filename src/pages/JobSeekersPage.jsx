@@ -3,6 +3,7 @@ import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   ShieldCheck,
   Search,
+  Check,
   AlertTriangle,
   UserRoundX,
   Newspaper,
@@ -614,6 +615,51 @@ function JobSeekersRealisticTimelineSection() {
   );
 }
 
+function JobSeekersMarketInsightBanner() {
+  return (
+    <section id="job-seeker-market-insight" className="mt-10 scroll-mt-28 md:mt-12">
+      <div className="flex flex-col gap-8 rounded-[28px] bg-[linear-gradient(90deg,#1b3152_0%,#243d5c_55%,#2a4668_100%)] px-6 py-8 text-white shadow-[0_12px_32px_rgba(27,49,82,0.25)] md:flex-row md:items-center md:justify-between md:gap-10 md:px-10 md:py-10">
+        <div className="min-w-0 flex-1">
+          <p className="inline-flex rounded-full bg-[#24403b] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#66bb6a]">
+            Market Insight
+          </p>
+          <h2 className="mt-4 font-heading text-[28px] font-bold leading-[1.15] md:text-[36px] lg:text-[42px]">
+            <span className="text-[#4eab66]">77%</span>
+            <span className="text-white">
+              {" "}
+              of recruiters research candidates online before the first call.
+            </span>
+          </h2>
+          <p className="mt-4 text-[14px] leading-[1.5] text-white/90 md:text-[15px]">
+            Over <strong className="font-semibold text-white">56%</strong> have
+            rejected a candidate based on what they found.{" "}
+            <em className="text-white/80">(Source: CareerBuilder)</em>
+          </p>
+        </div>
+        <div className="flex shrink-0 justify-center md:justify-end">
+          <div className="flex h-[88px] w-[88px] items-center justify-center rounded-2xl border-2 border-[#4eab66] bg-transparent md:h-[100px] md:w-[100px]">
+            <div className="relative flex h-14 w-14 items-center justify-center md:h-16 md:w-16">
+              <Search
+                className="absolute text-white"
+                strokeWidth={1.75}
+                size={56}
+                aria-hidden
+              />
+              <Check
+                className="relative z-10 text-white"
+                strokeWidth={3}
+                size={22}
+                style={{ marginTop: "-4px" }}
+                aria-hidden
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function JobSeekersProblemSection() {
   const [active, setActive] = useState(0);
   const activeTile = JOB_SEEKER_PROBLEM_TILES[active];
@@ -856,6 +902,8 @@ function JobSeekersPage() {
         <JobSeekersWhyDifficultSection />
 
         <JobSeekersWhatReputation360Section />
+
+        <JobSeekersMarketInsightBanner />
 
         <JobSeekersRealisticTimelineSection />
 
