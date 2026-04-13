@@ -87,7 +87,7 @@ function JobSeekersPage() {
               className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(3,12,26,0.82)_0%,rgba(4,18,36,0.35)_28%,transparent_42%,rgba(4,18,36,0.4)_58%,rgba(3,12,24,0.92)_82%,#020a14_100%)]"
               aria-hidden
             />
-            <div className="relative z-10 flex min-h-[340px] md:min-h-[500px] flex-col justify-end p-8 md:p-10 text-white">
+            <div className="relative z-10 flex min-h-[340px] flex-col justify-end p-8 font-heading text-white antialiased md:min-h-[500px] md:p-10">
               <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[#4a1528] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white">
                 <span className="h-2 w-2 shrink-0 rounded-full bg-red-500" />
                 THE INVISIBLE BARRIER
@@ -96,9 +96,14 @@ function JobSeekersPage() {
                 <UserSearch className="h-5 w-5 shrink-0 text-white/90" />
                 <div className="h-px flex-1 bg-white/35" />
               </div>
-              <p className="mt-5 max-w-[22ch] text-2xl font-semibold leading-[1.2] md:max-w-[26ch] md:text-3xl">
-                A recruiter searches your name before the first interview.
-              </p>
+              <h2 className="fa-invisible-leak-headline mt-5 w-full max-w-none font-heading text-[26px] font-bold leading-[1.08] tracking-tight sm:text-[30px] md:text-[34px]">
+                <span className="block whitespace-nowrap">
+                  A recruiter searches your name
+                </span>
+                <span className="block whitespace-nowrap">
+                  before the first interview.
+                </span>
+              </h2>
             </div>
           </div>
           <div className="flex flex-col justify-center bg-[#072f5f] p-7 text-white md:p-9">

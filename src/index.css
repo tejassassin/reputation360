@@ -151,10 +151,9 @@
     }
   }
 
-  /* FA “Invisible Leak” headline: same Inter scale as “Problem Financial Professionals” */
+  /* FA “Invisible Leak” + Job Seekers “Invisible Barrier” moment headline (shared) */
   h2.fa-invisible-leak-headline {
     font-optical-sizing: auto;
-    font-weight: 400;
     margin: 0;
   }
 }

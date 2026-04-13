@@ -1017,12 +1017,12 @@ function FinancialAdvisorsPage() {
                 />
                 <div className="h-px flex-1 bg-white/30" />
               </div>
-              <h2 className="fa-invisible-leak-headline mt-5 w-full max-w-none font-heading text-[clamp(14px,3.2vw,19px)] font-normal leading-[1.12] text-white md:text-[23px] md:leading-[1.1]">
+              <h2 className="fa-invisible-leak-headline mt-5 w-full max-w-none font-heading text-[26px] font-bold leading-[1.08] tracking-tight sm:text-[30px] md:text-[34px]">
                 <span className="block whitespace-nowrap">
-                  A client searches your name before
+                  A client searches your name
                 </span>
                 <span className="block whitespace-nowrap">
-                  their next meeting.
+                  before the first interview.
                 </span>
               </h2>
             </div>
