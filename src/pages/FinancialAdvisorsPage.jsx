@@ -23,13 +23,23 @@ function FinancialAdvisorsPage() {
             <p className="inline-flex rounded-xl bg-[#2a8c3e] px-4 py-2 text-xs tracking-[0.16em] font-semibold uppercase text-white">
               Who we serve?
             </p>
-            <h1 className="mt-7 font-heading text-5xl md:text-6xl leading-[1.02] text-[#0f2e58] font-bold">
-              Is a FINRA Disclosure Costing You Clients Before They Even Call?
+            <h1 className="mt-7 font-heading text-4xl font-bold leading-[1.08] text-[#0f2e58] md:text-5xl md:leading-[1.05]">
+              Your Clients Research You Before Every Meeting. What Are They
+              Finding?
             </h1>
-            <p className="mt-7 text-[#4f5f75] text-lg md:text-xl leading-[1.45] max-w-[560px]">
-              Ensure your digital reputation reflects your true professional
-              integrity before a prospect ever hits 'Search'.
-            </p>
+            <div className="mt-7 max-w-[560px] space-y-4 text-base leading-relaxed text-[#4f5f75] md:text-lg md:leading-relaxed">
+              <p>
+                A prospective client searches your name before taking your call.
+                In under sixty seconds, they have formed a judgment. Not based on
+                your track record. Not based on your certifications or your years in
+                practice. Based entirely on what Google decided to show them.
+              </p>
+              <p>
+                If what appears is a regulatory disclosure, a news article covering
+                an investigation, or a complaint on a financial forum — they
+                quietly move on. You never find out. But it keeps happening.
+              </p>
+            </div>
             <a
               {...calendlyNewTabProps}
               className="ha-pill mt-8 inline-flex items-center gap-2 rounded-[10px] bg-[#072f5f] px-7 py-4 text-base font-semibold text-white shadow-[0_8px_20px_rgba(7,47,95,0.28)] hover:bg-[#0b3c75] md:text-lg"
