@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { FaqAccordion } from "../components/FaqAccordion";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   ShieldCheck,
@@ -185,6 +186,40 @@ const REALISTIC_TIMELINE_PHASES = [
 
 const REALISTIC_TIMELINE_DISCLAIMER =
   "Results vary based on the authority of the negative content and the number of negative results; we will give you an honest assessment in your first consultation.";
+
+const JOB_SEEKER_FAQ_ITEMS = [
+  {
+    id: "legal-ethical",
+    question: "Is reputation suppression legal and ethical?",
+    answer:
+      "Entirely. We do not alter, hack, or tamper with any existing content. We build new, legitimate, high-quality content that earns its ranking through genuine authority.",
+  },
+  {
+    id: "removal-google",
+    question: "Can old content really be removed from Google?",
+    answer:
+      "Sometimes, yes. Depending on the platform, the nature of the content, and applicable privacy laws, direct removal is possible. We pursue removal wherever it is achievable. Where it is not, suppression achieves the same practical outcome.",
+  },
+  {
+    id: "vs-linkedin",
+    question: "How is this different from just improving my LinkedIn?",
+    answer:
+      "LinkedIn optimization is one part of what we do, but on its own it rarely displaces content that has built significant ranking authority. A strategic, multi-property approach is required to reliably move negative results down.",
+  },
+  {
+    id: "where-to-start",
+    question:
+      "I'm not sure if anything bad appears for my name. Where do I start?",
+    answer:
+      "Start with a free consultation. We will run the search and show you exactly what we find.",
+  },
+  {
+    id: "timeline-results",
+    question: "How long does it take to see results?",
+    answer:
+      "For most job seekers, meaningful displacement of the primary damaging result happens within two to four months. More complex situations may take up to eight to twelve months. We will give you an honest estimate upfront.",
+  },
+];
 
 function JobSeekersScaleSection() {
   const [active, setActive] = useState(0);
@@ -615,6 +650,34 @@ function JobSeekersRealisticTimelineSection() {
   );
 }
 
+function JobSeekersFaqSection() {
+  return (
+    <section
+      id="job-seeker-faqs"
+      className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
+    >
+      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
+        FAQs
+      </h2>
+      <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
+      <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px]">
+        Tap a question to expand or collapse the answer.
+      </p>
+      <div className="mt-8 max-w-4xl space-y-4">
+        {JOB_SEEKER_FAQ_ITEMS.map((item, index) => (
+          <FaqAccordion
+            key={item.id}
+            question={item.question}
+            defaultOpen={index === 0}
+          >
+            <p className="text-[15px] leading-relaxed">{item.answer}</p>
+          </FaqAccordion>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function JobSeekersMarketInsightBanner() {
   return (
     <section id="job-seeker-market-insight" className="mt-10 scroll-mt-28 md:mt-12">
@@ -913,6 +976,8 @@ function JobSeekersPage() {
         <JobSeekersMarketInsightBanner />
 
         <JobSeekersRealisticTimelineSection />
+
+        <JobSeekersFaqSection />
 
         <section className="mt-16 md:mt-20 bg-white px-4 py-12 text-center md:py-16">
           <h3 className="mx-auto max-w-3xl font-heading text-[28px] font-bold leading-tight text-[#1a365d] md:text-[36px] md:leading-[1.2] lg:text-[40px]">
