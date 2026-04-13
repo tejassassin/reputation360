@@ -151,6 +151,10 @@ const howWeWorkSteps = [
 
 const whatWeDont = [
   {
+    title: "No Unethical Engagements",
+    text: "We are selective — and we are proud of it. Integrity is at the core of everything we do. We only take on clients whose reputations are worth restoring. We do not represent individuals involved in exploitation, organised crime, or conduct that causes deliberate harm to others.",
+  },
+  {
     title: "No Black-Hat Tactics",
     text: "Everything we build is designed to last. No shortcuts, no tricks, no methods that create short-term results and long-term damage.",
   },
@@ -887,16 +891,11 @@ function AboutPage() {
       >
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-12 text-center md:mb-16">
-            <h2 className={`${headlineFont} mb-4 text-3xl font-extrabold text-[#4CAF50] md:text-[2rem]`}>
+            <h2
+              className={`${headlineFont} mb-10 text-3xl font-extrabold text-[#4CAF50] md:mb-12 md:text-[2rem]`}
+            >
               What We Don&apos;t Do
             </h2>
-            <p className="mx-auto max-w-4xl text-base leading-relaxed text-slate-300 md:text-lg">
-              We are selective — and we are proud of it. Integrity is at the core
-              of everything we do. We only take on clients whose reputations are
-              worth restoring. We do not represent individuals involved in
-              exploitation, organised crime, or conduct that causes deliberate
-              harm to others.
-            </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {whatWeDont.map(({ title, text }) => (
@@ -905,21 +904,16 @@ function AboutPage() {
                 className="group rounded-2xl border border-white/10 bg-white/5 p-10 transition-all hover:bg-white/10"
               >
                 <div className="mb-6 flex items-center gap-4">
-                  <XCircle className="h-8 w-8 shrink-0 text-red-400" strokeWidth={2} />
+                  <XCircle
+                    className="h-8 w-8 shrink-0 text-red-400"
+                    strokeWidth={2}
+                    aria-hidden
+                  />
                   <h3 className={`${headlineFont} text-lg font-extrabold`}>{title}</h3>
                 </div>
                 <p className="text-sm leading-relaxed text-slate-400">{text}</p>
               </div>
             ))}
-            <div className="flex flex-col justify-center rounded-2xl border border-[#4CAF50]/20 bg-[#4CAF50]/10 p-10">
-              <h3 className={`${headlineFont} mb-2 text-lg font-extrabold text-[#4CAF50]`}>
-                Our Promise
-              </h3>
-              <p className="text-sm italic leading-relaxed text-slate-300">
-                Clean, ethical, and permanent results that respect the platforms
-                and the law.
-              </p>
-            </div>
           </div>
         </div>
       </section>
