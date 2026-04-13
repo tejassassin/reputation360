@@ -232,6 +232,39 @@ function JobSeekersScaleSection() {
   );
 }
 
+function JobSeekersWhyDifficultSection() {
+  return (
+    <section
+      id="why-particularly-difficult-job-seekers"
+      className="mt-16 scroll-mt-28 rounded-[24px] border border-[#e4e6ec] bg-[#f9f9f9] px-6 py-10 md:mt-20 md:px-12 md:py-14"
+    >
+      <div className="mx-auto max-w-3xl text-left">
+        <h2 className="font-serif text-[24px] font-bold leading-[1.2] text-[#141820] md:text-[30px] md:leading-[1.15]">
+          Why This Is Particularly Difficult for Job Seekers
+        </h2>
+        <div className="mt-8 space-y-6 font-serif text-[16px] leading-[1.75] text-[#252830] md:text-[17px] md:leading-[1.78]">
+          <p>
+            Unlike a business that can invest in ongoing brand management, a job
+            seeker is typically navigating this alone — often during an already
+            stressful period of transition.
+          </p>
+          <p>
+            There is also a timing problem. The damage is happening now, with
+            every application you submit — but you will not receive clear feedback
+            telling you that your search results are the issue. You may interpret
+            silence as a skills gap or a competitive market, when the real obstacle
+            is something Google is showing that you have never even looked at.
+          </p>
+          <p>
+            Every week your search results remain unchanged is another set of
+            opportunities quietly closing.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function JobSeekersProblemSection() {
   const [active, setActive] = useState(0);
   const activeTile = JOB_SEEKER_PROBLEM_TILES[active];
@@ -470,6 +503,8 @@ function JobSeekersPage() {
         <JobSeekersProblemSection />
 
         <JobSeekersScaleSection />
+
+        <JobSeekersWhyDifficultSection />
 
         <section className="mt-28 md:mt-32 grid md:grid-cols-[1.05fr_1fr] gap-10 md:gap-12 items-start">
           <div className="grid grid-cols-2 gap-4">
