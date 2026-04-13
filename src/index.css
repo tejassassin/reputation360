@@ -150,6 +150,13 @@
       font-size: 1.125rem; /* text-lg */
     }
   }
+
+  /* FA “Invisible Leak” headline: same Inter scale as “Problem Financial Professionals” */
+  h2.fa-invisible-leak-headline {
+    font-optical-sizing: auto;
+    font-weight: 400;
+    margin: 0;
+  }
 }
 
 @layer base {

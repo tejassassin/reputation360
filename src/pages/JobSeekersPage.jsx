@@ -18,8 +18,17 @@ function JobSeekersPage() {
   return (
     <main className="flex-1 pt-28 md:pt-32 bg-offwhite">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 space-y-10">
-        <section className="rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:px-4 md:py-7 grid gap-5 md:grid-cols-[1.03fr_0.97fr] items-start">
-          <div className="max-w-[570px]">
+        <section className="relative overflow-hidden rounded-[8px] px-3 py-6 md:px-4 md:py-7 grid gap-5 md:grid-cols-[1.03fr_0.97fr] items-start">
+          <div
+            className="pointer-events-none absolute inset-0 bg-cover bg-[center_30%]"
+            style={{ backgroundImage: "url('/job-seekers-reference.png')" }}
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(110deg,rgba(236,236,248,0.92)_0%,rgba(238,243,246,0.9)_70%,rgba(237,247,243,0.92)_100%)]"
+            aria-hidden
+          />
+          <div className="relative z-10 max-w-[570px]">
             <p className="inline-flex rounded-xl bg-[#2a8c3e] px-3.5 py-1.5 text-[10px] tracking-[0.14em] font-semibold uppercase text-white shadow-[0_2px_6px_rgba(42,140,62,0.35)]">
               JOB SEEKER SOLUTIONS
             </p>
@@ -37,7 +46,7 @@ function JobSeekersPage() {
               Get a Free Reputation Audit
             </a>
           </div>
-          <div className="rounded-[6px] bg-[linear-gradient(180deg,#e8f5ef_0%,#e7f4ee_100%)] px-3 py-3 md:px-4 md:py-4 space-y-3 pt-1">
+          <div className="relative z-10 rounded-[6px] bg-[linear-gradient(180deg,#e8f5ef_0%,#e7f4ee_100%)] px-3 py-3 md:px-4 md:py-4 space-y-3 pt-1">
             {[
               {
                 title: "Trust Restored",

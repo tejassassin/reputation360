@@ -991,18 +991,40 @@ function FinancialAdvisorsPage() {
         </section>
 
         <section className="mt-10 md:mt-14 grid md:grid-cols-[1fr_1fr] overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)]">
-          {/* Same layering pattern as Job Seekers “moment” panel: image + wash + HTML pill (no text baked into art showing through) */}
-          <div className="relative min-h-[360px] md:min-h-[520px]">
+          <div className="relative min-h-[360px] overflow-hidden bg-[#071a33] md:min-h-[520px]">
             <div
-              className="absolute inset-0 bg-cover bg-[center_22%]"
+              className="pointer-events-none absolute inset-0 origin-[center_26%] scale-[1.22] bg-cover bg-[center_24%] bg-no-repeat"
               style={{ backgroundImage: "url('/finra-invisible-leak.png')" }}
+              aria-hidden
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#041a30]/95 via-[#072f5f]/80 to-[#0d4a7a]/65" />
-            <div className="relative flex min-h-[360px] flex-col justify-end p-8 text-white md:min-h-[520px] md:p-10">
-              <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[#4a1528] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white">
+            <div
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_58%_50%_at_50%_30%,rgba(90,130,190,0.18)_0%,transparent_62%)]"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,transparent_38%,rgba(5,17,38,0.45)_58%,rgba(5,18,40,0.88)_78%,#051126_100%)]"
+              aria-hidden
+            />
+            <div className="relative z-10 flex min-h-[360px] flex-col justify-end p-8 font-heading text-white antialiased md:min-h-[520px] md:p-10">
+              <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#6b2a36] bg-black/40 px-3 py-1.5 text-[11px] font-bold uppercase leading-none tracking-[0.14em] text-white backdrop-blur-[2px]">
                 <span className="h-2 w-2 shrink-0 rounded-full bg-red-500" />
                 THE INVISIBLE LEAK
               </div>
+              <div className="mt-5 flex items-center gap-3">
+                <Search
+                  className="h-5 w-5 shrink-0 text-white/90"
+                  strokeWidth={2}
+                />
+                <div className="h-px flex-1 bg-white/30" />
+              </div>
+              <h2 className="fa-invisible-leak-headline mt-5 w-full max-w-none font-heading text-[clamp(14px,3.2vw,19px)] font-normal leading-[1.12] text-white md:text-[23px] md:leading-[1.1]">
+                <span className="block whitespace-nowrap">
+                  A client searches your name before
+                </span>
+                <span className="block whitespace-nowrap">
+                  their next meeting.
+                </span>
+              </h2>
             </div>
           </div>
           <div className="bg-[#072f5f] text-white p-8 md:p-10">
