@@ -900,7 +900,7 @@ function ServicesAbout() {
           <h3 className="text-center font-heading text-3xl font-bold tracking-tight text-navy md:text-4xl">
             Who We Work With
           </h3>
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-8 md:gap-5">
+          <div className="mt-6 grid grid-cols-1 items-start gap-4 sm:grid-cols-2 md:mt-8 md:gap-5">
             {whoWeWorkWithCards.map((card, i) => {
               const expanded = whoWeExpanded === i;
               return (
