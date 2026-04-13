@@ -1,15 +1,27 @@
+import { useState } from "react";
+import { AnimatePresence, motion as Motion } from "motion/react";
 import { calendlyNewTabProps } from "../constants/scheduling";
-import { FileText, TrendingUp, WandSparkles, Settings } from "lucide-react";
 import {
-  CircleCheck,
-  BadgeX,
-  EyeOff,
-  Circle,
+  FileText,
+  TrendingUp,
+  WandSparkles,
+  Settings,
   UserCircle2,
   MessageSquareText,
   ArrowUpRight,
   Newspaper,
   BrainCog,
+  Sparkles,
+  BadgeX,
+  EyeOff,
+  Scale,
+  Copyright,
+  ShieldCheck,
+  Globe2,
+  History,
+  Share2,
+  FileWarning,
+  LineChart,
 } from "lucide-react";
 
 const whatWeDoCards = [
@@ -31,6 +43,146 @@ const whatWeDoCards = [
     icon: <TrendingUp className="h-4 w-4" />,
     iconClass: "bg-[#2a8c3e] text-white",
   },
+];
+
+const pageOneTransformationScenarios = [
+  {
+    id: "individual",
+    label: "Individual",
+    intro:
+      "What a typical page one transformation looks like for an individual:",
+    beforeHeader: "Before — page 1 today",
+    afterHeader: "After — page 1 at month 11",
+    beforeItems: [
+      {
+        crumb: "regionalnews.com › metro › courts",
+        title: "Court filing resurfaced as top story",
+        text: "A years-old case file ranks above your own site — often with an inflammatory headline.",
+      },
+      {
+        crumb: "reddit.com › r › ask › thread",
+        title: "Anonymous thread repeating allegations",
+        text: "Speculation and hearsay treated like fact; nearly impossible to remove at source.",
+      },
+      {
+        crumb: "glassdoor.com › reviews › former",
+        title: "One-sided narrative from a single review",
+        text: "A damaging review dominates snippets even when your team’s record is strong.",
+      },
+    ],
+    afterItems: [
+      {
+        crumb: "yourname.com › about",
+        title: "Verified personal site & biography",
+        text: "Clear narrative, credentials, and contact — written to match how people search for you.",
+      },
+      {
+        crumb: "linkedin.com › in › profile",
+        title: "LinkedIn profile with authority signals",
+        text: "Headline, featured work, and endorsements aligned to what decision-makers expect.",
+      },
+      {
+        crumb: "crunchbase.com › person",
+        title: "Trusted third-party profiles",
+        text: "Crunchbase, industry directories, and partner mentions that reinforce legitimacy.",
+      },
+    ],
+    afterNote: "Negative content displaced to page 3+",
+  },
+  {
+    id: "company",
+    label: "Company",
+    intro:
+      "What a typical page one transformation looks like for a company or brand:",
+    beforeHeader: "Before — page 1 today",
+    afterHeader: "After — page 1 at month 11",
+    beforeItems: [
+      {
+        crumb: "complaintsboard.com › listing",
+        title: "Consumer complaint thread ranking high",
+        text: "Legacy posts outrank your homepage and careers page for branded searches.",
+      },
+      {
+        crumb: "reddit.com › r › industry",
+        title: "Viral thread associating brand with controversy",
+        text: "Discussion pages earn rich snippets while your official response is buried.",
+      },
+      {
+        crumb: "glassdoor.com › reviews › overview",
+        title: "Low aggregate score above fold",
+        text: "A handful of reviews shapes first impressions before prospects read your story.",
+      },
+    ],
+    afterItems: [
+      {
+        crumb: "yourbrand.com",
+        title: "Corporate site with clear positioning",
+        text: "Messaging, leadership, and proof points tuned for how buyers and talent search.",
+      },
+      {
+        crumb: "linkedin.com › company",
+        title: "Company page & employee advocacy",
+        text: "Structured updates and leadership voices that earn space in branded results.",
+      },
+      {
+        crumb: "yourbrand.com › newsroom",
+        title: "Press, awards, and analyst coverage",
+        text: "Editorial placements and credible citations that reinforce trust at scale.",
+      },
+    ],
+    afterNote: "Negative content displaced to page 3+",
+  },
+];
+
+const ourResultsCards = [
+  {
+    stat: "Page 1",
+    body: "Cleared for the majority of clients who complete a full campaign",
+    footnote:
+      "Based on 200+ client engagements, 2019–2024. Results vary by case complexity and source authority.",
+  },
+  {
+    stat: "8–11 mo",
+    body: "Typical time to meaningful page one displacement for most cases",
+    footnote:
+      "Moderate cases. High-authority sources or active media coverage may take longer.",
+  },
+];
+
+const removalVsSuppressionDirect = [
+  {
+    text: "Defamatory content (legal channel)",
+    dot: "green",
+    Icon: Scale,
+  },
+  {
+    text: "Copyright or privacy violations",
+    dot: "green",
+    Icon: Copyright,
+  },
+  {
+    text: "Platform terms of service breaches",
+    dot: "green",
+    Icon: ShieldCheck,
+  },
+  {
+    text: "Right to be forgotten — GDPR-eligible (EU/UK)",
+    dot: "green",
+    Icon: Globe2,
+  },
+  {
+    text: "Outdated or factually incorrect indexed content",
+    dot: "olive",
+    Icon: History,
+  },
+];
+
+const removalVsSuppressionStrategy = [
+  { text: "Legacy negative press or articles", Icon: Newspaper },
+  { text: "Review-based complaints and forum threads", Icon: MessageSquareText },
+  { text: "Social media content outside your control", Icon: Share2 },
+  { text: "Content that does not qualify for removal", Icon: FileWarning },
+  { text: "Any situation requiring long-term search control", Icon: LineChart },
 ];
 
 const timeline = [
@@ -60,7 +212,166 @@ const timeline = [
   },
 ];
 
+function FlagshipSuppressionSection() {
+  const [scenarioId, setScenarioId] = useState(
+    pageOneTransformationScenarios[0].id,
+  );
+  const scenario =
+    pageOneTransformationScenarios.find((s) => s.id === scenarioId) ??
+    pageOneTransformationScenarios[0];
+
+  return (
+    <div className="rounded-3xl border border-navy/10 bg-white p-6 shadow-[0_24px_60px_-28px_rgba(15,35,60,0.16)] md:p-10 lg:p-12">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-navy/45">
+          Core service
+        </p>
+        <div className="inline-flex w-fit items-center gap-1.5 rounded-full border border-navy/15 bg-[#f4f7fb] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-navy/70">
+          <Sparkles className="h-3.5 w-3.5 shrink-0 text-[#2a8c3e]" aria-hidden />
+          Flagship offering
+        </div>
+      </div>
+
+      <h3 className="mt-6 max-w-4xl font-heading text-3xl font-bold leading-[1.12] tracking-tight text-navy md:text-4xl lg:text-[2.35rem]">
+        Negative online reputation management & link suppression
+      </h3>
+      <p className="mt-5 max-w-3xl text-base leading-relaxed text-navy/75 md:text-lg">
+        Our primary service. We audit everything search engines surface about you,
+        build a content strategy that outranks harmful results, and systematically
+        push negative links beyond page one — where virtually no one will find them.
+      </p>
+
+      <div className="mt-8 flex flex-col gap-4 border-t border-navy/10 pt-8 lg:flex-row lg:items-end lg:justify-between">
+        <p className="max-w-xl text-sm font-medium leading-snug text-navy/70 md:text-[15px]">
+          {scenario.intro}
+        </p>
+        <div
+          className="flex shrink-0 flex-wrap gap-2"
+          role="tablist"
+          aria-label="Example transformation"
+        >
+          {pageOneTransformationScenarios.map((s) => {
+            const selected = s.id === scenarioId;
+            return (
+              <button
+                key={s.id}
+                type="button"
+                role="tab"
+                aria-selected={selected}
+                onClick={() => setScenarioId(s.id)}
+                className={`rounded-full px-4 py-2 text-sm font-semibold outline-none transition-all active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-navy/30 focus-visible:ring-offset-2 ${
+                  selected
+                    ? "bg-navy text-white shadow-md"
+                    : "border border-navy/12 bg-offwhite text-navy/80 hover:border-navy/22 hover:bg-white"
+                }`}
+              >
+                {s.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <AnimatePresence mode="wait" initial={false}>
+        <Motion.div
+          key={scenario.id}
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-6 grid gap-4 md:grid-cols-2 md:gap-5"
+        >
+          <div className="flex min-h-0 flex-col overflow-hidden rounded-2xl border border-red-100/90 bg-white shadow-sm ring-1 ring-red-100/30">
+            <div className="bg-gradient-to-r from-[#fde8e8] to-[#fce4e4] px-4 py-3.5 text-center text-[11px] font-semibold uppercase tracking-[0.14em] text-red-950/90 md:px-5">
+              {scenario.beforeHeader}
+            </div>
+            <ul className="divide-y divide-navy/[0.07]">
+              {scenario.beforeItems.map((item, i) => (
+                <Motion.li
+                  key={`${scenario.id}-b-${i}`}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    delay: 0.05 + i * 0.06,
+                    duration: 0.22,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="group"
+                >
+                  <div className="px-4 py-4 transition-[background-color,box-shadow] duration-200 motion-reduce:transition-none md:px-5 md:py-5 group-hover:bg-red-50/45 group-hover:shadow-[inset_3px_0_0_0_rgba(185,28,28,0.35)]">
+                    <p className="font-mono text-[11px] leading-snug text-navy/40">
+                      {item.crumb}
+                    </p>
+                    <p className="mt-2 text-[15px] font-semibold leading-snug text-red-950/90">
+                      {item.title}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-navy/68">
+                      {item.text}
+                    </p>
+                  </div>
+                </Motion.li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex min-h-0 flex-col overflow-hidden rounded-2xl border border-emerald-100/90 bg-white shadow-sm ring-1 ring-emerald-100/35">
+            <div className="bg-gradient-to-r from-[#e6f7ec] to-[#dff3e6] px-4 py-3.5 text-center text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-950/90 md:px-5">
+              {scenario.afterHeader}
+            </div>
+            <ul className="divide-y divide-navy/[0.07]">
+              {scenario.afterItems.map((item, i) => (
+                <Motion.li
+                  key={`${scenario.id}-a-${i}`}
+                  initial={{ opacity: 0, x: 8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    delay: 0.05 + i * 0.06,
+                    duration: 0.22,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="group"
+                >
+                  <div className="px-4 py-4 transition-[background-color,box-shadow] duration-200 motion-reduce:transition-none md:px-5 md:py-5 group-hover:bg-emerald-50/50 group-hover:shadow-[inset_3px_0_0_0_rgba(22,101,52,0.4)]">
+                    <p className="font-mono text-[11px] leading-snug text-navy/40">
+                      {item.crumb}
+                    </p>
+                    <p className="mt-2 text-[15px] font-semibold leading-snug text-emerald-950/95">
+                      {item.title}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-navy/68">
+                      {item.text}
+                    </p>
+                  </div>
+                </Motion.li>
+              ))}
+            </ul>
+            <p className="border-t border-navy/[0.07] bg-[#f8fcfa] px-4 py-3.5 text-center text-sm italic leading-snug text-navy/55 md:px-5">
+              {scenario.afterNote}
+            </p>
+          </div>
+        </Motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
+
 function ServicesAbout() {
+  const [removalFocus, setRemovalFocus] = useState(null);
+
+  const removalLeftShell =
+    "ha-lift relative flex h-full min-h-full min-w-0 w-full flex-col border-0 p-5 text-left outline-none transition-[box-shadow,background-color,ring,opacity] duration-200 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-navy/35 sm:p-6 md:p-7";
+  const removalLeftActive =
+    "cursor-pointer bg-white ring-2 ring-inset ring-navy/25 [box-shadow:inset_0_0_0_1px_rgba(31,59,100,0.06)]";
+  const removalLeftInactive =
+    "cursor-pointer bg-gradient-to-br from-white to-[#f3f6fa] [box-shadow:inset_0_0_0_1px_rgba(31,59,100,0.04)] hover:bg-white hover:[box-shadow:inset_0_0_0_1px_rgba(31,59,100,0.08)]";
+
+  const removalRightShell =
+    "ha-lift relative flex h-full min-h-full min-w-0 w-full flex-col border-0 p-5 text-left outline-none transition-[box-shadow,background-color,ring,opacity] duration-200 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-300/45 sm:p-6 md:p-7";
+  const removalRightActive =
+    "cursor-pointer bg-gradient-to-br from-[#061f3d] via-[#072f5f] to-[#0c4a7a] ring-2 ring-inset ring-emerald-400/40 [box-shadow:inset_0_0_0_1px_rgba(255,255,255,0.06)]";
+  const removalRightInactive =
+    "cursor-pointer bg-gradient-to-br from-[#051a33] via-[#072f5f] to-[#082f52] [box-shadow:inset_0_0_0_1px_rgba(255,255,255,0.05)] hover:[box-shadow:inset_0_0_0_1px_rgba(167,243,208,0.12)]";
+
   return (
     <section className="bg-offwhite">
       <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-20 space-y-16 md:space-y-20">
@@ -69,11 +380,33 @@ function ServicesAbout() {
             You Worked Hard to Build Your Reputation. We Make Sure Google
             Reflects It.
           </h2>
-          <p className="mt-5 max-w-2xl text-navy/75 leading-relaxed">
-            When someone searches your name, your company, or your brand, your
-            first impression should reflect your authority and integrity, not
-            outdated or unfair results.
+          <p className="mt-5 max-w-3xl text-navy/75 text-base leading-relaxed md:text-lg">
+            Every day a damaging result sits on page one, it costs you clients,
+            deals, and trust. Reputation360 manages what people find when they
+            search your name — pushing harmful content down and replacing it with
+            a search presence that reflects your real authority.
           </p>
+          <aside
+            className="mt-8 max-w-4xl rounded-2xl border border-[#b85c5c]/80 bg-[#fdf4f4] px-5 py-6 shadow-[0_2px_0_rgba(160,64,64,0.06),0_12px_32px_rgba(127,45,45,0.08)] md:rounded-[1.125rem] md:px-8 md:py-7"
+            role="note"
+            aria-label="Why inaction is costly"
+          >
+            <div className="flex gap-4 md:gap-5">
+              <span
+                className="mt-1.5 h-3 w-3 shrink-0 rounded-full bg-[#a04040] ring-4 ring-[#a04040]/15 md:mt-2 md:h-3.5 md:w-3.5"
+                aria-hidden
+              />
+              <p className="text-[0.95rem] leading-relaxed text-[#6b2a2a] md:text-base md:leading-relaxed">
+                <span className="font-semibold text-[#5c2222]">
+                  The cost of doing nothing:{" "}
+                </span>
+                A negative result in positions 1–3 can cause up to 60% of
+                prospective clients to disengage before making contact. Every month
+                without intervention compounds the damage — lost deals, declined
+                introductions, abandoned applications.
+              </p>
+            </div>
+          </aside>
           <a
             {...calendlyNewTabProps}
             className="ha-pill mt-7 inline-flex rounded-md bg-navy px-5 py-3 text-sm font-semibold text-white hover:bg-navy/90"
@@ -89,8 +422,9 @@ function ServicesAbout() {
                 What We Do
               </h3>
               <p className="mt-3 max-w-2xl text-navy/70">
-                We blend search management, strategic content, and authority
-                building to make your reputation work for your business.
+                We identify what the internet says about you, reshape the narrative
+                with content that reflects your truth, and build the kind of
+                authority that makes the right story stick.
               </p>
             </div>
             <div className="inline-flex items-center gap-2 rounded-lg bg-[#1e4627] px-4 py-2 text-sm font-semibold text-white">
@@ -122,70 +456,218 @@ function ServicesAbout() {
         </div>
 
         <div>
-          <h3 className="text-center font-heading text-3xl text-navy font-bold tracking-tight">
-            Removal vs. Suppression
+          <div className="flex items-start justify-between gap-6 flex-wrap">
+            <div>
+              <h3 className="font-heading text-3xl text-navy font-bold">
+                Our Results
+              </h3>
+              <p className="mt-3 max-w-2xl text-navy/70">
+                Every figure below comes from a completed engagement. We share them
+                so you can walk in knowing what success looks like — and how long it
+                realistically takes to get there.
+              </p>
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-lg bg-[#1e4627] px-4 py-2 text-sm font-semibold text-white">
+              <TrendingUp className="h-4 w-4" />
+              <span>200+ engagements (2019–2024)</span>
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-3xl border border-navy/[0.07] bg-[#eef2f7]/50 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] sm:p-5 md:p-7">
+            <div className="grid gap-5 sm:grid-cols-2 md:gap-6">
+              {ourResultsCards.map((item) => (
+                <article
+                  key={item.stat}
+                  className="ha-lift flex flex-col rounded-2xl border border-navy/10 bg-[#f7f6f2] p-7 shadow-[0_10px_38px_-14px_rgba(31,59,100,0.14),0_1px_0_rgba(255,255,255,0.65)_inset] md:rounded-[1.125rem] md:p-9"
+                >
+                  <h4 className="font-heading text-4xl font-extrabold leading-[1.05] tracking-tight text-navy md:text-[2.625rem]">
+                    {item.stat}
+                  </h4>
+                  <p className="mt-5 max-w-md text-base leading-relaxed text-navy/80 md:text-[17px] md:leading-relaxed">
+                    {item.body}
+                  </p>
+                  <p className="mt-auto border-t border-navy/10 pt-6 text-sm leading-relaxed text-navy/50">
+                    {item.footnote}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <FlagshipSuppressionSection />
+
+        <div>
+          <h3 className="text-center font-heading text-3xl font-bold tracking-tight text-navy md:text-4xl">
+            Removal or suppression?
           </h3>
-          <p className="text-center text-navy/70 mt-2 text-base">
-            The Honest Answer about Digital Deletion
+          <p className="mx-auto mt-4 max-w-3xl text-center text-base leading-relaxed text-navy/70 md:text-lg">
+            Not every negative result can be permanently deleted. Here is an honest
+            breakdown of both routes — most clients benefit from a combination.
           </p>
-          <div className="mt-10 overflow-hidden rounded-4xl shadow-[0_20px_45px_rgba(15,23,42,0.15)] grid md:grid-cols-2">
-            <article className="ha-lift bg-white p-10 md:p-12 hover:bg-[#f8fff5]">
-              <div className="flex items-center gap-4">
-                <div className="h-11 w-11 rounded-xl bg-[#fff3f2] text-[#c73f3a] grid place-items-center">
-                  <BadgeX className="h-5 w-5" />
+          <div className="mt-8 grid w-full min-w-0 grid-cols-1 overflow-hidden rounded-2xl border border-navy/12 shadow-[0_18px_44px_-20px_rgba(15,35,60,0.18)] md:grid-cols-2 md:items-stretch md:[grid-template-columns:minmax(0,1fr)_minmax(0,1fr)]">
+            <article
+              role="button"
+              tabIndex={0}
+              aria-pressed={removalFocus === "direct"}
+              aria-label="Direct removal — select to highlight this option"
+              onClick={() => setRemovalFocus("direct")}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setRemovalFocus("direct");
+                }
+              }}
+              className={`${removalLeftShell} ${
+                removalFocus === "direct"
+                  ? removalLeftActive
+                  : removalLeftInactive
+              } ${
+                removalFocus === "suppression"
+                  ? "opacity-[0.88] md:opacity-[0.92]"
+                  : ""
+              } border-b border-navy/10 md:border-b-0 md:border-r`}
+            >
+              <div className="flex min-h-0 w-full min-w-0 flex-1 flex-col gap-3 sm:flex-row sm:items-start sm:gap-4">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#fff5f5] via-[#ffecec] to-[#ffd6d6] shadow-sm ring-1 ring-red-200/70 sm:h-12 sm:w-12">
+                  <BadgeX
+                    className="h-5 w-5 text-[#b91c1c]"
+                    strokeWidth={1.65}
+                    aria-hidden
+                  />
                 </div>
-                <p className="text-[2rem] font-heading font-bold text-navy">
-                  Direct Removal
-                </p>
+                <div className="min-w-0 w-full flex-1 basis-0">
+                  <div className="flex flex-wrap items-start justify-between gap-2 gap-y-2">
+                    <h4
+                      className={`min-w-0 flex-1 font-heading text-lg font-bold leading-tight sm:text-xl ${
+                        removalFocus === "direct" ? "text-navy" : "text-navy/75"
+                      }`}
+                    >
+                      Direct removal
+                    </h4>
+                    {removalFocus === "direct" ? (
+                      <span className="shrink-0 rounded-full bg-navy px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white shadow-sm">
+                        Selected
+                      </span>
+                    ) : null}
+                  </div>
+                  <p className="mt-3 max-w-none text-sm leading-relaxed text-navy/75 sm:text-[15px]">
+                    Permanent deletion of content from its source. Only available
+                    under qualifying circumstances, which we assess during your
+                    consultation.
+                  </p>
+                  <ul className="mt-5 w-full min-w-0 space-y-2.5 text-sm leading-snug text-navy/85 sm:text-[15px]">
+                    {removalVsSuppressionDirect.map((item) => {
+                      const RowIcon = item.Icon;
+                      const isOlive = item.dot === "olive";
+                      return (
+                        <li
+                          key={item.text}
+                          className="group/row flex w-full min-w-0 gap-2.5 rounded-lg py-1 transition-colors duration-200 hover:bg-navy/[0.03]"
+                        >
+                          <div
+                            className={`mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg shadow-sm ring-1 transition-transform duration-200 group-hover/row:scale-[1.02] ${
+                              isOlive
+                                ? "bg-gradient-to-br from-[#faf6ef] to-[#ede4d3] ring-amber-200/80"
+                                : "bg-gradient-to-br from-[#ecfdf3] to-[#d1fae0] ring-emerald-200/80"
+                            }`}
+                          >
+                            <RowIcon
+                              className={`h-3.5 w-3.5 ${
+                                isOlive
+                                  ? "text-[#6b5b2e]"
+                                  : "text-[#166534]"
+                              }`}
+                              strokeWidth={1.65}
+                              aria-hidden
+                            />
+                          </div>
+                          <span className="min-w-0 flex-1 basis-0 pt-0.5 leading-snug">
+                            {item.text}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               </div>
-              <p className="mt-8 text-lg leading-relaxed text-navy/80">
-                The permanent deletion of content from its source. While ideal,
-                this is often restricted to specific legal circumstances or
-                platform policy violations.
-              </p>
-              <ul className="mt-10 space-y-6 text-lg text-navy/85">
-                <li className="flex items-center gap-3">
-                  <CircleCheck className="h-5 w-5" />
-                  Defamatory content (Legal Channel)
-                </li>
-                <li className="flex items-center gap-3">
-                  <CircleCheck className="h-5 w-5" />
-                  Copyright or Privacy violations
-                </li>
-                <li className="flex items-center gap-3">
-                  <CircleCheck className="h-5 w-5" />
-                  Terms of Service breaches
-                </li>
-              </ul>
             </article>
-            <article className="ha-lift bg-[#072f5f] p-10 text-white md:p-12">
-              <div className="flex items-center gap-4">
-                <div className="h-11 w-11 rounded-xl bg-[#1f5c67] text-[#90f08f] grid place-items-center">
-                  <EyeOff className="h-5 w-5" />
+            <article
+              role="button"
+              tabIndex={0}
+              aria-pressed={removalFocus === "suppression"}
+              aria-label="Suppression strategy — select to highlight this option"
+              onClick={() => setRemovalFocus("suppression")}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setRemovalFocus("suppression");
+                }
+              }}
+              className={`${removalRightShell} ${
+                removalFocus === "suppression"
+                  ? removalRightActive
+                  : removalRightInactive
+              } ${
+                removalFocus === "direct"
+                  ? "opacity-[0.9] md:opacity-[0.94]"
+                  : ""
+              }`}
+            >
+              <div className="flex min-h-0 w-full min-w-0 flex-1 flex-col gap-3 sm:flex-row sm:items-start sm:gap-4">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#0f4a5c] via-[#0d3d52] to-[#082f45] shadow-md ring-1 ring-white/15 sm:h-12 sm:w-12">
+                  <EyeOff
+                    className="h-5 w-5 text-[#86efac]"
+                    strokeWidth={1.65}
+                    aria-hidden
+                  />
                 </div>
-                <p className="text-[2rem] font-heading font-bold">
-                  Suppression Strategy
-                </p>
+                <div className="min-w-0 w-full flex-1 basis-0">
+                  <div className="flex flex-wrap items-start justify-between gap-2 gap-y-2">
+                    <h4
+                      className={`min-w-0 flex-1 font-heading text-lg font-bold leading-tight text-white sm:text-xl ${
+                        removalFocus === "suppression"
+                          ? "text-white"
+                          : "text-white/90"
+                      }`}
+                    >
+                      Suppression strategy
+                    </h4>
+                    {removalFocus === "suppression" ? (
+                      <span className="shrink-0 rounded-full border border-emerald-300/40 bg-emerald-400/15 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-emerald-50 shadow-sm backdrop-blur-sm">
+                        Selected
+                      </span>
+                    ) : null}
+                  </div>
+                  <p className="mt-3 max-w-none text-sm leading-relaxed text-white/88 sm:text-[15px]">
+                    The most reliable and broadly applicable method. We build content
+                    that outranks negative results and pushes them to page 3 and beyond
+                    — effective even for content that cannot be removed.
+                  </p>
+                  <ul className="mt-5 w-full min-w-0 space-y-2.5 text-sm leading-snug text-white/92 sm:text-[15px]">
+                    {removalVsSuppressionStrategy.map((item) => {
+                      const RowIcon = item.Icon;
+                      return (
+                        <li
+                          key={item.text}
+                          className="group/row flex w-full min-w-0 gap-2.5 rounded-lg py-1 transition-colors duration-200 hover:bg-white/[0.06]"
+                        >
+                          <div className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/10 shadow-inner ring-1 ring-white/15 backdrop-blur-sm transition-transform duration-200 group-hover/row:scale-[1.02]">
+                            <RowIcon
+                              className="h-3.5 w-3.5 text-emerald-200/95"
+                              strokeWidth={1.65}
+                              aria-hidden
+                            />
+                          </div>
+                          <span className="min-w-0 flex-1 basis-0 pt-0.5 leading-snug">
+                            {item.text}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               </div>
-              <p className="mt-8 text-lg leading-relaxed text-white/90">
-                The process of pushing negative results beyond the first page
-                (where 95% of traffic stops). This is the most reliable method
-                for legacy content.
-              </p>
-              <ul className="mt-10 space-y-6 text-lg text-white/95">
-                <li className="flex items-center gap-3">
-                  <Circle className="h-5 w-5 text-[#95ef9e] fill-[#95ef9e]" />
-                  Multi-layered content architecture
-                </li>
-                <li className="flex items-center gap-3">
-                  <Circle className="h-5 w-5 text-[#95ef9e] fill-[#95ef9e]" />
-                  Search engine authority building
-                </li>
-                <li className="flex items-center gap-3">
-                  <Circle className="h-5 w-5 text-[#95ef9e] fill-[#95ef9e]" />
-                  Long-term search landscape control
-                </li>
-              </ul>
             </article>
           </div>
         </div>
