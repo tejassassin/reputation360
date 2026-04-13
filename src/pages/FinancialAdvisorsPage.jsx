@@ -1080,10 +1080,10 @@ function FinancialAdvisorsPage() {
           </p>
           <a
             {...calendlyNewTabProps}
-            className="ha-pill mt-7 inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 text-sm font-semibold text-[#072f5f] shadow-sm hover:bg-[#e8eef5]"
+            className="ha-pill mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-green px-5 py-3 text-sm font-heading font-medium text-white shadow-sm transition-all duration-200 hover:bg-green/90 hover:shadow-lg hover:shadow-green/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#072f5f]"
           >
             Book a Free Confidential Consultation
-            <ChevronRight className="h-4 w-4" aria-hidden />
+            <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
           </a>
         </section>
       </div>
