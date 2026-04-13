@@ -1,68 +1,125 @@
-import { calendlyNewTabProps } from "../constants/scheduling";
 import {
-  EyeOff,
-  Gavel,
-  ShieldCheck,
-  AlertTriangle,
-  Check,
-} from "lucide-react";
+  IndustryWhatReputation360Section,
+  IndustryRealisticTimelineSection,
+} from "../components/industry/IndustryReputation360Sections";
+import { calendlyNewTabProps } from "../constants/scheduling";
+import { AlertTriangle, Search, ShieldCheck, UserSearch } from "lucide-react";
 
 function DoctorsPage() {
   return (
     <main className="flex-1 bg-offwhite pt-28 md:pt-32">
-      <section className="bg-[#f8f9fa] px-4 py-10 md:px-8 md:py-14">
-        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.05fr_0.95fr] md:items-start">
-          <div>
-            <p className="inline-flex rounded-full bg-[#1a2b4b] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white">
-              Healthcare Elite
-            </p>
-            <h1 className="mt-5 font-heading text-[32px] font-bold leading-[1.08] text-[#1a2b4b] md:text-[42px] lg:text-[46px]">
-              One Unfair Review Can{" "}
-              <span className="text-[#4caf50]">Quietly Cost</span> Your Practice
-              Patients Every Week.
+      <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
+        <section className="relative grid items-start gap-5 overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:grid-cols-[1.03fr_0.97fr] md:px-4 md:py-7">
+          <div className="max-w-[570px]">
+            <h1 className="max-w-[520px] font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#0f2e58] md:text-[40px]">
+              Your Patients Search You Before They Book. What Do They See?
             </h1>
-            <p className="mt-5 max-w-xl text-[15px] leading-[1.55] text-[#5c6570] md:text-[16px]">
-              Ensure your digital reputation reflects your true clinical excellence
-              before a patient ever hits &apos;Book Appointment&apos;.
+            <p className="mt-5 max-w-[520px] text-[15px] leading-[1.5] text-[#4f5f75] md:text-[16px]">
+              One review - fair or not - can empty a waiting room that took years
+              to fill.
             </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-              <a
-                {...calendlyNewTabProps}
-                className="ha-pill inline-flex items-center justify-center rounded-lg bg-[#1a2b4b] px-6 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-[#243a5c]"
+            <a
+              {...calendlyNewTabProps}
+              className="ha-pill mt-6 inline-flex items-center gap-2 rounded-[8px] bg-[#153f70] px-5 py-3 text-sm font-semibold text-white shadow-[0_8px_18px_rgba(7,47,95,0.24)] hover:bg-[#0b3c75]"
+            >
+              Book a Free Confidential Consultation
+            </a>
+          </div>
+          <div className="rounded-[6px] bg-[linear-gradient(180deg,#e8f5ef_0%,#e7f4ee_100%)] px-3 py-3 pt-1 space-y-3 md:px-4 md:py-4">
+            {[
+              {
+                title: "Trust Restored",
+                text: "We make sure that when patients search your name, they find the doctor you are - not an outdated result that no longer tells the full story.",
+                icon: <ShieldCheck className="h-5 w-5 text-[#6ee27d]" />,
+              },
+              {
+                title: "Discretion Guaranteed",
+                text: "Confidential, HIPAA-aware workflows built for healthcare teams - nothing flashy, nothing that puts your practice at risk.",
+                icon: <ShieldCheck className="h-5 w-5 text-[#6ee27d]" />,
+              },
+              {
+                title: "Clinical Authority",
+                text: "Stronger professional profiles and authoritative assets so credentials, expertise, and your preferred story rank first.",
+                icon: <Search className="h-5 w-5 text-[#6ee27d]" />,
+              },
+            ].map((item) => (
+              <article
+                key={item.title}
+                className="ha-lift rounded-3xl border border-[#dbe3e8] bg-white px-4 py-4 shadow-[0_10px_24px_rgba(20,40,70,0.10)] md:px-5 md:py-5"
               >
-                Get a Free Reputation Audit
-              </a>
-              <span className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#1a2b4b] px-5 py-3.5 text-sm font-semibold text-white shadow-sm">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#4caf50] text-white">
-                  <Check className="h-4 w-4" strokeWidth={3} />
-                </span>
-                HIPAA Compliant Protocols
-              </span>
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 shrink-0">{item.icon}</div>
+                  <div>
+                    <h3 className="text-[15px] font-semibold leading-tight text-[#1f3b64] md:text-[16px]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 text-[12px] leading-[1.5] text-[#5d6c80] md:text-[13px]">
+                      {item.text}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-12 grid overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)] md:mt-16 md:grid-cols-[1fr_1fr]">
+          <div className="relative min-h-[340px] overflow-hidden bg-[#041a30] md:min-h-[500px]">
+            <div
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_30%,rgba(90,130,190,0.12)_0%,transparent_55%)]"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(3,12,26,0.88)_0%,rgba(4,18,36,0.4)_32%,transparent_48%,rgba(4,18,36,0.45)_62%,rgba(3,12,24,0.92)_82%,#020a14_100%)]"
+              aria-hidden
+            />
+            <div className="relative z-10 flex min-h-[340px] flex-col justify-end p-8 font-heading text-white antialiased md:min-h-[500px] md:p-10">
+              <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[#5c2430] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-white">
+                <span className="h-2 w-2 shrink-0 rounded-full bg-red-500" />
+                THE MOMENT OF TRUTH
+              </div>
+              <div className="mt-5 flex items-center gap-3">
+                <UserSearch
+                  className="h-5 w-5 shrink-0 text-white/90"
+                  strokeWidth={2}
+                  aria-hidden
+                />
+                <div className="h-px flex-1 bg-white/35" aria-hidden />
+              </div>
+              <h2 className="fa-invisible-leak-headline mt-5 max-w-none font-heading text-[26px] font-bold leading-[1.12] tracking-tight text-white sm:text-[30px] md:text-[34px]">
+                Before booking, they search your name.
+              </h2>
             </div>
           </div>
-          <div className="rounded-2xl bg-[#1a2b4b] p-6 text-white shadow-[0_24px_48px_rgba(26,43,75,0.28)] md:p-8">
-            <p className="inline-block rounded-md bg-[#5c2430] px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.14em] text-white">
-              The Moment of Truth
-            </p>
-            <blockquote className="mt-5 border-l-[3px] border-[#4caf50] pl-4 text-[15px] italic leading-[1.55] text-white md:text-[16px]">
-              &ldquo;Your credentials are impeccable. But before a word is spoken,
-              something else happens first.&rdquo;
-            </blockquote>
-            <p className="mt-5 text-[14px] leading-[1.6] text-white/65 md:text-[15px]">
-              They find a single, visceral negative review. They don&apos;t call to
-              ask you about it.
-            </p>
-            <p className="mt-3 text-[15px] font-bold leading-snug text-white md:text-[16px]">
-              They quietly move to a competitor clinic.
-            </p>
-            <div className="my-6 border-t border-white/15" />
-            <p className="inline-flex items-start gap-2 text-[12px] italic leading-snug text-[#4caf50] md:text-[13px]">
-              <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[#4caf50]" />
-              Silence is the most expensive feedback you&apos;ll never receive.
+          <div className="flex flex-col justify-center bg-[#072f5f] p-7 text-white md:p-9">
+            <div className="rounded-2xl border border-white/10 bg-white/7 px-5 py-6 md:px-6 md:py-7">
+              <div className="space-y-3 text-sm leading-relaxed text-white/90 md:text-[15px] md:leading-relaxed">
+                <p>
+                  In the time it takes to make a cup of coffee, they have read two
+                  reviews and scanned three search results.
+                </p>
+                <p className="text-[15px] font-semibold leading-snug text-white md:text-[17px]">
+                  If they find a low rating on Healthgrades, a malpractice
+                  reference in a news archive, or a state medical board mention -
+                  they quietly book with someone else.
+                </p>
+              </div>
+            </div>
+            <div className="mt-5 rounded-xl border border-white/15 bg-[#061f3d]/60 px-4 py-4">
+              <p className="text-[13px] font-semibold text-[#86e991] md:text-[14px]">
+                You will never know it happened.
+              </p>
+              <p className="mt-1.5 text-[14px] font-medium italic text-white md:text-[15px]">
+                But it happens every week.
+              </p>
+            </div>
+            <p className="mt-7 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#8ce596] md:text-[11px]">
+              <AlertTriangle className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              Silence is the most expensive feedback you&apos;ll never receive
             </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <section className="bg-[#0f2e58] px-4 py-10 md:px-8 md:py-12">
         <div className="mx-auto max-w-6xl">
@@ -94,70 +151,8 @@ function DoctorsPage() {
 
       <section className="bg-[#f7f8fc] px-4 py-14 md:px-8 md:py-18">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-heading text-[28px] font-bold text-[#0f2e58] md:text-[34px]">
-            What Reputation360 Does
-          </h2>
-          <div className="mt-2 h-1 w-16 rounded-full bg-[#4caf50]" />
-          <div className="mt-10 grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
-            <div className="space-y-8">
-              <article className="ha-lift flex gap-4 rounded-xl border border-transparent p-3 hover:border-[#e3ecf7] hover:bg-white">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e3ecf7] text-[#1f3b64]">
-                  <EyeOff className="h-5 w-5" strokeWidth={2} />
-                </div>
-                <div>
-                  <h3 className="font-heading text-lg font-bold text-[#0f2e58] md:text-xl">
-                    Negative Review Page Suppression
-                  </h3>
-                  <p className="mt-2 text-[14px] leading-[1.55] text-[#4f5f75]">
-                    We utilize ethical, high-authority content creation to move
-                    unfair negative reviews to page 2 and beyond where they lose
-                    95% of their visibility.
-                  </p>
-                </div>
-              </article>
-              <article className="ha-lift flex gap-4 rounded-xl border border-transparent p-3 hover:border-[#e3ecf7] hover:bg-white">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e3ecf7] text-[#1f3b64]">
-                  <Gavel className="h-5 w-5" strokeWidth={2} />
-                </div>
-                <div>
-                  <h3 className="font-heading text-lg font-bold text-[#0f2e58] md:text-xl">
-                    News &amp; Regulatory Suppression
-                  </h3>
-                  <p className="mt-2 text-[14px] leading-[1.55] text-[#4f5f75]">
-                    Outdated medical board actions or sensationalist local news
-                    stories are buffered by a wall of current, professional, and
-                    positive digital assets.
-                  </p>
-                </div>
-              </article>
-              <article className="ha-lift flex gap-4 rounded-xl border border-transparent p-3 hover:border-[#e3ecf7] hover:bg-white">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e3ecf7] text-[#1f3b64]">
-                  <ShieldCheck className="h-5 w-5" strokeWidth={2} />
-                </div>
-                <div>
-                  <h3 className="font-heading text-lg font-bold text-[#0f2e58] md:text-xl">
-                    Stronger Digital Presence
-                  </h3>
-                  <p className="mt-2 text-[14px] leading-[1.55] text-[#4f5f75]">
-                    We optimize and manage medical directories and professional
-                    profiles to ensure your highest-impact credentials are what
-                    patients see first.
-                  </p>
-                </div>
-              </article>
-            </div>
-            <div className="flex w-full shrink-0 justify-center md:justify-end">
-              <img
-                src="/doctors-hud-card.png"
-                alt="Clinical excellence - safe protocols and 100% client confidentiality"
-                width={705}
-                height={634}
-                className="block h-auto w-full max-w-[440px]"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
+          <IndustryWhatReputation360Section />
+          <IndustryRealisticTimelineSection />
         </div>
       </section>
 

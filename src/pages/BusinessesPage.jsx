@@ -1,20 +1,19 @@
 import { useEffect } from "react";
+import {
+  IndustryWhatReputation360Section,
+  IndustryRealisticTimelineSection,
+} from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   TrendingUp,
   TrendingDown,
   UserSearch,
   Scale,
-  Shield,
-  ArrowUpRight,
-  Star,
   X,
 } from "lucide-react";
 
 const meetingImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuBPbU0kT6BSaAMsOs-KEUTbLV2eElD4NujsCbn034Pt4xK1zobzKCRq_xYoUcCfLZGt_tFfrZqw-Lmkz8i07aq3xwYzaHhzH5W3uASTDiqz8xy7jS1ahZGl39xrmmgk0Y3yCgpnEoAZih6AZjwa2yKqTaiHLEFL5_Sf9jfDRPtTX_Gzihbr0pQ32ahW_tBy9G9TYY7YTQ9n0JVUXGun-yfyEFJmhCfQ-OiEmLkQ7Vyhq-u7NSkeGPB6nXuDQ2wTVjT-DGB3hZjxJzs";
-const dataVizImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAOIG2Yxu5Yu6xy3JAQZwObH3JLwghtE3zH7Gt9pj7p8PX6pRJXk863EayjkUN5ZRKLnXz9DOYSK-mdjieCkrhkwdEbtm-nsc4MMiXQwTsc-1oCo9yV5MGNzhntPZxwcW4OGZNgNeiodWxFTVk0MNO1HdoBu5qgZMlOVIRvxNq40DbMAj3Fk_fdWx4gD6ZRCdIDd8Pn85zsRdaD404jYX_T0ACBN8-95FaYeUHGbQG_Gnr6h-fvzUgrjWTLJlysGhe4eOBNEmngsVk";
 const ctaOfficeImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDbrXFe7EdViD_Wam91hD1gINsuzNzk9q6UJswLYw4r3q7Zl2ad0sembZ1JsOeonN8yeEMd5WLQD4bYhQ2Q7Bfti7_uL35-vvydRyApNGJZTagKn7O5IXzRzLmWD7cwOJDPvcdSp9k9DTLs_3Lax89I9EvS-HEEfAvON-M2AlQYkCPoX32JTxyiHuP1W39zoHY2ujNo6CNZPPDZ1NsOd5Gm8nO9WWFU0TVCpXnGKnxe0549GjkfinxKfBe4yCAp8jMaVe8f9fLlYdg";
 
@@ -180,107 +179,10 @@ function BusinessesPage() {
         </div>
       </section>
 
-      {/* Bento - What Reputation360 Does */}
       <section className="bg-[#f1f3ff] px-4 py-14 md:px-8 md:py-18">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-10 md:mb-12">
-            <h2 className="font-heading text-[26px] font-bold text-[#02254d] md:text-[32px]">
-              What Reputation360 Does for Businesses
-            </h2>
-            <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[#43474e] md:text-[16px]">
-              We don&apos;t just hide the bad; we engineer the exceptional. Our
-              four-pillar strategy secures your authority.
-            </p>
-          </div>
-          <div className="grid grid-cols-12 gap-5 md:gap-6">
-            <div className="group ha-lift col-span-12 flex flex-col justify-between rounded-3xl border border-[#c4c6d0]/10 bg-white p-6 transition-colors duration-300 hover:bg-[#02254d] md:col-span-7 md:p-10">
-              <div>
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-[#e9edff] transition-colors group-hover:bg-[#1f3b64] md:mb-8 md:h-14 md:w-14">
-                  <Shield
-                    className="h-6 w-6 text-[#02254d] transition-colors group-hover:text-white md:h-7 md:w-7"
-                    strokeWidth={2}
-                  />
-                </div>
-                <h3 className="mb-3 font-heading text-xl font-bold text-[#02254d] transition-colors group-hover:text-white md:text-2xl">
-                  Negative Result Suppression
-                </h3>
-                <p className="max-w-md text-[14px] leading-relaxed text-[#43474e] transition-colors group-hover:text-slate-300 md:text-[15px]">
-                  We utilize high-authority content engines and legal protocols to
-                  push outdated or malicious search results off the first page,
-                  replacing them with assets you control.
-                </p>
-              </div>
-              <div className="mt-6 flex justify-end md:mt-8">
-                <ArrowUpRight
-                  className="h-8 w-8 text-[#c4c6d0] transition-colors group-hover:text-[#78dc77] md:h-10 md:w-10"
-                  strokeWidth={1.75}
-                />
-              </div>
-            </div>
-
-            <div className="ha-lift col-span-12 flex flex-col justify-center rounded-3xl bg-[#00450e] p-6 md:col-span-5 md:p-10">
-              <div className="text-white">
-                <h3 className="mb-3 font-heading text-xl font-bold md:text-2xl">
-                  Digital Brand Growth
-                </h3>
-                <p className="mb-6 text-[14px] leading-relaxed text-[#56b958] md:mb-8 md:text-[15px]">
-                  Accelerate your authority by developing proprietary assets that
-                  dominate your niche.
-                </p>
-                <div className="space-y-3">
-                  <div className="h-1 overflow-hidden rounded-full bg-white/10">
-                    <div className="h-full w-[85%] rounded-full bg-[#78dc77]" />
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/90">
-                    Authority Index Growth
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="ha-lift col-span-12 rounded-3xl bg-[#02254d] p-6 text-white md:col-span-5 md:p-10">
-              <h3 className="mb-3 font-heading text-xl font-bold md:text-2xl">
-                Brand Search Optimisation
-              </h3>
-              <p className="mb-6 text-[14px] leading-relaxed text-slate-400 md:mb-8 md:text-[15px]">
-                Curating the &ldquo;Knowledge Graph&rdquo; to ensure your company
-                bio, key people, and official links are the first things seen.
-              </p>
-              <div className="flex gap-2">
-                {[0, 1, 2].map((i) => (
-                  <div
-                    key={i}
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10"
-                  >
-                    <Star
-                      className="h-3.5 w-3.5 fill-[#78dc77] text-[#78dc77]"
-                      strokeWidth={1.5}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="ha-lift col-span-12 flex flex-col items-stretch gap-6 rounded-3xl border border-[#c4c6d0]/10 bg-white p-6 md:col-span-7 md:flex-row md:items-center md:gap-10 md:p-10">
-              <div className="min-w-0 flex-1">
-                <h3 className="mb-3 font-heading text-xl font-bold text-[#02254d] md:text-2xl">
-                  Competitor Response
-                </h3>
-                <p className="text-[14px] leading-relaxed text-[#43474e] md:text-[15px]">
-                  Proactive monitoring of competitor mentions and industry shifts
-                  to ensure your brand remains the undisputed leader in your
-                  category.
-                </p>
-              </div>
-              <div className="mx-auto hidden h-36 w-36 shrink-0 overflow-hidden rounded-full bg-[#f1f3ff] lg:flex lg:h-40 lg:w-40">
-                <img
-                  alt="Data analytics visualization"
-                  className="h-full w-full object-cover"
-                  src={dataVizImage}
-                />
-              </div>
-            </div>
-          </div>
+          <IndustryWhatReputation360Section />
+          <IndustryRealisticTimelineSection />
         </div>
       </section>
 

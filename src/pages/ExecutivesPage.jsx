@@ -1,9 +1,10 @@
 import { useEffect } from "react";
+import {
+  IndustryWhatReputation360Section,
+  IndustryRealisticTimelineSection,
+} from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
-  BarChart3,
-  Shield,
-  Star,
   ShieldCheck,
   Handshake,
   Users,
@@ -170,52 +171,10 @@ function ExecutivesPage() {
         </div>
       </section>
 
-      {/* What Reputation360 Provides */}
-      <section className="relative overflow-hidden bg-[#02254d] px-4 py-14 md:px-8 md:py-18">
-        <div className="absolute top-0 right-0 h-full w-1/3 opacity-10">
-          <img
-            alt=""
-            className="h-full w-full object-cover"
-            src={narrativeImage}
-            aria-hidden
-          />
-        </div>
-        <div className="relative z-10 mx-auto max-w-6xl">
-          <div className="mb-10 md:mb-12">
-            <h2 className="mb-3 font-heading text-[26px] font-bold text-white md:text-[32px]">
-              What Reputation360 Provides
-            </h2>
-            <div className="h-1 w-16 rounded-full bg-[#78dc77] md:h-1.5 md:w-20" />
-          </div>
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
-            {[
-              {
-                icon: BarChart3,
-                title: "Full digital audit",
-                text: "We analyse your complete search footprint - name, company associations, past ventures, media coverage - and map every threat and opportunity.",
-              },
-              {
-                icon: Shield,
-                title: "Negative suppression",
-                text: "We displace damaging content from visible search pages using proven strategies built for lasting results.",
-              },
-              {
-                icon: Star,
-                title: "Executive presence building",
-                text: "LinkedIn optimisation, thought leadership content, media profile building - we build a digital presence that reflects your authority and status.",
-              },
-            ].map(({ icon: Icon, title, text }) => (
-              <div key={title} className="space-y-4 md:space-y-5">
-                <Icon className="h-8 w-8 text-[#78dc77] md:h-9 md:w-9" strokeWidth={2} />
-                <h3 className="font-heading text-lg font-bold text-white md:text-xl">
-                  {title}
-                </h3>
-                <p className="text-[14px] leading-[1.7] text-[#8ca6d5] md:text-[15px]">
-                  {text}
-                </p>
-              </div>
-            ))}
-          </div>
+      <section className="bg-white px-4 py-14 md:px-8 md:py-18">
+        <div className="mx-auto max-w-6xl">
+          <IndustryWhatReputation360Section />
+          <IndustryRealisticTimelineSection />
         </div>
       </section>
 

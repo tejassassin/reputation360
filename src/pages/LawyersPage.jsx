@@ -1,4 +1,8 @@
 import { useEffect } from "react";
+import {
+  IndustryWhatReputation360Section,
+  IndustryRealisticTimelineSection,
+} from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   EyeOff,
@@ -12,9 +16,6 @@ import {
   Scale,
   Target,
   Check,
-  Star,
-  UserCog,
-  BookMarked,
   Lock,
   FileCheck,
   Landmark,
@@ -188,125 +189,9 @@ function LawyersPage() {
       </section>
 
       <section className="bg-[#eef1f8] px-4 py-14 md:px-8 md:py-18">
-        <div className="mx-auto max-w-6xl text-center">
-          <h2 className="font-heading text-[26px] font-bold text-[#1a2b4b] md:text-[32px]">
-            What Reputation360 Does for Lawyers
-          </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-[15px] leading-[1.65] text-[#5c6570] md:text-[16px]">
-            We deploy a sophisticated mix of technical SEO, legal-specific content
-            creation, and directory management to curate your digital authority.
-          </p>
-        </div>
-        <div className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
-          <div className="ha-lift rounded-2xl bg-[#dfe8f4] p-7 shadow-[0_8px_30px_rgba(26,43,75,0.08)] md:p-9">
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-              <div className="min-w-0 flex-1">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#1a2b4b] text-white">
-                  <EyeOff className="h-[18px] w-[18px]" strokeWidth={2} />
-                </div>
-                <h3 className="mt-4 font-heading text-xl font-bold text-[#1a2b4b] md:text-2xl">
-                  Bar Complaint Suppression
-                </h3>
-                <p className="mt-3 text-[14px] leading-[1.65] text-[#5a6578] md:text-[15px]">
-                  We push Bar entries and disciplinary references below visible
-                  search pages through content creation and profile optimisation.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  <span className="rounded-full bg-[#1a2b4b] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.08em] text-white shadow-sm">
-                    Technical SEO
-                  </span>
-                  <span className="rounded-full bg-[#1a2b4b] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.08em] text-white shadow-sm">
-                    Content dilution
-                  </span>
-                </div>
-              </div>
-              <div className="flex shrink-0 justify-center lg:w-[200px]">
-                <div className="w-full max-w-[200px] rounded-xl border border-white/80 bg-white p-5 text-center shadow-[0_6px_24px_rgba(26,43,75,0.1)]">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#4caf50] text-white shadow-md">
-                    <Check className="h-7 w-7" strokeWidth={2.5} />
-                  </div>
-                  <p className="mt-3 text-xs font-bold text-[#1a2b4b]">
-                    Suppression Active
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="ha-lift rounded-2xl bg-[#dfe8f4] p-7 shadow-[0_8px_30px_rgba(26,43,75,0.08)] md:p-9">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#1a2b4b] text-white">
-              <Star className="h-[18px] w-[18px]" fill="currentColor" strokeWidth={0} />
-            </div>
-            <h3 className="mt-4 font-heading text-xl font-bold text-[#1a2b4b] md:text-2xl">
-              Legal Directory Optimisation
-            </h3>
-            <p className="mt-3 text-[14px] leading-[1.65] text-[#5a6578] md:text-[15px]">
-              Profiles on Avvo, Martindale-Hubbell, Justia, and similar directories
-              rank prominently for attorney names. We ensure yours are fully optimised
-              and working for you.
-            </p>
-            <div className="mt-8 overflow-hidden rounded-xl border border-[#4a3728]/30 bg-gradient-to-b from-[#5c4033] to-[#2d1f18] shadow-inner">
-              <div className="flex items-center justify-center py-12">
-                <BookMarked className="h-16 w-16 text-[#c9a66b]" strokeWidth={1.25} />
-              </div>
-            </div>
-          </div>
-
-          <div className="ha-lift rounded-2xl bg-[#1a2b4b] p-7 text-white shadow-[0_8px_30px_rgba(26,43,75,0.2)] md:p-9">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#7eb8e8] text-white">
-              <UserCog className="h-[18px] w-[18px]" strokeWidth={2} />
-            </div>
-            <h3 className="mt-4 font-heading text-xl font-bold md:text-2xl">
-              Thought Leadership
-            </h3>
-            <p className="mt-3 text-[14px] leading-[1.65] text-white/75 md:text-[15px]">
-              We publish authoritative legal commentary and professional insight
-              pieces in your name - content that positions you as the credible
-              choice and the leading expert in your specific practice area.
-            </p>
-            <ul className="mt-6 space-y-3">
-              {[
-                "Editorial Management",
-                "Academic Placement",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="ha-lift flex items-center gap-3 rounded-xl bg-white/[0.08] px-4 py-3.5"
-                >
-                  <Check className="h-4 w-4 shrink-0 text-[#7fe08a]" strokeWidth={2.5} />
-                  <span className="text-sm font-semibold text-[#7fe08a]">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="ha-lift rounded-2xl bg-[#dfe8f4] p-7 shadow-[0_8px_30px_rgba(26,43,75,0.08)] md:p-9">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#b8d4ec] text-[#1a2b4b]">
-              <Newspaper className="h-[18px] w-[18px]" strokeWidth={2} />
-            </div>
-            <h3 className="mt-4 font-heading text-xl font-bold text-[#1a2b4b] md:text-2xl">
-              News and Media Suppression
-            </h3>
-            <p className="mt-3 text-[14px] leading-[1.65] text-[#5a6578] md:text-[15px]">
-              We displace damaging media coverage, replacing it with content that
-              reflects your expertise and professional standing.
-            </p>
-            <div className="mt-8 flex justify-center sm:justify-end">
-              <div className="w-full max-w-[240px] rounded-xl border border-white/90 bg-white p-4 shadow-[0_6px_20px_rgba(26,43,75,0.1)]">
-                <div className="space-y-2.5 pr-10">
-                  <div className="h-2 rounded-sm bg-[#dce3eb]" />
-                  <div className="h-2 w-[92%] rounded-sm bg-[#dce3eb]" />
-                  <div className="h-2 w-[78%] rounded-sm bg-[#dce3eb]" />
-                  <div className="h-2 w-[85%] rounded-sm bg-[#dce3eb]" />
-                </div>
-                <div className="mt-4 flex justify-end gap-1.5">
-                  <span className="h-7 w-1.5 rounded-sm bg-[#4caf50]" />
-                  <span className="h-7 w-1.5 rounded-sm bg-[#4caf50]" />
-                  <span className="h-7 w-1.5 rounded-sm bg-[#4caf50]" />
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="mx-auto max-w-6xl">
+          <IndustryWhatReputation360Section />
+          <IndustryRealisticTimelineSection />
         </div>
       </section>
 
