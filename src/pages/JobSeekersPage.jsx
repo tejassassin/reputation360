@@ -636,10 +636,10 @@ function JobSeekersPage() {
         </section>
 
         <section className="mt-12 md:mt-16 grid md:grid-cols-[1fr_1fr] overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)]">
-          <div className="relative min-h-[340px] overflow-hidden bg-[#041a30] md:min-h-[500px]">
+          <div className="relative min-h-[360px] overflow-hidden bg-[#041a30] md:min-h-[520px]">
             <div
-              className="pointer-events-none absolute inset-0 bg-cover bg-[center_24%] bg-no-repeat"
-              style={{ backgroundImage: "url('/job-seekers-moment-left.png')" }}
+              className="pointer-events-none absolute inset-0 bg-cover bg-[center_28%] bg-no-repeat"
+              style={{ backgroundImage: "url('/job-seekers-moment-left.jpg')" }}
               aria-hidden
             />
             <div
@@ -647,10 +647,14 @@ function JobSeekersPage() {
               aria-hidden
             />
             <div
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_58%_50%_at_50%_30%,rgba(90,130,190,0.18)_0%,transparent_62%)]"
+              aria-hidden
+            />
+            <div
               className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(3,12,26,0.82)_0%,rgba(4,18,36,0.35)_28%,transparent_42%,rgba(4,18,36,0.4)_58%,rgba(3,12,24,0.92)_82%,#020a14_100%)]"
               aria-hidden
             />
-            <div className="relative z-10 flex min-h-[340px] flex-col justify-end p-8 font-heading text-white antialiased md:min-h-[500px] md:p-10">
+            <div className="relative z-10 flex min-h-[360px] flex-col justify-end p-8 font-heading text-white antialiased md:min-h-[520px] md:p-10">
               <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[#4a1528] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white">
                 <span className="h-2 w-2 shrink-0 rounded-full bg-red-500" />
                 THE MOMENT OF TRUTH
