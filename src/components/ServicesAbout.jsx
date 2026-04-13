@@ -409,8 +409,8 @@ function ServicesAbout() {
 
   return (
     <section className="bg-offwhite">
-      <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-20 space-y-16 md:space-y-20">
-        <div className="rounded-3xl bg-[#f2f5ff] px-6 py-10 md:px-12 md:py-14">
+      <div className="mx-auto max-w-6xl space-y-16 px-5 pb-16 pt-8 md:space-y-20 md:px-8 md:pb-20 md:pt-10">
+        <div className="rounded-3xl bg-[#f2f5ff] px-6 py-8 md:px-12 md:py-11">
           <h2 className="max-w-3xl font-heading text-4xl font-bold leading-tight text-navy md:text-5xl">
             You Worked Hard to Build Your Reputation. We Make Sure Google
             Reflects It.
