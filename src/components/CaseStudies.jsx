@@ -15,7 +15,7 @@ const caseStudies = [
       challenge:
         "A consumer electronics brand with a 15-year operating history faced reputational damage after a manufacturing defect in a flagship product led to customer complaints, refunds, and recalls. The issue escalated when national media and financial publications reported on it.",
       challengeDrivers:
-        "Negative visibility dominated Page 1–4 of Google, driven by:",
+        "Negative visibility dominated Page 1-4 of Google, driven by:",
       challengeDriversList: [
         "Technology review platforms",
         "Consumer complaint forums",
@@ -103,7 +103,7 @@ const caseStudies = [
         "Financial news and compliance-focused publications",
       ],
       challengeClosing:
-        "This resulted in Page 1–3 of Google being dominated by regulatory and enforcement-related content, raising concerns among investors and stakeholders.",
+        "This resulted in Page 1-3 of Google being dominated by regulatory and enforcement-related content, raising concerns among investors and stakeholders.",
       objective:
         "Reduce the prominence of regulatory coverage while restoring professional credibility in a compliant, low-risk manner.",
       strategy: [

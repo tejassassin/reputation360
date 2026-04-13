@@ -417,19 +417,19 @@ function FaqsPage() {
                   <p>Here is an honest timeline for most engagements:</p>
                   <ul className="ml-5 list-disc space-y-2">
                     <li>
-                      <strong>Weeks 1–4</strong> - Audit complete, strategy live,
+                      <strong>Weeks 1-4</strong> - Audit complete, strategy live,
                       initial content published and indexed
                     </li>
                     <li>
-                      <strong>Months 2–4</strong> - Measurable movement in
+                      <strong>Months 2-4</strong> - Measurable movement in
                       rankings, positive content gaining traction
                     </li>
                     <li>
-                      <strong>Months 5–8</strong> - Significant displacement of
+                      <strong>Months 5-8</strong> - Significant displacement of
                       primary negative results in most cases
                     </li>
                     <li>
-                      <strong>Months 8–12</strong> - Substantial transformation
+                      <strong>Months 8-12</strong> - Substantial transformation
                       complete for the large majority of cases
                     </li>
                   </ul>

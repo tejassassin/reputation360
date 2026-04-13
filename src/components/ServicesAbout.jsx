@@ -140,10 +140,10 @@ const ourResultsCards = [
     stat: "Page 1",
     body: "Cleared for the majority of clients who complete a full campaign",
     footnote:
-      "Based on 200+ client engagements, 2019–2024. Results vary by case complexity and source authority.",
+      "Based on 200+ client engagements, 2019-2024. Results vary by case complexity and source authority.",
   },
   {
-    stat: "8–11 months",
+    stat: "8-11 months",
     body: "Typical time to meaningful page one displacement for most cases",
     footnote:
       "Moderate cases. High-authority sources or active media coverage may take longer.",
@@ -190,7 +190,7 @@ const serviceTimelinePhases = [
   {
     id: "phase-01",
     phase: "01",
-    range: "Weeks 1–4",
+    range: "Weeks 1-4",
     label: "Audit & launch",
     detail:
       "We map everything search engines currently show about you - every result, how strong it is, and how suppressible it is. Your strategy is set, content goes live on trusted sites, and you get your first report.",
@@ -198,7 +198,7 @@ const serviceTimelinePhases = [
   {
     id: "phase-02",
     phase: "02",
-    range: "Months 2–4",
+    range: "Months 2-4",
     label: "Early movement",
     detail:
       "Your new content starts ranking. Positive results begin climbing. You will see measurable movement in your monthly report - this is where you first see the strategy working.",
@@ -206,7 +206,7 @@ const serviceTimelinePhases = [
   {
     id: "phase-03",
     phase: "03",
-    range: "Months 5–8",
+    range: "Months 5-8",
     label: "Significant shift",
     detail:
       "For most clients, the main negative results drop off page one during this window. Positive content holds its positions. We keep publishing to reinforce and protect the gains made.",
@@ -214,7 +214,7 @@ const serviceTimelinePhases = [
   {
     id: "phase-04",
     phase: "04",
-    range: "Months 8–11",
+    range: "Months 8-11",
     label: "Full transformation",
     detail:
       "Substantial transformation holds: unwanted content stays deep in results while what competes for page one reflects your priorities. Cadence moves to protection and selective publishing so positions stay stable.",
@@ -435,7 +435,7 @@ function ServicesAbout() {
                 <span className="font-semibold text-[#5c2222]">
                   The cost of doing nothing:{" "}
                 </span>
-                A negative result in positions 1–3 can cause up to 60% of
+                A negative result in positions 1-3 can cause up to 60% of
                 prospective clients to disengage before making contact. Every month
                 without intervention compounds the damage - lost deals, declined
                 introductions, abandoned applications.
@@ -504,7 +504,7 @@ function ServicesAbout() {
             </div>
             <div className="inline-flex items-center gap-2 rounded-lg bg-[#1e4627] px-4 py-2 text-sm font-semibold text-white">
               <TrendingUp className="h-4 w-4" />
-              <span>200+ engagements (2019–2024)</span>
+              <span>200+ engagements (2019-2024)</span>
             </div>
           </div>
 

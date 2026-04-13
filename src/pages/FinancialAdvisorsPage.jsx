@@ -109,19 +109,19 @@ const REPUTATION360_FA_STEPS = [
   },
   {
     step: 2,
-    headline: "Step 2 - Suppression Strategy Design (Weeks 1–2)",
+    headline: "Step 2 - Suppression Strategy Design (Weeks 1-2)",
     body: "We design a content and SEO strategy specific to your situation, built to push negative results beyond page two - where fewer than 0.5% of searchers ever look.",
     Icon: Target,
   },
   {
     step: 3,
-    headline: "Step 3 - Content and Presence Building (Months 1–4)",
+    headline: "Step 3 - Content and Presence Building (Months 1-4)",
     body: "We build your authoritative digital footprint: LinkedIn profile optimization, a professional website or thought leadership hub, financial commentary and expert articles on high-authority platforms, optimized profiles on financial directories, and supporting professional properties.",
     Icon: Layers,
   },
   {
     step: 4,
-    headline: "Step 4 - Ranking Displacement (Months 3–8)",
+    headline: "Step 4 - Ranking Displacement (Months 3-8)",
     body: "As your positive properties gain authority, they begin outranking the negative content. We monitor rankings weekly and adjust strategy as results move.",
     Icon: BarChart3,
   },
@@ -136,25 +136,25 @@ const REPUTATION360_FA_STEPS = [
 const REALISTIC_TIMELINE_PHASES = [
   {
     id: "weeks-1-4",
-    window: "Weeks 1–4",
+    window: "Weeks 1-4",
     body: "Audit complete. Strategy live. Initial content published and indexed.",
     Icon: CalendarRange,
   },
   {
     id: "months-2-4",
-    window: "Months 2–4",
+    window: "Months 2-4",
     body: "Measurable ranking movement. Positive properties gaining traction.",
     Icon: TrendingUp,
   },
   {
     id: "months-4-7",
-    window: "Months 4–7",
+    window: "Months 4-7",
     body: "Primary negative results displaced for most cases.",
     Icon: CheckCircle2,
   },
   {
     id: "months-8-12",
-    window: "Months 8–12",
+    window: "Months 8-12",
     body: "Substantial transformation complete. Negative content pushed well beyond visible pages.",
     Icon: Sparkles,
   },
@@ -335,10 +335,10 @@ const ADVISOR_SCALE_METRICS = [
   },
   {
     id: "aum-leak",
-    figure: "$500K–$2M+",
+    figure: "$500K-$2M+",
     blurb: "Estimated annual loss from one bad result",
     description:
-      "$500K–$2M+ estimated annual AUM loss from a single negative result on page one, depending on practice size",
+      "$500K-$2M+ estimated annual AUM loss from a single negative result on page one, depending on practice size",
     Icon: DollarSign,
   },
 ];

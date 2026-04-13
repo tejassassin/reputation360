@@ -1,11 +1,13 @@
 ---
-description: Use ASCII hyphen instead of em dash in all copy and code
+description: Use ASCII hyphen instead of typographic dashes in copy and code
 globs: "**/*.{jsx,tsx,js,mjs,ts,css,md,html,json}"
 alwaysApply: true
 ---
 
-# Hyphens, not em dashes
+# ASCII hyphen only for breaks and ranges
 
-Do not use the Unicode em dash (—, U+2014). Use a single ASCII hyphen-minus (-) instead for pauses, asides, and similar phrasing.
+Do not use Unicode EM DASH (U+2014) or EN DASH (U+2013), including between numbers in ranges or years.
 
-When editing existing text that contains —, replace it with `-`.
+Use a single ASCII hyphen-minus (U+002D, `-`) instead (e.g. `Weeks 1-4`, `2019-2024`, `Months 2-4`).
+
+When editing inherited content that still uses U+2014 or U+2013, replace with `-`.

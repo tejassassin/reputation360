@@ -26,7 +26,7 @@ const IMG_HERO =
 const IMG_MAP =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDAuoKNykbon_ONixwj4-paZvw6Uqm6Ye_H2j_EV6_SHshlgFYZLlUZO88MsCDh-_V5ZlqSn7LuN6vxcMeco4Qu_CDcVLsbvdz8yfrmrunnvnu3gMD51AnuNyq3XP7TVkVUuZZnfzI7hLcDDHEeE52hVHtDxOV1GWyNkae-OjZ1rZKugmZ70SaCmoCMsw-cNU_WN16084-Rf62DoLjnWrlnkXxW310RMehlYCTLlonqks_CWIqf_vt2SnofCi7Br7dzp6D7wxZsHMg";
 
-/** Hub positions (% of map) - x,y match viewBox 0–100 for route SVG. */
+/** Hub positions (% of map) - x,y match viewBox 0-100 for route SVG. */
 const globalHubs = [
   {
     id: "nyc",
