@@ -18,21 +18,9 @@ function JobSeekersPage() {
   return (
     <main className="flex-1 pt-28 md:pt-32 bg-offwhite">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 space-y-10">
-        <section className="relative overflow-hidden rounded-[8px] px-3 py-6 md:px-4 md:py-7 grid gap-5 md:grid-cols-[1.03fr_0.97fr] items-start">
-          <div
-            className="pointer-events-none absolute inset-0 bg-cover bg-[center_30%]"
-            style={{ backgroundImage: "url('/job-seekers-reference.png')" }}
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(110deg,rgba(236,236,248,0.92)_0%,rgba(238,243,246,0.9)_70%,rgba(237,247,243,0.92)_100%)]"
-            aria-hidden
-          />
-          <div className="relative z-10 max-w-[570px]">
-            <p className="inline-flex rounded-xl bg-[#2a8c3e] px-3.5 py-1.5 text-[10px] tracking-[0.14em] font-semibold uppercase text-white shadow-[0_2px_6px_rgba(42,140,62,0.35)]">
-              JOB SEEKER SOLUTIONS
-            </p>
-            <h1 className="mt-4 font-heading text-[34px] md:text-[40px] leading-[1.02] text-[#0f2e58] font-bold tracking-tight max-w-[520px]">
+        <section className="relative overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:px-4 md:py-7 grid gap-5 md:grid-cols-[1.03fr_0.97fr] items-start">
+          <div className="max-w-[570px]">
+            <h1 className="font-heading text-[34px] md:text-[40px] leading-[1.02] text-[#0f2e58] font-bold tracking-tight max-w-[520px]">
               Recruiters Google You Before They Call. What Do They Find?
             </h1>
             <p className="mt-5 text-[#4f5f75] text-[15px] md:text-[16px] leading-[1.5] max-w-[520px]">
@@ -43,10 +31,10 @@ function JobSeekersPage() {
               {...calendlyNewTabProps}
               className="ha-pill mt-6 inline-flex items-center gap-2 rounded-[8px] bg-[#153f70] px-5 py-3 text-sm font-semibold text-white shadow-[0_8px_18px_rgba(7,47,95,0.24)] hover:bg-[#0b3c75]"
             >
-              Get a Free Reputation Audit
+              Book a Free Confidential Consultation
             </a>
           </div>
-          <div className="relative z-10 rounded-[6px] bg-[linear-gradient(180deg,#e8f5ef_0%,#e7f4ee_100%)] px-3 py-3 md:px-4 md:py-4 space-y-3 pt-1">
+          <div className="rounded-[6px] bg-[linear-gradient(180deg,#e8f5ef_0%,#e7f4ee_100%)] px-3 py-3 md:px-4 md:py-4 space-y-3 pt-1">
             {[
               {
                 title: "Trust Restored",
@@ -85,13 +73,21 @@ function JobSeekersPage() {
         </section>
 
         <section className="mt-12 md:mt-16 grid md:grid-cols-[1fr_1fr] overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)]">
-          <div className="relative min-h-[340px] md:min-h-[500px]">
+          <div className="relative min-h-[340px] overflow-hidden bg-[#041a30] md:min-h-[500px]">
             <div
-              className="absolute inset-0 bg-cover bg-[center_20%]"
+              className="pointer-events-none absolute inset-0 bg-cover bg-[center_24%] bg-no-repeat"
               style={{ backgroundImage: "url('/job-seekers-moment-left.png')" }}
+              aria-hidden
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#041a30]/95 via-[#072f5f]/80 to-[#0d4a7a]/65" />
-            <div className="relative flex min-h-[340px] md:min-h-[500px] flex-col justify-end p-8 md:p-10 text-white">
+            <div
+              className="pointer-events-none absolute inset-0 bg-[#041a30]/68"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(3,12,26,0.82)_0%,rgba(4,18,36,0.35)_28%,transparent_42%,rgba(4,18,36,0.4)_58%,rgba(3,12,24,0.92)_82%,#020a14_100%)]"
+              aria-hidden
+            />
+            <div className="relative z-10 flex min-h-[340px] md:min-h-[500px] flex-col justify-end p-8 md:p-10 text-white">
               <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[#4a1528] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white">
                 <span className="h-2 w-2 shrink-0 rounded-full bg-red-500" />
                 THE INVISIBLE BARRIER
@@ -101,27 +97,27 @@ function JobSeekersPage() {
                 <div className="h-px flex-1 bg-white/35" />
               </div>
               <p className="mt-5 max-w-[22ch] text-2xl font-semibold leading-[1.2] md:max-w-[26ch] md:text-3xl">
-                The Moment of Truth: A recruiter searches your name before the
-                first interview.
+                A recruiter searches your name before the first interview.
               </p>
             </div>
           </div>
           <div className="flex flex-col justify-center bg-[#072f5f] p-7 text-white md:p-9">
-            <div className="border-l-2 border-[#88e498] pl-4">
-              <p className="text-[13px] leading-[1.55] text-white/80 md:text-[14px]">
-                &ldquo;Your CV is strong. Your experience is relevant. Your
-                references are solid. But before any of that gets evaluated,
-                something else happens first.&rdquo;
-              </p>
+            <div className="rounded-2xl border border-white/10 bg-white/7 px-5 py-6 md:px-6 md:py-7">
+              <div className="space-y-3 text-sm leading-relaxed text-white/90 md:text-[15px] md:leading-relaxed">
+                <p>Your CV is strong.</p>
+                <p>Your experience is relevant.</p>
+                <p>Your references are solid.</p>
+                <p>
+                  But before any of that gets evaluated, something else happens first.
+                </p>
+                <p>
+                  The hiring manager searches your name. In under a minute, they form a judgment based entirely on what Google shows.
+                </p>
+                <p className="text-[15px] font-semibold leading-snug text-white md:text-[17px]">
+                  If that page shows anything uncomfortable, your application quietly moves to the bottom.
+                </p>
+              </div>
             </div>
-            <p className="mt-5 text-[13px] leading-[1.55] text-white/75 md:text-[14px]">
-              The hiring manager searches your name. In under a minute, they form
-              a judgment based entirely on what Google shows.
-            </p>
-            <p className="mt-4 text-[15px] font-semibold leading-snug text-white md:text-[17px]">
-              If that page shows anything uncomfortable, your application quietly
-              moves to the bottom.
-            </p>
             <div className="mt-5 rounded-xl border border-white/15 bg-[#061f3d]/60 px-4 py-4">
               <p className="text-[13px] font-semibold text-[#86e991] md:text-[14px]">
                 No one tells you why.
@@ -369,7 +365,7 @@ function JobSeekersPage() {
               {...calendlyNewTabProps}
               className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#48bb78] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_4px_14px_rgba(72,187,120,0.45)] transition-colors hover:bg-[#38a169]"
             >
-              Get Your Free Reputation Audit
+              Book a Free Confidential Consultation
               <FileText className="h-4 w-4" strokeWidth={2} />
             </a>
           </div>
