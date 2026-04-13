@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   ShieldCheck,
@@ -21,6 +21,9 @@ import {
   Linkedin,
   Globe2,
   History,
+  UserSearch,
+  TrendingUp,
+  DollarSign,
 } from "lucide-react";
 
 const FINANCIAL_ADVISOR_PROBLEM_TILES = [
@@ -189,6 +192,156 @@ function FinancialAdvisorsProblemSection() {
   );
 }
 
+const ADVISOR_SCALE_METRICS = [
+  {
+    id: "hnw-research",
+    figure: "87%",
+    blurb: "HNW investors research you before they wire",
+    description:
+      "87% of high-net-worth individuals research their financial advisor online before committing funds",
+    Icon: UserSearch,
+  },
+  {
+    id: "disclosure-dropoff",
+    figure: "74%",
+    blurb: "Walk away after a page-one disclosure",
+    description:
+      "74% say they would not proceed with an advisor if they found a regulatory disclosure on the first page of results",
+    Icon: FileWarning,
+  },
+  {
+    id: "conversion",
+    figure: "3x",
+    blurb: "Strong presence, stronger close rate",
+    description:
+      "3x higher conversion from initial inquiry to onboarded client reported by advisors with a clean, authoritative online presence",
+    Icon: TrendingUp,
+  },
+  {
+    id: "aum-leak",
+    figure: "$500K–$2M+",
+    blurb: "Estimated annual loss from one bad result",
+    description:
+      "$500K–$2M+ estimated annual AUM loss from a single negative result on page one, depending on practice size",
+    Icon: DollarSign,
+  },
+];
+
+function FinancialAdvisorsScaleSection() {
+  const [active, setActive] = useState(0);
+  const [entered, setEntered] = useState(false);
+  const rootRef = useRef(null);
+  const activeMetric = ADVISOR_SCALE_METRICS[active];
+  const ActiveIcon = activeMetric.Icon;
+
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) setEntered(true);
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.15 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={rootRef}
+      id="scale-of-the-problem"
+      className="relative mt-12 scroll-mt-28 overflow-hidden rounded-[28px] border border-[#0a2748]/40 bg-[linear-gradient(148deg,#041528_0%,#082441_42%,#0c3054_100%)] px-5 py-9 text-white shadow-[0_28px_64px_-28px_rgba(4,21,40,0.65)] md:mt-16 md:px-9 md:py-11"
+    >
+      <div
+        className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#4eab66]/12 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -bottom-20 -left-16 h-64 w-64 rounded-full bg-[#3b82f6]/10 blur-3xl"
+        aria-hidden
+      />
+
+      <div className="relative flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <h2 className="font-heading text-[26px] font-bold leading-tight tracking-tight md:text-[32px]">
+          The Scale of the Problem
+        </h2>
+        <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
+          Tap a metric to explore
+        </p>
+      </div>
+
+      <div className="relative mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] lg:items-stretch">
+        <div className="grid grid-cols-2 gap-3 md:gap-4">
+          {ADVISOR_SCALE_METRICS.map((m, i) => {
+            const Icon = m.Icon;
+            const selected = active === i;
+            return (
+              <button
+                key={m.id}
+                type="button"
+                aria-pressed={selected}
+                aria-label={`${m.figure}: ${m.description}`}
+                onClick={() => setActive(i)}
+                style={{
+                  transitionDelay: entered ? `${i * 55}ms` : "0ms",
+                }}
+                className={`flex flex-col items-start rounded-2xl border px-4 py-4 text-left outline-none transition-all duration-300 motion-safe:hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-[#8ce596]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#041528] md:px-5 md:py-5 ${
+                  entered
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-3 opacity-0"
+                } ${
+                  selected
+                    ? "border-[#8ce596]/55 bg-white/[0.12] shadow-[0_16px_40px_-18px_rgba(0,0,0,0.45)] ring-1 ring-[#8ce596]/35"
+                    : "border-white/10 bg-white/[0.04] hover:border-white/20 hover:bg-white/[0.07]"
+                }`}
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0a2038] text-[#8ce596] shadow-inner shadow-black/20">
+                  <Icon className="h-5 w-5" aria-hidden />
+                </span>
+                <span className="mt-4 font-heading text-[28px] font-bold leading-none tracking-tight text-white tabular-nums md:text-[34px]">
+                  {m.figure}
+                </span>
+                <span className="mt-2 text-[11px] font-semibold leading-snug text-white/70 md:text-xs">
+                  {m.blurb}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        <aside
+          className="relative flex flex-col justify-between rounded-2xl border border-white/10 bg-[#061a2e]/80 p-5 backdrop-blur-sm md:p-6 lg:sticky lg:top-28 lg:self-start"
+          aria-live="polite"
+        >
+          <div>
+            <div className="flex items-start gap-3">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#8ce596]">
+                <ActiveIcon className="h-5 w-5" aria-hidden />
+              </span>
+              <div className="min-w-0">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/40">
+                  Selected insight
+                </p>
+                <p className="mt-1 font-heading text-2xl font-bold tabular-nums tracking-tight text-white md:text-3xl">
+                  {activeMetric.figure}
+                </p>
+              </div>
+            </div>
+            <p className="mt-5 text-[14px] leading-relaxed text-white/85 md:text-[15px] md:leading-relaxed">
+              {activeMetric.description}
+            </p>
+          </div>
+          <p className="mt-6 border-t border-white/10 pt-4 text-[10px] leading-relaxed text-white/45 md:text-[11px]">
+            (Sources: Edelman Trust Barometer Financial Services Report; BrightLocal
+            Professional Services Survey)
+          </p>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
 function FinancialAdvisorsPage() {
   return (
     <main className="flex-1 pt-28 md:pt-32 bg-offwhite">
@@ -298,6 +451,8 @@ function FinancialAdvisorsPage() {
         </section>
 
         <FinancialAdvisorsProblemSection />
+
+        <FinancialAdvisorsScaleSection />
 
         <section className="mt-28 md:mt-32 grid md:grid-cols-[1.05fr_1fr] gap-10 md:gap-12 items-start">
           <div className="grid grid-cols-2 gap-4">
