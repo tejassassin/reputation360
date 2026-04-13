@@ -1,9 +1,523 @@
+import { useEffect, useRef, useState } from "react";
+import { FaqAccordion } from "../components/FaqAccordion";
 import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
 } from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
-import { AlertTriangle, Search, ShieldCheck, UserSearch } from "lucide-react";
+import {
+  AlertTriangle,
+  Building2,
+  ChevronRight,
+  FileWarning,
+  Gavel,
+  Globe2,
+  MessagesSquare,
+  Newspaper,
+  Scale,
+  Search,
+  ShieldAlert,
+  ShieldCheck,
+  Star,
+  TrendingDown,
+  TrendingUp,
+  UserSearch,
+} from "lucide-react";
+
+const DOCTOR_PROBLEM_TILES = [
+  {
+    id: "reviews-aggregators",
+    label: "Reviews & listings",
+    description:
+      "Healthgrades, Zocdoc, Yelp, and Google Business reviews - aggregated, publicly visible, and often ranking above your own website.",
+    Icon: Star,
+  },
+  {
+    id: "state-board",
+    label: "State medical board",
+    description:
+      "State medical board complaints and disciplinary actions that appear in search and on regulatory listings.",
+    Icon: Scale,
+  },
+  {
+    id: "fsmb",
+    label: "FSMB records",
+    description:
+      "Federation of State Medical Boards (FSMB) records - indexed and searchable alongside your name.",
+    Icon: FileWarning,
+  },
+  {
+    id: "malpractice-courts",
+    label: "Court records",
+    description:
+      "Court records from medical malpractice proceedings that remain findable long after a case is resolved.",
+    Icon: Gavel,
+  },
+  {
+    id: "news",
+    label: "News coverage",
+    description:
+      "News coverage of malpractice allegations, even those later dismissed, that still ranks for your name.",
+    Icon: Newspaper,
+  },
+  {
+    id: "hospital-sites",
+    label: "Hospital reviews",
+    description:
+      "Hospital review sites where former patients or staff have posted comments that surface in search.",
+    Icon: Building2,
+  },
+  {
+    id: "social",
+    label: "Social media",
+    description:
+      "Social media posts naming you in a complaint context that spread faster than formal channels can address.",
+    Icon: MessagesSquare,
+  },
+];
+
+function DoctorsProblemSection() {
+  const [active, setActive] = useState(0);
+  const activeTile = DOCTOR_PROBLEM_TILES[active];
+  const ActiveIcon = activeTile.Icon;
+
+  return (
+    <section
+      id="problem-healthcare-professionals-face"
+      className="mt-12 scroll-mt-28 rounded-[24px] border border-[#d9e3ea] bg-white px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.07)] md:mt-16 md:px-9 md:py-11"
+    >
+      <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
+        The Problem Healthcare Professionals Face
+      </h2>
+
+      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-start">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#e8ecf7] text-[#1f3b64]">
+          <Globe2 className="h-5 w-5" aria-hidden />
+        </div>
+        <p className="max-w-2xl text-[14px] leading-relaxed text-[#3f4f66] md:text-[15px] md:leading-[1.55]">
+          Doctors face a reputation landscape unlike almost any other profession.
+          You are subject to strict privacy regulations that prevent you from
+          responding to patient complaints in detail. You are listed on aggregator
+          platforms you did not choose to be on. And the consequences show up
+          directly in appointment volumes, referral rates, and the long-term
+          growth of your practice.
+        </p>
+      </div>
+
+      <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e8f0] pb-4">
+        <h3 className="font-heading text-base font-semibold text-[#0f2e58] md:text-lg">
+          Where damaging content typically appears:
+        </h3>
+        <p className="text-xs font-medium text-[#5d6c80] md:text-[13px]">
+          Tap an icon to see the full context
+        </p>
+      </div>
+
+      <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_minmax(280px,360px)] lg:items-start">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {DOCTOR_PROBLEM_TILES.map((tile, i) => {
+            const Icon = tile.Icon;
+            const selected = active === i;
+            return (
+              <button
+                key={tile.id}
+                type="button"
+                aria-pressed={selected}
+                aria-label={`${tile.label}. ${selected ? "Showing details" : "Show details"}`}
+                onClick={() => setActive(i)}
+                className={`group flex flex-col items-center gap-2.5 rounded-2xl border px-2.5 py-3.5 text-center outline-none transition-[border-color,box-shadow,background-color,transform] duration-200 focus-visible:ring-2 focus-visible:ring-navy/35 focus-visible:ring-offset-2 motion-safe:active:scale-[0.98] md:px-3 md:py-4 ${
+                  selected
+                    ? "border-[#1f3b64] bg-[#eef2ff] shadow-[0_10px_26px_-12px_rgba(31,59,100,0.35)] ring-2 ring-[#1f3b64]/15"
+                    : "border-[#dfe6ee] bg-[#fafbfd] hover:border-[#1f3b64]/28 hover:bg-white hover:shadow-[0_8px_22px_-14px_rgba(31,59,100,0.18)]"
+                }`}
+              >
+                <span
+                  className={`flex h-11 w-11 items-center justify-center rounded-xl shadow-sm transition-[transform,background-color,color,box-shadow] duration-200 md:h-12 md:w-12 ${
+                    selected
+                      ? "scale-105 bg-[#1f3b64] text-white shadow-[0_6px_16px_-4px_rgba(31,59,100,0.45)]"
+                      : "bg-white text-[#1f3b64] group-hover:scale-105"
+                  }`}
+                >
+                  <Icon
+                    className="h-5 w-5 md:h-6 md:w-6"
+                    aria-hidden
+                    strokeWidth={selected ? 2.25 : 1.75}
+                    absoluteStrokeWidth
+                  />
+                </span>
+                <span className="text-[11px] font-semibold leading-snug text-[#0f2e58] md:text-xs">
+                  {tile.label}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        <aside
+          className="rounded-2xl border border-[#1f3b64]/12 bg-[linear-gradient(160deg,#f4f6fc_0%,#eef2fb_55%,#e8edf8_100%)] p-5 md:p-6 lg:sticky lg:top-28"
+          aria-live="polite"
+          aria-label="Selected risk source"
+        >
+          <div className="flex items-start gap-3">
+            <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white shadow-md md:h-11 md:w-11">
+              <ActiveIcon
+                className="h-5 w-5 md:h-6 md:w-6"
+                aria-hidden
+                strokeWidth={2.25}
+                absoluteStrokeWidth
+              />
+            </span>
+            <div className="min-w-0">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-navy/45">
+                Selected source
+              </p>
+              <p className="mt-1 font-heading text-sm font-semibold text-[#0f2e58] md:text-base">
+                {activeTile.label}
+              </p>
+            </div>
+          </div>
+          <p className="mt-4 text-[14px] leading-relaxed text-[#3f4f66] md:text-[15px] md:leading-relaxed">
+            {activeTile.description}
+          </p>
+        </aside>
+      </div>
+
+      <p className="mt-8 rounded-xl border border-[#1f3b64]/10 bg-[#f8fafc] px-4 py-3.5 text-center text-[14px] font-semibold leading-snug text-[#0f2e58] md:px-6 md:text-[15px]">
+        Any one of these on page one when a patient searches your name can quietly
+        affect referrals and bookings - often before you ever find out why.
+      </p>
+    </section>
+  );
+}
+
+const DOCTOR_SCALE_METRICS = [
+  {
+    id: "trust-reviews",
+    figure: "84%",
+    blurb: "Trust reviews like a referral",
+    description:
+      "84% of patients trust online reviews about doctors as much as a personal recommendation.",
+    Icon: Star,
+  },
+  {
+    id: "search-before-booking",
+    figure: "77%",
+    blurb: "Search before they book",
+    description:
+      "77% of patients search online before booking a healthcare appointment.",
+    Icon: UserSearch,
+  },
+  {
+    id: "star-dropoff",
+    figure: "19%",
+    blurb: "Inquiries fall when ratings slip",
+    description:
+      "19% decline in new patient inquiries associated with a drop from 4.0 to 3.5 stars on a major review platform.",
+    Icon: TrendingDown,
+  },
+  {
+    id: "few-reviews",
+    figure: "<10",
+    blurb: "Thin review footprint",
+    description:
+      "Doctors with fewer than 10 online reviews are significantly more vulnerable to a single negative outlier shifting their overall rating.",
+    Icon: AlertTriangle,
+  },
+];
+
+function DoctorsScaleSection() {
+  const [active, setActive] = useState(0);
+  const [entered, setEntered] = useState(false);
+  const rootRef = useRef(null);
+  const activeMetric = DOCTOR_SCALE_METRICS[active];
+  const ActiveIcon = activeMetric.Icon;
+
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) setEntered(true);
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.15 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={rootRef}
+      id="scale-of-the-problem-healthcare"
+      className="relative mt-12 scroll-mt-28 overflow-hidden rounded-[28px] border border-[#0a2748]/40 bg-[linear-gradient(148deg,#041528_0%,#082441_42%,#0c3054_100%)] px-5 py-9 text-white shadow-[0_28px_64px_-28px_rgba(4,21,40,0.65)] md:mt-16 md:px-9 md:py-11"
+    >
+      <div
+        className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#4eab66]/12 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -bottom-20 -left-16 h-64 w-64 rounded-full bg-[#3b82f6]/10 blur-3xl"
+        aria-hidden
+      />
+
+      <div className="relative flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <h2 className="font-heading text-[26px] font-bold leading-[1.12] md:text-[32px] md:leading-[1.1]">
+          The Scale of the Problem
+        </h2>
+        <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
+          Tap a metric to explore
+        </p>
+      </div>
+
+      <div className="relative mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] lg:items-stretch">
+        <div className="grid grid-cols-2 gap-3 md:gap-4">
+          {DOCTOR_SCALE_METRICS.map((m, i) => {
+            const Icon = m.Icon;
+            const selected = active === i;
+            return (
+              <button
+                key={m.id}
+                type="button"
+                aria-pressed={selected}
+                aria-label={`${m.figure}: ${m.description}`}
+                onClick={() => setActive(i)}
+                style={{
+                  transitionDelay: entered ? `${i * 55}ms` : "0ms",
+                }}
+                className={`flex flex-col items-start rounded-2xl border px-4 py-4 text-left outline-none transition-all duration-300 motion-safe:hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-[#8ce596]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#041528] md:px-5 md:py-5 ${
+                  entered
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-3 opacity-0"
+                } ${
+                  selected
+                    ? "border-[#8ce596]/55 bg-white/[0.12] shadow-[0_16px_40px_-18px_rgba(0,0,0,0.45)] ring-1 ring-[#8ce596]/35"
+                    : "border-white/10 bg-white/[0.04] hover:border-white/20 hover:bg-white/[0.07]"
+                }`}
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0a2038] text-[#8ce596] shadow-inner shadow-black/20">
+                  <Icon className="h-5 w-5" aria-hidden />
+                </span>
+                <span className="mt-4 font-heading text-[28px] font-bold leading-none tracking-tight text-white tabular-nums md:text-[34px]">
+                  {m.figure}
+                </span>
+                <span className="mt-2 text-[11px] font-semibold leading-snug text-white/70 md:text-xs">
+                  {m.blurb}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        <aside
+          className="relative flex flex-col justify-between rounded-2xl border border-white/10 bg-[#061a2e]/80 p-5 backdrop-blur-sm md:p-6 lg:sticky lg:top-28 lg:self-start"
+          aria-live="polite"
+        >
+          <div>
+            <div className="flex items-start gap-3">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#8ce596]">
+                <ActiveIcon className="h-5 w-5" aria-hidden />
+              </span>
+              <div className="min-w-0">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/40">
+                  Selected insight
+                </p>
+                <p className="mt-1 font-heading text-2xl font-bold tabular-nums tracking-tight text-white md:text-3xl">
+                  {activeMetric.figure}
+                </p>
+              </div>
+            </div>
+            <p className="mt-5 text-[14px] leading-relaxed text-white/85 md:text-[15px] md:leading-relaxed">
+              {activeMetric.description}
+            </p>
+          </div>
+          <p className="mt-6 border-t border-white/10 pt-4 text-[10px] leading-relaxed text-white/45 md:text-[11px]">
+            (Sources: BrightLocal Healthcare Consumer Survey; Software Advice Patient
+            Survey)
+          </p>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
+const DOCTOR_WHY_HARDER_PILLARS = [
+  {
+    id: "asymmetry",
+    label: "The asymmetry",
+    hook: "Patients can name you. You cannot reply in kind.",
+    body: "You operate under a fundamental asymmetry. A patient can post a detailed, emotionally charged review naming you specifically. You cannot respond with clinical specifics without risking a HIPAA violation. Your professional body may restrict how you engage publicly with complaints.",
+    Icon: ShieldAlert,
+  },
+  {
+    id: "others-shape",
+    label: "Limited control",
+    hook: "Others shape what Google shows.",
+    body: "This means the content landscape around your name can be shaped almost entirely by others - while your ability to respond directly is severely limited.",
+    Icon: MessagesSquare,
+  },
+  {
+    id: "presence-path",
+    label: "The practical path",
+    hook: "Authority beats arguing online.",
+    body: "The most effective strategy is not responding to complaints. It is building a presence so authoritative and well-ranked that negative content never gets the visibility it needs to do damage.",
+    Icon: TrendingUp,
+  },
+];
+
+const DOCTOR_FAQ_ITEMS = [
+  {
+    id: "legal-ethical",
+    question: "Is reputation suppression legal and ethical?",
+    answer:
+      "Entirely. We do not alter, hack, or tamper with any existing content. We build new, legitimate, high-quality content that earns its ranking through genuine authority.",
+  },
+  {
+    id: "google-reviews-hipaa",
+    question:
+      "Can I respond to Google reviews as a doctor without risking a HIPAA violation?",
+    answer:
+      "General, non-specific responses — acknowledging a concern without confirming or denying patient details — are typically acceptable. However, the more effective long-term strategy is ensuring negative reviews do not rank prominently enough to influence decisions in the first place.",
+  },
+  {
+    id: "state-board-records",
+    question: "Can state medical board records be suppressed?",
+    answer:
+      "The records on the board's own database cannot be removed. What changes is whether those pages rank prominently when someone searches your name. Through strategic content building, it is possible to displace board pages from visible search results in most cases.",
+  },
+  {
+    id: "healthgrades-zocdoc",
+    question:
+      "What about Healthgrades or Zocdoc — can negative reviews be removed?",
+    answer:
+      "Reviews that violate the platform's own policies — fake reviews, reviews by non-patients, reviews containing factual inaccuracies — can often be reported and removed. Reviews that do not violate policy are addressed through suppression.",
+  },
+  {
+    id: "timeline-results",
+    question: "How long before results improve?",
+    answer:
+      "Meaningful displacement of primary negative content typically takes three to six months. Review platform improvements can be visible sooner. Full transformation generally takes eight to twelve months. We will give you a case-specific timeline in your consultation.",
+  },
+];
+
+function DoctorsWhyHarderSection() {
+  const [active, setActive] = useState(0);
+  const pillar = DOCTOR_WHY_HARDER_PILLARS[active];
+  const ActiveIcon = pillar.Icon;
+
+  return (
+    <section
+      id="why-harder-healthcare-professionals"
+      className="mt-16 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 md:mt-20 md:px-9 md:py-11"
+    >
+      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
+        Why This Is Harder for You Than Most
+      </h2>
+      <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
+        Three realities physicians hit in search - tap each to read the full
+        context.
+      </p>
+
+      <div className="mt-8 grid max-w-5xl gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {DOCTOR_WHY_HARDER_PILLARS.map((p, i) => {
+            const Icon = p.Icon;
+            const selected = active === i;
+            return (
+              <button
+                key={p.id}
+                type="button"
+                aria-pressed={selected}
+                aria-label={`${p.label}: ${p.body}`}
+                onClick={() => setActive(i)}
+                className={`flex flex-col items-center rounded-2xl border px-3 py-4 text-center outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#1f3b64]/30 focus-visible:ring-offset-2 sm:py-5 ${
+                  selected
+                    ? "border-[#1f3b64] bg-white shadow-[0_12px_28px_-14px_rgba(31,59,100,0.22)] ring-1 ring-[#1f3b64]/15"
+                    : "border-[#dfe6ee] bg-white/70 hover:border-[#1f3b64]/25 hover:bg-white"
+                }`}
+              >
+                <span
+                  className={`flex h-11 w-11 items-center justify-center rounded-xl shadow-sm transition-[background-color,color,box-shadow] duration-200 ${
+                    selected
+                      ? "bg-[#1f3b64] text-white shadow-[0_6px_16px_-4px_rgba(31,59,100,0.45)]"
+                      : "bg-[#f0f2f7] text-[#1f3b64]/80"
+                  }`}
+                >
+                  <Icon
+                    className="h-5 w-5"
+                    aria-hidden
+                    strokeWidth={selected ? 2.25 : 1.75}
+                    absoluteStrokeWidth
+                  />
+                </span>
+                <span className="mt-3 font-heading text-[13px] font-semibold leading-tight text-[#0f2e58] md:text-sm">
+                  {p.label}
+                </span>
+                <span className="mt-2 text-[11px] leading-snug text-[#5d6c80] md:text-[12px]">
+                  {p.hook}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        <aside
+          className="flex flex-col justify-center rounded-2xl border border-[#1f3b64]/10 bg-white p-5 shadow-sm md:p-6 lg:sticky lg:top-28 lg:self-start"
+          aria-live="polite"
+        >
+          <div className="flex items-start gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white shadow-md md:h-11 md:w-11">
+              <ActiveIcon
+                className="h-5 w-5 md:h-6 md:w-6"
+                aria-hidden
+                strokeWidth={2.25}
+                absoluteStrokeWidth
+              />
+            </span>
+            <div className="min-w-0">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#1f3b64]/45">
+                Full context
+              </p>
+              <p className="mt-1 font-heading text-sm font-semibold text-[#0f2e58] md:text-base">
+                {pillar.label}
+              </p>
+            </div>
+          </div>
+          <p className="mt-4 text-[14px] leading-relaxed text-[#3f4f66] md:text-[15px] md:leading-relaxed">
+            {pillar.body}
+          </p>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
+function DoctorsFaqSection() {
+  return (
+    <section
+      id="doctor-faqs"
+      className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
+    >
+      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
+        FAQs
+      </h2>
+      <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
+      <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px]">
+        Tap a question to expand or collapse the answer.
+      </p>
+      <div className="mt-8 max-w-4xl space-y-4">
+        {DOCTOR_FAQ_ITEMS.map((item, index) => (
+          <FaqAccordion
+            key={item.id}
+            question={item.question}
+            defaultOpen={index === 0}
+          >
+            <p className="text-[15px] leading-relaxed">{item.answer}</p>
+          </FaqAccordion>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 function DoctorsPage() {
   return (
@@ -95,7 +609,7 @@ function DoctorsPage() {
                 />
                 <div className="h-px flex-1 bg-white/35" aria-hidden />
               </div>
-              <h2 className="fa-invisible-leak-headline mt-5 max-w-none font-heading text-[26px] font-bold leading-[1.12] tracking-tight text-white sm:text-[30px] md:text-[34px]">
+              <h2 className="fa-invisible-leak-headline mt-5 max-w-none font-heading text-[26px] font-bold leading-[1.12] tracking-tight text-white md:text-[32px] md:leading-[1.1]">
                 Before booking, they search your name.
               </h2>
             </div>
@@ -128,70 +642,35 @@ function DoctorsPage() {
             </p>
           </div>
         </section>
-      </div>
 
-      <section className="bg-[#0f2e58] px-4 py-10 md:px-8 md:py-12">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-4 md:grid-cols-2 md:gap-6">
-            <div className="rounded-2xl border border-white/20 bg-white/5 px-6 py-8 backdrop-blur-sm md:px-8 md:py-10">
-              <p className="font-heading text-[48px] font-bold leading-none text-[#5cdb7a] md:text-[56px]">
-                84%
-              </p>
-              <p className="mt-4 text-[14px] leading-[1.55] text-white/90 md:text-[15px]">
-                of patients trust online reviews as much as a personal
-                recommendation from a friend.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-white/20 bg-white/5 px-6 py-8 backdrop-blur-sm md:px-8 md:py-10">
-              <p className="font-heading text-[48px] font-bold leading-none text-[#5cdb7a] md:text-[56px]">
-                77%
-              </p>
-              <p className="mt-4 text-[14px] leading-[1.55] text-white/90 md:text-[15px]">
-                of people use search engines as their primary tool before booking
-                a healthcare appointment.
-              </p>
-            </div>
-          </div>
-          <p className="mt-6 text-right text-[10px] font-medium uppercase tracking-[0.1em] text-white/40">
-            Source: BrightLocal Healthcare Report
+        <DoctorsProblemSection />
+
+        <DoctorsScaleSection />
+
+        <DoctorsWhyHarderSection />
+
+        <IndustryWhatReputation360Section />
+
+        <IndustryRealisticTimelineSection />
+
+        <DoctorsFaqSection />
+
+        <section className="mt-10 scroll-mt-28 rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:mt-12 md:px-10 md:py-12">
+          <p className="mx-auto max-w-3xl font-heading text-[19px] font-semibold leading-snug text-white md:text-[23px] md:leading-snug">
+            <span className="block">
+              A single complaint should not overshadow a career built on patient care.
+            </span>
+            <span className="mt-2 block">We make sure it doesn&apos;t.</span>
           </p>
-        </div>
-      </section>
-
-      <section className="bg-[#f7f8fc] px-4 py-14 md:px-8 md:py-18">
-        <div className="mx-auto max-w-6xl">
-          <IndustryWhatReputation360Section />
-          <IndustryRealisticTimelineSection />
-        </div>
-      </section>
-
-      <section className="bg-[#E8EBF7] px-4 py-16 text-center md:py-20">
-        <h2 className="mx-auto max-w-[640px] font-heading text-[28px] font-bold leading-[1.2] text-[#1D3557] md:text-[34px] lg:text-[36px]">
-          Your Professional Reputation is Your Most Valuable Asset.
-        </h2>
-        <p className="mx-auto mt-5 max-w-[560px] text-[15px] leading-[1.6] text-[#505E70] md:text-[16px]">
-          Protect your practice from the &ldquo;quiet cost&rdquo; of unfair digital
-          narratives. Start with a confidential evaluation of your current search
-          profile.
-        </p>
-        <a
-          {...calendlyNewTabProps}
-          className="ha-pill mt-10 inline-flex items-center justify-center rounded-lg bg-[#1D3557] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_6px_20px_rgba(29,53,87,0.28)] hover:bg-[#152a45]"
-        >
-          Book a Free Confidential Consultation
-        </a>
-        <p
-          className="mx-auto mt-6 flex flex-wrap items-center justify-center gap-2 text-[13px] font-medium leading-snug text-[#415a77] sm:text-sm"
-          role="note"
-        >
-          <ShieldCheck
-            className="h-4 w-4 shrink-0 text-[#1D3557]"
-            strokeWidth={2}
-            aria-hidden
-          />
-          Strictly Confidential &amp; HIPAA Aware
-        </p>
-      </section>
+          <a
+            {...calendlyNewTabProps}
+            className="ha-pill mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-green px-5 py-3 text-sm font-heading font-medium text-white shadow-sm transition-all duration-200 hover:bg-green/90 hover:shadow-lg hover:shadow-green/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#072f5f]"
+          >
+            Book a Free Confidential Consultation
+            <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
+          </a>
+        </section>
+      </div>
     </main>
   );
 }

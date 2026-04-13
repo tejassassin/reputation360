@@ -95,7 +95,7 @@ export function IndustryWhatReputation360Section({
       id={sectionId}
       className="mt-16 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 md:mt-20 md:px-9 md:py-11"
     >
-      <h3 className="max-w-4xl font-heading text-[24px] font-bold leading-[1.15] text-[#0f2e58] md:text-[26px]">
+      <h3 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
         What Reputation360 Does
       </h3>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
@@ -205,7 +205,7 @@ export function IndustryRealisticTimelineSection({
     >
       <h3
         id={headingId}
-        className="max-w-4xl font-heading text-[24px] font-bold leading-[1.15] text-[#0f2e58] md:text-[28px]"
+        className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]"
       >
         Realistic Timeline
       </h3>
