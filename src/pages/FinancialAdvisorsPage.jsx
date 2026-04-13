@@ -30,6 +30,8 @@ import {
   DollarSign,
   Lock,
   ShieldAlert,
+  Search,
+  Check,
 } from "lucide-react";
 
 const FINANCIAL_ADVISOR_PROBLEM_TILES = [
@@ -248,11 +250,18 @@ function FinancialAdvisorsProblemSection() {
                 }`}
               >
                 <span
-                  className={`flex h-11 w-11 items-center justify-center rounded-xl bg-white text-[#1f3b64] shadow-sm transition-transform duration-200 md:h-12 md:w-12 ${
-                    selected ? "scale-105" : "group-hover:scale-105"
+                  className={`flex h-11 w-11 items-center justify-center rounded-xl shadow-sm transition-[transform,background-color,color,box-shadow] duration-200 md:h-12 md:w-12 ${
+                    selected
+                      ? "scale-105 bg-[#1f3b64] text-white shadow-[0_6px_16px_-4px_rgba(31,59,100,0.45)]"
+                      : "bg-white text-[#1f3b64] group-hover:scale-105"
                   }`}
                 >
-                  <Icon className="h-5 w-5 md:h-6 md:w-6" aria-hidden />
+                  <Icon
+                    className="h-5 w-5 md:h-6 md:w-6"
+                    aria-hidden
+                    strokeWidth={selected ? 2.25 : 1.75}
+                    absoluteStrokeWidth
+                  />
                 </span>
                 <span className="text-[11px] font-semibold leading-snug text-[#0f2e58] md:text-xs">
                   {tile.label}
@@ -268,8 +277,13 @@ function FinancialAdvisorsProblemSection() {
           aria-label="Selected risk source"
         >
           <div className="flex items-start gap-3">
-            <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[#1f3b64] shadow-sm">
-              <ActiveIcon className="h-5 w-5" aria-hidden />
+            <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white shadow-md md:h-11 md:w-11">
+              <ActiveIcon
+                className="h-5 w-5 md:h-6 md:w-6"
+                aria-hidden
+                strokeWidth={2.25}
+                absoluteStrokeWidth
+              />
             </span>
             <div className="min-w-0">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-navy/45">
@@ -505,13 +519,18 @@ function FinancialAdvisorsWhyHarderSection() {
                 }`}
               >
                 <span
-                  className={`flex h-11 w-11 items-center justify-center rounded-xl ${
+                  className={`flex h-11 w-11 items-center justify-center rounded-xl shadow-sm transition-[background-color,color,box-shadow] duration-200 ${
                     selected
-                      ? "bg-[#eef2ff] text-[#1f3b64]"
+                      ? "bg-[#1f3b64] text-white shadow-[0_6px_16px_-4px_rgba(31,59,100,0.45)]"
                       : "bg-[#f0f2f7] text-[#1f3b64]/80"
                   }`}
                 >
-                  <Icon className="h-5 w-5" aria-hidden />
+                  <Icon
+                    className="h-5 w-5"
+                    aria-hidden
+                    strokeWidth={selected ? 2.25 : 1.75}
+                    absoluteStrokeWidth
+                  />
                 </span>
                 <span className="mt-3 font-heading text-[13px] font-semibold leading-tight text-[#0f2e58] md:text-sm">
                   {p.label}
@@ -529,8 +548,13 @@ function FinancialAdvisorsWhyHarderSection() {
           aria-live="polite"
         >
           <div className="flex items-start gap-3">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#eef2ff] text-[#1f3b64]">
-              <ActiveIcon className="h-5 w-5" aria-hidden />
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white shadow-md md:h-11 md:w-11">
+              <ActiveIcon
+                className="h-5 w-5 md:h-6 md:w-6"
+                aria-hidden
+                strokeWidth={2.25}
+                absoluteStrokeWidth
+              />
             </span>
             <div className="min-w-0">
               <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#1f3b64]/45">
@@ -683,6 +707,57 @@ function FinancialAdvisorsFaqSection() {
             <p className="text-[15px] leading-relaxed">{item.answer}</p>
           </FaqAccordion>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function FinancialAdvisorsMarketInsightBanner() {
+  return (
+    <section
+      id="financial-advisor-market-insight"
+      className="mt-10 scroll-mt-28 md:mt-12"
+    >
+      <div className="flex flex-col gap-8 rounded-[28px] bg-[linear-gradient(90deg,#1b3152_0%,#243d5c_55%,#2a4668_100%)] px-6 py-8 text-white shadow-[0_12px_32px_rgba(27,49,82,0.25)] md:flex-row md:items-center md:justify-between md:gap-10 md:px-10 md:py-10">
+        <div className="min-w-0 flex-1">
+          <p className="inline-flex rounded-full bg-[#24403b] px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[#66bb6a] md:px-3 md:py-1 md:text-[10px]">
+            Market Insight
+          </p>
+          <h2 className="mt-3 font-heading text-[19px] font-bold leading-[1.24] md:mt-4 md:text-[24px] lg:text-[27px]">
+            <span className="text-[#4eab66]">96%</span>
+            <span className="text-white">
+              {" "}
+              of clients research you online before they call.{" "}
+            </span>
+            <span className="text-[#4eab66]">83%</span>
+            <span className="text-white"> check reviews before anything else.</span>
+          </h2>
+          <p className="mt-2.5 font-heading text-[14px] font-semibold leading-snug text-white md:mt-3 md:text-[16px]">
+            Make sure they like what they find.
+          </p>
+          <p className="mt-2 text-[12px] leading-relaxed text-white/80 md:mt-2.5 md:text-[13px]">
+            (Source: Wealthtender)
+          </p>
+        </div>
+        <div className="flex shrink-0 justify-center md:justify-end">
+          <div className="flex h-[76px] w-[76px] items-center justify-center rounded-2xl border-2 border-[#4eab66] bg-transparent md:h-[88px] md:w-[88px]">
+            <div className="relative flex h-11 w-11 items-center justify-center md:h-[52px] md:w-[52px]">
+              <Search
+                className="absolute text-white"
+                strokeWidth={1.75}
+                size={46}
+                aria-hidden
+              />
+              <Check
+                className="relative z-10 text-white"
+                strokeWidth={3}
+                size={18}
+                style={{ marginTop: "-4px" }}
+                aria-hidden
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -863,10 +938,7 @@ function FinancialAdvisorsPage() {
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 space-y-10">
         <section className="rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:px-4 md:py-7 grid gap-5 md:grid-cols-[1.03fr_0.97fr] items-start">
           <div className="max-w-[570px]">
-            <p className="inline-flex rounded-xl bg-[#2a8c3e] px-3.5 py-1.5 text-[10px] tracking-[0.14em] font-semibold uppercase text-white shadow-[0_2px_6px_rgba(42,140,62,0.35)]">
-              Who we serve?
-            </p>
-            <h1 className="mt-4 font-heading text-[34px] md:text-[40px] leading-[1.02] text-[#0f2e58] font-bold tracking-tight max-w-[520px]">
+            <h1 className="font-heading text-[34px] md:text-[40px] leading-[1.02] text-[#0f2e58] font-bold tracking-tight max-w-[520px]">
               Your Clients Research You Before Every Meeting. What Are They
               Finding?
             </h1>
@@ -973,34 +1045,23 @@ function FinancialAdvisorsPage() {
 
         <FinancialAdvisorsWhatReputation360Section />
 
+        <FinancialAdvisorsMarketInsightBanner />
+
         <FinancialAdvisorsRealisticTimelineSection />
 
         <FinancialAdvisorsFaqSection />
 
-        <section className="mt-14 md:mt-16 -mx-4 md:-mx-6 rounded-none bg-[#244a7d] px-6 py-14 md:py-16 text-center text-white">
-          <p className="font-heading text-[32px] md:text-[56px] leading-[1.12] font-semibold max-w-5xl mx-auto">
-            Exceptional client service takes years to build. A single disclosure
-            should not define it.
-          </p>
-          <p className="mt-5 text-[#7fe08b] tracking-[0.2em] text-[13px] md:text-[16px] font-semibold uppercase">
-            Reputation360 Makes Sure It Does Not.
-          </p>
-        </section>
-
-        <section className="rounded-2xl bg-white border border-navy/10 px-6 py-10 text-center">
-          <h3 className="font-heading text-3xl md:text-4xl text-navy font-bold">
-            You Deserve to Be Judged on Your Work
-          </h3>
-          <p className="mt-4 max-w-2xl mx-auto text-navy/75">
-            A single disclosure should not hide your full professional track
-            record. Let us build your visibility with compliance and confidence.
+        <section className="rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
+          <p className="mx-auto max-w-3xl font-heading text-[19px] font-semibold leading-snug text-white md:text-[23px] md:leading-snug">
+            A regulatory record from years ago should not define who you are today.{" "}
+            <span className="font-bold">We make sure it doesn&apos;t.</span>
           </p>
           <a
             {...calendlyNewTabProps}
-            className="ha-pill mt-6 inline-flex items-center gap-2 rounded-md bg-[#072f5f] px-5 py-3 text-sm font-semibold text-white hover:bg-[#0b3c75]"
+            className="ha-pill mt-7 inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 text-sm font-semibold text-[#072f5f] shadow-sm hover:bg-[#e8eef5]"
           >
-            Book a Free Advisor Consultation
-            <ChevronRight className="h-4 w-4" />
+            Book a Free Confidential Consultation
+            <ChevronRight className="h-4 w-4" aria-hidden />
           </a>
         </section>
       </div>
