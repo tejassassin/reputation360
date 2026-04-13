@@ -646,8 +646,14 @@ function FinancialAdvisorsPage() {
         <section className="mt-10 md:mt-14 grid md:grid-cols-[1fr_1fr] overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)]">
           <div className="relative min-h-[360px] overflow-hidden bg-[#071a33] md:min-h-[520px]">
             <div
-              className="pointer-events-none absolute inset-0 origin-[center_26%] scale-[1.22] bg-cover bg-[center_24%] bg-no-repeat"
-              style={{ backgroundImage: "url('/finra-invisible-leak.png')" }}
+              className="pointer-events-none absolute inset-0 bg-cover bg-[center_28%] bg-no-repeat"
+              style={{
+                backgroundImage: "url('/financial-advisors-moment-left.jpg')",
+              }}
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-0 bg-[#071a33]/68"
               aria-hidden
             />
             <div
@@ -655,7 +661,7 @@ function FinancialAdvisorsPage() {
               aria-hidden
             />
             <div
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,transparent_38%,rgba(5,17,38,0.45)_58%,rgba(5,18,40,0.88)_78%,#051126_100%)]"
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(3,12,26,0.82)_0%,rgba(4,18,36,0.35)_28%,transparent_42%,rgba(4,18,36,0.4)_58%,rgba(3,12,24,0.92)_82%,#020a14_100%)]"
               aria-hidden
             />
             <div className="relative z-10 flex min-h-[360px] flex-col justify-end p-8 font-heading text-white antialiased md:min-h-[520px] md:p-10">
@@ -700,7 +706,7 @@ function FinancialAdvisorsPage() {
                   quietly move on.
                 </p>
                 <p>You never find out.</p>
-                <p className="text-base font-semibold italic text-white/90 md:text-[17px]">
+                <p className="font-semibold italic text-white/90">
                   But it keeps happening.
                 </p>
               </div>

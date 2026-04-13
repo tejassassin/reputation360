@@ -66,11 +66,20 @@ function DoctorsPage() {
         <section className="mt-12 grid overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)] md:mt-16 md:grid-cols-[1fr_1fr]">
           <div className="relative min-h-[340px] overflow-hidden bg-[#041a30] md:min-h-[500px]">
             <div
+              className="pointer-events-none absolute inset-0 bg-cover bg-[center_30%] bg-no-repeat"
+              style={{ backgroundImage: "url('/doctors-moment-left.jpg')" }}
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-0 bg-[#041a30]/68"
+              aria-hidden
+            />
+            <div
               className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_30%,rgba(90,130,190,0.12)_0%,transparent_55%)]"
               aria-hidden
             />
             <div
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(3,12,26,0.88)_0%,rgba(4,18,36,0.4)_32%,transparent_48%,rgba(4,18,36,0.45)_62%,rgba(3,12,24,0.92)_82%,#020a14_100%)]"
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(3,12,26,0.82)_0%,rgba(4,18,36,0.35)_28%,transparent_42%,rgba(4,18,36,0.4)_58%,rgba(3,12,24,0.92)_82%,#020a14_100%)]"
               aria-hidden
             />
             <div className="relative z-10 flex min-h-[340px] flex-col justify-end p-8 font-heading text-white antialiased md:min-h-[500px] md:p-10">
@@ -98,7 +107,7 @@ function DoctorsPage() {
                   In the time it takes to make a cup of coffee, they have read two
                   reviews and scanned three search results.
                 </p>
-                <p className="text-[15px] font-semibold leading-snug text-white md:text-[17px]">
+                <p className="font-semibold text-white">
                   If they find a low rating on Healthgrades, a malpractice
                   reference in a news archive, or a state medical board mention -
                   they quietly book with someone else.

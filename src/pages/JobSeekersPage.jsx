@@ -681,7 +681,7 @@ function JobSeekersPage() {
                 <p>
                   The hiring manager searches your name. In under a minute, they form a judgment based entirely on what Google shows.
                 </p>
-                <p className="text-[15px] font-semibold leading-snug text-white md:text-[17px]">
+                <p className="font-semibold text-white">
                   If that page shows anything uncomfortable, your application quietly moves to the bottom.
                 </p>
               </div>
