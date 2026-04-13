@@ -979,11 +979,11 @@ function JobSeekersPage() {
         <JobSeekersFaqSection />
 
         <section className="rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
-          <p className="mx-auto max-w-3xl font-heading text-[19px] font-semibold leading-snug text-white md:text-[23px] md:leading-snug">
-            <span className="block">
+          <p className="mx-auto max-w-3xl font-heading leading-snug text-white md:leading-snug">
+            <span className="block text-[19px] font-semibold md:text-[23px]">
               Your past does not have to follow you into every future opportunity.
             </span>
-            <span className="mt-2 block whitespace-nowrap font-bold">
+            <span className="mt-2 block whitespace-nowrap text-[19px] font-semibold md:text-[23px]">
               We make sure the first thing a recruiter finds is the professional you are today.
             </span>
           </p>
