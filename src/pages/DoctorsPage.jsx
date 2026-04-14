@@ -8,6 +8,7 @@ import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   AlertTriangle,
   Building2,
+  Check,
   ChevronRight,
   FileWarning,
   Gavel,
@@ -491,6 +492,54 @@ function DoctorsWhyHarderSection() {
   );
 }
 
+function DoctorsMarketInsightBanner() {
+  return (
+    <section id="doctor-market-insight" className="mt-10 scroll-mt-28 md:mt-12">
+      <div className="flex flex-col gap-8 rounded-[28px] bg-[linear-gradient(90deg,#1b3152_0%,#243d5c_55%,#2a4668_100%)] px-6 py-8 text-white shadow-[0_12px_32px_rgba(27,49,82,0.25)] md:flex-row md:items-center md:justify-between md:gap-10 md:px-10 md:py-10">
+        <div className="min-w-0 flex-1">
+          <p className="inline-flex rounded-full bg-[#24403b] px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[#66bb6a] md:px-3 md:py-1 md:text-[10px]">
+            Market Insight
+          </p>
+          <h2 className="mt-3 font-heading text-[19px] font-bold leading-[1.24] md:mt-4 md:text-[24px] lg:text-[27px]">
+            <span className="text-[#4eab66]">1 in 4</span>
+            <span className="text-white">
+              {" "}
+              patients stop considering a provider after reading just{" "}
+            </span>
+            <span className="text-[#4eab66]">3</span>
+            <span className="text-white"> negative reviews.</span>
+          </h2>
+          <p className="mt-2.5 font-heading text-[14px] font-semibold leading-snug text-white md:mt-3 md:text-[16px]">
+            It takes years to build a practice. It takes very little to quietly lose one.
+          </p>
+          <p className="mt-2 text-[12px] leading-relaxed text-white/80 md:mt-2.5 md:text-[13px]">
+            (Source: PatientPop)
+          </p>
+        </div>
+        <div className="flex shrink-0 justify-center md:justify-end">
+          <div className="flex h-[76px] w-[76px] items-center justify-center rounded-2xl border-2 border-[#4eab66] bg-transparent md:h-[88px] md:w-[88px]">
+            <div className="relative flex h-11 w-11 items-center justify-center md:h-[52px] md:w-[52px]">
+              <Search
+                className="absolute text-white"
+                strokeWidth={1.75}
+                size={46}
+                aria-hidden
+              />
+              <Check
+                className="relative z-10 text-white"
+                strokeWidth={3}
+                size={18}
+                style={{ marginTop: "-4px" }}
+                aria-hidden
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function DoctorsFaqSection() {
   return (
     <section
@@ -650,6 +699,8 @@ function DoctorsPage() {
         <DoctorsWhyHarderSection />
 
         <IndustryWhatReputation360Section />
+
+        <DoctorsMarketInsightBanner />
 
         <IndustryRealisticTimelineSection />
 
