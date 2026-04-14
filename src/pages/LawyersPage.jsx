@@ -24,7 +24,7 @@ import {
 function LawyersPage() {
   useEffect(() => {
     const previous = document.title;
-    document.title = "Lawyers and Attorneys | Reputation360";
+    document.title = "Lawyers & Attorneys | Reputation360";
     return () => {
       document.title = previous;
     };
@@ -35,13 +35,18 @@ function LawyersPage() {
       <section className="bg-[#eef1f8] px-4 py-10 md:px-8 md:py-14">
         <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.05fr_0.95fr] md:items-start">
           <div className="text-left">
-            <p className="inline-flex rounded-full bg-[#4caf50] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white">
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#1a2b4b]/70 md:text-[11px] md:tracking-[0.16em]">
+              Lawyers &amp; Attorneys
+            </p>
+            <p className="mt-2 inline-flex rounded-full bg-[#4caf50] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white">
               Reputation intelligence for counsel
             </p>
-            <h1 className="mt-5 font-heading text-[30px] font-bold leading-[1.1] text-[#1a2b4b] md:text-[40px] lg:text-[44px]">
-              Before a Prospective Client Calls Your Firm, They Search Your Name.{" "}
-              <span className="font-heading font-bold italic text-[#1a2b4b]">
-                What Do They Find?
+            <h1 className="mt-5 max-w-[640px] font-heading text-[26px] font-bold leading-[1.12] text-[#1a2b4b] md:text-[34px] md:leading-[1.1] lg:text-[38px] lg:leading-[1.08]">
+              <span className="block">
+                Before a Prospective Client Retains You, They Research You.
+              </span>
+              <span className="mt-2 block">
+                What Your Search Results Say Could Be Deciding the Brief Before You Know It Exists.
               </span>
             </h1>
             <div className="mt-5 flex w-full max-w-md items-center gap-3 rounded-md border border-[#7cb98f] bg-[#ecf8ef] px-4 py-3">

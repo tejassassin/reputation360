@@ -14,7 +14,7 @@ const categories = [
     Icon: Briefcase,
   },
   {
-    title: "Doctors, Lawyers & Professionals",
+    title: "Doctors & Healthcare Professionals, Lawyers & Attorneys",
     description:
       "One negative article can damage your business. We help you build a positive brand online.",
     Icon: Scale,

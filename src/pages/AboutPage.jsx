@@ -164,12 +164,12 @@ const whoWeServe = [
   },
   {
     icon: Stethoscope,
-    title: "Doctors",
+    title: "Doctors & Healthcare Professionals",
     text: "Physicians and healthcare professionals managing their digital standing",
   },
   {
     icon: Gavel,
-    title: "Lawyers and Attorneys",
+    title: "Lawyers & Attorneys",
     text: "Legal professionals maintaining the trust their practice depends on",
   },
   {

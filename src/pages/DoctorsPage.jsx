@@ -569,12 +569,23 @@ function DoctorsFaqSection() {
 }
 
 function DoctorsPage() {
+  useEffect(() => {
+    const previous = document.title;
+    document.title = "Doctors & Healthcare Professionals | Reputation360";
+    return () => {
+      document.title = previous;
+    };
+  }, []);
+
   return (
     <main className="flex-1 bg-offwhite pt-28 md:pt-32">
       <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
         <section className="relative grid items-start gap-5 overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:grid-cols-[1.03fr_0.97fr] md:px-4 md:py-7">
           <div className="max-w-[570px]">
-            <h1 className="max-w-[520px] font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#0f2e58] md:text-[40px]">
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#1f3b64]/70 md:text-[11px] md:tracking-[0.16em]">
+              Doctors &amp; Healthcare Professionals
+            </p>
+            <h1 className="mt-2 max-w-[520px] font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#0f2e58] md:text-[40px]">
               Your Patients Search You Before They Book. What Do They See?
             </h1>
             <p className="mt-5 max-w-[520px] text-[15px] leading-[1.5] text-[#4f5f75] md:text-[16px]">

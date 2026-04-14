@@ -234,8 +234,8 @@ const whoWeWorkWithCards = [
   },
   {
     id: "professionals",
-    title: "Doctors, Lawyers & Professionals",
-    body: "Physicians, Lawyers, Professionals and healthcare professionals managing their digital standing.",
+    title: "Doctors & Healthcare Professionals, Lawyers & Attorneys",
+    body: "Physicians, lawyers & attorneys, and healthcare professionals managing their digital standing.",
   },
   {
     id: "businesses",

@@ -25,13 +25,16 @@ const navItems = [
   },
   { name: "Services", link: "/services" },
   {
-    name: "Industry",
+    name: "Who We Serve?",
     link: "/services/financial-advisors",
     children: [
       { name: "Financial Advisors", link: "/services/financial-advisors" },
       { name: "Job Seekers", link: "/services/job-seekers" },
-      { name: "Doctors", link: "/services/doctors" },
-      { name: "Lawyers and Attorneys", link: "/services/lawyers" },
+      {
+        name: "Doctors & Healthcare Professionals",
+        link: "/services/doctors",
+      },
+      { name: "Lawyers & Attorneys", link: "/services/lawyers" },
       { name: "Executives", link: "/services/executives" },
       {
         name: "Businesses & Companies",
