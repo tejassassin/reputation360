@@ -653,8 +653,6 @@ function DoctorsPage() {
 
         <IndustryRealisticTimelineSection />
 
-        <DoctorsFaqSection />
-
         <section className="mt-10 scroll-mt-28 rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:mt-12 md:px-10 md:py-12">
           <p className="mx-auto max-w-3xl font-heading font-semibold leading-snug text-white md:leading-snug">
             <span className="-mx-1 block min-w-0 md:mx-0">
@@ -676,6 +674,8 @@ function DoctorsPage() {
             <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
           </a>
         </section>
+
+        <DoctorsFaqSection />
       </div>
     </main>
   );
