@@ -656,11 +656,17 @@ function DoctorsPage() {
         <DoctorsFaqSection />
 
         <section className="mt-10 scroll-mt-28 rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:mt-12 md:px-10 md:py-12">
-          <p className="mx-auto max-w-3xl font-heading text-[19px] font-semibold leading-snug text-white md:text-[23px] md:leading-snug">
-            <span className="block">
-              A single complaint should not overshadow a career built on patient care.
+          <p className="mx-auto max-w-3xl font-heading font-semibold leading-snug text-white md:leading-snug">
+            <span className="-mx-1 block min-w-0 md:mx-0">
+              <span className="flex justify-center overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] md:overflow-visible [&::-webkit-scrollbar]:hidden">
+                <span className="whitespace-nowrap text-[clamp(13px,1.65vw+11px,23px)] md:text-[23px]">
+                  A single complaint should not overshadow a career built on patient care.
+                </span>
+              </span>
             </span>
-            <span className="mt-2 block">We make sure it doesn&apos;t.</span>
+            <span className="mt-2 block text-[clamp(14px,2.1vw+10px,23px)] md:mt-2 md:text-[23px]">
+              We make sure it doesn&apos;t.
+            </span>
           </p>
           <a
             {...calendlyNewTabProps}
