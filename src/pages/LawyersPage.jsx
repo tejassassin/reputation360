@@ -1,22 +1,20 @@
 import { useEffect, useRef, useState } from "react";
+import { FaqAccordion } from "../components/FaqAccordion";
 import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
 } from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
-  Shield,
   Gavel,
   Newspaper,
   AlertTriangle,
   MessagesSquare,
   Scale,
   Search,
-  Target,
-  Lock,
-  FileCheck,
-  Landmark,
+  Check,
   ShieldCheck,
+  ChevronRight,
   Globe2,
   FileWarning,
   TrendingUp,
@@ -27,6 +25,39 @@ import {
   Users,
   MapPin,
 } from "lucide-react";
+
+const LAWYER_FAQ_ITEMS = [
+  {
+    id: "legal-ethical",
+    question: "Is reputation suppression legal and ethical?",
+    answer:
+      "Entirely. We do not alter, hack, or tamper with any existing content. We build new, legitimate, high-quality content that earns its ranking through genuine authority.",
+  },
+  {
+    id: "state-bar-records",
+    question: "Can state bar records be suppressed?",
+    answer:
+      "The records on bar association systems cannot be altered. What we address is the search ranking of those pages — through content strategy and SEO, it is achievable to move bar records beyond the visible search results that prospective clients actually review.",
+  },
+  {
+    id: "visibility-to-opposing-parties",
+    question: "Will opposing parties or former clients be able to tell I am doing this?",
+    answer:
+      "No. The content we build appears as a natural part of your professional digital presence. There is no visible signal that it has been created to address a reputation issue.",
+  },
+  {
+    id: "practice-areas",
+    question: "What practice areas benefit most?",
+    answer:
+      "We work with legal professionals across all practice areas, but see particular demand from litigation, family law, criminal defense, and corporate law practitioners — areas where public records and adversarial proceedings most frequently generate searchable content.",
+  },
+  {
+    id: "timeline",
+    question: "How long does this take?",
+    answer:
+      "Meaningful displacement of primary negative results typically takes eight to twelve months. We will give you a case-specific estimate in your consultation.",
+  },
+];
 
 const LAWYER_PROBLEM_TILES = [
   {
@@ -471,6 +502,85 @@ function LawyersWhyHarderSection() {
   );
 }
 
+function LawyersMarketInsightBanner() {
+  return (
+    <section id="lawyer-market-insight" className="mt-10 scroll-mt-28 md:mt-12">
+      <div className="flex flex-col gap-8 rounded-[28px] bg-[linear-gradient(90deg,#1b3152_0%,#243d5c_55%,#2a4668_100%)] px-6 py-8 text-white shadow-[0_12px_32px_rgba(27,49,82,0.25)] md:flex-row md:items-center md:justify-between md:gap-10 md:px-10 md:py-10">
+        <div className="min-w-0 flex-1">
+          <p className="inline-flex rounded-full bg-[#24403b] px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[#66bb6a] md:px-3 md:py-1 md:text-[10px]">
+            Market Insight
+          </p>
+          <h2 className="mt-3 font-heading text-[19px] font-bold leading-[1.24] md:mt-4 md:text-[24px] lg:text-[27px]">
+            <span className="text-[#4eab66]">98%</span>
+            <span className="text-white">
+              {" "}
+              of clients research you online before making contact.{" "}
+            </span>
+            <span className="text-[#4eab66]">Nearly 1 in 3</span>
+            <span className="text-white">
+              {" "}
+              referred clients still walk away based on what they find.
+            </span>
+          </h2>
+          <p className="mt-2.5 font-heading text-[14px] font-semibold leading-snug text-white md:mt-3 md:text-[16px]">
+            Make sure they like what they find.
+          </p>
+          <p className="mt-2 text-[12px] leading-relaxed text-white/80 md:mt-2.5 md:text-[13px]">
+            (Source: iLawyerMarketing, Martindale-Avvo)
+          </p>
+        </div>
+        <div className="flex shrink-0 justify-center md:justify-end">
+          <div className="flex h-[76px] w-[76px] items-center justify-center rounded-2xl border-2 border-[#4eab66] bg-transparent md:h-[88px] md:w-[88px]">
+            <div className="relative flex h-11 w-11 items-center justify-center md:h-[52px] md:w-[52px]">
+              <Search
+                className="absolute text-white"
+                strokeWidth={1.75}
+                size={46}
+                aria-hidden
+              />
+              <Check
+                className="relative z-10 text-white"
+                strokeWidth={3}
+                size={18}
+                style={{ marginTop: "-4px" }}
+                aria-hidden
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LawyersFaqSection() {
+  return (
+    <section
+      id="lawyer-faqs"
+      className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
+    >
+      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
+        FAQs
+      </h2>
+      <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
+      <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px]">
+        Tap a question to expand or collapse the answer.
+      </p>
+      <div className="mt-8 max-w-4xl space-y-4">
+        {LAWYER_FAQ_ITEMS.map((item, index) => (
+          <FaqAccordion
+            key={item.id}
+            question={item.question}
+            defaultOpen={index === 0}
+          >
+            <p className="text-[15px] leading-relaxed">{item.answer}</p>
+          </FaqAccordion>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function LawyersPage() {
   useEffect(() => {
     const previous = document.title;
@@ -481,8 +591,8 @@ function LawyersPage() {
   }, []);
 
   return (
-    <main className="flex-1 bg-offwhite pt-28 md:pt-32">
-      <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
+    <main className="flex-1 bg-offwhite pb-16 pt-28 md:pb-20 md:pt-32">
+      <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 md:px-6 md:py-14">
         <section className="relative grid items-start gap-5 overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:grid-cols-[1.03fr_0.97fr] md:px-4 md:py-7">
           <div className="max-w-[570px]">
             <h1 className="max-w-[520px] font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#0f2e58] md:text-[40px]">
@@ -617,135 +727,31 @@ function LawyersPage() {
         <LawyersScaleSection />
 
         <LawyersWhyHarderSection />
-      </div>
 
-      <section className="bg-[#f2f3f9] px-4 py-14 md:px-8 md:py-18">
-        <div className="mx-auto max-w-6xl text-center">
-          <h2 className="font-heading text-[26px] font-bold text-[#1a2b4b] md:text-[32px]">
-            Reputation Threats Specific to Legal Professionals
-          </h2>
-          <div className="mx-auto mt-4 h-1.5 w-16 rounded-full bg-[#4caf50]" />
-        </div>
-        <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-          {[
-            {
-              icon: AlertTriangle,
-              title: "Bar Association Complaints",
-              body: "Publicly listed disciplinary actions are often Google-indexed, becoming the first things clients see.",
-            },
-            {
-              icon: Newspaper,
-              title: "Negative Media Coverage",
-              body: "Case outcomes covered negatively by legal or mainstream news media can linger in search results for decades.",
-            },
-            {
-              icon: MessagesSquare,
-              title: "Client Disputes",
-              body: "Public disputes posted on prominent legal directories can undermine years of successful practice.",
-            },
-            {
-              icon: Scale,
-              title: "Contentious Opposing Parties",
-              body: "Aggressive content posted by opposing parties in high-stakes cases designed to damage your standing.",
-            },
-            {
-              icon: Target,
-              title: "Competitor Targeting",
-              body: "Rival firms publishing strategic content targeting your name and practice in local search results.",
-            },
-          ].map((card) => {
-            const CardIcon = card.icon;
-            return (
-            <div
-              key={card.title}
-              className="ha-lift rounded-2xl border border-[#e8eaf2] bg-white p-5 shadow-[0_4px_20px_rgba(26,43,75,0.07)] md:p-6"
-            >
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#fde8ea]">
-                <CardIcon className="h-5 w-5 text-[#c62828]" strokeWidth={2} />
-              </div>
-              <h3 className="mt-4 font-heading text-base font-bold text-[#1a2b4b] md:text-lg">
-                {card.title}
-              </h3>
-              <p className="mt-3 text-[13px] leading-[1.65] text-[#5a6578] md:text-[14px] md:leading-[1.7]">
-                {card.body}
-              </p>
-            </div>
-            );
-          })}
-          <a
-            {...calendlyNewTabProps}
-            className="ha-lift relative flex min-h-[220px] flex-col items-center justify-center overflow-hidden rounded-2xl bg-[#1a2b4b] p-8 text-center shadow-[0_8px_28px_rgba(26,43,75,0.2)] hover:bg-[#243a5c] sm:min-h-0 lg:min-h-[280px]"
-          >
-            <Shield
-              className="pointer-events-none absolute left-1/2 top-1/2 h-[min(85%,200px)] w-[min(85%,200px)] -translate-x-1/2 -translate-y-1/2 text-white/[0.06]"
-              strokeWidth={1}
-              aria-hidden
-            />
-            <p className="relative z-[1] max-w-[240px] font-heading text-[15px] font-bold leading-snug text-white md:text-base">
-              Don&apos;t leave your reputation to chance.
-            </p>
-            <span className="relative z-[1] mt-5 font-heading text-[13px] font-bold uppercase tracking-[0.14em] text-[#7fe08a] md:text-sm uppercase">
-              Take command now
+        <IndustryWhatReputation360Section />
+        <LawyersMarketInsightBanner />
+        <IndustryRealisticTimelineSection />
+
+        <section className="rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
+          <p className="mx-auto max-w-3xl font-heading leading-snug text-white md:leading-snug">
+            <span className="block text-[19px] font-semibold md:text-[23px]">
+              Your influence should not be limited by what Google shows first.
             </span>
-          </a>
-        </div>
-      </section>
-
-      <section className="bg-[#eef1f8] px-4 py-14 md:px-8 md:py-18">
-        <div className="mx-auto max-w-6xl">
-          <IndustryWhatReputation360Section />
-          <IndustryRealisticTimelineSection />
-        </div>
-      </section>
-
-      <section className="bg-white px-4 py-16 text-center md:px-8 md:py-24">
-        <h2 className="mx-auto max-w-3xl font-heading text-[28px] font-bold leading-[1.2] text-[#1a2b4b] md:text-[36px] lg:text-[38px]">
-          Your Legal Expertise Deserves a Reputation to Match
-        </h2>
-        <p className="mx-auto mt-6 max-w-3xl text-[16px] italic leading-[1.65] text-[#5a6578] md:text-[17px] md:leading-[1.7]">
-          Years of experience and results deserve to be the first thing a
-          prospective client sees. Reputation360 makes sure they are.
-        </p>
-        <div className="mx-auto mt-10 flex max-w-xl items-center gap-4 md:mt-12 md:max-w-2xl md:gap-5">
-          <div className="h-px min-w-[48px] flex-1 bg-[#d8dee6]" aria-hidden />
-          <p className="shrink-0 text-[11px] font-bold tracking-wide text-[#1a2b4b] md:text-xs">
-            LexGuard Authority Protocol
-          </p>
-          <div className="h-px min-w-[48px] flex-1 bg-[#d8dee6]" aria-hidden />
-        </div>
-      </section>
-
-      <section className="px-4 pb-16 md:px-8 md:pb-20">
-        <div className="mx-auto max-w-4xl rounded-3xl bg-[#1a2b4b] px-6 py-12 text-center shadow-xl md:px-12 md:py-14">
-          <h2 className="font-heading text-[26px] font-bold text-white md:text-[34px]">
-            Secure Your Professional Legacy Today.
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-[15px] leading-[1.6] text-white/80 md:text-[16px]">
-            Join elite legal practitioners who trust Reputation360 to manage their
-            digital standing with absolute discretion and precision.
+            <span className="mt-2 block whitespace-nowrap text-[19px] font-semibold md:text-[23px]">
+              We make sure it isn&apos;t.
+            </span>
           </p>
           <a
             {...calendlyNewTabProps}
-            className="ha-pill mt-8 inline-flex items-center justify-center rounded-lg bg-[#4caf50] px-8 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-[#43a047]"
+            className="ha-pill mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-green px-5 py-3 text-sm font-heading font-medium text-white shadow-sm transition-all duration-200 hover:bg-green/90 hover:shadow-lg hover:shadow-green/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#072f5f]"
           >
             Book a Free Confidential Consultation
+            <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
           </a>
-          <div className="mx-auto mt-10 flex max-w-lg flex-col items-center justify-center gap-6 text-white/90 sm:flex-row sm:gap-8">
-            <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.1em]">
-              <Lock className="h-4 w-4 text-[#7fe08a]" />
-              100% Confidential
-            </div>
-            <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.1em]">
-              <FileCheck className="h-4 w-4 text-[#7fe08a]" />
-              NDA Protected
-            </div>
-            <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.1em]">
-              <Landmark className="h-4 w-4 text-[#7fe08a]" />
-              Legacy Focused
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+
+        <LawyersFaqSection />
+      </div>
     </main>
   );
 }
