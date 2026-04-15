@@ -600,9 +600,7 @@ function LawyersPage() {
               <span className="block">
                 Before a client retains you, they search you.
               </span>
-              <span className="mt-1 block md:mt-1.5">
-                Your results may already be deciding the brief.
-              </span>
+              <span className="mt-1 block md:mt-1.5">What do they find?</span>
             </h1>
             <p className="mt-5 max-w-[520px] text-[15px] leading-[1.5] text-[#4f5f75] md:text-[16px]">
               Your reputation is being read before your proposal is.
