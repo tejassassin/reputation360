@@ -3,6 +3,7 @@ import { FaqAccordion } from "../components/FaqAccordion";
 import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
+  REPUTATION360_JOB_SEEKER_STEPS,
 } from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
@@ -711,7 +712,9 @@ function JobSeekersPage() {
 
         <JobSeekersWhyDifficultSection />
 
-        <IndustryWhatReputation360Section />
+        <IndustryWhatReputation360Section
+          steps={REPUTATION360_JOB_SEEKER_STEPS}
+        />
 
         <JobSeekersMarketInsightBanner />
 

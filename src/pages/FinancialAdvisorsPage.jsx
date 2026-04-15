@@ -3,6 +3,7 @@ import { FaqAccordion } from "../components/FaqAccordion";
 import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
+  REPUTATION360_FINANCIAL_ADVISOR_STEPS,
 } from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
@@ -724,7 +725,9 @@ function FinancialAdvisorsPage() {
 
         <FinancialAdvisorsWhyHarderSection />
 
-        <IndustryWhatReputation360Section />
+        <IndustryWhatReputation360Section
+          steps={REPUTATION360_FINANCIAL_ADVISOR_STEPS}
+        />
 
         <FinancialAdvisorsMarketInsightBanner />
 

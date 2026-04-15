@@ -13,7 +13,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-/** Same five steps and timeline as Financial Advisors / Job Seekers industry pages. */
+/** Default five steps for industry pages that do not pass a custom `steps` prop. */
 export const REPUTATION360_FA_STEPS = [
   {
     step: 1,
@@ -44,6 +44,74 @@ export const REPUTATION360_FA_STEPS = [
     headline: "Step 5 - Long-Term Maintenance (Month 8 onward)",
     body: "Once negative content is displaced, we maintain the presence that replaced it - ensuring it holds position and continues working in your favor.",
     Icon: RefreshCw,
+  },
+];
+
+/** Financial Advisors page only; other industries use REPUTATION360_FA_STEPS. */
+export const REPUTATION360_FINANCIAL_ADVISOR_STEPS = [
+  {
+    step: 1,
+    headline: "Step 1 - Complete Search Audit (Week 1)",
+    body: "We run the same search your clients run. We map every result appearing for your name, your firm name, and common search combinations. We assess the strength of each negative entry and identify exactly what we are working with before any strategy is designed.",
+    Icon: Map,
+  },
+  {
+    step: 2,
+    headline: "Step 2 - Suppression Strategy Design (Weeks 1-2)",
+    body: "We design a content and SEO strategy specific to your situation, built to push negative results beyond page two — where fewer than 0.5% of searchers ever look. You receive a clear brief on what we are building and why.",
+    Icon: Target,
+  },
+  {
+    step: 3,
+    headline: "Step 3 - Content and Presence Building (Months 1-4)",
+    body: "We build your authoritative digital footprint: LinkedIn profile optimization, a professional website or thought leadership hub, financial commentary and expert articles on high-authority platforms, and optimized profiles on financial directories. All of it built to rank for your name.",
+    Icon: Layers,
+  },
+  {
+    step: 4,
+    headline: "Step 4 - Ranking Displacement (Months 3-8)",
+    body: "As your positive properties gain authority, they begin outranking the negative content. We monitor rankings weekly, adjust strategy as results move, and keep you informed of progress throughout.",
+    Icon: BarChart3,
+  },
+  {
+    step: 5,
+    headline: "Step 5 - Long-Term Maintenance (Months 8-12)",
+    body: "Once negative content is displaced, we maintain the presence that replaced it — ensuring it holds position and continues working in your favor. A strong search presence, once built, becomes a permanent professional asset.",
+    Icon: RefreshCw,
+  },
+];
+
+/** Job Seekers page only; other industries use REPUTATION360_FA_STEPS or their own steps prop. */
+export const REPUTATION360_JOB_SEEKER_STEPS = [
+  {
+    step: 1,
+    headline: "Step 1 - Your Reputation Audit (Week 1)",
+    body: "We run the search a recruiter would run — your name, name plus city, name plus industry, name plus previous employer. We show you exactly what they see and identify precisely what is working against you.",
+    Icon: Map,
+  },
+  {
+    step: 2,
+    headline: "Step 2 - Strategy and Priority Setting (Week 2)",
+    body: "We identify which results are causing the most damage, which can potentially be removed, and what content strategy will most effectively displace what cannot be removed. You get a clear plan before any work begins.",
+    Icon: Target,
+  },
+  {
+    step: 3,
+    headline: "Step 3 - Building Your Professional Presence (Months 1-3)",
+    body: "We build a positive, authoritative digital footprint that outranks the damaging content — LinkedIn optimization, a personal professional website or portfolio, published professional commentary, and supporting profiles designed to rank for your name.",
+    Icon: Layers,
+  },
+  {
+    step: 4,
+    headline: "Step 4 - Displacement and Monitoring (Months 2-8)",
+    body: "As your positive presence gains ranking strength, damaging content moves down. We monitor progress weekly and adjust the strategy to maintain momentum — and we keep you informed throughout so you always know where things stand.",
+    Icon: BarChart3,
+  },
+  {
+    step: 5,
+    headline: "Step 5 - Resolution (Months 8-12)",
+    body: "For most clients, negative content has moved well beyond visible search pages by this point. The professional presence we have built continues to hold its position and work in your favor long after the engagement ends.",
+    Icon: Sparkles,
   },
 ];
 
@@ -85,9 +153,10 @@ function faWhatWeDoStepLabel(headline) {
 
 export function IndustryWhatReputation360Section({
   sectionId = "what-reputation360-does",
+  steps = REPUTATION360_FA_STEPS,
 }) {
   const [active, setActive] = useState(0);
-  const item = REPUTATION360_FA_STEPS[active];
+  const item = steps[active];
   const ActiveIcon = item.Icon;
 
   return (
@@ -106,7 +175,7 @@ export function IndustryWhatReputation360Section({
       <div className="mt-8 grid max-w-5xl gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-stretch lg:gap-8">
         <div>
           <ul className="flex list-none flex-row gap-2 overflow-x-auto pb-1 pl-0 [-ms-overflow-style:none] [scrollbar-width:none] lg:flex-col lg:gap-2.5 lg:overflow-visible [&::-webkit-scrollbar]:hidden">
-            {REPUTATION360_FA_STEPS.map((stepItem, i) => {
+            {steps.map((stepItem, i) => {
               const Icon = stepItem.Icon;
               const selected = active === i;
               const shortLabel = faWhatWeDoStepLabel(stepItem.headline);
