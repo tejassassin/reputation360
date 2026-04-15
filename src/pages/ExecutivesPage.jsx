@@ -9,12 +9,9 @@ import {
   Handshake,
   Users,
   Newspaper,
-  ArrowRight,
+  Search,
 } from "lucide-react";
 
-/* Reference imagery (AIDA exports) - same assets as provided HTML */
-const heroImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDGa7p06z_2IPtxtlwdSmPcAYw1vGdkQs4ZB9-JThiL4ULvzVIiZtiHrt_BkuNBpnoNnZb69DUDcgcCDPZIGpszaKn3S0tzQ7tM-Z2ZGGjYCG4CxDTyO3Gh8MmoVSgSc99sYjivVzoI32DRfY7YVLjtksQEgUeyA1ZVHbsp80NRg847rPim2gcG1VDpitr-KxKOUx-iqGmqhwyxGfZrifVChfoFZBuzD8mUe-jNjH1ZjyNS0IOpxS6TwfmvhOodgs8KBUAg9YpMmUI";
 const narrativeImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAXR5jfeoIOVRqrWX2aYRGdKzHFPco6ILXJCSObSw2mq2o5bmp5qktKN4oIYbAXTfG20odb4mDhGhxuu-x37L6SV4yF60-j5SB7RU-j8o6Mapd0X-tQzn4_UCx3wWuNYtklZjqLwe3Q7Zq5RrGgU539WeVsm12meNFJa7teyh1YM1dLUtpFdWeC7WiQ3uKhYA0uG9iZZIMwWuzv8U2jmbBqfLw7CveFQ-GWoNdRKvOrXTX2LV25jKcu7bxpLg5A9nYDGrDpKF-TikE";
 
@@ -28,45 +25,63 @@ function ExecutivesPage() {
   }, []);
 
   return (
-    <main className="flex-1 bg-[#f9f9ff] pt-28 md:pt-32">
-      {/* Hero - type scale aligned with Lawyers / other industry pages */}
-      <section className="relative flex min-h-[58vh] items-center overflow-hidden py-10 md:min-h-[62vh] md:py-14">
-        <div className="absolute inset-0 z-0">
-          <img
-            alt="Modern glass skyscrapers"
-            className="h-full w-full object-cover brightness-[0.97]"
-            src={heroImage}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#f9f9ff] via-[#f9f9ff]/80 to-transparent" />
-        </div>
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-8">
-          <div className="max-w-3xl space-y-5 md:space-y-6">
-            <div className="inline-flex items-center rounded-full bg-[#1f3b64] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white">
-              Executive Series
-            </div>
-            <h1 className="font-heading text-[30px] font-bold leading-[1.1] text-[#02254d] md:text-[40px] lg:text-[44px]">
-              Your Name is Your <br className="hidden sm:block" />
-              Most Strategic Asset.
+    <main className="flex-1 bg-offwhite pt-28 md:pt-32">
+      <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
+        <section className="relative grid items-start gap-5 overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:grid-cols-[1.03fr_0.97fr] md:px-4 md:py-7">
+          <div className="max-w-[570px]">
+            <h1 className="max-w-[520px] font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#0f2e58] md:text-[40px]">
+              <span className="block">
+                Every board member will search your name.
+              </span>
+              <span className="mt-1 block md:mt-1.5">
+                Is your digital presence ready for that moment?
+              </span>
             </h1>
-            <p className="max-w-2xl text-[15px] font-medium leading-[1.65] text-[#43474e] md:text-[16px]">
-              In the upper tiers of leadership, personal and corporate reputation
-              are one and the same. We ensure yours reflects your authority.
-            </p>
-            <div className="pt-1">
-              <a
-                {...calendlyNewTabProps}
-                className="group ha-pill inline-flex items-center gap-2 rounded-md bg-[#02254d] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(2,37,77,0.22)] hover:bg-[#35618e] active:scale-[0.98]"
-              >
-                Book a Confidential Consultation
-                <ArrowRight
-                  className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                  strokeWidth={2.25}
-                />
-              </a>
-            </div>
+            <a
+              {...calendlyNewTabProps}
+              className="ha-pill mt-6 inline-flex items-center gap-2 rounded-[8px] bg-[#153f70] px-5 py-3 text-sm font-semibold text-white shadow-[0_8px_18px_rgba(7,47,95,0.24)] hover:bg-[#0b3c75]"
+            >
+              Book a Free Confidential Consultation
+            </a>
           </div>
-        </div>
-      </section>
+          <div className="rounded-[6px] bg-[linear-gradient(180deg,#e8f5ef_0%,#e7f4ee_100%)] px-3 py-3 pt-1 space-y-3 md:px-4 md:py-4">
+            {[
+              {
+                title: "Strategic Presence",
+                text: "We help senior leaders shape what stakeholders see first — before diligence, press, or partnerships hinge on a search result.",
+                icon: <ShieldCheck className="h-5 w-5 text-[#6ee27d]" />,
+              },
+              {
+                title: "Discretion Guaranteed",
+                text: "Board-level work demands confidentiality. Your engagement and the nature of our work stay protected throughout.",
+                icon: <ShieldCheck className="h-5 w-5 text-[#6ee27d]" />,
+              },
+              {
+                title: "Executive Authority",
+                text: "We strengthen authoritative profiles and assets so your record and expertise rank before noise and outdated material.",
+                icon: <Search className="h-5 w-5 text-[#6ee27d]" />,
+              },
+            ].map((item) => (
+              <article
+                key={item.title}
+                className="ha-lift rounded-3xl border border-[#dbe3e8] bg-white px-4 py-4 shadow-[0_10px_24px_rgba(20,40,70,0.10)] md:px-5 md:py-5"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 shrink-0">{item.icon}</div>
+                  <div>
+                    <h3 className="text-[15px] font-semibold leading-tight text-[#1f3b64] md:text-[16px]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 text-[12px] leading-[1.5] text-[#5d6c80] md:text-[13px]">
+                      {item.text}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
 
       {/* Narrative / The Inseparable Link */}
       <section className="relative overflow-hidden border-y border-[#c4c6d0]/30 bg-white">
