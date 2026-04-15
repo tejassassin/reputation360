@@ -3,6 +3,7 @@ import { FaqAccordion } from "../components/FaqAccordion";
 import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
+  REPUTATION360_LAWYER_STEPS,
 } from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
@@ -728,7 +729,7 @@ function LawyersPage() {
 
         <LawyersWhyHarderSection />
 
-        <IndustryWhatReputation360Section />
+        <IndustryWhatReputation360Section steps={REPUTATION360_LAWYER_STEPS} />
         <LawyersMarketInsightBanner />
         <IndustryRealisticTimelineSection />
 

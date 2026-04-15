@@ -3,6 +3,7 @@ import { FaqAccordion } from "../components/FaqAccordion";
 import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
+  REPUTATION360_DOCTOR_STEPS,
 } from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
@@ -709,7 +710,17 @@ function DoctorsPage() {
 
         <DoctorsWhyHarderSection />
 
-        <IndustryWhatReputation360Section />
+        <IndustryWhatReputation360Section
+          steps={REPUTATION360_DOCTOR_STEPS}
+          footer={
+            <p className="mx-auto max-w-3xl text-center font-heading text-[16px] font-semibold leading-snug text-[#0f2e58] md:text-[18px] md:leading-snug">
+              <span className="block">
+                Your influence should not be limited by what Google shows first.
+              </span>
+              <span className="mt-1.5 block">We make sure it isn&apos;t.</span>
+            </p>
+          }
+        />
 
         <DoctorsMarketInsightBanner />
 

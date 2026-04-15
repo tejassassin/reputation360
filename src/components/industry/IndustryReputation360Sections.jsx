@@ -115,6 +115,74 @@ export const REPUTATION360_JOB_SEEKER_STEPS = [
   },
 ];
 
+/** Doctors & Healthcare page only. */
+export const REPUTATION360_DOCTOR_STEPS = [
+  {
+    step: 1,
+    headline: "Step 1 - Full Digital Presence Audit (Week 1)",
+    body: "We map every search result for your name, your practice name, and your specialty plus location — every review platform, directory listing, news reference, and social mention. We identify where the damage is concentrated and what approach each situation requires.",
+    Icon: Map,
+  },
+  {
+    step: 2,
+    headline: "Step 2 - Suppression and Presence Strategy (Weeks 1-2)",
+    body: "We design a strategy to displace negative results using content creation, directory optimization, and SEO. Where direct removal is viable — fake reviews, policy-violating content, de-indexing candidates — we pursue those in parallel.",
+    Icon: Target,
+  },
+  {
+    step: 3,
+    headline: "Step 3 - Review Platform and Directory Optimization (Months 1-2)",
+    body: "We optimize your profiles on Google Business, Vitals, WebMD, and relevant medical directories — ensuring your official presence is comprehensive, current, and ranking prominently. A well-optimized profile on a high-authority platform consistently outranks a negative review aggregator.",
+    Icon: Layers,
+  },
+  {
+    step: 4,
+    headline: "Step 4 - Authoritative Content Building (Months 1-5)",
+    body: "We build your thought leadership and professional presence — health articles published under your name, a professional website or blog, interview features, and educational content that positions you as the credible, trusted expert in your specialty. This content is built to rank for your name and hold that position over time.",
+    Icon: BarChart3,
+  },
+  {
+    step: 5,
+    headline: "Step 5 - Negative Result Displacement and Maintenance (Months 3-12)",
+    body: "As your authoritative content gains ranking strength, it displaces negative results from visible search pages. We monitor rankings weekly, adjust strategy as results move, and maintain the presence we have built so that your search results continue working in your favor long after primary displacement is achieved.",
+    Icon: RefreshCw,
+  },
+];
+
+/** Lawyers & Attorneys page only. */
+export const REPUTATION360_LAWYER_STEPS = [
+  {
+    step: 1,
+    headline: "Step 1 - Legal Reputation Audit (Week 1)",
+    body: "We run a comprehensive search across your name, your firm name, and relevant practice area combinations — identifying every damaging result, assessing its ranking authority, and mapping the full picture of what prospective clients encounter.",
+    Icon: Map,
+  },
+  {
+    step: 2,
+    headline: "Step 2 - Strategy Design (Weeks 1-2)",
+    body: "We design a suppression and presence strategy calibrated to your specific situation — the nature of the damaging content, the authority of the sources, and the competitive picture for your name in search. You receive a clear brief before any work begins.",
+    Icon: Target,
+  },
+  {
+    step: 3,
+    headline: "Step 3 - Legal Directory Optimization (Month 1)",
+    body: "Profiles on Avvo, FindLaw, Martindale-Hubbell, Justia, and legal aggregators frequently rank prominently for attorney names. We ensure yours are fully built, optimized, and working to your advantage from the earliest stage of the engagement.",
+    Icon: Layers,
+  },
+  {
+    step: 4,
+    headline: "Step 4 - Thought Leadership and Authority Content (Months 1-5)",
+    body: "We publish authoritative legal commentary, case analysis, and professional insight under your name — on high-authority platforms that rank well for legal professional names. This positions you as the credible expert in your practice area and builds the ranking authority that displaces negative content.",
+    Icon: BarChart3,
+  },
+  {
+    step: 5,
+    headline: "Step 5 - Displacement and Maintenance (Months 3-12)",
+    body: "As your positive presence gains authority, negative results are displaced from visible search pages. We monitor rankings throughout, adjust the strategy as results move, and maintain the presence we have built so your search results keep working in your favor long after primary displacement is complete.",
+    Icon: RefreshCw,
+  },
+];
+
 export const REALISTIC_TIMELINE_PHASES = [
   {
     id: "weeks-1-4",
@@ -154,6 +222,7 @@ function faWhatWeDoStepLabel(headline) {
 export function IndustryWhatReputation360Section({
   sectionId = "what-reputation360-does",
   steps = REPUTATION360_FA_STEPS,
+  footer = null,
 }) {
   const [active, setActive] = useState(0);
   const item = steps[active];
@@ -254,6 +323,10 @@ export function IndustryWhatReputation360Section({
           </p>
         </aside>
       </div>
+
+      {footer ? (
+        <div className="mt-8 max-w-5xl border-t border-[#dce3ec] pt-8">{footer}</div>
+      ) : null}
     </section>
   );
 }
