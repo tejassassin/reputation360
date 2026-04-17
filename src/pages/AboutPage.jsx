@@ -995,6 +995,156 @@ function ClientStoriesSection() {
   );
 }
 
+function easeOutCubic(t) {
+  return 1 - (1 - t) ** 3;
+}
+
+function useCountUp(end, durationMs, active, delayMs = 0) {
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    if (!active) return undefined;
+    let cancelled = false;
+    let raf = 0;
+    const startAt = performance.now() + delayMs;
+    const tick = (now) => {
+      if (cancelled) return;
+      if (now < startAt) {
+        raf = requestAnimationFrame(tick);
+        return;
+      }
+      const elapsed = now - startAt;
+      const t = Math.min(elapsed / durationMs, 1);
+      setN(Math.round(end * easeOutCubic(t)));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf);
+    };
+  }, [end, durationMs, active, delayMs]);
+  return n;
+}
+
+function RealityWeFaceSection() {
+  const sectionRef = useRef(null);
+  const [statsActive, setStatsActive] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return undefined;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            setStatsActive(true);
+            obs.disconnect();
+          }
+        }
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const pctSearch = useCountUp(80, 1200, statsActive, 0);
+  const pctOpinion = useCountUp(70, 1200, statsActive, 200);
+
+  const cardMotion = {
+    initial: { opacity: 0, y: 28 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.28 },
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+  };
+
+  return (
+    <section
+      ref={sectionRef}
+      id="reality-we-face"
+      className={`border-y border-slate-200/80 bg-[#f8fafc] ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+    >
+      <div className="mx-auto max-w-5xl px-6 text-center">
+        <Motion.h2
+          className={`${headlineFont} mb-8 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.45 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          The Reality We Are Up Against
+        </Motion.h2>
+
+        <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+          <Motion.article
+            {...cardMotion}
+            transition={{ ...cardMotion.transition, delay: 0.06 }}
+            whileHover={{
+              y: -6,
+              transition: { type: "spring", stiffness: 400, damping: 28 },
+            }}
+            className="group relative cursor-default rounded-2xl border border-slate-200/90 bg-white p-6 text-center shadow-sm ring-0 transition-shadow duration-300 hover:border-[#1F3B64]/18 hover:shadow-[0_22px_48px_-20px_rgba(31,59,100,0.18)] md:p-8"
+          >
+            <div
+              className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-[#4CAF50]/[0.06] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              aria-hidden
+            />
+            <div
+              className={`${headlineFont} relative mb-3 text-5xl font-extrabold tabular-nums leading-none text-[#4CAF50] md:text-6xl`}
+            >
+              <span aria-live="polite">{pctSearch}%</span>
+            </div>
+            <p className="relative text-[15px] leading-relaxed text-slate-700 md:text-base">
+              of people search online before making a decision - whether that is
+              hiring someone, partnering with a business, choosing a doctor, or
+              closing an investment deal.
+            </p>
+          </Motion.article>
+          <Motion.article
+            {...cardMotion}
+            transition={{ ...cardMotion.transition, delay: 0.14 }}
+            whileHover={{
+              y: -6,
+              transition: { type: "spring", stiffness: 400, damping: 28 },
+            }}
+            className="group relative cursor-default rounded-2xl border border-slate-200/90 bg-white p-6 text-center shadow-sm transition-shadow duration-300 hover:border-[#2E5B88]/25 hover:shadow-[0_22px_48px_-20px_rgba(46,91,136,0.2)] md:p-8"
+          >
+            <div
+              className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-[#2E5B88]/[0.07] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              aria-hidden
+            />
+            <div
+              className={`${headlineFont} relative mb-3 text-5xl font-extrabold tabular-nums leading-none text-[#2E5B88] md:text-6xl`}
+            >
+              <span aria-live="polite">{pctOpinion}%</span>
+            </div>
+            <p className="relative text-[15px] leading-relaxed text-slate-700 md:text-base">
+              of people form an opinion about someone based on the first page of
+              Google results alone.
+            </p>
+          </Motion.article>
+        </div>
+
+        <Motion.div
+          className="mx-auto mt-8 max-w-3xl text-center md:mt-10"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.55, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="font-body text-[15px] font-normal leading-relaxed text-slate-700 md:text-base">
+            One negative link quietly undoes years of hard work. It shapes opinions
+            before a conversation even begins. It costs opportunities that are never
+            offered and deals that are never closed. Most people never even know
+            what they are losing.{" "}
+            <strong className="font-bold text-[#1F3B64]">We exist to change that.</strong>
+          </p>
+        </Motion.div>
+      </div>
+    </section>
+  );
+}
+
 function AboutPage() {
   const [activeSectionId, setActiveSectionId] = useState(
     () => aboutSectionNav[0]?.id ?? "",
@@ -1136,57 +1286,7 @@ function AboutPage() {
 
       <HowItAllBeganStory />
 
-      {/* The Reality We Are Up Against - two-column stats + quote (layout matches brand) */}
-      <section
-        id="reality-we-face"
-        className={`border-y border-slate-200/80 bg-[#f8fafc] ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
-      >
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <h2
-            className={`${headlineFont} mb-8 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
-          >
-            The Reality We Are Up Against
-          </h2>
-
-          <div className="grid gap-5 md:grid-cols-2 md:gap-6">
-            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 text-center shadow-sm md:p-8">
-              <div
-                className={`${headlineFont} mb-3 text-5xl font-extrabold tabular-nums leading-none text-[#4CAF50] md:text-6xl`}
-              >
-                80%
-              </div>
-              <p className="text-[15px] leading-relaxed text-slate-700 md:text-base">
-                of people search online before making a decision - whether that
-                is hiring someone, partnering with a business, choosing a doctor,
-                or closing an investment deal.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 text-center shadow-sm md:p-8">
-              <div
-                className={`${headlineFont} mb-3 text-5xl font-extrabold tabular-nums leading-none text-[#2E5B88] md:text-6xl`}
-              >
-                70%
-              </div>
-              <p className="text-[15px] leading-relaxed text-slate-700 md:text-base">
-                of people form an opinion about someone based on the first page of
-                Google results alone.
-              </p>
-            </div>
-          </div>
-
-          <div className="mx-auto mt-8 max-w-3xl text-center md:mt-10">
-            <p className="font-body text-[15px] font-normal leading-relaxed text-slate-700 md:text-base">
-              One negative link quietly undoes years of hard work. It shapes
-              opinions before a conversation even begins. It costs opportunities
-              that are never offered and deals that are never closed. Most people
-              never even know what they are losing.{" "}
-              <strong className="font-bold text-[#1F3B64]">
-                We exist to change that.
-              </strong>
-            </p>
-          </div>
-        </div>
-      </section>
+      <RealityWeFaceSection />
 
       <WhatDrivesUsSection />
 
