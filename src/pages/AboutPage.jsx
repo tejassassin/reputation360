@@ -16,7 +16,9 @@ import {
   Star,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Train,
+  Check,
 } from "lucide-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
 
@@ -78,6 +80,25 @@ const globalHubRoutes = [
 ];
 
 const headlineFont = "font-[Manrope,Inter,sans-serif]";
+
+const aboutView = { once: true, amount: 0.22, margin: "0px 0px -8% 0px" };
+
+const heroStagger = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.11, delayChildren: 0.06 },
+  },
+};
+
+const heroItem = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.62, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
 /** What Drives Us - interactive personas (grid order: row1, row2). */
 const whatDrivesPersonas = [
@@ -359,107 +380,183 @@ const howItBeganClosing =
 function HowItAllBeganStory() {
   const [activeStep, setActiveStep] = useState(0);
   const lastIndex = howItBeganSteps.length - 1;
+  const progress = (activeStep + 1) / howItBeganSteps.length;
 
   return (
     <section
       id="how-it-began"
-      className={`border-y border-slate-200 bg-slate-50 ${aboutFirstContentSpacing} ${aboutScrollTargetClass}`}
+      className={`relative overflow-hidden border-y border-slate-200/80 ${aboutFirstContentSpacing} ${aboutScrollTargetClass}`}
     >
-      <div className="mx-auto max-w-3xl px-6 lg:max-w-4xl">
-        <div>
-            <p
-              className={`${headlineFont} text-xs font-semibold uppercase tracking-[0.2em] text-[#4CAF50]`}
-            >
-              Our story
-            </p>
-            <h2
-              className={`${headlineFont} mt-2 mb-6 text-3xl font-extrabold text-[#1F3B64] md:text-4xl`}
-            >
-              How It All Began
-            </h2>
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_60%_at_10%_-10%,rgba(76,175,80,0.12),transparent_55%),radial-gradient(ellipse_70%_50%_at_100%_20%,rgba(46,91,136,0.1),transparent_50%),linear-gradient(180deg,#f8fafc_0%,#ffffff_45%,#f1f5f9_100%)]"
+        aria-hidden
+      />
+      <div className="pointer-events-none absolute -right-32 top-24 h-72 w-72 rounded-full bg-[#4CAF50]/[0.07] blur-3xl" aria-hidden />
+      <div className="relative mx-auto max-w-3xl px-6 lg:max-w-5xl">
+        <Motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={aboutView}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p
+            className={`${headlineFont} text-xs font-semibold uppercase tracking-[0.2em] text-[#4CAF50]`}
+          >
+            Our story
+          </p>
+          <h2
+            className={`${headlineFont} mt-2 mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-4xl lg:text-[2.35rem]`}
+          >
+            How It All Began
+          </h2>
+          <p className="font-body max-w-2xl text-[15px] leading-relaxed text-slate-600 md:text-base">
+            Four beats. One turning point. Tap any step or use Prev / Next.
+          </p>
+          <div className="mt-6 h-1.5 overflow-hidden rounded-full bg-slate-200/90">
+            <Motion.div
+              className="h-full rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
+              initial={false}
+              animate={{ width: `${progress * 100}%` }}
+              transition={{ type: "spring", stiffness: 120, damping: 22 }}
+            />
+          </div>
+        </Motion.div>
 
-            <div
-              className="mt-8"
-              role="list"
-              aria-label="Story beats - use Previous and Next or select a step"
+        <div
+          className="mt-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-12 lg:items-start"
+          role="list"
+          aria-label="Story beats - use Previous and Next or select a step"
+        >
+          <div className="hidden lg:block">
+            <Motion.div
+              className="sticky top-40 rounded-3xl border border-slate-200/80 bg-white/80 p-8 shadow-[0_24px_60px_-28px_rgba(15,35,60,0.18)] backdrop-blur-md"
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={aboutView}
+              transition={{ duration: 0.55, delay: 0.08 }}
             >
-              {howItBeganSteps.map((step, i) => {
-                const isActive = i === activeStep;
-                const isComplete = i < activeStep;
-                return (
-                  <div key={step.id} className="flex gap-4" role="listitem">
-                    <div className="flex w-11 shrink-0 flex-col items-center">
-                      <button
-                        type="button"
-                        aria-pressed={isActive}
-                        aria-label={`${step.kicker}: ${step.headline}`}
-                        onClick={() => setActiveStep(i)}
-                        className={`relative z-[1] mt-1.5 h-4 w-4 shrink-0 rounded-full border-2 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] ${
-                          isActive
-                            ? "border-[#4CAF50] bg-[#4CAF50] shadow-sm ring-4 ring-[#4CAF50]/25"
-                            : isComplete
-                              ? "border-[#1F3B64] bg-[#1F3B64]"
-                              : "border-slate-300 bg-white hover:border-[#2E5B88]"
-                        }`}
-                      />
-                      {i < lastIndex ? (
-                        <div
-                          className={`mt-0.5 w-0.5 flex-1 min-h-[2.75rem] rounded-full transition-colors ${
-                            i < activeStep ? "bg-[#1F3B64]" : "bg-slate-200"
-                          }`}
-                          aria-hidden
-                        />
-                      ) : null}
-                    </div>
+              <p className={`${headlineFont} text-sm font-bold text-[#1F3B64]`}>
+                {howItBeganSteps[activeStep].headline}
+              </p>
+              <AnimatePresence mode="wait">
+                <Motion.p
+                  key={howItBeganSteps[activeStep].id}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  className="font-body mt-4 text-[15px] leading-relaxed text-slate-600"
+                >
+                  {howItBeganSteps[activeStep].body}
+                </Motion.p>
+              </AnimatePresence>
+              {activeStep === lastIndex ? (
+                <Motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="font-body mt-6 border-l-[3px] border-[#4CAF50] pl-4 text-sm font-medium leading-relaxed text-slate-700"
+                  role="status"
+                >
+                  {howItBeganClosing}
+                </Motion.p>
+              ) : null}
+            </Motion.div>
+          </div>
+
+          <div className="mt-8 lg:mt-0">
+            {howItBeganSteps.map((step, i) => {
+              const isActive = i === activeStep;
+              const isComplete = i < activeStep;
+              return (
+                <Motion.div
+                  key={step.id}
+                  className="flex gap-4"
+                  role="listitem"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={aboutView}
+                  transition={{ duration: 0.45, delay: i * 0.06 }}
+                >
+                  <div className="flex w-11 shrink-0 flex-col items-center">
                     <button
                       type="button"
                       aria-pressed={isActive}
+                      aria-label={`${step.kicker}: ${step.headline}`}
                       onClick={() => setActiveStep(i)}
-                      className="min-w-0 flex-1 rounded-xl pb-8 text-left transition-colors hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] md:pb-10"
-                    >
-                      <span
-                        className={`${headlineFont} text-[11px] font-semibold uppercase tracking-[0.16em] md:text-xs ${
-                          isActive
-                            ? "text-[#4CAF50]"
-                            : isComplete
-                              ? "text-slate-400"
-                              : "text-slate-400"
+                      className={`relative z-[1] mt-1.5 h-4 w-4 shrink-0 rounded-full border-2 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] ${
+                        isActive
+                          ? "scale-110 border-[#4CAF50] bg-[#4CAF50] shadow-lg ring-4 ring-[#4CAF50]/25"
+                          : isComplete
+                            ? "border-[#1F3B64] bg-[#1F3B64]"
+                            : "border-slate-300 bg-white hover:border-[#2E5B88] hover:scale-105"
+                      }`}
+                    />
+                    {i < lastIndex ? (
+                      <div
+                        className={`mt-0.5 w-0.5 flex-1 min-h-[2.75rem] rounded-full transition-colors duration-500 ${
+                          i < activeStep ? "bg-[#1F3B64]" : "bg-slate-200"
                         }`}
-                      >
-                        {step.kicker}
-                      </span>
-                      <h3
-                        className={`${headlineFont} mt-1.5 text-lg font-extrabold leading-snug text-[#1F3B64] md:text-xl`}
-                      >
-                        {step.headline}
-                      </h3>
-                      {isActive ? (
-                        <p className="font-body mt-3 max-w-xl text-[15px] leading-relaxed text-slate-600 md:text-base">
-                          {step.body}
-                        </p>
-                      ) : null}
-                    </button>
+                        aria-hidden
+                      />
+                    ) : null}
                   </div>
-                );
-              })}
-            </div>
+                  <button
+                    type="button"
+                    aria-pressed={isActive}
+                    onClick={() => setActiveStep(i)}
+                    className={`min-w-0 flex-1 rounded-2xl border border-transparent pb-8 text-left transition-all duration-300 hover:border-slate-200/90 hover:bg-white/90 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] md:pb-10 ${
+                      isActive ? "bg-white/95 shadow-md ring-1 ring-slate-200/80" : ""
+                    }`}
+                  >
+                    <span
+                      className={`${headlineFont} px-3 pt-1 text-[11px] font-semibold uppercase tracking-[0.16em] md:text-xs ${
+                        isActive ? "text-[#4CAF50]" : "text-slate-400"
+                      }`}
+                    >
+                      {step.kicker}
+                    </span>
+                    <h3
+                      className={`${headlineFont} px-3 mt-1.5 text-lg font-extrabold leading-snug text-[#1F3B64] md:text-xl`}
+                    >
+                      {step.headline}
+                    </h3>
+                    <div className="px-3 lg:hidden">
+                      {isActive ? (
+                        <AnimatePresence mode="wait">
+                          <Motion.p
+                            key={step.id}
+                            initial={{ opacity: 0, y: 8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -6 }}
+                            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                            className="font-body mt-3 max-w-xl text-[15px] leading-relaxed text-slate-600 md:text-base"
+                          >
+                            {step.body}
+                          </Motion.p>
+                        </AnimatePresence>
+                      ) : null}
+                    </div>
+                  </button>
+                </Motion.div>
+              );
+            })}
 
             {activeStep === lastIndex ? (
               <p
-                className="font-body mt-2 max-w-xl border-l-[3px] border-[#4CAF50] pl-4 text-[15px] font-medium leading-relaxed text-slate-700 md:text-base"
+                className="font-body mt-2 max-w-xl border-l-[3px] border-[#4CAF50] pl-4 text-[15px] font-medium leading-relaxed text-slate-700 md:text-base lg:hidden"
                 role="status"
               >
                 {howItBeganClosing}
               </p>
             ) : null}
 
-            <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 pt-6">
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-slate-200/80 pt-6">
               <div className="flex flex-wrap gap-3">
                 <button
                   type="button"
                   disabled={activeStep === 0}
                   onClick={() => setActiveStep((s) => Math.max(0, s - 1))}
-                  className={`${headlineFont} inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-[#1F3B64] shadow-sm transition hover:border-slate-300 hover:bg-slate-50 disabled:pointer-events-none disabled:opacity-40`}
+                  className={`${headlineFont} inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-[#1F3B64] shadow-sm transition hover:-translate-y-0.5 hover:border-[#4CAF50]/40 hover:shadow-md disabled:pointer-events-none disabled:opacity-40`}
                 >
                   <ChevronLeft className="h-4 w-4 shrink-0" aria-hidden />
                   Prev
@@ -470,7 +567,7 @@ function HowItAllBeganStory() {
                   onClick={() =>
                     setActiveStep((s) => Math.min(lastIndex, s + 1))
                   }
-                  className={`${headlineFont} inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-[#1F3B64] shadow-sm transition hover:border-slate-300 hover:bg-slate-50 disabled:pointer-events-none disabled:opacity-40`}
+                  className={`${headlineFont} inline-flex items-center gap-2 rounded-full border border-[#1F3B64] bg-[#1F3B64] px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-[#2a5088] disabled:pointer-events-none disabled:opacity-40`}
                 >
                   Next
                   <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
@@ -479,9 +576,10 @@ function HowItAllBeganStory() {
               <p
                 className={`${headlineFont} text-sm tabular-nums text-slate-500`}
               >
-                {activeStep + 1} of {howItBeganSteps.length}
+                {activeStep + 1} / {howItBeganSteps.length}
               </p>
             </div>
+          </div>
         </div>
       </div>
     </section>
@@ -496,12 +594,22 @@ function WhatDrivesUsSection() {
   return (
     <section
       id="what-drives-us"
-      className={`bg-white ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+      className={`relative overflow-hidden ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
     >
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-12">
+      <div
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,#ffffff_0%,#f0fdf4_38%,#eff6ff_72%,#ffffff_100%)]"
+        aria-hidden
+      />
+      <div className="relative mx-auto max-w-6xl px-6">
+        <Motion.div
+          className="mx-auto mb-10 max-w-3xl text-center md:mb-14"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={aboutView}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
           <h2
-            className={`${headlineFont} text-3xl font-extrabold leading-tight text-[#1F3B64] md:text-[2rem]`}
+            className={`${headlineFont} text-3xl font-extrabold leading-tight text-[#1F3B64] md:text-[2.1rem]`}
           >
             What Drives Us
           </h2>
@@ -518,113 +626,128 @@ function WhatDrivesUsSection() {
             - the jobs secured, the clients won, the deals closed, and the
             careers rebuilt.
           </p>
-        </div>
+        </Motion.div>
 
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
-          {whatDrivesPersonas.map((persona) => {
+          {whatDrivesPersonas.map((persona, i) => {
             const isActive = persona.id === activeId;
             const Icon = persona.icon;
             return (
-              <button
+              <Motion.div
                 key={persona.id}
-                type="button"
-                onClick={() => setActiveId(persona.id)}
-                aria-pressed={isActive}
-                className={`group relative flex flex-col rounded-2xl border p-6 text-left transition-[border-color,background-color,box-shadow,transform] duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 md:p-7 ${
-                  isActive
-                    ? "border-[#1F3B64] bg-[#1F3B64] shadow-lg ring-1 ring-[#1F3B64]/20"
-                    : "border-slate-200/90 bg-white shadow-sm hover:border-slate-300 hover:shadow-md"
-                }`}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={aboutView}
+                transition={{ duration: 0.5, delay: i * 0.07 }}
               >
-                {isActive ? (
-                  <div
-                    className="pointer-events-none absolute inset-x-0 top-0 h-0.5 rounded-t-2xl bg-[#4CAF50]"
-                    aria-hidden
-                  />
-                ) : null}
-                <div
-                  className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl transition-colors duration-500 ease-out ${
+                <button
+                  type="button"
+                  onClick={() => setActiveId(persona.id)}
+                  aria-pressed={isActive}
+                  className={`group relative flex w-full flex-col rounded-2xl border p-6 text-left transition-[border-color,background-color,box-shadow,transform] duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 md:p-7 ${
                     isActive
-                      ? "bg-transparent text-[#4CAF50]"
-                      : "bg-sky-100/90 text-[#2E5B88]"
+                      ? "border-[#1F3B64] bg-[#1F3B64] shadow-[0_20px_50px_-24px_rgba(15,35,60,0.45)] ring-1 ring-white/10"
+                      : "border-slate-200/90 bg-white/90 shadow-sm backdrop-blur-sm hover:-translate-y-1 hover:border-[#4CAF50]/35 hover:shadow-lg"
                   }`}
                 >
                   {isActive ? (
-                    <CircleArrowRight className="h-8 w-8" strokeWidth={2} />
-                  ) : (
-                    <Icon className="h-6 w-6" strokeWidth={2} />
-                  )}
-                </div>
-                <span
-                  className={`${headlineFont} mb-2 text-[11px] font-bold uppercase tracking-[0.18em] transition-colors duration-500 ease-out ${
-                    isActive ? "text-[#4CAF50]" : "text-slate-500"
-                  }`}
-                >
-                  {persona.label}
-                </span>
-                <span
-                  className={`${headlineFont} text-base font-bold leading-snug transition-colors duration-500 ease-out md:text-[17px] ${
-                    isActive ? "text-white" : "text-[#1F3B64]"
-                  }`}
-                >
-                  {persona.cardLine}
-                </span>
-              </button>
+                    <div
+                      className="pointer-events-none absolute inset-x-0 top-0 h-[3px] rounded-t-2xl bg-gradient-to-r from-[#4CAF50] via-emerald-300 to-[#2E5B88]"
+                      aria-hidden
+                    />
+                  ) : null}
+                  <div
+                    className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 ${
+                      isActive
+                        ? "bg-white/10 text-[#86efac]"
+                        : "bg-sky-100/90 text-[#2E5B88] group-hover:scale-105"
+                    }`}
+                  >
+                    {isActive ? (
+                      <CircleArrowRight className="h-8 w-8" strokeWidth={2} />
+                    ) : (
+                      <Icon className="h-6 w-6" strokeWidth={2} />
+                    )}
+                  </div>
+                  <span
+                    className={`${headlineFont} mb-2 text-[11px] font-bold uppercase tracking-[0.18em] ${
+                      isActive ? "text-[#86efac]" : "text-slate-500"
+                    }`}
+                  >
+                    {persona.label}
+                  </span>
+                  <span
+                    className={`${headlineFont} text-base font-bold leading-snug md:text-[17px] ${
+                      isActive ? "text-white" : "text-[#1F3B64]"
+                    }`}
+                  >
+                    {persona.cardLine}
+                  </span>
+                </button>
+              </Motion.div>
             );
           })}
         </div>
 
-        <div
-          className="mx-auto mt-8 max-w-4xl overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-50/90 shadow-sm sm:mt-10"
+        <Motion.div
+          className="relative mx-auto mt-8 max-w-4xl overflow-hidden rounded-2xl border border-slate-200/80 bg-white/70 p-[1px] shadow-[0_24px_60px_-30px_rgba(31,59,100,0.2)] backdrop-blur-md sm:mt-10"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={aboutView}
+          transition={{ duration: 0.55, delay: 0.1 }}
           role="region"
           aria-live="polite"
           aria-label={`Story: ${active.panelKicker}`}
         >
-          <div className="flex min-h-[8.5rem]">
-            <div
-              className="w-1 shrink-0 bg-[#4CAF50]"
-              aria-hidden
-            />
-            <div className="grid min-w-0 flex-1 grid-cols-1 grid-rows-1 px-5 py-5 sm:px-7 sm:py-6">
-              <AnimatePresence initial={false} mode="sync">
-                <Motion.div
-                  key={active.id}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{
-                    duration: 0.48,
-                    ease: [0.33, 0, 0.17, 1],
-                  }}
-                  className="col-start-1 row-start-1 min-w-0 max-w-full"
-                  style={{ willChange: "opacity" }}
-                >
-                  <p
-                    className={`${headlineFont} mb-3 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#4CAF50]`}
+          <div className="rounded-[15px] bg-gradient-to-br from-[#4CAF50]/12 via-white to-[#2E5B88]/10">
+            <div className="flex min-h-[8.5rem] rounded-[14px] bg-white/95">
+              <div
+                className="w-1.5 shrink-0 bg-gradient-to-b from-[#4CAF50] to-[#1F3B64]"
+                aria-hidden
+              />
+              <div className="grid min-w-0 flex-1 grid-cols-1 grid-rows-1 px-5 py-5 sm:px-7 sm:py-6">
+                <AnimatePresence initial={false} mode="wait">
+                  <Motion.div
+                    key={active.id}
+                    initial={{ opacity: 0, x: 16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -12 }}
+                    transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                    className="col-start-1 row-start-1 min-w-0 max-w-full"
                   >
-                    {active.panelKicker}
-                  </p>
-                  <p className="text-[15px] leading-relaxed text-slate-600 md:text-base">
-                    {active.detailSegments.map((seg, i) =>
-                      seg.tone === "navy" ? (
-                        <span
-                          key={i}
-                          className="font-semibold text-[#1F3B64]"
-                        >
-                          {seg.text}
-                        </span>
-                      ) : (
-                        <span key={i}>{seg.text}</span>
-                      ),
-                    )}
-                  </p>
-                </Motion.div>
-              </AnimatePresence>
+                    <p
+                      className={`${headlineFont} mb-3 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#4CAF50]`}
+                    >
+                      {active.panelKicker}
+                    </p>
+                    <p className="text-[15px] leading-relaxed text-slate-600 md:text-base">
+                      {active.detailSegments.map((seg, i) =>
+                        seg.tone === "navy" ? (
+                          <span
+                            key={i}
+                            className="font-semibold text-[#1F3B64]"
+                          >
+                            {seg.text}
+                          </span>
+                        ) : (
+                          <span key={i}>{seg.text}</span>
+                        ),
+                      )}
+                    </p>
+                  </Motion.div>
+                </AnimatePresence>
+              </div>
             </div>
           </div>
-        </div>
+        </Motion.div>
 
-        <div className="mx-auto mt-10 max-w-4xl text-center sm:mt-12 sm:text-left">
+        <Motion.div
+          className="mx-auto mt-10 max-w-4xl text-center sm:mt-12 sm:text-left"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={aboutView}
+          transition={{ duration: 0.5, delay: 0.08 }}
+        >
           <p className="mx-auto max-w-3xl text-[15px] leading-relaxed md:text-base">
             <span className={`${headlineFont} font-bold text-[#1F3B64]`}>
               These are not metrics.{" "}
@@ -634,7 +757,7 @@ function WhatDrivesUsSection() {
               show up every day.
             </span>
           </p>
-        </div>
+        </Motion.div>
       </div>
     </section>
   );
@@ -650,16 +773,29 @@ function HowWeWorkSection() {
   return (
     <section
       id="how-we-work"
-      className={`bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+      className={`relative overflow-hidden ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
     >
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-12 text-center md:mb-16">
+      <div
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,#f8fafc_0%,#eef2ff_40%,#f8fafc_100%)]"
+        aria-hidden
+      />
+      <div className="relative mx-auto max-w-7xl px-6">
+        <Motion.div
+          className="mb-12 text-center md:mb-16"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={aboutView}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
           <h2
-            className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
+            className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2.05rem]`}
           >
             How We Work
           </h2>
-        </div>
+          <p className="font-body mx-auto max-w-xl text-slate-600">
+            Three phases — tap a step and watch the journey move along the track.
+          </p>
+        </Motion.div>
         <div className="relative grid gap-14 md:grid-cols-3 md:gap-8">
           <div
             className="pointer-events-none absolute left-0 right-0 top-[5.25rem] z-[1] hidden md:block"
@@ -680,8 +816,15 @@ function HowWeWorkSection() {
           {howWeWorkSteps.map((step, i) => {
             const active = i === activeStep;
             return (
-              <div key={step.n} className="relative z-10 space-y-6 text-center">
-                <button
+              <Motion.div
+                key={step.n}
+                className="relative z-10 space-y-6 text-center"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={aboutView}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <Motion.button
                   type="button"
                   aria-pressed={active}
                   aria-label={`Step ${step.n}: ${step.title}`}
@@ -689,10 +832,12 @@ function HowWeWorkSection() {
                     setVehicleVisible(true);
                     setActiveStep(i);
                   }}
-                  className={`mx-auto flex h-20 w-20 items-center justify-center rounded-full shadow-lg transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 md:h-[5.25rem] md:w-[5.25rem] ${
+                  whileHover={{ scale: active ? 1.06 : 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  className={`mx-auto flex h-20 w-20 items-center justify-center rounded-full shadow-lg transition-colors duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 md:h-[5.25rem] md:w-[5.25rem] ${
                     active
-                      ? "scale-105 bg-[#1F3B64] text-[#4CAF50] ring-4 ring-[#1F3B64]/15 md:ring-8"
-                      : "border-2 border-slate-100 bg-white text-[#1F3B64] hover:scale-[1.04] hover:border-[#4CAF50]/55 hover:shadow-md hover:ring-2 hover:ring-[#4CAF50]/30"
+                      ? "bg-[#1F3B64] text-[#4CAF50] ring-4 ring-[#1F3B64]/15 md:ring-8"
+                      : "border-2 border-slate-100 bg-white text-[#1F3B64] hover:border-[#4CAF50]/55 hover:shadow-md hover:ring-2 hover:ring-[#4CAF50]/30"
                   }`}
                 >
                   <span
@@ -700,7 +845,7 @@ function HowWeWorkSection() {
                   >
                     {step.n}
                   </span>
-                </button>
+                </Motion.button>
                 <div className="space-y-2">
                   <h3
                     className={`${headlineFont} text-lg font-extrabold text-[#1F3B64] md:text-xl`}
@@ -709,7 +854,7 @@ function HowWeWorkSection() {
                   </h3>
                   <p className="px-4 leading-relaxed text-slate-600">{step.text}</p>
                 </div>
-              </div>
+              </Motion.div>
             );
           })}
         </div>
@@ -727,16 +872,22 @@ function WeAreGlobalSection() {
       className={`overflow-hidden border-t border-slate-200 bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
     >
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-12 text-center md:mb-16">
+        <Motion.div
+          className="mb-12 text-center md:mb-16"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={aboutView}
+          transition={{ duration: 0.5 }}
+        >
           <h2
-            className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
+            className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2.05rem]`}
           >
             We Are Global
           </h2>
-          <p className="text-base font-medium text-slate-600 md:text-lg">
+          <p className="font-body text-base text-slate-600 md:text-lg">
             Wherever you are, we are already there.
           </p>
-        </div>
+        </Motion.div>
 
         <div className="relative mb-10 md:mb-12">
           <div className="relative aspect-[16/10] rounded-3xl border border-slate-300/90 bg-[#b9d4ea] shadow-lg ring-1 ring-slate-400/25 md:aspect-[2/1]">
@@ -844,23 +995,31 @@ function WeAreGlobalSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 text-center lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-6 text-center lg:grid-cols-4 lg:gap-8">
           {[
             ["47", "Specialists"],
             ["Global", "Time Zones"],
             ["24/7", "Coverage"],
             ["30+", "Countries"],
-          ].map(([k, v]) => (
-            <div key={v} className="space-y-2">
+          ].map(([k, v], i) => (
+            <Motion.div
+              key={v}
+              className="space-y-2 rounded-2xl border border-slate-200/80 bg-white/80 py-5 shadow-sm backdrop-blur-sm"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={aboutView}
+              transition={{ duration: 0.4, delay: i * 0.07 }}
+              whileHover={{ y: -3 }}
+            >
               <p
                 className={`${headlineFont} text-2xl font-extrabold text-[#1F3B64] md:text-3xl`}
               >
                 {k}
               </p>
-              <p className="text-sm font-bold uppercase tracking-widest text-slate-500">
+              <p className="text-xs font-bold uppercase tracking-widest text-slate-500 md:text-sm">
                 {v}
               </p>
-            </div>
+            </Motion.div>
           ))}
         </div>
       </div>
@@ -906,11 +1065,22 @@ function ClientStoriesSection() {
       className={`bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
     >
       <div className="mx-auto max-w-7xl px-6">
-        <h2
-          className={`${headlineFont} mb-10 text-center text-2xl font-extrabold text-[#1F3B64] md:text-3xl`}
+        <Motion.div
+          className="mb-10 text-center md:mb-12"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={aboutView}
+          transition={{ duration: 0.5 }}
         >
-          What Our Clients Say
-        </h2>
+          <h2
+            className={`${headlineFont} text-2xl font-extrabold text-[#1F3B64] md:text-3xl`}
+          >
+            What Our Clients Say
+          </h2>
+          <p className="font-body mx-auto mt-3 max-w-xl text-sm text-slate-600 md:text-base">
+            Real words from people who needed page one to tell the truth.
+          </p>
+        </Motion.div>
         <div className="testimonial-carousel flex flex-row items-stretch gap-4 md:gap-6 lg:gap-8">
           <div className="flex shrink-0 items-center md:border-r md:border-slate-200 md:pr-5 lg:pr-6">
             <button
@@ -949,7 +1119,11 @@ function ClientStoriesSection() {
             >
               {testimonials.map((t) => (
                 <div key={t.id}>
-                  <div className="flex h-full flex-col justify-between rounded-3xl border border-slate-200 bg-white p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:p-12">
+                  <Motion.div
+                    whileHover={{ y: -6 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 28 }}
+                    className="flex h-full flex-col justify-between rounded-3xl border border-slate-200/90 bg-gradient-to-b from-white to-slate-50/80 p-10 shadow-md transition-shadow duration-300 hover:border-[#4CAF50]/25 hover:shadow-xl md:p-12"
+                  >
                     <div>
                       <div className="mb-10 flex gap-1 text-[#4CAF50]">
                         {Array.from({ length: 5 }).map((_, i) => (
@@ -970,7 +1144,7 @@ function ClientStoriesSection() {
                         {t.role}
                       </p>
                     </div>
-                  </div>
+                  </Motion.div>
                 </div>
               ))}
             </Carousel>
@@ -1062,9 +1236,13 @@ function RealityWeFaceSection() {
     <section
       ref={sectionRef}
       id="reality-we-face"
-      className={`border-y border-slate-200/80 bg-[#f8fafc] ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+      className={`relative overflow-hidden border-y border-slate-200/60 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
     >
-      <div className="mx-auto max-w-5xl px-6 text-center">
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(76,175,80,0.14),transparent_55%),radial-gradient(ellipse_60%_40%_at_100%_80%,rgba(46,91,136,0.1),transparent_50%),linear-gradient(180deg,#f1f5f9_0%,#ffffff_50%,#f8fafc_100%)]"
+        aria-hidden
+      />
+      <div className="relative mx-auto max-w-5xl px-6 text-center">
         <Motion.h2
           className={`${headlineFont} mb-8 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
           initial={{ opacity: 0, y: 18 }}
@@ -1149,7 +1327,23 @@ function AboutPage() {
   const [activeSectionId, setActiveSectionId] = useState(
     () => aboutSectionNav[0]?.id ?? "",
   );
+  const [scrollProgress, setScrollProgress] = useState(0);
   const scrollRafRef = useRef(0);
+
+  useEffect(() => {
+    const onProg = () => {
+      const el = document.documentElement;
+      const sh = el.scrollHeight - el.clientHeight;
+      setScrollProgress(sh > 0 ? Math.min(1, Math.max(0, el.scrollTop / sh)) : 0);
+    };
+    onProg();
+    window.addEventListener("scroll", onProg, { passive: true });
+    window.addEventListener("resize", onProg, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onProg);
+      window.removeEventListener("resize", onProg);
+    };
+  }, []);
 
   useEffect(() => {
     const previous = document.title;
@@ -1208,79 +1402,164 @@ function AboutPage() {
   }, []);
 
   return (
-    <main className="flex-1 bg-[#F8FAFC] pt-28 text-slate-800 md:pt-32">
+    <main className="flex-1 bg-[#f4f6fb] pt-28 text-slate-800 md:pt-32">
       <nav
         aria-label="Sections on this page"
-        className={`sticky top-28 z-30 border-b border-slate-200/90 bg-[#F8FAFC]/95 shadow-sm backdrop-blur-md md:top-32`}
+        className="sticky top-28 z-30 border-b border-white/10 bg-[#070f1c]/88 shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl md:top-32"
       >
-        <div className="mx-auto max-w-7xl px-4 py-3 md:px-6">
-          <ul className="flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] md:flex-wrap md:justify-center md:gap-2.5 md:overflow-x-visible md:pb-0 [&::-webkit-scrollbar]:hidden">
+        <div className="relative mx-auto max-w-7xl px-3 py-2.5 pb-3 md:px-6 md:py-3 md:pb-3.5">
+          <ul className="flex gap-1.5 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] md:flex-wrap md:justify-center md:gap-2 md:overflow-x-visible [&::-webkit-scrollbar]:hidden">
             {aboutSectionNav.map(({ id, label }) => {
               const isActive = activeSectionId === id;
               return (
                 <li key={id} className="shrink-0">
-                  <a
+                  <Motion.a
                     href={`#${id}`}
+                    layout
                     aria-current={isActive ? "location" : undefined}
                     onClick={() => setActiveSectionId(id)}
-                    className={`${headlineFont} inline-flex rounded-full border px-3.5 py-2 text-xs transition-all duration-200 md:px-4 md:text-[13px] ${
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`${headlineFont} relative inline-flex rounded-full px-3 py-2 text-[11px] font-semibold transition-colors duration-200 md:px-3.5 md:text-[12px] ${
                       isActive
-                        ? "border-[#4CAF50] bg-[#4CAF50]/18 font-bold text-[#1F3B64] shadow-sm ring-2 ring-[#4CAF50]/30"
-                        : "border-transparent font-semibold text-[#2E5B88] hover:border-slate-200 hover:bg-white hover:text-[#1F3B64] active:scale-[0.98]"
+                        ? "bg-white text-[#0a1628] shadow-lg shadow-black/15"
+                        : "text-white/72 hover:bg-white/12 hover:text-white"
                     } `}
                   >
                     {label}
-                  </a>
+                  </Motion.a>
                 </li>
               );
             })}
           </ul>
+          <div className="mt-2 h-0.5 overflow-hidden rounded-full bg-white/10 md:mt-2.5" aria-hidden>
+            <Motion.div
+              className="h-full origin-left rounded-full bg-gradient-to-r from-emerald-400 via-[#4CAF50] to-cyan-300"
+              initial={false}
+              animate={{ scaleX: scrollProgress }}
+              transition={{ type: "tween", duration: 0.12, ease: "linear" }}
+            />
+          </div>
         </div>
       </nav>
 
-      {/* Hero */}
-      <header className="relative bg-white pb-20 pt-12 md:pb-28 md:pt-16">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20">
-          <div className="relative z-10">
-            <h1
-              className={`${headlineFont} mb-6 text-3xl font-extrabold leading-[1.15] text-[#1F3B64] md:text-4xl lg:text-[2.65rem]`}
+      <header className="relative overflow-hidden bg-[#050d1a] pb-16 pt-24 text-white md:pb-24 md:pt-28">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_20%_-10%,rgba(76,175,80,0.22),transparent_50%),radial-gradient(ellipse_70%_50%_at_100%_0%,rgba(46,91,136,0.35),transparent_45%),linear-gradient(165deg,#050d1a_0%,#0f2344_45%,#0a1628_100%)]"
+          aria-hidden
+        />
+        <Motion.div
+          className="pointer-events-none absolute -left-24 top-32 h-80 w-80 rounded-full bg-[#4CAF50]/25 blur-[100px]"
+          aria-hidden
+          animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <Motion.div
+          className="pointer-events-none absolute -right-20 bottom-20 h-72 w-72 rounded-full bg-[#2E5B88]/30 blur-[90px]"
+          aria-hidden
+          animate={{ x: [0, -24, 0], y: [0, -16, 0] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.4] mix-blend-overlay [background-image:linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:56px_56px]"
+          aria-hidden
+        />
+
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-8">
+          <Motion.div
+            variants={heroStagger}
+            initial="hidden"
+            animate="show"
+            className="max-w-xl lg:max-w-none"
+          >
+            <Motion.p
+              variants={heroItem}
+              className={`${headlineFont} mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-200/95 backdrop-blur-sm`}
             >
-              Your Reputation Defines Your Future.{" "}
-              <span className="text-[#2E5B88]">
-                We Make Sure It Reflects Your Truth.
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+              Since 2019 · Global
+            </Motion.p>
+            <Motion.h1
+              variants={heroItem}
+              className={`${headlineFont} text-[1.65rem] font-extrabold leading-[1.12] tracking-tight sm:text-3xl md:text-4xl lg:text-[2.65rem] lg:leading-[1.08]`}
+            >
+              Your reputation defines your future.{" "}
+              <span className="bg-gradient-to-r from-white via-emerald-100 to-cyan-200 bg-clip-text text-transparent">
+                We make sure it reflects your truth.
               </span>
-            </h1>
-            <p className="mb-8 max-w-xl text-base leading-relaxed text-slate-600 md:text-[17px]">
-              Protecting reputations globally since 2019.
-            </p>
-            <a
-              {...calendlyNewTabProps}
-              className={`${headlineFont} inline-flex rounded-xl bg-[#1F3B64] px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-[#1F3B64]/10 transition-all hover:bg-[#2E5B88] md:px-8 md:py-4`}
+            </Motion.h1>
+            <Motion.p
+              variants={heroItem}
+              className="mt-6 max-w-lg text-base leading-relaxed text-white/72 md:text-lg"
             >
-              Book a Free Consultation
-            </a>
-          </div>
-          <div className="relative">
-            <div className="group relative z-10 overflow-hidden rounded-3xl border border-white/20 shadow-2xl">
-              <img
+              Protecting reputations globally — with the discretion, craft, and
+              persistence modern search demands.
+            </Motion.p>
+            <Motion.div variants={heroItem} className="mt-8 flex flex-wrap gap-4">
+              <a
+                {...calendlyNewTabProps}
+                className={`${headlineFont} group relative inline-flex overflow-hidden rounded-xl bg-gradient-to-r from-[#4CAF50] to-emerald-400 px-8 py-3.5 text-base font-bold text-[#052e16] shadow-[0_12px_40px_-12px_rgba(76,175,80,0.55)] transition hover:shadow-[0_16px_48px_-8px_rgba(76,175,80,0.65)] md:px-9 md:py-4`}
+              >
+                <span className="relative z-[1]">Book a free consultation</span>
+                <span className="absolute inset-0 translate-x-[-100%] bg-white/25 transition-transform duration-500 ease-out group-hover:translate-x-[100%]" />
+              </a>
+              <a
+                href="#how-it-began"
+                className={`${headlineFont} inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white/90 backdrop-blur-sm transition hover:border-white/35 hover:bg-white/10`}
+              >
+                Read our story
+                <ChevronRight className="h-4 w-4" aria-hidden />
+              </a>
+            </Motion.div>
+            <Motion.a
+              variants={heroItem}
+              href="#how-it-began"
+              className="mt-12 inline-flex flex-col items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:text-white/70 md:mt-14"
+            >
+              Scroll to explore
+              <Motion.span
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <ChevronDown className="h-5 w-5" strokeWidth={2} aria-hidden />
+              </Motion.span>
+            </Motion.a>
+          </Motion.div>
+
+          <Motion.div
+            className="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none"
+            initial={{ opacity: 0, scale: 0.94, y: 24 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-emerald-400/20 via-transparent to-[#2E5B88]/25 blur-2xl" aria-hidden />
+            <div className="group relative overflow-hidden rounded-[1.75rem] border border-white/15 bg-white/5 shadow-2xl shadow-black/40 ring-1 ring-white/10 backdrop-blur-sm">
+              <Motion.img
                 alt="Modern office overlooking a city at dusk"
-                className="h-[420px] w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-[500px]"
+                className="h-[min(420px,55vh)] w-full object-cover md:h-[500px]"
                 src={IMG_HERO}
+                whileHover={{ scale: 1.04 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               />
               <div
-                className="absolute inset-0 bg-[#1F3B64]/20 mix-blend-multiply transition-opacity group-hover:opacity-40"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050d1a]/90 via-[#050d1a]/20 to-transparent"
                 aria-hidden
               />
-              <div
-                className="absolute inset-0 bg-gradient-to-t from-[#1F3B64]/40 to-transparent"
-                aria-hidden
-              />
+              <div className="pointer-events-none absolute bottom-5 left-5 right-5 flex items-end justify-between gap-3 rounded-xl border border-white/10 bg-black/25 px-4 py-3 backdrop-blur-md md:bottom-6 md:left-6 md:right-6">
+                <div>
+                  <p className={`${headlineFont} text-[10px] font-bold uppercase tracking-widest text-emerald-300/90`}>
+                    Live narrative
+                  </p>
+                  <p className="mt-0.5 text-sm font-medium text-white/90">
+                    Strategy, content & search — one team.
+                  </p>
+                </div>
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-emerald-400/20 text-emerald-200">
+                  <Check className="h-5 w-5" strokeWidth={2.5} aria-hidden />
+                </div>
+              </div>
             </div>
-            <div
-              className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#4CAF50]/10 blur-3xl"
-              aria-hidden
-            />
-          </div>
+          </Motion.div>
         </div>
       </header>
 
@@ -1293,30 +1572,77 @@ function AboutPage() {
       {/* Who Are We */}
       <section
         id="who-we-are"
-        className={`border-y border-slate-200 bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+        className={`relative overflow-hidden border-y border-slate-200/80 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
       >
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2
-            className={`${headlineFont} mb-8 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(125deg,#f8fafc_0%,#eef6ff_40%,#f0fdf4_100%)]"
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-6xl px-6">
+          <Motion.div
+            className="mb-10 text-center md:mb-14"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={aboutView}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            Who Are We
-          </h2>
-          <div className="space-y-5 text-[15px] leading-relaxed text-slate-600 md:text-base">
-            <p>
-              Reputation360 is a team of 47 specialists working across the globe
-              to deliver round-the-clock protection for our clients. Since 2019,
-              we have served clients across law, medicine, finance, e-commerce,
-              manufacturing, and professional services - from individuals and
-              students to senior executives and global brands. We work across
-              reputation management, content strategy, LinkedIn branding,
-              employer branding, and search suppression - all under one roof,
-              for one purpose.
-            </p>
-            <p
-              className={`${headlineFont} text-lg font-extrabold uppercase tracking-wider text-[#4CAF50] md:text-xl`}
+            <h2
+              className={`${headlineFont} text-3xl font-extrabold text-[#1F3B64] md:text-[2.1rem]`}
             >
-              1,100+ engagements. 7 years of expertise. One mission.
+              Who Are We
+            </h2>
+            <p className="font-body mx-auto mt-3 max-w-2xl text-slate-600">
+              One team. Global coverage. Obsessive about outcomes.
             </p>
+          </Motion.div>
+          <div className="grid gap-4 md:grid-cols-12 md:gap-5">
+            <Motion.div
+              className="md:col-span-5 flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-8 shadow-[0_20px_50px_-28px_rgba(15,35,60,0.15)] md:p-10"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={aboutView}
+              transition={{ duration: 0.5, delay: 0.05 }}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            >
+              <div>
+                <p
+                  className={`${headlineFont} text-5xl font-extrabold tabular-nums text-[#4CAF50] md:text-6xl`}
+                >
+                  47
+                </p>
+                <p className={`${headlineFont} mt-2 text-sm font-bold uppercase tracking-widest text-slate-500`}>
+                  Specialists worldwide
+                </p>
+              </div>
+              <p className="font-body mt-8 text-[15px] leading-relaxed text-slate-600">
+                Round-the-clock desks, senior strategists, and delivery pods aligned
+                to how people actually search.
+              </p>
+            </Motion.div>
+            <Motion.div
+              className="md:col-span-7 space-y-5 rounded-3xl border border-slate-200/90 bg-white/90 p-8 text-[15px] leading-relaxed text-slate-600 shadow-sm backdrop-blur-sm md:p-10 md:text-base"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={aboutView}
+              transition={{ duration: 0.5, delay: 0.12 }}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            >
+              <p>
+                Reputation360 is a team of 47 specialists working across the globe
+                to deliver round-the-clock protection for our clients. Since 2019,
+                we have served clients across law, medicine, finance, e-commerce,
+                manufacturing, and professional services - from individuals and
+                students to senior executives and global brands. We work across
+                reputation management, content strategy, LinkedIn branding,
+                employer branding, and search suppression - all under one roof,
+                for one purpose.
+              </p>
+              <p
+                className={`${headlineFont} border-t border-slate-200/80 pt-5 text-lg font-extrabold uppercase tracking-wider text-[#4CAF50] md:text-xl`}
+              >
+                1,100+ engagements. 7 years of expertise. One mission.
+              </p>
+            </Motion.div>
           </div>
         </div>
       </section>
@@ -1324,34 +1650,55 @@ function AboutPage() {
       {/* Who We Serve */}
       <section
         id="who-we-serve"
-        className={`bg-white ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+        className={`relative bg-white ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
       >
         <div className="mx-auto max-w-7xl px-6">
-          <h2
-            className={`${headlineFont} mb-10 text-center text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
+          <Motion.div
+            className="mb-10 text-center md:mb-14"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={aboutView}
+            transition={{ duration: 0.5 }}
           >
-            Who We Serve
-          </h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {whoWeServe.map(({ icon: Icon, title, text, wide }) => (
-              <div
+            <h2
+              className={`${headlineFont} text-3xl font-extrabold text-[#1F3B64] md:text-[2.1rem]`}
+            >
+              Who We Serve
+            </h2>
+            <p className="font-body mx-auto mt-3 max-w-2xl text-slate-600">
+              Hover a card — each audience carries a different search story.
+            </p>
+          </Motion.div>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
+            {whoWeServe.map(({ icon: Icon, title, text, wide }, i) => (
+              <Motion.div
                 key={title}
-                className={`group flex flex-col items-start rounded-2xl border border-slate-200 bg-slate-50 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${wide ? "lg:col-span-3 lg:items-center" : ""}`}
+                className={`${wide ? "lg:col-span-3" : ""}`}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={aboutView}
+                transition={{ duration: 0.45, delay: i * 0.06 }}
               >
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1F3B64]/5 text-[#1F3B64] transition-colors group-hover:bg-[#4CAF50]/10 group-hover:text-[#4CAF50]">
-                  <Icon className="h-6 w-6" strokeWidth={2} />
-                </div>
-                <h3
-                  className={`${headlineFont} mb-2 text-lg font-extrabold text-[#1F3B64] ${wide ? "lg:text-center" : ""}`}
+                <Motion.div
+                  whileHover={{ y: -6 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 28 }}
+                  className={`group flex h-full flex-col items-start rounded-2xl border border-slate-200/90 bg-gradient-to-br from-slate-50 to-white p-8 shadow-sm transition-shadow duration-300 hover:border-[#4CAF50]/25 hover:shadow-[0_24px_50px_-28px_rgba(31,59,100,0.18)] ${wide ? "lg:flex-row lg:items-center lg:gap-10 lg:p-10" : ""}`}
                 >
-                  {title}
-                </h3>
-                <p
-                  className={`text-sm leading-relaxed text-slate-600 ${wide ? "lg:text-center" : ""}`}
-                >
-                  {text}
-                </p>
-              </div>
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1F3B64]/[0.06] text-[#1F3B64] ring-1 ring-[#1F3B64]/10 transition-all duration-300 group-hover:scale-105 group-hover:bg-[#4CAF50]/12 group-hover:text-[#2d8a3e] group-hover:ring-[#4CAF50]/25">
+                    <Icon className="h-7 w-7" strokeWidth={2} />
+                  </div>
+                  <div className={wide ? "lg:text-left" : ""}>
+                    <h3
+                      className={`${headlineFont} mb-2 text-lg font-extrabold text-[#1F3B64] ${wide ? "lg:text-xl" : ""}`}
+                    >
+                      {title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-slate-600 md:text-[15px]">
+                      {text}
+                    </p>
+                  </div>
+                </Motion.div>
+              </Motion.div>
             ))}
           </div>
         </div>
@@ -1362,32 +1709,55 @@ function AboutPage() {
       {/* What We Don't Do */}
       <section
         id="what-we-dont"
-        className={`bg-slate-900 ${aboutSectionSpacing} text-white ${aboutScrollTargetClass}`}
+        className={`relative overflow-hidden bg-slate-950 ${aboutSectionSpacing} text-white ${aboutScrollTargetClass}`}
       >
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12 text-center md:mb-16">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(76,175,80,0.12),transparent_55%)]"
+          aria-hidden
+        />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:40px_40px]" aria-hidden />
+        <div className="relative mx-auto max-w-7xl px-6">
+          <Motion.div
+            className="mb-12 text-center md:mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={aboutView}
+            transition={{ duration: 0.55 }}
+          >
             <h2
-              className={`${headlineFont} mb-10 text-3xl font-extrabold text-[#4CAF50] md:mb-12 md:text-[2rem]`}
+              className={`${headlineFont} text-3xl font-extrabold text-[#86efac] md:text-[2.1rem]`}
             >
               What We Don&apos;t Do
             </h2>
-          </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {whatWeDont.map(({ title, text }) => (
-              <div
+            <p className="font-body mx-auto mt-4 max-w-2xl text-sm text-white/55 md:text-base">
+              Clear boundaries build trust — and lasting results.
+            </p>
+          </Motion.div>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
+            {whatWeDont.map(({ title, text }, i) => (
+              <Motion.div
                 key={title}
-                className="group rounded-2xl border border-white/10 bg-white/5 p-10 transition-all hover:bg-white/10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={aboutView}
+                transition={{ duration: 0.45, delay: i * 0.05 }}
               >
-                <div className="mb-6 flex items-center gap-4">
-                  <XCircle
-                    className="h-8 w-8 shrink-0 text-red-400"
-                    strokeWidth={2}
-                    aria-hidden
-                  />
-                  <h3 className={`${headlineFont} text-lg font-extrabold`}>{title}</h3>
-                </div>
-                <p className="text-sm leading-relaxed text-slate-400">{text}</p>
-              </div>
+                <Motion.div
+                  whileHover={{ y: -4, scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 380, damping: 26 }}
+                  className="group h-full rounded-2xl border border-white/10 bg-white/[0.04] p-8 shadow-lg shadow-black/20 backdrop-blur-sm transition-colors hover:border-emerald-400/25 hover:bg-white/[0.08] md:p-9"
+                >
+                  <div className="mb-5 flex items-center gap-3">
+                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-red-500/15 text-red-300 ring-1 ring-red-400/20">
+                      <XCircle className="h-6 w-6" strokeWidth={2} aria-hidden />
+                    </div>
+                    <h3 className={`${headlineFont} text-base font-extrabold leading-snug md:text-lg`}>
+                      {title}
+                    </h3>
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-400 md:text-[15px]">{text}</p>
+                </Motion.div>
+              </Motion.div>
             ))}
           </div>
         </div>
@@ -1396,25 +1766,52 @@ function AboutPage() {
       {/* Our Promise to You */}
       <section
         id="our-promise"
-        className={`bg-white ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+        className={`relative overflow-hidden bg-white ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
       >
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12 text-center md:mb-16">
-            <h2 className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}>
+        <div
+          className="pointer-events-none absolute right-0 top-0 h-96 w-96 translate-x-1/3 rounded-full bg-[#4CAF50]/[0.07] blur-3xl"
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-7xl px-6">
+          <Motion.div
+            className="mb-12 text-center md:mb-16"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={aboutView}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className={`${headlineFont} text-3xl font-extrabold text-[#1F3B64] md:text-[2.1rem]`}>
               Our Promise to You
             </h2>
-            <div className="mx-auto h-1.5 w-20 rounded-full bg-[#4CAF50]" />
-          </div>
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+            <Motion.div
+              className="mx-auto mt-4 h-1.5 w-24 origin-center rounded-full bg-gradient-to-r from-[#4CAF50] to-emerald-300"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            />
+          </Motion.div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 md:gap-10">
             {promises.map((line, i) => (
-              <div key={i} className="group flex gap-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-lg font-bold text-[#4CAF50] transition-all group-hover:border-[#4CAF50] group-hover:bg-[#4CAF50] group-hover:text-white">
+              <Motion.div
+                key={i}
+                className="group flex gap-5"
+                initial={{ opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={aboutView}
+                transition={{ duration: 0.45, delay: i * 0.06 }}
+              >
+                <Motion.div
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 text-lg font-bold text-[#4CAF50] shadow-sm"
+                  whileHover={{ scale: 1.08, rotate: -3 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 18 }}
+                >
                   {i + 1}
-                </div>
-                <p className="pt-2 font-medium leading-relaxed text-slate-600">
+                </Motion.div>
+                <p className="pt-1 text-[15px] font-medium leading-relaxed text-slate-600 md:text-base">
                   {line}
                 </p>
-              </div>
+              </Motion.div>
             ))}
           </div>
         </div>
@@ -1425,35 +1822,45 @@ function AboutPage() {
       <ClientStoriesSection />
 
       {/* Final CTA */}
-      <section className={`bg-white ${aboutSectionSpacing}`}>
+      <section className={`relative overflow-hidden bg-[#f4f6fb] ${aboutSectionSpacing}`}>
         <div className="mx-auto max-w-6xl px-6">
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-[#1F3B64] p-10 text-center shadow-2xl md:rounded-[3rem] md:p-16 lg:p-20">
+          <Motion.div
+            className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-[#0f2344] via-[#1F3B64] to-[#0a1628] p-10 text-center shadow-[0_32px_80px_-24px_rgba(7,20,40,0.55)] md:rounded-[3rem] md:p-16 lg:p-20"
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Motion.div
+              className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#2E5B88]/35 blur-[120px]"
+              aria-hidden
+              animate={{ opacity: [0.5, 0.85, 0.5] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <div
+              className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-[#4CAF50]/25 blur-[120px]"
+              aria-hidden
+            />
             <div className="relative z-10">
               <h2
                 className={`${headlineFont} mb-6 text-3xl font-extrabold leading-snug text-white md:text-4xl lg:text-[2.35rem]`}
               >
-                Ready to Take Back Control?
+                Ready to take back control?
               </h2>
-              <p className="mx-auto mb-10 max-w-2xl text-base text-slate-300 md:text-lg">
+              <p className="mx-auto mb-10 max-w-2xl text-base text-white/70 md:text-lg">
                 Your story deserves to be told on your terms. Let&apos;s build a
                 digital presence that reflects who you truly are.
               </p>
-              <a
+              <Motion.a
                 {...calendlyNewTabProps}
-                className={`${headlineFont} inline-block rounded-xl bg-[#4CAF50] px-10 py-4 text-base font-extrabold text-white shadow-xl shadow-black/20 transition hover:scale-[1.02] active:scale-[0.98] md:px-12 md:text-lg`}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.98 }}
+                className={`${headlineFont} inline-block rounded-xl bg-gradient-to-r from-[#4CAF50] to-emerald-400 px-10 py-4 text-base font-extrabold text-[#052e16] shadow-xl shadow-black/25 md:px-12 md:text-lg`}
               >
                 Book a Free Consultation
-              </a>
+              </Motion.a>
             </div>
-            <div
-              className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#2E5B88]/30 blur-[120px]"
-              aria-hidden
-            />
-            <div
-              className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-[#4CAF50]/20 blur-[120px]"
-              aria-hidden
-            />
-          </div>
+          </Motion.div>
         </div>
       </section>
     </main>
