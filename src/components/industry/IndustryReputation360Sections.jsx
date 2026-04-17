@@ -217,6 +217,40 @@ export const REPUTATION360_BUSINESS_STEPS = [
   },
 ];
 
+/** Individuals page only. */
+export const REPUTATION360_INDIVIDUAL_STEPS = [
+  {
+    step: 1,
+    headline: "Step 1 - Personal Reputation Audit (Week 1)",
+    body: "We conduct a careful audit of what appears for your name across Google and other search engines — the positive, the neutral, and the damaging. We identify every removal candidate and every suppression priority before recommending a path forward.",
+    Icon: Map,
+  },
+  {
+    step: 2,
+    headline: "Step 2 - Private Consultation and Strategy (Week 2)",
+    body: "We talk through your situation in a private, confidential conversation. We give you an honest picture of what is achievable, what the process involves, and what the timeline looks like. You make an informed decision about how to proceed.",
+    Icon: Target,
+  },
+  {
+    step: 3,
+    headline: "Step 3 - Removal Pursuit (Ongoing from Month 1)",
+    body: "We pursue removal through every applicable channel — platform policy, legal mechanism, right-to-erasure request, de-indexing request, or publisher outreach. We manage the process and keep you informed of progress at every stage.",
+    Icon: Layers,
+  },
+  {
+    step: 4,
+    headline: "Step 4 - Presence Building (Months 1-4)",
+    body: "For cases where suppression is required, we build an appropriate positive presence around your name — content that reflects who you are today, not who you were or what happened to you. This is done with care for your privacy and your comfort throughout.",
+    Icon: BarChart3,
+  },
+  {
+    step: 5,
+    headline: "Step 5 - Displacement and Resolution (Months 2-12)",
+    body: "As your positive presence gains ranking strength, damaging content is displaced from visible search pages. We monitor progress and adjust until the result you need is achieved — and we maintain the presence we have built so it continues protecting you long after the engagement ends.",
+    Icon: RefreshCw,
+  },
+];
+
 /** Lawyers & Attorneys page only. */
 export const REPUTATION360_LAWYER_STEPS = [
   {

@@ -28,6 +28,7 @@ const navItems = [
     name: "Who We Serve?",
     link: "/services/financial-advisors",
     children: [
+      { name: "Individuals", link: "/services/individuals" },
       { name: "Financial Advisors", link: "/services/financial-advisors" },
       { name: "Job Seekers", link: "/services/job-seekers" },
       {

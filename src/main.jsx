@@ -11,6 +11,7 @@ import DoctorsPage from "./pages/DoctorsPage.jsx";
 import LawyersPage from "./pages/LawyersPage.jsx";
 import ExecutivesPage from "./pages/ExecutivesPage.jsx";
 import BusinessesPage from "./pages/BusinessesPage.jsx";
+import IndividualsPage from "./pages/IndividualsPage.jsx";
 import CaseStudiesPage from "./pages/CaseStudiesPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import ResourcePlaceholderPage from "./pages/ResourcePlaceholderPage.jsx";
@@ -30,6 +31,7 @@ else if (normalizedPath === "/services/doctors") page = <DoctorsPage />;
 else if (normalizedPath === "/services/lawyers") page = <LawyersPage />;
 else if (normalizedPath === "/services/executives") page = <ExecutivesPage />;
 else if (normalizedPath === "/services/businesses") page = <BusinessesPage />;
+else if (normalizedPath === "/services/individuals") page = <IndividualsPage />;
 else if (normalizedPath === "/case-studies") page = <CaseStudiesPage />;
 else if (normalizedPath === "/contact") page = <ContactPage />;
 else if (normalizedPath === "/resources/blogs")
