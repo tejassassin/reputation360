@@ -183,6 +183,40 @@ export const REPUTATION360_EXECUTIVE_STEPS = [
   },
 ];
 
+/** Businesses & Companies page only. */
+export const REPUTATION360_BUSINESS_STEPS = [
+  {
+    step: 1,
+    headline: "Step 1 - Business Reputation Audit (Week 1)",
+    body: "We audit your complete search picture — company name, founder names, product names, and competitive search terms. We map every negative result and identify the right combination of removal and suppression for your situation.",
+    Icon: Map,
+  },
+  {
+    step: 2,
+    headline: "Step 2 - Strategy Design (Weeks 1-2)",
+    body: "We build a strategy around your specific business type and the nature of the damaging content. A SaaS company's approach looks different from a restaurant group's, which looks different from a healthcare firm's.",
+    Icon: Target,
+  },
+  {
+    step: 3,
+    headline: "Step 3 - Content and Brand Presence Building (Months 1-4)",
+    body: "We create the authoritative brand content that displaces negative results — press features, thought leadership, company profiles on high-authority platforms, and owned media. Built to rank and stay ranked.",
+    Icon: Layers,
+  },
+  {
+    step: 4,
+    headline: "Step 4 - Competitor Content Response and Review Management (Months 2-6)",
+    body: "Where competitors are targeting your brand name in search, we deploy content that outranks their efforts. In parallel, we pursue removal of policy-violating reviews and build the positive review volume that shifts your aggregate rating upward.",
+    Icon: BarChart3,
+  },
+  {
+    step: 5,
+    headline: "Step 5 - Displacement and Monitoring (Months 2-12)",
+    body: "We track your search results throughout the engagement, adjust as results move, and transition into ongoing maintenance once primary displacement is achieved.",
+    Icon: RefreshCw,
+  },
+];
+
 /** Lawyers & Attorneys page only. */
 export const REPUTATION360_LAWYER_STEPS = [
   {
