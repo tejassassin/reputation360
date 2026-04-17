@@ -89,17 +89,17 @@ const EXECUTIVE_SCALE_METRICS = [
   {
     id: "csuite",
     figure: "82%",
-    blurb: "C-suite trust tied to online reputation",
+    blurb: "Executives & online decisions",
     description:
-      "82% of C-suite decision-makers say an executive's online reputation influences their confidence in a business relationship.",
+      "82% of executives make decisions based on what they find online.",
     Icon: Users,
   },
   {
     id: "investors",
     figure: "65%",
-    blurb: "Investors who reduced or withdrew commitment",
+    blurb: "Investors & online decisions",
     description:
-      "65% of investors say they have reduced or withdrawn commitment based on concerns raised by an executive's search results.",
+      "65% of investors make decisions based on what they find online.",
     Icon: TrendingUp,
   },
   {
@@ -504,22 +504,17 @@ function ExecutivesMarketInsightBanner() {
           </p>
           <h2 className="mt-3 font-heading text-[19px] font-bold leading-[1.24] md:mt-4 md:text-[24px] lg:text-[27px]">
             <span className="text-[#4eab66]">82%</span>
-            <span className="text-white">
-              {" "}
-              of C-suite decision-makers say an executive&apos;s online
-              reputation influences their confidence in a business relationship.{" "}
-            </span>
+            <span className="text-white"> of executives and </span>
             <span className="text-[#4eab66]">65%</span>
             <span className="text-white">
               {" "}
-              of investors have reduced or withdrawn commitment based on concerns
-              from an executive&apos;s search results.
+              of investors make decisions based on what they find online.
             </span>
           </h2>
           <p className="mt-2.5 font-heading text-[14px] font-semibold leading-snug text-white md:mt-3 md:text-[16px]">
             Make sure what they find reflects your leadership.
           </p>
-          <p className="mt-2 text-[12px] leading-relaxed text-white/80 md:mt-2.5 md:text-[13px]">
+          <p className="mt-2 text-[10px] leading-relaxed text-white md:mt-2.5 md:text-[11px]">
             (Sources: Weber Shandwick Executive Reputation Study; Brunswick Group
             Digital Investor Survey)
           </p>
