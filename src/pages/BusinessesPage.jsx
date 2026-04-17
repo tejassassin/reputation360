@@ -495,18 +495,14 @@ function BusinessesMarketInsightBanner() {
             <span className="text-[#4eab66]">88%</span>
             <span className="text-white">
               {" "}
-              of consumers research a business online before making a purchase
-              decision.{" "}
+              of consumers research you online before buying.{" "}
             </span>
             <span className="text-[#4eab66]">94%</span>
             <span className="text-white">
               {" "}
-              say a negative review has convinced them not to use a business.
+              have walked away after one bad review.
             </span>
           </h2>
-          <p className="mt-2.5 font-heading text-[14px] font-semibold leading-snug text-white md:mt-3 md:text-[16px]">
-            Make sure what they find reflects the business you have built.
-          </p>
           <p className="mt-2 text-[10px] leading-relaxed text-white md:mt-2.5 md:text-[11px]">
             (Sources: BrightLocal Consumer Survey; Edelman Trust Barometer; Demand
             Gen Report B2B Buyer Survey)
@@ -638,7 +634,7 @@ function BusinessesPage() {
             <div
               className="pointer-events-none absolute inset-0 bg-cover bg-[center_28%] bg-no-repeat"
               style={{
-                backgroundImage: "url('/financial-advisors-moment-left.jpg')",
+                backgroundImage: "url('/lawyers-moment-left.jpg')",
               }}
               aria-hidden
             />
@@ -663,7 +659,7 @@ function BusinessesPage() {
                 <UserSearch className="h-5 w-5 shrink-0 text-white/90" />
                 <div className="h-px flex-1 bg-white/35" />
               </div>
-              <h2 className="fa-invisible-leak-headline mt-5 w-full max-w-none font-heading text-[26px] font-bold leading-[1.08] tracking-tight sm:text-[30px] md:text-[34px]">
+              <h2 className="fa-invisible-leak-headline mt-5 w-full max-w-none font-heading text-[22px] font-bold leading-[1.06] tracking-tight sm:text-[26px] md:text-[30px]">
                 <span className="block whitespace-nowrap">
                   They search your company name.
                 </span>
@@ -675,20 +671,29 @@ function BusinessesPage() {
           </div>
           <div className="flex flex-col justify-center bg-[#072f5f] p-7 text-white md:p-9">
             <div className="rounded-2xl border border-white/10 bg-white/7 px-5 py-6 md:px-6 md:py-7">
-              <div className="space-y-3 text-sm leading-relaxed text-white/90 md:text-[15px] md:leading-relaxed">
-                <p>
-                  A prospective customer is about to make a purchasing decision. A
-                  B2B buyer is completing their vendor shortlist. A senior candidate
-                  has just received your offer and is doing their final research. A
-                  journalist is running background before publishing a piece about
+              <div className="flex flex-col gap-2 text-sm leading-relaxed text-white/90 md:gap-2.5 md:text-[15px] md:leading-relaxed">
+                <span className="block">
+                  A prospective customer is about to make a purchasing decision.
+                </span>
+                <span className="block">
+                  A B2B buyer is completing their vendor shortlist.
+                </span>
+                <span className="block">
+                  A senior candidate has just received your offer and is doing their
+                  final research.
+                </span>
+                <span className="block">
+                  A journalist is running background before publishing a piece about
                   your sector.
-                </p>
-                <p>
-                  All of them search your company name. What they find in the next
-                  thirty seconds either confirms their confidence or introduces
-                  doubt. And doubt, at a decision point, almost always resolves
-                  against you.
-                </p>
+                </span>
+                <span className="block">All of them search your company name.</span>
+                <span className="block">
+                  What they find in the next thirty seconds either confirms their
+                  confidence or introduces doubt.
+                </span>
+                <span className="block">
+                  And doubt, at a decision point, almost always resolves against you.
+                </span>
               </div>
             </div>
             <div className="mt-5 rounded-xl border border-white/15 bg-[#061f3d]/60 px-4 py-4">
@@ -727,12 +732,11 @@ function BusinessesPage() {
         <section className="rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
           <p className="mx-auto max-w-3xl font-heading leading-snug text-white md:leading-snug">
             <span className="block text-[19px] font-semibold md:text-[23px]">
-              Your business has earned its reputation through real work, real
-              service, and real results.
+              Your business has earned its reputation through real work and real
+              results. What people find should reflect that.
             </span>
             <span className="mt-2 block text-[19px] font-semibold md:text-[23px]">
-              What people find when they search your name should reflect that.
-              Reputation360 makes sure it does.
+              We make sure it does.
             </span>
           </p>
           <a
