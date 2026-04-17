@@ -174,7 +174,7 @@ const whoWeServe = [
   },
   {
     icon: BarChart3,
-    title: "Executives",
+    title: "Executives & C-Suite Leaders",
     text: "Leaders ensuring their influence and legacy are represented accurately online",
   },
   {

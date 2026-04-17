@@ -149,6 +149,40 @@ export const REPUTATION360_DOCTOR_STEPS = [
   },
 ];
 
+/** Executives & C-Suite Leaders page only. */
+export const REPUTATION360_EXECUTIVE_STEPS = [
+  {
+    step: 1,
+    headline: "Step 1 - Executive Search Footprint Audit (Week 1)",
+    body: "We conduct a comprehensive audit of your complete digital footprint — your name, company associations, past ventures, past directorships, and media coverage across all of them. We map every threat and every opportunity in what people currently find when they search your name.",
+    Icon: Map,
+  },
+  {
+    step: 2,
+    headline: "Step 2 - Strategic Brief and Priority Setting (Week 2)",
+    body: "We present our findings and agree on a clear priority order — which results need to be displaced first, which present the highest risk, and what the realistic outcome looks like for your specific situation.",
+    Icon: Target,
+  },
+  {
+    step: 3,
+    headline: "Step 3 - Executive Presence Architecture (Months 1–3)",
+    body: "We build the digital presence your position demands: LinkedIn strategy and optimization at board-level visibility, a personal professional website built to rank, a thought leadership program placing your commentary in relevant business publications, and speaker and interview profiles on high-authority platforms.",
+    Icon: Layers,
+  },
+  {
+    step: 4,
+    headline: "Step 4 - Negative Result Displacement (Months 2–8)",
+    body: "As your authoritative presence gains ranking strength, damaging content is displaced from visible search pages. The goal is to ensure the first full page of results for your name is entirely composed of content that reflects your leadership, expertise, and standing.",
+    Icon: BarChart3,
+  },
+  {
+    step: 5,
+    headline: "Step 5 - Ongoing Reputation Maintenance (Months 8–12)",
+    body: "Executive reputation management is not a project. It is a function. We monitor your search results continuously, respond to new content threats as they emerge, and ensure your presence grows in authority over time.",
+    Icon: RefreshCw,
+  },
+];
+
 /** Lawyers & Attorneys page only. */
 export const REPUTATION360_LAWYER_STEPS = [
   {

@@ -229,7 +229,7 @@ const whoWeWorkWithCards = [
   },
   {
     id: "executives",
-    title: "Founders, CEOs & Executives",
+    title: "Executives & C-Suite Leaders",
     body: "Leaders ensuring their influence and legacy are represented accurately online.",
   },
   {

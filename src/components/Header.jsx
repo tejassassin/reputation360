@@ -35,7 +35,10 @@ const navItems = [
         link: "/services/doctors",
       },
       { name: "Lawyers & Attorneys", link: "/services/lawyers" },
-      { name: "Executives", link: "/services/executives" },
+      {
+        name: "Executives & C-Suite Leaders",
+        link: "/services/executives",
+      },
       {
         name: "Businesses & Companies",
         link: "/services/businesses",

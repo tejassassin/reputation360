@@ -8,7 +8,7 @@ const categories = [
     Icon: User,
   },
   {
-    title: "Founders, CEOs & Executives",
+    title: "Executives & C-Suite Leaders",
     description:
       "Protect your leadership reputation and ensure your vision and impact come through clearly.",
     Icon: Briefcase,
