@@ -141,31 +141,32 @@ const EXECUTIVE_FAQ_ITEMS = [
     id: "legal-ethical",
     question: "Is reputation suppression legal and ethical?",
     answer:
-      "Yes. We do not alter, hack, or tamper with existing content. We build new, legitimate, high-quality content that earns its ranking through genuine authority — the same approach we use across industries.",
+      "Entirely. We do not alter, hack, or tamper with any existing content. We build new, legitimate, high-quality content that earns its ranking through genuine authority.",
   },
   {
-    id: "executive-specific",
-    question: "How is executive work different from consumer reputation repair?",
+    id: "proactive",
+    question:
+      "Can you manage reputation proactively, before there is a specific problem?",
     answer:
-      "Executive work maps your full footprint — company associations, past ventures, directorships, and media — because stakeholders search across all of it. Strategy and timelines are calibrated to board-level scrutiny and regulatory context.",
+      "Yes, and this is the most effective approach. Building a strong, authoritative executive presence before a negative result emerges makes it significantly harder for any negative content to gain ranking traction.",
   },
   {
-    id: "timeline",
-    question: "How long does it take to see results?",
+    id: "confidential",
+    question: "Is this service confidential?",
     answer:
-      "Meaningful movement often begins within a few months; full displacement and stabilization typically unfold over several quarters depending on the authority of negative sources. We give you an honest estimate in your first consultation.",
+      "Completely. We do not discuss client engagements publicly. Discretion is foundational to how we operate.",
   },
   {
-    id: "confidentiality",
-    question: "Will my board or employer know I engaged you?",
+    id: "comms-legal",
+    question: "Do you work with communications or legal teams?",
     answer:
-      "We treat every engagement as confidential. The nature of our work and your identity are protected throughout.",
+      "Yes. For executives at large organizations, we frequently coordinate with in-house communications, legal, or investor relations teams to ensure alignment.",
   },
   {
-    id: "start",
-    question: "Where do I start if I am not sure what appears for my name?",
+    id: "how-long",
+    question: "How long does this take?",
     answer:
-      "Book a free confidential consultation. We run the searches stakeholders run and show you exactly what we find.",
+      "Meaningful displacement of primary negative results typically takes eight to twelve months. We will give you a case-specific estimate in your consultation.",
   },
 ];
 
@@ -644,9 +645,9 @@ function ExecutivesPage() {
 
         <section
           id="executives-moment-of-truth"
-          className="mt-12 grid scroll-mt-28 overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)] md:mt-16 md:grid-cols-[1fr_1fr]"
+          className="mt-12 grid scroll-mt-28 overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)] md:mt-16 md:grid-cols-[1fr_1fr] md:items-stretch"
         >
-          <div className="relative min-h-[360px] overflow-hidden bg-[#041a30] md:min-h-[520px]">
+          <div className="relative flex h-full min-h-[360px] flex-col overflow-hidden bg-[#041a30] md:min-h-[520px]">
             <div
               className="pointer-events-none absolute inset-0 bg-cover bg-[center_28%] bg-no-repeat"
               style={{
@@ -666,7 +667,7 @@ function ExecutivesPage() {
               className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(3,12,26,0.82)_0%,rgba(4,18,36,0.35)_28%,transparent_42%,rgba(4,18,36,0.4)_58%,rgba(3,12,24,0.92)_82%,#020a14_100%)]"
               aria-hidden
             />
-            <div className="relative z-10 flex min-h-[360px] flex-col justify-end p-8 font-heading text-white antialiased md:min-h-[520px] md:p-10">
+            <div className="relative z-10 flex h-full min-h-0 w-full flex-1 flex-col justify-end p-8 font-heading text-white antialiased md:p-10">
               <div className="inline-flex w-fit items-center gap-2 rounded-full bg-[#4a1528] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white">
                 <span className="h-2 w-2 shrink-0 rounded-full bg-red-500" />
                 THE MOMENT OF TRUTH
