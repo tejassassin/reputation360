@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { AnimatePresence, motion as Motion } from "motion/react";
@@ -19,13 +18,10 @@ import {
   ChevronRight,
   ChevronDown,
   Train,
-  Check,
-  BookOpen,
+  ArrowRight,
 } from "lucide-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
-
-const IMG_HERO =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDZxwP0ZvKL-Sn6lv_i9bPP-sHJByxa_l07VO40dZRT9XakSZkHI-BBYnxDhoQaK_umCL6d_CSQTdBl2UdKnYIEKuATss1bvouEPWbgqq1UTLSQqWHFfjMZZRNp_0ZipLR6avyPNE_rSrWmoBvV3FT0XDvnRuEsqQkdi80_TRShfB7fkPNA-vRfZroSYu6b9ZNYXYkWHQNbYvvkZN2dn96CWdD23L6urVXJ_-cLew24alxXZvwN9TGXAan3r0DJc8ACbs2BpCpgucc";
+import AboutHeroSearchMockup from "../components/AboutHeroSearchMockup.jsx";
 
 const IMG_MAP =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDAuoKNykbon_ONixwj4-paZvw6Uqm6Ye_H2j_EV6_SHshlgFYZLlUZO88MsCDh-_V5ZlqSn7LuN6vxcMeco4Qu_CDcVLsbvdz8yfrmrunnvnu3gMD51AnuNyq3XP7TVkVUuZZnfzI7hLcDDHEeE52hVHtDxOV1GWyNkae-OjZ1rZKugmZ70SaCmoCMsw-cNU_WN16084-Rf62DoLjnWrlnkXxW310RMehlYCTLlonqks_CWIqf_vt2SnofCi7Br7dzp6D7wxZsHMg";
@@ -82,133 +78,6 @@ const globalHubRoutes = [
 ];
 
 const headlineFont = "font-[Manrope,Inter,sans-serif]";
-
-/** Short line of copy for the About page reading-progress widget (scroll depth %). */
-function readingProgressBlurb(pct) {
-  if (pct <= 0) {
-    return "Scroll to move forward — we’ll show how much of this page you’ve covered.";
-  }
-  if (pct < 20) {
-    return "You’re just getting started. Most of the sections are still ahead.";
-  }
-  if (pct < 40) {
-    return "Nice — you’ve made a solid dent. There’s plenty more context below.";
-  }
-  if (pct < 60) {
-    return "You’re around the middle. The juiciest parts may still be under your thumb.";
-  }
-  if (pct < 80) {
-    return "Strong progress. You’ve read most of what’s on this page.";
-  }
-  if (pct < 100) {
-    return "Final stretch — only a little scrolling left before the bottom.";
-  }
-  return "You’ve reached the end of this page. Nothing major left to scroll.";
-}
-
-function AboutPageReadProgress({ progress }) {
-  const [mounted, setMounted] = useState(false);
-  const pct = Math.min(100, Math.max(0, Math.round(progress * 100)));
-  const blurb = readingProgressBlurb(pct);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const ui = (
-    <>
-      {/* Desktop / tablet: card + tall vertical track (portal = never clipped by main/footer) */}
-      <aside
-        className={`${headlineFont} pointer-events-none fixed right-5 top-[7.25rem] z-[90] hidden max-h-[calc(100dvh-8rem)] flex-row items-center gap-4 md:flex lg:right-10 lg:gap-5`}
-        aria-label={`Reading progress: ${pct} percent of this page`}
-        role="status"
-      >
-        <div className="flex max-h-[calc(100dvh-8rem)] min-w-0 max-w-[min(13.5rem,calc(100vw-5rem))] flex-col justify-center overflow-y-auto rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-4 text-right shadow-[0_12px_40px_-16px_rgba(15,35,60,0.2)] ring-2 ring-[#4CAF50]/40 backdrop-blur-md">
-          <div className="mb-1 flex items-center justify-end gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
-            <BookOpen className="h-3.5 w-3.5 shrink-0" aria-hidden />
-            <span>Page read</span>
-          </div>
-          <Motion.p
-            key={pct}
-            initial={{ opacity: 0.65, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.2 }}
-            className="text-4xl font-extrabold tabular-nums leading-none text-[#1F3B64] lg:text-[2.65rem]"
-          >
-            {pct}
-            <span className="text-2xl font-bold text-[#2E5B88]">%</span>
-          </Motion.p>
-          <p className="mt-2 text-[11px] font-semibold leading-snug text-slate-500">
-            of this long-form page
-          </p>
-          <p className="mt-3 text-[12px] leading-relaxed text-slate-600 lg:text-[13px]">
-            {blurb}
-          </p>
-          <p className="mt-3 border-t border-slate-200/80 pt-2 text-[10px] leading-snug text-slate-400">
-            Measured by how far you’ve scrolled — not time on page.
-          </p>
-        </div>
-
-        <div
-          className="relative h-[calc(100dvh-8rem)] w-4 shrink-0 overflow-hidden rounded-full border-2 border-slate-300/90 bg-gradient-to-b from-slate-100 to-slate-200/90 shadow-[inset_0_2px_8px_rgba(15,23,42,0.12)] lg:w-[18px]"
-          aria-hidden
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/15 via-emerald-600/20 to-lime-800/30" />
-          {[0, 25, 50, 75].map((tick) => (
-            <div
-              key={tick}
-              className="pointer-events-none absolute left-0 right-0 z-[1] h-px bg-slate-400/35"
-              style={{ top: `${tick}%` }}
-              aria-hidden
-            />
-          ))}
-          <Motion.div
-            className="absolute inset-x-0 top-0 h-full origin-top rounded-full bg-gradient-to-b from-cyan-400 via-[#34d399] to-lime-500 shadow-[0_0_16px_rgba(52,211,153,0.65),0_0_28px_rgba(34,211,238,0.35)]"
-            initial={false}
-            animate={{ scaleY: progress }}
-            transition={{ type: "tween", duration: 0.12, ease: "linear" }}
-          />
-        </div>
-      </aside>
-
-      {/* Small screens: compact chip (no horizontal strip under nav) */}
-      <aside
-        className={`${headlineFont} pointer-events-none fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 z-[90] w-[min(20rem,calc(100vw-1.5rem))] -translate-x-1/2 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-3 shadow-[0_16px_48px_-12px_rgba(15,35,60,0.35)] ring-2 ring-[#4CAF50]/30 backdrop-blur-md md:hidden`}
-        role="status"
-        aria-label={`Reading progress: ${pct} percent of this page`}
-      >
-        <div className="flex items-center gap-3">
-          <div
-            className="relative h-16 w-3 shrink-0 overflow-hidden rounded-full border border-slate-300 bg-slate-100"
-            aria-hidden
-          >
-            <Motion.div
-              className="absolute inset-x-0 top-0 h-full origin-top rounded-full bg-gradient-to-b from-cyan-400 via-emerald-400 to-lime-500"
-              initial={false}
-              animate={{ scaleY: progress }}
-              transition={{ type: "tween", duration: 0.12, ease: "linear" }}
-            />
-          </div>
-          <div className="min-w-0 flex-1 text-left">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-[#4CAF50]">
-              Page read
-            </p>
-            <p className="text-3xl font-extrabold tabular-nums text-[#1F3B64]">
-              {pct}
-              <span className="text-lg font-bold text-[#2E5B88]">%</span>
-            </p>
-            <p className="mt-0.5 text-[11px] leading-snug text-slate-600 line-clamp-2">
-              {blurb}
-            </p>
-          </div>
-        </div>
-      </aside>
-    </>
-  );
-
-  if (!mounted || typeof document === "undefined") return null;
-  return createPortal(ui, document.body);
-}
 
 const aboutView = { once: true, amount: 0.22, margin: "0px 0px -8% 0px" };
 
@@ -1521,10 +1390,10 @@ function AboutPage() {
     };
   }, []);
 
+  const scrollPct = Math.min(100, Math.max(0, Math.round(scrollProgress * 100)));
+
   return (
     <main className="relative flex-1 bg-[#f4f6fb] pt-28 text-slate-800 md:pt-32">
-      <AboutPageReadProgress progress={scrollProgress} />
-
       <nav
         aria-label="Sections on this page"
         className="sticky top-28 z-30 bg-[#070f1c]/88 shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_-1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-xl md:top-32"
@@ -1554,126 +1423,153 @@ function AboutPage() {
               );
             })}
           </ul>
+          <div
+            className="mt-2 flex items-center gap-3 md:mt-2.5"
+            role="status"
+            aria-label={`Page scroll progress: ${scrollPct} percent`}
+          >
+            <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
+              <Motion.div
+                className="h-full origin-left rounded-full bg-gradient-to-r from-emerald-400 via-[#4CAF50] to-cyan-300"
+                initial={false}
+                animate={{ scaleX: scrollProgress }}
+                transition={{ type: "tween", duration: 0.12, ease: "linear" }}
+              />
+            </div>
+            <span
+              className={`${headlineFont} shrink-0 tabular-nums text-[11px] font-bold text-emerald-200/95 md:text-xs`}
+            >
+              {scrollPct}%
+            </span>
+          </div>
         </div>
       </nav>
 
-      <header className="relative overflow-hidden bg-[#050d1a] pb-16 pt-24 text-white md:pb-24 md:pt-28">
+      <header
+        id="about-hero"
+        className="relative flex min-h-[min(520px,calc(100vh-10.5rem))] flex-col overflow-hidden bg-[#050a18] pb-10 pt-10 text-white md:min-h-[min(580px,calc(100vh-11rem))] md:pb-14 md:pt-12"
+      >
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_20%_-10%,rgba(76,175,80,0.22),transparent_50%),radial-gradient(ellipse_70%_50%_at_100%_0%,rgba(46,91,136,0.35),transparent_45%),linear-gradient(165deg,#050d1a_0%,#0f2344_45%,#0a1628_100%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_20%_-10%,rgba(76,175,80,0.18),transparent_50%),radial-gradient(ellipse_70%_50%_at_100%_0%,rgba(31,59,100,0.45),transparent_48%),linear-gradient(165deg,#050a18_0%,#1F3B64_38%,#0a1628_100%)]"
           aria-hidden
         />
         <Motion.div
-          className="pointer-events-none absolute -left-24 top-32 h-80 w-80 rounded-full bg-[#4CAF50]/25 blur-[100px]"
+          className="pointer-events-none absolute -left-24 top-32 h-80 w-80 rounded-full bg-[#4CAF50]/22 blur-[100px]"
           aria-hidden
           animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
         <Motion.div
-          className="pointer-events-none absolute -right-20 bottom-20 h-72 w-72 rounded-full bg-[#2E5B88]/30 blur-[90px]"
+          className="pointer-events-none absolute -right-20 bottom-32 h-72 w-72 rounded-full bg-[#2E5B88]/28 blur-[90px]"
           aria-hidden
           animate={{ x: [0, -24, 0], y: [0, -16, 0] }}
           transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
         />
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.4] mix-blend-overlay [background-image:linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:56px_56px]"
+          className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:48px_48px]"
           aria-hidden
         />
 
-        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-8">
-          <Motion.div
-            variants={heroStagger}
-            initial="hidden"
-            animate="show"
-            className="max-w-xl lg:max-w-none"
-          >
-            <Motion.p
-              variants={heroItem}
-              className={`${headlineFont} mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-200/95 backdrop-blur-sm`}
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 lg:px-8">
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-14 xl:gap-16">
+            <Motion.div
+              variants={heroStagger}
+              initial="hidden"
+              animate="show"
+              className="max-w-xl lg:max-w-none"
             >
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
-              Since 2019 · Global
-            </Motion.p>
-            <Motion.h1
-              variants={heroItem}
-              className={`${headlineFont} text-[1.65rem] font-extrabold leading-[1.12] tracking-tight sm:text-3xl md:text-4xl lg:text-[2.65rem] lg:leading-[1.08]`}
-            >
-              Your reputation defines your future.{" "}
-              <span className="bg-gradient-to-r from-white via-emerald-100 to-cyan-200 bg-clip-text text-transparent">
-                We make sure it reflects your truth.
-              </span>
-            </Motion.h1>
-            <Motion.p
-              variants={heroItem}
-              className="mt-6 max-w-lg text-base leading-relaxed text-white/72 md:text-lg"
-            >
-              Protecting reputations globally — with the discretion, craft, and
-              persistence modern search demands.
-            </Motion.p>
-            <Motion.div variants={heroItem} className="mt-8 flex flex-wrap gap-4">
-              <a
-                {...calendlyNewTabProps}
-                className={`${headlineFont} group relative inline-flex overflow-hidden rounded-xl bg-gradient-to-r from-[#4CAF50] to-emerald-400 px-8 py-3.5 text-base font-bold text-[#052e16] shadow-[0_12px_40px_-12px_rgba(76,175,80,0.55)] transition hover:shadow-[0_16px_48px_-8px_rgba(76,175,80,0.65)] md:px-9 md:py-4`}
+              <Motion.p
+                variants={heroItem}
+                className={`${headlineFont} mb-4 inline-flex items-center gap-2 rounded-full border border-[#4CAF50]/35 bg-[#4CAF50]/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-200/95 md:text-[11px]`}
               >
-                <span className="relative z-[1]">Book a free consultation</span>
-                <span className="absolute inset-0 translate-x-[-100%] bg-white/25 transition-transform duration-500 ease-out group-hover:translate-x-[100%]" />
-              </a>
-              <a
-                href="#how-it-began"
-                className={`${headlineFont} inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white/90 backdrop-blur-sm transition hover:border-white/35 hover:bg-white/10`}
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#4CAF50]" />
+                Since 2019 · Global
+              </Motion.p>
+              <Motion.h1
+                variants={heroItem}
+                className={`${headlineFont} text-[1.6rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[2.5rem] lg:leading-[1.08]`}
               >
-                Read our story
-                <ChevronRight className="h-4 w-4" aria-hidden />
-              </a>
+                Your reputation defines your future. We make sure it{" "}
+                <span className="text-[#7df5b9]">reflects your truth.</span>
+              </Motion.h1>
+              <Motion.p
+                variants={heroItem}
+                className="mt-5 max-w-lg text-[15px] leading-relaxed text-slate-300/90 md:text-base"
+              >
+                Protecting reputations globally — with the discretion, craft, and persistence modern search
+                demands.
+              </Motion.p>
+              <Motion.div
+                variants={heroItem}
+                className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4"
+              >
+                <a
+                  {...calendlyNewTabProps}
+                  className={`${headlineFont} group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#4CAF50] to-emerald-400 px-6 py-3.5 text-sm font-bold text-[#0a1628] shadow-[0_12px_36px_-8px_rgba(76,175,80,0.55)] transition hover:brightness-105 md:px-8 md:text-base`}
+                >
+                  Book a free consultation
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+                </a>
+                <a
+                  href="#how-it-began"
+                  className={`${headlineFont} inline-flex items-center gap-2 rounded-xl border border-white/25 bg-transparent px-5 py-3.5 text-sm font-semibold text-white transition hover:border-white/45 hover:bg-white/5 md:px-6`}
+                >
+                  Read our story
+                  <ArrowRight className="h-4 w-4 opacity-80" aria-hidden />
+                </a>
+              </Motion.div>
             </Motion.div>
-            <Motion.a
-              variants={heroItem}
-              href="#how-it-began"
-              className="mt-12 inline-flex flex-col items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:text-white/70 md:mt-14"
+
+            <Motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="mx-auto w-full max-w-md justify-self-end lg:mx-0 lg:max-w-none"
             >
-              Scroll to explore
+              <AboutHeroSearchMockup headlineFont={headlineFont} />
+            </Motion.div>
+          </div>
+
+          <div className="mt-12 border-t border-white/10 pt-10 md:mt-14 md:pt-12">
+            <div className="grid grid-cols-3 gap-4 text-center md:gap-8">
+              {[
+                { k: "7+", label: "Years live", sub: "Since 2019" },
+                { k: "1,100+", label: "Engagements", sub: "Client outcomes" },
+                { k: "47", label: "Specialists", sub: "Global team" },
+              ].map((s) => (
+                <div key={s.label} className="space-y-1">
+                  <p
+                    className={`${headlineFont} text-2xl font-extrabold tabular-nums text-white md:text-3xl lg:text-[2.1rem]`}
+                  >
+                    {s.k}
+                  </p>
+                  <p className={`${headlineFont} text-[10px] font-bold uppercase tracking-[0.14em] text-[#4CAF50] md:text-[11px]`}>
+                    {s.label}
+                  </p>
+                  <p className="text-[10px] text-white/45 md:text-xs">{s.sub}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <Motion.a
+            href="#how-it-began"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className={`${headlineFont} mt-10 flex flex-col items-start gap-2 self-start text-[10px] font-semibold uppercase tracking-[0.24em] text-white/45 transition hover:text-white/70 md:mt-12`}
+          >
+            Scroll to explore
+            <span className="flex flex-col items-start gap-1 pl-0.5">
+              <span className="block h-6 w-px bg-gradient-to-b from-white/50 to-transparent" aria-hidden />
               <Motion.span
-                animate={{ y: [0, 6, 0] }}
+                animate={{ y: [0, 5, 0] }}
                 transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
               >
-                <ChevronDown className="h-5 w-5" strokeWidth={2} aria-hidden />
+                <ChevronDown className="h-4 w-4" strokeWidth={2} aria-hidden />
               </Motion.span>
-            </Motion.a>
-          </Motion.div>
-
-          <Motion.div
-            className="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none"
-            initial={{ opacity: 0, scale: 0.94, y: 24 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-emerald-400/20 via-transparent to-[#2E5B88]/25 blur-2xl" aria-hidden />
-            <div className="group relative overflow-hidden rounded-[1.75rem] border border-white/15 bg-white/5 shadow-2xl shadow-black/40 ring-1 ring-white/10 backdrop-blur-sm">
-              <Motion.img
-                alt="Modern office overlooking a city at dusk"
-                className="h-[min(420px,55vh)] w-full object-cover md:h-[500px]"
-                src={IMG_HERO}
-                whileHover={{ scale: 1.04 }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              />
-              <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050d1a]/90 via-[#050d1a]/20 to-transparent"
-                aria-hidden
-              />
-              <div className="pointer-events-none absolute bottom-5 left-5 right-5 flex items-end justify-between gap-3 rounded-xl border border-white/10 bg-black/25 px-4 py-3 backdrop-blur-md md:bottom-6 md:left-6 md:right-6">
-                <div>
-                  <p className={`${headlineFont} text-[10px] font-bold uppercase tracking-widest text-emerald-300/90`}>
-                    Live narrative
-                  </p>
-                  <p className="mt-0.5 text-sm font-medium text-white/90">
-                    Strategy, content & search — one team.
-                  </p>
-                </div>
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-emerald-400/20 text-emerald-200">
-                  <Check className="h-5 w-5" strokeWidth={2.5} aria-hidden />
-                </div>
-              </div>
-            </div>
-          </Motion.div>
+            </span>
+          </Motion.a>
         </div>
       </header>
 
@@ -1784,7 +1680,10 @@ function AboutPage() {
             </p>
           </Motion.div>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
-            {whoWeServe.map(({ icon: Icon, title, text, wide }, i) => (
+            {whoWeServe.map((row, i) => {
+              const Icon = row.icon;
+              const { title, text, wide } = row;
+              return (
               <Motion.div
                 key={title}
                 className={`${wide ? "lg:col-span-3" : ""}`}
@@ -1813,7 +1712,8 @@ function AboutPage() {
                   </div>
                 </Motion.div>
               </Motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

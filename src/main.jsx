@@ -14,30 +14,34 @@ import BusinessesPage from "./pages/BusinessesPage.jsx";
 import IndividualsPage from "./pages/IndividualsPage.jsx";
 import CaseStudiesPage from "./pages/CaseStudiesPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
-import ResourcePlaceholderPage from "./pages/ResourcePlaceholderPage.jsx";
 import FaqsPage from "./pages/FaqsPage.jsx";
 import InsightsBlogsPage from "./pages/InsightsBlogsPage.jsx";
 import GuidePage from "./pages/GuidePage.jsx";
 
-const normalizedPath = window.location.pathname.replace(/\/+$/, "") || "/";
+function normalizePath(pathname) {
+  return pathname.replace(/\/+$/, "") || "/";
+}
 
-let page = <HomePage />;
-if (normalizedPath === "/about") page = <AboutPage />;
-else if (normalizedPath === "/services") page = <ServicesPage />;
-else if (normalizedPath === "/services/financial-advisors")
-  page = <FinancialAdvisorsPage />;
-else if (normalizedPath === "/services/job-seekers") page = <JobSeekersPage />;
-else if (normalizedPath === "/services/doctors") page = <DoctorsPage />;
-else if (normalizedPath === "/services/lawyers") page = <LawyersPage />;
-else if (normalizedPath === "/services/executives") page = <ExecutivesPage />;
-else if (normalizedPath === "/services/businesses") page = <BusinessesPage />;
-else if (normalizedPath === "/services/individuals") page = <IndividualsPage />;
-else if (normalizedPath === "/case-studies") page = <CaseStudiesPage />;
-else if (normalizedPath === "/contact") page = <ContactPage />;
-else if (normalizedPath === "/resources/blogs")
-  page = <InsightsBlogsPage />;
-else if (normalizedPath === "/resources/guide") page = <GuidePage />;
-else if (normalizedPath === "/resources/faqs") page = <FaqsPage />;
+function pageForPath(path) {
+  if (path === "/about") return <AboutPage />;
+  if (path === "/services") return <ServicesPage />;
+  if (path === "/services/financial-advisors") return <FinancialAdvisorsPage />;
+  if (path === "/services/job-seekers") return <JobSeekersPage />;
+  if (path === "/services/doctors") return <DoctorsPage />;
+  if (path === "/services/lawyers") return <LawyersPage />;
+  if (path === "/services/executives") return <ExecutivesPage />;
+  if (path === "/services/businesses") return <BusinessesPage />;
+  if (path === "/services/individuals") return <IndividualsPage />;
+  if (path === "/case-studies") return <CaseStudiesPage />;
+  if (path === "/contact") return <ContactPage />;
+  if (path === "/resources/blogs") return <InsightsBlogsPage />;
+  if (path === "/resources/guide") return <GuidePage />;
+  if (path === "/resources/faqs") return <FaqsPage />;
+  return <HomePage />;
+}
+
+const normalizedPath = normalizePath(window.location.pathname);
+const page = pageForPath(normalizedPath);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
