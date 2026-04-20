@@ -38,7 +38,7 @@ const LAWYER_FAQ_ITEMS = [
     id: "state-bar-records",
     question: "Can state bar records be suppressed?",
     answer:
-      "The records on bar association systems cannot be altered. What we address is the search ranking of those pages — through content strategy and SEO, it is achievable to move bar records beyond the visible search results that prospective clients actually review.",
+      "The records on bar association systems cannot be altered. What we address is the search ranking of those pages - through content strategy and SEO, it is achievable to move bar records beyond the visible search results that prospective clients actually review.",
   },
   {
     id: "visibility-to-opposing-parties",
@@ -50,7 +50,7 @@ const LAWYER_FAQ_ITEMS = [
     id: "practice-areas",
     question: "What practice areas benefit most?",
     answer:
-      "We work with legal professionals across all practice areas, but see particular demand from litigation, family law, criminal defense, and corporate law practitioners — areas where public records and adversarial proceedings most frequently generate searchable content.",
+      "We work with legal professionals across all practice areas, but see particular demand from litigation, family law, criminal defense, and corporate law practitioners - areas where public records and adversarial proceedings most frequently generate searchable content.",
   },
   {
     id: "timeline",
@@ -65,7 +65,7 @@ const LAWYER_PROBLEM_TILES = [
     id: "bar-discipline",
     label: "Bar complaints & discipline",
     description:
-      "State bar complaints and disciplinary proceedings — publicly listed",
+      "State bar complaints and disciplinary proceedings - publicly listed",
     Icon: Scale,
   },
   {
@@ -146,8 +146,8 @@ function LawyersProblemSection() {
           Legal professionals face a degree of public scrutiny that few other
           professions experience. Your cases generate public records. Opposing
           parties generate searchable content. Regulatory proceedings are indexed.
-          And the clients who are most valuable to you — corporations,
-          high-net-worth individuals, institutional clients — are also the most
+          And the clients who are most valuable to you - corporations,
+          high-net-worth individuals, institutional clients - are also the most
           diligent researchers.
         </p>
       </div>
@@ -268,7 +268,7 @@ const LAWYERS_SCALE_METRICS = [
     figure: "Page 1",
     blurb: "Where retain / no-retain is decided",
     description:
-      "Studies of professional-services search behavior consistently show users rarely move past the first page of results when evaluating counsel—making page-one visibility disproportionately decisive for intake",
+      "Studies of professional-services search behavior consistently show users rarely move past the first page of results when evaluating counsel-making page-one visibility disproportionately decisive for intake",
     Icon: Search,
   },
 ];
@@ -392,7 +392,7 @@ const LAWYERS_WHY_HARDER_PILLARS = [
     id: "adversarial",
     label: "Adversarial fallout",
     hook: "Every case creates someone who lost.",
-    body: "You work in an adversarial system. Every case creates a party who lost — and sometimes that party produces content about you. The nature of high-profile cases means your name may be associated with controversial matters for years after resolution.",
+    body: "You work in an adversarial system. Every case creates a party who lost - and sometimes that party produces content about you. The nature of high-profile cases means your name may be associated with controversial matters for years after resolution.",
     Icon: Gavel,
   },
   {
@@ -425,7 +425,7 @@ function LawyersWhyHarderSection() {
         Why This Is Harder for You Than Most
       </h2>
       <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
-        Three realities attorneys hit in search — tap each to read the full
+        Three realities attorneys hit in search - tap each to read the full
         context.
       </p>
 
@@ -697,7 +697,7 @@ function LawyersPage() {
                 <p>The credentials are identical.</p>
                 <p>The fees are comparable.</p>
                 <p>
-                  So they do what every client does — they search each name online.
+                  So they do what every client does - they search each name online.
                 </p>
                 <p>In under sixty seconds, they have formed a judgment.</p>
                 <p>Not based on courtroom record.</p>

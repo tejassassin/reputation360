@@ -95,7 +95,7 @@ export default function AboutHeroSearchMockup({ headlineFont: hf }) {
         <div
           ref={scrollRef}
           className="max-h-[min(380px,52vh)] overflow-y-auto overscroll-contain bg-[#f8f9fa] [scrollbar-gutter:stable]"
-          aria-label="Sample Google results — scroll to see page 2"
+          aria-label="Sample Google results - scroll to see page 2"
         >
           {phase === "before" ? (
             <BeforeSerp hf={hf} />
@@ -105,7 +105,7 @@ export default function AboutHeroSearchMockup({ headlineFont: hf }) {
 
           <div className="sticky bottom-0 border-t border-[#dadce0] bg-[#f8f9fa]/95 px-3 py-2 backdrop-blur-sm">
             <p className={`${hf} text-center text-[10px] text-[#70757a]`}>
-              Scroll inside the results to see more pages — same query, different landscape.
+              Scroll inside the results to see more pages - same query, different landscape.
             </p>
           </div>
         </div>
@@ -158,7 +158,7 @@ function GooglePagination() {
 function BeforeSerp({ hf }) {
   const bad = [
     {
-      t: `Forum thread re: ${DEMO_NAME} — unverified claims`,
+      t: `Forum thread re: ${DEMO_NAME} - unverified claims`,
       u: "complaintsboard.com › threads › ...",
       s: "Anonymous posts from 2016 resurfacing in search snippets…",
       n: -6,
@@ -170,19 +170,19 @@ function BeforeSerp({ hf }) {
       n: -5,
     },
     {
-      t: `${DEMO_NAME} — negative opinion piece`,
+      t: `${DEMO_NAME} - negative opinion piece`,
       u: "regionalpost.com › opinion › ...",
       s: "Editorial framing that omits later context and outcomes.",
       n: -4,
     },
     {
-      t: `Scraped profile — outdated title for ${DEMO_NAME}`,
+      t: `Scraped profile - outdated title for ${DEMO_NAME}`,
       u: "data-agg.site › profile › ...",
       s: "Third-party aggregator with wrong employer and year.",
       n: -5,
     },
     {
-      t: `“${DEMO_NAME}” — unmoderated Q&A thread`,
+      t: `“${DEMO_NAME}” - unmoderated Q&A thread`,
       u: "oldforum.net › archive › ...",
       s: "Dead forum page still ranking on page one.",
       n: -7,
@@ -196,7 +196,7 @@ function BeforeSerp({ hf }) {
       n: -2,
     },
     {
-      t: `Sponsored directory — duplicate listing`,
+      t: `Sponsored directory - duplicate listing`,
       u: "bizlistings.co › ...",
       s: "Low-quality citation cluttering branded queries.",
       n: -3,
@@ -206,7 +206,7 @@ function BeforeSerp({ hf }) {
   return (
     <div className="px-3 pb-2 pt-3 sm:px-4">
       <p className={`${hf} mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#70757a]`}>
-        Page 1 — first screen
+        Page 1 - first screen
       </p>
       <ul className="space-y-3">
         {bad.map((r, i) => (
@@ -235,13 +235,13 @@ function BeforeSerp({ hf }) {
 function AfterSerp({ hf }) {
   const good = [
     {
-      t: `${DEMO_NAME} — Leadership & board roles`,
+      t: `${DEMO_NAME} - Leadership & board roles`,
       u: "linkedin.com › in › jordan-mercer",
       s: "Updated headline, experience, and recommendations aligned with your narrative.",
       tag: "+4",
     },
     {
-      t: `${DEMO_NAME} — Company leadership team`,
+      t: `${DEMO_NAME} - Company leadership team`,
       u: "meridian-analytics.com › leadership",
       s: "Official bio on a domain you control, with structured data for search.",
       tag: "NEW",
@@ -253,20 +253,20 @@ function AfterSerp({ hf }) {
       tag: "+3",
     },
     {
-      t: `Keynote — ${DEMO_NAME} on responsible growth`,
+      t: `Keynote - ${DEMO_NAME} on responsible growth`,
       u: "conference.io › agenda › ...",
       s: "Authoritative event page with video and transcript excerpts.",
       tag: "+2",
     },
     {
-      t: `Nonprofit board — ${DEMO_NAME}`,
+      t: `Nonprofit board - ${DEMO_NAME}`,
       u: "brightfuture.org › board",
       s: "Mission-aligned visibility that reinforces trust signals.",
       tag: "+2",
     },
   ];
   const pushedDown = {
-    t: "Old aggregator snippet — superseded",
+    t: "Old aggregator snippet - superseded",
     u: "data-agg.site › profile › ...",
     s: "This result now sits far below accurate, authoritative pages.",
   };
@@ -274,7 +274,7 @@ function AfterSerp({ hf }) {
   return (
     <div className="px-3 pb-2 pt-3 sm:px-4">
       <p className={`${hf} mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#1e8e3e]`}>
-        Page 1 — first screen (recovered)
+        Page 1 - first screen (recovered)
       </p>
       <ul className="space-y-3">
         {good.map((r, i) => (

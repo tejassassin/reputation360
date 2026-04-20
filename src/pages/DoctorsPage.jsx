@@ -378,7 +378,7 @@ const DOCTOR_FAQ_ITEMS = [
     question:
       "Can I respond to Google reviews as a doctor without risking a HIPAA violation?",
     answer:
-      "General, non-specific responses — acknowledging a concern without confirming or denying patient details — are typically acceptable. However, the more effective long-term strategy is ensuring negative reviews do not rank prominently enough to influence decisions in the first place.",
+      "General, non-specific responses - acknowledging a concern without confirming or denying patient details - are typically acceptable. However, the more effective long-term strategy is ensuring negative reviews do not rank prominently enough to influence decisions in the first place.",
   },
   {
     id: "state-board-records",
@@ -389,9 +389,9 @@ const DOCTOR_FAQ_ITEMS = [
   {
     id: "healthgrades-zocdoc",
     question:
-      "What about Healthgrades or Zocdoc — can negative reviews be removed?",
+      "What about Healthgrades or Zocdoc - can negative reviews be removed?",
     answer:
-      "Reviews that violate the platform's own policies — fake reviews, reviews by non-patients, reviews containing factual inaccuracies — can often be reported and removed. Reviews that do not violate policy are addressed through suppression.",
+      "Reviews that violate the platform's own policies - fake reviews, reviews by non-patients, reviews containing factual inaccuracies - can often be reported and removed. Reviews that do not violate policy are addressed through suppression.",
   },
   {
     id: "timeline-results",

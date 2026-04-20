@@ -31,14 +31,14 @@ const EXECUTIVE_PROBLEM_TILES = [
     id: "business-press",
     label: "Business press",
     description:
-      "Business press coverage of company controversies, restructurings, or leadership transitions — Wall Street Journal, Bloomberg, Forbes, Fortune, Business Insider",
+      "Business press coverage of company controversies, restructurings, or leadership transitions - Wall Street Journal, Bloomberg, Forbes, Fortune, Business Insider",
     Icon: Newspaper,
   },
   {
     id: "regulatory",
     label: "Regulatory actions",
     description:
-      "Regulatory actions involving companies you led — SEC, FTC, DOJ filings and orders",
+      "Regulatory actions involving companies you led - SEC, FTC, DOJ filings and orders",
     Icon: Landmark,
   },
   {
@@ -66,7 +66,7 @@ const EXECUTIVE_PROBLEM_TILES = [
     id: "vc-media",
     label: "Startup & VC media",
     description:
-      "Startup and VC community content — TechCrunch, The Information, Axios covering funding disputes or business failures",
+      "Startup and VC community content - TechCrunch, The Information, Axios covering funding disputes or business failures",
     Icon: TrendingUp,
   },
   {
@@ -80,7 +80,7 @@ const EXECUTIVE_PROBLEM_TILES = [
     id: "absence",
     label: "Weak personal brand",
     description:
-      "Personal brand absence — no strong positive presence to anchor what people find",
+      "Personal brand absence - no strong positive presence to anchor what people find",
     Icon: UserSearch,
   },
 ];
@@ -107,7 +107,7 @@ const EXECUTIVE_SCALE_METRICS = [
     figure: "12–20",
     blurb: "Typical results vs. your control",
     description:
-      "12–20 unique results typically surface for an executive's name — and fewer than 3 are usually under their direct control.",
+      "12–20 unique results typically surface for an executive's name - and fewer than 3 are usually under their direct control.",
     Icon: BarChart3,
   },
 ];
@@ -117,7 +117,7 @@ const EXECUTIVE_WHY_STAKES_PILLARS = [
     id: "trust",
     label: "Trust is the currency",
     hook: "Investors and partners decide before they ask you.",
-    body: "At board and C-suite level, trust is the currency. An investor who finds something concerning does not email you to ask for clarification — they pass. A potential co-founder who sees a damaging article from three years ago declines the conversation. A senior executive you are trying to recruit decides your organization is not the right platform.",
+    body: "At board and C-suite level, trust is the currency. An investor who finds something concerning does not email you to ask for clarification - they pass. A potential co-founder who sees a damaging article from three years ago declines the conversation. A senior executive you are trying to recruit decides your organization is not the right platform.",
     Icon: Users,
   },
   {
@@ -190,7 +190,7 @@ function ExecutivesProblemSection() {
         </div>
         <p className="max-w-2xl text-[14px] leading-relaxed text-[#3f4f66] md:text-[15px] md:leading-[1.55]">
           Senior leaders attract scrutiny in proportion to their visibility. The
-          more prominent your role, the more content exists about you — and the
+          more prominent your role, the more content exists about you - and the
           less control you have over what that content says.
         </p>
       </div>
@@ -275,7 +275,7 @@ function ExecutivesProblemSection() {
 
       <p className="mt-8 rounded-xl border border-[#1f3b64]/10 bg-[#f8fafc] px-4 py-3.5 text-center text-[14px] font-semibold leading-snug text-[#0f2e58] md:px-6 md:text-[15px]">
         Any one of these on page one when a stakeholder searches your name can
-        quietly shift a deal, a vote, or a hire — often before you ever find out
+        quietly shift a deal, a vote, or a hire - often before you ever find out
         why.
       </p>
     </section>
@@ -413,7 +413,7 @@ function ExecutivesWhyStakesSection() {
         Why the Stakes Are Different at This Level
       </h2>
       <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
-        Three realities leaders face in search — tap each to read the full
+        Three realities leaders face in search - tap each to read the full
         context.
       </p>
 
@@ -604,7 +604,7 @@ function ExecutivesPage() {
             {[
               {
                 title: "Strategic Presence",
-                text: "We help senior leaders shape what stakeholders see first — before diligence, press, or partnerships hinge on a search result.",
+                text: "We help senior leaders shape what stakeholders see first - before diligence, press, or partnerships hinge on a search result.",
                 icon: <ShieldCheck className="h-5 w-5 text-[#6ee27d]" />,
               },
               {

@@ -784,7 +784,7 @@ function HowWeWorkSection() {
             How We Work
           </h2>
           <p className="font-body mx-auto max-w-xl text-slate-600">
-            Three phases in sequence — pick a step to read it in full. On desktop,
+            Three phases in sequence - pick a step to read it in full. On desktop,
             the marker travels along the track.
           </p>
         </Motion.div>
@@ -881,7 +881,7 @@ function HowWeWorkSection() {
               <p
                 className={`${headlineFont} mb-3 text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#4CAF50]`}
               >
-                Phase {active.n} — {active.title}
+                Phase {active.n} - {active.title}
               </p>
               <p className="font-body text-left text-[15px] leading-relaxed text-slate-600 md:text-center md:text-[17px]">
                 {active.text}
@@ -1517,7 +1517,7 @@ function AboutPage() {
                 variants={heroItem}
                 className="mt-5 max-w-lg text-[15px] leading-relaxed text-slate-300/90 md:text-base"
               >
-                Protecting reputations globally — with the discretion, craft, and persistence modern search
+                Protecting reputations globally - with the discretion, craft, and persistence modern search
                 demands.
               </Motion.p>
               <Motion.div
@@ -1633,7 +1633,7 @@ function AboutPage() {
                 We deliver round-the-clock reputation protection with senior strategists
                 and delivery teams aligned to how people actually search. Since 2019,
                 clients have trusted us across law, medicine, finance, e-commerce,
-                manufacturing, and professional services — from students to executives
+                manufacturing, and professional services - from students to executives
                 and global brands. Reputation management, content strategy, LinkedIn and
                 employer branding, and search suppression:{" "}
                 <strong className="font-semibold text-[#1F3B64]">
@@ -1669,7 +1669,7 @@ function AboutPage() {
               Who We Serve
             </h2>
             <p className="font-body mx-auto mt-3 max-w-2xl text-slate-600">
-              Hover a card — each audience carries a different search story.
+              Hover a card - each audience carries a different search story.
             </p>
           </Motion.div>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
@@ -1737,7 +1737,7 @@ function AboutPage() {
               What We Don&apos;t Do
             </h2>
             <p className="font-body mx-auto mt-4 max-w-2xl text-sm text-white/55 md:text-base">
-              Clear boundaries build trust — and lasting results.
+              Clear boundaries build trust - and lasting results.
             </p>
           </Motion.div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
@@ -1843,7 +1843,7 @@ function AboutPage() {
 
       <ClientStoriesSection />
 
-      {/* Final CTA — tight top padding so the navy block sits close to testimonials (avoids a tall strip of #f4f6fb). */}
+      {/* Final CTA - tight top padding so the navy block sits close to testimonials (avoids a tall strip of #f4f6fb). */}
       <section className="relative overflow-hidden bg-[#f4f6fb] pb-10 pt-2 md:pb-14 md:pt-3">
         <div className="mx-auto max-w-6xl px-6">
           <Motion.div

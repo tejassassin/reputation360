@@ -58,7 +58,7 @@ export const REPUTATION360_FINANCIAL_ADVISOR_STEPS = [
   {
     step: 2,
     headline: "Step 2 - Suppression Strategy Design (Weeks 1-2)",
-    body: "We design a content and SEO strategy specific to your situation, built to push negative results beyond page two — where fewer than 0.5% of searchers ever look. You receive a clear brief on what we are building and why.",
+    body: "We design a content and SEO strategy specific to your situation, built to push negative results beyond page two - where fewer than 0.5% of searchers ever look. You receive a clear brief on what we are building and why.",
     Icon: Target,
   },
   {
@@ -76,7 +76,7 @@ export const REPUTATION360_FINANCIAL_ADVISOR_STEPS = [
   {
     step: 5,
     headline: "Step 5 - Long-Term Maintenance (Months 8-12)",
-    body: "Once negative content is displaced, we maintain the presence that replaced it — ensuring it holds position and continues working in your favor. A strong search presence, once built, becomes a permanent professional asset.",
+    body: "Once negative content is displaced, we maintain the presence that replaced it - ensuring it holds position and continues working in your favor. A strong search presence, once built, becomes a permanent professional asset.",
     Icon: RefreshCw,
   },
 ];
@@ -86,7 +86,7 @@ export const REPUTATION360_JOB_SEEKER_STEPS = [
   {
     step: 1,
     headline: "Step 1 - Your Reputation Audit (Week 1)",
-    body: "We run the search a recruiter would run — your name, name plus city, name plus industry, name plus previous employer. We show you exactly what they see and identify precisely what is working against you.",
+    body: "We run the search a recruiter would run - your name, name plus city, name plus industry, name plus previous employer. We show you exactly what they see and identify precisely what is working against you.",
     Icon: Map,
   },
   {
@@ -98,13 +98,13 @@ export const REPUTATION360_JOB_SEEKER_STEPS = [
   {
     step: 3,
     headline: "Step 3 - Building Your Professional Presence (Months 1-3)",
-    body: "We build a positive, authoritative digital footprint that outranks the damaging content — LinkedIn optimization, a personal professional website or portfolio, published professional commentary, and supporting profiles designed to rank for your name.",
+    body: "We build a positive, authoritative digital footprint that outranks the damaging content - LinkedIn optimization, a personal professional website or portfolio, published professional commentary, and supporting profiles designed to rank for your name.",
     Icon: Layers,
   },
   {
     step: 4,
     headline: "Step 4 - Displacement and Monitoring (Months 2-8)",
-    body: "As your positive presence gains ranking strength, damaging content moves down. We monitor progress weekly and adjust the strategy to maintain momentum — and we keep you informed throughout so you always know where things stand.",
+    body: "As your positive presence gains ranking strength, damaging content moves down. We monitor progress weekly and adjust the strategy to maintain momentum - and we keep you informed throughout so you always know where things stand.",
     Icon: BarChart3,
   },
   {
@@ -120,25 +120,25 @@ export const REPUTATION360_DOCTOR_STEPS = [
   {
     step: 1,
     headline: "Step 1 - Full Digital Presence Audit (Week 1)",
-    body: "We map every search result for your name, your practice name, and your specialty plus location — every review platform, directory listing, news reference, and social mention. We identify where the damage is concentrated and what approach each situation requires.",
+    body: "We map every search result for your name, your practice name, and your specialty plus location - every review platform, directory listing, news reference, and social mention. We identify where the damage is concentrated and what approach each situation requires.",
     Icon: Map,
   },
   {
     step: 2,
     headline: "Step 2 - Suppression and Presence Strategy (Weeks 1-2)",
-    body: "We design a strategy to displace negative results using content creation, directory optimization, and SEO. Where direct removal is viable — fake reviews, policy-violating content, de-indexing candidates — we pursue those in parallel.",
+    body: "We design a strategy to displace negative results using content creation, directory optimization, and SEO. Where direct removal is viable - fake reviews, policy-violating content, de-indexing candidates - we pursue those in parallel.",
     Icon: Target,
   },
   {
     step: 3,
     headline: "Step 3 - Review Platform and Directory Optimization (Months 1-2)",
-    body: "We optimize your profiles on Google Business, Vitals, WebMD, and relevant medical directories — ensuring your official presence is comprehensive, current, and ranking prominently. A well-optimized profile on a high-authority platform consistently outranks a negative review aggregator.",
+    body: "We optimize your profiles on Google Business, Vitals, WebMD, and relevant medical directories - ensuring your official presence is comprehensive, current, and ranking prominently. A well-optimized profile on a high-authority platform consistently outranks a negative review aggregator.",
     Icon: Layers,
   },
   {
     step: 4,
     headline: "Step 4 - Authoritative Content Building (Months 1-5)",
-    body: "We build your thought leadership and professional presence — health articles published under your name, a professional website or blog, interview features, and educational content that positions you as the credible, trusted expert in your specialty. This content is built to rank for your name and hold that position over time.",
+    body: "We build your thought leadership and professional presence - health articles published under your name, a professional website or blog, interview features, and educational content that positions you as the credible, trusted expert in your specialty. This content is built to rank for your name and hold that position over time.",
     Icon: BarChart3,
   },
   {
@@ -154,13 +154,13 @@ export const REPUTATION360_EXECUTIVE_STEPS = [
   {
     step: 1,
     headline: "Step 1 - Executive Search Footprint Audit (Week 1)",
-    body: "We conduct a comprehensive audit of your complete digital footprint — your name, company associations, past ventures, past directorships, and media coverage across all of them. We map every threat and every opportunity in what people currently find when they search your name.",
+    body: "We conduct a comprehensive audit of your complete digital footprint - your name, company associations, past ventures, past directorships, and media coverage across all of them. We map every threat and every opportunity in what people currently find when they search your name.",
     Icon: Map,
   },
   {
     step: 2,
     headline: "Step 2 - Strategic Brief and Priority Setting (Week 2)",
-    body: "We present our findings and agree on a clear priority order — which results need to be displaced first, which present the highest risk, and what the realistic outcome looks like for your specific situation.",
+    body: "We present our findings and agree on a clear priority order - which results need to be displaced first, which present the highest risk, and what the realistic outcome looks like for your specific situation.",
     Icon: Target,
   },
   {
@@ -188,7 +188,7 @@ export const REPUTATION360_BUSINESS_STEPS = [
   {
     step: 1,
     headline: "Step 1 - Business Reputation Audit (Week 1)",
-    body: "We audit your complete search picture — company name, founder names, product names, and competitive search terms. We map every negative result and identify the right combination of removal and suppression for your situation.",
+    body: "We audit your complete search picture - company name, founder names, product names, and competitive search terms. We map every negative result and identify the right combination of removal and suppression for your situation.",
     Icon: Map,
   },
   {
@@ -200,7 +200,7 @@ export const REPUTATION360_BUSINESS_STEPS = [
   {
     step: 3,
     headline: "Step 3 - Content and Brand Presence Building (Months 1-4)",
-    body: "We create the authoritative brand content that displaces negative results — press features, thought leadership, company profiles on high-authority platforms, and owned media. Built to rank and stay ranked.",
+    body: "We create the authoritative brand content that displaces negative results - press features, thought leadership, company profiles on high-authority platforms, and owned media. Built to rank and stay ranked.",
     Icon: Layers,
   },
   {
@@ -222,7 +222,7 @@ export const REPUTATION360_INDIVIDUAL_STEPS = [
   {
     step: 1,
     headline: "Step 1 - Personal Reputation Audit (Week 1)",
-    body: "We conduct a careful audit of what appears for your name across Google and other search engines — the positive, the neutral, and the damaging. We identify every removal candidate and every suppression priority before recommending a path forward.",
+    body: "We conduct a careful audit of what appears for your name across Google and other search engines - the positive, the neutral, and the damaging. We identify every removal candidate and every suppression priority before recommending a path forward.",
     Icon: Map,
   },
   {
@@ -234,19 +234,19 @@ export const REPUTATION360_INDIVIDUAL_STEPS = [
   {
     step: 3,
     headline: "Step 3 - Removal Pursuit (Ongoing from Month 1)",
-    body: "We pursue removal through every applicable channel — platform policy, legal mechanism, right-to-erasure request, de-indexing request, or publisher outreach. We manage the process and keep you informed of progress at every stage.",
+    body: "We pursue removal through every applicable channel - platform policy, legal mechanism, right-to-erasure request, de-indexing request, or publisher outreach. We manage the process and keep you informed of progress at every stage.",
     Icon: Layers,
   },
   {
     step: 4,
     headline: "Step 4 - Presence Building (Months 1-4)",
-    body: "For cases where suppression is required, we build an appropriate positive presence around your name — content that reflects who you are today, not who you were or what happened to you. This is done with care for your privacy and your comfort throughout.",
+    body: "For cases where suppression is required, we build an appropriate positive presence around your name - content that reflects who you are today, not who you were or what happened to you. This is done with care for your privacy and your comfort throughout.",
     Icon: BarChart3,
   },
   {
     step: 5,
     headline: "Step 5 - Displacement and Resolution (Months 2-12)",
-    body: "As your positive presence gains ranking strength, damaging content is displaced from visible search pages. We monitor progress and adjust until the result you need is achieved — and we maintain the presence we have built so it continues protecting you long after the engagement ends.",
+    body: "As your positive presence gains ranking strength, damaging content is displaced from visible search pages. We monitor progress and adjust until the result you need is achieved - and we maintain the presence we have built so it continues protecting you long after the engagement ends.",
     Icon: RefreshCw,
   },
 ];
@@ -256,13 +256,13 @@ export const REPUTATION360_LAWYER_STEPS = [
   {
     step: 1,
     headline: "Step 1 - Legal Reputation Audit (Week 1)",
-    body: "We run a comprehensive search across your name, your firm name, and relevant practice area combinations — identifying every damaging result, assessing its ranking authority, and mapping the full picture of what prospective clients encounter.",
+    body: "We run a comprehensive search across your name, your firm name, and relevant practice area combinations - identifying every damaging result, assessing its ranking authority, and mapping the full picture of what prospective clients encounter.",
     Icon: Map,
   },
   {
     step: 2,
     headline: "Step 2 - Strategy Design (Weeks 1-2)",
-    body: "We design a suppression and presence strategy calibrated to your specific situation — the nature of the damaging content, the authority of the sources, and the competitive picture for your name in search. You receive a clear brief before any work begins.",
+    body: "We design a suppression and presence strategy calibrated to your specific situation - the nature of the damaging content, the authority of the sources, and the competitive picture for your name in search. You receive a clear brief before any work begins.",
     Icon: Target,
   },
   {
@@ -274,7 +274,7 @@ export const REPUTATION360_LAWYER_STEPS = [
   {
     step: 4,
     headline: "Step 4 - Thought Leadership and Authority Content (Months 1-5)",
-    body: "We publish authoritative legal commentary, case analysis, and professional insight under your name — on high-authority platforms that rank well for legal professional names. This positions you as the credible expert in your practice area and builds the ranking authority that displaces negative content.",
+    body: "We publish authoritative legal commentary, case analysis, and professional insight under your name - on high-authority platforms that rank well for legal professional names. This positions you as the credible expert in your practice area and builds the ranking authority that displaces negative content.",
     Icon: BarChart3,
   },
   {

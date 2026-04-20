@@ -53,7 +53,7 @@ const BUSINESS_PROBLEM_TILES = [
     id: "professional",
     label: "Professional services",
     description:
-      "Glassdoor reviews affecting both talent acquisition and client perception; former client commentary on LinkedIn or industry forums; regulatory references from AICPA, state bar associations, or sector-specific bodies — for consulting, accounting, staffing, and agencies.",
+      "Glassdoor reviews affecting both talent acquisition and client perception; former client commentary on LinkedIn or industry forums; regulatory references from AICPA, state bar associations, or sector-specific bodies - for consulting, accounting, staffing, and agencies.",
     Icon: Briefcase,
   },
   {
@@ -87,7 +87,7 @@ const BUSINESS_SCALE_METRICS = [
     figure: "7",
     blurb: "Sources B2B buyers consult",
     description:
-      "7 content sources consulted on average by B2B buyers before making a vendor decision — search results are among the first.",
+      "7 content sources consulted on average by B2B buyers before making a vendor decision - search results are among the first.",
     Icon: Layers,
   },
   {
@@ -104,8 +104,8 @@ const BUSINESS_WHY_STAKES_PILLARS = [
   {
     id: "surfaces",
     label: "Multiple reputation surfaces",
-    hook: "Company, founders, and products — each can carry damage.",
-    body: "A business has multiple reputation surfaces — your company name, your founders' names, your product names. All of them can carry damaging content.",
+    hook: "Company, founders, and products - each can carry damage.",
+    body: "A business has multiple reputation surfaces - your company name, your founders' names, your product names. All of them can carry damaging content.",
     Icon: Building2,
   },
   {
@@ -119,7 +119,7 @@ const BUSINESS_WHY_STAKES_PILLARS = [
     id: "stakeholders",
     label: "One result, many audiences",
     hook: "Customers, talent, investors, partners, and press all search.",
-    body: "Because you serve multiple stakeholders simultaneously — customers, talent, investors, partners, press — a negative result that affects one group often affects all of them.",
+    body: "Because you serve multiple stakeholders simultaneously - customers, talent, investors, partners, press - a negative result that affects one group often affects all of them.",
     Icon: Users,
   },
 ];
@@ -129,7 +129,7 @@ const BUSINESS_FAQ_ITEMS = [
     id: "remove-reviews",
     question: "Can we remove negative reviews from Google Business or Yelp?",
     answer:
-      "Reviews that violate platform policies — fake reviews, reviews from non-customers, defamatory content — can often be reported and removed. Reviews that do not violate policy are addressed through suppression.",
+      "Reviews that violate platform policies - fake reviews, reviews from non-customers, defamatory content - can often be reported and removed. Reviews that do not violate policy are addressed through suppression.",
   },
   {
     id: "competitor-targeting",
@@ -155,7 +155,7 @@ const BUSINESS_FAQ_ITEMS = [
     id: "success",
     question: "How do you measure success?",
     answer:
-      "We track search rankings for your target terms weekly throughout the engagement. Success is defined by displacement — negative content moving beyond the pages where your customers actually search.",
+      "We track search rankings for your target terms weekly throughout the engagement. Success is defined by displacement - negative content moving beyond the pages where your customers actually search.",
   },
 ];
 
@@ -180,7 +180,7 @@ function BusinessesProblemSection() {
         <p className="max-w-2xl text-[14px] leading-relaxed text-[#3f4f66] md:text-[15px] md:leading-[1.55]">
           No two businesses have the same reputation challenge. But across all of
           them, the mechanism is identical: negative content in search results
-          quietly redirects decisions — customers, partners, talent, investment —
+          quietly redirects decisions - customers, partners, talent, investment -
           away from your business, without your knowledge and without recourse.
         </p>
       </div>
@@ -264,7 +264,7 @@ function BusinessesProblemSection() {
       </div>
 
       <p className="mt-8 rounded-xl border border-[#1f3b64]/10 bg-[#f8fafc] px-4 py-3.5 text-center text-[14px] font-semibold leading-snug text-[#0f2e58] md:px-6 md:text-[15px]">
-        Negative content in search quietly redirects decisions — often before you
+        Negative content in search quietly redirects decisions - often before you
         ever know why the deal, the hire, or the headline went the other way.
       </p>
     </section>
@@ -402,7 +402,7 @@ function BusinessesWhyStakesSection() {
         Why This Is More Complex for Businesses Than Individuals
       </h2>
       <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
-        Three dynamics that multiply risk in search — tap each to read the full
+        Three dynamics that multiply risk in search - tap each to read the full
         context.
       </p>
 
@@ -578,7 +578,7 @@ function BusinessesPage() {
               Your Business May Have a Google Problem. Have You Checked?
             </h1>
             <p className="mt-5 max-w-[520px] text-[15px] leading-[1.5] text-[#4f5f75] md:text-[16px]">
-              In thirty seconds, it either builds confidence — or costs you the
+              In thirty seconds, it either builds confidence - or costs you the
               deal.
             </p>
             <a
@@ -592,12 +592,12 @@ function BusinessesPage() {
             {[
               {
                 title: "Brand & search footprint",
-                text: "We map company, founder, and product names — where negative content ranks and what it will take to displace it.",
+                text: "We map company, founder, and product names - where negative content ranks and what it will take to displace it.",
                 icon: <Building2 className="h-5 w-5 text-[#6ee27d]" />,
               },
               {
                 title: "Built for B2B & consumer",
-                text: "From SaaS review platforms to local listings and regulatory notices — strategy matches your sector.",
+                text: "From SaaS review platforms to local listings and regulatory notices - strategy matches your sector.",
                 icon: <ShieldCheck className="h-5 w-5 text-[#6ee27d]" />,
               },
               {

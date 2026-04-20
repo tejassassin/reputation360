@@ -75,7 +75,7 @@ const INDIVIDUAL_WHO_FOR_TILES = [
     id: "news-legal",
     label: "Old news & legal records",
     description:
-      "Individuals with old news articles covering a legal matter, an arrest, a court case, or an allegation — regardless of outcome.",
+      "Individuals with old news articles covering a legal matter, an arrest, a court case, or an allegation - regardless of outcome.",
     Icon: Newspaper,
   },
   {
@@ -121,7 +121,7 @@ const INDIVIDUAL_SCALE_METRICS = [
     figure: "85%",
     blurb: "Name search before meeting",
     description:
-      "85% of adults say they have searched someone's name online before meeting them — professionally or personally.",
+      "85% of adults say they have searched someone's name online before meeting them - professionally or personally.",
     Icon: Search,
   },
   {
@@ -137,7 +137,7 @@ const INDIVIDUAL_SCALE_METRICS = [
     figure: "Still",
     blurb: "Old content, live damage",
     description:
-      "Content that is years old, resolved, or factually wrong still ranks — and still does damage — without any warning to the person it concerns.",
+      "Content that is years old, resolved, or factually wrong still ranks - and still does damage - without any warning to the person it concerns.",
     Icon: Star,
   },
 ];
@@ -146,8 +146,8 @@ const INDIVIDUAL_WHY_PILLARS = [
   {
     id: "emotional",
     label: "Emotional weight",
-    hook: "Not only a career file — it is you.",
-    body: "Personal reputation problems carry a dimension that professional ones do not — emotional weight. When content is about your professional conduct, it is uncomfortable. When it is about you as a person, the stakes feel different.",
+    hook: "Not only a career file - it is you.",
+    body: "Personal reputation problems carry a dimension that professional ones do not - emotional weight. When content is about your professional conduct, it is uncomfortable. When it is about you as a person, the stakes feel different.",
     Icon: Heart,
   },
   {
@@ -177,13 +177,13 @@ const INDIVIDUAL_FAQ_ITEMS = [
     id: "google-remove",
     question: "Can Google actually remove content from search results?",
     answer:
-      "Google can de-index specific URLs — meaning they no longer appear in search results even if the underlying content still exists on the original site. De-indexing achieves the same practical outcome as removal for most purposes. We manage the request process and know which categories of content are most likely to be accepted.",
+      "Google can de-index specific URLs - meaning they no longer appear in search results even if the underlying content still exists on the original site. De-indexing achieves the same practical outcome as removal for most purposes. We manage the request process and know which categories of content are most likely to be accepted.",
   },
   {
     id: "right-forgotten",
     question: "What about the Right to be Forgotten under US law?",
     answer:
-      "While the US does not have a comprehensive federal right-to-erasure law equivalent to the EU's GDPR, certain state privacy laws — including the California Consumer Privacy Act — provide some basis for de-indexing requests involving private individuals. This is an evolving area of law, and we assess the applicable options for your specific situation.",
+      "While the US does not have a comprehensive federal right-to-erasure law equivalent to the EU's GDPR, certain state privacy laws - including the California Consumer Privacy Act - provide some basis for de-indexing requests involving private individuals. This is an evolving area of law, and we assess the applicable options for your specific situation.",
   },
   {
     id: "confidential",
@@ -195,7 +195,7 @@ const INDIVIDUAL_FAQ_ITEMS = [
   {
     id: "third-party",
     question:
-      "What if the content involves someone else — for example, a former partner who created content about me?",
+      "What if the content involves someone else - for example, a former partner who created content about me?",
     answer:
       "Content created by a third party specifically targeting you may have additional removal options depending on its nature. Harassment, defamation, and non-consensual intimate imagery all have specific platform mechanisms and, in some cases, legal avenues. We assess all of these in your consultation.",
   },
@@ -427,7 +427,7 @@ function IndividualsWhySection() {
         Why Personal Reputation Cases Require a Different Approach
       </h2>
       <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
-        Three realities personal cases carry in search — tap each to read the full
+        Three realities personal cases carry in search - tap each to read the full
         context.
       </p>
 
@@ -807,7 +807,7 @@ function IndividualsPage() {
             {[
               {
                 title: "Private & confidential",
-                text: "Consultation, audit, and strategy stay between you and us — no visible signal that you are managing your reputation.",
+                text: "Consultation, audit, and strategy stay between you and us - no visible signal that you are managing your reputation.",
                 icon: <Lock className="h-5 w-5 text-[#6ee27d]" />,
               },
               {
@@ -817,7 +817,7 @@ function IndividualsPage() {
               },
               {
                 title: "Built around your story",
-                text: "Not a template — a careful audit and a plan for what you are actually dealing with, at a pace you are comfortable with.",
+                text: "Not a template - a careful audit and a plan for what you are actually dealing with, at a pace you are comfortable with.",
                 icon: <Heart className="h-5 w-5 text-[#6ee27d]" />,
               },
             ].map((item) => (
@@ -895,7 +895,7 @@ function IndividualsPage() {
                   A legal matter that was resolved years ago.
                 </span>
                 <span className="block">
-                  Something posted about you by someone else — an ex-partner, a
+                  Something posted about you by someone else - an ex-partner, a
                   former colleague, or a person who wanted to cause harm.
                 </span>
                 <span className="block">
@@ -906,8 +906,8 @@ function IndividualsPage() {
                   Whatever it is, it appears when people search your name.
                 </span>
                 <span className="block">
-                  And because it appears, it follows you — into new relationships, new
-                  communities, new opportunities — without anyone telling you
+                  And because it appears, it follows you - into new relationships, new
+                  communities, new opportunities - without anyone telling you
                   directly.
                 </span>
                 <span className="block">

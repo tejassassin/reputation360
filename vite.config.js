@@ -14,7 +14,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Bind to loopback by default — avoids flaky `networkInterfaces()` on some Node/OS setups.
+  // Bind to loopback by default - avoids flaky `networkInterfaces()` on some Node/OS setups.
   // Use `npm run dev -- --host` when you need LAN access from other devices.
   server: {
     host: "127.0.0.1",
