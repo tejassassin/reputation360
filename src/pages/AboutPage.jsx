@@ -16,7 +16,6 @@ import {
   Star,
   ChevronLeft,
   ChevronRight,
-  ChevronDown,
   Train,
   ArrowRight,
 } from "lucide-react";
@@ -617,77 +616,78 @@ function WhatDrivesUsSection() {
           </p>
         </Motion.div>
 
-        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
-          {whatDrivesPersonas.map((persona, i) => {
-            const isActive = persona.id === activeId;
-            const Icon = persona.icon;
-            return (
-              <Motion.div
-                key={persona.id}
-                initial={{ opacity: 0, y: 22 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={aboutView}
-                transition={{ duration: 0.5, delay: i * 0.07 }}
-              >
-                <button
-                  type="button"
-                  onClick={() => setActiveId(persona.id)}
-                  aria-pressed={isActive}
-                  className={`group relative flex w-full flex-col rounded-2xl border p-6 text-left transition-[border-color,background-color,box-shadow,transform] duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 md:p-7 ${
-                    isActive
-                      ? "border-[#1F3B64] bg-[#1F3B64] shadow-[0_20px_50px_-24px_rgba(15,35,60,0.45)] ring-1 ring-white/10"
-                      : "border-slate-200/90 bg-white/90 shadow-sm backdrop-blur-sm hover:-translate-y-1 hover:border-[#4CAF50]/35 hover:shadow-lg"
-                  }`}
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 sm:gap-8">
+          <div className="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-3 xl:gap-4">
+            {whatDrivesPersonas.map((persona, i) => {
+              const isActive = persona.id === activeId;
+              const Icon = persona.icon;
+              return (
+                <Motion.div
+                  key={persona.id}
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={aboutView}
+                  transition={{ duration: 0.5, delay: i * 0.07 }}
                 >
-                  {isActive ? (
-                    <div
-                      className="pointer-events-none absolute inset-x-0 top-0 h-[3px] rounded-t-2xl bg-gradient-to-r from-[#4CAF50] via-emerald-300 to-[#2E5B88]"
-                      aria-hidden
-                    />
-                  ) : null}
-                  <div
-                    className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 ${
+                  <button
+                    type="button"
+                    onClick={() => setActiveId(persona.id)}
+                    aria-pressed={isActive}
+                    className={`group relative flex h-full min-h-[11rem] w-full flex-col rounded-2xl border p-4 text-left transition-[border-color,background-color,box-shadow,transform] duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 sm:min-h-[12rem] sm:p-5 lg:min-h-[13.5rem] lg:p-4 xl:p-5 ${
                       isActive
-                        ? "bg-white/10 text-[#86efac]"
-                        : "bg-sky-100/90 text-[#2E5B88] group-hover:scale-105"
+                        ? "border-[#1F3B64] bg-[#1F3B64] shadow-[0_20px_50px_-24px_rgba(15,35,60,0.45)] ring-1 ring-white/10"
+                        : "border-slate-200/90 bg-white/90 shadow-sm backdrop-blur-sm hover:-translate-y-1 hover:border-[#4CAF50]/35 hover:shadow-lg"
                     }`}
                   >
                     {isActive ? (
-                      <CircleArrowRight className="h-8 w-8" strokeWidth={2} />
-                    ) : (
-                      <Icon className="h-6 w-6" strokeWidth={2} />
-                    )}
-                  </div>
-                  <span
-                    className={`${headlineFont} mb-2 text-[11px] font-bold uppercase tracking-[0.18em] ${
-                      isActive ? "text-[#86efac]" : "text-slate-500"
-                    }`}
-                  >
-                    {persona.label}
-                  </span>
-                  <span
-                    className={`${headlineFont} text-base font-bold leading-snug md:text-[17px] ${
-                      isActive ? "text-white" : "text-[#1F3B64]"
-                    }`}
-                  >
-                    {persona.cardLine}
-                  </span>
-                </button>
-              </Motion.div>
-            );
-          })}
-        </div>
+                      <div
+                        className="pointer-events-none absolute inset-x-0 top-0 h-[3px] rounded-t-2xl bg-gradient-to-r from-[#4CAF50] via-emerald-300 to-[#2E5B88]"
+                        aria-hidden
+                      />
+                    ) : null}
+                    <div
+                      className={`mb-3 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 sm:mb-4 sm:h-11 sm:w-11 ${
+                        isActive
+                          ? "bg-white/10 text-[#86efac]"
+                          : "bg-sky-100/90 text-[#2E5B88] group-hover:scale-105"
+                      }`}
+                    >
+                      {isActive ? (
+                        <CircleArrowRight className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={2} />
+                      ) : (
+                        <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2} />
+                      )}
+                    </div>
+                    <span
+                      className={`${headlineFont} mb-1.5 text-[10px] font-bold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.18em] ${
+                        isActive ? "text-[#86efac]" : "text-slate-500"
+                      }`}
+                    >
+                      {persona.label}
+                    </span>
+                    <span
+                      className={`${headlineFont} text-sm font-bold leading-snug sm:text-[15px] lg:text-sm xl:text-[15px] ${
+                        isActive ? "text-white" : "text-[#1F3B64]"
+                      }`}
+                    >
+                      {persona.cardLine}
+                    </span>
+                  </button>
+                </Motion.div>
+              );
+            })}
+          </div>
 
-        <Motion.div
-          className="relative mx-auto mt-8 max-w-4xl overflow-hidden rounded-2xl border border-slate-200/80 bg-white/70 p-[1px] shadow-[0_24px_60px_-30px_rgba(31,59,100,0.2)] backdrop-blur-md sm:mt-10"
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={aboutView}
-          transition={{ duration: 0.55, delay: 0.1 }}
-          role="region"
-          aria-live="polite"
-          aria-label={`Story: ${active.panelKicker}`}
-        >
+          <Motion.div
+            className="relative w-full overflow-hidden rounded-2xl border border-slate-200/80 bg-white/70 p-[1px] shadow-[0_24px_60px_-30px_rgba(31,59,100,0.2)] backdrop-blur-md"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={aboutView}
+            transition={{ duration: 0.55, delay: 0.1 }}
+            role="region"
+            aria-live="polite"
+            aria-label={`Story: ${active.panelKicker}`}
+          >
           <div className="rounded-[15px] bg-gradient-to-br from-[#4CAF50]/12 via-white to-[#2E5B88]/10">
             <div className="flex min-h-[8.5rem] rounded-[14px] bg-white/95">
               <div
@@ -729,6 +729,7 @@ function WhatDrivesUsSection() {
             </div>
           </div>
         </Motion.div>
+        </div>
 
         <Motion.div
           className="mx-auto mt-10 max-w-4xl text-center sm:mt-12 sm:text-left"
@@ -753,11 +754,12 @@ function WhatDrivesUsSection() {
 }
 
 function HowWeWorkSection() {
-  const [activeStep, setActiveStep] = useState(2);
-  const [vehicleVisible, setVehicleVisible] = useState(false);
-  /** Step 01: start of track; 02: center; 03: end of track (mirrors start). */
+  const [activeStep, setActiveStep] = useState(0);
+  /** Step 01: start of track; 02: center; 03: end of track. */
   const markerLeftPct =
     activeStep === 0 ? 7 : activeStep === 1 ? 50 : 93;
+
+  const active = howWeWorkSteps[activeStep];
 
   return (
     <section
@@ -770,7 +772,7 @@ function HowWeWorkSection() {
       />
       <div className="relative mx-auto max-w-7xl px-6">
         <Motion.div
-          className="mb-12 text-center md:mb-16"
+          className="mb-10 text-center md:mb-12"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={aboutView}
@@ -782,70 +784,110 @@ function HowWeWorkSection() {
             How We Work
           </h2>
           <p className="font-body mx-auto max-w-xl text-slate-600">
-            Three phases — tap a step and watch the journey move along the track.
+            Three phases in sequence — pick a step to read it in full. On desktop,
+            the marker travels along the track.
           </p>
         </Motion.div>
-        <div className="relative grid gap-14 md:grid-cols-3 md:gap-8">
+
+        <div className="relative mx-auto max-w-4xl">
           <div
-            className="pointer-events-none absolute left-0 right-0 top-[5.25rem] z-[1] hidden md:block"
+            className="pointer-events-none absolute left-0 right-0 top-[2.5rem] z-[1] hidden md:block"
             aria-hidden
           >
             <div className="relative h-px w-full bg-slate-200">
-              {vehicleVisible ? (
-                <div
-                  className="absolute top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-[#4CAF50] text-white shadow-md ring-2 ring-[#4CAF50]/25 transition-[left] duration-[2200ms] ease-in-out"
-                  style={{ left: `${markerLeftPct}%` }}
-                >
-                  <Train className="h-4 w-4" strokeWidth={2.25} aria-hidden />
-                </div>
-              ) : null}
+              <div
+                className="absolute top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-[#4CAF50] text-white shadow-md ring-2 ring-[#4CAF50]/25 transition-[left] duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                style={{ left: `${markerLeftPct}%` }}
+              >
+                <Train className="h-4 w-4" strokeWidth={2.25} aria-hidden />
+              </div>
             </div>
           </div>
 
-          {howWeWorkSteps.map((step, i) => {
-            const active = i === activeStep;
-            return (
-              <Motion.div
-                key={step.n}
-                className="relative z-10 space-y-6 text-center"
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={aboutView}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-              >
-                <Motion.button
-                  type="button"
-                  aria-pressed={active}
-                  aria-label={`Step ${step.n}: ${step.title}`}
-                  onClick={() => {
-                    setVehicleVisible(true);
-                    setActiveStep(i);
-                  }}
-                  whileHover={{ scale: active ? 1.06 : 1.05 }}
-                  whileTap={{ scale: 0.97 }}
-                  className={`mx-auto flex h-20 w-20 items-center justify-center rounded-full shadow-lg transition-colors duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 md:h-[5.25rem] md:w-[5.25rem] ${
-                    active
-                      ? "bg-[#1F3B64] text-[#4CAF50] ring-4 ring-[#1F3B64]/15 md:ring-8"
-                      : "border-2 border-slate-100 bg-white text-[#1F3B64] hover:border-[#4CAF50]/55 hover:shadow-md hover:ring-2 hover:ring-[#4CAF50]/30"
-                  }`}
+          <div
+            className="relative z-10 mb-8 grid grid-cols-3 gap-2 sm:gap-4 md:mb-10"
+            role="tablist"
+            aria-label="How we work phases"
+          >
+            {howWeWorkSteps.map((step, i) => {
+              const isActive = i === activeStep;
+              return (
+                <Motion.div
+                  key={step.n}
+                  className="text-center"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={aboutView}
+                  transition={{ duration: 0.45, delay: i * 0.08 }}
                 >
-                  <span
-                    className={`${headlineFont} text-xl font-extrabold md:text-2xl`}
+                  <Motion.button
+                    type="button"
+                    role="tab"
+                    id={`how-we-work-tab-${i}`}
+                    aria-selected={isActive}
+                    aria-controls="how-we-work-panel"
+                    tabIndex={0}
+                    aria-label={`${step.title}, phase ${step.n}`}
+                    onClick={() => setActiveStep(i)}
+                    whileHover={{ scale: isActive ? 1.04 : 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className={`mx-auto flex w-full max-w-[11rem] flex-col items-center gap-2 sm:gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 ${
+                      isActive ? "" : ""
+                    }`}
                   >
-                    {step.n}
-                  </span>
-                </Motion.button>
-                <div className="space-y-2">
-                  <h3
-                    className={`${headlineFont} text-lg font-extrabold text-[#1F3B64] md:text-xl`}
-                  >
-                    {step.title}
-                  </h3>
-                  <p className="px-4 leading-relaxed text-slate-600">{step.text}</p>
-                </div>
-              </Motion.div>
-            );
-          })}
+                    <span
+                      className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-full shadow-lg transition-colors duration-300 ease-out md:h-[5.25rem] md:w-[5.25rem] ${
+                        isActive
+                          ? `bg-[#1F3B64] text-[#4CAF50] ring-4 ring-[#1F3B64]/15 md:ring-8 ${headlineFont} text-lg font-extrabold md:text-2xl`
+                          : `border-2 border-slate-100 bg-white text-[#1F3B64] hover:border-[#4CAF50]/55 hover:shadow-md hover:ring-2 hover:ring-[#4CAF50]/30 ${headlineFont} text-lg font-extrabold md:text-2xl`
+                      }`}
+                    >
+                      {step.n}
+                    </span>
+                    <span
+                      className={`${headlineFont} text-[13px] font-extrabold leading-tight text-[#1F3B64] sm:text-sm md:text-base`}
+                    >
+                      {step.title}
+                    </span>
+                  </Motion.button>
+                </Motion.div>
+              );
+            })}
+          </div>
+
+          <div className="mb-2 flex justify-center gap-1.5 md:hidden" aria-hidden>
+            {howWeWorkSteps.map((_, i) => (
+              <span
+                key={i}
+                className={`h-1.5 w-8 rounded-full transition-colors ${
+                  i === activeStep ? "bg-[#4CAF50]" : "bg-slate-200"
+                }`}
+              />
+            ))}
+          </div>
+
+          <AnimatePresence mode="wait">
+            <Motion.div
+              key={activeStep}
+              id="how-we-work-panel"
+              role="tabpanel"
+              aria-labelledby={`how-we-work-tab-${activeStep}`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+              className="rounded-2xl border border-slate-200/90 bg-white/95 px-5 py-6 shadow-[0_16px_40px_-28px_rgba(15,35,60,0.2)] sm:px-8 sm:py-8"
+            >
+              <p
+                className={`${headlineFont} mb-3 text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#4CAF50]`}
+              >
+                Phase {active.n} — {active.title}
+              </p>
+              <p className="font-body text-left text-[15px] leading-relaxed text-slate-600 md:text-center md:text-[17px]">
+                {active.text}
+              </p>
+            </Motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>
@@ -1316,6 +1358,10 @@ function AboutPage() {
   const [activeSectionId, setActiveSectionId] = useState(
     () => aboutSectionNav[0]?.id ?? "",
   );
+  /** Click: only one badge stays selected (green) until another is chosen. */
+  const [selectedPromiseIndex, setSelectedPromiseIndex] = useState(null);
+  /** Hover / focus: temporary green on that badge. */
+  const [highlightedPromiseIndex, setHighlightedPromiseIndex] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const scrollRafRef = useRef(0);
 
@@ -1529,47 +1575,6 @@ function AboutPage() {
               <AboutHeroSearchMockup headlineFont={headlineFont} />
             </Motion.div>
           </div>
-
-          <div className="mt-12 border-t border-white/10 pt-10 md:mt-14 md:pt-12">
-            <div className="grid grid-cols-3 gap-4 text-center md:gap-8">
-              {[
-                { k: "7+", label: "Years live", sub: "Since 2019" },
-                { k: "1,100+", label: "Engagements", sub: "Client outcomes" },
-                { k: "47", label: "Specialists", sub: "Global team" },
-              ].map((s) => (
-                <div key={s.label} className="space-y-1">
-                  <p
-                    className={`${headlineFont} text-2xl font-extrabold tabular-nums text-white md:text-3xl lg:text-[2.1rem]`}
-                  >
-                    {s.k}
-                  </p>
-                  <p className={`${headlineFont} text-[10px] font-bold uppercase tracking-[0.14em] text-[#4CAF50] md:text-[11px]`}>
-                    {s.label}
-                  </p>
-                  <p className="text-[10px] text-white/45 md:text-xs">{s.sub}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <Motion.a
-            href="#how-it-began"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className={`${headlineFont} mt-10 flex flex-col items-start gap-2 self-start text-[10px] font-semibold uppercase tracking-[0.24em] text-white/45 transition hover:text-white/70 md:mt-12`}
-          >
-            Scroll to explore
-            <span className="flex flex-col items-start gap-1 pl-0.5">
-              <span className="block h-6 w-px bg-gradient-to-b from-white/50 to-transparent" aria-hidden />
-              <Motion.span
-                animate={{ y: [0, 5, 0] }}
-                transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <ChevronDown className="h-4 w-4" strokeWidth={2} aria-hidden />
-              </Motion.span>
-            </span>
-          </Motion.a>
         </div>
       </header>
 
@@ -1605,55 +1610,68 @@ function AboutPage() {
               One team. Global coverage. Obsessive about outcomes.
             </p>
           </Motion.div>
-          <div className="grid gap-4 md:grid-cols-12 md:gap-5">
-            <Motion.div
-              className="md:col-span-5 flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-8 shadow-[0_20px_50px_-28px_rgba(15,35,60,0.15)] md:p-10"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={aboutView}
-              transition={{ duration: 0.5, delay: 0.05 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-            >
-              <div>
-                <p
-                  className={`${headlineFont} text-5xl font-extrabold tabular-nums text-[#4CAF50] md:text-6xl`}
+          <Motion.div
+            className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_24px_60px_-32px_rgba(15,35,60,0.18)]"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={aboutView}
+            transition={{ duration: 0.5, delay: 0.06 }}
+          >
+            <div className="grid grid-cols-1 divide-y divide-slate-200/80 bg-gradient-to-br from-white to-slate-50/80 md:grid-cols-3 md:divide-x md:divide-y-0">
+              {[
+                {
+                  n: "47",
+                  label: "Specialists",
+                  sub: "Global desks & delivery pods",
+                },
+                {
+                  n: "1,100+",
+                  label: "Engagements",
+                  sub: "Individuals to enterprise",
+                },
+                {
+                  n: "7+",
+                  label: "Years",
+                  sub: "Since 2019",
+                },
+              ].map((s) => (
+                <div
+                  key={s.label}
+                  className="flex flex-col items-center px-6 py-8 text-center md:py-10"
                 >
-                  47
-                </p>
-                <p className={`${headlineFont} mt-2 text-sm font-bold uppercase tracking-widest text-slate-500`}>
-                  Specialists worldwide
-                </p>
-              </div>
-              <p className="font-body mt-8 text-[15px] leading-relaxed text-slate-600">
-                Round-the-clock desks, senior strategists, and delivery pods aligned
-                to how people actually search.
-              </p>
-            </Motion.div>
-            <Motion.div
-              className="md:col-span-7 space-y-5 rounded-3xl border border-slate-200/90 bg-white/90 p-8 text-[15px] leading-relaxed text-slate-600 shadow-sm backdrop-blur-sm md:p-10 md:text-base"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={aboutView}
-              transition={{ duration: 0.5, delay: 0.12 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-            >
-              <p>
-                Reputation360 is a team of 47 specialists working across the globe
-                to deliver round-the-clock protection for our clients. Since 2019,
-                we have served clients across law, medicine, finance, e-commerce,
-                manufacturing, and professional services - from individuals and
-                students to senior executives and global brands. We work across
-                reputation management, content strategy, LinkedIn branding,
-                employer branding, and search suppression - all under one roof,
-                for one purpose.
+                  <p
+                    className={`${headlineFont} text-4xl font-extrabold tabular-nums text-[#4CAF50] md:text-[2.75rem]`}
+                  >
+                    {s.n}
+                  </p>
+                  <p className={`${headlineFont} mt-2 text-xs font-bold uppercase tracking-[0.14em] text-[#1F3B64] md:text-[13px]`}>
+                    {s.label}
+                  </p>
+                  <p className="font-body mt-1.5 max-w-[12rem] text-[13px] leading-snug text-slate-500">
+                    {s.sub}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="border-t border-slate-200/80 bg-white/95 px-6 py-8 md:px-10 md:py-10">
+              <p className="font-body mx-auto max-w-3xl text-center text-[15px] leading-relaxed text-slate-600 md:text-[17px]">
+                We deliver round-the-clock reputation protection with senior strategists
+                and delivery teams aligned to how people actually search. Since 2019,
+                clients have trusted us across law, medicine, finance, e-commerce,
+                manufacturing, and professional services — from students to executives
+                and global brands. Reputation management, content strategy, LinkedIn and
+                employer branding, and search suppression:{" "}
+                <strong className="font-semibold text-[#1F3B64]">
+                  one integrated team, one clear purpose.
+                </strong>
               </p>
               <p
-                className={`${headlineFont} border-t border-slate-200/80 pt-5 text-lg font-extrabold uppercase tracking-wider text-[#4CAF50] md:text-xl`}
+                className={`${headlineFont} mx-auto mt-6 max-w-2xl text-center text-[11px] font-bold uppercase tracking-[0.12em] text-[#4CAF50] md:text-xs`}
               >
-                1,100+ engagements. 7 years of expertise. One mission.
+                Global coverage · Obsessive about outcomes · Built for the long run
               </p>
-            </Motion.div>
-          </div>
+            </div>
+          </Motion.div>
         </div>
       </section>
 
@@ -1806,27 +1824,42 @@ function AboutPage() {
             />
           </Motion.div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 md:gap-10">
-            {promises.map((line, i) => (
-              <Motion.div
-                key={i}
-                className="group flex gap-5"
-                initial={{ opacity: 0, x: -12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={aboutView}
-                transition={{ duration: 0.45, delay: i * 0.06 }}
-              >
-                <Motion.div
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 text-lg font-bold text-[#4CAF50] shadow-sm"
-                  whileHover={{ scale: 1.08, rotate: -3 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 18 }}
+            {promises.map((line, i) => {
+              const isGreen =
+                highlightedPromiseIndex === i || selectedPromiseIndex === i;
+              return (
+                <Motion.button
+                  key={i}
+                  type="button"
+                  aria-pressed={selectedPromiseIndex === i}
+                  onClick={() => setSelectedPromiseIndex(i)}
+                  onMouseEnter={() => setHighlightedPromiseIndex(i)}
+                  onMouseLeave={() => setHighlightedPromiseIndex(null)}
+                  onFocus={() => setHighlightedPromiseIndex(i)}
+                  onBlur={() => setHighlightedPromiseIndex(null)}
+                  className="group flex gap-5 rounded-xl text-left transition-colors hover:bg-slate-50/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2"
+                  initial={{ opacity: 0, x: -12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={aboutView}
+                  transition={{ duration: 0.45, delay: i * 0.06 }}
                 >
-                  {i + 1}
-                </Motion.div>
-                <p className="pt-1 text-[15px] font-medium leading-relaxed text-slate-600 md:text-base">
-                  {line}
-                </p>
-              </Motion.div>
-            ))}
+                  <Motion.div
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border text-lg font-bold shadow-sm transition-colors duration-300 ${
+                      isGreen
+                        ? "border-[#4CAF50] bg-[#4CAF50] text-white ring-2 ring-[#4CAF50]/25"
+                        : "border-slate-200 bg-white text-[#4CAF50]"
+                    }`}
+                    whileHover={{ scale: 1.06 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 18 }}
+                  >
+                    {i + 1}
+                  </Motion.div>
+                  <p className="pt-1 text-[15px] font-medium leading-relaxed text-slate-600 md:text-base">
+                    {line}
+                  </p>
+                </Motion.button>
+              );
+            })}
           </div>
         </div>
       </section>
