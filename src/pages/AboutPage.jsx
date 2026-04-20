@@ -18,62 +18,61 @@ import {
   ChevronRight,
   Train,
   ArrowRight,
+  Clock,
+  Globe2,
+  Sun,
+  Ship,
+  Users,
+  MapPinned,
 } from "lucide-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import AboutHeroSearchMockup from "../components/AboutHeroSearchMockup.jsx";
 
-const IMG_MAP =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDAuoKNykbon_ONixwj4-paZvw6Uqm6Ye_H2j_EV6_SHshlgFYZLlUZO88MsCDh-_V5ZlqSn7LuN6vxcMeco4Qu_CDcVLsbvdz8yfrmrunnvnu3gMD51AnuNyq3XP7TVkVUuZZnfzI7hLcDDHEeE52hVHtDxOV1GWyNkae-OjZ1rZKugmZ70SaCmoCMsw-cNU_WN16084-Rf62DoLjnWrlnkXxW310RMehlYCTLlonqks_CWIqf_vt2SnofCi7Br7dzp6D7wxZsHMg";
-
-/** Hub positions (% of map) - x,y match viewBox 0-100 for route SVG. */
 const globalHubs = [
   {
     id: "nyc",
-    label: "New York Hub",
-    blurb:
-      "Americas leadership - client partners, delivery, and strategy aligned to your time zone.",
-    top: "35%",
-    left: "22%",
-    x: 22,
-    y: 35,
+    city: "New York",
+    region: "Americas",
+    abbr: "NYC",
+    Icon: Building2,
+    gradient:
+      "from-[#0a1628] via-[#142a4a] to-[#0f2138]",
+    flare:
+      "bg-[radial-gradient(ellipse_90%_80%_at_20%_0%,rgba(76,175,80,0.35),transparent_50%)]",
   },
   {
     id: "london",
-    label: "London Hub",
-    blurb:
-      "European operations and senior reputation counsel for complex, cross-border matters.",
-    top: "28%",
-    left: "46%",
-    x: 46,
-    y: 28,
+    city: "London",
+    region: "Europe & UK",
+    abbr: "LDN",
+    Icon: Landmark,
+    gradient:
+      "from-[#1e293b] via-[#243b53] to-[#1a2332]",
+    flare:
+      "bg-[radial-gradient(ellipse_80%_70%_at_80%_10%,rgba(148,163,184,0.35),transparent_55%)]",
   },
   {
     id: "dubai",
-    label: "Dubai Hub",
-    blurb:
-      "Middle East & Africa coverage with the same global standards and response times.",
-    top: "45%",
-    left: "58%",
-    x: 58,
-    y: 45,
+    city: "Dubai",
+    region: "Middle East & Africa",
+    abbr: "DXB",
+    Icon: Sun,
+    gradient:
+      "from-[#3a2618] via-[#4a2c14] to-[#1c1410]",
+    flare:
+      "bg-[radial-gradient(circle_at_30%_30%,rgba(251,191,36,0.22),transparent_45%)]",
   },
   {
     id: "singapore",
-    label: "Singapore Hub",
-    blurb:
-      "Asia-Pacific coordination and round-the-clock monitoring desks for the region.",
-    top: "68%",
-    left: "81%",
-    x: 81,
-    y: 68,
+    city: "Singapore",
+    region: "Asia-Pacific",
+    abbr: "SIN",
+    Icon: Ship,
+    gradient:
+      "from-[#0c2e28] via-[#134e42] to-[#0a221e]",
+    flare:
+      "bg-[radial-gradient(ellipse_70%_60%_at_70%_20%,rgba(45,212,191,0.25),transparent_50%)]",
   },
-];
-
-/** Curved routes between hubs (same coordinate space as markers). */
-const globalHubRoutes = [
-  "M22,35 Q34,31 46,28",
-  "M46,28 Q52,37 58,45",
-  "M58,45 Q70,56 81,68",
 ];
 
 const headlineFont = "font-[Manrope,Inter,sans-serif]";
@@ -340,7 +339,8 @@ const aboutScrollTargetClass =
   "scroll-mt-36 md:scroll-mt-40";
 
 /** Same vertical rhythm as How It All Began -> The Reality (pb-12 + pt-8, md: pb-16 + pt-10). */
-const aboutSectionSpacing = "pt-8 pb-12 md:pt-10 md:pb-16";
+/** Default vertical padding between About sections (keeps pairs from feeling double-spaced). */
+const aboutSectionSpacing = "pt-6 pb-10 md:pt-8 md:pb-12";
 /** First story block after the hero keeps a bit more top air. */
 const aboutFirstContentSpacing = "pt-20 pb-12 md:pt-28 md:pb-16";
 
@@ -895,161 +895,136 @@ function HowWeWorkSection() {
 }
 
 function WeAreGlobalSection() {
-  const [selectedHubId, setSelectedHubId] = useState(null);
+  const statTiles = [
+    { k: "47", label: "Specialists", sub: "worldwide", Icon: Users },
+    { k: "Global", label: "Time zones", sub: "covered", Icon: Globe2 },
+    { k: "24/7", label: "Coverage", sub: "always on", Icon: Clock },
+    { k: "30+", label: "Countries", sub: "served", Icon: MapPinned },
+  ];
 
   return (
     <section
       id="we-are-global"
-      className={`overflow-hidden border-t border-slate-200 bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+      className={`relative overflow-hidden border-t border-slate-200 bg-[#f6f8fc] pt-5 pb-5 md:pt-6 md:pb-6 ${aboutScrollTargetClass}`}
     >
-      <div className="mx-auto max-w-7xl px-6">
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(76,175,80,0.09),transparent_55%)]"
+        aria-hidden
+      />
+      <div className="relative mx-auto max-w-7xl px-6">
         <Motion.div
-          className="mb-12 text-center md:mb-16"
+          className="mb-6 text-center md:mb-8"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={aboutView}
           transition={{ duration: 0.5 }}
         >
+          <div className="mb-4 flex justify-center">
+            <span className="inline-flex h-16 w-16 items-center justify-center rounded-[1.35rem] bg-gradient-to-br from-[#1F3B64] to-[#0f2344] text-white shadow-lg shadow-[#1F3B64]/25 ring-1 ring-white/20">
+              <Globe2 className="h-8 w-8" strokeWidth={1.5} aria-hidden />
+            </span>
+          </div>
           <h2
-            className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2.05rem]`}
+            className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2.15rem]`}
           >
             We Are Global
           </h2>
-          <p className="font-body text-base text-slate-600 md:text-lg">
-            Wherever you are, we are already there.
+          <Motion.div
+            className="mx-auto mb-4 h-1.5 w-28 origin-center rounded-full bg-gradient-to-r from-[#4CAF50] to-emerald-300"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          />
+          <p className="font-body mx-auto max-w-md text-sm font-medium text-slate-500 md:text-base">
+            Four regional hubs · One team
           </p>
         </Motion.div>
 
-        <div className="relative mb-10 md:mb-12">
-          <div className="relative aspect-[16/10] rounded-3xl border border-slate-300/90 bg-[#b9d4ea] shadow-lg ring-1 ring-slate-400/25 md:aspect-[2/1]">
-            <div className="absolute inset-0 overflow-hidden rounded-3xl shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)]">
-              <img
-                alt="World map showing Reputation360 hub locations"
-                className="h-full w-full select-none object-cover object-center contrast-[1.03] saturate-[1.05]"
-                draggable={false}
-                src={IMG_MAP}
-              />
-              <svg
-                className="pointer-events-none absolute inset-0 h-full w-full text-[#4CAF50]"
-                viewBox="0 0 100 100"
-                preserveAspectRatio="none"
-                aria-hidden
+        <div className="mb-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4 xl:gap-5">
+          {globalHubs.map((hub, i) => {
+            const Icon = hub.Icon;
+            return (
+              <Motion.article
+                key={hub.id}
+                aria-label={`${hub.city}, ${hub.region}`}
+                className="group relative isolate flex min-h-[200px] flex-col overflow-hidden rounded-[1.35rem] shadow-[0_20px_50px_-28px_rgba(10,25,45,0.55)] ring-1 ring-white/10"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={aboutView}
+                transition={{ duration: 0.5, delay: i * 0.07 }}
+                whileHover={{ y: -6, scale: 1.01 }}
               >
-                <defs>
-                  <linearGradient
-                    id="hubRouteGlow"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="0%"
-                  >
-                    <stop offset="0%" stopColor="currentColor" stopOpacity="0.15" />
-                    <stop offset="50%" stopColor="currentColor" stopOpacity="0.65" />
-                    <stop offset="100%" stopColor="currentColor" stopOpacity="0.15" />
-                  </linearGradient>
-                </defs>
-                {globalHubRoutes.map((d, i) => (
-                  <path
-                    key={i}
-                    d={d}
-                    fill="none"
-                    stroke="url(#hubRouteGlow)"
-                    strokeLinecap="round"
-                    strokeWidth="0.55"
-                    vectorEffect="nonScalingStroke"
-                    className="opacity-80"
-                  />
-                ))}
-                {globalHubRoutes.map((d, i) => (
-                  <path
-                    key={`dash-${i}`}
-                    d={d}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeDasharray="1.2 1.4"
-                    strokeLinecap="round"
-                    strokeWidth="0.22"
-                    vectorEffect="nonScalingStroke"
-                    className="opacity-90"
-                  />
-                ))}
-              </svg>
-            </div>
-
-            {globalHubs.map((hub) => {
-              const selected = selectedHubId === hub.id;
-              return (
-                <button
-                  key={hub.id}
-                  type="button"
-                  aria-pressed={selected}
-                  aria-label={hub.label}
-                  onClick={() =>
-                    setSelectedHubId((id) => (id === hub.id ? null : hub.id))
-                  }
-                  className={`absolute z-20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
-                    selected ? "scale-105" : "hover:scale-105"
-                  } transition-transform duration-200 ease-out`}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${hub.gradient}`}
+                  aria-hidden
+                />
+                <div
+                  className={`pointer-events-none absolute inset-0 ${hub.flare} opacity-90`}
+                  aria-hidden
+                />
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-[0.18]"
                   style={{
-                    top: hub.top,
-                    left: hub.left,
-                    transform: "translate(-50%, -50%)",
+                    backgroundImage:
+                      "linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)",
+                    backgroundSize: "26px 26px",
                   }}
+                  aria-hidden
+                />
+                <p
+                  className={`${headlineFont} pointer-events-none absolute -bottom-3 right-0 translate-x-[6%] text-[5.5rem] font-black leading-none tracking-tighter text-white/[0.06] transition-transform duration-500 group-hover:translate-x-[2%] sm:text-[6.25rem]`}
+                  aria-hidden
                 >
-                  <span className="relative inline-block">
-                    <span className="relative flex h-10 w-10 items-center justify-center">
-                      {selected ? (
-                        <span
-                          className="motion-safe:absolute motion-safe:inset-0 motion-safe:animate-ping rounded-full bg-[#4CAF50]/35"
-                          aria-hidden
-                        />
-                      ) : null}
-                      <span
-                        className={`relative flex h-4 w-4 rounded-full border-2 border-white bg-[#4CAF50] shadow-md transition-[box-shadow,transform] duration-200 ${
-                          selected
-                            ? "scale-125 shadow-lg shadow-[#4CAF50]/60 ring-2 ring-white/90"
-                            : "shadow-[#4CAF50]/40 hover:shadow-lg hover:shadow-[#4CAF50]/55"
-                        }`}
-                      />
-                    </span>
-                    {selected ? (
-                      <span
-                        className={`${headlineFont} pointer-events-none absolute left-1/2 top-full z-30 mt-1.5 -translate-x-1/2 whitespace-nowrap rounded-md bg-white/95 px-2 py-1 text-[9px] font-extrabold uppercase tracking-[0.14em] text-[#1F3B64] shadow-md ring-1 ring-slate-200/90`}
-                      >
-                        {hub.label.toUpperCase()}
-                      </span>
-                    ) : null}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
+                  {hub.abbr}
+                </p>
+                <div className="relative flex flex-col p-6">
+                  <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm transition-colors duration-300 group-hover:bg-white/[0.15]">
+                    <Icon className="h-5 w-5 text-[#b9f6ca]" strokeWidth={1.75} aria-hidden />
+                  </div>
+                  <p
+                    className={`${headlineFont} text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#7ee787]/90`}
+                  >
+                    {hub.region}
+                  </p>
+                  <h3
+                    className={`${headlineFont} mt-1 text-2xl font-extrabold tracking-tight text-white md:text-[1.6rem]`}
+                  >
+                    {hub.city}
+                  </h3>
+                </div>
+              </Motion.article>
+            );
+          })}
         </div>
 
-        <div className="grid grid-cols-2 gap-6 text-center lg:grid-cols-4 lg:gap-8">
-          {[
-            ["47", "Specialists"],
-            ["Global", "Time Zones"],
-            ["24/7", "Coverage"],
-            ["30+", "Countries"],
-          ].map(([k, v], i) => (
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          {statTiles.map(({ k, label, sub, Icon }, i) => (
             <Motion.div
-              key={v}
-              className="space-y-2 rounded-2xl border border-slate-200/80 bg-white/80 py-5 shadow-sm backdrop-blur-sm"
-              initial={{ opacity: 0, y: 16 }}
+              key={label + sub}
+              className="flex flex-col items-center gap-3 rounded-2xl border border-slate-200/90 bg-white px-4 py-6 text-center shadow-sm md:flex-row md:items-center md:gap-4 md:px-5 md:text-left"
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={aboutView}
-              transition={{ duration: 0.4, delay: i * 0.07 }}
-              whileHover={{ y: -3 }}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
+              whileHover={{ y: -2 }}
             >
-              <p
-                className={`${headlineFont} text-2xl font-extrabold text-[#1F3B64] md:text-3xl`}
-              >
-                {k}
-              </p>
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-500 md:text-sm">
-                {v}
-              </p>
+              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#4CAF50]/12 text-[#2d8a3e] ring-1 ring-[#4CAF50]/20">
+                <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
+              </span>
+              <div className="min-w-0 flex-1">
+                <p
+                  className={`${headlineFont} text-2xl font-extrabold tabular-nums text-[#4CAF50] md:text-3xl`}
+                >
+                  {k}
+                </p>
+                <p className="text-[11px] font-bold uppercase tracking-widest text-slate-500 md:text-xs">
+                  {label}{" "}
+                  <span className="font-semibold normal-case tracking-normal text-slate-400">
+                    {sub}
+                  </span>
+                </p>
+              </div>
             </Motion.div>
           ))}
         </div>
@@ -1093,11 +1068,11 @@ function ClientStoriesSection() {
   return (
     <section
       id="client-stories"
-      className={`bg-slate-50 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+      className={`bg-slate-50 pt-6 pb-3 md:pt-8 md:pb-4 ${aboutScrollTargetClass}`}
     >
       <div className="mx-auto max-w-7xl px-6">
         <Motion.div
-          className="mb-10 text-center md:mb-12"
+          className="mb-6 text-center md:mb-8"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={aboutView}
@@ -1798,7 +1773,7 @@ function AboutPage() {
       {/* Our Promise to You */}
       <section
         id="our-promise"
-        className={`relative overflow-hidden bg-white ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+        className={`relative overflow-hidden bg-white pt-8 pb-4 md:pt-10 md:pb-5 ${aboutScrollTargetClass}`}
       >
         <div
           className="pointer-events-none absolute right-0 top-0 h-96 w-96 translate-x-1/3 rounded-full bg-[#4CAF50]/[0.07] blur-3xl"
@@ -1806,7 +1781,7 @@ function AboutPage() {
         />
         <div className="relative mx-auto max-w-7xl px-6">
           <Motion.div
-            className="mb-12 text-center md:mb-16"
+            className="mb-8 text-center md:mb-10"
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={aboutView}
@@ -1823,7 +1798,7 @@ function AboutPage() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             />
           </Motion.div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 md:gap-10">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
             {promises.map((line, i) => {
               const isGreen =
                 highlightedPromiseIndex === i || selectedPromiseIndex === i;
@@ -1868,8 +1843,8 @@ function AboutPage() {
 
       <ClientStoriesSection />
 
-      {/* Final CTA */}
-      <section className={`relative overflow-hidden bg-[#f4f6fb] ${aboutSectionSpacing}`}>
+      {/* Final CTA — tight top padding so the navy block sits close to testimonials (avoids a tall strip of #f4f6fb). */}
+      <section className="relative overflow-hidden bg-[#f4f6fb] pb-10 pt-2 md:pb-14 md:pt-3">
         <div className="mx-auto max-w-6xl px-6">
           <Motion.div
             className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-[#0f2344] via-[#1F3B64] to-[#0a1628] p-10 text-center shadow-[0_32px_80px_-24px_rgba(7,20,40,0.55)] md:rounded-[3rem] md:p-16 lg:p-20"
