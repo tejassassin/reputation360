@@ -104,10 +104,10 @@ const EXECUTIVE_SCALE_METRICS = [
   },
   {
     id: "results",
-    figure: "12–20",
+    figure: "12-20",
     blurb: "Typical results vs. your control",
     description:
-      "12–20 unique results typically surface for an executive's name - and fewer than 3 are usually under their direct control.",
+      "12-20 unique results typically surface for an executive's name - and fewer than 3 are usually under their direct control.",
     Icon: BarChart3,
   },
 ];

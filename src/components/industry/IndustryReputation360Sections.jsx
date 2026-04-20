@@ -165,19 +165,19 @@ export const REPUTATION360_EXECUTIVE_STEPS = [
   },
   {
     step: 3,
-    headline: "Step 3 - Executive Presence Architecture (Months 1–3)",
+    headline: "Step 3 - Executive Presence Architecture (Months 1-3)",
     body: "We build the digital presence your position demands: LinkedIn strategy and optimization at board-level visibility, a personal professional website built to rank, a thought leadership program placing your commentary in relevant business publications, and speaker and interview profiles on high-authority platforms.",
     Icon: Layers,
   },
   {
     step: 4,
-    headline: "Step 4 - Negative Result Displacement (Months 2–8)",
+    headline: "Step 4 - Negative Result Displacement (Months 2-8)",
     body: "As your authoritative presence gains ranking strength, damaging content is displaced from visible search pages. The goal is to ensure the first full page of results for your name is entirely composed of content that reflects your leadership, expertise, and standing.",
     Icon: BarChart3,
   },
   {
     step: 5,
-    headline: "Step 5 - Ongoing Reputation Maintenance (Months 8–12)",
+    headline: "Step 5 - Ongoing Reputation Maintenance (Months 8-12)",
     body: "Executive reputation management is not a project. It is a function. We monitor your search results continuously, respond to new content threats as they emerge, and ensure your presence grows in authority over time.",
     Icon: RefreshCw,
   },
