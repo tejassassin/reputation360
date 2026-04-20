@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { AnimatePresence, motion as Motion } from "motion/react";
@@ -19,6 +20,7 @@ import {
   ChevronDown,
   Train,
   Check,
+  BookOpen,
 } from "lucide-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
 
@@ -80,6 +82,133 @@ const globalHubRoutes = [
 ];
 
 const headlineFont = "font-[Manrope,Inter,sans-serif]";
+
+/** Short line of copy for the About page reading-progress widget (scroll depth %). */
+function readingProgressBlurb(pct) {
+  if (pct <= 0) {
+    return "Scroll to move forward — we’ll show how much of this page you’ve covered.";
+  }
+  if (pct < 20) {
+    return "You’re just getting started. Most of the sections are still ahead.";
+  }
+  if (pct < 40) {
+    return "Nice — you’ve made a solid dent. There’s plenty more context below.";
+  }
+  if (pct < 60) {
+    return "You’re around the middle. The juiciest parts may still be under your thumb.";
+  }
+  if (pct < 80) {
+    return "Strong progress. You’ve read most of what’s on this page.";
+  }
+  if (pct < 100) {
+    return "Final stretch — only a little scrolling left before the bottom.";
+  }
+  return "You’ve reached the end of this page. Nothing major left to scroll.";
+}
+
+function AboutPageReadProgress({ progress }) {
+  const [mounted, setMounted] = useState(false);
+  const pct = Math.min(100, Math.max(0, Math.round(progress * 100)));
+  const blurb = readingProgressBlurb(pct);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const ui = (
+    <>
+      {/* Desktop / tablet: card + tall vertical track (portal = never clipped by main/footer) */}
+      <aside
+        className={`${headlineFont} pointer-events-none fixed right-5 top-[7.25rem] z-[90] hidden max-h-[calc(100dvh-8rem)] flex-row items-center gap-4 md:flex lg:right-10 lg:gap-5`}
+        aria-label={`Reading progress: ${pct} percent of this page`}
+        role="status"
+      >
+        <div className="flex max-h-[calc(100dvh-8rem)] min-w-0 max-w-[min(13.5rem,calc(100vw-5rem))] flex-col justify-center overflow-y-auto rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-4 text-right shadow-[0_12px_40px_-16px_rgba(15,35,60,0.2)] ring-2 ring-[#4CAF50]/40 backdrop-blur-md">
+          <div className="mb-1 flex items-center justify-end gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
+            <BookOpen className="h-3.5 w-3.5 shrink-0" aria-hidden />
+            <span>Page read</span>
+          </div>
+          <Motion.p
+            key={pct}
+            initial={{ opacity: 0.65, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.2 }}
+            className="text-4xl font-extrabold tabular-nums leading-none text-[#1F3B64] lg:text-[2.65rem]"
+          >
+            {pct}
+            <span className="text-2xl font-bold text-[#2E5B88]">%</span>
+          </Motion.p>
+          <p className="mt-2 text-[11px] font-semibold leading-snug text-slate-500">
+            of this long-form page
+          </p>
+          <p className="mt-3 text-[12px] leading-relaxed text-slate-600 lg:text-[13px]">
+            {blurb}
+          </p>
+          <p className="mt-3 border-t border-slate-200/80 pt-2 text-[10px] leading-snug text-slate-400">
+            Measured by how far you’ve scrolled — not time on page.
+          </p>
+        </div>
+
+        <div
+          className="relative h-[calc(100dvh-8rem)] w-4 shrink-0 overflow-hidden rounded-full border-2 border-slate-300/90 bg-gradient-to-b from-slate-100 to-slate-200/90 shadow-[inset_0_2px_8px_rgba(15,23,42,0.12)] lg:w-[18px]"
+          aria-hidden
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/15 via-emerald-600/20 to-lime-800/30" />
+          {[0, 25, 50, 75].map((tick) => (
+            <div
+              key={tick}
+              className="pointer-events-none absolute left-0 right-0 z-[1] h-px bg-slate-400/35"
+              style={{ top: `${tick}%` }}
+              aria-hidden
+            />
+          ))}
+          <Motion.div
+            className="absolute inset-x-0 top-0 h-full origin-top rounded-full bg-gradient-to-b from-cyan-400 via-[#34d399] to-lime-500 shadow-[0_0_16px_rgba(52,211,153,0.65),0_0_28px_rgba(34,211,238,0.35)]"
+            initial={false}
+            animate={{ scaleY: progress }}
+            transition={{ type: "tween", duration: 0.12, ease: "linear" }}
+          />
+        </div>
+      </aside>
+
+      {/* Small screens: compact chip (no horizontal strip under nav) */}
+      <aside
+        className={`${headlineFont} pointer-events-none fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 z-[90] w-[min(20rem,calc(100vw-1.5rem))] -translate-x-1/2 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-3 shadow-[0_16px_48px_-12px_rgba(15,35,60,0.35)] ring-2 ring-[#4CAF50]/30 backdrop-blur-md md:hidden`}
+        role="status"
+        aria-label={`Reading progress: ${pct} percent of this page`}
+      >
+        <div className="flex items-center gap-3">
+          <div
+            className="relative h-16 w-3 shrink-0 overflow-hidden rounded-full border border-slate-300 bg-slate-100"
+            aria-hidden
+          >
+            <Motion.div
+              className="absolute inset-x-0 top-0 h-full origin-top rounded-full bg-gradient-to-b from-cyan-400 via-emerald-400 to-lime-500"
+              initial={false}
+              animate={{ scaleY: progress }}
+              transition={{ type: "tween", duration: 0.12, ease: "linear" }}
+            />
+          </div>
+          <div className="min-w-0 flex-1 text-left">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-[#4CAF50]">
+              Page read
+            </p>
+            <p className="text-3xl font-extrabold tabular-nums text-[#1F3B64]">
+              {pct}
+              <span className="text-lg font-bold text-[#2E5B88]">%</span>
+            </p>
+            <p className="mt-0.5 text-[11px] leading-snug text-slate-600 line-clamp-2">
+              {blurb}
+            </p>
+          </div>
+        </div>
+      </aside>
+    </>
+  );
+
+  if (!mounted || typeof document === "undefined") return null;
+  return createPortal(ui, document.body);
+}
 
 const aboutView = { once: true, amount: 0.22, margin: "0px 0px -8% 0px" };
 
@@ -380,7 +509,6 @@ const howItBeganClosing =
 function HowItAllBeganStory() {
   const [activeStep, setActiveStep] = useState(0);
   const lastIndex = howItBeganSteps.length - 1;
-  const progress = (activeStep + 1) / howItBeganSteps.length;
 
   return (
     <section
@@ -412,14 +540,6 @@ function HowItAllBeganStory() {
           <p className="font-body max-w-2xl text-[15px] leading-relaxed text-slate-600 md:text-base">
             Four beats. One turning point. Tap any step or use Prev / Next.
           </p>
-          <div className="mt-6 h-1.5 overflow-hidden rounded-full bg-slate-200/90">
-            <Motion.div
-              className="h-full rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
-              initial={false}
-              animate={{ width: `${progress * 100}%` }}
-              transition={{ type: "spring", stiffness: 120, damping: 22 }}
-            />
-          </div>
         </Motion.div>
 
         <div
@@ -1402,10 +1522,12 @@ function AboutPage() {
   }, []);
 
   return (
-    <main className="flex-1 bg-[#f4f6fb] pt-28 text-slate-800 md:pt-32">
+    <main className="relative flex-1 bg-[#f4f6fb] pt-28 text-slate-800 md:pt-32">
+      <AboutPageReadProgress progress={scrollProgress} />
+
       <nav
         aria-label="Sections on this page"
-        className="sticky top-28 z-30 border-b border-white/10 bg-[#070f1c]/88 shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl md:top-32"
+        className="sticky top-28 z-30 bg-[#070f1c]/88 shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_-1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-xl md:top-32"
       >
         <div className="relative mx-auto max-w-7xl px-3 py-2.5 pb-3 md:px-6 md:py-3 md:pb-3.5">
           <ul className="flex gap-1.5 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] md:flex-wrap md:justify-center md:gap-2 md:overflow-x-visible [&::-webkit-scrollbar]:hidden">
@@ -1432,14 +1554,6 @@ function AboutPage() {
               );
             })}
           </ul>
-          <div className="mt-2 h-0.5 overflow-hidden rounded-full bg-white/10 md:mt-2.5" aria-hidden>
-            <Motion.div
-              className="h-full origin-left rounded-full bg-gradient-to-r from-emerald-400 via-[#4CAF50] to-cyan-300"
-              initial={false}
-              animate={{ scaleX: scrollProgress }}
-              transition={{ type: "tween", duration: 0.12, ease: "linear" }}
-            />
-          </div>
         </div>
       </nav>
 

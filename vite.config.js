@@ -14,15 +14,16 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Listen on all interfaces so both http://localhost:5173 and http://127.0.0.1:5173 work.
+  // Bind to loopback by default — avoids flaky `networkInterfaces()` on some Node/OS setups.
+  // Use `npm run dev -- --host` when you need LAN access from other devices.
   server: {
-    host: true,
+    host: "127.0.0.1",
     port: 5173,
     strictPort: false,
     open: true,
   },
   preview: {
-    host: true,
+    host: "127.0.0.1",
     port: 4173,
     strictPort: false,
     open: true,
