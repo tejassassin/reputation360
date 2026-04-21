@@ -17,6 +17,7 @@ import ContactPage from "./pages/ContactPage.jsx";
 import FaqsPage from "./pages/FaqsPage.jsx";
 import InsightsBlogsPage from "./pages/InsightsBlogsPage.jsx";
 import GuidePage from "./pages/GuidePage.jsx";
+import LegalNoticePage from "./pages/LegalNoticePage.jsx";
 
 function normalizePath(pathname) {
   return pathname.replace(/\/+$/, "") || "/";
@@ -37,6 +38,12 @@ function pageForPath(path) {
   if (path === "/resources/blogs") return <InsightsBlogsPage />;
   if (path === "/resources/guide") return <GuidePage />;
   if (path === "/resources/faqs") return <FaqsPage />;
+  if (path === "/privacy-policy")
+    return <LegalNoticePage variant="privacy" />;
+  if (path === "/terms-of-service")
+    return <LegalNoticePage variant="terms" />;
+  if (path === "/cookie-policy")
+    return <LegalNoticePage variant="cookies" />;
   return <HomePage />;
 }
 

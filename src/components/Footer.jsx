@@ -137,18 +137,25 @@ function Footer() {
           <p className="font-body text-white/50 text-sm">
             © 2026 Reputation360. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
-              (item, idx) => (
-                <a
-                  key={idx}
-                  href="#"
-                  className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/50 transition-colors hover:text-green"
-                >
-                  {item}
-                </a>
-              )
-            )}
+          <div className="flex flex-wrap justify-center gap-6 md:justify-end">
+            <a
+              href="/privacy-policy"
+              className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/50 transition-colors hover:text-green"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="/terms-of-service"
+              className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/50 transition-colors hover:text-green"
+            >
+              Terms of Service
+            </a>
+            <a
+              href="/cookie-policy"
+              className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/50 transition-colors hover:text-green"
+            >
+              Cookie Policy
+            </a>
           </div>
         </div>
       </div>
