@@ -1,17 +1,50 @@
 import React from "react";
-import { ServicesExpandable } from "./ui/expandable";
+import { ServicesMatrix } from "./ServicesMatrix";
 
 function OurServices() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy mb-4">
+    <section className="relative overflow-hidden py-28 md:py-32" aria-labelledby="our-services-heading">
+      <div
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,#f4f7fb_0%,#fafbfc_35%,#f0f4fa_100%)]"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.4] bg-[radial-gradient(circle_at_1px_1px,rgba(15,35,70,0.08)_1px,transparent_0)] bg-[length:32px_32px]"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -left-48 top-1/4 h-[480px] w-[480px] rounded-full bg-[#78dc77]/[0.11] blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full bg-[#1f3b64]/10 blur-3xl"
+        aria-hidden
+      />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
+          <p className="mb-4 font-heading text-xs font-bold uppercase tracking-[0.28em] text-[#2E5B88]">
+            What we deliver
+          </p>
+          <h2
+            id="our-services-heading"
+            className="font-heading text-4xl font-bold tracking-tight text-[#02254d] md:text-5xl"
+          >
             Our Services
           </h2>
-       
+          <div
+            className="mx-auto mt-6 h-1 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"
+            aria-hidden
+          />
+          <p className="mx-auto mt-6 max-w-2xl font-body text-base leading-relaxed text-steel md:text-lg">
+            From the search landscape to brand and demand — a deliberate stack you can use together or
+            a la carte.
+          </p>
         </div>
-        <ServicesExpandable />
+
+        <div className="rounded-[2rem] border border-slate-200/80 bg-white/50 p-6 shadow-[0_40px_100px_-60px_rgba(15,35,70,0.35)] ring-1 ring-white/90 backdrop-blur-[2px] sm:p-8 md:p-10 lg:p-12">
+          <ServicesMatrix />
+        </div>
       </div>
     </section>
   );

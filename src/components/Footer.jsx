@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/Logo_360.png";
-import { serviceTitles } from "./ui/expandable";
+import { serviceTitles } from "../data/reputationServices";
 
 function Footer() {
   return (
