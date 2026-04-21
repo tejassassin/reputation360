@@ -79,7 +79,7 @@ export default function AboutHeroSearchMockup({ headlineFont: hf }) {
                 className={`h-1.5 w-1.5 rounded-full ${phase === "after" ? "bg-[#4CAF50]" : "bg-amber-400"}`}
                 aria-hidden
               />
-              {phase === "after" ? "After · 11 weeks" : "Baseline snapshot"}
+              {phase === "after" ? "After · 11 months" : "Baseline snapshot"}
             </span>
           </div>
 
