@@ -5,7 +5,7 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 bg-linear-to-br from-navy to-slate text-white"
+      className="bg-linear-to-br from-navy to-slate py-24 text-white md:py-28"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="font-heading font-bold text-3xl md:text-4xl mb-4">

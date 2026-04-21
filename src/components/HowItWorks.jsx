@@ -60,7 +60,7 @@ function RibbonSquare({ num, square, notchUp }) {
 
 function HowItWorks() {
   return (
-    <div className="py-8 md:py-14">
+    <div className="py-10 md:py-16">
       <h2 className="font-heading mx-auto mb-10 px-4 text-center text-2xl font-bold text-[#1d3557] sm:mb-12 sm:text-3xl md:text-4xl">
         How Reputation360 works
       </h2>

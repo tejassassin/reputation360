@@ -13,32 +13,28 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <main className="flex-1">
+      <main className="flex flex-1 flex-col gap-16 pt-10 md:gap-20 md:pt-14 lg:gap-24 lg:pt-16">
         <section>
           <WhatWeBelieve />
-          <WhatWeDo />
         </section>
         <section>
-          <OurServices />
+          <WhatWeDo />
         </section>
+        <OurServices />
         <section className="bg-offwhite">
           <Testimonials />
         </section>
         <section className="bg-[#f9f9ff]">
           <WhoWeServeCards />
         </section>
-        <section className="bg-white pb-10">
+        <section className="bg-white pb-14 md:pb-16">
           <HowItWorks />
         </section>
         <section className="bg-offwhite">
           <WhyClientsChoose />
         </section>
-        <section className="flex justify-center bg-white">
-          <CaseStudies />
-        </section>
-        <section>
-          <Contact />
-        </section>
+        <CaseStudies />
+        <Contact />
       </main>
     </>
   );

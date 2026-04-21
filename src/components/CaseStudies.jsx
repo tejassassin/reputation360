@@ -206,7 +206,7 @@ const caseStudies = [
 
 function CaseStudies() {
   return (
-    <section className="py-10 sm:py-16 px-4 flex justify-center overflow-x-hidden">
+    <section className="flex justify-center overflow-x-hidden px-4 py-12 sm:py-20">
       <div className="max-w-6xl w-full mx-auto">
         <h2 className="font-heading text-2xl sm:text-3xl font-bold text-navy text-center mb-2 sm:mb-3">
           Real World Case Studies

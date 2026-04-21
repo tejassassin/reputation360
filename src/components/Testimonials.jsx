@@ -2,7 +2,7 @@ import { ParallaxScroll } from "./ui/parallax-scroll";
 
 export function Testimonials() {
   return (
-    <div className="text-center py-16 px-4">
+    <div className="px-4 py-20 text-center md:py-24">
      
 
       {/* Main Heading */}

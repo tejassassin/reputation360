@@ -11,7 +11,7 @@ const items = [
 
 function WhyClientsChoose() {
   return (
-    <section className="w-full py-12 px-4">
+    <section className="w-full px-4 py-16 md:py-20">
       <h2 className="font-heading font-bold text-3xl md:text-4xl text-navy my-8 m-auto text-center">
         Why Clients Choose Reputation360
       </h2>
