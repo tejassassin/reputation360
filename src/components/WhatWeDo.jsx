@@ -1,5 +1,4 @@
 import React from "react";
-import { Compare } from "./ui/compare";
 import image from "../assets/WhatWeDo.png";
 
 function WhatWeDo() {

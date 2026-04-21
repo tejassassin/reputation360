@@ -1,4 +1,5 @@
 import { motion as Motion } from "motion/react";
+import WhatWeBelieveSearchMockup from "./WhatWeBelieveSearchMockup";
 
 function WhatWeBelieve() {
   return (
@@ -47,15 +48,9 @@ function WhatWeBelieve() {
                 className="pointer-events-none absolute -bottom-16 -left-16 h-40 w-40 rounded-full bg-[#1F3B64]/10 blur-3xl"
                 aria-hidden
               />
-              <img
-                src="/about-hero-search-mockup.png"
-                alt="Search results showing positive profiles ranked above outdated listings, with ranking movement indicators."
-                className="relative w-full rounded-[0.875rem] object-cover object-top"
-                width={1200}
-                height={750}
-                loading="lazy"
-                decoding="async"
-              />
+              <div className="relative w-full">
+                <WhatWeBelieveSearchMockup />
+              </div>
               <figcaption className="relative border-t border-slate-200/80 bg-white/90 px-4 py-3 text-center font-body text-sm text-steel backdrop-blur-sm sm:px-5 sm:text-left">
                 How you appear in search is the first impression many people trust—strategy and content should match who you are today.
               </figcaption>
