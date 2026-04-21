@@ -253,10 +253,10 @@ function CaseStudySection({ study }) {
 
   const imageCol = (
     <div>
-      <div className="group/img ha-lift relative overflow-hidden rounded-2xl shadow-2xl">
+      <div className="ha-lift relative overflow-hidden rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
         <img
           alt={study.imageAlt}
-          className="aspect-video w-full object-cover transition-transform duration-700 group-hover/img:scale-105"
+          className="aspect-video w-full object-cover"
           src={study.image}
         />
         <MetricBadge metric={study.metric} />

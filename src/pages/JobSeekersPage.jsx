@@ -636,7 +636,7 @@ function JobSeekersPage() {
           </div>
         </section>
 
-        <section className="mt-12 md:mt-16 grid md:grid-cols-[1fr_1fr] overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)]">
+        <section className="ha-lift mt-12 md:mt-16 grid md:grid-cols-[1fr_1fr] overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)]">
           <div className="relative min-h-[360px] overflow-hidden bg-[#041a30] md:min-h-[520px]">
             <div
               className="pointer-events-none absolute inset-0 bg-cover bg-[center_28%] bg-no-repeat"

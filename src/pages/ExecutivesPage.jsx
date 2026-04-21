@@ -640,7 +640,7 @@ function ExecutivesPage() {
 
         <section
           id="executives-moment-of-truth"
-          className="mt-12 grid scroll-mt-28 overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)] md:mt-16 md:grid-cols-[1fr_1fr] md:items-stretch"
+          className="ha-lift mt-12 grid scroll-mt-28 overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)] md:mt-16 md:grid-cols-[1fr_1fr] md:items-stretch"
         >
           <div className="relative flex h-full min-h-[360px] flex-col overflow-hidden bg-[#041a30] md:min-h-[520px]">
             <div

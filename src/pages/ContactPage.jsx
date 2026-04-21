@@ -293,7 +293,7 @@ function ContactPage() {
                   Schedule Meeting
                 </a>
               </div>
-              <div className="mx-auto h-52 w-full max-w-xs overflow-hidden rounded-2xl md:mx-0 md:h-64 md:w-64 md:max-w-none md:shrink-0">
+              <div className="mx-auto h-52 w-full max-w-xs overflow-hidden rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)] md:mx-0 md:h-64 md:w-64 md:max-w-none md:shrink-0">
                 <img
                   alt="Calendar on tablet"
                   className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"

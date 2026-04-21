@@ -43,7 +43,7 @@ export const ParallaxScroll = ({
             <motion.div
               key={"grid-1" + idx}
               style={{ y: translateFirst }}
-              className="ha-lift relative h-80 w-full shrink-0 overflow-hidden rounded-lg"
+              className="ha-lift relative h-80 w-full shrink-0 overflow-hidden rounded-lg shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]"
             >
               <img
                 src={el}
@@ -58,7 +58,7 @@ export const ParallaxScroll = ({
             <motion.div
               key={"grid-2" + idx}
               style={{ y: translateSecond }}
-              className="ha-lift relative h-80 w-full shrink-0 overflow-hidden rounded-lg"
+              className="ha-lift relative h-80 w-full shrink-0 overflow-hidden rounded-lg shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]"
             >
               <img
                 src={el}
@@ -73,7 +73,7 @@ export const ParallaxScroll = ({
             <motion.div
               key={"grid-3" + idx}
               style={{ y: translateThird }}
-              className="ha-lift relative h-80 w-full shrink-0 overflow-hidden rounded-lg"
+              className="ha-lift relative h-80 w-full shrink-0 overflow-hidden rounded-lg shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]"
             >
               <img
                 src={el}

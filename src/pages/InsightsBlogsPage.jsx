@@ -108,11 +108,13 @@ function InsightsBlogsPage() {
           <div className="hidden lg:col-span-4 lg:block">
             <div className="relative">
               <div className="absolute -inset-4 rounded-full bg-[#78dc77]/20 blur-3xl" />
-              <img
-                src={HERO_IMG}
-                alt="Professional consultants working"
-                className="relative z-10 rounded-2xl border-none shadow-2xl grayscale-[0.2]"
-              />
+              <div className="relative z-10 ha-lift overflow-hidden rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
+                <img
+                  src={HERO_IMG}
+                  alt="Professional consultants working"
+                  className="w-full border-none grayscale-[0.2]"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -146,7 +148,7 @@ function InsightsBlogsPage() {
                 <img
                   src={FEATURED_LARGE_IMG}
                   alt="Executive desk"
-                  className="h-full w-full object-cover opacity-30 transition-transform duration-700 group-hover:scale-105"
+                  className="h-full w-full object-cover opacity-30"
                 />
               </div>
               <div className="relative z-10">
@@ -163,11 +165,9 @@ function InsightsBlogsPage() {
                   digital trust.
                 </p>
                 <div className="flex items-center gap-4">
-                  <img
-                    src={AUTHOR_IMG}
-                    alt="Marcus Thorne"
-                    className="h-10 w-10 rounded-full border-2 border-[#1f3b64]"
-                  />
+                  <div className="ha-lift h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-[#1f3b64] shadow-[0_12px_28px_-10px_rgba(0,0,0,0.25)]">
+                    <img src={AUTHOR_IMG} alt="Marcus Thorne" className="h-full w-full object-cover" />
+                  </div>
                   <div className="text-sm">
                     <p className="font-bold">Marcus Thorne</p>
                     <p className="opacity-70">Managing Partner</p>
@@ -259,12 +259,12 @@ function InsightsBlogsPage() {
         ) : (
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
             {filteredArticles.map((article) => (
-              <article key={article.id} className="group ha-lift rounded-xl">
-                <div className="mb-6 aspect-video overflow-hidden rounded-xl">
+              <article key={article.id} className="group rounded-xl">
+                <div className="ha-lift mb-6 aspect-video overflow-hidden rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
                   <img
                     src={article.image}
                     alt={article.imageAlt}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover"
                   />
                 </div>
                 <span className="mb-3 block text-xs font-bold tracking-widest text-[#35618e] uppercase">

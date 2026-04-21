@@ -97,24 +97,44 @@ function WhatWeBelieve() {
           </div>
 
           <div className="flex w-full min-w-0 justify-center lg:col-span-6 lg:justify-end">
-            <figure className="relative flex w-full max-w-none flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-950/5 p-1 shadow-lg shadow-slate-900/10 ring-1 ring-slate-900/5">
-                <div
-                  className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-[#4CAF50]/15 blur-3xl"
-                  aria-hidden
-                />
-                <div
-                  className="pointer-events-none absolute -bottom-12 -left-12 h-32 w-32 rounded-full bg-[#1F3B64]/10 blur-3xl"
-                  aria-hidden
-                />
-                <div className="relative flex flex-1 flex-col">
-                  <WhatWeBelieveSearchMockup />
-                </div>
-                <figcaption className="relative border-t border-slate-200/80 bg-white/90 px-4 py-3 text-center font-body text-sm leading-relaxed text-slate-700 backdrop-blur-sm sm:px-5 sm:text-left">
-                  How you appear in search is the first impression many people trust - it should match
-                  who you are today.
-                </figcaption>
-              </figure>
+            {/* Same hover motion as About Reputation360 image: .ha-lift (smooth scale + shadow ring). */}
+            <div className="relative isolate w-full max-w-none">
+              <div
+                className="pointer-events-none absolute -inset-3 rounded-[1.75rem] bg-gradient-to-br from-[#4CAF50]/10 via-transparent to-[#2E5B88]/18 blur-xl sm:-inset-4"
+                aria-hidden
+              />
+              <div
+                className="ha-lift relative z-10 transform-gpu rounded-2xl border border-slate-200/90 bg-slate-950/5 p-1 ring-1 ring-slate-900/5 shadow-[0_28px_80px_-28px_rgba(0,0,0,0.5),0_14px_36px_-12px_rgba(31,59,100,0.28),0_25px_50px_-12px_rgba(0,0,0,0.22)]"
+              >
+                <figure className="relative flex w-full flex-col overflow-hidden rounded-[0.875rem] bg-transparent">
+                  <div
+                    className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-[#4CAF50]/15 blur-3xl"
+                    aria-hidden
+                  />
+                  <div
+                    className="pointer-events-none absolute -bottom-12 -left-12 h-32 w-32 rounded-full bg-[#1F3B64]/10 blur-3xl"
+                    aria-hidden
+                  />
+                  <div
+                    className="relative flex min-h-0 flex-1 flex-col"
+                    onClickCapture={(e) => {
+                      const t = e.target;
+                      if (t instanceof Element && t.closest("a[href]")) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                      }
+                    }}
+                  >
+                    <WhatWeBelieveSearchMockup />
+                  </div>
+                  <figcaption className="relative border-t border-slate-200/80 bg-white/90 px-4 py-3 text-center font-body text-sm leading-relaxed text-slate-700 backdrop-blur-sm sm:px-5 sm:text-left">
+                    How you appear in search is the first impression many people trust - it should match
+                    who you are today.
+                  </figcaption>
+                </figure>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </div>

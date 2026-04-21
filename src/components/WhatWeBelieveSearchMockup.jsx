@@ -4,19 +4,25 @@ import { Search, TrendingDown, TrendingUp } from "lucide-react";
 const DEMO_NAME = "Jordan Mercer";
 const DEMO_SLUG = "jordan-mercer";
 
-const GOOGLE_SEARCH_URL = `https://www.google.com/search?q=${encodeURIComponent(`${DEMO_NAME} founder`)}`;
+/** Muted “breadcrumb” style so path text does not read as hyperlinks (no link color). */
+const urlMetaClass =
+  "cursor-default truncate font-mono text-[11px] leading-snug tracking-tight text-slate-500 sm:text-xs";
 
-function toHttps(url) {
-  if (!url) return "#";
-  const trimmed = url.trim();
-  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) return trimmed;
-  return `https://${trimmed}`;
+/**
+ * Breaks plain-text URL patterns so browsers / extensions are less likely to treat
+ * strings as navigable links (still looks identical).
+ */
+function urlDisplayText(text) {
+  return text.replace(/([./])/g, "$1\u200b");
 }
 
-/** SERP mockup — scales with column width beside “What we believe” copy. */
+/** SERP mockup — decorative only; not interactive (see pointer-events-none). */
 export default function WhatWeBelieveSearchMockup() {
   return (
-    <div className="relative flex h-full min-h-full flex-col overflow-hidden rounded-2xl border border-[#1e3a5f]/80 bg-[#0a1220] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.45)]">
+    <div
+      className="pointer-events-none relative flex h-full min-h-full flex-col overflow-hidden rounded-2xl border border-[#1e3a5f]/80 bg-[#0a1220] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.45)]"
+      data-r360-serp-mockup=""
+    >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
         style={{
@@ -40,29 +46,20 @@ export default function WhatWeBelieveSearchMockup() {
             <span className="font-medium">{DEMO_NAME.toLowerCase()}</span>{" "}
             <span className="font-normal text-slate-300">founder</span>
           </p>
-          <a
-            href={GOOGLE_SEARCH_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 font-body text-xs text-slate-300 underline-offset-2 transition-colors hover:text-white hover:underline sm:text-sm"
-          >
-            google.com
-          </a>
+          <span className={`shrink-0 ${urlMetaClass}`}>{urlDisplayText("google.com")}</span>
         </div>
 
         <ul className="space-y-2 sm:space-y-2.5">
           <ResultPositive
             num="01"
             title={`${DEMO_NAME} — Founder profile & work`}
-            urlDisplay={`meridian-analytics.com/leadership/${DEMO_SLUG}`}
-            urlHref={toHttps(`meridian-analytics.com/leadership/${DEMO_SLUG}`)}
+            url={`meridian-analytics.com/leadership/${DEMO_SLUG}`}
             badge={<TrendBadge up value="+5" />}
           />
           <ResultPositive
             num="02"
             title="Financial Times — Advisory board announcement"
-            urlDisplay="ft.com/arcadia-advisory"
-            urlHref="https://www.ft.com/"
+            url="ft.com/arcadia-advisory"
             badge={
               <span className="font-heading text-[10px] font-bold text-slate-200 sm:text-[11px]">
                 NEW
@@ -72,8 +69,7 @@ export default function WhatWeBelieveSearchMockup() {
           <ResultPositive
             num="03"
             title={`LinkedIn — ${DEMO_NAME} · Founder`}
-            urlDisplay={`linkedin.com/in/${DEMO_SLUG}`}
-            urlHref={`https://www.linkedin.com/in/${DEMO_SLUG}`}
+            url={`linkedin.com/in/${DEMO_SLUG}`}
             badge={<TrendBadge up value="+2" />}
           />
         </ul>
@@ -95,14 +91,9 @@ export default function WhatWeBelieveSearchMockup() {
               <p className="font-body text-sm leading-snug text-slate-200 sm:text-base">
                 Outdated legal filing — 2019
               </p>
-              <a
-                href="https://example.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-0.5 block truncate font-body text-xs text-slate-400 underline-offset-2 transition-colors hover:text-slate-200 hover:underline sm:text-sm"
-              >
-                olddirectory.co/filing-2019
-              </a>
+              <p className={`mt-0.5 ${urlMetaClass}`}>
+                {urlDisplayText("olddirectory.co/filing-2019")}
+              </p>
               <p className="mt-1.5 font-body text-xs leading-snug text-slate-300 sm:text-sm">
                 ~2 pages lower — most users never scroll that far.
               </p>
@@ -142,7 +133,7 @@ function TrendBadge({ up, value }) {
   );
 }
 
-function ResultPositive({ num, title, urlDisplay, urlHref, badge }) {
+function ResultPositive({ num, title, url, badge }) {
   return (
     <li>
       <div className="rounded-xl border border-emerald-500/25 bg-[#0d1829]/90 px-3 py-2.5 shadow-sm ring-1 ring-emerald-500/10 sm:px-3.5">
@@ -152,14 +143,7 @@ function ResultPositive({ num, title, urlDisplay, urlHref, badge }) {
           </span>
           <div className="min-w-0 flex-1">
             <p className="font-body text-sm leading-snug text-white sm:text-base">{title}</p>
-            <a
-              href={urlHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-0.5 block truncate font-body text-xs text-[#4CAF50] underline-offset-2 transition-colors hover:text-emerald-200 hover:underline sm:text-sm"
-            >
-              {urlDisplay}
-            </a>
+            <p className={`mt-0.5 ${urlMetaClass}`}>{urlDisplayText(url)}</p>
           </div>
           <div className="flex shrink-0 items-start pt-0.5">{badge}</div>
         </div>

@@ -973,7 +973,7 @@ function FaqsPage() {
 
         {/* Final CTA */}
         <section className="mb-24">
-          <div className="group relative overflow-hidden rounded-[2rem] bg-[#1F3B64] p-12 md:p-20">
+          <div className="group relative ha-lift overflow-hidden rounded-[2rem] bg-[#1F3B64] p-12 md:p-20">
             <div className="pointer-events-none absolute inset-0 opacity-10">
               <img
                 src={CTA_BG_IMAGE}

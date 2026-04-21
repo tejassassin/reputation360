@@ -650,7 +650,7 @@ function LawyersPage() {
           </div>
         </section>
 
-        <section className="mt-12 grid overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)] md:mt-16 md:grid-cols-[1fr_1fr]">
+        <section className="ha-lift mt-12 grid overflow-hidden rounded-[24px] border border-[#123f70] shadow-[0_16px_34px_rgba(16,35,64,0.22)] md:mt-16 md:grid-cols-[1fr_1fr]">
           <div className="relative flex h-full min-h-[340px] flex-col overflow-hidden bg-[#041a30] md:min-h-[500px]">
             <div
               className="pointer-events-none absolute inset-0 bg-cover bg-[center_28%] bg-no-repeat"
