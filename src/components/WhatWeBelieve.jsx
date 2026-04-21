@@ -1,18 +1,16 @@
-import { motion as Motion } from "motion/react";
 import WhatWeBelieveSearchMockup from "./WhatWeBelieveSearchMockup";
 
+/**
+ * Static markup only (no scroll/viewport animations). That way dev and production
+ * render the same thing — motion whileInView can behave differently across HMR,
+ * Strict Mode, and first paint.
+ */
 function WhatWeBelieve() {
   return (
     <div className="border-t border-slate-200/80 bg-gradient-to-b from-offwhite to-white">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12 lg:items-start">
-          <Motion.div
-            className="lg:col-span-5"
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          >
+          <div className="lg:col-span-5">
             <p className="font-heading mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#4CAF50]">
               Our philosophy
             </p>
@@ -30,16 +28,10 @@ function WhatWeBelieve() {
               At Reputation360, we help individuals and brands own their narrative
               - strategically and sustainably.
             </p>
-          </Motion.div>
+          </div>
 
           <div className="lg:col-span-7">
-            <Motion.figure
-              className="relative overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-950/5 p-1 shadow-lg shadow-slate-900/10 ring-1 ring-slate-900/5"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            >
+            <figure className="relative overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-950/5 p-1 shadow-lg shadow-slate-900/10 ring-1 ring-slate-900/5">
               <div
                 className="pointer-events-none absolute -right-24 -top-24 h-48 w-48 rounded-full bg-[#4CAF50]/15 blur-3xl"
                 aria-hidden
@@ -54,7 +46,7 @@ function WhatWeBelieve() {
               <figcaption className="relative border-t border-slate-200/80 bg-white/90 px-4 py-3 text-center font-body text-sm text-steel backdrop-blur-sm sm:px-5 sm:text-left">
                 How you appear in search is the first impression many people trust—strategy and content should match who you are today.
               </figcaption>
-            </Motion.figure>
+            </figure>
           </div>
         </div>
       </div>

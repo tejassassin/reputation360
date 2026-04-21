@@ -9,7 +9,8 @@
     "doctor": "node scripts/doctor.mjs",
     "build": "node scripts/dev.mjs build",
     "lint": "eslint .",
-    "preview": "node scripts/dev.mjs preview"
+    "preview": "node scripts/dev.mjs preview",
+    "local:prod": "node scripts/dev.mjs build && node scripts/dev.mjs preview"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.36.1",

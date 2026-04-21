@@ -1,3 +1,4 @@
+import { execSync } from "node:child_process";
 import { createServer } from "node:net";
 import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -17,6 +18,19 @@ if (!existsSync(vitePkg)) {
   process.exit(1);
 }
 console.log("  ✓ node_modules/vite present");
+
+try {
+  const dirty = execSync("git status --porcelain", { encoding: "utf8" }).trim();
+  if (dirty) {
+    console.log(
+      "\n  ! Uncommitted or untracked files. Production (Vercel) only deploys what you push — run `git status` and commit/push to avoid “localhost ≠ live”.\n",
+    );
+  } else {
+    console.log("  ✓ Git working tree clean (matches what you can deploy)");
+  }
+} catch {
+  console.log("  ? Could not run git status (is this a git repo?)");
+}
 
 function checkPort(port) {
   return new Promise((resolve) => {
@@ -47,4 +61,7 @@ if (p5173 === "free") {
 
 console.log(
   "\n  Start the app (leave the terminal open until you are done):\n\n      npm run dev\n\n  If “npm: command not found” in Cursor, use:\n\n      bash scripts/dev.sh\n\n  Then open the URL Vite prints (Local / Network), e.g. http://localhost:5173/\n\n  In Cursor: Command Palette → “Tasks: Run Task” → “Reputation360: dev server”\n",
+);
+console.log(
+  "  To match the Vercel production bundle locally (same JS/CSS as live):\n\n      npm run local:prod\n\n  Then open http://127.0.0.1:4173/ (Vite preview).\n",
 );
