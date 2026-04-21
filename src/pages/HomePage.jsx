@@ -4,7 +4,7 @@ import WhatWeDo from "../components/WhatWeDo";
 import OurServices from "../components/OurServices";
 import { Testimonials } from "../components/Testimonials";
 import WhoWeServeCards from "../components/WhoWeServeCards";
-import HowItWorks from "../components/HowItWorks";
+import HowReputation360Works from "../components/HowReputation360Works";
 import WhyClientsChoose from "../components/WhyClientsChoose";
 import CaseStudies from "../components/CaseStudies";
 import Contact from "../components/Contact";
@@ -28,7 +28,7 @@ function HomePage() {
           <WhoWeServeCards />
         </section>
         <section className="bg-white pb-14 md:pb-16">
-          <HowItWorks />
+          <HowReputation360Works />
         </section>
         <section className="bg-offwhite">
           <WhyClientsChoose />
