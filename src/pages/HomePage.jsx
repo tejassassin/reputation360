@@ -3,7 +3,7 @@ import WhatWeBelieve from "../components/WhatWeBelieve";
 import WhatWeDo from "../components/WhatWeDo";
 import OurServices from "../components/OurServices";
 import { Testimonials } from "../components/Testimonials";
-import WhoWeWorkWith from "../components/WhoWeWorkWith";
+import WhoWeServeCards from "../components/WhoWeServeCards";
 import HowItWorks from "../components/HowItWorks";
 import WhyClientsChoose from "../components/WhyClientsChoose";
 import CaseStudies from "../components/CaseStudies";
@@ -25,7 +25,7 @@ function HomePage() {
           <Testimonials />
         </section>
         <section className="bg-[#f9f9ff]">
-          <WhoWeWorkWith />
+          <WhoWeServeCards />
         </section>
         <section className="bg-white pb-10">
           <HowItWorks />

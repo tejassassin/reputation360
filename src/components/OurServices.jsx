@@ -1,4 +1,5 @@
 import React from "react";
+import { OUR_SERVICES_SECTION_INTRO } from "../data/reputationServices";
 import { ServicesMatrix } from "./ServicesMatrix";
 
 function OurServices() {
@@ -37,12 +38,11 @@ function OurServices() {
             aria-hidden
           />
           <p className="mx-auto mt-6 max-w-2xl font-body text-base leading-relaxed text-steel md:text-lg">
-            From the search landscape to brand and demand — a deliberate stack you can use together or
-            a la carte.
+            {OUR_SERVICES_SECTION_INTRO}
           </p>
         </div>
 
-        <div className="rounded-[2rem] border border-slate-200/80 bg-white/50 p-6 shadow-[0_40px_100px_-60px_rgba(15,35,70,0.35)] ring-1 ring-white/90 backdrop-blur-[2px] sm:p-8 md:p-10 lg:p-12">
+        <div className="rounded-[2rem] border border-[#e5e7eb] bg-white/50 p-6 shadow-[0_40px_100px_-60px_rgba(15,35,70,0.35)] ring-1 ring-white/90 backdrop-blur-[2px] sm:p-8 md:p-10 lg:p-12">
           <ServicesMatrix />
         </div>
       </div>

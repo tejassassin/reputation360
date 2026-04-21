@@ -10,6 +10,11 @@ import {
  * Single source for home “Our Services” and footer service links.
  * Descriptions match the approved client copy (shown under each title).
  */
+
+/** Intro paragraph under the “Our Services” heading on the home page. */
+export const OUR_SERVICES_SECTION_INTRO =
+  "From suppressing what harms you to building what defines you — services you can combine or deploy on their own.";
+
 export const reputationServices = [
   {
     id: "orm-suppression",
@@ -43,7 +48,7 @@ export const reputationServices = [
     title: "Employer Branding & Talent Reputation",
     description:
       "We build an authentic employer narrative that reflects your culture, values, and leadership so people trust what they see before they ever speak to you.",
-    icon: <ShieldCheck className="h-7 w-7 text-[#1f3b64]" strokeWidth={1.75} />,
+    icon: <ShieldCheck className="h-7 w-7" strokeWidth={1.75} />,
   },
   {
     id: "content-leadership",
@@ -51,7 +56,7 @@ export const reputationServices = [
     title: "Content & Thought Leadership",
     description:
       "Strategic content that builds authority, educates your audience, and positions you as a credible voice in your industry.",
-    icon: <FileText className="h-7 w-7 text-[#1f3b64]" strokeWidth={1.75} />,
+    icon: <FileText className="h-7 w-7" strokeWidth={1.75} />,
   },
   {
     id: "linkedin-branding",
@@ -59,7 +64,7 @@ export const reputationServices = [
     title: "LinkedIn Personal Branding",
     description:
       "Building authority and visibility through strategic storytelling, consistent high-quality content, and thought leadership that resonates with the right audience.",
-    icon: <Linkedin className="h-7 w-7 text-[#1f3b64]" strokeWidth={1.75} />,
+    icon: <Linkedin className="h-7 w-7" strokeWidth={1.75} />,
   },
   {
     id: "performance-marketing",
@@ -67,7 +72,7 @@ export const reputationServices = [
     title: "Performance Marketing",
     description:
       "Paid campaigns designed to increase qualified leads, drive conversions, and accelerate business growth.",
-    icon: <TrendingUp className="h-7 w-7 text-[#1f3b64]" strokeWidth={1.75} />,
+    icon: <TrendingUp className="h-7 w-7" strokeWidth={1.75} />,
   },
   {
     id: "consultation",
@@ -75,7 +80,7 @@ export const reputationServices = [
     title: "Consultation",
     description:
       "Strategic marketing consultation built on experience, not theory - offering clarity, course correction, and measurable impact.",
-    icon: <MessageSquare className="h-7 w-7 text-[#1f3b64]" strokeWidth={1.75} />,
+    icon: <MessageSquare className="h-7 w-7" strokeWidth={1.75} />,
   },
   {
     id: "branding",

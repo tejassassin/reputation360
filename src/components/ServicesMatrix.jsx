@@ -11,6 +11,36 @@ const supportingServices = reputationServices.filter(
   (s) => s.id !== CORE_SERVICE_ID
 );
 
+/* Injected here (not only in index.css): Tailwind’s dev pipeline strips these rules
+   from the main stylesheet, so localhost never applied green hovers. */
+const SUPPORTING_CARD_HOVER_CSS = `
+.r3-supporting-service-card {
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 0 0 rgba(15, 23, 42, 0.04);
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.r3-supporting-service-card:hover {
+  border-color: #4caf50 !important;
+  background-image: linear-gradient(to bottom right, #f0fdf4, #dcfce7) !important;
+  box-shadow: 0 12px 36px -8px rgba(74, 175, 80, 0.28), 0 0 0 2px rgba(74, 175, 80, 0.35) !important;
+}
+.r3-supporting-service-icon {
+  background: linear-gradient(to bottom right, #ecfdf5, #f0fdf4);
+  color: #1f3b64;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.r3-supporting-service-card:hover .r3-supporting-service-icon {
+  background: linear-gradient(to bottom right, #d1fae5, #bbf7d0) !important;
+  color: #166534 !important;
+}
+.r3-supporting-service-card:hover .r3-supporting-service-icon svg {
+  color: #166534 !important;
+}
+.r3-supporting-service-card:hover .r3-supporting-service-title {
+  color: #14532d !important;
+}
+`;
+
 /**
  * Home “Our Services”: flagship core offering + supporting capability grid.
  * Body copy comes from `description` in `reputationServices` (draft-aligned).
@@ -18,6 +48,7 @@ const supportingServices = reputationServices.filter(
 export function ServicesMatrix() {
   return (
     <div className="mx-auto max-w-6xl">
+      <style dangerouslySetInnerHTML={{ __html: SUPPORTING_CARD_HOVER_CSS }} />
       {/* Flagship — ORM & suppression */}
       <article
         className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-gradient-to-br from-[#071018] via-[#0f2847] to-[#0c1e30] shadow-[0_32px_80px_-24px_rgba(6,20,45,0.65)] ring-1 ring-white/10 md:rounded-[2rem]"
@@ -95,14 +126,14 @@ export function ServicesMatrix() {
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
           {supportingServices.map((s) => (
             <li key={s.id}>
-              <div className="flex h-full flex-col rounded-2xl border border-slate-200/90 bg-white p-6 shadow-[0_1px_0_0_rgba(15,23,42,0.04)] ring-1 ring-slate-900/[0.03] transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-lg">
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-[#f0f4fa] to-[#e8f5e9]/80 text-[#1f3b64] [&_svg]:h-6 [&_svg]:w-6">
+              <div className="r3-supporting-service-card group flex h-full flex-col rounded-2xl bg-white p-6 hover:-translate-y-0.5">
+                <div className="r3-supporting-service-icon mb-4 flex h-11 w-11 items-center justify-center rounded-xl [&_svg]:h-6 [&_svg]:w-6">
                   {s.icon}
                 </div>
-                <h3 className="font-heading text-base font-semibold leading-snug text-navy">
+                <h3 className="r3-supporting-service-title font-heading text-base font-semibold leading-snug text-navy transition-colors duration-300">
                   {s.title}
                 </h3>
-                <p className="mt-3 flex-1 font-body text-sm leading-relaxed text-steel">
+                <p className="mt-3 flex-1 font-body text-sm leading-relaxed text-steel transition-colors duration-300 group-hover:text-[#3d4f63]">
                   {s.description}
                 </p>
               </div>

@@ -44,7 +44,9 @@ export default defineConfig({
   server: {
     host: "127.0.0.1",
     port: 5173,
-    strictPort: false,
+    // Fail fast if 5173 is taken instead of silently using another port (avoids
+    // editing the repo but “seeing” an old server on the bookmarked URL).
+    strictPort: true,
     open: true,
     headers: {
       "Cache-Control": "no-store",
@@ -53,7 +55,7 @@ export default defineConfig({
   preview: {
     host: "127.0.0.1",
     port: 4173,
-    strictPort: false,
+    strictPort: true,
     open: true,
   },
 });
