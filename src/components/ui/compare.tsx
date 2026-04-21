@@ -9,6 +9,8 @@ interface CompareProps {
   secondImage?: string;
   className?: string;
   firstImageClassName?: string;
+  secondImageClassName?: string;
+  /** @deprecated typo alias */
   secondImageClassname?: string;
   initialSliderPercentage?: number;
   slideMode?: "hover" | "drag";
@@ -21,13 +23,17 @@ export const Compare = ({
   secondImage = "",
   className,
   firstImageClassName,
-  secondImageClassname,
+  secondImageClassName: secondImageClassNameProp,
+  secondImageClassname: secondImageClassnameDeprecated,
   initialSliderPercentage = 50,
   slideMode = "hover",
   showHandlebar = true,
   autoplay = false,
   autoplayDuration = 5000,
 }: CompareProps) => {
+  const secondImageClassname =
+    secondImageClassNameProp ?? secondImageClassnameDeprecated;
+
   const [sliderXPercent, setSliderXPercent] = useState(initialSliderPercentage);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -146,10 +152,30 @@ export const Compare = ({
     [handleMove, autoplay]
   );
 
+  const handleMoveRef = useRef(handleMove);
+  const handleEndRef = useRef(handleEnd);
+  handleMoveRef.current = handleMove;
+  handleEndRef.current = handleEnd;
+
+  useEffect(() => {
+    if (slideMode !== "drag" || !isDragging) return;
+    const onMove = (e: MouseEvent) => handleMoveRef.current(e.clientX);
+    const onUp = () => handleEndRef.current();
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+    };
+  }, [slideMode, isDragging]);
+
   return (
     <div
       ref={sliderRef}
-      className={cn("w-[400px] h-[400px] overflow-hidden", className)}
+      className={cn(
+        "relative isolate h-full min-h-[240px] w-full max-w-full overflow-hidden rounded-2xl",
+        className
+      )}
       style={{
         position: "relative",
         cursor: slideMode === "drag" ? "grab" : "col-resize",
@@ -180,7 +206,7 @@ export const Compare = ({
               background="transparent"
               minSize={0.4}
               maxSize={1}
-              particleDensity={1200}
+              particleDensity={600}
               className="w-full h-full"
               particleColor="#FFFFFF"
             />
