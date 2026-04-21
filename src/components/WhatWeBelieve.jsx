@@ -7,7 +7,11 @@ import WhatWeBelieveSearchMockup from "./WhatWeBelieveSearchMockup";
  */
 function WhatWeBelieve() {
   return (
-    <div className="border-t border-slate-200/80 bg-gradient-to-b from-offwhite to-white">
+    <div
+      className="border-t border-slate-200/80 bg-gradient-to-b from-offwhite to-white"
+      data-r360-section="what-we-believe"
+      data-r360-visual="serp-mockup"
+    >
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12 lg:items-start">
           <div className="lg:col-span-5">

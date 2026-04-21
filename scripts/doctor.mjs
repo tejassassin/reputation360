@@ -65,3 +65,6 @@ console.log(
 console.log(
   "  To match the Vercel production bundle locally (same JS/CSS as live):\n\n      npm run local:prod\n\n  Then open http://127.0.0.1:4173/ (Vite preview).\n",
 );
+console.log(
+  "  `npm run dev` clears node_modules/.vite before starting so localhost is less likely to show an outdated UI.\n",
+);
