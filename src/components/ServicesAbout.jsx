@@ -25,6 +25,10 @@ import {
   ChevronDown,
 } from "lucide-react";
 
+/** Hero intro under Services — single source so UI always matches intended copy. */
+const SERVICES_HERO_INTRO =
+  "Every day a damaging result sits on page one, it costs you clients, deals, and trust. Reputation360 manages what people find when they search your name.";
+
 const whatWeDoCards = [
   {
     title: "Negative Link Suppression",
@@ -416,9 +420,7 @@ function ServicesAbout() {
             Reflects It.
           </h2>
           <p className="mt-5 max-w-3xl text-navy/75 text-base leading-relaxed md:text-lg">
-            Every day a damaging result sits on page one, it costs you clients,
-            deals, and trust. Reputation360 manages what people find when they
-            search your name.
+            {SERVICES_HERO_INTRO}
           </p>
           <aside
             className="mt-8 max-w-4xl rounded-2xl border border-[#b85c5c]/80 bg-[#fdf4f4] px-5 py-6 shadow-[0_2px_0_rgba(160,64,64,0.06),0_12px_32px_rgba(127,45,45,0.08)] md:rounded-[1.125rem] md:px-8 md:py-7"
