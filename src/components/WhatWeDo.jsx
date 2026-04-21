@@ -1,16 +1,12 @@
 import React from "react";
-import image from "../assets/WhatWeDo.png";
+import AboutHeroSearchMockup from "./AboutHeroSearchMockup.jsx";
 
 function WhatWeDo() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-stretch">
-        <div className="ha-lift lg:w-[60%] overflow-hidden rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
-          <img
-            src={image}
-            alt="What We Do"
-            className="w-full h-auto block"
-          />
+        <div className="ha-lift lg:w-[60%] min-w-0 overflow-hidden rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
+          <AboutHeroSearchMockup headlineFont="font-heading" />
         </div>
 
         <div className="lg:w-[60%] flex flex-col justify-center">
