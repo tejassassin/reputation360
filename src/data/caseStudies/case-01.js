@@ -1,5 +1,3 @@
-/** @typedef {{ heading: string; body: string }} Section */
-
 /** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 1,

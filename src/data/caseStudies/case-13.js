@@ -1,3 +1,4 @@
+/** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 13,
   listTitle: "The IFA and the Collapsed Investment Fund",
@@ -13,17 +14,17 @@ const caseStudy = {
       body: `An IFA with a 20-year unblemished regulatory record found himself named — not investigated, not charged, but named — in FCA consumer alerts related to a third-party investment fund he had previously recommended to clients as part of a diversified portfolio strategy. Although he had followed all applicable compliance protocols at the time of recommendation and was not the subject of any enforcement action, his name appeared alongside the fund name in regulatory consumer notices, FCA publications, and subsequent financial press coverage.
 Searches for his name returned:
 
-FCA consumer alert page — extremely high domain authority, Position 2
-FINRA-equivalent regulatory disclosure content referencing the fund association
-Two financial news articles connecting his name to the fund collapse
-A consumer forum thread with 40+ posts discussing the situation at length
-His own firm website ranking 5th — below all of the above
+• FCA consumer alert page — extremely high domain authority, Position 2
+• FINRA-equivalent regulatory disclosure content referencing the fund association
+• Two financial news articles connecting his name to the fund collapse
+• A consumer forum thread with 40+ posts discussing the situation at length
+• His own firm website ranking 5th — below all of the above
 
 Client redemptions increased within weeks. Three high-net-worth clients requested full account transfers. New client acquisition effectively halted for 4 months. Referral partners became cautious.`,
     },
     {
       heading: "Baseline",
-      body: `At engagement start: 8 of the top 10 results for his name returned regulatory association or negative press content. FCA and regulatory pages were identified immediately as immovable high-authority fixtures — the strategy was built entirely around contextualisation and surrounding authority, not removal attempts.`,
+      body: `At the start of engagement, 8 of the top 10 results for his name returned regulatory association or negative press content. FCA and regulatory pages were identified immediately as immovable high-authority fixtures — the strategy was built entirely around contextualisation and surrounding authority, not removal attempts.`,
     },
     {
       heading: "Our Objective",

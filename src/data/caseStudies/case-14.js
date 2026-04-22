@@ -1,3 +1,4 @@
+/** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 14,
   listTitle: "The Accountant and the Wrongful Dismissal Headline",
@@ -15,15 +16,15 @@ A subsequent Employment Tribunal process — in which he was fully vindicated �
 Additionally, his professional history in investment-adjacent roles meant that his name was associated with records on FINRA BrokerCheck and SEC-linked compliance databases — entries that, while not enforcement actions, appeared alongside the dismissal press coverage in search results and compounded the negative impression.
 Searches for his name returned:
 
-"CFO dismissed amid financial irregularity concerns" — business press, Position 1
-Regional news article referencing the dismissal — Position 3
-FINRA BrokerCheck profile entry — Position 5
-SEC-adjacent compliance database reference — Position 7
-His LinkedIn profile — outdated, last updated 3 years prior — ranking 8th`,
+• "CFO dismissed amid financial irregularity concerns" — business press, Position 1
+• Regional news article referencing the dismissal — Position 3
+• FINRA BrokerCheck profile entry — Position 5
+• SEC-adjacent compliance database reference — Position 7
+• His LinkedIn profile — outdated, last updated 3 years prior — ranking 8th`,
     },
     {
       heading: "Baseline",
-      body: `At engagement start: 7 of the top 10 results returned dismissal-related press or regulatory database content. His Employment Tribunal victory was entirely absent from the internet. The former employer's website still listed him in an archived leadership page under his previous role.`,
+      body: `At the start of engagement, 7 of the top 10 results returned dismissal-related press or regulatory database content. His Employment Tribunal victory was entirely absent from the internet. The former employer's website still listed him in an archived leadership page under his previous role.`,
     },
     {
       heading: "Our Objective",

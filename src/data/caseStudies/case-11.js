@@ -1,3 +1,4 @@
+/** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 11,
   listTitle: "The Litigation Partner and the Losing Verdict",
@@ -13,16 +14,16 @@ const caseStudy = {
       body: `A senior litigation partner had built a formidable reputation across 24 years of commercial dispute resolution. When a high-profile case he led resulted in a significant loss — one involving a well-known corporate defendant — it attracted extensive coverage from legal trade publications, court reporting services, and two national newspapers. His personal name became directly and persistently associated with the verdict in search results.
 Searches for his name returned:
 
-A legal trade publication headline: "Partner suffers major defeat in landmark commercial case" — ranking Position 2
-A court reporting service case summary — ranking Position 3
-Two national newspaper mentions embedded in broader legal commentary pieces
-His own firm bio page ranking 6th — below all negative content
+• A legal trade publication headline: "Partner suffers major defeat in landmark commercial case" — ranking Position 2
+• A court reporting service case summary — ranking Position 3
+• Two national newspaper mentions embedded in broader legal commentary pieces
+• His own firm bio page ranking 6th — below all negative content
 
 Clients began requesting reassignment to other partners on active matters. Two prospective mandates were withdrawn by clients citing "concerns about track record."`,
     },
     {
       heading: "Baseline",
-      body: `At engagement start: 6 of the top 10 results returned case-loss or verdict-related content. The partner had no personal professional website and a thin LinkedIn presence with no published content. His Chambers & Partners and Legal 500 profiles had not been updated in 3 years.`,
+      body: `At the start of engagement, 6 of the top 10 results returned case-loss or verdict-related content. The partner had no personal professional website and a thin LinkedIn presence with no published content. His Chambers & Partners and Legal 500 profiles had not been updated in 3 years.`,
     },
     {
       heading: "Our Objective",

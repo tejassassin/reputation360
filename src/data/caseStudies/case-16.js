@@ -1,3 +1,4 @@
+/** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 16,
   listTitle: "The Senior Product Manager and the Glassdoor Problem",
@@ -13,16 +14,16 @@ const caseStudy = {
       body: `A senior product manager left a high-profile technology firm following a widely reported round of mass layoffs. In the weeks that followed, several former colleagues posted detailed Glassdoor reviews naming her specifically in critical and at times personal terms. Separately, a product management community forum — a platform widely used by hiring managers and recruiters in the technology sector — hosted a thread titled "Anyone worked with [Her Name] at [Company]?" containing mixed, damaging, and largely unverifiable commentary.
 When prospective employers searched her name — a standard practice at the reference and offer stage in technology hiring — they found:
 
-The Glassdoor employer page with a review excerpt referencing her by name visible directly in Google snippet text
-The forum thread ranking on Page 2
-An outdated personal blog from 2018 with minimal professional relevance ranking on Page 1
-Her LinkedIn profile — though substantively strong — ranking below all of the above
+• The Glassdoor employer page with a review excerpt referencing her by name visible directly in Google snippet text
+• The forum thread ranking on Page 2
+• An outdated personal blog from 2018 with minimal professional relevance ranking on Page 1
+• Her LinkedIn profile — though substantively strong — ranking below all of the above
 
 Three separate hiring processes stalled at the reference or offer stage without clear explanation over a 10-week period.`,
     },
     {
       heading: "Baseline",
-      body: `At engagement start: Glassdoor snippet containing her name visible in Position 4 Google snippet. Forum thread ranking in Position 12 (Page 2). Her outdated 2018 blog in Position 6. LinkedIn profile in Position 7 — below three pieces of third-party commentary content.`,
+      body: `At the start of engagement, Glassdoor snippet containing her name visible in Position 4 Google snippet. Forum thread ranking in Position 12 (Page 2). Her outdated 2018 blog in Position 6. LinkedIn profile in Position 7 — below three pieces of third-party commentary content.`,
     },
     {
       heading: "Our Objective",

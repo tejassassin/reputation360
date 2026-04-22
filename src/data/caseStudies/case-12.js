@@ -1,3 +1,4 @@
+/** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 12,
   listTitle: "The Family Lawyer and the Client Vendetta",
@@ -12,15 +13,15 @@ const caseStudy = {
       heading: "The Challenge",
       body: `A family law solicitor became the target of a sustained and coordinated reputation attack by a former client deeply dissatisfied with a divorce settlement outcome. The former client:
 
-Posted 6 one-star reviews across Google, Trustpilot, and two specialist legal review platforms within a single week
-Created a dedicated personal blog titled "[Solicitor Name] — My Experience" containing detailed, emotionally charged allegations about the conduct of her case
-Actively shared the blog across multiple family law and divorce support Facebook groups, generating inbound traffic to the post
+• Posted 6 one-star reviews across Google, Trustpilot, and two specialist legal review platforms within a single week
+• Created a dedicated personal blog titled "[Solicitor Name] — My Experience" containing detailed, emotionally charged allegations about the conduct of her case
+• Actively shared the blog across multiple family law and divorce support Facebook groups, generating inbound traffic to the post
 
 The blog indexed on Page 2 within 3 weeks and was climbing steadily. The solicitor's combined review platform average had dropped from 4.8 stars to 2.1 stars — visible directly in Google search snippets.`,
     },
     {
       heading: "Baseline",
-      body: `At engagement start: the attack blog ranked in Position 14 (Page 2) and rising. The solicitor had no personal professional website. Her Google Business Profile showed 2.1 stars. There were no owned content assets indexed on Page 1.`,
+      body: `At the start of engagement, the attack blog ranked in Position 14 (Page 2) and rising. The solicitor had no personal professional website. Her Google Business Profile showed 2.1 stars. There were no owned content assets indexed on Page 1.`,
     },
     {
       heading: "Our Objective",

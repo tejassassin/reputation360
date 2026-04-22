@@ -1,3 +1,4 @@
+/** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 4,
   listTitle: "HR & Employment Dispute Reputation Management",
@@ -13,16 +14,16 @@ const caseStudy = {
       body: `A senior HR leader and independent consultant faced damaging online exposure after a former employee publicly alleged wrongful termination. The allegations were posted across LinkedIn, Reddit, and a workplace review platform, gaining significant organic engagement. Two industry newsletters subsequently referenced the posts, providing the allegations with additional SEO traction.
 Negative content ranked across:
 
-LinkedIn posts with hundreds of public comments appearing directly in Google search
-Glassdoor and Indeed employer review threads
-HR industry commentary blogs referencing the allegations
-A syndicated newsletter aggregator republishing the original content
+• LinkedIn posts with hundreds of public comments appearing directly in Google search
+• Glassdoor and Indeed employer review threads
+• HR industry commentary blogs referencing the allegations
+• A syndicated newsletter aggregator republishing the original content
 
 Pages 1 and 2 returned primarily negative results for both the individual's name and the associated consultancy name. Three prospective client engagements were paused or withdrawn during the first 60 days.`,
     },
     {
       heading: "Baseline",
-      body: `At engagement start: 8 of the top 10 results for the consultant's name returned negative or controversy-linked content. The individual had no personal professional website and minimal owned content indexed anywhere online.`,
+      body: `At the start of engagement, 8 of the top 10 results for the consultant's name returned negative or controversy-linked content. The individual had no personal professional website and minimal owned content indexed anywhere online.`,
     },
     {
       heading: "Our Objective",

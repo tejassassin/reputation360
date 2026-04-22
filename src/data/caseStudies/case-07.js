@@ -1,3 +1,4 @@
+/** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 7,
   listTitle: "Startup Reputation Recovery After Funding Controversy",
@@ -13,16 +14,16 @@ const caseStudy = {
       body: `A high-growth B2B SaaS startup faced acute reputational challenges after a Series B funding round became the subject of a public dispute between early investors and new institutional stakeholders. The situation triggered a wave of speculative media coverage and opinion-driven narratives around governance failures and financial instability.
 Negative visibility was driven by:
 
-Opinion-based blogs and startup ecosystem commentary platforms
-Venture capital news platforms covering the investor dispute
-LinkedIn posts from involved parties generating significant engagement
-Syndicated content republishing the original coverage
+• Opinion-based blogs and startup ecosystem commentary platforms
+• Venture capital news platforms covering the investor dispute
+• LinkedIn posts from involved parties generating significant engagement
+• Syndicated content republishing the original coverage
 
 Pages 1 and 2 were dominated by controversy-related content, directly impacting partnership conversations, senior hiring efforts, and future fundraising discussions. One enterprise client paused contract renewal pending "further diligence."`,
     },
     {
       heading: "Baseline",
-      body: `At engagement start: 8 of the top 10 results for the company name and founder name returned controversy or speculation-linked content. The company's own website ranked 6th. There was minimal owned thought leadership content indexed anywhere online.`,
+      body: `At the start of engagement, 8 of the top 10 results for the company name and founder name returned controversy or speculation-linked content. The company's own website ranked 6th. There was minimal owned thought leadership content indexed anywhere online.`,
     },
     {
       heading: "Our Objective",

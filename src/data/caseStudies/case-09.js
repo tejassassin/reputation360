@@ -1,3 +1,4 @@
+/** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 9,
   listTitle: "The Surgeon Under Fire",
@@ -13,16 +14,16 @@ const caseStudy = {
       body: `A consultant surgeon with 18 years of uninterrupted practice found his professional reputation unraveling rapidly after a single patient complaint escalated beyond the hospital's internal grievance process. The patient — dissatisfied with post-operative recovery expectations rather than clinical outcome — posted detailed, emotionally charged reviews across three major medical review platforms. A local health journalist then picked up the story, publishing a speculative piece that indexed on Page 1 within days of publication.
 Negative visibility included:
 
-2 review platform listings with sub-2-star average ratings dominating Page 1
-A local news article with a damaging headline ranking in Position 3
-A syndicated blog post referencing and expanding on the original article
-His own website ranking below all of the above, in Position 8
+• 2 review platform listings with sub-2-star average ratings dominating Page 1
+• A local news article with a damaging headline ranking in Position 3
+• A syndicated blog post referencing and expanding on the original article
+• His own website ranking below all of the above, in Position 8
 
 Referrals from GP partners dropped by an estimated 35% over 8 weeks. The clinic's patient coordinator reported a consistent pattern of prospective patients going quiet after initial inquiry calls — a well-recognised sign of negative search influence at the decision stage.`,
     },
     {
       heading: "Baseline",
-      body: `At engagement start: 7 of the top 10 results for the surgeon's name returned negative or complaint-related content. His Google Business Profile was unclaimed. His professional website had not been updated in 4 years. There were no thought leadership assets indexed anywhere online.`,
+      body: `At the start of engagement, 7 of the top 10 results for the surgeon's name returned negative or complaint-related content. His Google Business Profile was unclaimed. His professional website had not been updated in 4 years. There were no thought leadership assets indexed anywhere online.`,
     },
     {
       heading: "Our Objective",

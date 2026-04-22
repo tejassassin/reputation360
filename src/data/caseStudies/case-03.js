@@ -1,3 +1,4 @@
+/** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 3,
   listTitle: "Medical & Healthcare Reputation Management",
@@ -12,15 +13,15 @@ const caseStudy = {
       heading: "The Challenge",
       body: `A consultant physician faced significant reputational damage after an alleged procedural error during a complex clinical case. Although the matter remained under internal hospital review and no formal finding had been made, it received disproportionate attention across healthcare media platforms. Negative coverage ranked from:
 
-Healthcare news websites covering the story speculatively
-Medical review portals with user-submitted complaint content
-Regional hospital and health reporting platforms
+• Healthcare news websites covering the story speculatively
+• Medical review portals with user-submitted complaint content
+• Regional hospital and health reporting platforms
 
 Page 1 and Page 2 were dominated by adverse narratives. Patient confidence was visibly affected, with a 28% reduction in new private appointment bookings recorded in the 6 weeks following the initial coverage.`,
     },
     {
       heading: "Baseline",
-      body: `At engagement start: 8 of the top 10 search results for the physician's name returned negative or speculative content. The physician had no personal website, an incomplete medical directory presence, and an unclaimed Google Business Profile.`,
+      body: `At the start of engagement, 8 of the top 10 search results for the physician's name returned negative or speculative content. The physician had no personal website, an incomplete medical directory presence, and an unclaimed Google Business Profile.`,
     },
     {
       heading: "Our Objective",

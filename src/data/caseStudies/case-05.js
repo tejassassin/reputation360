@@ -1,3 +1,4 @@
+/** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 5,
   listTitle: "E-commerce & Retail Brand Recovery",
@@ -13,16 +14,16 @@ const caseStudy = {
       body: `A growing DTC fashion brand faced acute reputational damage after a high-profile influencer partnership collapsed publicly. The influencer — with 800,000 followers across Instagram and TikTok — made allegations regarding non-payment and unethical working practices. The claims spread rapidly across social platforms, fashion commentary blogs, and consumer advocacy websites, attracting media coverage and organised consumer boycott calls.
 Negative content dominated:
 
-TikTok and Instagram tagged posts accumulating hundreds of thousands of views
-Fashion and lifestyle commentary platforms
-Consumer advocacy websites
-Two mid-tier fashion publications
+• TikTok and Instagram tagged posts accumulating hundreds of thousands of views
+• Fashion and lifestyle commentary platforms
+• Consumer advocacy websites
+• Two mid-tier fashion publications
 
 The brand's search results shifted almost entirely negative within 72 hours of the initial post going viral.`,
     },
     {
       heading: "Baseline",
-      body: `At engagement start: brand search results on Page 1 were 80% negative or controversy-linked. Social sentiment was net-negative across all monitored platforms. Two retail stockist partners had paused reorder conversations.`,
+      body: `At the start of engagement, brand search results on Page 1 were 80% negative or controversy-linked. Social sentiment was net-negative across all monitored platforms. Two retail stockist partners had paused reorder conversations.`,
     },
     {
       heading: "Our Objective",

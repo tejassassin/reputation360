@@ -1,3 +1,4 @@
+/** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 6,
   listTitle: "Consumer Electronics — Product Crisis Recovery",
@@ -13,16 +14,16 @@ const caseStudy = {
       body: `A consumer electronics brand with a 15-year operating history faced serious reputational damage after a manufacturing defect in their flagship wireless audio product led to a wave of customer complaints, a formal recall process, and significant refund volumes. The issue escalated when it was picked up by national technology media and a leading financial publication, creating a sustained negative search footprint.
 Negative visibility dominated Pages 1–4, driven by:
 
-Technology review platforms publishing detailed defect analyses
-Consumer complaint forums with high domain authority
-Reddit discussion threads accumulating thousands of upvotes
-A feature piece in a leading financial newspaper
+• Technology review platforms publishing detailed defect analyses
+• Consumer complaint forums with high domain authority
+• Reddit discussion threads accumulating thousands of upvotes
+• A feature piece in a leading financial newspaper
 
 Distributor confidence weakened. Inbound sales inquiry volume dropped by 41% in the 10 weeks following the initial press coverage.`,
     },
     {
       heading: "Baseline",
-      body: `At engagement start: 11 of the top 15 search results for the brand name returned negative or complaint-related content. The brand's own website ranked 4th — below three negative review or complaint pages.`,
+      body: `At the start of engagement, 11 of the top 15 search results for the brand name returned negative or complaint-related content. The brand's own website ranked 4th — below three negative review or complaint pages.`,
     },
     {
       heading: "Our Objective",

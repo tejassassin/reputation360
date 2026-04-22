@@ -1,3 +1,4 @@
+/** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 8,
   listTitle: "E-commerce Brand Recovery After Counterfeit Allegations",
@@ -13,17 +14,17 @@ const caseStudy = {
       body: `A direct-to-consumer accessories brand faced damaging reputational challenges after allegations surfaced claiming that some products were not authentic. The issue originated from a small number of disputed orders but rapidly escalated into broader consumer skepticism across multiple platforms.
 Negative visibility was driven by:
 
-Consumer complaint forums with high organic search traction
-Product review platforms publishing unverified allegation content
-YouTube unboxing and review videos questioning product authenticity
-Reddit threads and social media discussions amplifying the claims
-Blog posts and product comparison websites republishing the allegations
+• Consumer complaint forums with high organic search traction
+• Product review platforms publishing unverified allegation content
+• YouTube unboxing and review videos questioning product authenticity
+• Reddit threads and social media discussions amplifying the claims
+• Blog posts and product comparison websites republishing the allegations
 
 Pages 1–3 for branded search queries became dominated by authenticity concerns, directly impacting conversion rates and repeat purchase behaviour. Paid campaign performance deteriorated as landing page trust signals weakened.`,
     },
     {
       heading: "Baseline",
-      body: `At engagement start: branded search queries returned authenticity-concern content in 7 of the top 10 positions. The brand's own product pages ranked below three separate complaint or allegation URLs.`,
+      body: `At the start of engagement, branded search queries returned authenticity-concern content in 7 of the top 10 positions. The brand's own product pages ranked below three separate complaint or allegation URLs.`,
     },
     {
       heading: "Our Objective",

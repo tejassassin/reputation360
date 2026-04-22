@@ -1,3 +1,4 @@
+/** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 2,
   listTitle: "Financial Professional Reputation Recovery",
@@ -12,16 +13,16 @@ const caseStudy = {
       heading: "The Challenge",
       body: `A senior portfolio manager with over 30 years in institutional investment faced severe reputational risk after being named — though not convicted — in insider trading allegations. The allegations triggered regulatory disclosures and attracted sustained media attention. Negative visibility was driven by:
 
-SEC.gov enforcement-related records
-FINRA BrokerCheck profile flagged with the disclosure
-Legal reporting platforms and compliance-focused publications
-Financial news outlets covering the regulatory process
+• SEC.gov enforcement-related records
+• FINRA BrokerCheck profile flagged with the disclosure
+• Legal reporting platforms and compliance-focused publications
+• Financial news outlets covering the regulatory process
 
 Page 1 through Page 3 of Google were dominated by regulatory and enforcement-related content. The client's own professional profiles ranked nowhere in the top 30 results. Two institutional mandates were suspended pending review.`,
     },
     {
       heading: "Baseline",
-      body: `At engagement start: 9 of the top 10 results returned regulatory or negative press content. SEC.gov and FINRA BrokerCheck entries represented immovable, high-authority URLs. The strategy was built around contextualisation and displacement — not deletion.`,
+      body: `At the start of engagement, 9 of the top 10 results returned regulatory or negative press content. SEC.gov and FINRA BrokerCheck entries represented immovable, high-authority URLs. The strategy was built around contextualisation and displacement — not deletion.`,
     },
     {
       heading: "Our Objective",

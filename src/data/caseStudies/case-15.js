@@ -1,3 +1,4 @@
+/** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 15,
   listTitle: "The Graduate and the Incident That Followed Him Online",
@@ -14,16 +15,16 @@ const caseStudy = {
 Upon investigation, it emerged that a local news article covering a physical altercation — a street brawl involving the candidate and a group of others, reported by a regional newspaper 3 years earlier when he was 21 — had resurfaced in search results. The article, which named him, had been shared by an anonymous social media account 4 weeks prior, generating fresh inbound traffic and pushing it back onto Page 1 for his full name.
 Additionally:
 
-A social media post referencing the same incident had been shared across several platforms including Instagram and Facebook
-His LinkedIn profile was sparse — a basic student profile with no professional substance
-His only other Page 1 presence was a university society page with no professional relevance
-There was no content online that reflected his current values, professionalism, or career ambitions
+• A social media post referencing the same incident had been shared across several platforms including Instagram and Facebook
+• His LinkedIn profile was sparse — a basic student profile with no professional substance
+• His only other Page 1 presence was a university society page with no professional relevance
+• There was no content online that reflected his current values, professionalism, or career ambitions
 
 Two further graduate recruitment processes stalled at the screening stage without clear explanation in the weeks that followed.`,
     },
     {
       heading: "Baseline",
-      body: `At engagement start: the local news article ranking in Position 3 for his full name. Social media shares of the incident visible on Page 1 and Page 2. No owned professional content anywhere in the top 20 results.`,
+      body: `At the start of engagement, the local news article ranking in Position 3 for his full name. Social media shares of the incident visible on Page 1 and Page 2. No owned professional content anywhere in the top 20 results.`,
     },
     {
       heading: "Our Objective",
