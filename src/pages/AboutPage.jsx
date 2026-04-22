@@ -217,6 +217,50 @@ const promises = [
   "We treat your reputation as if it were our own.",
 ];
 
+function OurPromisePillButton({
+  line,
+  index,
+  transitionDelay,
+  highlightedIndex,
+  selectedIndex,
+  setSelectedPromiseIndex,
+  setHighlightedPromiseIndex,
+  className = "",
+}) {
+  const isGreen = highlightedIndex === index || selectedIndex === index;
+  return (
+    <Motion.button
+      type="button"
+      aria-pressed={selectedIndex === index}
+      onClick={() => setSelectedPromiseIndex(index)}
+      onMouseEnter={() => setHighlightedPromiseIndex(index)}
+      onMouseLeave={() => setHighlightedPromiseIndex(null)}
+      onFocus={() => setHighlightedPromiseIndex(index)}
+      onBlur={() => setHighlightedPromiseIndex(null)}
+      className={`group flex gap-5 rounded-xl text-left transition-colors hover:bg-slate-50/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 ${className}`}
+      initial={{ opacity: 0, x: -12 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={aboutView}
+      transition={{ duration: 0.45, delay: transitionDelay }}
+    >
+      <Motion.div
+        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border text-lg font-bold shadow-sm transition-colors duration-300 ${
+          isGreen
+            ? "border-[#4CAF50] bg-[#4CAF50] text-white ring-2 ring-[#4CAF50]/25"
+            : "border-slate-200 bg-white text-[#4CAF50]"
+        }`}
+        whileHover={{ scale: 1.06 }}
+        transition={{ type: "spring", stiffness: 400, damping: 18 }}
+      >
+        {index + 1}
+      </Motion.div>
+      <p className="pt-1 text-[15px] font-medium leading-relaxed text-slate-600 md:text-base">
+        {line}
+      </p>
+    </Motion.button>
+  );
+}
+
 const testimonials = [
   {
     id: "financial-professional",
@@ -1580,40 +1624,34 @@ function AboutPage() {
             />
           </Motion.div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
-            {promises.map((line, i) => {
-              const isGreen =
-                highlightedPromiseIndex === i || selectedPromiseIndex === i;
+            {promises.slice(0, 3).map((line, i) => (
+              <OurPromisePillButton
+                key={i}
+                line={line}
+                index={i}
+                transitionDelay={i * 0.06}
+                highlightedIndex={highlightedPromiseIndex}
+                selectedIndex={selectedPromiseIndex}
+                setSelectedPromiseIndex={setSelectedPromiseIndex}
+                setHighlightedPromiseIndex={setHighlightedPromiseIndex}
+              />
+            ))}
+          </div>
+          <div className="mt-6 flex w-full flex-col gap-6 sm:flex-row sm:justify-center sm:gap-8 md:mt-8">
+            {promises.slice(3, 5).map((line, j) => {
+              const i = j + 3;
               return (
-                <Motion.button
+                <OurPromisePillButton
                   key={i}
-                  type="button"
-                  aria-pressed={selectedPromiseIndex === i}
-                  onClick={() => setSelectedPromiseIndex(i)}
-                  onMouseEnter={() => setHighlightedPromiseIndex(i)}
-                  onMouseLeave={() => setHighlightedPromiseIndex(null)}
-                  onFocus={() => setHighlightedPromiseIndex(i)}
-                  onBlur={() => setHighlightedPromiseIndex(null)}
-                  className="group flex gap-5 rounded-xl text-left transition-colors hover:bg-slate-50/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2"
-                  initial={{ opacity: 0, x: -12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={aboutView}
-                  transition={{ duration: 0.45, delay: i * 0.06 }}
-                >
-                  <Motion.div
-                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border text-lg font-bold shadow-sm transition-colors duration-300 ${
-                      isGreen
-                        ? "border-[#4CAF50] bg-[#4CAF50] text-white ring-2 ring-[#4CAF50]/25"
-                        : "border-slate-200 bg-white text-[#4CAF50]"
-                    }`}
-                    whileHover={{ scale: 1.06 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 18 }}
-                  >
-                    {i + 1}
-                  </Motion.div>
-                  <p className="pt-1 text-[15px] font-medium leading-relaxed text-slate-600 md:text-base">
-                    {line}
-                  </p>
-                </Motion.button>
+                  line={line}
+                  index={i}
+                  transitionDelay={i * 0.06}
+                  highlightedIndex={highlightedPromiseIndex}
+                  selectedIndex={selectedPromiseIndex}
+                  setSelectedPromiseIndex={setSelectedPromiseIndex}
+                  setHighlightedPromiseIndex={setHighlightedPromiseIndex}
+                  className="w-full sm:max-w-md"
+                />
               );
             })}
           </div>
