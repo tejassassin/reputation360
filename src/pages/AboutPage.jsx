@@ -1357,15 +1357,15 @@ function AboutPage() {
               return (
                 <Motion.div
                   key={partA + partB}
-                  className="flex items-center gap-4 rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm md:p-6"
+                  className="group flex cursor-default items-center gap-4 rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm transition-shadow duration-300 ease-out hover:border-[#4CAF50]/40 hover:shadow-lg hover:shadow-slate-900/10 will-change-transform md:p-6"
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={aboutView}
                   transition={{ duration: 0.45, delay: i * 0.05 }}
-                  whileHover={{ y: -2 }}
+                  whileHover={{ y: -4, transition: { type: "spring", stiffness: 420, damping: 28 } }}
                 >
                   <span
-                    className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#4CAF50]/12 text-[#2d8a3e] ring-1 ring-[#4CAF50]/20"
+                    className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#4CAF50]/12 text-[#2d8a3e] ring-1 ring-[#4CAF50]/20 transition-all duration-300 will-change-transform group-hover:scale-105 group-hover:bg-[#4CAF50]/20 group-hover:ring-[#4CAF50]/40"
                     aria-hidden
                   >
                     <Icon className="h-6 w-6" strokeWidth={1.75} />
@@ -1406,12 +1406,14 @@ function AboutPage() {
           >
             <div className="grid grid-cols-1 divide-y divide-slate-200/80 md:grid-cols-3 md:divide-x md:divide-y-0">
               {whoWeAreStatRow.map((s) => (
-                <div
+                <Motion.div
                   key={s.label}
-                  className="flex flex-col items-center px-6 py-8 text-center md:py-10"
+                  className="relative flex cursor-default flex-col items-center rounded-2xl px-5 py-7 text-center transition-shadow duration-300 will-change-transform hover:bg-gradient-to-b hover:from-white hover:to-[#f0fdf4] hover:shadow-md hover:ring-1 hover:ring-inset hover:ring-[#4CAF50]/20 md:px-3 md:py-9"
+                  whileHover={{ y: -2 }}
+                  transition={{ type: "spring", stiffness: 420, damping: 30 }}
                 >
                   <p
-                    className={`${headlineFont} text-4xl font-extrabold tabular-nums text-[#4CAF50] md:text-[2.75rem]`}
+                    className={`${headlineFont} text-4xl font-extrabold tabular-nums text-[#4CAF50] transition-colors duration-200 md:text-[2.75rem]`}
                   >
                     <StatNumber
                       className="inline"
@@ -1425,7 +1427,7 @@ function AboutPage() {
                   >
                     {s.label}
                   </p>
-                </div>
+                </Motion.div>
               ))}
             </div>
           </Motion.div>
