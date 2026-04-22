@@ -1,9 +1,8 @@
 import { useId } from "react";
 
 /**
- * Home “About Reputation360” visual only: a simple diagram (not photography,
- * not SERP UI used elsewhere) showing fragmented mentions consolidating into
- * one accurate, trustworthy presence.
+ * Home “About Reputation360” visual: negative mentions → strategy + craft →
+ * positive mentions, with supporting caption.
  */
 export default function AboutReputationVisual() {
   const gradId = `abtr-arrow-${useId().replace(/:/g, "")}`;
@@ -25,8 +24,8 @@ export default function AboutReputationVisual() {
             </linearGradient>
           </defs>
 
-          <text x="8" y="22" fill="#64748b" fontSize="11" fontWeight="600" letterSpacing="0.08em">
-            SCATTERED MENTIONS
+          <text x="8" y="22" fill="#64748b" fontSize="11" fontWeight="600" letterSpacing="0.04em">
+            Negative mentions
           </text>
           <rect x="8" y="38" width="112" height="8" rx="4" fill="#cbd5e1" opacity="0.85" />
           <rect x="24" y="54" width="88" height="8" rx="4" fill="#94a3b8" opacity="0.65" />
@@ -56,8 +55,8 @@ export default function AboutReputationVisual() {
             opacity="0.65"
           />
 
-          <text x="512" y="22" fill="#1F3B64" fontSize="11" fontWeight="600" letterSpacing="0.08em" textAnchor="end">
-            COHERENT PRESENCE
+          <text x="512" y="22" fill="#1F3B64" fontSize="11" fontWeight="600" letterSpacing="0.04em" textAnchor="end">
+            positive mentions
           </text>
           <rect
             x="268"
@@ -94,8 +93,8 @@ export default function AboutReputationVisual() {
         </svg>
       </div>
       <figcaption className="font-body px-5 pb-5 text-center text-sm leading-snug text-steel">
-        We turn noisy, fragmented search results into{" "}
-        <span className="font-medium text-navy">one credible story</span> that matches who you are today.
+        We help individuals and brands take control of how they are perceived
+        online.
       </figcaption>
     </figure>
   );
