@@ -413,7 +413,7 @@ function ServicesAbout() {
 
   return (
     <section className="bg-offwhite">
-      <div className="mx-auto max-w-6xl space-y-16 px-5 pb-16 pt-8 md:space-y-20 md:px-8 md:pb-20 md:pt-10">
+      <div className="mx-auto max-w-6xl space-y-20 px-5 pb-20 pt-12 md:space-y-24 md:px-8 md:pb-24 md:pt-16 lg:space-y-28 lg:pb-28">
         <div className="rounded-3xl bg-[#f2f5ff] px-6 py-8 md:px-12 md:py-11">
           <h2 className="max-w-3xl font-heading text-4xl font-bold leading-tight text-navy md:text-5xl">
             You Worked Hard to Build Your Reputation. We Make Sure Google
