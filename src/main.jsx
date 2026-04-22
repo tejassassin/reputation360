@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
+import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 import App from "./App.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
@@ -50,8 +51,15 @@ function pageForPath(path) {
 const normalizedPath = normalizePath(window.location.pathname);
 const page = pageForPath(normalizedPath);
 
-createRoot(document.getElementById("root")).render(
+const rootEl = document.getElementById("root");
+if (!rootEl) {
+  throw new Error("Missing #root — check index.html");
+}
+
+createRoot(rootEl).render(
   <StrictMode>
-    <App>{page}</App>
+    <ErrorBoundary>
+      <App>{page}</App>
+    </ErrorBoundary>
   </StrictMode>,
 );

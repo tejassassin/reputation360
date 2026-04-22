@@ -1147,7 +1147,6 @@ function AboutPage() {
                 <li key={id} className="shrink-0">
                   <Motion.a
                     href={`#${id}`}
-                    layout
                     aria-current={isActive ? "location" : undefined}
                     onClick={() => setActiveSectionId(id)}
                     whileHover={{ scale: 1.02 }}
@@ -1246,7 +1245,7 @@ function AboutPage() {
               >
                 <a
                   {...calendlyNewTabProps}
-                  className={`${headlineFont} group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#4CAF50] to-emerald-400 px-6 py-3.5 text-sm font-bold text-[#0a1628] shadow-[0_12px_36px_-8px_rgba(76,175,80,0.55)] transition hover:brightness-105 md:px-8 md:text-base`}
+                  className={`${headlineFont} group inline-flex items-center gap-2 rounded-xl bg-cta-consult px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-cta-consult/30 transition hover:brightness-95 md:px-8 md:text-base`}
                 >
                   Book a free consultation
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
@@ -1603,14 +1602,12 @@ function AboutPage() {
                 Your story deserves to be told on your terms. Let&apos;s build a
                 digital presence that reflects who you truly are.
               </p>
-              <Motion.a
+              <a
                 {...calendlyNewTabProps}
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.98 }}
-                className={`${headlineFont} inline-block rounded-xl bg-gradient-to-r from-[#4CAF50] to-emerald-400 px-10 py-4 text-base font-extrabold text-[#052e16] shadow-xl shadow-black/25 md:px-12 md:text-lg`}
+                className={`${headlineFont} inline-block rounded-xl bg-cta-consult px-10 py-4 text-base font-extrabold text-white shadow-xl shadow-cta-consult/30 transition hover:brightness-95 active:scale-[0.99] md:px-12 md:text-lg`}
               >
                 Book a Free Consultation
-              </Motion.a>
+              </a>
             </div>
           </Motion.div>
         </div>
