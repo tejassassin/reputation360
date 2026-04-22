@@ -12,6 +12,8 @@
 
   --color-navy: #1f3b64;
   --color-green: #4caf50;
+  /** Calendly / "Book a free consultation" primary buttons */
+  --color-cta-consult: #6cb359;
   --color-slate: #2e5b88;
   --color-steel: #6b7280;
   --color-offwhite: #f5f7fa;

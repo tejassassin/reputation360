@@ -351,13 +351,13 @@ function InsightsBlogsPage() {
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <a
               {...calendlyNewTabProps}
-              className="ha-pill rounded-xl bg-[#02254d] px-10 py-5 text-lg font-bold text-white shadow-xl shadow-[#02254d]/20"
+              className="ha-pill rounded-xl bg-cta-consult px-10 py-5 text-lg font-bold text-white shadow-xl shadow-cta-consult/30 transition hover:brightness-95"
             >
               Book a Free Consultation
             </a>
             <a
               {...calendlyNewTabProps}
-              className="ha-pill rounded-xl bg-[#02254d] px-10 py-5 text-lg font-bold text-white shadow-xl shadow-[#02254d]/20 hover:bg-[#35618e]"
+              className="ha-pill rounded-xl bg-cta-consult px-10 py-5 text-lg font-bold text-white shadow-xl shadow-cta-consult/30 transition hover:brightness-95"
             >
               Speak with a Partner
             </a>

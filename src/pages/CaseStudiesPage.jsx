@@ -351,7 +351,7 @@ export default function CaseStudiesPage() {
           <div className="relative z-10 mt-8 flex flex-col items-center justify-center gap-3 md:mt-10 md:flex-row md:gap-4">
             <a
               {...calendlyNewTabProps}
-              className="ha-pill inline-flex w-full items-center justify-center rounded-xl bg-[#78dc77] px-10 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#00450e]/30 hover:bg-[#94f990] hover:text-white active:scale-[0.98] md:w-auto md:text-base lg:px-12 lg:py-4 lg:text-lg"
+              className="ha-pill inline-flex w-full items-center justify-center rounded-xl bg-cta-consult px-10 py-3.5 text-sm font-bold text-white shadow-lg shadow-cta-consult/30 transition hover:brightness-95 active:scale-[0.98] md:w-auto md:text-base lg:px-12 lg:py-4 lg:text-lg"
             >
               Get My Free Audit
             </a>

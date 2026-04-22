@@ -68,7 +68,7 @@ function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-2 sm:px-0">
             <a
               {...calendlyNewTabProps}
-              className="ha-pill group relative w-full cursor-pointer rounded-xl bg-green px-8 py-3 text-center text-base font-heading font-semibold text-white shadow-lg shadow-green/25 transition-all duration-300 hover:bg-green/90 hover:shadow-xl hover:shadow-green/30 sm:w-auto sm:py-4 sm:text-lg"
+              className="ha-pill group relative w-full cursor-pointer rounded-xl bg-cta-consult px-8 py-3 text-center text-base font-heading font-semibold text-white shadow-lg shadow-cta-consult/30 transition-all duration-300 hover:brightness-95 hover:shadow-xl hover:shadow-cta-consult/35 sm:w-auto sm:py-4 sm:text-lg"
             >
               <span className="flex items-center justify-center gap-2">
                 Book a Free Consultation

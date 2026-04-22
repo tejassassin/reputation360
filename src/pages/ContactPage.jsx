@@ -288,7 +288,7 @@ function ContactPage() {
                 </p>
                 <a
                   {...calendlyNewTabProps}
-                  className="ha-pill mt-5 inline-flex rounded-xl bg-[#02254d] px-8 py-3.5 text-sm font-bold text-white shadow-md hover:bg-[#35618e] active:scale-[0.98] md:mt-6 md:text-base"
+                  className="ha-pill mt-5 inline-flex rounded-xl bg-cta-consult px-8 py-3.5 text-sm font-bold text-white shadow-md shadow-cta-consult/25 transition hover:brightness-95 active:scale-[0.98] md:mt-6 md:text-base"
                 >
                   Schedule Meeting
                 </a>

@@ -310,10 +310,10 @@ export const NavbarButton = ({
   | React.ComponentPropsWithoutRef<"button">
 )) => {
   const baseStyles =
-    "px-5 py-2 rounded-lg text-sm font-heading font-medium relative cursor-pointer transition-all duration-200 inline-block text-center hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-green/25";
+    "px-5 py-2 rounded-lg text-sm font-heading font-medium relative cursor-pointer transition-all duration-200 inline-block text-center hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-cta-consult/25";
 
   const variantStyles = {
-    primary: "bg-green hover:bg-green/90 text-white",
+    primary: "bg-cta-consult text-white hover:brightness-95",
     secondary: "bg-transparent text-white hover:text-green",
     dark: "bg-black text-white",
     gradient:

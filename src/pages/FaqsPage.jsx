@@ -1019,7 +1019,7 @@ function FaqsPage() {
               <div className="shrink-0">
                 <a
                   {...calendlyNewTabProps}
-                  className="inline-flex items-center gap-3 rounded-xl bg-[#4CAF50] px-10 py-5 text-lg font-bold text-white shadow-xl shadow-black/20 transition-all hover:brightness-110 active:scale-95 md:hover:-translate-y-1"
+                  className="inline-flex items-center gap-3 rounded-xl bg-cta-consult px-10 py-5 text-lg font-bold text-white shadow-xl shadow-cta-consult/30 transition-all hover:brightness-95 active:scale-95 md:hover:-translate-y-1"
                   style={{ fontFamily: '"Manrope", sans-serif' }}
                 >
                   Book a Free Consultation

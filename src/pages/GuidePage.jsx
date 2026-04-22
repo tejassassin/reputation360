@@ -401,7 +401,7 @@ function GuidePage() {
                   </p>
                   <a
                     {...calendlyNewTabProps}
-                    className="font-guide-headline ha-pill rounded-full bg-[#78dc77] px-10 py-5 text-lg font-extrabold text-white shadow-xl hover:bg-[#56b958] hover:text-white"
+                    className="font-guide-headline ha-pill rounded-full bg-cta-consult px-10 py-5 text-lg font-extrabold text-white shadow-xl shadow-cta-consult/30 transition hover:brightness-95"
                   >
                     Book Your Free Consultation
                   </a>

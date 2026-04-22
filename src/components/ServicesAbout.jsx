@@ -445,7 +445,7 @@ function ServicesAbout() {
           </aside>
           <a
             {...calendlyNewTabProps}
-            className="ha-pill mt-7 inline-flex rounded-md bg-navy px-5 py-3 text-sm font-semibold text-white hover:bg-navy/90"
+            className="ha-pill mt-7 inline-flex rounded-md bg-cta-consult px-5 py-3 text-sm font-semibold text-white shadow-md shadow-cta-consult/20 hover:brightness-95"
           >
             BOOK YOUR FREE CONSULTATION
           </a>
@@ -968,7 +968,7 @@ function ServicesAbout() {
           <div className="mt-7 flex justify-center">
             <a
               {...calendlyNewTabProps}
-              className="ha-pill inline-flex rounded-md bg-green px-5 py-3 text-sm font-semibold text-white hover:bg-green/90"
+              className="ha-pill inline-flex rounded-md bg-cta-consult px-5 py-3 text-sm font-semibold text-white shadow-md shadow-cta-consult/20 hover:brightness-95"
             >
               BOOK YOUR FREE CONSULTATION
             </a>
