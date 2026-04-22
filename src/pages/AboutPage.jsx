@@ -380,12 +380,63 @@ const howItBeganSteps = [
 
 function HowItAllBeganStory() {
   const [activeStep, setActiveStep] = useState(0);
+  const sectionRef = useRef(null);
+  /** Drives the keyboard layer; must stay in sync with the observer (not React state) so the key handler always sees the latest value. */
+  const sectionInViewRef = useRef(false);
   const lastIndex = howItBeganSteps.length - 1;
   const step = howItBeganSteps[activeStep];
   const progress = ((activeStep + 1) / howItBeganSteps.length) * 100;
 
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return undefined;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        // Any visible overlap counts — strict ratio checks broke keys at many scroll positions.
+        sectionInViewRef.current = !!e?.isIntersecting;
+      },
+      { rootMargin: "0px 0px -6% 0px", threshold: [0, 0.01, 0.05, 0.1, 0.25] },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (!sectionInViewRef.current) return;
+      const isPrev =
+        e.key === "ArrowLeft" ||
+        e.key === "ArrowUp" ||
+        e.code === "ArrowLeft" ||
+        e.code === "ArrowUp";
+      const isNext =
+        e.key === "ArrowRight" ||
+        e.key === "ArrowDown" ||
+        e.code === "ArrowRight" ||
+        e.code === "ArrowDown";
+      if (!isPrev && !isNext) return;
+      const t = e.target;
+      if (t instanceof Element) {
+        if (t.closest("input, textarea, select, [contenteditable=true]")) {
+          return;
+        }
+      }
+      e.preventDefault();
+      e.stopPropagation();
+      if (isPrev) {
+        setActiveStep((x) => Math.max(0, x - 1));
+      } else {
+        setActiveStep((x) => Math.min(lastIndex, x + 1));
+      }
+    };
+    // Capture: default browser action for ArrowUp/Down is scroll; prevent it when we handle the key.
+    window.addEventListener("keydown", onKey, { capture: true });
+    return () => window.removeEventListener("keydown", onKey, { capture: true });
+  }, [lastIndex]);
+
   return (
     <section
+      ref={sectionRef}
       id="how-it-began"
       className={`relative overflow-hidden border-y border-slate-200/60 ${aboutFirstContentSpacing} ${aboutScrollTargetClass}`}
     >
@@ -409,9 +460,6 @@ function HowItAllBeganStory() {
           <h2 className="font-heading mt-2 text-3xl font-bold tracking-tight text-navy md:text-4xl">
             How it all began
           </h2>
-          <p className="font-body mt-2 max-w-2xl text-base leading-relaxed text-steel md:text-lg">
-            Eight beats. One mission. Tap any step or use Prev / Next.
-          </p>
           <div
             className="mt-5 h-1.5 w-full max-w-3xl overflow-hidden rounded-full bg-slate-200/90"
             role="progressbar"
@@ -430,7 +478,7 @@ function HowItAllBeganStory() {
         <div
           className="mt-10 flex flex-col gap-10 lg:mt-12 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,20rem)] lg:items-start lg:gap-12"
           role="list"
-          aria-label="Our story - eight beats; use previous, next, or a step"
+          aria-label="Our story — eight steps; use the timeline, Prev, Next, or arrow keys to navigate"
         >
           {/* Main detail card (left on desktop) */}
           <div className="order-1 lg:order-1">
