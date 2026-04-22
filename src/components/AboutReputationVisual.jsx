@@ -1,8 +1,8 @@
 import { useId } from "react";
 
 /**
- * Home “About Reputation360” visual: negative mentions → strategy + craft →
- * positive mentions, with supporting caption.
+ * Home “About Reputation360” visual: NEGATIVE MENTIONS → strategy + craft →
+ * POSITIVE MENTIONS, with supporting caption.
  */
 export default function AboutReputationVisual() {
   const gradId = `abtr-arrow-${useId().replace(/:/g, "")}`;
@@ -24,8 +24,8 @@ export default function AboutReputationVisual() {
             </linearGradient>
           </defs>
 
-          <text x="8" y="22" fill="#64748b" fontSize="11" fontWeight="600" letterSpacing="0.04em">
-            Negative mentions
+          <text x="8" y="22" fill="#64748b" fontSize="11" fontWeight="600" letterSpacing="0.08em">
+            NEGATIVE MENTIONS
           </text>
           <rect x="8" y="38" width="112" height="8" rx="4" fill="#cbd5e1" opacity="0.85" />
           <rect x="24" y="54" width="88" height="8" rx="4" fill="#94a3b8" opacity="0.65" />
@@ -55,8 +55,8 @@ export default function AboutReputationVisual() {
             opacity="0.65"
           />
 
-          <text x="512" y="22" fill="#1F3B64" fontSize="11" fontWeight="600" letterSpacing="0.04em" textAnchor="end">
-            positive mentions
+          <text x="512" y="22" fill="#1F3B64" fontSize="11" fontWeight="600" letterSpacing="0.08em" textAnchor="end">
+            POSITIVE MENTIONS
           </text>
           <rect
             x="268"
