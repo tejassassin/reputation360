@@ -257,7 +257,7 @@ function ContactPage() {
       {/* How to Reach Us */}
       <section
         id="contact-form"
-        className="scroll-mt-28 px-4 pt-14 pb-8 md:px-8 md:pt-18 md:pb-10"
+        className="scroll-mt-28 px-4 pt-14 pb-14 md:px-8 md:pt-18 md:pb-20"
       >
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 md:mb-12">
@@ -447,7 +447,7 @@ function ContactPage() {
       </section>
 
       {/* What Happens Next - SVG roadmap (reference layout) */}
-      <section className="bg-[#f9f9ff] px-4 pt-8 pb-10 md:px-8 md:pt-10 md:pb-12">
+      <section className="bg-[#f9f9ff] px-4 pt-10 pb-14 md:px-8 md:pt-14 md:pb-20">
         <div className="mx-auto max-w-7xl 2xl:max-w-[min(90rem,calc(100vw-3rem))]">
           <div className="mb-1 text-center md:mb-2">
             <h2 className="font-heading text-[28px] font-bold tracking-tight text-[#02254d] md:text-[40px]">
@@ -468,7 +468,7 @@ function ContactPage() {
       </section>
 
       {/* Confidentiality */}
-      <section className="px-4 pt-10 pb-14 md:px-8 md:pt-12 md:pb-16">
+      <section className="px-4 pt-14 pb-16 md:px-8 md:pt-20 md:pb-20">
         <div className="mx-auto max-w-5xl">
           <div className="relative overflow-hidden rounded-[2rem] bg-[#1f3b64] p-10 text-white shadow-2xl md:rounded-[3rem] md:p-16 lg:p-20">
             <div
