@@ -1,310 +1,127 @@
-import { useEffect } from "react";
-import { ArrowRight } from "lucide-react";
-import { calendlyNewTabProps } from "../constants/scheduling";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion as Motion } from "motion/react";
+import { Filter, X } from "lucide-react";
+import { CaseStudyListCard } from "../components/CaseStudyListCard.jsx";
+import { CaseStudyPageCta } from "../components/CaseStudyPageCta.jsx";
+import { CASE_STUDIES, INDUSTRY_CATEGORIES } from "../data/caseStudies/index.js";
 
-const cases = [
-  {
-    tag: "Product Crisis",
-    title: "Rebuilding Trust After a Product Crisis",
-    meta: {
-      Industry: "Consumer Tech",
-      Duration: "8 Months",
-      Profile: "SaaS Enterprise",
-      Challenge: "Global Recall",
-    },
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCtXKFAY42IBbvAzbljXQqubiqxJanQZYgYkIHrthKu-yS7cGGER4cZ9tlN1FkGMS5MCIVtu7RfQ81mNLrQ_80rL8NjkCdifolS93NuPYc0jgjeH8VIyEXhjVjuIGqNMxH0ePnWVO55z-9r1vxKIvx_fdRNKPKacx0da-8YoHy_GsjMJMbJbsMxBwrBWEbXCeW3fldA9KJ6vl-X649oV7R_jdm8whkEeEgOshDbSxpj1S13S9hVs1Yv7Y8AYOf1c1kE0XdjOdRnRoE",
-    imageAlt: "Server hardware with blue lighting in a corporate environment",
-    metric: {
-      position: "bottom-right",
-      variant: "green",
-      main: "94%",
-      sub: "Negative Results Suppressed",
-    },
-    columns: [
-      {
-        title: "The Challenge",
-        text: "A widespread software security vulnerability led to a global product recall, resulting in thousands of negative press articles and a 40% drop in brand sentiment across search engines.",
-      },
-      {
-        title: "The Result",
-        text: "Restored Page 1 neutrality within 6 months. Developed an authoritative transparency portal that now serves as the primary source of truth for industry security standards.",
-      },
-    ],
-    linkText: "Read Comprehensive Analysis",
-    imageFirst: false,
-  },
-  {
-    tag: "Executive/Founder",
-    title: "Executive & Founder Reputation Management",
-    meta: {
-      Industry: "Private Equity",
-      Duration: "12 Months",
-      Profile: "UHNW Individual",
-      Challenge: "Legal Legacy",
-    },
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuANTdQzlT2R0BH3fbV0RG0HAtDHvIDBgVaKdMderHa-_zgiqqulDo5qUE6sgc613ZHxawB3pE-ju1Rt4K259i5EbED6uRIkY0ixn5JVQypQ0vypLvuhoqxGEuCg5zGHJ__56lyfB8iQuGW_KXEkCLtRM9ITV_dPpulmMFNKxpRBYa7F5XTSEXiKyxpyMHl0kQABKaClGEZijdJauIl1SM7MlMPQHQLPiLhZrhNqqsfTraZtY3y4ztzUClVQBrrf13ejNGz6nUPmkqQ",
-    imageAlt: "Executive office with city view at dusk",
-    metric: {
-      position: "top-left",
-      variant: "navy",
-      main: "#1",
-      sub: "Ranking for Primary Bio",
-    },
-    columns: [
-      {
-        title: "The Strategy",
-        text: "Aggressive content creation focusing on the founder's philanthropic efforts and industry thought leadership to push down legacy dispute articles from previous legal battles.",
-      },
-      {
-        title: "Impact",
-        text: "Achieved complete control over the first two pages of search results. Investor confidence scores increased by 65% during the subsequent funding round.",
-      },
-    ],
-    linkText: "View Executive Roadmap",
-    imageFirst: true,
-  },
-  {
-    tag: "Financial Services",
-    title: "Financial Professional Reputation Recovery",
-    meta: {
-      Industry: "Asset Management",
-      Duration: "5 Months",
-      Profile: "Fund Manager",
-      Challenge: "Misinformation",
-    },
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA556HkcU4EcVY1uQkZ-V16WL9Re2jAF0Do6fkg65qIf8DUoe66d32wN9NCN1clrxg5yeFTpjkWCzX3lnXoC2X6ZmwGKOhjCq6fSmzjlcky9sQ-jiXgK2-OqT8tVGiWu3qnAbQX8Xclcq5HlXNlj6zHP7vf4XVxErq88tfWrYImIbvfBDpKyGKFMz7qY8Yla6IvAex8bkihEC6F0rNpDnh5INfTHPvnnYM7qVjw-6mdSMT_q5E1JsZmDkUKefnyMuQ8h-Bp2vhmlIs",
-    imageAlt: "Desk with tablet showing financial data",
-    metric: {
-      position: "bottom-left",
-      variant: "white",
-      main: "88%",
-      sub: "Regulatory Trust Restoration",
-    },
-    columns: [
-      {
-        title: "Objective",
-        text: "Counteract a smear campaign launched by a former competitor that triggered unnecessary scrutiny from regulatory compliance bots and potential clients.",
-      },
-      {
-        title: "Strategy",
-        text: "Deployment of 'Authority Sites'-highly-indexed personal domain networks that featured verifiable credentials, verified white papers, and historical performance audits.",
-      },
-    ],
-    linkText: "Examine Digital Shield",
-    imageFirst: false,
-  },
-  {
-    tag: "Medical & Healthcare",
-    title: "Clinical Reputation Management",
-    meta: {
-      Industry: "Healthcare",
-      Duration: "10 Months",
-      Profile: "Surgery Center",
-      Challenge: "Review Bombing",
-    },
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDhVJBFixt5r1JghMYDeRovl7j6CWSC24bE7YalUefnjDVMgz_xljxTMwTrBUoILuLD3S_ZPLscQbNKqSFVvPX1IOZw3VgMB7gHKRVQnQ8RLBMNlxiTI3WJIep7dXAhSli5mcZLRY8q9Nq2vg4YBjrC2y-QUgZYD_CaXwiog7RaGQRWTN76XOdbgWRi1FT6OjG0gDQqqI1zAgIwv51sG1Eore3khHCCmbLysTTn9iQsp6PRonU6T6QGLQTNA4eECOHdLQXMCasxBqw",
-    imageAlt: "Bright modern medical hallway",
-    metric: {
-      position: "bottom-right",
-      variant: "green",
-      main: "4.8★",
-      sub: "Avg Rating Reclaimed",
-    },
-    columns: [
-      {
-        title: "The Challenge",
-        text: "A coordinated attack on review platforms by a disgruntled patient group threatened the clinical reputation of a leading orthopedic surgery center.",
-      },
-      {
-        title: "Solution",
-        text: "Implemented an automated HIPAA-compliant feedback loop that encouraged genuine patient voices to share their positive experiences across Google and Healthgrades.",
-      },
-    ],
-    linkText: "View Healthcare Success",
-    imageFirst: true,
-  },
-  {
-    tag: "Academic/Student",
-    title: "Student Reputation Recovery",
-    meta: {
-      Industry: "Higher Education",
-      Duration: "3 Months",
-      Profile: "Graduate Candidate",
-      Challenge: "Social Disclosure",
-    },
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuApDrfqAozsOwRXFj-BVPSF4HIEuVnHKafQicFeDBGS_gYgVtsKNUlaqtGD8EpDIpDVRBCti1DrWe_QUJaYbZ09OkLBwVqjxFZJw08f8ehCXcwq70JpUeCy13vtSJxhJRw3j91D3u0r_BuWBKCtut5b7K8iLBFXXTXYAEivSwlni2QR22PqXvQB7azlvBhGtJDKQ9xVgDtYd6mh7LyTpZdZZjxyav1Ue6xh6-OzSdEtnzarKSVVTjnlOO9_rLpbV1eebwixSZ8s8sw",
-    imageAlt: "Sunlit university library",
-    metric: {
-      position: "top-right",
-      variant: "navySolid",
-      main: "100%",
-      sub: "Content Remediated",
-    },
-    columns: [
-      {
-        title: "The Challenge",
-        text: "Improper social media activity from early adolescence surfaced during a background check for a high-profile PhD residency program.",
-      },
-      {
-        title: "Results",
-        text: "Successfully negotiated the removal of legacy content under 'Right to be Forgotten' frameworks and established a professional scholarly portfolio.",
-      },
-    ],
-    linkText: "Read Recovery Case",
-    imageFirst: false,
-  },
-];
+const ALL = "All";
 
-function MetricBadge({ metric }) {
-  const pos =
-    metric.position === "bottom-right"
-      ? "bottom-6 right-6"
-      : metric.position === "bottom-left"
-        ? "bottom-6 left-6"
-        : metric.position === "top-left"
-          ? "top-6 left-6"
-          : "top-6 right-6";
+function uniqueInOrder(studies, getVal) {
+  const seen = new Set();
+  const out = [];
+  for (const s of studies) {
+    const v = getVal(s);
+    if (!seen.has(v)) {
+      seen.add(v);
+      out.push(v);
+    }
+  }
+  return out;
+}
 
-  if (metric.variant === "green") {
-    return (
-      <div
-        className={`absolute ${pos} rounded-2xl bg-[#78dc77]/95 p-4 shadow-xl backdrop-blur-md md:p-6`}
-      >
-        <span className="block font-heading text-4xl font-black text-[#002204] md:text-5xl">
-          {metric.main}
-        </span>
-        <span className="text-xs font-bold uppercase tracking-tight text-[#002204] md:text-sm">
-          {metric.sub}
-        </span>
-      </div>
-    );
-  }
-  if (metric.variant === "navy") {
-    return (
-      <div
-        className={`absolute ${pos} rounded-2xl border border-white/10 bg-[#02254d]/95 p-4 shadow-xl backdrop-blur-md md:p-6`}
-      >
-        <span className="block font-heading text-4xl font-black text-[#78dc77] md:text-5xl">
-          {metric.main}
-        </span>
-        <span className="text-xs font-bold uppercase tracking-tight text-white md:text-sm">
-          {metric.sub}
-        </span>
-      </div>
-    );
-  }
-  if (metric.variant === "white") {
-    return (
-      <div
-        className={`absolute ${pos} rounded-2xl bg-white/90 p-4 shadow-xl backdrop-blur-lg md:p-6`}
-      >
-        <span className="block font-heading text-4xl font-black text-[#35618e] md:text-5xl">
-          {metric.main}
-        </span>
-        <span className="text-xs font-bold uppercase tracking-tight text-[#43474e] md:text-sm">
-          {metric.sub}
-        </span>
-      </div>
-    );
-  }
-  /* navySolid */
+const baseSelectClass =
+  "h-14 w-full cursor-pointer appearance-none rounded-2xl border-2 border-slate-200/80 bg-white pl-5 pr-12 text-left text-base font-medium text-navy shadow-[0_2px_14px_-3px_rgba(15,35,60,0.1)] outline-none transition focus:border-[#3d9a3d] focus:ring-4 focus:ring-[#4CAF50]/22 hover:border-[#4CAF50]/35 hover:shadow-md";
+
+function SelectChevron() {
   return (
-    <div
-      className={`absolute ${pos} rounded-2xl bg-[#1f3b64] p-4 text-white shadow-xl md:p-6`}
+    <span
+      className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-navy/45 transition group-hover/field:text-navy/65"
+      aria-hidden
     >
-      <span className="block font-heading text-4xl font-black text-[#94f990] md:text-5xl">
-        {metric.main}
-      </span>
-      <span className="text-xs font-bold uppercase tracking-tight md:text-sm">
-        {metric.sub}
-      </span>
-    </div>
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </span>
   );
 }
 
-function CaseStudySection({ study }) {
-  const metaEntries = Object.entries(study.meta);
-
-  const textCol = (
-    <div className="space-y-5 md:space-y-6">
-      <div className="inline-flex items-center rounded-full bg-[#02254d] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white md:text-xs">
-        {study.tag}
-      </div>
-      <h2 className="font-heading text-2xl font-bold leading-tight text-[#02254d] md:text-3xl lg:text-4xl">
-        {study.title}
-      </h2>
-      <div className="grid grid-cols-2 gap-3 pt-2 text-sm md:gap-4">
-        {metaEntries.map(([k, v]) => (
-          <div key={k} className="rounded-xl bg-[#f1f3ff] p-3 md:p-4">
-            <span className="mb-1 block text-[10px] font-semibold uppercase tracking-wider text-[#74777f]">
-              {k}
-            </span>
-            <span className="font-bold text-[#02254d]">{v}</span>
-          </div>
-        ))}
-      </div>
-    </div>
+function filterStudies(st, industry, profile, challenge, duration) {
+  return st.filter(
+    (c) =>
+      (industry === ALL || c.industry === industry) &&
+      (profile === ALL || c.profile === profile) &&
+      (challenge === ALL || c.challengeType === challenge) &&
+      (duration === ALL || c.duration === duration),
   );
+}
 
-  const imageCol = (
-    <div>
-      <div className="ha-lift relative overflow-hidden rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
-        <img
-          alt={study.imageAlt}
-          className="aspect-video w-full object-cover"
-          src={study.image}
-        />
-        <MetricBadge metric={study.metric} />
-      </div>
-      <div className="ha-lift mt-6 rounded-2xl border border-[#c4c6d0]/10 bg-white p-6 shadow-sm md:mt-8 md:p-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
-          {study.columns.map((col) => (
-            <div key={col.title}>
-              <h4 className="mb-2 font-heading font-bold text-[#02254d] md:mb-3">
-                {col.title}
-              </h4>
-              <p className="text-sm leading-relaxed text-[#43474e]">
-                {col.text}
-              </p>
-            </div>
-          ))}
-        </div>
-        <a
-          href="/contact"
-          className="group/btn ha-nudge mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#35618e] hover:gap-3 md:mt-8"
-        >
-          {study.linkText}
-          <ArrowRight className="h-4 w-4" strokeWidth={2.25} />
-        </a>
-      </div>
-    </div>
-  );
-
+function ActiveChip({ children, onRemove, title }) {
   return (
-    <section className="group">
-      <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
-        {study.imageFirst ? (
-          <>
-            <div className="order-2 lg:order-1 lg:col-span-7">{imageCol}</div>
-            <div className="order-1 lg:order-2 lg:col-span-5">{textCol}</div>
-          </>
-        ) : (
-          <>
-            <div className="lg:col-span-5">{textCol}</div>
-            <div className="lg:col-span-7">{imageCol}</div>
-          </>
-        )}
-      </div>
-    </section>
+    <span className="inline-flex max-w-full items-center gap-1.5 overflow-hidden rounded-full border border-navy/10 bg-white pl-3 pr-1.5 py-1 text-left text-sm font-medium text-navy shadow-sm ring-1 ring-slate-200/60">
+      <span className="min-w-0 truncate" title={title}>
+        {children}
+      </span>
+      <button
+        type="button"
+        onClick={onRemove}
+        className="grid h-5 w-5 shrink-0 place-items-center rounded-full text-navy/60 transition hover:bg-slate-100 hover:text-navy"
+        aria-label="Remove this filter"
+      >
+        <X className="h-3.5 w-3.5" strokeWidth={2.5} />
+      </button>
+    </span>
   );
 }
 
 export default function CaseStudiesPage() {
+  const [industry, setIndustry] = useState(ALL);
+  const [profile, setProfile] = useState(ALL);
+  const [challenge, setChallenge] = useState(ALL);
+  const [duration, setDuration] = useState(ALL);
+
+  const industryList = INDUSTRY_CATEGORIES;
+  const industryChips = industryList;
+
+  const industryOptions = useMemo(
+    () => [ALL, ...industryList],
+    [industryList],
+  );
+  const profileOptions = useMemo(
+    () => [ALL, ...uniqueInOrder(CASE_STUDIES, (s) => s.profile)],
+    [],
+  );
+  const challengeOptions = useMemo(
+    () => [ALL, ...uniqueInOrder(CASE_STUDIES, (s) => s.challengeType)],
+    [],
+  );
+  const durationOptions = useMemo(
+    () => [ALL, ...uniqueInOrder(CASE_STUDIES, (s) => s.duration)],
+    [],
+  );
+
+  const byFilters = useMemo(
+    () =>
+      filterStudies(CASE_STUDIES, industry, profile, challenge, duration).sort(
+        (a, b) => a.n - b.n,
+      ),
+    [industry, profile, challenge, duration],
+  );
+
+  const filtered = byFilters;
+
+  const hasActive =
+    industry !== ALL ||
+    profile !== ALL ||
+    challenge !== ALL ||
+    duration !== ALL;
+
+  const resetFilters = useCallback(() => {
+    setIndustry(ALL);
+    setProfile(ALL);
+    setChallenge(ALL);
+    setDuration(ALL);
+  }, []);
+
   useEffect(() => {
     const previous = document.title;
     document.title = "Case Studies | Reputation360";
@@ -314,56 +131,250 @@ export default function CaseStudiesPage() {
   }, []);
 
   return (
-    <main className="flex-1 bg-[#f9f9ff] pt-28 md:pt-32">
-      <header className="mx-auto mb-14 max-w-6xl px-4 text-center md:mb-20 md:px-8">
-        <h1 className="font-heading text-[30px] font-extrabold leading-tight tracking-tight text-[#02254d] md:text-[44px] lg:text-[52px]">
-          <span className="block">Restoring Reputation</span>
-          <span className="mt-1 block text-[#35618e] md:mt-1.5">
-            Across Industries
-          </span>
-        </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-relaxed text-[#43474e] md:mt-6 md:text-[16px] lg:text-lg">
-          Detailed analysis of how we restore trust, neutralize misinformation,
-          and rebuild digital legacies for the world&apos;s most critical
-          stakeholders.
-        </p>
-      </header>
-
-      <div className="mx-auto max-w-6xl space-y-20 px-4 md:space-y-28 md:px-8 lg:space-y-32">
-        {cases.map((study) => (
-          <CaseStudySection key={study.title} study={study} />
-        ))}
+    <main className="relative min-h-0 flex-1 overflow-x-hidden bg-slate-50 pt-32 text-slate-900 sm:pt-36 md:pt-40 lg:pt-44">
+      <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_15%_-5%,rgba(120,200,100,0.2),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_95%_0%,rgba(100,150,200,0.12),transparent_45%)]" />
+        <div className="absolute bottom-0 left-0 right-0 top-1/3 bg-gradient-to-b from-transparent to-slate-100/90" />
+        <div
+          className="absolute inset-0 opacity-[0.35] mix-blend-multiply"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M64 0H0V64' fill='none' stroke='%23cbd5e1' stroke-width='0.5'/%3E%3C/svg%3E")`,
+            backgroundSize: "64px 64px",
+          }}
+        />
+        <Motion.div
+          className="absolute -left-20 top-24 h-64 w-64 rounded-full bg-[#4CAF50]/20 blur-3xl"
+          animate={{ x: [0, 24, 0], y: [0, 12, 0] }}
+          transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        />
+        <Motion.div
+          className="absolute -right-10 top-1/3 h-72 w-72 rounded-full bg-sky-200/40 blur-3xl"
+          animate={{ x: [0, -16, 0], y: [0, -20, 0] }}
+          transition={{ duration: 14, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        />
       </div>
 
-      <section className="mx-auto mt-20 max-w-4xl px-4 pb-16 md:mt-28 md:px-8 md:pb-24">
-        <div className="relative overflow-hidden rounded-[1.75rem] bg-[#02254d] p-10 text-center shadow-2xl md:rounded-[2rem] md:p-16 lg:p-20">
-          <div className="pointer-events-none absolute top-0 right-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-[#35618e]/20 blur-3xl" />
-          <div className="pointer-events-none absolute bottom-0 left-0 h-64 w-64 -translate-x-1/2 translate-y-1/2 rounded-full bg-[#78dc77]/10 blur-3xl" />
-          <h2 className="relative z-10 font-heading text-[26px] font-extrabold text-white md:text-4xl lg:text-5xl">
-            Start Your Own{" "}
-            <span className="text-[#78dc77]">Success Story.</span>
-          </h2>
-          <p className="relative z-10 mx-auto mt-4 max-w-2xl text-[15px] text-[#8ca6d5] md:mt-6 md:text-[17px] lg:text-lg">
-            Your reputation is your most valuable asset. Don&apos;t leave it to
-            chance. Partner with Reputation360 and take control of your digital
-            narrative today.
+      <header className="relative mx-auto max-w-5xl px-4 pb-6 text-center md:px-6">
+        <Motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <h1 className="font-heading text-[1.9rem] font-extrabold leading-[1.08] tracking-tight sm:text-4xl md:text-5xl lg:text-[3.15rem]">
+            <span className="text-slate-900">Case</span>{" "}
+            <span className="bg-gradient-to-r from-[#2d8a2d] via-[#4CAF50] to-[#2E5B88] bg-clip-text text-transparent">
+              Studies
+            </span>
+          </h1>
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-[1.75] text-steel sm:text-lg sm:leading-relaxed md:mt-6">
+            Detailed analysis of how we restore trust, neutralize misinformation, and rebuild
+            digital legacies.
           </p>
-          <div className="relative z-10 mt-8 flex flex-col items-center justify-center gap-3 md:mt-10 md:flex-row md:gap-4">
-            <a
-              {...calendlyNewTabProps}
-              className="ha-pill inline-flex w-full items-center justify-center rounded-xl bg-cta-consult px-10 py-3.5 text-sm font-bold text-white shadow-lg shadow-cta-consult/30 transition hover:brightness-95 active:scale-[0.98] md:w-auto md:text-base lg:px-12 lg:py-4 lg:text-lg"
-            >
-              Get My Free Audit
-            </a>
-            <a
-              {...calendlyNewTabProps}
-              className="ha-pill inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/10 px-10 py-3.5 text-sm font-bold text-white backdrop-blur-md hover:bg-white/20 md:w-auto md:text-base lg:px-12 lg:py-4 lg:text-lg"
-            >
-              Talk to an Expert
-            </a>
+        </Motion.div>
+      </header>
+
+      <div className="sticky top-[4.5rem] z-30 -mx-0 border-b border-slate-200/80 bg-slate-50/90 shadow-[0_6px_32px_-8px_rgba(15,35,60,0.1)] backdrop-blur-md md:top-16">
+        <div className="mx-auto max-w-6xl space-y-0 px-4 py-5 md:px-6 md:py-6">
+          <div
+            className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-gradient-to-b from-white via-white to-slate-50/90 p-5 shadow-[0_1px_2px_rgba(15,35,60,0.04),0_12px_32px_-12px_rgba(15,35,60,0.08)] ring-1 ring-slate-200/50 sm:p-6"
+          >
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#2d8a2d] via-[#4CAF50] to-sky-500/70"
+              aria-hidden
+            />
+            <div className="space-y-6 sm:space-y-7">
+              <div className="flex justify-end border-b border-slate-200/60 pb-5 sm:pb-6">
+                <Motion.button
+                  type="button"
+                  onClick={resetFilters}
+                  whileTap={{ scale: 0.96 }}
+                  className="w-full shrink-0 rounded-xl border-2 border-slate-200/90 bg-slate-50/80 px-4 py-2.5 text-sm font-bold text-slate-800 shadow-sm transition hover:border-[#4CAF50]/55 hover:bg-[#4CAF50]/8 sm:w-auto"
+                >
+                  Clear filters
+                </Motion.button>
+              </div>
+
+          {industryChips.length > 0 ? (
+            <div>
+              <p className="mb-3 text-sm font-extrabold uppercase tracking-wider text-slate-600">
+                Quick industries
+              </p>
+              <div className="flex flex-wrap gap-2.5" role="group" aria-label="Filter by industry">
+                {industryChips.map((ind) => {
+                  const on = industry === ind;
+                  return (
+                    <Motion.button
+                      key={ind}
+                      type="button"
+                      onClick={() => setIndustry(on ? ALL : ind)}
+                      whileTap={{ scale: 0.96 }}
+                      className={[
+                        "max-w-full truncate rounded-full border-2 px-4 py-2 text-left text-sm font-bold leading-snug transition",
+                        on
+                          ? "border-[#3d9a3d] bg-gradient-to-b from-[#4CAF50]/18 to-[#4CAF50]/10 text-navy shadow-sm ring-1 ring-[#4CAF50]/20"
+                          : "border-slate-200/90 bg-white text-slate-800 shadow-sm hover:-translate-y-px hover:border-slate-300 hover:shadow-md",
+                      ].join(" ")}
+                      title={ind}
+                    >
+                      {ind.length > 42 ? `${ind.slice(0, 40)}…` : ind}
+                    </Motion.button>
+                  );
+                })}
+              </div>
+            </div>
+          ) : null}
+
+          <div
+            className="group grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4"
+            role="group"
+            aria-label="Refine by industry, profile, challenge, and duration"
+          >
+            {[
+              {
+                id: "f-ind",
+                label: "Industry",
+                value: industry,
+                set: setIndustry,
+                opts: industryOptions,
+              },
+              {
+                id: "f-pro",
+                label: "Profile",
+                value: profile,
+                set: setProfile,
+                opts: profileOptions,
+              },
+              {
+                id: "f-cha",
+                label: "Challenge type",
+                value: challenge,
+                set: setChallenge,
+                opts: challengeOptions,
+              },
+              {
+                id: "f-dur",
+                label: "Duration",
+                value: duration,
+                set: setDuration,
+                opts: durationOptions,
+              },
+            ].map(({ id, label, value, set, opts }) => (
+              <div key={id} className="group/field">
+                <label
+                  className="mb-2 block text-left text-sm font-extrabold uppercase tracking-wider text-slate-600"
+                  htmlFor={id}
+                >
+                  {label}
+                </label>
+                <div className="relative">
+                  <select
+                    id={id}
+                    className={baseSelectClass}
+                    value={value}
+                    onChange={(e) => set(e.target.value)}
+                    title={value}
+                  >
+                    {opts.map((o) => (
+                      <option key={o} value={o} title={o === ALL ? "" : o}>
+                        {o === ALL ? "All" : o}
+                      </option>
+                    ))}
+                  </select>
+                  <SelectChevron />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {hasActive ? (
+            <div className="flex min-h-0 flex-col gap-2.5 border-t border-slate-200/80 pt-5 sm:pt-6">
+              <p className="text-sm font-extrabold uppercase tracking-wider text-slate-600">
+                Active
+              </p>
+              <div className="flex min-h-0 flex-wrap items-center gap-2">
+                {industry !== ALL && (
+                  <ActiveChip
+                    onRemove={() => setIndustry(ALL)}
+                    title={industry}
+                  >
+                    {industry}
+                  </ActiveChip>
+                )}
+                {profile !== ALL && (
+                  <ActiveChip
+                    onRemove={() => setProfile(ALL)}
+                    title={profile}
+                  >
+                    {profile}
+                  </ActiveChip>
+                )}
+                {challenge !== ALL && (
+                  <ActiveChip
+                    onRemove={() => setChallenge(ALL)}
+                    title={challenge}
+                  >
+                    {challenge}
+                  </ActiveChip>
+                )}
+                {duration !== ALL && (
+                  <ActiveChip
+                    onRemove={() => setDuration(ALL)}
+                    title={duration}
+                  >
+                    {duration}
+                  </ActiveChip>
+                )}
+                <span className="ml-auto text-sm font-semibold text-slate-600">
+                  {filtered.length} result{filtered.length === 1 ? "" : "s"}
+                </span>
+              </div>
+            </div>
+          ) : null}
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      {filtered.length === 0 ? (
+        <Motion.div
+          className="mx-auto max-w-lg px-4 py-20 text-center md:px-6"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+        >
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 bg-white text-3xl shadow-sm">
+            <Filter className="h-8 w-8 text-slate-400" />
+          </div>
+          <p className="font-heading text-lg font-bold text-slate-900">
+            Nothing matches
+          </p>
+          <p className="mt-2 text-sm text-slate-600">
+            Remove a filter or clear all to see the full set of 16 case studies.
+          </p>
+          <Motion.button
+            type="button"
+            onClick={resetFilters}
+            whileTap={{ scale: 0.97 }}
+            className="mt-6 inline-flex items-center justify-center rounded-xl border-2 border-slate-200 bg-white px-5 py-2.5 text-sm font-bold text-slate-900 shadow-sm transition hover:border-[#4CAF50]/50 hover:bg-slate-50"
+          >
+            Reset filters
+          </Motion.button>
+        </Motion.div>
+      ) : (
+        <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-14 sm:pt-16 md:px-6 md:pb-12 md:pt-20">
+          <ul className="list-none space-y-6 sm:space-y-7 md:space-y-8">
+            <AnimatePresence mode="popLayout">
+              {filtered.map((c, i) => (
+                <CaseStudyListCard key={c.n} study={c} index={i} />
+              ))}
+            </AnimatePresence>
+          </ul>
+        </div>
+      )}
+
+      <div className="mt-6 pb-16 md:mt-8 md:pb-24">
+        <CaseStudyPageCta />
+      </div>
     </main>
   );
 }

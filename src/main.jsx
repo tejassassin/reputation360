@@ -14,6 +14,7 @@ import ExecutivesPage from "./pages/ExecutivesPage.jsx";
 import BusinessesPage from "./pages/BusinessesPage.jsx";
 import IndividualsPage from "./pages/IndividualsPage.jsx";
 import CaseStudiesPage from "./pages/CaseStudiesPage.jsx";
+import CaseStudyDetailPage from "./pages/CaseStudyDetailPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import FaqsPage from "./pages/FaqsPage.jsx";
 import InsightsBlogsPage from "./pages/InsightsBlogsPage.jsx";
@@ -34,6 +35,10 @@ function pageForPath(path) {
   if (path === "/services/executives") return <ExecutivesPage />;
   if (path === "/services/businesses") return <BusinessesPage />;
   if (path === "/services/individuals") return <IndividualsPage />;
+  const caseStudyPath = path.match(/^\/case-studies\/(\d+)$/);
+  if (caseStudyPath) {
+    return <CaseStudyDetailPage caseId={parseInt(caseStudyPath[1], 10)} />;
+  }
   if (path === "/case-studies") return <CaseStudiesPage />;
   if (path === "/contact") return <ContactPage />;
   if (path === "/resources/blogs") return <InsightsBlogsPage />;
@@ -53,7 +58,7 @@ const page = pageForPath(normalizedPath);
 
 const rootEl = document.getElementById("root");
 if (!rootEl) {
-  throw new Error("Missing #root — check index.html");
+  throw new Error("Missing #root - check index.html");
 }
 
 createRoot(rootEl).render(

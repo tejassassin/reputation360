@@ -436,7 +436,7 @@ function HowItAllBeganStory() {
     if (!el) return undefined;
     const obs = new IntersectionObserver(
       ([e]) => {
-        // Any visible overlap counts — strict ratio checks broke keys at many scroll positions.
+        // Any visible overlap counts - strict ratio checks broke keys at many scroll positions.
         sectionInViewRef.current = !!e?.isIntersecting;
       },
       { rootMargin: "0px 0px -6% 0px", threshold: [0, 0.01, 0.05, 0.1, 0.25] },
@@ -522,7 +522,7 @@ function HowItAllBeganStory() {
         <div
           className="mt-10 flex flex-col gap-10 lg:mt-12 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,20rem)] lg:items-start lg:gap-12"
           role="list"
-          aria-label="Our story — eight steps; use the timeline, Prev, Next, or arrow keys to navigate"
+          aria-label="Our story - eight steps; use the timeline, Prev, Next, or arrow keys to navigate"
         >
           {/* Main detail card (left on desktop) */}
           <div className="order-1 lg:order-1">
