@@ -32,12 +32,9 @@ function OurServices() {
 
       <div className="relative mx-auto w-full max-w-[min(100%,1720px)] px-4 sm:px-6 lg:px-10 xl:px-14 2xl:px-20">
         <div className="mx-auto mb-5 max-w-5xl text-center md:mb-6 lg:max-w-6xl">
-          <p className="font-heading text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400/90 sm:text-xs">
-            Services
-          </p>
           <h2
             id="our-services-heading"
-            className="mt-2 font-heading text-4xl font-bold tracking-tight text-white md:text-5xl"
+            className="font-heading text-4xl font-bold tracking-tight text-white md:text-5xl"
           >
             Our Services
           </h2>

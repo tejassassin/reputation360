@@ -189,8 +189,7 @@ export function OurServicesGrid() {
           className="font-medium text-[#4ade80] underline decoration-[#4ade80]/40 underline-offset-4 transition hover:text-[#86efac] hover:decoration-[#86efac]/50"
         >
           View the full Services page
-        </a>{" "}
-        for deliverables, sequencing, and engagement models.
+        </a>
       </p>
     </div>
   );
