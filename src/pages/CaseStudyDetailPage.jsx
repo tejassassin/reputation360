@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion as Motion } from "motion/react";
-import { ArrowLeft, Building2, ChevronDown, List, User } from "lucide-react";
+import { ArrowLeft, Building2, Fingerprint, List, User } from "lucide-react";
 import { CASE_STUDIES_FOOTER, getCaseStudyByN } from "../data/caseStudies/index.js";
+import { caseStudySectionNavLetter } from "../lib/caseStudyNavPointer.js";
 import { caseStudySectionSlug } from "../lib/caseStudySectionSlug.js";
 import { CaseStudyPageCta } from "../components/CaseStudyPageCta.jsx";
 import { CaseStudySectionBlock } from "../components/CaseStudySectionBlock.jsx";
@@ -47,13 +48,13 @@ export default function CaseStudyDetailPage({ caseId }) {
   const study = getCaseStudyByN(caseId);
   const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState(null);
-  const [mobileTocOpen, setMobileTocOpen] = useState(false);
 
   const sectionIds = useMemo(() => {
     if (!study) return [];
     return study.sections.map((s, i) => ({
       id: `s-${i}-${caseStudySectionSlug(s.heading)}`,
       short: s.heading,
+      letter: caseStudySectionNavLetter(s.heading),
     }));
   }, [study]);
 
@@ -79,14 +80,18 @@ export default function CaseStudyDetailPage({ caseId }) {
     if (elts.length === 0) return undefined;
     const ob = new IntersectionObserver(
       (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting && e.intersectionRatio > 0.1) {
-            setActiveSection(e.target.id);
-            break;
-          }
+        const hits = entries.filter(
+          (e) => e.isIntersecting && e.target instanceof HTMLElement,
+        );
+        if (hits.length === 0) return;
+        const best = hits.sort(
+          (a, b) => b.intersectionRatio - a.intersectionRatio,
+        )[0];
+        if (best?.target?.id) {
+          setActiveSection(best.target.id);
         }
       },
-      { rootMargin: "-20% 0px -50% 0px", threshold: [0, 0.1, 0.25, 0.5] },
+      { rootMargin: "-15% 0px -40% 0px", threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] },
     );
     for (const el of elts) {
       if (el) ob.observe(el);
@@ -120,7 +125,7 @@ export default function CaseStudyDetailPage({ caseId }) {
   }
 
   return (
-    <main className="relative min-h-0 flex-1 overflow-x-hidden bg-slate-50 pt-24 text-slate-900 md:pt-28">
+    <main className="relative min-h-0 flex-1 bg-slate-50 pt-24 text-slate-900 md:pt-28">
       <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_15%_-5%,rgba(120,200,100,0.2),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_95%_0%,rgba(100,150,200,0.12),transparent_45%)]" />
@@ -166,9 +171,9 @@ export default function CaseStudyDetailPage({ caseId }) {
           All case studies
         </Motion.a>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr),15rem] lg:items-start lg:gap-10">
-          <article className="min-w-0">
-            <Motion.header
+        <div className="items-start gap-0 lg:grid lg:grid-cols-[minmax(0,1fr),9.5rem] lg:gap-8 xl:grid-cols-[minmax(0,1fr),10.5rem] xl:gap-10">
+        <article className="min-w-0 lg:min-w-0">
+          <Motion.header
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               whileHover={{ y: -2, transition: { type: "spring", stiffness: 400, damping: 35 } }}
@@ -190,76 +195,49 @@ export default function CaseStudyDetailPage({ caseId }) {
                   <h1 className="mt-1 font-heading text-2xl font-extrabold leading-tight tracking-tight text-navy sm:text-3xl md:text-[2rem] md:leading-tight">
                     {study.listTitle}
                   </h1>
-                  <p className="mt-3 text-base leading-relaxed text-steel sm:text-lg sm:leading-relaxed">
-                    {study.challengeType}
-                  </p>
-                  <div className="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-                    <MetaPill icon={Building2} k="Industry" v={study.industry} />
-                    <MetaPill icon={User} k="Profile" v={study.profile} />
+                  <div className="mt-6 flex flex-col gap-2.5 sm:gap-3">
+                    <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3 sm:items-stretch">
+                      <MetaPill icon={Building2} k="Industry" v={study.industry} />
+                      <MetaPill icon={User} k="Profile" v={study.profile} />
+                    </div>
+                    <MetaPill
+                      icon={Fingerprint}
+                      k="Challenge"
+                      v={study.challengeType}
+                      variant="wide"
+                    />
                   </div>
                 </div>
               </div>
-            </Motion.header>
+          </Motion.header>
 
-            {study.sections.map((section, i) => {
-              const id = `s-${i}-${caseStudySectionSlug(section.heading)}`;
-              return (
-                <CaseStudySectionBlock
-                  key={id}
-                  id={id}
-                  section={section}
-                  index={i}
-                />
-              );
-            })}
-
-            <div className="mt-5 rounded-2xl border-2 border-slate-200/80 bg-white/90 p-4 text-sm leading-relaxed text-slate-600 shadow-sm md:mt-6 md:p-5">
-              {CASE_STUDIES_FOOTER}
-            </div>
-          </article>
-
-          <aside className="min-w-0 lg:sticky lg:top-32 lg:max-h-[min(90vh,52rem)] lg:overflow-y-auto">
-            <button
-              type="button"
-              className="mb-0 flex w-full items-center justify-between gap-2 rounded-2xl border-2 border-slate-200/80 bg-white px-3.5 py-2.5 text-left font-bold text-navy shadow-sm transition hover:border-slate-300/90 hover:shadow md:mb-0 lg:mb-3"
-              onClick={() => setMobileTocOpen((o) => !o)}
-              aria-expanded={mobileTocOpen}
-            >
-              <span className="flex items-center gap-1.5 text-sm">
-                <List className="h-4 w-4 text-[#2d8a2d]" />
-                On this page
-              </span>
-              <ChevronDown
-                className={`h-4 w-4 shrink-0 text-slate-500 transition ${mobileTocOpen ? "rotate-180" : ""}`}
-              />
-            </button>
-            <nav
-              className={`
-                relative overflow-hidden rounded-2xl border-2 border-slate-200/80 bg-gradient-to-b from-white to-slate-50/90 p-3 shadow-md ring-1 ring-slate-200/40
-                max-lg:transition-all max-lg:duration-200
-                ${mobileTocOpen ? "mt-1 max-h-[50vh] max-lg:block" : "max-h-0 max-lg:overflow-hidden max-lg:border-0 max-lg:opacity-0 max-lg:shadow-none max-lg:mt-0 max-lg:p-0 max-lg:ring-0 max-lg:translate-y-[-0.5rem]"}
-                lg:mt-0 lg:max-h-none lg:translate-y-0 lg:opacity-100
-              `}
-              aria-label="On this page"
-            >
-              <p className="px-0.5 pb-2 text-xs font-extrabold uppercase tracking-wider text-slate-500">
-                Sections
-              </p>
-              <ul className="max-h-[40vh] space-y-0.5 overflow-y-auto p-0.5 pr-0.5 lg:max-h-[calc(100vh-12rem)]">
+          <nav
+            className="sticky top-24 z-[45] mt-4 border-b border-slate-200/90 bg-slate-50/90 py-2.5 pl-0 pr-0 shadow-[0_1px_0_0_rgba(15,35,60,0.04),0_4px_16px_-8px_rgba(15,35,60,0.1)] supports-[backdrop-filter]:bg-slate-50/75 supports-[backdrop-filter]:backdrop-blur sm:mt-5 sm:py-3 md:mt-6 lg:hidden"
+            aria-label="On this page"
+          >
+            <p className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-slate-500">
+              <List className="h-3.5 w-3.5 text-[#2d8a2d]" aria-hidden />
+              On this page
+            </p>
+            <div className="mt-2.5 -mx-1 flex overflow-x-auto overflow-y-hidden pb-1 [scrollbar-width:thin] sm:mt-3 sm:mx-0 sm:overflow-x-visible sm:pb-0">
+              <ul className="m-0 flex w-max list-none flex-nowrap items-stretch gap-2 p-0 sm:w-auto sm:flex-wrap sm:gap-2.5">
                 {sectionIds.map((s) => {
                   const tocActive = activeSection ?? sectionIds[0]?.id;
                   const active = tocActive === s.id;
                   return (
-                    <li key={s.id}>
+                    <li key={s.id} className="m-0 shrink-0 p-0">
                       <a
                         href={`#${s.id}`}
-                        onClick={() => setMobileTocOpen(false)}
+                        onClick={() => {
+                          setActiveSection(s.id);
+                        }}
                         className={[
-                          "block w-full min-w-0 rounded-xl border border-transparent py-2 pl-2.5 pr-1 text-left text-xs font-medium leading-snug transition sm:text-[13px]",
+                          "block max-w-[16rem] whitespace-nowrap rounded-full border border-transparent px-3 py-1.5 text-left text-xs font-medium leading-tight transition sm:max-w-none sm:px-3.5 sm:py-2 sm:text-[13px] sm:whitespace-normal",
                           active
-                            ? "border-[#4CAF50]/35 bg-[#4CAF50]/10 text-navy font-semibold shadow-sm"
-                            : "text-slate-600 hover:border-slate-200/90 hover:bg-white hover:text-navy",
+                            ? "border-[#4CAF50]/40 bg-[#4CAF50]/12 font-semibold text-navy shadow-sm"
+                            : "border-slate-200/90 bg-white text-slate-600 shadow-sm hover:border-slate-300/90 hover:text-navy",
                         ].join(" ")}
+                        title={s.short}
                       >
                         {s.short}
                       </a>
@@ -267,8 +245,74 @@ export default function CaseStudyDetailPage({ caseId }) {
                   );
                 })}
               </ul>
-            </nav>
-          </aside>
+            </div>
+          </nav>
+
+          {study.sections.map((section, i) => {
+            const id = `s-${i}-${caseStudySectionSlug(section.heading)}`;
+            return (
+              <CaseStudySectionBlock
+                key={id}
+                id={id}
+                section={section}
+                index={i}
+              />
+            );
+          })}
+
+          <div className="mt-5 w-full overflow-x-auto text-center [scrollbar-width:thin] md:mt-6">
+            <p className="m-0 inline-block whitespace-nowrap text-sm text-steel">
+              {CASE_STUDIES_FOOTER}
+            </p>
+          </div>
+        </article>
+
+        <aside
+          className="mt-0 hidden w-full min-w-0 self-start pl-0 lg:sticky lg:top-32 lg:z-[44] lg:mt-0 lg:block lg:max-h-[min(90vh,52rem)] lg:overflow-y-auto lg:overflow-x-hidden"
+          aria-label="On this page"
+        >
+          <p className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-slate-500">
+            <List className="h-3.5 w-3.5 text-[#2d8a2d]" aria-hidden />
+            On this page
+          </p>
+          <ul className="m-0 mt-3 list-none p-0">
+            {sectionIds.map((s) => {
+              const tocActive = activeSection ?? sectionIds[0]?.id;
+              const active = tocActive === s.id;
+              return (
+                <li key={s.id} className="m-0 p-0">
+                  <a
+                    href={`#${s.id}`}
+                    onClick={() => {
+                      setActiveSection(s.id);
+                    }}
+                    className={[
+                      "group/p flex w-full min-w-0 max-w-full items-baseline gap-2.5 rounded-r-lg border-l-2 border-transparent py-1.5 pl-1 pr-0.5 text-left text-sm font-semibold tabular-nums text-current transition",
+                      active
+                        ? "border-l-[#4CAF50] text-navy"
+                        : "text-slate-600 hover:text-navy",
+                    ].join(" ")}
+                    title={s.short}
+                  >
+                    <span className="sr-only">{s.short}</span>
+                    <span
+                      className={[
+                        "mt-[0.4rem] h-1.5 w-1.5 shrink-0 rounded-full transition",
+                        active
+                          ? "bg-[#2d8a2d] shadow-sm"
+                          : "bg-slate-500 group-hover/p:bg-slate-600",
+                      ].join(" ")}
+                      aria-hidden
+                    />
+                    <span className="text-base" aria-hidden>
+                      {s.letter}
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </aside>
         </div>
       </div>
 
@@ -284,22 +328,50 @@ export default function CaseStudyDetailPage({ caseId }) {
  * @param {import('lucide-react').LucideIcon} props.icon
  * @param {string} props.k
  * @param {string} props.v
+ * @param {'default' | 'wide'} [props.variant]
  * @param {string} [props.className]
  */
-function MetaPill({ icon, k, v, className = "" }) {
+function MetaPill({ icon, k, v, variant = "default", className = "" }) {
   const Icon = icon;
+  const isWide = variant === "wide";
   return (
     <div
-      className={`flex min-h-0 items-start gap-2.5 rounded-2xl border-2 border-slate-200/80 bg-white/90 p-3 transition hover:border-slate-300/90 hover:shadow-sm ${className}`}
+      className={[
+        "flex min-h-0 rounded-2xl border-2 border-slate-200/80 bg-white/90 transition hover:border-slate-300/90 hover:shadow-sm",
+        isWide
+          ? "items-start gap-3 p-3.5 sm:gap-4 sm:p-4"
+          : "h-full min-h-0 items-start gap-2.5 p-3.5",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
     >
-      <div className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-navy/90 text-white shadow-inner">
-        <Icon className="h-4 w-4" strokeWidth={1.8} />
+      <div
+        className={`grid shrink-0 place-items-center rounded-xl bg-navy/90 text-white shadow-inner ${isWide ? "mt-0.5 h-9 w-9 sm:h-10 sm:w-10" : "h-8 w-8"}`}
+      >
+        <Icon
+          className={isWide ? "h-4 w-4 sm:h-[1.15rem] sm:w-[1.15rem]" : "h-4 w-4"}
+          strokeWidth={1.8}
+        />
       </div>
-      <div className="min-w-0 text-left text-sm leading-tight">
+      <div className="min-w-0 flex-1 text-left">
         <p className="text-[0.7rem] font-extrabold uppercase tracking-wider text-slate-500 sm:text-xs">
           {k}
         </p>
-        <p className="mt-0.5 break-words font-semibold text-slate-800">{v}</p>
+        <p
+          className={[
+            "mt-1 text-slate-800",
+            isWide
+              ? "break-words text-sm font-medium leading-relaxed [text-wrap:pretty] sm:text-[0.95rem] sm:leading-[1.55]"
+              : k === "Profile"
+                ? "min-w-0 text-sm font-semibold leading-normal whitespace-nowrap"
+                : "break-words text-sm font-semibold leading-snug [text-wrap:balance]",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        >
+          {v}
+        </p>
       </div>
     </div>
   );

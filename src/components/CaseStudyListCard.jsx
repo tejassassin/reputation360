@@ -90,7 +90,12 @@ export function CaseStudyListCard({ study, index }) {
                       <p className="text-[0.7rem] font-extrabold uppercase tracking-wider text-steel transition group-hover/meta:text-navy sm:text-xs">
                         {row.label}
                       </p>
-                      <p className="mt-1.5 text-[0.9rem] font-medium leading-snug text-navy transition group-hover/meta:text-charcoal sm:text-base sm:leading-normal">
+                      <p
+                        className={`mt-1.5 text-[0.9rem] font-medium leading-normal text-navy transition group-hover/meta:text-charcoal sm:text-base ${
+                          row.label === "Profile" ? "whitespace-nowrap" : "leading-snug sm:leading-normal"
+                        }`}
+                        title={row.label === "Profile" ? row.value : undefined}
+                      >
                         {row.value}
                       </p>
                     </div>
@@ -111,10 +116,13 @@ export function CaseStudyListCard({ study, index }) {
             <div className="mt-6 border-t border-slate-200/80 pt-5 sm:mt-8 sm:pt-6">
               <a
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group/cta inline-flex w-full max-w-full items-center justify-between gap-3 rounded-2xl text-left outline-none transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-offwhite"
               >
                 <span className="text-base font-bold text-navy sm:text-lg">
                   Read the full case
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </span>
                 <span
                   className="grid h-11 w-11 shrink-0 place-items-center rounded-full border-2 border-slate-200/90 bg-offwhite/80 text-navy shadow-sm transition duration-300 group-hover:scale-105 group-hover:translate-x-0.5 group-hover:shadow-md group-hover/cta:translate-x-0.5 group-hover/cta:border-navy/30 group-hover/cta:bg-navy group-hover/cta:text-offwhite group-hover/cta:shadow-lg sm:h-12 sm:w-12"

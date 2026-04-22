@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "39-year-old Consultant Physician, private and hospital practice",
   challengeType: "Alleged clinical error & negative media coverage",
   duration: "11 months",
+  summary:
+    "A consultant physician faced high-visibility, speculative stories while a hospital review was still open, and new bookings dropped. The work restored ethical, evidence-aligned visibility without running a parallel debate online.",
   sections: [
     {
       heading: "The Challenge",

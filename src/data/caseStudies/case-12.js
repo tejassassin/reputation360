@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "41-year-old Family Law Solicitor, boutique practice",
   challengeType: "Targeted negative review campaign & personal blog attack",
   duration: "8 months",
+  summary:
+    "A client-led campaign hammered an average star rating and pushed a name-blog up search in weeks. The plan combined platform hygiene, defensible response patterns, and durable owned proof of the practice’s work.",
   sections: [
     {
       heading: "The Challenge",

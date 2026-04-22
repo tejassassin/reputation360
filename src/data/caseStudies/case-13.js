@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "49-year-old Independent Financial Adviser (IFA)",
   challengeType: "Association with a collapsed third-party investment fund",
   duration: "13 months",
+  summary:
+    "The IFA was named in consumer and press materials alongside a fund failure he had not been disciplined over — but the association stuck in SERPs. The strategy respected permanent regulatory URLs while building displacement around scope of advice and long record.",
   sections: [
     {
       heading: "The Challenge",

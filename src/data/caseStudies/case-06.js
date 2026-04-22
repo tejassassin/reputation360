@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "Mid-sized Consumer Electronics Brand (15 years in operation, $120M annual revenue)",
   challengeType: "Product defect controversy & widespread customer backlash",
   duration: "14 months",
+  summary:
+    "A defect-driven recall and national press coverage pushed complaints and review threads ahead of the brand’s own site in search, and sales fell hard. The programme aimed to make constructive, fact-led presence competitive with the crisis narrative.",
   sections: [
     {
       heading: "The Challenge",

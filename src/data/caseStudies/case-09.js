@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "44-year-old Consultant Surgeon, private and NHS practice",
   challengeType: "Patient complaint amplified by local media & review platforms",
   duration: "9 months",
+  summary:
+    "A single patient thread escalated into one-star platforms and a local health headline, with the surgeon’s own site buried. The case was about regaining a fair, proportionate first page without unsafe claims.",
   sections: [
     {
       heading: "The Challenge",

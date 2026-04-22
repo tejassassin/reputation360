@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "52-year-old Senior Partner, mid-size commercial law firm",
   challengeType: "High-profile case loss covered extensively by legal press",
   duration: "14 months",
+  summary:
+    "A high-stakes loss tied the partner’s name to a harsh verdict in trade and national search — above his own firm’s bio. The work balanced accuracy about the docket with a long arc of new authority and third-party context.",
   sections: [
     {
       heading: "The Challenge",

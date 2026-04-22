@@ -8,14 +8,16 @@ const caseStudy = {
   profile: "48-year-old Founder & Managing Director",
   challengeType: "Leadership controversy & media speculation",
   duration: "12 months",
+  summary:
+    "A B2B SaaS founder was losing Page 1 to speculative industry coverage and strained board and investor trust. The engagement was built to displace noise with owned authority, not to debate the allegations in public.",
   sections: [
     {
       heading: "The Challenge",
       body: `A founder of a B2B SaaS platform serving mid-market operations firms faced serious reputational strain after internal leadership allegations sparked speculative commentary across industry media. Within weeks, opinion-driven narratives had taken hold across:
 
-Niche SaaS and technology industry publications
-Commentary and opinion blogs with moderate domain authority
-Syndicated business content platforms republishing the original allegations
+• Niche SaaS and technology industry publications
+• Commentary and opinion blogs with moderate domain authority
+• Syndicated business content platforms republishing the original allegations
 
 Page 1 and Page 2 were dominated by critical opinion pieces. Investor calls became strained. Two board-level stakeholders privately flagged concerns about the founder's continued visibility as the company's public face.`,
     },

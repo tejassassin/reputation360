@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "Fast-growing D2C Brand (7+ years in operation, £6M annual revenue)",
   challengeType: "Counterfeit product allegations & customer trust erosion",
   duration: "10 months",
+  summary:
+    "Disputed orders snowballed into broad authenticity concerns across forums, video, and comparison sites, eroding trust in a week. The work focused on verifiable product story, support tone, and assets that could rank alongside the doubt.",
   sections: [
     {
       heading: "The Challenge",

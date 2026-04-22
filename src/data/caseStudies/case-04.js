@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "44-year-old HR Director & Independent Consultant",
   challengeType: "Wrongful termination allegation & LinkedIn controversy",
   duration: "13 months",
+  summary:
+    "A public wrongful-termination story spread across social and review sites, and clients froze new engagements. The plan moved attention back to a verified, owned narrative the consultant could stand behind in search.",
   sections: [
     {
       heading: "The Challenge",

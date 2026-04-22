@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "34-year-old Senior Product Manager",
   challengeType: "Named in Glassdoor reviews & professional community forum posts following layoffs",
   duration: "6 months",
+  summary:
+    "After layoffs, named Glassdoor and forum threads lingered in screening searches ahead of a strong LinkedIn. The case focused on displaceable surfaces and a refreshed public CV that could carry weight in results.",
   sections: [
     {
       heading: "The Challenge",

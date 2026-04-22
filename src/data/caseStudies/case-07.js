@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "VC-backed Startup (Series B stage, $18M raised, 5+ years in operation)",
   challengeType: "Investor dispute & funding controversy coverage",
   duration: "12 months",
+  summary:
+    "A public rift over a Series B round put governance and solvency rumours in the tech press, slowing hiring and a major renewal. The goal was to earn back share of top results with credible company and leader-led content.",
   sections: [
     {
       heading: "The Challenge",

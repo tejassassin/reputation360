@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "45-year-old Senior Finance Executive (CFO-level)",
   challengeType: "Wrongful dismissal claim by a former employer, covered in business press",
   duration: "10 months",
+  summary:
+    "A CFO exit framed as irregularity hit business press, while a later Tribunal vindication never made the same footprint online. The programme aligned compliance listings with a coherent executive narrative in search.",
   sections: [
     {
       heading: "The Challenge",

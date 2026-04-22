@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "38-year-old GP Partner, multi-site practice",
   challengeType: "Misattributed negative content & online forum speculation",
   duration: "7 months",
+  summary:
+    "A forum thread and watchdog mention actually referred to another doctor with a similar name, yet both ranked for this GP and cost new registrations. Clarifying misattribution and building correct identity signals was the priority.",
   sections: [
     {
       heading: "The Challenge",

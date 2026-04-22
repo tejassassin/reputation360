@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "24-year-old Recent Graduate",
   challengeType: "Local news coverage of a physical altercation resurfacing during employment screening",
   duration: "5 months",
+  summary:
+    "An old local incident article jumped back to Page 1 in time to sink a final-round offer, with almost no positive identity online. The work gave recruiters a current, professional story that outranked a tired headline.",
   sections: [
     {
       heading: "The Challenge",

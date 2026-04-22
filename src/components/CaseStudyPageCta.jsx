@@ -13,11 +13,11 @@ export function CaseStudyPageCta() {
           className="pointer-events-none absolute bottom-0 left-0 h-64 w-64 -translate-x-1/2 translate-y-1/2 rounded-full bg-[#4CAF50]/15 blur-3xl"
           aria-hidden
         />
-        <h2 className="relative z-10 font-heading text-2xl font-extrabold text-white md:text-4xl lg:text-5xl">
+        <h2 className="relative z-10 font-heading text-2xl font-extrabold leading-snug text-white sm:text-3xl md:text-4xl lg:text-[2.35rem]">
           Start Your Own{" "}
           <span className="text-[#78dc77]">Success Story.</span>
         </h2>
-        <p className="relative z-10 mx-auto mt-4 max-w-2xl text-sm text-[#8ca6d5] md:mt-6 md:text-base md:text-[17px] lg:text-lg">
+        <p className="relative z-10 mx-auto mt-4 max-w-2xl text-sm text-white/70 md:mt-6 md:text-base md:text-lg">
           Your reputation is your most valuable asset. Don&apos;t leave it to
           chance. Partner with us and take control of your digital narrative
           today.

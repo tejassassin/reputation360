@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "57-year-old Senior Portfolio Manager",
   challengeType: "Insider trading allegations & regulatory press",
   duration: "15 months",
+  summary:
+    "A long-tenured portfolio manager was publicly tied to unproven insider-trading storylines, with SEC and industry URLs crowding the top of search and institutional work paused. The focus was fully compliant: contextualise, displace, and re-establish a credible public profile.",
   sections: [
     {
       heading: "The Challenge",

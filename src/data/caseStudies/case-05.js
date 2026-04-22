@@ -5,6 +5,8 @@ const caseStudy = {
   profile: "Fast-growing DTC Fashion Brand (4 years in operation, £4M annual revenue)",
   challengeType: "Influencer fallout & ethics controversy",
   duration: "8 months",
+  summary:
+    "A viral creator fallout pushed boycott sentiment and near-total negative SERPs within days. Recovery combined crisis-framed comms, durable brand assets, and systematic work to re-balance what prospects saw first.",
   sections: [
     {
       heading: "The Challenge",
