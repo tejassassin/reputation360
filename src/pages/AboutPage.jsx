@@ -346,143 +346,215 @@ const aboutFirstContentSpacing = "pt-20 pb-12 md:pt-28 md:pb-16";
 
 const howItBeganSteps = [
   {
-    id: "call",
-    kicker: "The call",
-    headline: "A phone call we will never forget.",
-    body: "Our story starts with a phone call we will never forget. A seasoned financial leader with thirty years of an unblemished career came to us in distress. A wrongful case had been filed against him.",
+    id: "before-2019",
+    timelineLabel: "BEFORE 2019",
+    timelineSubtitle: "A world with answers that weren't working",
+    panelKicker: "BEFORE US - THE GAP",
+    headline: "A world with answers that weren't working",
+    body: "Reputation issues were not new. Other companies existed. But they weren't doing a great job - suppressing results without telling a story, pushing content without strategy, offering band-aids instead of solutions. People in crisis deserved better than that.",
+    tags: [],
   },
   {
-    id: "verdict",
-    kicker: "The verdict",
-    headline: "He fought it. The court acquitted him.",
-    body: "He was proven innocent. Justice was served. His record was clear. But the internet never moved on.",
+    id: "y2019",
+    timelineLabel: "2019",
+    timelineSubtitle: "A financial leader's call that changed everything",
+    panelKicker: "2019 - THE BEGINNING",
+    headline: "A financial leader's call that changed everything",
+    body: "He had done nothing wrong. But online, that didn't matter - yet. A seasoned financial leader with thirty years of an unblemished career came to us in distress. A wrongful case had been filed against him - and while the court ultimately acquitted him, the damaging stories remained online. The truth didn't rank. We got to work. In nine months, we transformed his search results and built the narrative he had always deserved to tell.",
+    tags: ["9 months to results", "First success story"],
   },
   {
-    id: "damage",
-    kicker: "The damage",
-    headline: "The stories stayed. The truth didn't rank.",
-    body: "News publications that had covered the original case never updated their stories. Every time a potential client, a business partner, or an investor searched his name, those articles appeared first. His thirty years of achievement, his relationships, his credibility - all overshadowed by links that told an incomplete and deeply unfair story.",
+    id: "y2019-2021",
+    timelineLabel: "2019-2021",
+    timelineSubtitle: "Helping individuals rebuild their truth",
+    panelKicker: "2019-2021 - INDIVIDUALS",
+    headline: "Helping individuals rebuild their truth",
+    body: "Word spread fast. One case became ten. Ten became hundreds. We focused entirely on helping individuals - executives, professionals, and public figures - reclaim their narratives. Working closely with them taught us something important: reputation crises don't wait for business hours.",
+    tags: ["Individuals only", "100+ cases resolved"],
   },
   {
-    id: "realisation",
-    kicker: "The realisation",
-    headline: "That moment changed everything for us.",
-    body: "We realised that in today's world, your online footprint can outlive a verdict - and that people deserve a fair, complete picture of who they are.",
+    id: "methodology",
+    timelineLabel: "THE METHODOLOGY",
+    timelineSubtitle: "Making the truth louder than the noise",
+    panelKicker: "OUR PHILOSOPHY - WHAT WE STAND FOR",
+    headline: "Making the truth louder than the noise",
+    body: "Along the way, we developed something no one else had: a methodology built not on suppression, but on amplification. We realised reputation management wasn't just about pushing content - it was about making the truth louder than the noise. That principle became the foundation of everything we do.",
+    tags: ["Proprietary methodology"],
+  },
+  {
+    id: "y2022",
+    timelineLabel: "2022",
+    timelineSubtitle: "Expanding to serve businesses too",
+    panelKicker: "2022 - BUSINESSES",
+    headline: "Expanding to serve businesses too",
+    body: "As our work with individuals deepened, we saw the same crisis playing out at scale inside companies. Brands with great products were being defined by a handful of misleading reviews or news stories. We expanded our services to businesses, and assembled teams across multiple countries to provide round-the-clock coverage. Because reputation doesn't sleep - and neither do we.",
+    tags: ["Teams in 5+ countries", "24/7 coverage"],
+  },
+  {
+    id: "y2024",
+    timelineLabel: "2024",
+    timelineSubtitle: "Winning in the age of AI search",
+    panelKicker: "2024 - AI SEARCH",
+    headline: "Winning in the age of AI search",
+    body: "In 2024, the search landscape changed forever. AI-powered results began summarising, judging, and ranking people and businesses before a single link was clicked. What the AI said about you became as important as what Google showed. We adapted immediately - building expertise in AI search reputation so our clients could be represented accurately and powerfully wherever people were searching.",
+    tags: ["AI search ready", "First movers in AI reputation"],
+  },
+  {
+    id: "today",
+    timelineLabel: "TODAY",
+    timelineSubtitle: "1,100+ individuals and businesses helped",
+    panelKicker: "TODAY - OUR IMPACT",
+    headline: "1,100+ individuals and businesses helped",
+    body: "CEOs, doctors, entrepreneurs, families - people who deserved a fair shot at how their story is told. More than 1,100 individuals and businesses now trust Reputation360 to protect and restore what matters most - their name. 1,100+ stories rewritten. Not by us - by the truth, finally given a chance to rank.",
+    tags: ["1,100+ clients", "Global reach"],
+  },
+  {
+    id: "next",
+    timelineLabel: "WHAT'S NEXT",
+    timelineSubtitle: "The next chapter is already being written",
+    panelKicker: "THE FUTURE - WHAT'S AHEAD",
+    headline: "The next chapter is already being written",
+    body: "The world is searching differently. AI is not just a tool - it is becoming the first impression. As large language models shape how people are discovered and judged, we are building the next generation of reputation intelligence to ensure our clients are seen accurately across every platform, every AI, every search. We are just getting started.",
+    tags: ["AI-first reputation", "New markets ahead"],
   },
 ];
-
-const howItBeganClosing =
-  "Your Google search results can be more powerful than your actual record. A court can acquit you. The internet may not. That is why Reputation360 exists.";
 
 function HowItAllBeganStory() {
   const [activeStep, setActiveStep] = useState(0);
   const lastIndex = howItBeganSteps.length - 1;
+  const step = howItBeganSteps[activeStep];
+  const progress = ((activeStep + 1) / howItBeganSteps.length) * 100;
 
   return (
     <section
       id="how-it-began"
-      className={`relative overflow-hidden border-y border-slate-200/80 ${aboutFirstContentSpacing} ${aboutScrollTargetClass}`}
+      className={`relative overflow-hidden border-y border-slate-200/60 ${aboutFirstContentSpacing} ${aboutScrollTargetClass}`}
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_60%_at_10%_-10%,rgba(76,175,80,0.12),transparent_55%),radial-gradient(ellipse_70%_50%_at_100%_20%,rgba(46,91,136,0.1),transparent_50%),linear-gradient(180deg,#f8fafc_0%,#ffffff_45%,#f1f5f9_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[#f0f4f2]"
         aria-hidden
       />
-      <div className="pointer-events-none absolute -right-32 top-24 h-72 w-72 rounded-full bg-[#4CAF50]/[0.07] blur-3xl" aria-hidden />
-      <div className="relative mx-auto max-w-3xl px-6 lg:max-w-5xl">
+      <div className="pointer-events-none absolute -right-24 top-0 h-64 w-64 rounded-full bg-[#4CAF50]/[0.08] blur-3xl" aria-hidden />
+      <div className="pointer-events-none absolute -left-20 bottom-0 h-56 w-56 rounded-full bg-[#2E5B88]/[0.06] blur-3xl" aria-hidden />
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <Motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={aboutView}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p
-            className={`${headlineFont} text-xs font-semibold uppercase tracking-[0.2em] text-[#4CAF50]`}
-          >
-            Our story
+          <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-[#4CAF50]">
+            OUR STORY
           </p>
-          <h2
-            className={`${headlineFont} mt-2 mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-4xl lg:text-[2.35rem]`}
-          >
-            How It All Began
+          <h2 className="font-heading mt-2 text-3xl font-bold tracking-tight text-navy md:text-4xl">
+            How it all began
           </h2>
-          <p className="font-body max-w-2xl text-[15px] leading-relaxed text-slate-600 md:text-base">
-            Four beats. One turning point. Tap any step or use Prev / Next.
+          <p className="font-body mt-2 max-w-2xl text-base leading-relaxed text-steel md:text-lg">
+            Eight beats. One mission. Tap any step or use Prev / Next.
           </p>
+          <div
+            className="mt-5 h-1.5 w-full max-w-3xl overflow-hidden rounded-full bg-slate-200/90"
+            role="progressbar"
+            aria-valuenow={activeStep + 1}
+            aria-valuemin={1}
+            aria-valuemax={howItBeganSteps.length}
+            aria-label={`Story step ${activeStep + 1} of ${howItBeganSteps.length}`}
+          >
+            <div
+              className="h-full rounded-full bg-[#4CAF50] transition-[width] duration-500 ease-out"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
         </Motion.div>
 
         <div
-          className="mt-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-12 lg:items-start"
+          className="mt-10 flex flex-col gap-10 lg:mt-12 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,20rem)] lg:items-start lg:gap-12"
           role="list"
-          aria-label="Story beats - use Previous and Next or select a step"
+          aria-label="Our story - eight beats; use previous, next, or a step"
         >
-          <div className="hidden lg:block">
+          {/* Main detail card (left on desktop) */}
+          <div className="order-1 lg:order-1">
             <Motion.div
-              className="sticky top-40 rounded-3xl border border-slate-200/80 bg-white/80 p-8 shadow-[0_24px_60px_-28px_rgba(15,35,60,0.18)] backdrop-blur-md"
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_20px_50px_-32px_rgba(15,35,60,0.22),0_8px_20px_-12px_rgba(0,0,0,0.1)] sm:p-8"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={aboutView}
-              transition={{ duration: 0.55, delay: 0.08 }}
+              transition={{ duration: 0.45, delay: 0.04 }}
             >
-              <p className={`${headlineFont} text-sm font-bold text-[#1F3B64]`}>
-                {howItBeganSteps[activeStep].headline}
+              <p className="font-heading text-xs font-semibold uppercase leading-snug tracking-[0.18em] text-[#4CAF50] sm:tracking-[0.2em]">
+                {step.panelKicker}
               </p>
+              <h3 className="font-heading mt-2 text-xl font-bold leading-snug text-navy sm:text-2xl">
+                {step.headline}
+              </h3>
               <AnimatePresence mode="wait">
                 <Motion.p
-                  key={howItBeganSteps[activeStep].id}
-                  initial={{ opacity: 0, y: 12 }}
+                  key={step.id}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                  className="font-body mt-4 text-[15px] leading-relaxed text-slate-600"
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  className="font-body mt-4 text-base leading-relaxed text-steel md:text-lg"
                 >
-                  {howItBeganSteps[activeStep].body}
+                  {step.body}
                 </Motion.p>
               </AnimatePresence>
-              {activeStep === lastIndex ? (
-                <Motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="font-body mt-6 border-l-[3px] border-[#4CAF50] pl-4 text-sm font-medium leading-relaxed text-slate-700"
-                  role="status"
-                >
-                  {howItBeganClosing}
-                </Motion.p>
+              {step.tags.length > 0 ? (
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {step.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="font-body inline-flex items-center rounded-full border border-[#4CAF50]/30 bg-[#f0faf2] px-3 py-1.5 text-sm font-semibold text-[#2e7d32]"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               ) : null}
             </Motion.div>
           </div>
 
-          <div className="mt-8 lg:mt-0">
-            {howItBeganSteps.map((step, i) => {
+          {/* Timeline rail (right on desktop) */}
+          <div className="order-2 lg:order-2" role="presentation">
+            {howItBeganSteps.map((s, i) => {
               const isActive = i === activeStep;
-              const isComplete = i < activeStep;
+              const isPast = i < activeStep;
+              const isLast = i === lastIndex;
               return (
                 <Motion.div
-                  key={step.id}
-                  className="flex gap-4"
+                  key={s.id}
+                  className="flex gap-3.5"
                   role="listitem"
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={aboutView}
-                  transition={{ duration: 0.45, delay: i * 0.06 }}
+                  transition={{ duration: 0.4, delay: i * 0.04 }}
                 >
-                  <div className="flex w-11 shrink-0 flex-col items-center">
+                  <div className="flex w-9 shrink-0 flex-col items-center sm:w-10">
                     <button
                       type="button"
                       aria-pressed={isActive}
-                      aria-label={`${step.kicker}: ${step.headline}`}
+                      aria-label={`${s.timelineLabel}: ${s.timelineSubtitle}`}
                       onClick={() => setActiveStep(i)}
-                      className={`relative z-[1] mt-1.5 h-4 w-4 shrink-0 rounded-full border-2 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] ${
+                      className={`relative z-[1] flex h-3.5 w-3.5 items-center justify-center rounded-full border-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] sm:h-4 sm:w-4 ${
                         isActive
-                          ? "scale-110 border-[#4CAF50] bg-[#4CAF50] shadow-lg ring-4 ring-[#4CAF50]/25"
-                          : isComplete
-                            ? "border-[#1F3B64] bg-[#1F3B64]"
-                            : "border-slate-300 bg-white hover:border-[#2E5B88] hover:scale-105"
+                          ? "scale-110 border-[#4CAF50] bg-[#4CAF50] shadow-[0_0_0_4px_rgba(76,175,80,0.2)]"
+                          : isLast && !isActive
+                            ? "border-2 border-dashed border-slate-300 bg-white"
+                            : isPast
+                              ? "border-[#4CAF50] bg-white"
+                              : "border-slate-300 bg-white"
                       }`}
                     />
                     {i < lastIndex ? (
                       <div
-                        className={`mt-0.5 w-0.5 flex-1 min-h-[2.75rem] rounded-full transition-colors duration-500 ${
-                          i < activeStep ? "bg-[#1F3B64]" : "bg-slate-200"
+                        className={`mt-0.5 w-[2px] min-h-[2.5rem] flex-1 rounded-full ${
+                          i < activeStep
+                            ? "bg-[#4CAF50]"
+                            : i === activeStep
+                              ? "bg-gradient-to-b from-[#4CAF50] to-slate-200"
+                              : "bg-slate-200"
                         }`}
                         aria-hidden
                       />
@@ -492,82 +564,53 @@ function HowItAllBeganStory() {
                     type="button"
                     aria-pressed={isActive}
                     onClick={() => setActiveStep(i)}
-                    className={`min-w-0 flex-1 rounded-2xl border border-transparent pb-8 text-left transition-all duration-300 hover:border-slate-200/90 hover:bg-white/90 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] md:pb-10 ${
-                      isActive ? "bg-white/95 shadow-md ring-1 ring-slate-200/80" : ""
-                    }`}
+                    className="min-w-0 flex-1 border-b border-slate-200/70 pb-6 text-left last:border-0 sm:pb-7"
                   >
-                    <span
-                      className={`${headlineFont} px-3 pt-1 text-[11px] font-semibold uppercase tracking-[0.16em] md:text-xs ${
+                    <p
+                      className={`font-heading text-[10px] font-semibold uppercase tracking-[0.14em] sm:text-xs sm:tracking-[0.16em] ${
                         isActive ? "text-[#4CAF50]" : "text-slate-400"
                       }`}
                     >
-                      {step.kicker}
-                    </span>
-                    <h3
-                      className={`${headlineFont} px-3 mt-1.5 text-lg font-extrabold leading-snug text-[#1F3B64] md:text-xl`}
+                      {s.timelineLabel}
+                    </p>
+                    <p
+                      className={`font-body mt-1.5 text-sm leading-snug sm:text-base ${
+                        isActive
+                          ? "font-semibold text-navy"
+                          : "font-normal text-steel"
+                      }`}
                     >
-                      {step.headline}
-                    </h3>
-                    <div className="px-3 lg:hidden">
-                      {isActive ? (
-                        <AnimatePresence mode="wait">
-                          <Motion.p
-                            key={step.id}
-                            initial={{ opacity: 0, y: 8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -6 }}
-                            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                            className="font-body mt-3 max-w-xl text-[15px] leading-relaxed text-slate-600 md:text-base"
-                          >
-                            {step.body}
-                          </Motion.p>
-                        </AnimatePresence>
-                      ) : null}
-                    </div>
+                      {s.timelineSubtitle}
+                    </p>
                   </button>
                 </Motion.div>
               );
             })}
-
-            {activeStep === lastIndex ? (
-              <p
-                className="font-body mt-2 max-w-xl border-l-[3px] border-[#4CAF50] pl-4 text-[15px] font-medium leading-relaxed text-slate-700 md:text-base lg:hidden"
-                role="status"
-              >
-                {howItBeganClosing}
-              </p>
-            ) : null}
-
-            <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-slate-200/80 pt-6">
-              <div className="flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  disabled={activeStep === 0}
-                  onClick={() => setActiveStep((s) => Math.max(0, s - 1))}
-                  className={`${headlineFont} inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-[#1F3B64] shadow-sm transition hover:-translate-y-0.5 hover:border-[#4CAF50]/40 hover:shadow-md disabled:pointer-events-none disabled:opacity-40`}
-                >
-                  <ChevronLeft className="h-4 w-4 shrink-0" aria-hidden />
-                  Prev
-                </button>
-                <button
-                  type="button"
-                  disabled={activeStep === lastIndex}
-                  onClick={() =>
-                    setActiveStep((s) => Math.min(lastIndex, s + 1))
-                  }
-                  className={`${headlineFont} inline-flex items-center gap-2 rounded-full border border-[#1F3B64] bg-[#1F3B64] px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-[#2a5088] disabled:pointer-events-none disabled:opacity-40`}
-                >
-                  Next
-                  <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
-                </button>
-              </div>
-              <p
-                className={`${headlineFont} text-sm tabular-nums text-slate-500`}
-              >
-                {activeStep + 1} / {howItBeganSteps.length}
-              </p>
-            </div>
           </div>
+        </div>
+
+        <div className="mt-10 flex w-full min-w-0 items-center justify-between gap-2 border-t border-slate-200/70 pt-6 sm:mt-12 sm:gap-4">
+          <button
+            type="button"
+            disabled={activeStep === 0}
+            onClick={() => setActiveStep((x) => Math.max(0, x - 1))}
+            className="font-heading inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-600 shadow-sm transition hover:border-slate-300 hover:shadow sm:px-5 sm:pl-4 disabled:pointer-events-none disabled:opacity-35"
+          >
+            <ChevronLeft className="h-4 w-4 shrink-0" aria-hidden />
+            Prev
+          </button>
+          <p className="font-body shrink-0 text-sm tabular-nums text-steel">
+            {activeStep + 1} / {howItBeganSteps.length}
+          </p>
+          <button
+            type="button"
+            disabled={activeStep === lastIndex}
+            onClick={() => setActiveStep((x) => Math.min(lastIndex, x + 1))}
+            className="font-heading inline-flex min-w-0 items-center justify-center gap-1 rounded-full bg-navy px-4 py-2.5 pl-3 text-sm font-semibold text-white shadow-md transition hover:bg-slate-800 sm:px-6 sm:pl-4 disabled:pointer-events-none disabled:opacity-35"
+          >
+            Next
+            <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
+          </button>
         </div>
       </div>
     </section>

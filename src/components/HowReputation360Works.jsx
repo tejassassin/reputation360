@@ -12,7 +12,7 @@ const STEPS = [
     label: "Audit",
     text: "We assess your current search results and risks",
     detail:
-      "You get a prioritized picture of what to fix first—so every later move is grounded in data, not guesswork.",
+      "You get a prioritized picture of what to fix first-so every later move is grounded in data, not guesswork.",
     square: "bg-[#1d3557]",
     ring: "ring-[#1d3557]/35",
     panelBorder: "border-l-4 border-l-[#1d3557]",
@@ -22,7 +22,7 @@ const STEPS = [
     label: "Strategy",
     text: "A custom plan based on your goals and urgency",
     detail:
-      "Your roadmap matches budget, timeline, and the outcomes you care about—whether that is speed, depth, or discretion.",
+      "Your roadmap matches budget, timeline, and the outcomes you care about-whether that is speed, depth, or discretion.",
     square: "bg-[#5cb85c]",
     ring: "ring-[#5cb85c]/40",
     panelBorder: "border-l-4 border-l-[#5cb85c]",
@@ -42,7 +42,7 @@ const STEPS = [
     label: "Monitoring",
     text: "Ongoing tracking and adjustments",
     detail:
-      "Rankings and mentions evolve—we watch the SERPs and refine tactics so gains hold and new risks do not creep back in.",
+      "Rankings and mentions evolve-we watch the SERPs and refine tactics so gains hold and new risks do not creep back in.",
     square: "bg-[#45b39d]",
     ring: "ring-[#45b39d]/40",
     panelBorder: "border-l-4 border-l-[#45b39d]",
@@ -93,7 +93,7 @@ export default function HowReputation360Works() {
         </div>
 
         <div className="rounded-[1.75rem] border border-[#e5e7eb] bg-gradient-to-b from-[#f8fafc] to-white px-4 py-8 shadow-[0_24px_60px_-40px_rgba(15,35,60,0.18)] sm:px-6 md:py-10">
-          {/* Detail panel first — visually distinct from the old 4-column timeline */}
+          {/* Detail panel first - visually distinct from the old 4-column timeline */}
           <div className="relative min-h-[13rem] md:min-h-[12rem]">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div

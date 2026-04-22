@@ -1,6 +1,6 @@
 import { Search, TrendingDown, TrendingUp } from "lucide-react";
 
-/** Demo identity — US-style name for the SERP mockup in “What we believe”. */
+/** Demo identity - US-style name for the SERP mockup in “What we believe”. */
 const DEMO_NAME = "Jordan Mercer";
 const DEMO_SLUG = "jordan-mercer";
 
@@ -16,7 +16,7 @@ function urlDisplayText(text) {
   return text.replace(/([./])/g, "$1\u200b");
 }
 
-/** SERP mockup — decorative only; not interactive (see pointer-events-none). */
+/** SERP mockup - decorative only; not interactive (see pointer-events-none). */
 export default function WhatWeBelieveSearchMockup() {
   return (
     <div
@@ -52,13 +52,13 @@ export default function WhatWeBelieveSearchMockup() {
         <ul className="space-y-2 sm:space-y-2.5">
           <ResultPositive
             num="01"
-            title={`${DEMO_NAME} — Founder profile & work`}
+            title={`${DEMO_NAME} - Founder profile & work`}
             url={`meridian-analytics.com/leadership/${DEMO_SLUG}`}
             badge={<TrendBadge up value="+5" />}
           />
           <ResultPositive
             num="02"
-            title="Financial Times — Advisory board announcement"
+            title="Financial Times - Advisory board announcement"
             url="ft.com/arcadia-advisory"
             badge={
               <span className="font-heading text-[10px] font-bold text-slate-200 sm:text-[11px]">
@@ -68,7 +68,7 @@ export default function WhatWeBelieveSearchMockup() {
           />
           <ResultPositive
             num="03"
-            title={`LinkedIn — ${DEMO_NAME} · Founder`}
+            title={`LinkedIn - ${DEMO_NAME} · Founder`}
             url={`linkedin.com/in/${DEMO_SLUG}`}
             badge={<TrendBadge up value="+2" />}
           />
@@ -89,13 +89,13 @@ export default function WhatWeBelieveSearchMockup() {
             </span>
             <div className="min-w-0 flex-1">
               <p className="font-body text-sm leading-snug text-slate-200 sm:text-base">
-                Outdated legal filing — 2019
+                Outdated legal filing - 2019
               </p>
               <p className={`mt-0.5 ${urlMetaClass}`}>
                 {urlDisplayText("olddirectory.co/filing-2019")}
               </p>
               <p className="mt-1.5 font-body text-xs leading-snug text-slate-300 sm:text-sm">
-                ~2 pages lower — most users never scroll that far.
+                ~2 pages lower - most users never scroll that far.
               </p>
             </div>
             <span className="inline-flex shrink-0 items-center gap-0.5 self-start rounded border border-red-900/60 bg-red-950/50 px-2 py-1 font-heading text-[10px] font-bold text-red-300 sm:text-[11px]">
@@ -116,7 +116,7 @@ export default function WhatWeBelieveSearchMockup() {
             </span>
           </span>
           <span className="font-body text-xs text-slate-400 sm:text-sm">
-            Strategy, content & search — <span className="font-semibold text-white">one team.</span>
+            Strategy, content & search - <span className="font-semibold text-white">one team.</span>
           </span>
         </div>
       </div>

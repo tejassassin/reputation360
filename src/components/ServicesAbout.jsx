@@ -25,7 +25,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-/** Hero intro under Services — single source so UI always matches intended copy. */
+/** Hero intro under Services - single source so UI always matches intended copy. */
 const SERVICES_HERO_INTRO =
   "Every day a damaging result sits on page one, it costs you clients, deals, and trust. Reputation360 manages what people find when they search your name.";
 

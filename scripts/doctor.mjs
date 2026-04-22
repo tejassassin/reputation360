@@ -23,7 +23,7 @@ try {
   const dirty = execSync("git status --porcelain", { encoding: "utf8" }).trim();
   if (dirty) {
     console.log(
-      "\n  ! Uncommitted or untracked files. Production (Vercel) only deploys what you push — run `git status` and commit/push to avoid “localhost ≠ live”.\n",
+      "\n  ! Uncommitted or untracked files. Production (Vercel) only deploys what you push - run `git status` and commit/push to avoid “localhost ≠ live”.\n",
     );
   } else {
     console.log("  ✓ Git working tree clean (matches what you can deploy)");

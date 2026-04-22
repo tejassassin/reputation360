@@ -8,7 +8,7 @@ import {
   Building,
 } from "lucide-react";
 
-/** Mirrors Header “Who We Serve?” — one card per audience page. */
+/** Mirrors Header “Who We Serve?” - one card per audience page. */
 const categories = [
   {
     title: "Individuals",

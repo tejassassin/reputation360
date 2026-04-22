@@ -5,7 +5,7 @@ const insights = [
   {
     icon: CircleUserRound,
     title: "Accuracy over distortion",
-    text: "Your online impression should match who you are today—not outdated, misleading, or one-sided results.",
+    text: "Your online impression should match who you are today-not outdated, misleading, or one-sided results.",
   },
   {
     icon: Layers,
@@ -50,7 +50,7 @@ function WhatWeBelieve() {
               <p className="font-heading relative text-base font-semibold leading-relaxed text-navy md:text-lg">
                 Reputation is clarity: people should see the{" "}
                 <span className="text-[#2E5B88]">full, current story</span>
-                —not a fragment left behind by old links or bad press.
+                -not a fragment left behind by old links or bad press.
               </p>
             </div>
 
@@ -91,7 +91,7 @@ function WhatWeBelieve() {
               <p className="font-body text-lg font-medium leading-relaxed text-navy">
                 At <span className="font-semibold text-[#1F3B64]">Reputation360</span>, we help
                 individuals and brands <span className="font-semibold">own their narrative</span>
-                —strategically and sustainably.
+                -strategically and sustainably.
               </p>
             </div>
           </div>

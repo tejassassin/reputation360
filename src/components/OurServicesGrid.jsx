@@ -7,7 +7,7 @@ import {
 } from "../data/reputationServices";
 
 const SUPPORTING_CARD_HOVER_CSS = `
-/* Borders live only on service cards — not on section wrappers. */
+/* Borders live only on service cards - not on section wrappers. */
 .r3-supporting-service-card.ha-lift {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background-color: #0c2133;

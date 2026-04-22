@@ -13,7 +13,7 @@ import {
 
 /** Intro paragraph under the “Our Services” heading on the home page. */
 export const OUR_SERVICES_SECTION_INTRO =
-  "From suppressing what harms you to building what defines you — services you can combine or deploy on their own.";
+  "From suppressing what harms you to building what defines you - services you can combine or deploy on their own.";
 
 export const reputationServices = [
   {
