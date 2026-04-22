@@ -114,7 +114,7 @@ export function CaseStudyListCard({ study, index }) {
                 className="group/cta inline-flex w-full max-w-full items-center justify-between gap-3 rounded-2xl text-left outline-none transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-offwhite"
               >
                 <span className="text-base font-bold text-navy sm:text-lg">
-                  Open the full case
+                  Read the full case
                 </span>
                 <span
                   className="grid h-11 w-11 shrink-0 place-items-center rounded-full border-2 border-slate-200/90 bg-offwhite/80 text-navy shadow-sm transition duration-300 group-hover:scale-105 group-hover:translate-x-0.5 group-hover:shadow-md group-hover/cta:translate-x-0.5 group-hover/cta:border-navy/30 group-hover/cta:bg-navy group-hover/cta:text-offwhite group-hover/cta:shadow-lg sm:h-12 sm:w-12"
