@@ -28,9 +28,7 @@ function HomePage() {
         <section className="bg-white pb-14 md:pb-16">
           <HowReputation360Works />
         </section>
-        <section className="bg-offwhite">
-          <WhyClientsChoose />
-        </section>
+        <WhyClientsChoose />
         <CaseStudies />
         <Contact />
       </main>
