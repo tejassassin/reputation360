@@ -2,58 +2,32 @@ import React from "react";
 import { calendlyNewTabProps } from "@/constants/scheduling";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import { useState, useEffect, useRef } from "react";
+import { StatNumber } from "@/components/StatNumber.jsx";
 
 function Hero() {
-  const statsRef = useRef(null);
+  const sectionRef = useRef(null);
   const [statsInView, setStatsInView] = useState(false);
 
   useEffect(() => {
-    const el = statsRef.current;
+    const el = sectionRef.current;
     if (!el) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) setStatsInView(true);
       },
-      { threshold: 0.2, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  function StatNumber({ end, suffix = "", duration = 1500, start = false }) {
-    const [value, setValue] = useState(0);
-
-    useEffect(() => {
-      if (!start) return;
-
-      let startTimestamp;
-
-      const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const nextValue = Math.floor(progress * end);
-        setValue(nextValue);
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        }
-      };
-
-      const id = requestAnimationFrame(step);
-      return () => cancelAnimationFrame(id);
-    }, [end, duration, start]);
-
-    return (
-      <>
-        {value.toLocaleString()}
-        {suffix}
-      </>
-    );
-  }
-
   return (
-    <section className="h-dvh flex flex-col bg-linear-to-br from-navy via-slate to-navy text-white overflow-hidden pt-16 sm:pt-20">
+    <section
+      ref={sectionRef}
+      className="h-dvh flex flex-col bg-linear-to-br from-navy via-slate to-navy text-white overflow-hidden pt-16 sm:pt-20"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative flex-1 flex flex-col justify-evenly py-[2vh]">
         {/* Main Content - Centered */}
         <div className="flex flex-col justify-center items-center gap-[1.5vh] sm:gap-[2vh]">
@@ -64,7 +38,14 @@ function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green"></span>
             </span>
             <span className="font-body text-xs sm:text-sm text-white/90">
-              Trusted by 1,100+ clients globally
+              Trusted by{" "}
+              <StatNumber
+                className="inline font-semibold tabular-nums text-white"
+                end={1100}
+                suffix="+"
+                start={statsInView}
+              />{" "}
+              clients globally
             </span>
           </div>
 
@@ -110,10 +91,7 @@ function Hero() {
         </div>
 
         {/* Stats - Pushed to bottom */}
-        <div
-          ref={statsRef}
-          className="grid grid-cols-3 gap-2 sm:gap-4 lg:gap-6 max-w-4xl mx-auto w-full shrink-0"
-        >
+        <div className="grid grid-cols-3 gap-2 sm:gap-4 lg:gap-6 max-w-4xl mx-auto w-full shrink-0">
           <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 lg:p-5 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
             <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">

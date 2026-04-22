@@ -83,7 +83,7 @@ export default function HowReputation360Works() {
     <section
       id="how-r360-process-stepper"
       data-r360-component="process-stepper"
-      className="py-10 md:py-16"
+      className="py-14 md:py-24"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center md:mb-10">

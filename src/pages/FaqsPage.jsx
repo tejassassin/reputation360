@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { calendlyNewTabProps } from "../constants/scheduling";
+import { StatNumber } from "../components/StatNumber.jsx";
 
 const CTA_BG_IMAGE =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuBbAPklAKn9fFP2nNIPWazVHI3ZwR5Yz1EHjtS59wpqZaZsgbvsTNnn2DY2Z2ZFVsKpsDYYxaRRDxxADi_bhK7JtnubjYTxyKAy79ytFJBnE-Ut3T5hmToXxlsN6GXzKBRpB6Zc4YG-hWln8NC9ZPRDndtm08dWYUo5CThtOE9yfBsmV6F7T-JijeQtJDN61rY3B08b8OrtjubvsRJRVLEEkZJWpNYHajsEylcxi2x9QBrKL0EmGJg1BBlZ9Y2pvvqDdUKcJx8v2mM";
@@ -34,12 +35,28 @@ const heroStatCardClass =
   "hover:border-[#4CAF50] hover:bg-[#4CAF50]/18 hover:text-[#4CAF50] hover:shadow-md hover:ring-2 hover:ring-[#4CAF50]/40 hover:ring-offset-2 hover:ring-offset-[#F5F7FA]";
 
 const heroStatCards = [
-  { value: "7+", label: "Years Experience" },
-  { value: "1,100+", label: "Client Engagements" },
-  { value: "97%", label: "Success Rate" },
+  { end: 7, suffix: "+", label: "Years Experience" },
+  { end: 1100, suffix: "+", label: "Client Engagements" },
+  { end: 97, suffix: "%", label: "Success Rate" },
 ];
 
 function FaqsPage() {
+  const heroStatsRef = useRef(null);
+  const [heroStatsLive, setHeroStatsLive] = useState(false);
+
+  useEffect(() => {
+    const el = heroStatsRef.current;
+    if (!el) return undefined;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) setHeroStatsLive(true);
+      },
+      { rootMargin: "0px 0px -5% 0px", threshold: 0.15 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   useEffect(() => {
     const previous = document.title;
     document.title = "FAQ | Reputation360 - The Curated Authority";
@@ -66,18 +83,24 @@ function FaqsPage() {
             it out together.
           </p>
           <div
+            ref={heroStatsRef}
             className="grid w-full max-w-4xl grid-cols-1 gap-6 md:grid-cols-3"
             role="list"
             aria-label="Reputation360 at a glance"
           >
             {heroStatCards.map((card) => (
               <div
-                key={card.value}
+                key={card.label}
                 role="listitem"
                 className={heroStatCardClass}
               >
                 <div className="mb-1 text-4xl font-extrabold tabular-nums transition-transform duration-300 ease-out group-hover:scale-105 motion-reduce:group-hover:scale-100">
-                  {card.value}
+                  <StatNumber
+                    className="inline"
+                    end={card.end}
+                    suffix={card.suffix}
+                    start={heroStatsLive}
+                  />
                 </div>
                 <div className="font-body text-sm font-medium tracking-wide text-[#6B7280]">
                   {card.label}

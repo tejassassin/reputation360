@@ -20,59 +20,22 @@ import {
   ArrowRight,
   Clock,
   Globe2,
-  Sun,
-  Ship,
-  Users,
   MapPinned,
 } from "lucide-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import AboutHeroSearchMockup from "../components/AboutHeroSearchMockup.jsx";
+import { StatNumber } from "../components/StatNumber.jsx";
 
-const globalHubs = [
-  {
-    id: "nyc",
-    city: "New York",
-    region: "Americas",
-    abbr: "NYC",
-    Icon: Building2,
-    gradient:
-      "from-[#0a1628] via-[#142a4a] to-[#0f2138]",
-    flare:
-      "bg-[radial-gradient(ellipse_90%_80%_at_20%_0%,rgba(76,175,80,0.35),transparent_50%)]",
-  },
-  {
-    id: "london",
-    city: "London",
-    region: "Europe & UK",
-    abbr: "LDN",
-    Icon: Landmark,
-    gradient:
-      "from-[#1e293b] via-[#243b53] to-[#1a2332]",
-    flare:
-      "bg-[radial-gradient(ellipse_80%_70%_at_80%_10%,rgba(148,163,184,0.35),transparent_55%)]",
-  },
-  {
-    id: "dubai",
-    city: "Dubai",
-    region: "Middle East & Africa",
-    abbr: "DXB",
-    Icon: Sun,
-    gradient:
-      "from-[#3a2618] via-[#4a2c14] to-[#1c1410]",
-    flare:
-      "bg-[radial-gradient(circle_at_30%_30%,rgba(251,191,36,0.22),transparent_45%)]",
-  },
-  {
-    id: "singapore",
-    city: "Singapore",
-    region: "Asia-Pacific",
-    abbr: "SIN",
-    Icon: Ship,
-    gradient:
-      "from-[#0c2e28] via-[#134e42] to-[#0a221e]",
-    flare:
-      "bg-[radial-gradient(ellipse_70%_60%_at_70%_20%,rgba(45,212,191,0.25),transparent_50%)]",
-  },
+const whoWeAreStats = [
+  { head: "Global", partA: "Time zones", partB: "covered", Icon: Globe2 },
+  { head: "24/7", partA: "Coverage", partB: "always on", Icon: Clock },
+  { countEnd: 30, countSuffix: "+", partA: "Countries", partB: "served", Icon: MapPinned },
+];
+
+const whoWeAreStatRow = [
+  { end: 47, suffix: "", label: "Specialists" },
+  { end: 1100, suffix: "+", label: "Clients" },
+  { end: 7, suffix: "+", label: "Years" },
 ];
 
 const headlineFont = "font-[Manrope,Inter,sans-serif]";
@@ -250,7 +213,6 @@ const promises = [
   "Every client is treated as our most important client - regardless of the size of the engagement.",
   "Your situation stays completely confidential. We never reference a client case without explicit permission. Ever.",
   "We will tell you the truth, even when it is uncomfortable. If something is more complex than expected, you will hear it from us first.",
-  "We are with you for the long term. If results take longer than expected, we stay committed until we get there.",
   "You will always know where things stand. Regular updates, clear milestones, no guessing, no silence.",
   "We treat your reputation as if it were our own.",
 ];
@@ -324,25 +286,22 @@ const testimonialCarouselResponsive = {
 /** In-page navigation (one-pager anchors). IDs must match section `id`s. */
 const aboutSectionNav = [
   { id: "how-it-began", label: "How It All Began" },
-  { id: "reality-we-face", label: "The Reality We Are Up Against" },
   { id: "what-drives-us", label: "What Drives Us" },
   { id: "who-we-are", label: "Who Are We" },
   { id: "who-we-serve", label: "Who We Serve" },
   { id: "how-we-work", label: "How We Work" },
   { id: "what-we-dont", label: "What We Don't Do" },
   { id: "our-promise", label: "Our Promise to You" },
-  { id: "we-are-global", label: "We Are Global" },
   { id: "client-stories", label: "What Our Clients Say" },
 ];
 
 const aboutScrollTargetClass =
   "scroll-mt-36 md:scroll-mt-40";
 
-/** Same vertical rhythm as How It All Began -> The Reality (pb-12 + pt-8, md: pb-16 + pt-10). */
-/** Default vertical padding between About sections (keeps pairs from feeling double-spaced). */
-const aboutSectionSpacing = "pt-6 pb-10 md:pt-8 md:pb-12";
-/** First story block after the hero keeps a bit more top air. */
-const aboutFirstContentSpacing = "pt-20 pb-12 md:pt-28 md:pb-16";
+/** Default vertical padding between About page sections. */
+const aboutSectionSpacing = "pt-16 pb-20 md:pt-20 md:pb-24";
+/** First story block after the hero. */
+const aboutFirstContentSpacing = "pt-28 pb-20 md:pt-36 md:pb-24";
 
 const howItBeganSteps = [
   {
@@ -826,10 +785,6 @@ function HowWeWorkSection() {
           >
             How We Work
           </h2>
-          <p className="font-body mx-auto max-w-xl text-slate-600">
-            Three phases in sequence - pick a step to read it in full. On desktop,
-            the marker travels along the track.
-          </p>
         </Motion.div>
 
         <div className="relative mx-auto max-w-4xl">
@@ -937,145 +892,6 @@ function HowWeWorkSection() {
   );
 }
 
-function WeAreGlobalSection() {
-  const statTiles = [
-    { k: "47", label: "Specialists", sub: "worldwide", Icon: Users },
-    { k: "Global", label: "Time zones", sub: "covered", Icon: Globe2 },
-    { k: "24/7", label: "Coverage", sub: "always on", Icon: Clock },
-    { k: "30+", label: "Countries", sub: "served", Icon: MapPinned },
-  ];
-
-  return (
-    <section
-      id="we-are-global"
-      className={`relative overflow-hidden border-t border-slate-200 bg-[#f6f8fc] pt-5 pb-5 md:pt-6 md:pb-6 ${aboutScrollTargetClass}`}
-    >
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(76,175,80,0.09),transparent_55%)]"
-        aria-hidden
-      />
-      <div className="relative mx-auto max-w-7xl px-6">
-        <Motion.div
-          className="mb-6 text-center md:mb-8"
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={aboutView}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="mb-4 flex justify-center">
-            <span className="inline-flex h-16 w-16 items-center justify-center rounded-[1.35rem] bg-gradient-to-br from-[#1F3B64] to-[#0f2344] text-white shadow-lg shadow-[#1F3B64]/25 ring-1 ring-white/20">
-              <Globe2 className="h-8 w-8" strokeWidth={1.5} aria-hidden />
-            </span>
-          </div>
-          <h2
-            className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2.15rem]`}
-          >
-            We Are Global
-          </h2>
-          <Motion.div
-            className="mx-auto mb-4 h-1.5 w-28 origin-center rounded-full bg-gradient-to-r from-[#4CAF50] to-emerald-300"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          />
-          <p className="font-body mx-auto max-w-md text-sm font-medium text-slate-500 md:text-base">
-            Four regional hubs · One team
-          </p>
-        </Motion.div>
-
-        <div className="mb-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4 xl:gap-5">
-          {globalHubs.map((hub, i) => {
-            const Icon = hub.Icon;
-            return (
-              <Motion.article
-                key={hub.id}
-                aria-label={`${hub.city}, ${hub.region}`}
-                className="group relative isolate flex min-h-[200px] flex-col overflow-hidden rounded-[1.35rem] shadow-[0_20px_50px_-28px_rgba(10,25,45,0.55)] ring-1 ring-white/10"
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={aboutView}
-                transition={{ duration: 0.5, delay: i * 0.07 }}
-                whileHover={{ y: -6, scale: 1.01 }}
-              >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${hub.gradient}`}
-                  aria-hidden
-                />
-                <div
-                  className={`pointer-events-none absolute inset-0 ${hub.flare} opacity-90`}
-                  aria-hidden
-                />
-                <div
-                  className="pointer-events-none absolute inset-0 opacity-[0.18]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)",
-                    backgroundSize: "26px 26px",
-                  }}
-                  aria-hidden
-                />
-                <p
-                  className={`${headlineFont} pointer-events-none absolute -bottom-3 right-0 translate-x-[6%] text-[5.5rem] font-black leading-none tracking-tighter text-white/[0.06] transition-transform duration-500 group-hover:translate-x-[2%] sm:text-[6.25rem]`}
-                  aria-hidden
-                >
-                  {hub.abbr}
-                </p>
-                <div className="relative flex flex-col p-6">
-                  <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20 backdrop-blur-sm transition-colors duration-300 group-hover:bg-white/[0.15]">
-                    <Icon className="h-5 w-5 text-[#b9f6ca]" strokeWidth={1.75} aria-hidden />
-                  </div>
-                  <p
-                    className={`${headlineFont} text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#7ee787]/90`}
-                  >
-                    {hub.region}
-                  </p>
-                  <h3
-                    className={`${headlineFont} mt-1 text-2xl font-extrabold tracking-tight text-white md:text-[1.6rem]`}
-                  >
-                    {hub.city}
-                  </h3>
-                </div>
-              </Motion.article>
-            );
-          })}
-        </div>
-
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-          {statTiles.map(({ k, label, sub, Icon }, i) => (
-            <Motion.div
-              key={label + sub}
-              className="flex flex-col items-center gap-3 rounded-2xl border border-slate-200/90 bg-white px-4 py-6 text-center shadow-sm md:flex-row md:items-center md:gap-4 md:px-5 md:text-left"
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={aboutView}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
-              whileHover={{ y: -2 }}
-            >
-              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#4CAF50]/12 text-[#2d8a3e] ring-1 ring-[#4CAF50]/20">
-                <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
-              </span>
-              <div className="min-w-0 flex-1">
-                <p
-                  className={`${headlineFont} text-2xl font-extrabold tabular-nums text-[#4CAF50] md:text-3xl`}
-                >
-                  {k}
-                </p>
-                <p className="text-[11px] font-bold uppercase tracking-widest text-slate-500 md:text-xs">
-                  {label}{" "}
-                  <span className="font-semibold normal-case tracking-normal text-slate-400">
-                    {sub}
-                  </span>
-                </p>
-              </div>
-            </Motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function ClientStoriesSection() {
   const carouselRef = useRef(null);
   const [nav, setNav] = useState({
@@ -1111,7 +927,7 @@ function ClientStoriesSection() {
   return (
     <section
       id="client-stories"
-      className={`bg-slate-50 pt-6 pb-3 md:pt-8 md:pb-4 ${aboutScrollTargetClass}`}
+      className={`bg-slate-50 py-20 md:py-24 ${aboutScrollTargetClass}`}
     >
       <div className="mx-auto max-w-7xl px-6">
         <Motion.div
@@ -1218,160 +1034,6 @@ function ClientStoriesSection() {
   );
 }
 
-function easeOutCubic(t) {
-  return 1 - (1 - t) ** 3;
-}
-
-function useCountUp(end, durationMs, active, delayMs = 0) {
-  const [n, setN] = useState(0);
-  useEffect(() => {
-    if (!active) return undefined;
-    let cancelled = false;
-    let raf = 0;
-    const startAt = performance.now() + delayMs;
-    const tick = (now) => {
-      if (cancelled) return;
-      if (now < startAt) {
-        raf = requestAnimationFrame(tick);
-        return;
-      }
-      const elapsed = now - startAt;
-      const t = Math.min(elapsed / durationMs, 1);
-      setN(Math.round(end * easeOutCubic(t)));
-      if (t < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => {
-      cancelled = true;
-      cancelAnimationFrame(raf);
-    };
-  }, [end, durationMs, active, delayMs]);
-  return n;
-}
-
-function RealityWeFaceSection() {
-  const sectionRef = useRef(null);
-  const [statsActive, setStatsActive] = useState(false);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return undefined;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            setStatsActive(true);
-            obs.disconnect();
-          }
-        }
-      },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 },
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  const pctSearch = useCountUp(80, 1200, statsActive, 0);
-  const pctOpinion = useCountUp(70, 1200, statsActive, 200);
-
-  const cardMotion = {
-    initial: { opacity: 0, y: 28 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.28 },
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-  };
-
-  return (
-    <section
-      ref={sectionRef}
-      id="reality-we-face"
-      className={`relative overflow-hidden border-y border-slate-200/60 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
-    >
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(76,175,80,0.14),transparent_55%),radial-gradient(ellipse_60%_40%_at_100%_80%,rgba(46,91,136,0.1),transparent_50%),linear-gradient(180deg,#f1f5f9_0%,#ffffff_50%,#f8fafc_100%)]"
-        aria-hidden
-      />
-      <div className="relative mx-auto max-w-5xl px-6 text-center">
-        <Motion.h2
-          className={`${headlineFont} mb-8 text-3xl font-extrabold text-[#1F3B64] md:text-[2rem]`}
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.45 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        >
-          The Reality We Are Up Against
-        </Motion.h2>
-
-        <div className="grid gap-5 md:grid-cols-2 md:gap-6">
-          <Motion.article
-            {...cardMotion}
-            transition={{ ...cardMotion.transition, delay: 0.06 }}
-            whileHover={{
-              y: -6,
-              transition: { type: "spring", stiffness: 400, damping: 28 },
-            }}
-            className="group relative cursor-default rounded-2xl border border-slate-200/90 bg-white p-6 text-center shadow-sm ring-0 transition-shadow duration-300 hover:border-[#1F3B64]/18 hover:shadow-[0_22px_48px_-20px_rgba(31,59,100,0.18)] md:p-8"
-          >
-            <div
-              className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-[#4CAF50]/[0.06] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              aria-hidden
-            />
-            <div
-              className={`${headlineFont} relative mb-3 text-5xl font-extrabold tabular-nums leading-none text-[#4CAF50] md:text-6xl`}
-            >
-              <span aria-live="polite">{pctSearch}%</span>
-            </div>
-            <p className="relative text-[15px] leading-relaxed text-slate-700 md:text-base">
-              of people search online before making a decision - whether that is
-              hiring someone, partnering with a business, choosing a doctor, or
-              closing an investment deal.
-            </p>
-          </Motion.article>
-          <Motion.article
-            {...cardMotion}
-            transition={{ ...cardMotion.transition, delay: 0.14 }}
-            whileHover={{
-              y: -6,
-              transition: { type: "spring", stiffness: 400, damping: 28 },
-            }}
-            className="group relative cursor-default rounded-2xl border border-slate-200/90 bg-white p-6 text-center shadow-sm transition-shadow duration-300 hover:border-[#2E5B88]/25 hover:shadow-[0_22px_48px_-20px_rgba(46,91,136,0.2)] md:p-8"
-          >
-            <div
-              className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-[#2E5B88]/[0.07] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              aria-hidden
-            />
-            <div
-              className={`${headlineFont} relative mb-3 text-5xl font-extrabold tabular-nums leading-none text-[#2E5B88] md:text-6xl`}
-            >
-              <span aria-live="polite">{pctOpinion}%</span>
-            </div>
-            <p className="relative text-[15px] leading-relaxed text-slate-700 md:text-base">
-              of people form an opinion about someone based on the first page of
-              Google results alone.
-            </p>
-          </Motion.article>
-        </div>
-
-        <Motion.div
-          className="mx-auto mt-8 max-w-3xl text-center md:mt-10"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.55, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <p className="font-body text-[15px] font-normal leading-relaxed text-slate-700 md:text-base">
-            One negative link quietly undoes years of hard work. It shapes opinions
-            before a conversation even begins. It costs opportunities that are never
-            offered and deals that are never closed. Most people never even know
-            what they are losing.{" "}
-            <strong className="font-bold text-[#1F3B64]">We exist to change that.</strong>
-          </p>
-        </Motion.div>
-      </div>
-    </section>
-  );
-}
-
 function AboutPage() {
   const [activeSectionId, setActiveSectionId] = useState(
     () => aboutSectionNav[0]?.id ?? "",
@@ -1382,6 +1044,21 @@ function AboutPage() {
   const [highlightedPromiseIndex, setHighlightedPromiseIndex] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const scrollRafRef = useRef(0);
+  const whoWeAreRef = useRef(null);
+  const [whoWeAreStatsLive, setWhoWeAreStatsLive] = useState(false);
+
+  useEffect(() => {
+    const el = whoWeAreRef.current;
+    if (!el) return undefined;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) setWhoWeAreStatsLive(true);
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.18 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   useEffect(() => {
     const onProg = () => {
@@ -1598,12 +1275,11 @@ function AboutPage() {
 
       <HowItAllBeganStory />
 
-      <RealityWeFaceSection />
-
       <WhatDrivesUsSection />
 
       {/* Who Are We */}
       <section
+        ref={whoWeAreRef}
         id="who-we-are"
         className={`relative overflow-hidden border-y border-slate-200/80 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
       >
@@ -1628,31 +1304,61 @@ function AboutPage() {
               One team. Global coverage. Obsessive about outcomes.
             </p>
           </Motion.div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+            {whoWeAreStats.map((row, i) => {
+              const { head, countEnd, countSuffix, partA, partB, Icon } = row;
+              return (
+                <Motion.div
+                  key={partA + partB}
+                  className="flex items-center gap-4 rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm md:p-6"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={aboutView}
+                  transition={{ duration: 0.45, delay: i * 0.05 }}
+                  whileHover={{ y: -2 }}
+                >
+                  <span
+                    className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#4CAF50]/12 text-[#2d8a3e] ring-1 ring-[#4CAF50]/20"
+                    aria-hidden
+                  >
+                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                  </span>
+                  <div className="min-w-0 flex-1 text-left">
+                    <p
+                      className={`${headlineFont} text-2xl font-extrabold text-[#4CAF50] tabular-nums sm:text-[1.75rem]`}
+                    >
+                      {countEnd != null ? (
+                        <StatNumber
+                          className="inline"
+                          end={countEnd}
+                          suffix={countSuffix}
+                          start={whoWeAreStatsLive}
+                        />
+                      ) : (
+                        head
+                      )}
+                    </p>
+                    <p className="text-[12px] leading-tight text-slate-600 md:text-[13px]">
+                      <span className="font-extrabold uppercase tracking-wider text-slate-600">
+                        {partA}
+                      </span>{" "}
+                      <span className="font-medium text-slate-500">{partB}</span>
+                    </p>
+                  </div>
+                </Motion.div>
+              );
+            })}
+          </div>
+
           <Motion.div
-            className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_24px_60px_-32px_rgba(15,35,60,0.18)]"
-            initial={{ opacity: 0, y: 24 }}
+            className="mt-10 overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_20px_50px_-32px_rgba(15,35,60,0.14)] md:mt-12"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={aboutView}
-            transition={{ duration: 0.5, delay: 0.06 }}
+            transition={{ duration: 0.5, delay: 0.08 }}
           >
-            <div className="grid grid-cols-1 divide-y divide-slate-200/80 bg-gradient-to-br from-white to-slate-50/80 md:grid-cols-3 md:divide-x md:divide-y-0">
-              {[
-                {
-                  n: "47",
-                  label: "Specialists",
-                  sub: "Global desks & delivery pods",
-                },
-                {
-                  n: "1,100+",
-                  label: "Engagements",
-                  sub: "Individuals to enterprise",
-                },
-                {
-                  n: "7+",
-                  label: "Years",
-                  sub: "Since 2019",
-                },
-              ].map((s) => (
+            <div className="grid grid-cols-1 divide-y divide-slate-200/80 md:grid-cols-3 md:divide-x md:divide-y-0">
+              {whoWeAreStatRow.map((s) => (
                 <div
                   key={s.label}
                   className="flex flex-col items-center px-6 py-8 text-center md:py-10"
@@ -1660,34 +1366,20 @@ function AboutPage() {
                   <p
                     className={`${headlineFont} text-4xl font-extrabold tabular-nums text-[#4CAF50] md:text-[2.75rem]`}
                   >
-                    {s.n}
+                    <StatNumber
+                      className="inline"
+                      end={s.end}
+                      suffix={s.suffix}
+                      start={whoWeAreStatsLive}
+                    />
                   </p>
-                  <p className={`${headlineFont} mt-2 text-xs font-bold uppercase tracking-[0.14em] text-[#1F3B64] md:text-[13px]`}>
+                  <p
+                    className={`${headlineFont} mt-2 text-xs font-bold uppercase tracking-[0.14em] text-[#1F3B64] md:text-[13px]`}
+                  >
                     {s.label}
-                  </p>
-                  <p className="font-body mt-1.5 max-w-[12rem] text-[13px] leading-snug text-slate-500">
-                    {s.sub}
                   </p>
                 </div>
               ))}
-            </div>
-            <div className="border-t border-slate-200/80 bg-white/95 px-6 py-8 md:px-10 md:py-10">
-              <p className="font-body mx-auto max-w-3xl text-center text-[15px] leading-relaxed text-slate-600 md:text-[17px]">
-                We deliver round-the-clock reputation protection with senior strategists
-                and delivery teams aligned to how people actually search. Since 2019,
-                clients have trusted us across law, medicine, finance, e-commerce,
-                manufacturing, and professional services - from students to executives
-                and global brands. Reputation management, content strategy, LinkedIn and
-                employer branding, and search suppression:{" "}
-                <strong className="font-semibold text-[#1F3B64]">
-                  one integrated team, one clear purpose.
-                </strong>
-              </p>
-              <p
-                className={`${headlineFont} mx-auto mt-6 max-w-2xl text-center text-[11px] font-bold uppercase tracking-[0.12em] text-[#4CAF50] md:text-xs`}
-              >
-                Global coverage · Obsessive about outcomes · Built for the long run
-              </p>
             </div>
           </Motion.div>
         </div>
@@ -1711,9 +1403,6 @@ function AboutPage() {
             >
               Who We Serve
             </h2>
-            <p className="font-body mx-auto mt-3 max-w-2xl text-slate-600">
-              Hover a card - each audience carries a different search story.
-            </p>
           </Motion.div>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
             {whoWeServe.map((row, i) => {
@@ -1816,7 +1505,7 @@ function AboutPage() {
       {/* Our Promise to You */}
       <section
         id="our-promise"
-        className={`relative overflow-hidden bg-white pt-8 pb-4 md:pt-10 md:pb-5 ${aboutScrollTargetClass}`}
+        className={`relative overflow-hidden bg-white py-20 md:py-24 ${aboutScrollTargetClass}`}
       >
         <div
           className="pointer-events-none absolute right-0 top-0 h-96 w-96 translate-x-1/3 rounded-full bg-[#4CAF50]/[0.07] blur-3xl"
@@ -1882,12 +1571,10 @@ function AboutPage() {
         </div>
       </section>
 
-      <WeAreGlobalSection />
-
       <ClientStoriesSection />
 
       {/* Final CTA - tight top padding so the navy block sits close to testimonials (avoids a tall strip of #f4f6fb). */}
-      <section className="relative overflow-hidden bg-[#f4f6fb] pb-10 pt-2 md:pb-14 md:pt-3">
+      <section className="relative overflow-hidden bg-[#f4f6fb] py-20 md:py-24">
         <div className="mx-auto max-w-6xl px-6">
           <Motion.div
             className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-[#0f2344] via-[#1F3B64] to-[#0a1628] p-10 text-center shadow-[0_32px_80px_-24px_rgba(7,20,40,0.55)] md:rounded-[3rem] md:p-16 lg:p-20"

@@ -13,7 +13,7 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <main className="flex flex-1 flex-col gap-16 pt-10 md:gap-20 md:pt-14 lg:gap-24 lg:pt-16">
+      <main className="flex flex-1 flex-col gap-28 pt-16 md:gap-32 md:pt-24 lg:gap-40 lg:pt-28">
         <section>
           <WhatWeBelieve />
         </section>
@@ -25,7 +25,7 @@ function HomePage() {
           <Testimonials />
         </section>
         <WhoWeServeCards />
-        <section className="bg-white pb-14 md:pb-16">
+        <section className="bg-white">
           <HowReputation360Works />
         </section>
         <WhyClientsChoose />
