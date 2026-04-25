@@ -13,8 +13,8 @@
     "Segoe UI", sans-serif;
 
   --color-navy: #1f3b64;
-  /** Top nav bar (matches product header swatch) */
-  --color-header-bar: #2d3e5e;
+  /** Aligned with Primary Navy; used where “header bar” is referenced. */
+  --color-header-bar: #1f3b64;
   --color-green: #4caf50;
   /** Calendly / "Book a free consultation" primary buttons */
   --color-cta-consult: #6cb359;

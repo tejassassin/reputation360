@@ -7,6 +7,7 @@ import {
   Briefcase,
   Building,
 } from "lucide-react";
+import BrandSectionBackdrop from "./BrandSectionBackdrop";
 
 /** Mirrors Header “Who We Serve?” - one card per audience page. */
 const categories = [
@@ -61,9 +62,9 @@ const categories = [
   },
 ];
 
-/** Aligned with Our Services: dark cards, mint icon, white title, slate body, white/10 border. */
+/** Matches “Why clients…”: frosted card, growth green on icon ring only. */
 const audienceCardClassName =
-  "ha-lift group relative block overflow-hidden rounded-xl border border-white/10 bg-[#0c2133] p-6 no-underline shadow-none transition-all duration-300 sm:p-8 hover:border-[#4ade80]/40 hover:bg-[#0f2a3f]";
+  "ha-lift group relative block overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/6 p-6 no-underline shadow-[0_8px_32px_-8px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-all duration-300 sm:p-8 hover:-translate-y-0.5 hover:border-[#4CAF50]/50 hover:from-white/18 hover:to-white/8 hover:shadow-[0_12px_40px_-10px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.12)]";
 
 function AudienceCard({
   title,
@@ -75,16 +76,16 @@ function AudienceCard({
   return (
     <a
       href={href}
-      className={`${audienceCardClassName} ${className} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4ade80]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#020911]`.trim()}
+      className={`${audienceCardClassName} ${className} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A3354]`.trim()}
     >
-      <div className="absolute -right-12 -top-12 h-24 w-24 rounded-bl-full bg-[#4ade80]/[0.08] transition-transform group-hover:scale-150" />
-      <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[rgba(5,22,38,0.95)] text-[#4ade80] transition-colors group-hover:text-[#86efac]">
+      <div className="absolute -right-12 -top-12 h-24 w-24 rounded-bl-full bg-[#2E5B88]/[0.15] transition-transform group-hover:scale-150" />
+      <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-[#4CAF50]/30 bg-[#0f1c2c]/80 text-[#4CAF50] shadow-sm shadow-[#0d1825]/40 transition group-hover:border-[#4CAF50]/55 group-hover:shadow-[0_0_24px_-6px_rgba(76,175,80,0.3)]">
         <Icon className="h-7 w-7 stroke-[1.75]" aria-hidden />
       </div>
-      <h3 className="font-heading mb-4 text-xl leading-snug font-bold text-white">
+      <h3 className="font-heading mb-4 text-xl leading-snug font-bold text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
         {title}
       </h3>
-      <p className="text-sm leading-relaxed text-[#94a3b8] md:text-[15px]">
+      <p className="text-[15px] font-medium leading-relaxed text-slate-100 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-base">
         {description}
       </p>
     </a>
@@ -99,32 +100,13 @@ export default function WhoWeServeCards() {
 
   return (
     <section
-      className="relative overflow-hidden py-12 text-white md:py-16 lg:py-20"
+      className="relative overflow-hidden border-y border-white/[0.06] py-14 text-white md:py-20 lg:py-24"
       aria-labelledby="who-we-serve-heading"
     >
-      <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#020911] via-[#051626] to-[#0a253e]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_20%,rgba(10,40,60,0.5),transparent)]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(148,163,184,0.12)_1px,transparent_0)] bg-[length:40px_40px] opacity-40"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -left-32 top-0 h-[420px] w-[420px] rounded-full bg-[#4ade80]/[0.08] blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -right-20 bottom-0 h-[400px] w-[400px] rounded-full bg-[#0a253e] blur-3xl"
-        aria-hidden
-      />
+      <BrandSectionBackdrop />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-        <div className="mb-10 text-center md:mb-12">
+        <div className="mb-12 text-center md:mb-14">
           <h2
             id="who-we-serve-heading"
             className="font-heading text-4xl font-bold tracking-tight text-white md:text-5xl"
@@ -132,7 +114,7 @@ export default function WhoWeServeCards() {
             Who we work with
           </h2>
           <div
-            className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4ade80] to-cyan-400/90"
+            className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"
             aria-hidden
           />
         </div>
