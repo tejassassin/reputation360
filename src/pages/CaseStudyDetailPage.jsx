@@ -7,6 +7,14 @@ import { CaseStudyPageCta } from "../components/CaseStudyPageCta.jsx";
 import { CaseStudySectionBlock } from "../components/CaseStudySectionBlock.jsx";
 import { parseEngagementMonths } from "../utils/parseEngagement.js";
 import { ProfileValueLines } from "../components/ProfileValueLines.jsx";
+import { SeoHead } from "../components/SeoHead.jsx";
+import { SEO } from "../data/seoPageMeta.js";
+
+function metaDescriptionFromText(text) {
+  const t = String(text || "").replace(/\s+/g, " ").trim();
+  if (t.length <= 160) return t || SEO.caseStudies.description;
+  return `${t.slice(0, 157).trimEnd()}...`;
+}
 
 const PROGRESS_TOP = "4.5rem";
 
@@ -174,18 +182,14 @@ export default function CaseStudyDetailPage({ caseId }) {
     return () => ob.disconnect();
   }, [study, sectionIds, caseId]);
 
-  useEffect(() => {
-    const previous = document.title;
-    document.title = study
-      ? `${study.listTitle} | Reputation360`
-      : "Case study | Reputation360";
-    return () => {
-      document.title = previous;
-    };
-  }, [caseId, study]);
-
   if (!study) {
     return (
+      <>
+        <SeoHead
+          title="Case study | Reputation360"
+          description={SEO.caseStudies.description}
+          canonicalPath="/case-studies"
+        />
       <main className="relative min-h-0 flex-1 overflow-x-hidden bg-slate-50 pt-28 text-center text-slate-900 md:pt-32">
         <p className="font-heading text-lg font-bold">This case study was not found.</p>
         <a
@@ -196,10 +200,17 @@ export default function CaseStudyDetailPage({ caseId }) {
           Back to all case studies
         </a>
       </main>
+      </>
     );
   }
 
   return (
+    <>
+      <SeoHead
+        title={`${study.listTitle} | Reputation360`}
+        description={metaDescriptionFromText(study.summary)}
+        canonicalPath={`/case-studies/${caseId}`}
+      />
     <main className="relative min-h-0 flex-1 bg-slate-50 pt-24 text-slate-900 md:pt-28">
       <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_15%_-5%,rgba(120,200,100,0.2),transparent_50%)]" />
@@ -349,6 +360,7 @@ export default function CaseStudyDetailPage({ caseId }) {
         <CaseStudyPageCta />
       </div>
     </main>
+    </>
   );
 }
 

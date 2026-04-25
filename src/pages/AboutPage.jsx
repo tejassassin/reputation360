@@ -23,6 +23,8 @@ import {
   MapPinned,
 } from "lucide-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
+import { SeoHead } from "../components/SeoHead.jsx";
+import { SEO } from "../data/seoPageMeta.js";
 import AboutHeroSearchMockup from "../components/AboutHeroSearchMockup.jsx";
 import { StatNumber } from "../components/StatNumber.jsx";
 
@@ -1168,14 +1170,6 @@ function AboutPage() {
   }, []);
 
   useEffect(() => {
-    const previous = document.title;
-    document.title = "Our Story | Reputation360";
-    return () => {
-      document.title = previous;
-    };
-  }, []);
-
-  useEffect(() => {
     const syncFromHash = () => {
       const id = window.location.hash.slice(1);
       if (aboutSectionNav.some((s) => s.id === id)) {
@@ -1226,6 +1220,12 @@ function AboutPage() {
   const scrollPct = Math.min(100, Math.max(0, Math.round(scrollProgress * 100)));
 
   return (
+    <>
+      <SeoHead
+        title={SEO.about.title}
+        description={SEO.about.description}
+        canonicalPath="/about"
+      />
     <main className="relative flex-1 bg-[#f4f6fb] pt-28 text-slate-800 md:pt-32">
       <nav
         aria-label="Sections on this page"
@@ -1321,9 +1321,15 @@ function AboutPage() {
                 variants={heroItem}
                 className={`${headlineFont} text-[1.6rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[2.5rem] lg:leading-[1.08]`}
               >
+                About Reputation360
+              </Motion.h1>
+              <Motion.p
+                variants={heroItem}
+                className="mt-4 max-w-2xl text-lg font-semibold leading-snug text-white/95 sm:text-xl md:text-2xl"
+              >
                 Your reputation defines your future. We make sure it{" "}
                 <span className="text-[#7df5b9]">reflects your truth.</span>
-              </Motion.h1>
+              </Motion.p>
               <Motion.p
                 variants={heroItem}
                 className="mt-5 max-w-lg text-[15px] leading-relaxed text-slate-300/90 md:text-base"
@@ -1724,6 +1730,7 @@ function AboutPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 

@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { SeoHead } from "../components/SeoHead.jsx";
+import { SEO } from "../data/seoPageMeta.js";
 
 const NOTICES = {
   privacy: {
@@ -32,22 +33,21 @@ const NOTICES = {
 
 function LegalNoticePage({ variant }) {
   const content = NOTICES[variant];
-
-  useEffect(() => {
-    const c = NOTICES[variant];
-    if (!c) return;
-    const previous = document.title;
-    document.title = `${c.title} | Reputation360`;
-    return () => {
-      document.title = previous;
-    };
-  }, [variant]);
+  const seo = SEO.legal[variant];
 
   if (!content) {
     return null;
   }
 
   return (
+    <>
+      {seo ? (
+        <SeoHead
+          title={seo.title}
+          description={seo.description}
+          canonicalPath={seo.path}
+        />
+      ) : null}
     <main
       className="mx-auto max-w-3xl flex-1 px-4 py-28 md:px-6 md:py-32 lg:px-8"
       aria-labelledby="legal-notice-heading"
@@ -70,6 +70,7 @@ function LegalNoticePage({ variant }) {
         with questions about this notice.
       </p>
     </main>
+    </>
   );
 }
 

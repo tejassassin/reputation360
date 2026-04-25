@@ -1,3 +1,4 @@
+import { SeoHead } from "../components/SeoHead.jsx";
 import Hero from "../components/Hero";
 import WhatWeBelieve from "../components/WhatWeBelieve";
 import WhatWeDo from "../components/WhatWeDo";
@@ -9,9 +10,20 @@ import WhyClientsChoose from "../components/WhyClientsChoose";
 import CaseStudies from "../components/CaseStudies";
 import Contact from "../components/Contact";
 
+const HOME_SEO = {
+  title: "Online Reputation Management in India | Reputation360",
+  description:
+    "Reputation360 helps individuals and brands in India take control of search and social: online reputation management, negative link suppression, brand monitoring, and crisis response—backed by 7+ years of experience.",
+};
+
 function HomePage() {
   return (
     <>
+      <SeoHead
+        title={HOME_SEO.title}
+        description={HOME_SEO.description}
+        canonicalPath="/"
+      />
       <Hero />
       <main className="flex flex-1 flex-col gap-28 pt-16 md:gap-32 md:pt-24 lg:gap-40 lg:pt-28">
         <section>

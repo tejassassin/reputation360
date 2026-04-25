@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { calendlyNewTabProps } from "../constants/scheduling";
+import { SeoHead } from "../components/SeoHead.jsx";
+import { SEO } from "../data/seoPageMeta.js";
 import { StatNumber } from "../components/StatNumber.jsx";
 import { cn } from "@/lib/utils";
 
@@ -112,15 +114,13 @@ function FaqsPage() {
     return () => obs.disconnect();
   }, []);
 
-  useEffect(() => {
-    const previous = document.title;
-    document.title = "FAQ | Reputation360 - The Curated Authority";
-    return () => {
-      document.title = previous;
-    };
-  }, []);
-
   return (
+    <>
+      <SeoHead
+        title={SEO.faqs.title}
+        description={SEO.faqs.description}
+        canonicalPath={SEO.faqs.path}
+      />
     <main className="faq-page flex-1 bg-[#F5F7FA] pt-28 text-[#1F3B64] selection:bg-[#4CAF50]/30 md:pt-32">
       <div className="mx-auto max-w-7xl px-6">
         {/* Hero */}
@@ -1096,6 +1096,7 @@ function FaqsPage() {
         </section>
       </div>
     </main>
+    </>
   );
 }
 

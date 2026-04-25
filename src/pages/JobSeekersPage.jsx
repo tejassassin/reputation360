@@ -6,6 +6,8 @@ import {
   REPUTATION360_JOB_SEEKER_STEPS,
 } from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
+import { SeoHead } from "../components/SeoHead.jsx";
+import { SEO } from "../data/seoPageMeta.js";
 import {
   ShieldCheck,
   Search,
@@ -580,6 +582,12 @@ function JobSeekersProblemSection() {
 
 function JobSeekersPage() {
   return (
+    <>
+      <SeoHead
+        title={SEO.jobSeekers.title}
+        description={SEO.jobSeekers.description}
+        canonicalPath={SEO.jobSeekers.path}
+      />
     <main className="flex-1 pt-28 md:pt-32 bg-offwhite">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 space-y-10">
         <section className="relative overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:px-4 md:py-7 grid gap-5 md:grid-cols-[1.03fr_0.97fr] items-start">
@@ -741,6 +749,7 @@ function JobSeekersPage() {
         <JobSeekersFaqSection />
       </div>
     </main>
+    </>
   );
 }
 

@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { calendlyNewTabProps } from "../constants/scheduling";
+import { SeoHead } from "../components/SeoHead.jsx";
+import { SEO } from "../data/seoPageMeta.js";
 import { cn } from "@/lib/utils";
 import {
   BookOpen,
@@ -84,16 +86,13 @@ function GuidePage() {
     };
   }, []);
 
-  useEffect(() => {
-    const previous = document.title;
-    document.title =
-      "The Complete Guide to Online Reputation Management in 2026 | Reputation360";
-    return () => {
-      document.title = previous;
-    };
-  }, []);
-
   return (
+    <>
+      <SeoHead
+        title={SEO.guide.title}
+        description={SEO.guide.description}
+        canonicalPath={SEO.guide.path}
+      />
     <div className="guide-page bg-[#f9f9ff] text-[#141b2b]">
       {/* Hero - site header is fixed; pt clears it */}
       <header className="relative overflow-hidden px-4 pb-24 pt-28 md:px-8 md:pt-32">
@@ -483,6 +482,7 @@ function GuidePage() {
         </div>
       </main>
     </div>
+    </>
   );
 }
 

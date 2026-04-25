@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BadgeCheck, ArrowRight, ArrowUpRight } from "lucide-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
+import { SeoHead } from "../components/SeoHead.jsx";
+import { SEO } from "../data/seoPageMeta.js";
 
 const HERO_IMG =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuB9RkcKxX1nZCRrBRIu6rOONYqsNVBW7ImSuvITVmOpUNdh9vHBQk72dRRSVg466yzV7FRLVAR74vtVn6mQM0qSQN7nwSKV5FRcqM2cRWLPZgV0I9AcJ4dx6eKagNgJmw90lkVLTGDucXhp4xEv1BziO3gnOT71pR9W2Me9zrfnNhsuERyYBIMHr21Picl79YYv-_eICE0qZQ-fU8O-bUpr5Nvt-K4QLuuTjb8c1GJuhLQBP1XrKDHjlV0QvXkwWydskHpIgIc5xa8";
@@ -67,14 +69,6 @@ function InsightsBlogsPage() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [email, setEmail] = useState("");
 
-  useEffect(() => {
-    const previous = document.title;
-    document.title = "Insights From Seven Years of Reputation Work | Reputation360";
-    return () => {
-      document.title = previous;
-    };
-  }, []);
-
   const filteredArticles =
     activeFilter === "All"
       ? latestArticles
@@ -85,6 +79,12 @@ function InsightsBlogsPage() {
   }
 
   return (
+    <>
+      <SeoHead
+        title={SEO.blogs.title}
+        description={SEO.blogs.description}
+        canonicalPath={SEO.blogs.path}
+      />
     <main className="insights-page flex-1 bg-[#f9f9ff] pt-28 text-[#141b2b] md:pt-32">
       {/* Hero */}
       <header className="relative mx-auto max-w-7xl overflow-hidden px-6 pb-24 pt-12 md:px-8 md:pt-16">
@@ -365,6 +365,7 @@ function InsightsBlogsPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 

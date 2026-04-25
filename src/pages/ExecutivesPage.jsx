@@ -6,6 +6,8 @@ import {
   REPUTATION360_EXECUTIVE_STEPS,
 } from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
+import { SeoHead } from "../components/SeoHead.jsx";
+import { SEO } from "../data/seoPageMeta.js";
 import {
   ShieldCheck,
   Search,
@@ -572,15 +574,13 @@ function ExecutivesFaqSection() {
 }
 
 function ExecutivesPage() {
-  useEffect(() => {
-    const previous = document.title;
-    document.title = "Executives & C-Suite Leaders | Reputation360";
-    return () => {
-      document.title = previous;
-    };
-  }, []);
-
   return (
+    <>
+      <SeoHead
+        title={SEO.executives.title}
+        description={SEO.executives.description}
+        canonicalPath={SEO.executives.path}
+      />
     <main className="flex-1 bg-offwhite pt-28 md:pt-32">
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 md:px-6 md:py-14">
         <section className="relative overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:grid md:grid-cols-[1.03fr_0.97fr] md:items-start md:px-4 md:py-7">
@@ -758,6 +758,7 @@ function ExecutivesPage() {
         <ExecutivesFaqSection />
       </div>
     </main>
+    </>
   );
 }
 

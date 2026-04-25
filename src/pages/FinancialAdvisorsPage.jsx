@@ -6,6 +6,8 @@ import {
   REPUTATION360_FINANCIAL_ADVISOR_STEPS,
 } from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
+import { SeoHead } from "../components/SeoHead.jsx";
+import { SEO } from "../data/seoPageMeta.js";
 import {
   ShieldCheck,
   FileWarning,
@@ -588,6 +590,12 @@ function FinancialAdvisorsMarketInsightBanner() {
 
 function FinancialAdvisorsPage() {
   return (
+    <>
+      <SeoHead
+        title={SEO.financialAdvisors.title}
+        description={SEO.financialAdvisors.description}
+        canonicalPath={SEO.financialAdvisors.path}
+      />
     <main className="flex-1 pt-28 md:pt-32 bg-offwhite">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 space-y-10">
         <section className="rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:px-4 md:py-7 grid gap-5 md:grid-cols-[1.03fr_0.97fr] items-start">
@@ -754,6 +762,7 @@ function FinancialAdvisorsPage() {
         <FinancialAdvisorsFaqSection />
       </div>
     </main>
+    </>
   );
 }
 

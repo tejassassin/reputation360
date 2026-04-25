@@ -2,6 +2,8 @@ import { useEffect, useId, useState } from "react";
 import { Calendar, Mail, ExternalLink, Lock } from "lucide-react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
+import { SeoHead } from "../components/SeoHead.jsx";
+import { SEO } from "../data/seoPageMeta.js";
 
 const calendarTabletImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuA-iNftxgB4MVtLYmaJLpcpPMCdIk9bo4K2vUXyEA2ZXH-BZhmfhL-8HD6Jt2GOFScH55bygI0bbHScErBYwqc9LNb_6eQBZuMJGi1trXwBsc3cLY_Av8Z34IJp_bM6r1CbUuzjq7-RNw4S1ffC5pcP2vOKqu5G6XAyqQVOS8MtT6wy6zLz3pSH77EgfqPgBDruvU6u1_vrhBJ-BCgrYislzYdg4iPWvU41nIaZO_AVY90uuI5seopRat1VNUXWv2d1Qw5hnw5knwU";
@@ -232,20 +234,17 @@ function ContactPage() {
   const gridPatternId = useId().replace(/:/g, "");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [briefNote, setBriefNote] = useState("");
-  const [showFormThanks, setShowFormThanks] = useState(false);
+  const [showFormThanks] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return new URLSearchParams(window.location.search).get("thanks") === "1";
+  });
 
   useEffect(() => {
-    const previous = document.title;
-    document.title = "Contact | Reputation360";
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("thanks") === "1") {
-      setShowFormThanks(true);
+    if (new URLSearchParams(window.location.search).get("thanks") === "1") {
       window.history.replaceState({}, "", "/contact");
     }
-    return () => {
-      document.title = previous;
-    };
   }, []);
 
   const whatsappHref = `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent(
@@ -253,6 +252,12 @@ function ContactPage() {
   )}`;
 
   return (
+    <>
+      <SeoHead
+        title={SEO.contact.title}
+        description={SEO.contact.description}
+        canonicalPath="/contact"
+      />
     <main className="flex-1 bg-[#f9f9ff] pt-28 md:pt-32">
       {/* How to Reach Us */}
       <section
@@ -262,8 +267,11 @@ function ContactPage() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 md:mb-12">
             <h1 className="font-heading text-[26px] font-bold text-[#02254d] md:text-[32px]">
-              How to Reach Us
+              Contact Reputation360
             </h1>
+            <p className="mt-2 text-base font-medium text-[#1F3B64] md:text-lg">
+              How to reach us
+            </p>
             <p className="mt-3 text-[15px] text-[#43474e] md:text-[16px]">
               Reach out through whichever channel feels most convenient to you.
             </p>
@@ -412,11 +420,21 @@ function ContactPage() {
                   placeholder="Email Address *"
                   className="rounded-t-lg border-b border-white/20 bg-white/5 px-4 py-3.5 text-[15px] text-white outline-none placeholder:text-white/40 focus:border-[#78dc77] md:py-4"
                 />
+                <input
+                  type="tel"
+                  name="phone"
+                  autoComplete="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Phone (optional)"
+                  className="rounded-t-lg border-b border-white/20 bg-white/5 px-4 py-3.5 text-[15px] text-white outline-none placeholder:text-white/40 focus:border-[#78dc77] md:py-4"
+                />
                 <textarea
                   name="message"
                   value={briefNote}
                   onChange={(e) => setBriefNote(e.target.value)}
-                  placeholder="Brief note (optional)"
+                  placeholder="Message"
+                  required
                   rows={4}
                   className="h-24 resize-none rounded-t-lg border-b border-white/20 bg-white/5 px-4 py-3.5 text-[15px] text-white outline-none placeholder:text-white/40 focus:border-[#78dc77] md:col-span-2 md:py-4"
                 />
@@ -523,6 +541,7 @@ function ContactPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 
