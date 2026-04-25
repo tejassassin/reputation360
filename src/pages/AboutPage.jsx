@@ -1538,16 +1538,31 @@ function AboutPage() {
 
       <HowWeWorkSection />
 
-      {/* What We Don't Do */}
+      {/* What We Don't Do — brand gradient + glass (Navy, Slate, Growth Green accents) */}
       <section
         id="what-we-dont"
-        className={`relative overflow-hidden bg-slate-950 ${aboutSectionSpacing} text-white ${aboutScrollTargetClass}`}
+        className={`relative overflow-hidden ${aboutSectionSpacing} text-white ${aboutScrollTargetClass}`}
       >
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(76,175,80,0.12),transparent_55%)]"
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(175deg,_#1F3B64_0%,_#1a2f4d_38%,_#223a58_70%,_#2E5B88_100%)]"
           aria-hidden
         />
-        <div className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:40px_40px]" aria-hidden />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_95%_65%_at_50%_-5%,rgba(46,91,136,0.5),transparent_55%)]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_55%_at_0%_100%,rgba(76,175,80,0.14),transparent_52%)]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -right-24 top-1/2 h-[min(70vh,32rem)] w-[min(90vw,32rem)] -translate-y-1/2 rounded-full bg-[#1F3B64]/50 blur-3xl"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_1px_1px,rgba(107,116,128,0.14)_1px,transparent_0)] [background-size:40px_40px]"
+          aria-hidden
+        />
         <div className="relative mx-auto max-w-7xl px-6">
           <Motion.div
             className="mb-12 text-center md:mb-16"
@@ -1557,11 +1572,15 @@ function AboutPage() {
             transition={{ duration: 0.55 }}
           >
             <h2
-              className={`${headlineFont} text-3xl font-extrabold text-[#86efac] md:text-[2.1rem]`}
+              className={`${headlineFont} text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.25)] md:text-[2.1rem]`}
             >
               What We Don&apos;t Do
             </h2>
-            <p className="font-body mx-auto mt-4 max-w-2xl text-sm text-white/55 md:text-base">
+            <div
+              className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] shadow-[0_0_24px_rgba(76,175,80,0.2)]"
+              aria-hidden
+            />
+            <p className="font-body mx-auto mt-5 max-w-2xl text-sm text-slate-100/85 md:mt-6 md:text-base">
               Clear boundaries build trust - and lasting results.
             </p>
           </Motion.div>
@@ -1577,17 +1596,21 @@ function AboutPage() {
                 <Motion.div
                   whileHover={{ y: -4, scale: 1.01 }}
                   transition={{ type: "spring", stiffness: 380, damping: 26 }}
-                  className="group h-full rounded-2xl border border-white/10 bg-white/[0.04] p-8 shadow-lg shadow-black/20 backdrop-blur-sm transition-colors hover:border-emerald-400/25 hover:bg-white/[0.08] md:p-9"
+                  className="group h-full rounded-2xl border border-white/18 bg-gradient-to-b from-white/[0.1] to-white/[0.04] p-8 shadow-[0_8px_40px_-12px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-colors duration-300 hover:border-[#4CAF50]/40 hover:from-white/[0.14] hover:to-white/[0.06] hover:shadow-[0_16px_50px_-14px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.1)] md:p-9"
                 >
                   <div className="mb-5 flex items-center gap-3">
-                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-red-500/15 text-red-300 ring-1 ring-red-400/20">
+                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/20 bg-[#0f1c2c]/85 text-rose-200/95 shadow-inner shadow-black/20 ring-1 ring-[#2E5B88]/40">
                       <XCircle className="h-6 w-6" strokeWidth={2} aria-hidden />
                     </div>
-                    <h3 className={`${headlineFont} text-base font-extrabold leading-snug md:text-lg`}>
+                    <h3
+                      className={`${headlineFont} text-base font-extrabold leading-snug text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] md:text-lg`}
+                    >
                       {title}
                     </h3>
                   </div>
-                  <p className="text-sm leading-relaxed text-slate-400 md:text-[15px]">{text}</p>
+                  <p className="text-sm leading-relaxed text-slate-100/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.15)] md:text-[15px]">
+                    {text}
+                  </p>
                 </Motion.div>
               </Motion.div>
             ))}
