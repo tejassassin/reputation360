@@ -57,10 +57,9 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Case Studies section -->
   <url>
-    <loc>https://www.reputation360.in/#case-studies</loc>
-    <lastmod>2026-02-24</lastmod>
+    <loc>https://www.reputation360.in/case-studies</loc>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

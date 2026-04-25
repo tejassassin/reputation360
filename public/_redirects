@@ -1,0 +1,2 @@
+# Client-side routes (Vite/React): all paths should serve the SPA (also used by Netlify, Cloudflare Pages, etc.)
+/*  /index.html  200

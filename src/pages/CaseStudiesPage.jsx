@@ -165,7 +165,7 @@ export default function CaseStudiesPage() {
   }, []);
 
   return (
-    <main className="relative min-h-0 flex-1 overflow-x-hidden bg-[#F5F7FA] pt-28 text-slate-900 selection:bg-[#4CAF50]/30 sm:pt-32">
+    <main className="relative flex-1 overflow-x-hidden bg-[#F5F7FA] pt-28 text-slate-900 selection:bg-[#4CAF50]/30 sm:pt-32">
       <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_15%_-5%,rgba(120,200,100,0.2),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_95%_0%,rgba(100,150,200,0.12),transparent_45%)]" />
