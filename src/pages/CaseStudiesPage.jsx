@@ -198,7 +198,7 @@ export default function CaseStudiesPage() {
             Documented results across industries
           </span>
           <h1 className="font-headline-faq mb-8 max-w-5xl text-4xl font-extrabold leading-[1.1] tracking-tighter text-[#1F3B64] md:text-6xl lg:text-7xl">
-            Recovery is not a slogan — it is a process.{" "}
+            Recovery is not a slogan - it is a process.{" "}
             <span className="text-[#2E5B88]">Read how we have delivered it.</span>
           </h1>
           <p className="mb-12 max-w-2xl text-lg font-light text-[#6B7280] md:text-xl">

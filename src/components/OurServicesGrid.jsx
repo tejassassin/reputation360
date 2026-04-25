@@ -17,7 +17,7 @@ const serviceIconWrap =
   "r3-supporting-service-icon flex shrink-0 items-center justify-center rounded-2xl border border-[#4CAF50]/30 bg-[#0f1c2c]/80 text-[#4CAF50] shadow-sm shadow-[#0d1825]/40 transition group-hover:border-[#4CAF50]/50";
 
 /**
- * Core ORM + supporting accordions — same visual language as “Who we work with”.
+ * Core ORM + supporting accordions - same visual language as “Who we work with”.
  */
 export function OurServicesGrid() {
   const [openId, setOpenId] = useState(null);

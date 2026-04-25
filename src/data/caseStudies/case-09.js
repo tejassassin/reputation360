@@ -11,7 +11,7 @@ const caseStudy = {
   sections: [
     {
       heading: "The Challenge",
-      body: `A consultant surgeon with 18 years of uninterrupted practice found his professional reputation unraveling rapidly after a single patient complaint escalated beyond the hospital's internal grievance process. The patient — dissatisfied with post-operative recovery expectations rather than clinical outcome — posted detailed, emotionally charged reviews across three major medical review platforms. A local health journalist then picked up the story, publishing a speculative piece that indexed on Page 1 within days of publication.
+      body: `A consultant surgeon with 18 years of uninterrupted practice found his professional reputation unraveling rapidly after a single patient complaint escalated beyond the hospital's internal grievance process. The patient - dissatisfied with post-operative recovery expectations rather than clinical outcome - posted detailed, emotionally charged reviews across three major medical review platforms. A local health journalist then picked up the story, publishing a speculative piece that indexed on Page 1 within days of publication.
 Negative visibility included:
 
 • 2 review platform listings with sub-2-star average ratings dominating Page 1
@@ -19,7 +19,7 @@ Negative visibility included:
 • A syndicated blog post referencing and expanding on the original article
 • His own website ranking below all of the above, in Position 8
 
-Referrals from GP partners dropped by an estimated 35% over 8 weeks. The clinic's patient coordinator reported a consistent pattern of prospective patients going quiet after initial inquiry calls — a well-recognised sign of negative search influence at the decision stage.`,
+Referrals from GP partners dropped by an estimated 35% over 8 weeks. The clinic's patient coordinator reported a consistent pattern of prospective patients going quiet after initial inquiry calls - a well-recognised sign of negative search influence at the decision stage.`,
     },
     {
       heading: "Baseline",
@@ -27,17 +27,17 @@ Referrals from GP partners dropped by an estimated 35% over 8 weeks. The clinic'
     },
     {
       heading: "Our Objective",
-      body: `Rebuild Page 1 with authoritative, expertise-led content accurately reflecting his 18-year clinical record, while ethically managing review platform visibility — without making claims that contradicted or dismissed legitimate patient experience.`,
+      body: `Rebuild Page 1 with authoritative, expertise-led content accurately reflecting his 18-year clinical record, while ethically managing review platform visibility - without making claims that contradicted or dismissed legitimate patient experience.`,
     },
     {
       heading: "Our Strategy",
       body: `Conducted a full SERP audit mapping every URL ranking for his name, clinic name, and specialty-based search terms
-Immediately claimed and fully optimised his unclaimed Google Business Profile — a foundational visibility asset
+Immediately claimed and fully optimised his unclaimed Google Business Profile - a foundational visibility asset
 Rebuilt his professional website with dedicated pages for each surgical specialisation, patient education articles, pre- and post-operative guidance, and a fully verified credentials section
 Personal website began appearing in search results within approximately 8 weeks of relaunch
-Published 3 long-form clinical education articles per month on topics within his specialty — each targeting name and specialty-based search queries
+Published 3 long-form clinical education articles per month on topics within his specialty - each targeting name and specialty-based search queries
 Secured 2 guest features in verified, indexed healthcare publications
-Worked with the clinic to implement an ethical post-appointment review invitation process — generating 40+ new verified reviews across Google and a leading medical directory within 60 days
+Worked with the clinic to implement an ethical post-appointment review invitation process - generating 40+ new verified reviews across Google and a leading medical directory within 60 days
 Filed platform-specific factual dispute requests on two review entries containing demonstrably false procedural claims`,
     },
     {

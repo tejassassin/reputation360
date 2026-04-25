@@ -11,7 +11,7 @@ const caseStudy = {
   sections: [
     {
       heading: "The Challenge",
-      body: `A growing DTC fashion brand faced acute reputational damage after a high-profile influencer partnership collapsed publicly. The influencer — with 800,000 followers across Instagram and TikTok — made allegations regarding non-payment and unethical working practices. The claims spread rapidly across social platforms, fashion commentary blogs, and consumer advocacy websites, attracting media coverage and organised consumer boycott calls.
+      body: `A growing DTC fashion brand faced acute reputational damage after a high-profile influencer partnership collapsed publicly. The influencer - with 800,000 followers across Instagram and TikTok - made allegations regarding non-payment and unethical working practices. The claims spread rapidly across social platforms, fashion commentary blogs, and consumer advocacy websites, attracting media coverage and organised consumer boycott calls.
 Negative content dominated:
 
 • TikTok and Instagram tagged posts accumulating hundreds of thousands of views
@@ -54,7 +54,7 @@ Retail partner confidence restored; two new stockist agreements signed`,
     },
     {
       heading: "Impact",
-      body: `The brand emerged from the controversy with a stronger and more defined public identity. Their digital presence shifted from reactive controversy management to proactive brand storytelling — turning a reputational low point into a reset opportunity.`,
+      body: `The brand emerged from the controversy with a stronger and more defined public identity. Their digital presence shifted from reactive controversy management to proactive brand storytelling - turning a reputational low point into a reset opportunity.`,
     },
   ],
 };

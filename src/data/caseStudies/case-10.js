@@ -13,7 +13,7 @@ const caseStudy = {
       heading: "The Challenge",
       body: `A GP partner found that name-based search surfaced content that did not actually describe her practice. The situation was driven by:
 
-• A health forum thread — written about a different practitioner with a near-identical name — indexed by Google and ranking on Page 1, containing serious allegations entirely unrelated to her work or her patients
+• A health forum thread - written about a different practitioner with a near-identical name - indexed by Google and ranking on Page 1, containing serious allegations entirely unrelated to her work or her patients
 • A regional health watchdog blog that had incorrectly cited her name in a roundup of GP complaints in her area
 
 The misattribution was causing direct, measurable harm: the practice manager reported that approximately two new patient registration inquiries per week were being turned away, with patients citing "concerns found online" as the reason.`,
@@ -28,12 +28,12 @@ The misattribution was causing direct, measurable harm: the practice manager rep
     },
     {
       heading: "Our Strategy",
-      body: `Submitted formal misattribution correction requests to both the forum platform and the blog publisher — one complied within 14 days; the other required a formal escalation letter before complying in week 6
-Built distinctive, keyword-rich professional profiles on three major medical directories under her exact name, including GMC registration number, practice affiliations, and clinical interests — creating clear, verifiable identity differentiation
+      body: `Submitted formal misattribution correction requests to both the forum platform and the blog publisher - one complied within 14 days; the other required a formal escalation letter before complying in week 6
+Built distinctive, keyword-rich professional profiles on three major medical directories under her exact name, including GMC registration number, practice affiliations, and clinical interests - creating clear, verifiable identity differentiation
 Created a professional LinkedIn presence fully optimised for name-based search
-Launched a practice-level clinical blog with her as named author — covering topics directly relevant to her patient demographic
+Launched a practice-level clinical blog with her as named author - covering topics directly relevant to her patient demographic
 Personal professional website launched and indexed within approximately 8 weeks
-Secured a short Q&A feature in a regional health magazine — a high-authority third-party indexed asset that became a Page 1 fixture within 6 weeks of publication`,
+Secured a short Q&A feature in a regional health magazine - a high-authority third-party indexed asset that became a Page 1 fixture within 6 weeks of publication`,
     },
     {
       heading: "Month-by-Month Milestones",
@@ -51,7 +51,7 @@ New patient registration complaints ceased entirely by month 6`,
     },
     {
       heading: "Impact",
-      body: `A situation caused entirely by mistaken identity — not professional conduct — was resolved through precise identity-building and targeted content authority. The GP's digital presence now unambiguously reflects her actual record and her patients can find accurate, reassuring information when they search her name.`,
+      body: `A situation caused entirely by mistaken identity - not professional conduct - was resolved through precise identity-building and targeted content authority. The GP's digital presence now unambiguously reflects her actual record and her patients can find accurate, reassuring information when they search her name.`,
     },
   ],
 };

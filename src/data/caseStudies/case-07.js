@@ -55,7 +55,7 @@ Paused enterprise contract renewed in month 8`,
     },
     {
       heading: "Impact",
-      body: `The startup's search presence shifted from controversy to capability. Stakeholders engaging with the brand online encountered a narrative centred on growth, execution, and market relevance — allowing the company to move through a critical scaling stage without ongoing reputational drag.`,
+      body: `The startup's search presence shifted from controversy to capability. Stakeholders engaging with the brand online encountered a narrative centred on growth, execution, and market relevance - allowing the company to move through a critical scaling stage without ongoing reputational drag.`,
     },
   ],
 };

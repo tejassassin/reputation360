@@ -1538,7 +1538,7 @@ function AboutPage() {
 
       <HowWeWorkSection />
 
-      {/* What We Don't Do — brand gradient + glass (Navy, Slate, Growth Green accents) */}
+      {/* What We Don't Do - brand gradient + glass (Navy, Slate, Growth Green accents) */}
       <section
         id="what-we-dont"
         className={`relative overflow-hidden ${aboutSectionSpacing} text-white ${aboutScrollTargetClass}`}

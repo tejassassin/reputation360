@@ -33,7 +33,7 @@ Pages 1–3 for branded search queries became dominated by authenticity concerns
     {
       heading: "Our Strategy",
       body: `Conducted a brand-specific SERP audit identifying all high-ranking complaint and allegation-based URLs
-Developed detailed product authenticity content — covering sourcing, quality control processes, supplier verification, and authenticity guarantees
+Developed detailed product authenticity content - covering sourcing, quality control processes, supplier verification, and authenticity guarantees
 Strengthened visibility of verified customer reviews and independent third-party endorsements
 Published neutral third-party content focusing on product quality, material comparisons, and brand heritage
 Optimised marketplace listings and systematically responded to reviews to improve platform rating signals
@@ -56,7 +56,7 @@ Significant reduction in customer support queries related to authenticity concer
     },
     {
       heading: "Impact",
-      body: `The brand regained control over how its products were perceived online. Search results shifted from skepticism to clarity and confidence — enabling the business to restore customer trust and resume scaling without ongoing reputational friction.`,
+      body: `The brand regained control over how its products were perceived online. Search results shifted from skepticism to clarity and confidence - enabling the business to restore customer trust and resume scaling without ongoing reputational friction.`,
     },
   ],
 };

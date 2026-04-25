@@ -1,5 +1,5 @@
 /**
- * Shared backdrops for “Why clients…” and “Who we work with” — only Navy, Slate, Steel
+ * Shared backdrops for “Why clients…” and “Who we work with” - only Navy, Slate, Steel
  * in the main field; green stays in UI, not in large blurs (avoids teal / mint cast on blue).
  */
 function BrandSectionBackdrop() {
@@ -22,7 +22,7 @@ function BrandSectionBackdrop() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(107,116,128,0.1)_1px,transparent_0)] bg-[length:38px_38px] opacity-[0.4]"
         aria-hidden
       />
-      {/* No green blur — accent green lives on icons / borders only */}
+      {/* No green blur - accent green lives on icons / borders only */}
       <div
         className="pointer-events-none absolute -right-32 bottom-0 h-[min(50vh,28rem)] w-[min(80vw,28rem)] rounded-full bg-[#2E5B88]/25 blur-3xl"
         aria-hidden

@@ -25,16 +25,16 @@ Page 1 and Page 2 were dominated by critical opinion pieces. Investor calls beca
     },
     {
       heading: "Our Objective",
-      body: `Suppress speculative narratives from high-impact search positions and reposition the founder as a credible, forward-looking industry leader — without engaging directly with the allegations.`,
+      body: `Suppress speculative narratives from high-impact search positions and reposition the founder as a credible, forward-looking industry leader - without engaging directly with the allegations.`,
     },
     {
       heading: "Our Strategy",
       body: `Conducted a full name-based SERP audit mapping all 30 ranking URLs across Pages 1–3
 Identified LinkedIn as the highest-leverage platform for rapid authority building given existing domain strength
-Rebuilt the founder's LinkedIn profile from scratch — professional headline, detailed career narrative, skills, and endorsements
+Rebuilt the founder's LinkedIn profile from scratch - professional headline, detailed career narrative, skills, and endorsements
 Launched a structured thought leadership programme: 3 posts per week covering governance best practices, operational leadership, and long-term industry vision
 Developed and published long-form commentary pieces on two mid-authority SaaS publications under the founder's byline
-Built a personal professional website — indexed and beginning to rank within 8 weeks of launch
+Built a personal professional website - indexed and beginning to rank within 8 weeks of launch
 Strengthened Google-visible profiles across Crunchbase, AngelList, and relevant business directories
 Consistently produced interview-style content positioning the founder as a forward-looking voice in the SaaS space`,
     },
@@ -55,7 +55,7 @@ Measurable improvement in investor and stakeholder sentiment reported directly b
     },
     {
       heading: "Impact",
-      body: `The founder's digital presence came to reflect experience, stability, and leadership depth. Investor conversations moved away from controversy and back to business fundamentals. The personal website and LinkedIn profile — both non-existent at the start of the engagement — became the defining assets of his professional identity online.`,
+      body: `The founder's digital presence came to reflect experience, stability, and leadership depth. Investor conversations moved away from controversy and back to business fundamentals. The personal website and LinkedIn profile - both non-existent at the start of the engagement - became the defining assets of his professional identity online.`,
     },
   ],
 };

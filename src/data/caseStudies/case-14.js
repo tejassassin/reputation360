@@ -12,15 +12,15 @@ const caseStudy = {
     {
       heading: "The Challenge",
       body: `A senior finance executive was dismissed from a CFO position under disputed circumstances. His former employer issued a public statement framing the departure as related to financial irregularity concerns. The statement was picked up and published by two business press outlets and a regional news platform, each article indexed and ranking prominently within days.
-A subsequent Employment Tribunal process — in which he was fully vindicated — received no equivalent media coverage. The vindication existed nowhere online.
-Additionally, his professional history in investment-adjacent roles meant that his name was associated with records on FINRA BrokerCheck and SEC-linked compliance databases — entries that, while not enforcement actions, appeared alongside the dismissal press coverage in search results and compounded the negative impression.
+A subsequent Employment Tribunal process - in which he was fully vindicated - received no equivalent media coverage. The vindication existed nowhere online.
+Additionally, his professional history in investment-adjacent roles meant that his name was associated with records on FINRA BrokerCheck and SEC-linked compliance databases - entries that, while not enforcement actions, appeared alongside the dismissal press coverage in search results and compounded the negative impression.
 Searches for his name returned:
 
-• "CFO dismissed amid financial irregularity concerns" — business press, Position 1
-• Regional news article referencing the dismissal — Position 3
-• FINRA BrokerCheck profile entry — Position 5
-• SEC-adjacent compliance database reference — Position 7
-• His LinkedIn profile — outdated, last updated 3 years prior — ranking 8th`,
+• "CFO dismissed amid financial irregularity concerns" - business press, Position 1
+• Regional news article referencing the dismissal - Position 3
+• FINRA BrokerCheck profile entry - Position 5
+• SEC-adjacent compliance database reference - Position 7
+• His LinkedIn profile - outdated, last updated 3 years prior - ranking 8th`,
     },
     {
       heading: "Baseline",
@@ -28,15 +28,15 @@ Searches for his name returned:
     },
     {
       heading: "Our Objective",
-      body: `Ensure his professional narrative reflected the full and accurate picture — including his vindication — address the FINRA BrokerCheck and SEC database visibility, and reposition him confidently for senior finance roles and board appointments.`,
+      body: `Ensure his professional narrative reflected the full and accurate picture - including his vindication - address the FINRA BrokerCheck and SEC database visibility, and reposition him confidently for senior finance roles and board appointments.`,
     },
     {
       heading: "Our Strategy",
-      body: `Issued a formal written request to the former employer to remove the archived leadership team page referencing his previous role — complied within 30 days
+      body: `Issued a formal written request to the former employer to remove the archived leadership team page referencing his previous role - complied within 30 days
 Engaged specialist data correction processes for FINRA BrokerCheck and SEC-adjacent database entries to ensure all records accurately and fully reflected the absence of any enforcement action or finding
 Built a comprehensive, keyword-rich LinkedIn profile reflecting his full career history, CFO-level achievements, and the role in accurate and complete context
-Created a personal professional website with a detailed career biography, governance expertise summary, and finance thought leadership content — indexed and appearing in search results within approximately 8 weeks of launch
-Drafted and published a bylined article on a respected finance career platform covering CFO leadership transition and corporate governance best practices — indirectly but clearly establishing his professional perspective and credibility
+Created a personal professional website with a detailed career biography, governance expertise summary, and finance thought leadership content - indexed and appearing in search results within approximately 8 weeks of launch
+Drafted and published a bylined article on a respected finance career platform covering CFO leadership transition and corporate governance best practices - indirectly but clearly establishing his professional perspective and credibility
 Targeted three senior finance-specific interview and Q&A platforms for profile features
 Optimised Google Knowledge Panel data to reflect his current, accurate professional status and remove outdated associations`,
     },
@@ -59,7 +59,7 @@ Client secured two non-executive board advisory positions during the campaign pe
     },
     {
       heading: "Impact",
-      body: `His digital presence now reflects a senior finance executive with a strong, uninterrupted track record and full regulatory clarity. The wrongful dismissal — and the absence of his vindication online — no longer defines the narrative. Hiring committees and board nomination panels now encounter a credible, comprehensive professional picture from the very first search result.`,
+      body: `His digital presence now reflects a senior finance executive with a strong, uninterrupted track record and full regulatory clarity. The wrongful dismissal - and the absence of his vindication online - no longer defines the narrative. Hiring committees and board nomination panels now encounter a credible, comprehensive professional picture from the very first search result.`,
     },
   ],
 };

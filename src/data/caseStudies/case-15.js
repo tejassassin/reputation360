@@ -11,12 +11,12 @@ const caseStudy = {
   sections: [
     {
       heading: "The Challenge",
-      body: `A recent finance graduate had worked hard to build a strong academic record and secure his first serious graduate scheme opportunities. He was progressing through the final stages of a competitive recruitment process at a major financial services firm when an offer was unexpectedly withdrawn. The reason given was vague — "concerns identified during screening."
-Upon investigation, it emerged that a local news article covering a physical altercation — a street brawl involving the candidate and a group of others, reported by a regional newspaper 3 years earlier when he was 21 — had resurfaced in search results. The article, which named him, had been shared by an anonymous social media account 4 weeks prior, generating fresh inbound traffic and pushing it back onto Page 1 for his full name.
+      body: `A recent finance graduate had worked hard to build a strong academic record and secure his first serious graduate scheme opportunities. He was progressing through the final stages of a competitive recruitment process at a major financial services firm when an offer was unexpectedly withdrawn. The reason given was vague - "concerns identified during screening."
+Upon investigation, it emerged that a local news article covering a physical altercation - a street brawl involving the candidate and a group of others, reported by a regional newspaper 3 years earlier when he was 21 - had resurfaced in search results. The article, which named him, had been shared by an anonymous social media account 4 weeks prior, generating fresh inbound traffic and pushing it back onto Page 1 for his full name.
 Additionally:
 
 • A social media post referencing the same incident had been shared across several platforms including Instagram and Facebook
-• His LinkedIn profile was sparse — a basic student profile with no professional substance
+• His LinkedIn profile was sparse - a basic student profile with no professional substance
 • His only other Page 1 presence was a university society page with no professional relevance
 • There was no content online that reflected his current values, professionalism, or career ambitions
 
@@ -32,14 +32,14 @@ Two further graduate recruitment processes stalled at the screening stage withou
     },
     {
       heading: "Our Strategy",
-      body: `Made a formal editorial takedown request to the regional newspaper citing rehabilitation grounds and the absence of any criminal conviction — the newspaper agreed to de-index the article within 28 days
-Submitted a Google Search de-indexing request for cached versions of the article — approved within 35 days
-Engaged directly with Instagram and Facebook to request removal of posts sharing the original article under personal data and harassment grounds — both platforms actioned the requests within 3 weeks
-Built a comprehensive, professional LinkedIn profile from scratch — strong personal summary, detailed education history, internship and volunteer experience, skills endorsements, and written recommendations from two university faculty members and an internship supervisor
-Registered and published a personal professional website (firstname-lastname.com) — a clean, professional online home presenting his bio, career goals, and writing samples; indexed and appearing in search results within approximately 8 weeks of launch
-Published 4 substantive professional articles on LinkedIn on topics relevant to his target sector — financial regulation, graduate career development, and market commentary
+      body: `Made a formal editorial takedown request to the regional newspaper citing rehabilitation grounds and the absence of any criminal conviction - the newspaper agreed to de-index the article within 28 days
+Submitted a Google Search de-indexing request for cached versions of the article - approved within 35 days
+Engaged directly with Instagram and Facebook to request removal of posts sharing the original article under personal data and harassment grounds - both platforms actioned the requests within 3 weeks
+Built a comprehensive, professional LinkedIn profile from scratch - strong personal summary, detailed education history, internship and volunteer experience, skills endorsements, and written recommendations from two university faculty members and an internship supervisor
+Registered and published a personal professional website (firstname-lastname.com) - a clean, professional online home presenting his bio, career goals, and writing samples; indexed and appearing in search results within approximately 8 weeks of launch
+Published 4 substantive professional articles on LinkedIn on topics relevant to his target sector - financial regulation, graduate career development, and market commentary
 Created profiles on two graduate-specific professional platforms commonly crawled by employer screening tools
-Built an active, professional presence on Instagram and Twitter/X — curated content focused on finance, career development, and professional commentary, replacing the negative social footprint with a credible one`,
+Built an active, professional presence on Instagram and Twitter/X - curated content focused on finance, career development, and professional commentary, replacing the negative social footprint with a credible one`,
     },
     {
       heading: "Month-by-Month Milestones",
@@ -59,7 +59,7 @@ Candidate received two new graduate scheme offers within 6 weeks of Page 1 stabi
     },
     {
       heading: "Impact",
-      body: `A single incident from three years ago — involving no conviction, no ongoing legal consequence, and a person who had demonstrably moved on — no longer determined this candidate's professional future. His digital presence now reflects who he is: an ambitious, articulate, professionally engaged graduate ready to begin his career. The incident is gone. The person he has become is what employers find.`,
+      body: `A single incident from three years ago - involving no conviction, no ongoing legal consequence, and a person who had demonstrably moved on - no longer determined this candidate's professional future. His digital presence now reflects who he is: an ambitious, articulate, professionally engaged graduate ready to begin his career. The incident is gone. The person he has become is what employers find.`,
     },
   ],
 };

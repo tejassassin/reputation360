@@ -30,10 +30,10 @@ Page 1 and Page 2 were dominated by adverse narratives. Patient confidence was v
     {
       heading: "Our Strategy",
       body: `Conducted a full SERP audit identifying all negative and neutral URLs across Pages 1–3
-Claimed and fully optimised the physician's Google Business Profile — a foundational asset that was entirely absent at the start
+Claimed and fully optimised the physician's Google Business Profile - a foundational asset that was entirely absent at the start
 Strengthened presence across patient-facing and professional platforms including GMC profile, Doctify, and Private Practice Hub
-Developed educational content aligned with the physician's specialisation — patient guides, clinical explainers, and condition-specific resources
-Built a personal professional website — indexed and beginning to appear in search results within approximately 8 weeks of launch
+Developed educational content aligned with the physician's specialisation - patient guides, clinical explainers, and condition-specific resources
+Built a personal professional website - indexed and beginning to appear in search results within approximately 8 weeks of launch
 Ensured complete consistency across all Google-visible profiles, social channels, and educational content
 Shifted search visibility progressively away from speculative media narratives toward verified professional sources`,
     },
@@ -53,7 +53,7 @@ Search results stabilised around professional credibility`,
     },
     {
       heading: "Impact",
-      body: `Patients searching online encountered clear, accurate, and professionally rich information about the physician's expertise and clinical approach. The digital presence reinforced trust and transparency — allowing the physician to continue practising without ongoing reputational disruption.`,
+      body: `Patients searching online encountered clear, accurate, and professionally rich information about the physician's expertise and clinical approach. The digital presence reinforced trust and transparency - allowing the physician to continue practising without ongoing reputational disruption.`,
     },
   ],
 };

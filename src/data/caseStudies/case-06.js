@@ -1,7 +1,7 @@
 /** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 6,
-  listTitle: "Consumer Electronics — Product Crisis Recovery",
+  listTitle: "Consumer Electronics - Product Crisis Recovery",
   industry: "Businesses & Companies",
   profile: "Mid-sized Consumer Electronics Brand (15 years in operation, $120M annual revenue)",
   challengeType: "Product defect controversy & widespread customer backlash",
@@ -23,7 +23,7 @@ Distributor confidence weakened. Inbound sales inquiry volume dropped by 41% in 
     },
     {
       heading: "Baseline",
-      body: `At the start of engagement, 11 of the top 15 search results for the brand name returned negative or complaint-related content. The brand's own website ranked 4th — below three negative review or complaint pages.`,
+      body: `At the start of engagement, 11 of the top 15 search results for the brand name returned negative or complaint-related content. The brand's own website ranked 4th - below three negative review or complaint pages.`,
     },
     {
       heading: "Our Objective",
@@ -54,7 +54,7 @@ Distributor confidence and inbound sales inquiries stabilised and recovered`,
     },
     {
       heading: "Impact",
-      body: `The business regained control of its online narrative while maintaining transparency. Search results came to reflect a resolved product issue and a brand committed to quality — not a failing company — allowing the business to move forward without long-term reputational burden.`,
+      body: `The business regained control of its online narrative while maintaining transparency. Search results came to reflect a resolved product issue and a brand committed to quality - not a failing company - allowing the business to move forward without long-term reputational burden.`,
     },
   ],
 };

@@ -11,7 +11,7 @@ const caseStudy = {
   sections: [
     {
       heading: "The Challenge",
-      body: `A senior portfolio manager with over 30 years in institutional investment faced severe reputational risk after being named — though not convicted — in insider trading allegations. The allegations triggered regulatory disclosures and attracted sustained media attention. Negative visibility was driven by:
+      body: `A senior portfolio manager with over 30 years in institutional investment faced severe reputational risk after being named - though not convicted - in insider trading allegations. The allegations triggered regulatory disclosures and attracted sustained media attention. Negative visibility was driven by:
 
 • SEC.gov enforcement-related records
 • FINRA BrokerCheck profile flagged with the disclosure
@@ -22,7 +22,7 @@ Page 1 through Page 3 of Google were dominated by regulatory and enforcement-rel
     },
     {
       heading: "Baseline",
-      body: `At the start of engagement, 9 of the top 10 results returned regulatory or negative press content. SEC.gov and FINRA BrokerCheck entries represented immovable, high-authority URLs. The strategy was built around contextualisation and displacement — not deletion.`,
+      body: `At the start of engagement, 9 of the top 10 results returned regulatory or negative press content. SEC.gov and FINRA BrokerCheck entries represented immovable, high-authority URLs. The strategy was built around contextualisation and displacement - not deletion.`,
     },
     {
       heading: "Our Objective",
@@ -31,11 +31,11 @@ Page 1 through Page 3 of Google were dominated by regulatory and enforcement-rel
     {
       heading: "Our Strategy",
       body: `Conducted a regulatory-sensitive SERP audit with specific focus on SEC, FINRA, and legal domain authority
-Recognised SEC.gov and FINRA BrokerCheck as permanent fixtures — strategy designed to surround them with credibility, not challenge them
+Recognised SEC.gov and FINRA BrokerCheck as permanent fixtures - strategy designed to surround them with credibility, not challenge them
 Built authoritative professional profiles highlighting 30+ years of governance roles, portfolio performance history, and industry contributions
 Published neutral, finance-focused commentary on investment strategy, market analysis, and portfolio governance
 Secured third-party professional content through contributor features in two mid-tier financial publications
-Balanced credibility-building assets with appropriate personal context — board memberships, community leadership roles, charitable involvement
+Balanced credibility-building assets with appropriate personal context - board memberships, community leadership roles, charitable involvement
 Avoided all reactive or defensive narratives that could escalate regulatory or media risk
 Worked alongside compliance counsel throughout to ensure every piece of content met regulatory standards`,
     },
@@ -55,7 +55,7 @@ Search results stabilised with low volatility`,
     },
     {
       heading: "Impact",
-      body: `The client regained measured trust with investors and institutional stakeholders. Their digital presence came to reflect 30 years of investment expertise rather than a single regulatory episode — allowing informed stakeholders to form a balanced view based on the full professional record.`,
+      body: `The client regained measured trust with investors and institutional stakeholders. Their digital presence came to reflect 30 years of investment expertise rather than a single regulatory episode - allowing informed stakeholders to form a balanced view based on the full professional record.`,
     },
   ],
 };

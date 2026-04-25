@@ -31,13 +31,13 @@ Pages 1 and 2 returned primarily negative results for both the individual's name
     },
     {
       heading: "Our Strategy",
-      body: `Conducted an identity-separated SERP strategy — building distinct and separate visibility for the individual consultant versus the business entity
-Launched a personal professional website — indexed and beginning to rank within approximately 8 weeks of launch
+      body: `Conducted an identity-separated SERP strategy - building distinct and separate visibility for the individual consultant versus the business entity
+Launched a personal professional website - indexed and beginning to rank within approximately 8 weeks of launch
 Published expert commentary and thought leadership pieces on HR best practices, employment law developments, and organisational culture
 Developed interview content and podcast appearances positioning the client as a fair, progressive, and credible HR authority
 Strengthened presence across professional directory and HR association profiles
 Applied platform-level suppression strategies to reduce the search dominance of forum and review content
-Maintained a consistently forward-looking, non-reactive tone throughout — never engaging with the allegations directly`,
+Maintained a consistently forward-looking, non-reactive tone throughout - never engaging with the allegations directly`,
     },
     {
       heading: "Month-by-Month Milestones",
