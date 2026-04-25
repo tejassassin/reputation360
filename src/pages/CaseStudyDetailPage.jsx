@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion as Motion } from "motion/react";
 import { ArrowLeft, Building2, Fingerprint, List, User } from "lucide-react";
 import { CASE_STUDIES_FOOTER, getCaseStudyByN } from "../data/caseStudies/index.js";
@@ -9,6 +9,30 @@ import { parseEngagementMonths } from "../utils/parseEngagement.js";
 import { ProfileValueLines } from "../components/ProfileValueLines.jsx";
 
 const PROGRESS_TOP = "4.5rem";
+
+/**
+ * One id per case-study section (include caseId so fragments are unambiguous).
+ * @param {number} caseId
+ * @param {number} index
+ * @param {string} heading
+ */
+function caseStudySectionElementId(caseId, index, heading) {
+  return `c${caseId}-s${index}-${caseStudySectionSlug(heading)}`;
+}
+
+function queryTocSectionNode(id) {
+  if (typeof document === "undefined" || !id) return null;
+  try {
+    if (typeof CSS !== "undefined" && typeof CSS.escape === "function") {
+      return document.querySelector(
+        `[data-toc-section="${CSS.escape(id)}"]`,
+      );
+    }
+  } catch {
+    /* fall through */
+  }
+  return document.getElementById(id)?.closest("section");
+}
 
 /**
  * @param {object} props
@@ -44,18 +68,64 @@ function CaseStudyEngagementBlock({ study }) {
   );
 }
 
+const TOC_OBSERVER_SUPPRESS_MS = 800;
+
 export default function CaseStudyDetailPage({ caseId }) {
   const study = getCaseStudyByN(caseId);
   const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState(null);
+  const tocClickSuppressUntilRef = useRef(0);
 
   const sectionIds = useMemo(() => {
     if (!study) return [];
     return study.sections.map((s, i) => ({
-      id: `s-${i}-${caseStudySectionSlug(s.heading)}`,
+      id: caseStudySectionElementId(caseId, i, s.heading),
       short: s.heading,
     }));
-  }, [study]);
+  }, [study, caseId]);
+
+  const scrollToSectionId = useCallback(
+    (id) => {
+      tocClickSuppressUntilRef.current =
+        (typeof performance !== "undefined" ? performance.now() : Date.now()) +
+        TOC_OBSERVER_SUPPRESS_MS;
+      setActiveSection(id);
+      const { pathname, search } = window.location;
+      if (window.history?.pushState) {
+        window.history.pushState(null, "", `${pathname}${search}#${id}`);
+      }
+      const run = () => {
+        const el = document.getElementById(id);
+        if (!el) {
+          return;
+        }
+        const reduce =
+          typeof window !== "undefined" &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        el.scrollIntoView({
+          behavior: reduce ? "auto" : "smooth",
+          block: "start",
+        });
+        el.setAttribute("tabindex", "-1");
+        el.focus({ preventScroll: true });
+      };
+      requestAnimationFrame(() => {
+        requestAnimationFrame(run);
+      });
+    },
+    [setActiveSection],
+  );
+
+  // Deep link / refresh: align scroll with URL fragment once sections exist
+  useEffect(() => {
+    if (!study || sectionIds.length === 0) return undefined;
+    const raw = window.location.hash?.replace(/^#/, "");
+    if (!raw) return undefined;
+    const id = decodeURIComponent(raw.replace(/\+/g, " "));
+    if (!sectionIds.some((s) => s.id === id)) return undefined;
+    const t = window.setTimeout(() => scrollToSectionId(id), 0);
+    return () => window.clearTimeout(t);
+  }, [study, caseId, sectionIds, scrollToSectionId]);
 
   useEffect(() => {
     if (!study) {
@@ -74,11 +144,16 @@ export default function CaseStudyDetailPage({ caseId }) {
   useEffect(() => {
     if (!study) return undefined;
     const elts = sectionIds
-      .map((s) => document.getElementById(s.id))
+      .map((s) => queryTocSectionNode(s.id))
       .filter(Boolean);
     if (elts.length === 0) return undefined;
     const ob = new IntersectionObserver(
       (entries) => {
+        const now =
+          typeof performance !== "undefined" ? performance.now() : Date.now();
+        if (now < tocClickSuppressUntilRef.current) {
+          return;
+        }
         const hits = entries.filter(
           (e) => e.isIntersecting && e.target instanceof HTMLElement,
         );
@@ -86,8 +161,9 @@ export default function CaseStudyDetailPage({ caseId }) {
         const best = hits.sort(
           (a, b) => b.intersectionRatio - a.intersectionRatio,
         )[0];
-        if (best?.target?.id) {
-          setActiveSection(best.target.id);
+        const sid = best?.target?.getAttribute("data-toc-section");
+        if (sid) {
+          setActiveSection(sid);
         }
       },
       { rootMargin: "-15% 0px -40% 0px", threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] },
@@ -227,8 +303,9 @@ export default function CaseStudyDetailPage({ caseId }) {
                     <li key={s.id} className="m-0 shrink-0 p-0">
                       <a
                         href={`#${s.id}`}
-                        onClick={() => {
-                          setActiveSection(s.id);
+                        onClick={(e) => {
+                          e.preventDefault();
+                          scrollToSectionId(s.id);
                         }}
                         className={[
                           "block w-full min-w-0 max-w-[min(20rem,90vw)] rounded-full border border-transparent px-3 py-1.5 text-left text-xs font-medium leading-snug transition sm:w-auto sm:min-w-0 sm:px-3.5 sm:py-2 sm:text-[13px]",
@@ -248,7 +325,7 @@ export default function CaseStudyDetailPage({ caseId }) {
           </nav>
 
           {study.sections.map((section, i) => {
-            const id = `s-${i}-${caseStudySectionSlug(section.heading)}`;
+            const id = caseStudySectionElementId(caseId, i, section.heading);
             return (
               <CaseStudySectionBlock
                 key={id}

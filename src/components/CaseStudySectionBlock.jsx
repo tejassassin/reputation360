@@ -56,7 +56,7 @@ export function CaseStudySectionBlock({ id, section, index }) {
 
   return (
     <Motion.section
-      id={id}
+      data-toc-section={id}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.12, margin: "0px 0px -8% 0px" }}
@@ -70,12 +70,11 @@ export function CaseStudySectionBlock({ id, section, index }) {
       }}
       whileHover={reduce ? undefined : { y: -3 }}
       className={[
-        "group/section relative scroll-mt-44 overflow-hidden rounded-3xl border-2 border-slate-200/90",
+        "group/section relative overflow-hidden rounded-3xl border-2 border-slate-200/90",
         "bg-gradient-to-br from-white via-white to-slate-50/90 text-left",
         "shadow-[0_10px_32px_-22px_rgba(15,35,60,0.1)] ring-1 ring-slate-200/40",
         "will-change-transform",
         "hover:border-slate-300/85 hover:shadow-[0_22px_50px_-18px_rgba(15,35,60,0.2),0_0_0_1px_rgba(45,138,45,0.08)]",
-        "md:scroll-mt-40",
         index > 0 ? "mt-4" : "mt-5",
       ]
         .filter(Boolean)
@@ -119,7 +118,11 @@ export function CaseStudySectionBlock({ id, section, index }) {
                 {label}
               </span>
             </div>
-            <h2 className="mt-2.5 text-xl font-extrabold tracking-tight text-navy transition group-hover/section:text-charcoal sm:text-2xl md:leading-tight">
+            <h2
+              id={id}
+              tabIndex={-1}
+              className="mt-2.5 scroll-mt-44 text-xl font-extrabold tracking-tight text-navy transition group-hover/section:text-charcoal sm:text-2xl md:scroll-mt-40 md:leading-tight"
+            >
               {section.heading}
             </h2>
           </div>
