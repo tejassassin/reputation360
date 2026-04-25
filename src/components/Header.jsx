@@ -61,7 +61,7 @@ const navItems = [
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
-    <header className="bg-navy text-white fixed top-0 left-0 right-0 z-50 shadow-lg">
+    <header className="min-h-0 overflow-visible text-white fixed inset-x-0 top-0 z-50 bg-navy shadow-lg">
       {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">

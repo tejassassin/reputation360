@@ -1,5 +1,7 @@
+@layer theme, base, components, utilities, r3-our;
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./our-services-home.css" layer(r3-our);
 
 @custom-variant dark (&:is(.dark *));
 
@@ -11,6 +13,8 @@
     "Segoe UI", sans-serif;
 
   --color-navy: #1f3b64;
+  /** Top nav bar (matches product header swatch) */
+  --color-header-bar: #2d3e5e;
   --color-green: #4caf50;
   /** Calendly / "Book a free consultation" primary buttons */
   --color-cta-consult: #6cb359;
@@ -158,6 +162,7 @@
     font-optical-sizing: auto;
     margin: 0;
   }
+
 }
 
 @layer base {

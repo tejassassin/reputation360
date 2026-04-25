@@ -26,7 +26,7 @@ function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="h-dvh flex flex-col bg-linear-to-br from-navy via-slate to-navy text-white overflow-hidden pt-16 sm:pt-20"
+      className="h-dvh flex flex-col bg-linear-to-br from-navy via-slate to-navy text-white overflow-hidden pt-32 sm:pt-36"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative flex-1 flex flex-col justify-evenly py-[2vh]">
         {/* Main Content - Centered */}
