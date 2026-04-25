@@ -50,6 +50,42 @@ export default defineConfig({
         });
       },
     },
+    {
+      name: "spa-defer-app-module",
+      apply: "build",
+      transformIndexHtml: {
+        order: "post",
+        /**
+         * Load the Vite app chunk at the end of <body> and drop `crossorigin`
+         * on same-origin /assets/ so strict networks are less likely to block.
+         * Stylesheet stays in <head> (Vite’s default) so CSS is not pushed late.
+         */
+        handler(html) {
+          const m = html.match(
+            /\r?\n\s*<script type="module"[^>]*>[\s\S]*?<\/script>\s*/,
+          );
+          if (!m) {
+            return html;
+          }
+          const tag = m[0].replace(
+            / crossorigin(="(anonymous|use-credentials)")?/g,
+            "",
+          );
+          const stripped = html.replace(m[0], "\n");
+          const cssFixed = stripped.replace(
+            /(<link rel="stylesheet"[^>]+)( \/>|>)/,
+            (_, before, end) => {
+              const clean = before.replace(
+                / crossorigin(="(anonymous|use-credentials)")?/g,
+                "",
+              );
+              return `${clean}${end}`;
+            },
+          );
+          return cssFixed.replace(/(\r?\n)\s*<\/body>/, (_, nl) => `${tag}${nl}</body>`);
+        },
+      },
+    },
   ],
   resolve: {
     alias: {

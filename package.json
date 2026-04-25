@@ -7,7 +7,7 @@
     "dev": "node scripts/clear-vite-cache.mjs && node scripts/dev.mjs",
     "start": "npm run dev",
     "doctor": "node scripts/doctor.mjs",
-    "build": "node scripts/dev.mjs build",
+    "build": "node scripts/dev.mjs build && node scripts/postbuild-spa-routes.mjs",
     "lint": "eslint .",
     "preview": "node scripts/dev.mjs preview",
     "local:prod": "node scripts/dev.mjs build && node scripts/dev.mjs preview"
