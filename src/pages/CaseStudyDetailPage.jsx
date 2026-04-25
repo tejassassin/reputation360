@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import { motion as Motion } from "motion/react";
 import { ArrowLeft, Building2, Fingerprint, List, User } from "lucide-react";
 import { CASE_STUDIES_FOOTER, getCaseStudyByN } from "../data/caseStudies/index.js";
-import { caseStudySectionNavLetter } from "../lib/caseStudyNavPointer.js";
 import { caseStudySectionSlug } from "../lib/caseStudySectionSlug.js";
 import { CaseStudyPageCta } from "../components/CaseStudyPageCta.jsx";
 import { CaseStudySectionBlock } from "../components/CaseStudySectionBlock.jsx";
@@ -55,7 +54,6 @@ export default function CaseStudyDetailPage({ caseId }) {
     return study.sections.map((s, i) => ({
       id: `s-${i}-${caseStudySectionSlug(s.heading)}`,
       short: s.heading,
-      letter: caseStudySectionNavLetter(s.heading),
     }));
   }, [study]);
 
@@ -172,8 +170,8 @@ export default function CaseStudyDetailPage({ caseId }) {
           All case studies
         </Motion.a>
 
-        <div className="items-start gap-0 lg:grid lg:grid-cols-[minmax(0,1fr),9.5rem] lg:gap-8 xl:grid-cols-[minmax(0,1fr),10.5rem] xl:gap-10">
-        <article className="min-w-0 lg:min-w-0">
+        <div className="w-full min-w-0">
+        <article className="min-w-0">
           <Motion.header
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -213,15 +211,15 @@ export default function CaseStudyDetailPage({ caseId }) {
           </Motion.header>
 
           <nav
-            className="sticky top-24 z-[45] mt-4 border-b border-slate-200/90 bg-slate-50/90 py-2.5 pl-0 pr-0 shadow-[0_1px_0_0_rgba(15,35,60,0.04),0_4px_16px_-8px_rgba(15,35,60,0.1)] supports-[backdrop-filter]:bg-slate-50/75 supports-[backdrop-filter]:backdrop-blur sm:mt-5 sm:py-3 md:mt-6 lg:hidden"
+            className="sticky top-24 z-[45] mt-4 border-b border-slate-200/90 bg-slate-50/90 py-2.5 pl-0 pr-0 shadow-[0_1px_0_0_rgba(15,35,60,0.04),0_4px_16px_-8px_rgba(15,35,60,0.1)] supports-[backdrop-filter]:bg-slate-50/75 supports-[backdrop-filter]:backdrop-blur sm:mt-5 sm:py-3 md:mt-6"
             aria-label="On this page"
           >
             <p className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-slate-500">
               <List className="h-3.5 w-3.5 text-[#2d8a2d]" aria-hidden />
               On this page
             </p>
-            <div className="mt-2.5 -mx-1 flex overflow-x-auto overflow-y-hidden pb-1 [scrollbar-width:thin] sm:mt-3 sm:mx-0 sm:overflow-x-visible sm:pb-0">
-              <ul className="m-0 flex w-max list-none flex-nowrap items-stretch gap-2 p-0 sm:w-auto sm:flex-wrap sm:gap-2.5">
+            <div className="mt-2.5 -mx-1 flex min-w-0 overflow-x-auto overflow-y-hidden pb-1 [scrollbar-width:thin] [scroll-padding-inline:0.5rem] [touch-pan-x] sm:mt-3 sm:mx-0 sm:overflow-x-visible sm:pb-0">
+              <ul className="m-0 flex w-max list-none flex-nowrap items-stretch gap-2 p-0 sm:w-full sm:min-w-0 sm:flex-wrap sm:gap-2.5 md:gap-3">
                 {sectionIds.map((s) => {
                   const tocActive = activeSection ?? sectionIds[0]?.id;
                   const active = tocActive === s.id;
@@ -233,7 +231,7 @@ export default function CaseStudyDetailPage({ caseId }) {
                           setActiveSection(s.id);
                         }}
                         className={[
-                          "block max-w-[16rem] whitespace-nowrap rounded-full border border-transparent px-3 py-1.5 text-left text-xs font-medium leading-tight transition sm:max-w-none sm:px-3.5 sm:py-2 sm:text-[13px] sm:whitespace-normal",
+                          "block w-full min-w-0 max-w-[min(20rem,90vw)] rounded-full border border-transparent px-3 py-1.5 text-left text-xs font-medium leading-snug transition sm:w-auto sm:min-w-0 sm:px-3.5 sm:py-2 sm:text-[13px]",
                           active
                             ? "border-[#4CAF50]/40 bg-[#4CAF50]/12 font-semibold text-navy shadow-sm"
                             : "border-slate-200/90 bg-white text-slate-600 shadow-sm hover:border-slate-300/90 hover:text-navy",
@@ -267,53 +265,6 @@ export default function CaseStudyDetailPage({ caseId }) {
             </p>
           </div>
         </article>
-
-        <aside
-          className="mt-0 hidden w-full min-w-0 self-start pl-0 lg:sticky lg:top-32 lg:z-[44] lg:mt-0 lg:block lg:max-h-[min(90vh,52rem)] lg:overflow-y-auto lg:overflow-x-hidden"
-          aria-label="On this page"
-        >
-          <p className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-slate-500">
-            <List className="h-3.5 w-3.5 text-[#2d8a2d]" aria-hidden />
-            On this page
-          </p>
-          <ul className="m-0 mt-3 list-none p-0">
-            {sectionIds.map((s) => {
-              const tocActive = activeSection ?? sectionIds[0]?.id;
-              const active = tocActive === s.id;
-              return (
-                <li key={s.id} className="m-0 p-0">
-                  <a
-                    href={`#${s.id}`}
-                    onClick={() => {
-                      setActiveSection(s.id);
-                    }}
-                    className={[
-                      "group/p flex w-full min-w-0 max-w-full items-baseline gap-2.5 rounded-r-lg border-l-2 border-transparent py-1.5 pl-1 pr-0.5 text-left text-sm font-semibold tabular-nums text-current transition",
-                      active
-                        ? "border-l-[#4CAF50] text-navy"
-                        : "text-slate-600 hover:text-navy",
-                    ].join(" ")}
-                    title={s.short}
-                  >
-                    <span className="sr-only">{s.short}</span>
-                    <span
-                      className={[
-                        "mt-[0.4rem] h-1.5 w-1.5 shrink-0 rounded-full transition",
-                        active
-                          ? "bg-[#2d8a2d] shadow-sm"
-                          : "bg-slate-500 group-hover/p:bg-slate-600",
-                      ].join(" ")}
-                      aria-hidden
-                    />
-                    <span className="text-base" aria-hidden>
-                      {s.letter}
-                    </span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </aside>
         </div>
       </div>
 
