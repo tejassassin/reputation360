@@ -3,6 +3,7 @@ import { motion as Motion } from "motion/react";
 import { ArrowUpRight, Building2, Fingerprint, User } from "lucide-react";
 import { caseStudyListTeaser } from "../utils/caseStudyTeaser.js";
 import { parseEngagementMonths } from "../utils/parseEngagement.js";
+import { ProfileValueLines } from "./ProfileValueLines.jsx";
 
 /**
  * @param {object} props
@@ -91,12 +92,22 @@ export function CaseStudyListCard({ study, index }) {
                         {row.label}
                       </p>
                       <p
-                        className={`mt-1.5 text-[0.9rem] font-medium leading-normal text-navy transition group-hover/meta:text-charcoal sm:text-base ${
-                          row.label === "Profile" ? "whitespace-nowrap" : "leading-snug sm:leading-normal"
-                        }`}
+                        className={
+                          row.label === "Profile"
+                            ? "mt-1.5 min-w-0 break-words text-[0.9rem] font-medium leading-normal text-navy transition group-hover/meta:text-charcoal sm:text-base"
+                            : "mt-1.5 text-[0.9rem] font-medium leading-snug text-navy transition group-hover/meta:text-charcoal sm:text-base sm:leading-normal"
+                        }
                         title={row.label === "Profile" ? row.value : undefined}
                       >
-                        {row.value}
+                        {row.label === "Profile" ? (
+                          <ProfileValueLines
+                            value={row.value}
+                            line2ClassName="mt-0.5 sm:mt-1"
+                            title={row.value}
+                          />
+                        ) : (
+                          row.value
+                        )}
                       </p>
                     </div>
                   </div>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ProfileValueLines } from "../ProfileValueLines.jsx";
 
 export default function CardDeck({ caseStudies }) {
   const [showModal, setShowModal] = useState(false);
@@ -43,7 +44,9 @@ export default function CardDeck({ caseStudies }) {
                 <div className="card-meta">
                   <div className="meta-item">
                     <span className="meta-label">Profile:</span>
-                    <span className="meta-value">{caseItem.data.profile}</span>
+                    <span className="meta-value block w-full min-w-0 break-words">
+                      <ProfileValueLines value={caseItem.data.profile} line2ClassName="mt-0.5" />
+                    </span>
                   </div>
                   <div className="meta-item">
                     <span className="meta-label">Duration:</span>
@@ -87,7 +90,15 @@ export default function CardDeck({ caseStudies }) {
                   <h2 className="detail-title">{selectedCase.data.title}</h2>
                   <div className="detail-meta">
                     <p><strong >Industry:</strong> {selectedCase.data.industry}</p>
-                    <p><strong>Profile:</strong> {selectedCase.data.profile}</p>
+                    <p>
+                      <strong>Profile:</strong>{" "}
+                      <ProfileValueLines
+                        className="font-normal"
+                        value={selectedCase.data.profile}
+                        line2ClassName="mt-0.5"
+                        title={selectedCase.data.profile}
+                      />
+                    </p>
                     <p><strong>Challenge Type:</strong> {selectedCase.data.challengeType}</p>
                     <p><strong>Duration:</strong> {selectedCase.data.duration}</p>
                   </div>

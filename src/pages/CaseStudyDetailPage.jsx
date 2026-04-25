@@ -7,6 +7,7 @@ import { caseStudySectionSlug } from "../lib/caseStudySectionSlug.js";
 import { CaseStudyPageCta } from "../components/CaseStudyPageCta.jsx";
 import { CaseStudySectionBlock } from "../components/CaseStudySectionBlock.jsx";
 import { parseEngagementMonths } from "../utils/parseEngagement.js";
+import { ProfileValueLines } from "../components/ProfileValueLines.jsx";
 
 const PROGRESS_TOP = "4.5rem";
 
@@ -364,13 +365,21 @@ function MetaPill({ icon, k, v, variant = "default", className = "" }) {
             isWide
               ? "break-words text-sm font-medium leading-relaxed [text-wrap:pretty] sm:text-[0.95rem] sm:leading-[1.55]"
               : k === "Profile"
-                ? "min-w-0 text-sm font-semibold leading-normal whitespace-nowrap"
+                ? "min-w-0 break-words text-sm font-semibold leading-normal"
                 : "break-words text-sm font-semibold leading-snug [text-wrap:balance]",
           ]
             .filter(Boolean)
             .join(" ")}
         >
-          {v}
+          {k === "Profile" ? (
+            <ProfileValueLines
+              value={v}
+              line2ClassName="mt-0.5 sm:mt-1"
+              title={v}
+            />
+          ) : (
+            v
+          )}
         </p>
       </div>
     </div>
