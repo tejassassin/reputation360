@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { calendlyNewTabProps } from "../constants/scheduling";
+import { cn } from "@/lib/utils";
 import {
   BookOpen,
   Wrench,
@@ -27,7 +28,62 @@ const toc = [
   { id: "ch5", label: "Monitoring", Icon: Activity },
 ];
 
+const guideSectionIds = toc.map((c) => c.id);
+
+/** Match sticky sidebar (top-28) + `scroll-mt-32` on sections. */
+const GUIDE_SCROLL_SPY_OFFSET_PX = 140;
+
 function GuidePage() {
+  const [activeGuideSection, setActiveGuideSection] = useState("ch1");
+  const guideScrollRafRef = useRef(0);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof document === "undefined") {
+      return undefined;
+    }
+
+    const computeActiveGuideSection = () => {
+      let current = guideSectionIds[0];
+      for (const id of guideSectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= GUIDE_SCROLL_SPY_OFFSET_PX) {
+          current = id;
+        }
+      }
+      return current;
+    };
+
+    const scheduleActiveUpdate = () => {
+      if (guideScrollRafRef.current) return;
+      guideScrollRafRef.current = window.requestAnimationFrame(() => {
+        guideScrollRafRef.current = 0;
+        const next = computeActiveGuideSection();
+        setActiveGuideSection((prev) => (prev === next ? prev : next));
+      });
+    };
+
+    scheduleActiveUpdate();
+    const t1 = window.setTimeout(scheduleActiveUpdate, 80);
+    const t2 = window.setTimeout(scheduleActiveUpdate, 300);
+
+    window.addEventListener("scroll", scheduleActiveUpdate, { passive: true });
+    window.addEventListener("resize", scheduleActiveUpdate, { passive: true });
+    window.addEventListener("hashchange", scheduleActiveUpdate, false);
+
+    return () => {
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      if (guideScrollRafRef.current) {
+        window.cancelAnimationFrame(guideScrollRafRef.current);
+        guideScrollRafRef.current = 0;
+      }
+      window.removeEventListener("scroll", scheduleActiveUpdate);
+      window.removeEventListener("resize", scheduleActiveUpdate);
+      window.removeEventListener("hashchange", scheduleActiveUpdate);
+    };
+  }, []);
+
   useEffect(() => {
     const previous = document.title;
     document.title =
@@ -78,15 +134,24 @@ function GuidePage() {
           className="flex gap-2 overflow-x-auto pb-2 lg:hidden"
           aria-label="Guide index"
         >
-          {toc.map(({ id, label }) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              className="ha-pill shrink-0 rounded-full bg-[#02254d] px-4 py-2 text-xs font-semibold whitespace-nowrap text-white hover:bg-[#35618e]"
-            >
-              {label}
-            </a>
-          ))}
+          {toc.map(({ id, label }) => {
+            const isActive = activeGuideSection === id;
+            return (
+              <a
+                key={id}
+                href={`#${id}`}
+                className={cn(
+                  "ha-pill shrink-0 rounded-full px-4 py-2 text-xs font-semibold whitespace-nowrap text-white transition-shadow",
+                  isActive
+                    ? "bg-[#35618e] ring-2 ring-[#78dc77] ring-offset-2 ring-offset-[#f9f9ff]"
+                    : "bg-[#02254d] hover:bg-[#35618e]",
+                )}
+                aria-current={isActive ? "location" : undefined}
+              >
+                {label}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Sidebar */}
@@ -98,21 +163,26 @@ function GuidePage() {
               </h3>
               <p className="text-slate-500">Reputation Management 101</p>
             </div>
-            <nav className="flex flex-col gap-4">
-              {toc.map(({ id, label, Icon }, idx) => (
-                <a
-                  key={id}
-                  href={`#${id}`}
-                  className={
-                    idx === 0
-                      ? "ha-nudge flex items-center gap-3 rounded-lg border-l-4 border-[#78dc77] py-1 pl-4 font-bold text-[#02254d]"
-                      : "ha-nudge flex items-center gap-3 rounded-lg py-1 pl-4 text-slate-500 transition-all hover:bg-white hover:text-[#02254d]"
-                  }
-                >
-                  <Icon className="h-5 w-5 shrink-0" aria-hidden />
-                  {label}
-                </a>
-              ))}
+            <nav className="flex flex-col gap-4" aria-label="Guide chapters">
+              {toc.map(({ id, label, Icon }) => {
+                const isActive = activeGuideSection === id;
+                return (
+                  <a
+                    key={id}
+                    href={`#${id}`}
+                    className={cn(
+                      "ha-nudge flex items-center gap-3 rounded-lg border-l-4 py-1 pl-4 transition-all",
+                      isActive
+                        ? "border-[#78dc77] bg-white font-bold text-[#02254d] shadow-sm"
+                        : "border-transparent text-slate-500 hover:border-transparent hover:bg-white hover:text-[#02254d]",
+                    )}
+                    aria-current={isActive ? "location" : undefined}
+                  >
+                    <Icon className="h-5 w-5 shrink-0" aria-hidden />
+                    {label}
+                  </a>
+                );
+              })}
             </nav>
           </div>
         </aside>
