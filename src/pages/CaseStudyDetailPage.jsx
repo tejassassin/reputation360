@@ -233,7 +233,7 @@ export default function CaseStudyDetailPage({ caseId }) {
                         className={[
                           "block w-full min-w-0 max-w-[min(20rem,90vw)] rounded-full border border-transparent px-3 py-1.5 text-left text-xs font-medium leading-snug transition sm:w-auto sm:min-w-0 sm:px-3.5 sm:py-2 sm:text-[13px]",
                           active
-                            ? "border-[#4CAF50]/40 bg-[#4CAF50]/12 font-semibold text-navy shadow-sm"
+                            ? "border-[#3d9a3d]/55 bg-[#4CAF50]/24 font-semibold text-navy shadow-sm"
                             : "border-slate-200/90 bg-white text-slate-600 shadow-sm hover:border-slate-300/90 hover:text-navy",
                         ].join(" ")}
                         title={s.short}
