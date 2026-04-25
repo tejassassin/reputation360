@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import { StatNumber } from "../components/StatNumber.jsx";
+import { cn } from "@/lib/utils";
 
 const CTA_BG_IMAGE =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuBbAPklAKn9fFP2nNIPWazVHI3ZwR5Yz1EHjtS59wpqZaZsgbvsTNnn2DY2Z2ZFVsKpsDYYxaRRDxxADi_bhK7JtnubjYTxyKAy79ytFJBnE-Ut3T5hmToXxlsN6GXzKBRpB6Zc4YG-hWln8NC9ZPRDndtm08dWYUo5CThtOE9yfBsmV6F7T-JijeQtJDN61rY3B08b8OrtjubvsRJRVLEEkZJWpNYHajsEylcxi2x9QBrKL0EmGJg1BBlZ9Y2pvvqDdUKcJx8v2mM";
@@ -29,6 +30,11 @@ const sidebarLinks = [
   { href: "#section-5", label: "Working With Us" },
 ];
 
+const faqSectionIds = sidebarLinks.map((l) => l.href.replace("#", ""));
+
+/** Section title is "active" once its top crosses this many px from the top of the viewport (below the sticky area). */
+const FAQ_SCROLL_SPY_OFFSET_PX = 148;
+
 /** Stat pills: plain presentation; green only while hovered (not clickable). */
 const heroStatCardClass =
   "group font-headline-faq cursor-default rounded-full border-2 border-[#2E5B88]/25 bg-[#2E5B88]/10 p-8 text-center text-[#1F3B64] transition-all duration-300 ease-out " +
@@ -43,6 +49,55 @@ const heroStatCards = [
 function FaqsPage() {
   const heroStatsRef = useRef(null);
   const [heroStatsLive, setHeroStatsLive] = useState(false);
+  const [activeFaqSection, setActiveFaqSection] = useState("section-1");
+  const faqScrollRafRef = useRef(0);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof document === "undefined") {
+      return undefined;
+    }
+
+    const computeActiveFaqSection = () => {
+      let current = faqSectionIds[0];
+      for (const id of faqSectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= FAQ_SCROLL_SPY_OFFSET_PX) {
+          current = id;
+        }
+      }
+      return current;
+    };
+
+    const scheduleFaqActiveUpdate = () => {
+      if (faqScrollRafRef.current) return;
+      faqScrollRafRef.current = window.requestAnimationFrame(() => {
+        faqScrollRafRef.current = 0;
+        const next = computeActiveFaqSection();
+        setActiveFaqSection((prev) => (prev === next ? prev : next));
+      });
+    };
+
+    scheduleFaqActiveUpdate();
+    const t1 = window.setTimeout(scheduleFaqActiveUpdate, 80);
+    const t2 = window.setTimeout(scheduleFaqActiveUpdate, 300);
+
+    window.addEventListener("scroll", scheduleFaqActiveUpdate, { passive: true });
+    window.addEventListener("resize", scheduleFaqActiveUpdate, { passive: true });
+    window.addEventListener("hashchange", scheduleFaqActiveUpdate, false);
+
+    return () => {
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      if (faqScrollRafRef.current) {
+        window.cancelAnimationFrame(faqScrollRafRef.current);
+        faqScrollRafRef.current = 0;
+      }
+      window.removeEventListener("scroll", scheduleFaqActiveUpdate);
+      window.removeEventListener("resize", scheduleFaqActiveUpdate);
+      window.removeEventListener("hashchange", scheduleFaqActiveUpdate);
+    };
+  }, []);
 
   useEffect(() => {
     const el = heroStatsRef.current;
@@ -117,15 +172,25 @@ function FaqsPage() {
               <h3 className="font-headline-faq mb-6 text-xs font-bold tracking-widest text-[#6B7280] uppercase">
                 Quick Navigation
               </h3>
-              {sidebarLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="font-headline-faq ha-nudge block rounded-xl px-4 py-3 text-sm font-medium text-[#6B7280] transition-colors hover:bg-white hover:text-[#1F3B64]"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {sidebarLinks.map((link) => {
+                const id = link.href.replace("#", "");
+                const isActive = activeFaqSection === id;
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                      "font-headline-faq ha-nudge block rounded-xl border border-transparent px-4 py-3 text-sm font-medium transition-colors",
+                      isActive
+                        ? "bg-white text-[#1F3B64] shadow-sm ring-1 ring-[#4CAF50]/30"
+                        : "text-[#6B7280] hover:border-slate-200/80 hover:bg-white hover:text-[#1F3B64]",
+                    )}
+                    aria-current={isActive ? "location" : undefined}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </div>
           </aside>
 
