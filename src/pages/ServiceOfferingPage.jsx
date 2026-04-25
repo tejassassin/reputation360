@@ -1,6 +1,38 @@
+import { useEffect } from "react";
 import { ArrowRight, Phone } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
+import { FaqAccordion } from "../components/FaqAccordion.jsx";
 import { calendlyNewTabProps } from "../constants/scheduling";
+import { SITE_CANONICAL_ORIGIN } from "../constants/siteUrl.js";
+
+const FAQ_SCHEMA_ID = "r360-faq-schema";
+
+/** Injects/removes a FAQPage JSON-LD block for the current service page. */
+function useFaqSchema(faqs, canonicalPath) {
+  useEffect(() => {
+    if (!faqs || faqs.length === 0) return;
+    let el = document.getElementById(FAQ_SCHEMA_ID);
+    if (!el) {
+      el = document.createElement("script");
+      el.id = FAQ_SCHEMA_ID;
+      el.type = "application/ld+json";
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(({ q, a }) => ({
+        "@type": "Question",
+        "name": q,
+        "acceptedAnswer": { "@type": "Answer", "text": a },
+      })),
+    });
+    return () => {
+      const existing = document.getElementById(FAQ_SCHEMA_ID);
+      if (existing) existing.remove();
+    };
+  }, [faqs, canonicalPath]);
+}
 
 /**
  * Long-form ORM / services landing page. Matches site palette: navy, green, slate.
@@ -17,7 +49,10 @@ export function ServiceOfferingPage({
   canonicalPath,
   h1,
   body,
+  faqs,
 }) {
+  useFaqSchema(faqs, canonicalPath);
+
   return (
     <>
       <SeoHead
@@ -46,6 +81,25 @@ export function ServiceOfferingPage({
           <div className="prose-service mt-8 space-y-5 font-body text-base leading-[1.82] text-slate-700 [text-wrap:pretty] md:text-lg md:leading-[1.85]">
             {body}
           </div>
+
+          {faqs && faqs.length > 0 && (
+            <section className="mt-14" aria-labelledby="faq-heading">
+              <h2
+                id="faq-heading"
+                className="font-heading text-xl font-extrabold tracking-tight text-[#1F3B64] sm:text-2xl"
+              >
+                Frequently asked questions
+              </h2>
+              <div className="mt-6 space-y-3">
+                {faqs.map(({ q, a }) => (
+                  <FaqAccordion key={q} question={q}>
+                    {a}
+                  </FaqAccordion>
+                ))}
+              </div>
+            </section>
+          )}
+
           <aside className="mt-12 overflow-hidden rounded-2xl border-2 border-[#2E5B88]/20 bg-white p-6 shadow-[0_20px_50px_-20px_rgba(31,59,100,0.15)] sm:p-8">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
               <div className="min-w-0">
@@ -294,6 +348,37 @@ function BodyCrisis() {
   );
 }
 
+const FAQS_ORM = [
+  { q: "How long does online reputation management take to show results?", a: "Most clients see meaningful improvement in their search landscape within 60–120 days. The exact timeline depends on the authority of negative content and how aggressively positive content is built to offset it." },
+  { q: "Can Reputation360 remove negative content from Google?", a: "We pursue legal removal first — through platform takedowns, Google's removal tools, and India's IT Act provisions. For content that cannot be removed, we use suppression: building stronger authoritative content that outranks the negative result." },
+  { q: "Do you work with individuals as well as companies?", a: "Yes. We work with executives, professionals, public figures, and brands of all sizes — from founders and doctors to large enterprises across India." },
+  { q: "Is online reputation management ethical and legal?", a: "Every technique we use — content creation, SEO, legal takedown requests, review management — is fully compliant with Google's Webmaster Guidelines and Indian IT law. No black-hat tactics, ever." },
+  { q: "How do I get started?", a: "Contact us for a free, confidential reputation audit. We analyse your current search landscape, identify every threat and opportunity, and recommend a tailored action plan — with no obligation." },
+];
+
+const FAQS_NLS = [
+  { q: "Can negative links actually be removed from Google?", a: "Some can — through legal requests, platform takedowns under Indian IT law, or Google's own removal tools. For content that cannot be removed, suppression is our primary strategy: building content that outranks the negative URL and pushes it to Page 2 and beyond." },
+  { q: "How long does negative link suppression take?", a: "Most clients see meaningful movement within 60–90 days. Complex cases involving high-authority sources (major news sites, for example) may take 4–6 months for full first-page clearing." },
+  { q: "What types of negative content can you suppress?", a: "News articles, blog posts, forum threads, complaint site listings (MouthShut, Complaints Board), review platform content, social media posts, and outdated press coverage. If it appears in Google results, we can work on it." },
+  { q: "Is the suppression permanent?", a: "Suppression holds as long as the positive content we build remains active, authoritative, and regularly updated. We offer ongoing management to maintain the health of your results over time." },
+  { q: "What is the difference between removal and suppression?", a: "Removal means the URL is taken offline or delisted. Suppression means the content still exists but no longer appears on Page 1 because stronger positive content outranks it. We always attempt removal first, and use suppression as the primary strategy when removal is not available." },
+];
+
+const FAQS_MONITOR = [
+  { q: "What does brand monitoring actually track?", a: "We monitor Google search results, news publications, review platforms (Google, MouthShut, Trustpilot, Glassdoor), social media mentions (Twitter/X, LinkedIn, Instagram, Facebook), forums, and industry-specific sites. Any mention of your brand, key executives, or products is captured and assessed." },
+  { q: "How quickly will I be alerted to a negative mention?", a: "Our monitoring is near real-time. You receive alerts within hours of a significant negative mention being published. For critical situations — a viral post or breaking news — we escalate immediately and can begin crisis response within the same business day." },
+  { q: "Is brand monitoring only useful for large companies?", a: "Not at all. Smaller businesses and individual professionals often benefit most — a single negative mention can have an outsized impact on a small brand. Early detection lets you respond before a minor issue becomes a major one." },
+  { q: "Can I do brand monitoring myself for free?", a: "Basic monitoring via Google Alerts is free but limited — it misses many mentions and has no sentiment analysis or competitor tracking. Professional monitoring covers forums, review platforms, social media, and regional publications that Google Alerts does not index." },
+];
+
+const FAQS_CRISIS = [
+  { q: "How quickly can Reputation360 respond to a crisis?", a: "We begin assessment within hours of an emergency engagement. A preliminary crisis plan and first-response recommendations are typically delivered within 24 hours." },
+  { q: "What counts as an online reputation crisis?", a: "Any situation where negative online content is spreading rapidly and threatening measurable damage — to business revenue, personal career, recruitment ability, or public standing. Common triggers include viral social media incidents, negative news coverage, mass review campaigns, and data breach disclosures." },
+  { q: "Should I respond publicly to a crisis or stay quiet?", a: "This depends entirely on the nature of the crisis, the platform, and your audience. There is no universal answer — and getting it wrong can make things worse. We assess each situation individually and advise on the optimal response strategy, timing, and tone before any public statement is made." },
+  { q: "Can you help even if the crisis has already gone viral?", a: "Yes. We have managed situations at every stage — from early warning signs to full-blown viral incidents. The earlier we are engaged, the more options we have. Even in advanced cases, our suppression and counter-narrative techniques significantly reduce long-term damage." },
+  { q: "Do you offer crisis preparedness, not just emergency response?", a: "Absolutely — and we strongly recommend it. A crisis preparedness plan developed before anything goes wrong gives you a clear playbook, pre-approved messaging templates, and an escalation process so you are never starting from zero in an emergency." },
+];
+
 export function OnlineReputationManagementServicePage() {
   return (
     <ServiceOfferingPage
@@ -302,6 +387,7 @@ export function OnlineReputationManagementServicePage() {
       metaDescription="Reputation360 offers expert online reputation management services in India. We suppress negative search results and build a credible digital presence for individuals and brands."
       h1="Online Reputation Management Services in India"
       body={<BodyOrm />}
+      faqs={FAQS_ORM}
     />
   );
 }
@@ -314,6 +400,7 @@ export function NegativeLinkSuppressionServicePage() {
       metaDescription="We push down harmful, misleading, and outdated content from Google search results. Reputation360 specialises in negative link suppression for individuals and businesses across India."
       h1="Negative Link Suppression Services in India"
       body={<BodyNls />}
+      faqs={FAQS_NLS}
     />
   );
 }
@@ -326,6 +413,7 @@ export function BrandMonitoringServicePage() {
       metaDescription="Stay ahead of what's being said about your brand online. Reputation360 provides real-time brand monitoring services across search engines, news, and social media in India."
       h1="Brand Monitoring Services in India"
       body={<BodyMonitor />}
+      faqs={FAQS_MONITOR}
     />
   );
 }
@@ -338,6 +426,7 @@ export function CrisisManagementServicePage() {
       metaDescription="When your reputation is under attack, speed matters. Reputation360 provides rapid online crisis management services to protect individuals and brands across India."
       h1="Online Crisis Management Services in India"
       body={<BodyCrisis />}
+      faqs={FAQS_CRISIS}
     />
   );
 }
