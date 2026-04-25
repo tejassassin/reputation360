@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion as Motion } from "motion/react";
 import { Filter, X } from "lucide-react";
+import { StatNumber } from "../components/StatNumber.jsx";
 import { CaseStudyListCard } from "../components/CaseStudyListCard.jsx";
 import { CaseStudyPageCta } from "../components/CaseStudyPageCta.jsx";
 import { CASE_STUDIES, INDUSTRY_CATEGORIES } from "../data/caseStudies/index.js";
@@ -19,6 +20,10 @@ function uniqueInOrder(studies, getVal) {
   }
   return out;
 }
+
+const heroStatCardClass =
+  "group font-headline-faq cursor-default rounded-full border-2 border-[#2E5B88]/25 bg-[#2E5B88]/10 p-8 text-center text-[#1F3B64] transition-all duration-300 ease-out " +
+  "hover:border-[#4CAF50] hover:bg-[#4CAF50]/18 hover:text-[#4CAF50] hover:shadow-md hover:ring-2 hover:ring-[#4CAF50]/40 hover:ring-offset-2 hover:ring-offset-[#F5F7FA]";
 
 const baseSelectClass =
   "h-14 w-full cursor-pointer appearance-none rounded-2xl border-2 border-slate-200/80 bg-white pl-5 pr-12 text-left text-base font-medium text-navy shadow-[0_2px_14px_-3px_rgba(15,35,60,0.1)] outline-none transition focus:border-[#3d9a3d] focus:ring-4 focus:ring-[#4CAF50]/22 hover:border-[#4CAF50]/35 hover:shadow-md";
@@ -74,6 +79,8 @@ function ActiveChip({ children, onRemove, title }) {
 }
 
 export default function CaseStudiesPage() {
+  const heroStatsRef = useRef(null);
+  const [heroStatsLive, setHeroStatsLive] = useState(false);
   const [industry, setIndustry] = useState(ALL);
   const [profile, setProfile] = useState(ALL);
   const [challenge, setChallenge] = useState(ALL);
@@ -122,6 +129,20 @@ export default function CaseStudiesPage() {
     setDuration(ALL);
   }, []);
 
+  const challengeTypeCount = useMemo(
+    () => new Set(CASE_STUDIES.map((s) => s.challengeType)).size,
+    [],
+  );
+
+  const heroStatCards = useMemo(
+    () => [
+      { end: CASE_STUDIES.length, suffix: "+", label: "In-depth case studies" },
+      { end: INDUSTRY_CATEGORIES.length, label: "Industry verticals" },
+      { end: challengeTypeCount, label: "Challenge types covered" },
+    ],
+    [challengeTypeCount],
+  );
+
   useEffect(() => {
     const previous = document.title;
     document.title = "Case Studies | Reputation360";
@@ -130,8 +151,21 @@ export default function CaseStudiesPage() {
     };
   }, []);
 
+  useEffect(() => {
+    const el = heroStatsRef.current;
+    if (!el) return undefined;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) setHeroStatsLive(true);
+      },
+      { rootMargin: "0px 0px -5% 0px", threshold: 0.15 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <main className="relative min-h-0 flex-1 overflow-x-hidden bg-slate-50 pt-32 text-slate-900 sm:pt-36 md:pt-40 lg:pt-44">
+    <main className="relative min-h-0 flex-1 overflow-x-hidden bg-[#F5F7FA] pt-28 text-slate-900 selection:bg-[#4CAF50]/30 sm:pt-32">
       <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_15%_-5%,rgba(120,200,100,0.2),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_95%_0%,rgba(100,150,200,0.12),transparent_45%)]" />
@@ -155,52 +189,78 @@ export default function CaseStudiesPage() {
         />
       </div>
 
-      <header className="relative mx-auto max-w-5xl px-4 pb-6 text-center md:px-6">
-        <Motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      <div className="mx-auto max-w-7xl px-6">
+        <section
+          className="flex flex-col items-center border-b border-slate-200/70 py-20 text-center text-[#1F3B64] md:py-28"
+          aria-label="Case studies"
         >
-          <h1 className="font-heading text-[1.9rem] font-extrabold leading-[1.08] tracking-tight sm:text-4xl md:text-5xl lg:text-[3.15rem]">
-            <span className="text-slate-900">Case</span>{" "}
-            <span className="bg-gradient-to-r from-[#2d8a2d] via-[#4CAF50] to-[#2E5B88] bg-clip-text text-transparent">
-              Studies
-            </span>
+          <span className="font-headline-faq mb-6 text-sm font-bold uppercase tracking-widest text-[#4CAF50]">
+            Documented results across industries
+          </span>
+          <h1 className="font-headline-faq mb-8 max-w-5xl text-4xl font-extrabold leading-[1.1] tracking-tighter text-[#1F3B64] md:text-6xl lg:text-7xl">
+            Recovery is not a slogan — it is a process.{" "}
+            <span className="text-[#2E5B88]">Read how we have delivered it.</span>
           </h1>
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-[1.75] text-steel sm:text-lg sm:leading-relaxed md:mt-6">
-            Detailed analysis of how we restore trust, neutralize misinformation, and rebuild
+          <p className="mb-12 max-w-2xl text-lg font-light text-[#6B7280] md:text-xl">
+            Detailed analysis of how we restore trust, counter harmful narratives, and rebuild
             digital legacies.
           </p>
-        </Motion.div>
-      </header>
-
-      <div className="sticky top-[4.5rem] z-30 -mx-0 border-b border-slate-200/80 bg-slate-50/90 shadow-[0_6px_32px_-8px_rgba(15,35,60,0.1)] backdrop-blur-md md:top-16">
-        <div className="mx-auto max-w-6xl space-y-0 px-4 py-5 md:px-6 md:py-6">
           <div
-            className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-gradient-to-b from-white via-white to-slate-50/90 p-5 shadow-[0_1px_2px_rgba(15,35,60,0.04),0_12px_32px_-12px_rgba(15,35,60,0.08)] ring-1 ring-slate-200/50 sm:p-6"
+            ref={heroStatsRef}
+            className="grid w-full max-w-4xl grid-cols-1 gap-6 md:grid-cols-3"
+            role="list"
+            aria-label="Case studies at a glance"
+          >
+            {heroStatCards.map((card) => (
+              <div key={card.label} role="listitem" className={heroStatCardClass}>
+                <div className="mb-1 text-4xl font-extrabold tabular-nums transition-transform duration-300 ease-out group-hover:scale-105 motion-reduce:group-hover:scale-100">
+                  <StatNumber
+                    className="inline"
+                    end={card.end}
+                    suffix={card.suffix ?? ""}
+                    start={heroStatsLive}
+                  />
+                </div>
+                <div className="font-body text-sm font-medium tracking-wide text-[#6B7280]">
+                  {card.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <div className="sticky top-[4.5rem] z-30 -mx-0 border-b border-slate-200/80 bg-[#F5F7FA]/90 shadow-[0_6px_32px_-8px_rgba(15,35,60,0.1)] backdrop-blur-md md:top-16">
+        <div className="mx-auto min-w-0 max-w-6xl space-y-0 px-4 py-5 md:px-6 md:py-6">
+          <div
+            className="relative rounded-2xl border border-slate-200/80 bg-gradient-to-b from-white via-white to-slate-50/90 p-5 shadow-[0_1px_2px_rgba(15,35,60,0.04),0_12px_32px_-12px_rgba(15,35,60,0.08)] ring-1 ring-slate-200/50 sm:p-6"
           >
             <div
               className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#2d8a2d] via-[#4CAF50] to-sky-500/70"
               aria-hidden
             />
             <div className="space-y-6 sm:space-y-7">
-              <div className="flex justify-end border-b border-slate-200/60 pb-5 sm:pb-6">
+              <div className="flex justify-end border-b border-slate-200/60 pb-4 sm:pb-5">
                 <Motion.button
                   type="button"
                   onClick={resetFilters}
                   whileTap={{ scale: 0.96 }}
-                  className="w-full shrink-0 rounded-xl border-2 border-slate-200/90 bg-slate-50/80 px-4 py-2.5 text-sm font-bold text-slate-800 shadow-sm transition hover:border-[#4CAF50]/55 hover:bg-[#4CAF50]/8 sm:w-auto"
+                  className="w-auto shrink-0 rounded-lg border border-slate-200/90 bg-slate-50/80 px-2.5 py-1.5 text-xs font-semibold text-slate-800 shadow-sm transition hover:border-[#4CAF50]/55 hover:bg-[#4CAF50]/8 sm:px-3 sm:py-1.5 sm:text-sm"
                 >
                   Clear filters
                 </Motion.button>
               </div>
 
           {industryChips.length > 0 ? (
-            <div>
-              <p className="mb-3 text-sm font-extrabold uppercase tracking-wider text-slate-600">
+            <div className="min-w-0">
+              <p className="mb-2.5 text-sm font-extrabold uppercase tracking-wider text-slate-600">
                 Quick industries
               </p>
-              <div className="flex flex-wrap gap-2.5" role="group" aria-label="Filter by industry">
+              <div
+                className="-mx-0.5 flex min-w-0 max-w-full flex-nowrap gap-1.5 overflow-x-auto overflow-y-visible overscroll-x-contain px-0.5 pb-1.5 pl-0 pr-2 [scrollbar-gutter:stable] [scrollbar-width:thin] [scroll-padding-inline-end:0.75rem] touch-pan-x sm:gap-2 sm:pr-3 sm:[scroll-padding-inline-end:1.25rem]"
+                role="group"
+                aria-label="Filter by industry"
+              >
                 {industryChips.map((ind) => {
                   const on = industry === ind;
                   return (
@@ -210,7 +270,7 @@ export default function CaseStudiesPage() {
                       onClick={() => setIndustry(on ? ALL : ind)}
                       whileTap={{ scale: 0.96 }}
                       className={[
-                        "max-w-full truncate rounded-full border-2 px-4 py-2 text-left text-sm font-bold leading-snug transition",
+                        "shrink-0 whitespace-nowrap rounded-full border px-2.5 py-1.5 text-left text-xs font-semibold leading-tight transition sm:px-3 sm:py-1.5 sm:text-sm sm:font-bold sm:leading-snug",
                         on
                           ? "border-[#3d9a3d] bg-gradient-to-b from-[#4CAF50]/18 to-[#4CAF50]/10 text-navy shadow-sm ring-1 ring-[#4CAF50]/20"
                           : "border-slate-200/90 bg-white text-slate-800 shadow-sm hover:-translate-y-px hover:border-slate-300 hover:shadow-md",
@@ -221,6 +281,10 @@ export default function CaseStudiesPage() {
                     </Motion.button>
                   );
                 })}
+                <div
+                  className="shrink-0 select-none [width:0.5rem] sm:[width:0.75rem]"
+                  aria-hidden
+                />
               </div>
             </div>
           ) : null}
