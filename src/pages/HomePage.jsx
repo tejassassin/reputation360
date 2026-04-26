@@ -25,7 +25,7 @@ function HomePage() {
         canonicalPath="/"
       />
       <Hero />
-      <main className="flex flex-1 flex-col gap-28 pt-16 md:gap-32 md:pt-24 lg:gap-40 lg:pt-28">
+      <main className="flex w-full flex-col gap-28 pt-16 md:gap-32 md:pt-24 lg:gap-40 lg:pt-28">
         <section>
           <WhatWeBelieve />
         </section>
