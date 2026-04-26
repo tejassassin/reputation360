@@ -5,7 +5,7 @@
 /**
  * @typedef {Object} CaseStudy
  * @property {number} n
- * @property {string} slug — URL path segment, derived from listTitle
+ * @property {string} [slug] - optional URL path segment; if omitted, derived from listTitle
  * @property {string} listTitle
  * @property {string} industry
  * @property {string} profile

@@ -47,7 +47,10 @@ const CASE_STUDIES_RAW = [
 
 const seen = new Set();
 export const CASE_STUDIES = CASE_STUDIES_RAW.map((c) => {
-  const slug = slugifyCaseStudyListTitle(c.listTitle);
+  const slug =
+    c.slug && String(c.slug).trim() !== ""
+      ? String(c.slug).trim()
+      : slugifyCaseStudyListTitle(c.listTitle);
   if (seen.has(slug)) {
     throw new Error(`Duplicate case study slug for n=${c.n}: "${slug}"`);
   }

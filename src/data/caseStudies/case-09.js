@@ -1,7 +1,9 @@
 /** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 9,
-  listTitle: "The Surgeon Under Fire",
+  listTitle: "The Review That Almost Ended The Surgeon's Career",
+  /** Canonical URL; keeps first-page slug readable (possessive in listTitle can slug awkwardly). */
+  slug: "the-review-that-almost-ended-the-surgeons-career",
   industry: "Doctors & Healthcare Professionals",
   profile: "44-year-old Consultant Surgeon, private and NHS practice",
   challengeType: "Patient complaint amplified by local media & review platforms",
