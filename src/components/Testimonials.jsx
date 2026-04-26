@@ -1,3 +1,4 @@
+/* @refresh reset */
 import { homeTestimonials } from "../data/homeTestimonials.js";
 
 export function Testimonials() {
@@ -11,10 +12,10 @@ export function Testimonials() {
         id="testimonials-heading"
         className="font-heading mx-auto mb-4 text-4xl font-bold leading-tight text-navy md:text-5xl lg:text-6xl"
       >
-        What our clients{" "}
+        Our Customers{" "}
         <span className="relative inline-block">
           <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 bg-clip-text text-transparent">
-            say
+            Love Us
           </span>
           <svg
             className="absolute -bottom-2 left-0 w-full"

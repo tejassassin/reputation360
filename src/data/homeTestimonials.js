@@ -1,3 +1,4 @@
+/* @refresh reset */
 /** Home page — client quotes (name & role as provided) */
 export const homeTestimonials = [
   {
