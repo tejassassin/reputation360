@@ -26,7 +26,7 @@ export function CaseStudyListCard({ study, index }) {
     [study.challengeType, study.industry, study.profile],
   );
 
-  const href = `/case-studies/${study.n}`;
+  const href = `/case-studies/${study.slug}`;
 
   return (
     <Motion.li

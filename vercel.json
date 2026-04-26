@@ -1,4 +1,22 @@
 {
+  "redirects": [
+    { "source": "/case-studies/1", "destination": "/case-studies/executive-and-founder-reputation-management", "permanent": true },
+    { "source": "/case-studies/2", "destination": "/case-studies/financial-professional-reputation-recovery", "permanent": true },
+    { "source": "/case-studies/3", "destination": "/case-studies/medical-and-healthcare-reputation-management", "permanent": true },
+    { "source": "/case-studies/4", "destination": "/case-studies/hr-and-employment-dispute-reputation-management", "permanent": true },
+    { "source": "/case-studies/5", "destination": "/case-studies/e-commerce-and-retail-brand-recovery", "permanent": true },
+    { "source": "/case-studies/6", "destination": "/case-studies/consumer-electronics-product-crisis-recovery", "permanent": true },
+    { "source": "/case-studies/7", "destination": "/case-studies/startup-reputation-recovery-after-funding-controversy", "permanent": true },
+    { "source": "/case-studies/8", "destination": "/case-studies/e-commerce-brand-recovery-after-counterfeit-allegations", "permanent": true },
+    { "source": "/case-studies/9", "destination": "/case-studies/the-surgeon-under-fire", "permanent": true },
+    { "source": "/case-studies/10", "destination": "/case-studies/the-gp-and-the-misattributed-article", "permanent": true },
+    { "source": "/case-studies/11", "destination": "/case-studies/the-litigation-partner-and-the-losing-verdict", "permanent": true },
+    { "source": "/case-studies/12", "destination": "/case-studies/the-family-lawyer-and-the-client-vendetta", "permanent": true },
+    { "source": "/case-studies/13", "destination": "/case-studies/the-ifa-and-the-collapsed-investment-fund", "permanent": true },
+    { "source": "/case-studies/14", "destination": "/case-studies/the-accountant-and-the-wrongful-dismissal-headline", "permanent": true },
+    { "source": "/case-studies/15", "destination": "/case-studies/the-graduate-and-the-incident-that-followed-him-online", "permanent": true },
+    { "source": "/case-studies/16", "destination": "/case-studies/the-senior-product-manager-and-the-glassdoor-problem", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/",

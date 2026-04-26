@@ -53,11 +53,11 @@ function pageForPath(path) {
   if (path === "/services/executives") return <ExecutivesPage />;
   if (path === "/services/businesses") return <BusinessesPage />;
   if (path === "/services/individuals") return <IndividualsPage />;
-  const caseStudyPath = path.match(/^\/case-studies\/(\d+)$/);
-  if (caseStudyPath) {
-    return <CaseStudyDetailPage caseId={parseInt(caseStudyPath[1], 10)} />;
-  }
   if (path === "/case-studies") return <CaseStudiesPage />;
+  const caseStudyPath = path.match(/^\/case-studies\/([^/]+)$/);
+  if (caseStudyPath) {
+    return <CaseStudyDetailPage caseStudySlug={caseStudyPath[1]} />;
+  }
   if (path === "/contact") return <ContactPage />;
   if (path === "/resources/blogs") return <InsightsBlogsPage />;
   if (path === "/resources/guide") return <GuidePage />;

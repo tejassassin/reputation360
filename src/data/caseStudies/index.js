@@ -14,6 +14,7 @@ import case13 from "./case-13.js";
 import case14 from "./case-14.js";
 import case15 from "./case-15.js";
 import case16 from "./case-16.js";
+import { slugifyCaseStudyListTitle } from "../../lib/caseStudySlug.js";
 
 /** Fixed audience verticals for filtering; each case study uses exactly one. */
 export const INDUSTRY_CATEGORIES = [
@@ -25,7 +26,7 @@ export const INDUSTRY_CATEGORIES = [
   "Businesses & Companies",
 ];
 
-export const CASE_STUDIES = [
+const CASE_STUDIES_RAW = [
   case01,
   case02,
   case03,
@@ -44,6 +45,16 @@ export const CASE_STUDIES = [
   case16,
 ];
 
+const seen = new Set();
+export const CASE_STUDIES = CASE_STUDIES_RAW.map((c) => {
+  const slug = slugifyCaseStudyListTitle(c.listTitle);
+  if (seen.has(slug)) {
+    throw new Error(`Duplicate case study slug for n=${c.n}: "${slug}"`);
+  }
+  seen.add(slug);
+  return { ...c, slug };
+});
+
 export const CASE_STUDIES_FOOTER =
   "All case studies are anonymised in line with client confidentiality. Names, firms, and all identifying details have been withheld or generalised throughout.";
 
@@ -53,4 +64,11 @@ const MAX_N = 16;
 export function getCaseStudyByN(n) {
   if (typeof n !== "number" || n < 1 || n > MAX_N) return null;
   return CASE_STUDIES.find((s) => s.n === n) ?? null;
+}
+
+/** @param {string} slug - path segment, e.g. "executive-and-founder-reputation-management" */
+export function getCaseStudyBySlug(slug) {
+  if (typeof slug !== "string" || !slug.trim()) return null;
+  const s = decodeURIComponent(slug).trim();
+  return CASE_STUDIES.find((cs) => cs.slug === s) ?? null;
 }

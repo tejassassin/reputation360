@@ -1,7 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion as Motion } from "motion/react";
 import { ArrowLeft, Building2, Fingerprint, List, User } from "lucide-react";
-import { CASE_STUDIES_FOOTER, getCaseStudyByN } from "../data/caseStudies/index.js";
+import {
+  CASE_STUDIES_FOOTER,
+  getCaseStudyByN,
+  getCaseStudyBySlug,
+} from "../data/caseStudies/index.js";
 import { caseStudySectionSlug } from "../lib/caseStudySectionSlug.js";
 import { CaseStudyPageCta } from "../components/CaseStudyPageCta.jsx";
 import { CaseStudySectionBlock } from "../components/CaseStudySectionBlock.jsx";
@@ -19,13 +23,28 @@ function metaDescriptionFromText(text) {
 const PROGRESS_TOP = "4.5rem";
 
 /**
- * One id per case-study section (include caseId so fragments are unambiguous).
- * @param {number} caseId
+ * One id per case-study section (include n so fragments are unambiguous).
+ * @param {number} n
  * @param {number} index
  * @param {string} heading
  */
-function caseStudySectionElementId(caseId, index, heading) {
-  return `c${caseId}-s${index}-${caseStudySectionSlug(heading)}`;
+function caseStudySectionElementId(n, index, heading) {
+  return `c${n}-s${index}-${caseStudySectionSlug(heading)}`;
+}
+
+function resolveStudyFromPathSegment(rawSlug) {
+  if (typeof rawSlug !== "string" || !rawSlug.trim()) {
+    return { study: null, legacyNumeric: false };
+  }
+  const segment = decodeURIComponent(rawSlug).trim();
+  const bySlug = getCaseStudyBySlug(segment);
+  if (bySlug) return { study: bySlug, legacyNumeric: false };
+  if (/^\d+$/.test(segment)) {
+    const n = parseInt(segment, 10);
+    const byN = getCaseStudyByN(n);
+    if (byN) return { study: byN, legacyNumeric: true };
+  }
+  return { study: null, legacyNumeric: false };
 }
 
 function queryTocSectionNode(id) {
@@ -78,19 +97,33 @@ function CaseStudyEngagementBlock({ study }) {
 
 const TOC_OBSERVER_SUPPRESS_MS = 800;
 
-export default function CaseStudyDetailPage({ caseId }) {
-  const study = getCaseStudyByN(caseId);
+export default function CaseStudyDetailPage({ caseStudySlug }) {
+  const { study, legacyNumeric } = useMemo(
+    () => resolveStudyFromPathSegment(caseStudySlug),
+    [caseStudySlug],
+  );
   const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState(null);
   const tocClickSuppressUntilRef = useRef(0);
 
+  useEffect(() => {
+    if (study && legacyNumeric && window.history?.replaceState) {
+      const path = `/case-studies/${study.slug}${
+        window.location.hash && window.location.hash !== "#"
+          ? window.location.hash
+          : ""
+      }`;
+      window.history.replaceState(null, "", path);
+    }
+  }, [study, legacyNumeric]);
+
   const sectionIds = useMemo(() => {
     if (!study) return [];
     return study.sections.map((s, i) => ({
-      id: caseStudySectionElementId(caseId, i, s.heading),
+      id: caseStudySectionElementId(study.n, i, s.heading),
       short: s.heading,
     }));
-  }, [study, caseId]);
+  }, [study]);
 
   const scrollToSectionId = useCallback(
     (id) => {
@@ -133,7 +166,7 @@ export default function CaseStudyDetailPage({ caseId }) {
     if (!sectionIds.some((s) => s.id === id)) return undefined;
     const t = window.setTimeout(() => scrollToSectionId(id), 0);
     return () => window.clearTimeout(t);
-  }, [study, caseId, sectionIds, scrollToSectionId]);
+  }, [study, sectionIds, scrollToSectionId]);
 
   useEffect(() => {
     if (!study) {
@@ -147,7 +180,7 @@ export default function CaseStudyDetailPage({ caseId }) {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [study, caseId]);
+  }, [study]);
 
   useEffect(() => {
     if (!study) return undefined;
@@ -180,7 +213,7 @@ export default function CaseStudyDetailPage({ caseId }) {
       if (el) ob.observe(el);
     }
     return () => ob.disconnect();
-  }, [study, sectionIds, caseId]);
+  }, [study, sectionIds]);
 
   if (!study) {
     return (
@@ -209,7 +242,7 @@ export default function CaseStudyDetailPage({ caseId }) {
       <SeoHead
         title={`${study.listTitle} | Reputation360`}
         description={metaDescriptionFromText(study.summary)}
-        canonicalPath={`/case-studies/${caseId}`}
+        canonicalPath={`/case-studies/${study.slug}`}
       />
     <main className="relative min-h-0 flex-1 bg-slate-50 pt-24 text-slate-900 md:pt-28">
       <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden>
@@ -336,7 +369,7 @@ export default function CaseStudyDetailPage({ caseId }) {
           </nav>
 
           {study.sections.map((section, i) => {
-            const id = caseStudySectionElementId(caseId, i, section.heading);
+            const id = caseStudySectionElementId(study.n, i, section.heading);
             return (
               <CaseStudySectionBlock
                 key={id}
