@@ -20,11 +20,6 @@ import FaqsPage from "./pages/FaqsPage.jsx";
 import InsightsBlogsPage from "./pages/InsightsBlogsPage.jsx";
 import GuidePage from "./pages/GuidePage.jsx";
 import LegalNoticePage from "./pages/LegalNoticePage.jsx";
-import {
-  BrandMonitoringServicePage,
-  CrisisManagementServicePage,
-  OnlineReputationManagementServicePage,
-} from "./pages/ServiceOfferingPage.jsx";
 
 function normalizePath(pathname) {
   return pathname.replace(/\/+$/, "") || "/";
@@ -33,15 +28,6 @@ function normalizePath(pathname) {
 function pageForPath(path) {
   if (path === "/about") return <AboutPage />;
   if (path === "/services") return <ServicesPage />;
-  if (path === "/services/online-reputation-management") {
-    return <OnlineReputationManagementServicePage />;
-  }
-  if (path === "/services/brand-monitoring") {
-    return <BrandMonitoringServicePage />;
-  }
-  if (path === "/services/crisis-management") {
-    return <CrisisManagementServicePage />;
-  }
   if (path === "/services/financial-advisors") return <FinancialAdvisorsPage />;
   if (path === "/services/job-seekers") return <JobSeekersPage />;
   if (path === "/services/doctors") return <DoctorsPage />;

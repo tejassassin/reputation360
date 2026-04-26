@@ -2,12 +2,6 @@ import { OUR_SERVICES_SECTION_INTRO } from "../data/reputationServices";
 import { OurServicesGrid } from "./OurServicesGrid";
 import BrandSectionBackdrop from "./BrandSectionBackdrop";
 
-const serviceQuickLinks = [
-  { href: "/services/online-reputation-management", label: "Online Reputation Management" },
-  { href: "/services/brand-monitoring", label: "Brand Monitoring" },
-  { href: "/services/crisis-management", label: "Crisis Management" },
-];
-
 function OurServices() {
   return (
     <section
@@ -32,20 +26,6 @@ function OurServices() {
           <p className="mx-auto mt-5 max-w-4xl px-2 font-body text-base font-medium leading-relaxed text-white/85 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:mt-6 sm:text-lg sm:leading-relaxed">
             {OUR_SERVICES_SECTION_INTRO}
           </p>
-          <nav
-            className="mx-auto mt-7 flex max-w-4xl flex-wrap items-center justify-center gap-x-3 gap-y-2.5 px-1 sm:mt-8"
-            aria-label="Core service areas"
-          >
-            {serviceQuickLinks.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="inline-flex rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-center text-[13px] font-semibold text-white/95 ring-1 ring-inset ring-white/10 transition hover:border-[#4CAF50]/55 hover:bg-[#4CAF50]/20 hover:text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-sm"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
         </div>
 
         <div className="w-full">
