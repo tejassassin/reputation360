@@ -1,5 +1,11 @@
 /* @refresh reset */
-/** Home page — client quotes (name & role as provided) */
+/**
+ * Home page — synthetic testimonial copy (fictional names/roles; not real clients). Optional
+ * `portrait` overrides the mapped URL in `testimonialPortraits.js`. Those URLs use
+ * RandomUser’s pre-generated “fake” avatars: https://randomuser.me/photos
+ * (see also https://randomuser.me/copyright) — for production, swap in licensed/approved
+ * headshots; do not imply a stock photo is a real named client.
+ */
 export const homeTestimonials = [
   {
     id: "kavya-iyer",
@@ -24,10 +30,10 @@ export const homeTestimonials = [
     role: "Senior Financial Advisor, Wealth Management",
   },
   {
-    id: "priya-nair",
+    id: "priya-iyer",
     quote:
       "I had almost given up on landing another in-house role after a wrongful termination made headlines. Reputation360 rebuilt my online presence from the ground up — I had three offers within four months of working with them.",
-    name: "Priya Nair",
+    name: "Priya Iyer",
     role: "Job Seeker, Senior Marketing Director",
   },
   {
@@ -42,7 +48,7 @@ export const homeTestimonials = [
     id: "jonathan-reeves-consulting",
     quote:
       "My LinkedIn profile was completely invisible. After Reputation360 overhauled my personal brand and positioning, I started getting inbound connection requests from decision-makers I had been chasing for years. The ROI has been extraordinary.",
-    name: "Jonathan Reeves",
+    name: "Jon T. Reeves",
     role: "Independent Management Consultant",
   },
   {

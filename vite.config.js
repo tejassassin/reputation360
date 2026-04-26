@@ -65,23 +65,6 @@ export default defineConfig({
       },
     },
     {
-      name: "log-open-in-chrome",
-      configureServer(server) {
-        server.httpServer?.once("listening", () => {
-          const addr = server.httpServer?.address();
-          if (addr && typeof addr === "object" && "port" in addr) {
-            const host =
-              addr.address === "::" || addr.address === "::1"
-                ? "127.0.0.1"
-                : addr.address;
-            console.log(
-              `\n  Paste into Google Chrome: http://${host}:${addr.port}/\n`,
-            );
-          }
-        });
-      },
-    },
-    {
       name: "spa-defer-app-module",
       apply: "build",
       transformIndexHtml: {
@@ -123,23 +106,22 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Bind to loopback by default - avoids flaky `networkInterfaces()` on some Node/OS setups.
-  // Use `npm run dev -- --host` when you need LAN access from other devices.
+  // `true` = listen on all interfaces (0.0.0.0). This matches VS Code / Cursor “Ports”
+  // forwarding and the in-editor Simple Browser, which can fail with host: "127.0.0.1" only.
   server: {
-    host: "127.0.0.1",
+    host: true,
     port: 5173,
     // Fail fast if 5173 is taken instead of silently using another port (avoids
     // editing the repo but “seeing” an old server on the bookmarked URL).
     strictPort: true,
-    // Do not auto-open a browser (avoids Cursor’s in-app Simple Browser). Use the
-    // URL printed below in Google Chrome instead.
+    // Let your system browser or Cursor open the URL Vite prints (Local: http://localhost:5173/).
     open: false,
     headers: {
       "Cache-Control": "no-store",
     },
   },
   preview: {
-    host: "127.0.0.1",
+    host: true,
     port: 4173,
     strictPort: true,
     open: false,
