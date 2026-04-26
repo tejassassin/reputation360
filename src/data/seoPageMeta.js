@@ -47,7 +47,7 @@ export const SEO = {
   contact: {
     title: "Contact Reputation360 | Get a Free ORM Consultation",
     description:
-      "Get in touch with Reputation360 for a free consultation on online reputation management, negative link suppression, or brand monitoring services in India.",
+      "Get in touch with Reputation360 for a free consultation on online reputation management, brand monitoring, or crisis response in India.",
   },
   about: {
     title: "About Reputation360 | India's Trusted ORM Company",

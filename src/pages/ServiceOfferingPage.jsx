@@ -3,7 +3,6 @@ import { ArrowRight, Phone } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { FaqAccordion } from "../components/FaqAccordion.jsx";
 import { calendlyNewTabProps } from "../constants/scheduling";
-import { SITE_CANONICAL_ORIGIN } from "../constants/siteUrl.js";
 
 const FAQ_SCHEMA_ID = "r360-faq-schema";
 
@@ -174,69 +173,14 @@ function BodyOrm() {
           <strong>What you can expect:</strong> realistic timelines, measurable movement
           in what ranks where, and regular reporting. You should expect fewer surprises in
           search, clearer positioning, and a growing set of high-quality results that
-          you control or influence. When harmful material is in play, we align ORM with
-          targeted <a href="/services/negative-link-suppression" className="font-semibold text-[#1F3B64] underline decoration-[#4CAF50]/50 underline-offset-2 hover:decoration-[#4CAF50]">negative link suppression</a>{" "}
-          so constructive content can earn the visibility it deserves. For ongoing
+          you control or influence. When harmful material is in play, we layer in
+          targeted <strong>work to outrank negative and misleading URLs</strong> so
+          constructive content can earn the visibility it deserves. For ongoing
           awareness, <a href="/services/brand-monitoring" className="font-semibold text-[#1F3B64] underline decoration-[#4CAF50]/50 underline-offset-2 hover:decoration-[#4CAF50]">brand monitoring</a> and{" "}
           <a href="/services/crisis-management" className="font-semibold text-[#1F3B64] underline decoration-[#4CAF50]/50 underline-offset-2 hover:decoration-[#4CAF50]">crisis support</a> can sit alongside
           this programme. Every engagement is private and tailored; we are happy to walk
           you through a practical roadmap on a <strong>no-obligation first call</strong>
           .
-        </>,
-      )}
-    </>
-  );
-}
-
-function BodyNls() {
-  return (
-    <>
-      {p(
-        <>
-          <strong>Negative link suppression</strong> focuses on reducing how visible
-          harmful, misleading, or outdated URLs are in search results for your name or
-          business — not by “deleting the internet,” but by{" "}
-          <strong>systematically outranking them with accurate, high-quality
-          content</strong> and compliant tactics. In India, where local and national news,
-          reviews, and forums can rank prominently, this service is often the most
-          direct path to a calmer, fairer first page of Google.
-        </>,
-      )}
-      {p(
-        <>
-          Reputation360 begins with a full mapping of what appears in search for your
-          key queries, how those results evolved, and which properties search engines
-          already trust. From there we design a <strong>layered visibility plan</strong>{" "}
-          that may include strengthening LinkedIn and other profiles, building or
-          refreshing a professional site, placing credible editorial and interview-style
-          content, and developing structured data and internal linking so the right
-          pages rank for the right queries. Suppression is a <strong>marathon, not a
-          stunt</strong>: it rewards consistency and quality over weeks and months, not
-          one-off tricks.
-        </>,
-      )}
-      {p(
-        <>
-          <strong>Who it is for:</strong> anyone whose search results have been
-          affected by old articles, out-of-context clips, duplicative forum threads,
-          spiteful reviews, or legacy regulatory listings — including professionals in
-          regulated industries who need a cleaner digital trail for compliance and
-          business development. We work with you to ensure new material is truthful,
-          defensible, and consistent with your goals.
-        </>,
-      )}
-      {p(
-        <>
-          <strong>Outcomes you can look for</strong> include the harmful link moving
-          to Page 2 or 3, multiple positive or neutral results occupying the top
-          positions, and your owned profiles (site, social, publications) taking the
-          slots that used to be dominated by noise. We will always be honest about what
-          can and cannot be influenced in search. We pair suppression with broader{" "}
-          <a href="/services/online-reputation-management" className="font-semibold text-[#1F3B64] underline decoration-[#4CAF50]/50 underline-offset-2 hover:decoration-[#4CAF50]">ORM strategy</a> and, when
-          the situation is acute, with <a href="/services/crisis-management" className="font-semibold text-[#1F3B64] underline decoration-[#4CAF50]/50 underline-offset-2 hover:decoration-[#4CAF50]">crisis response</a> and{" "}
-          <a href="/services/brand-monitoring" className="font-semibold text-[#1F3B64] underline decoration-[#4CAF50]/50 underline-offset-2 hover:decoration-[#4CAF50]">monitoring</a> so you are not
-          only recovering visibility but protecting it. Contact us to review your
-          current SERP landscape and a realistic plan for India-focused execution.
         </>,
       )}
     </>
@@ -281,11 +225,17 @@ function BodyMonitor() {
           documentation suitable for internal stakeholders, and a feedback loop into
           your ORM roadmap (content, profile updates, outreach). We serve businesses and
           public figures that operate nationally or in multiple Indian cities, as well
-          as individuals whose personal brand is the product. Pair monitoring with{" "}
-          <a href="/services/negative-link-suppression" className="font-semibold text-[#1F3B64] underline decoration-[#4CAF50]/50 underline-offset-2 hover:decoration-[#4CAF50]">negative link suppression</a> when
-          you need the visible impact of what you are watching to change — not just a
-          dashboard. Get in touch for a monitoring scope that fits your size and
-          industry.
+          as           individuals whose personal brand is the product. When you need what you
+          are watching to <strong>actually change in search</strong>, we pair
+          monitoring with a structured{" "}
+          <a
+            href="/services/online-reputation-management"
+            className="font-semibold text-[#1F3B64] underline decoration-[#4CAF50]/50 underline-offset-2 hover:decoration-[#4CAF50]"
+          >
+            ORM programme
+          </a>{" "}
+          that can displace the URLs you are tracking — not just a dashboard. Get
+          in touch for a monitoring scope that fits your size and industry.
         </>,
       )}
     </>
@@ -340,8 +290,14 @@ function BodyCrisis() {
           back at square one. If the situation is unfolding now, use our{" "}
           <a href="/contact" className="font-semibold text-[#1F3B64] underline decoration-[#4CAF50]/50 underline-offset-2 hover:decoration-[#4CAF50]">contact form</a> or call line on the
           site — we will prioritise a rapid response. For long-term risk reduction, we
-          also combine crisis support with <a href="/services/negative-link-suppression" className="font-semibold text-[#1F3B64] underline decoration-[#4CAF50]/50 underline-offset-2 hover:decoration-[#4CAF50]">targeted
-          suppression</a> after the immediate fire is contained.
+          also hand off to{" "}
+          <a
+            href="/services/online-reputation-management"
+            className="font-semibold text-[#1F3B64] underline decoration-[#4CAF50]/50 underline-offset-2 hover:decoration-[#4CAF50]"
+          >
+            ongoing ORM
+          </a>{" "}
+          to outrank the damage in search after the immediate fire is contained.
         </>,
       )}
     </>
@@ -354,14 +310,6 @@ const FAQS_ORM = [
   { q: "Do you work with individuals as well as companies?", a: "Yes. We work with executives, professionals, public figures, and brands of all sizes — from founders and doctors to large enterprises across India." },
   { q: "Is online reputation management ethical and legal?", a: "Every technique we use — content creation, SEO, legal takedown requests, review management — is fully compliant with Google's Webmaster Guidelines and Indian IT law. No black-hat tactics, ever." },
   { q: "How do I get started?", a: "Contact us for a free, confidential reputation audit. We analyse your current search landscape, identify every threat and opportunity, and recommend a tailored action plan — with no obligation." },
-];
-
-const FAQS_NLS = [
-  { q: "Can negative links actually be removed from Google?", a: "Some can — through legal requests, platform takedowns under Indian IT law, or Google's own removal tools. For content that cannot be removed, suppression is our primary strategy: building content that outranks the negative URL and pushes it to Page 2 and beyond." },
-  { q: "How long does negative link suppression take?", a: "Most clients see meaningful movement within 60–90 days. Complex cases involving high-authority sources (major news sites, for example) may take 4–6 months for full first-page clearing." },
-  { q: "What types of negative content can you suppress?", a: "News articles, blog posts, forum threads, complaint site listings (MouthShut, Complaints Board), review platform content, social media posts, and outdated press coverage. If it appears in Google results, we can work on it." },
-  { q: "Is the suppression permanent?", a: "Suppression holds as long as the positive content we build remains active, authoritative, and regularly updated. We offer ongoing management to maintain the health of your results over time." },
-  { q: "What is the difference between removal and suppression?", a: "Removal means the URL is taken offline or delisted. Suppression means the content still exists but no longer appears on Page 1 because stronger positive content outranks it. We always attempt removal first, and use suppression as the primary strategy when removal is not available." },
 ];
 
 const FAQS_MONITOR = [
@@ -388,19 +336,6 @@ export function OnlineReputationManagementServicePage() {
       h1="Online Reputation Management Services in India"
       body={<BodyOrm />}
       faqs={FAQS_ORM}
-    />
-  );
-}
-
-export function NegativeLinkSuppressionServicePage() {
-  return (
-    <ServiceOfferingPage
-      canonicalPath="/services/negative-link-suppression"
-      seoTitle="Negative Link Suppression Services India | Reputation360"
-      metaDescription="We push down harmful, misleading, and outdated content from Google search results. Reputation360 specialises in negative link suppression for individuals and businesses across India."
-      h1="Negative Link Suppression Services in India"
-      body={<BodyNls />}
-      faqs={FAQS_NLS}
     />
   );
 }

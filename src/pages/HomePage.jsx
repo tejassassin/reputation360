@@ -13,7 +13,7 @@ import Contact from "../components/Contact";
 const HOME_SEO = {
   title: "Online Reputation Management in India | Reputation360",
   description:
-    "Reputation360 helps individuals and brands in India take control of search and social: online reputation management, negative link suppression, brand monitoring, and crisis response—backed by 7+ years of experience.",
+    "Reputation360 helps individuals and brands in India take control of search and social: online reputation management, brand monitoring, and crisis response—backed by 7+ years of experience.",
 };
 
 function HomePage() {

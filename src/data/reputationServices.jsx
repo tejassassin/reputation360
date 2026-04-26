@@ -18,10 +18,10 @@ export const OUR_SERVICES_SECTION_INTRO =
 export const reputationServices = [
   {
     id: "orm-suppression",
-    navLabel: "ORM & suppression",
-    title: "Online Reputation Management & Negative Link Suppression",
+    navLabel: "ORM & search recovery",
+    title: "Online Reputation Management",
     description:
-      "We strengthen positive search results and reduce the visibility of harmful, misleading, or outdated content",
+      "We strengthen positive search results and reduce the visibility of harmful, misleading, or outdated content through compliant ORM and outranking strategies",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

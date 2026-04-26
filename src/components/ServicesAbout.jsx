@@ -31,8 +31,8 @@ const SERVICES_HERO_INTRO =
 
 const whatWeDoCards = [
   {
-    title: "Negative Link Suppression",
-    text: "We push harmful links down and improve what people see first when they search your name or business.",
+    title: "Search & page-one recovery",
+    text: "We work to displace harmful links and improve what people see first when they search your name or business.",
     icon: <WandSparkles className="h-4 w-4" />,
     iconClass: "bg-[#1f3b64] text-white",
   },

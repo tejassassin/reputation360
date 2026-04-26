@@ -1,5 +1,6 @@
 {
   "redirects": [
+    { "source": "/services/negative-link-suppression", "destination": "/services/online-reputation-management", "permanent": true },
     { "source": "/case-studies/1", "destination": "/case-studies/executive-and-founder-reputation-management", "permanent": true },
     { "source": "/case-studies/2", "destination": "/case-studies/financial-professional-reputation-recovery", "permanent": true },
     { "source": "/case-studies/3", "destination": "/case-studies/medical-and-healthcare-reputation-management", "permanent": true },

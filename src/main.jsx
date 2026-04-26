@@ -23,7 +23,6 @@ import LegalNoticePage from "./pages/LegalNoticePage.jsx";
 import {
   BrandMonitoringServicePage,
   CrisisManagementServicePage,
-  NegativeLinkSuppressionServicePage,
   OnlineReputationManagementServicePage,
 } from "./pages/ServiceOfferingPage.jsx";
 
@@ -36,9 +35,6 @@ function pageForPath(path) {
   if (path === "/services") return <ServicesPage />;
   if (path === "/services/online-reputation-management") {
     return <OnlineReputationManagementServicePage />;
-  }
-  if (path === "/services/negative-link-suppression") {
-    return <NegativeLinkSuppressionServicePage />;
   }
   if (path === "/services/brand-monitoring") {
     return <BrandMonitoringServicePage />;

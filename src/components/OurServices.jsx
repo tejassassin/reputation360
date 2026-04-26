@@ -4,7 +4,6 @@ import BrandSectionBackdrop from "./BrandSectionBackdrop";
 
 const serviceQuickLinks = [
   { href: "/services/online-reputation-management", label: "Online Reputation Management" },
-  { href: "/services/negative-link-suppression", label: "Negative Link Suppression" },
   { href: "/services/brand-monitoring", label: "Brand Monitoring" },
   { href: "/services/crisis-management", label: "Crisis Management" },
 ];
