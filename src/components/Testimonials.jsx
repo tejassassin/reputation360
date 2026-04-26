@@ -1,32 +1,37 @@
-import { ParallaxScroll } from "./ui/parallax-scroll";
+import { homeTestimonials } from "../data/homeTestimonials.js";
 
 export function Testimonials() {
   return (
-    <div className="px-4 py-20 text-center md:py-24">
-     
-
-      {/* Main Heading */}
-      <h2 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-navy mx-auto mb-4 leading-tight">
-        Our Customers{" "}
+    <section
+      id="testimonials"
+      className="px-4 py-20 text-center md:py-24"
+      aria-labelledby="testimonials-heading"
+    >
+      <h2
+        id="testimonials-heading"
+        className="font-heading mx-auto mb-4 text-4xl font-bold leading-tight text-navy md:text-5xl lg:text-6xl"
+      >
+        What our clients{" "}
         <span className="relative inline-block">
           <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 bg-clip-text text-transparent">
-            Love Us
+            say
           </span>
           <svg
             className="absolute -bottom-2 left-0 w-full"
             viewBox="0 0 200 12"
             fill="none"
+            aria-hidden
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
               d="M2 8.5C50 2.5 150 2.5 198 8.5"
-              stroke="url(#paint0_linear)"
+              stroke="url(#r360-testimonials-underline)"
               strokeWidth="4"
               strokeLinecap="round"
             />
             <defs>
               <linearGradient
-                id="paint0_linear"
+                id="r360-testimonials-underline"
                 x1="2"
                 y1="8.5"
                 x2="198"
@@ -42,27 +47,47 @@ export function Testimonials() {
         </span>
       </h2>
 
-      {/* Subheading */}
-      <p className="font-heading text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+      <p className="font-heading mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-slate-600 md:mb-14 md:text-xl">
         Honest feedback from people who trusted us with their reputation.
-       
       </p>
 
-     
-
-      <ParallaxScroll images={images} />
-    </div>
+      <div className="mx-auto max-w-6xl text-left">
+        <ul
+          className="grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-2 md:gap-7 lg:gap-8"
+          role="list"
+        >
+          {homeTestimonials.map((t) => (
+            <li key={t.id} className="min-w-0">
+              <article className="flex h-full flex-col rounded-2xl border border-slate-200/90 bg-white p-6 shadow-[0_1px_3px_rgba(15,35,60,0.06)] sm:p-7">
+                {t.label ? (
+                  <p className="mb-3 font-heading text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">
+                    {t.label}
+                  </p>
+                ) : null}
+                <blockquote
+                  className="font-body mb-6 flex-1 text-[15px] leading-relaxed text-slate-800 sm:text-base [text-wrap:pretty]"
+                >
+                  <span className="text-[#4CAF50] opacity-80" aria-hidden>
+                    &ldquo;
+                  </span>
+                  {t.quote}
+                  <span className="text-[#4CAF50] opacity-80" aria-hidden>
+                    &rdquo;
+                  </span>
+                </blockquote>
+                <footer className="border-t border-slate-100 pt-4">
+                  <p className="font-heading text-base font-semibold text-navy">
+                    {t.name}
+                  </p>
+                  <p className="mt-0.5 font-body text-sm leading-snug text-slate-600">
+                    {t.role}
+                  </p>
+                </footer>
+              </article>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   );
 }
-
-const images = [
-  "https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
-  "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3070&q=80",
-  "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
-  "https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
-  "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3070&q=80",
-  "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
-  "https://images.unsplash.com/photo-1682686581854-5e71f58e7e3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
-  "https://images.unsplash.com/photo-1510784722466-f2aa9c52fff6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
-  "https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
-];
