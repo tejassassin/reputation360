@@ -8,11 +8,12 @@ export function Testimonials() {
       className="px-4 py-20 text-center md:py-24"
       aria-labelledby="testimonials-heading"
     >
+      {/* Home testimonials title: navy “Our Customers” + gradient “Love Us” + curved stroke — keep in sync with design reference */}
       <h2
         id="testimonials-heading"
-        className="font-heading mx-auto mb-4 text-4xl font-bold leading-tight text-navy md:text-5xl lg:text-6xl"
+        className="font-heading mx-auto mb-4 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl"
       >
-        Our Customers{" "}
+        <span className="text-navy">Our Customers</span>{" "}
         <span className="relative inline-block">
           <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 bg-clip-text text-transparent">
             Love Us
