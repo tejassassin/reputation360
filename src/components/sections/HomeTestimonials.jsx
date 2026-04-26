@@ -1,8 +1,8 @@
 /* @refresh reset */
-import { useId, useRef } from "react";
+import { useEffect, useId, useRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { homeTestimonials } from "../data/homeTestimonials.js";
+import { homeTestimonials } from "../../data/homeTestimonials.js";
 
 const fadeUp = (reduce) => ({
   initial: { opacity: 0, y: reduce ? 0 : 20 },
@@ -231,7 +231,12 @@ function MasonryCard({ t, reduce }) {
   );
 }
 
-export function Testimonials() {
+/**
+ * Home testimonials (text, spotlight, masonry + mobile scroller). Import path
+ * is intentionally `sections/HomeTestimonials` so a stale HMR graph cannot keep
+ * serving a deleted `Testimonials` + `ParallaxScroll` bundle.
+ */
+export function HomeTestimonials() {
   const reduce = useReducedMotion();
   const baseId = useId().replace(/[^a-z0-9_-]/gi, "x");
   const quoteId = `testimonial-spotlight-body-${baseId}`;
@@ -239,9 +244,18 @@ export function Testimonials() {
   const [spotlight, ...forStream] = homeTestimonials;
   const stream = forStream;
 
+  useEffect(() => {
+    if (!import.meta.env.DEV) return;
+    if (import.meta.env.VITE_R360_LOG_TESTIMONIALS === "0") return;
+    console.info(
+      "[R360] HomeTestimonials: text + spotlight. If the site still shows Unsplash images, stop the dev server and run: npm run dev:fresh (or: npm run dev:kill && npm run dev).",
+    );
+  }, []);
+
   return (
     <section
       id="testimonials"
+      data-r360-build="testimonials-v2-text"
       className="relative overflow-hidden px-4 py-20 text-center md:py-24"
       aria-labelledby="testimonials-heading"
     >

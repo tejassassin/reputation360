@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import WhatWeBelieve from "../components/WhatWeBelieve";
 import WhatWeDo from "../components/WhatWeDo";
 import OurServices from "../components/OurServices";
-import { Testimonials } from "../components/Testimonials";
+import { HomeTestimonials } from "../components/sections/HomeTestimonials";
 import WhoWeServeCards from "../components/WhoWeServeCards";
 import HowReputation360Works from "../components/HowReputation360Works";
 import WhyClientsChoose from "../components/WhyClientsChoose";
@@ -34,7 +34,7 @@ function HomePage() {
         </section>
         <OurServices />
         <section className="bg-offwhite">
-          <Testimonials />
+          <HomeTestimonials />
         </section>
         <WhoWeServeCards />
         <section className="bg-white">

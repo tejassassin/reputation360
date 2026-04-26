@@ -53,7 +53,7 @@ if (p5173 === "free") {
   console.log("  ✓ Port 5173 is free (nothing else listening here)");
 } else if (p5173 === "in_use") {
   console.log(
-    "  ! Port 5173 is in use. Either your dev server is already running (use that terminal’s URL), or stop the other process using 5173.",
+    "  ! Port 5173 is in use. If multiple terminals ran `npm run dev`, the bookmarked `localhost:5173` can point at an *old* Vite in memory. Run `npm run dev:kill` then `npm run dev`, or in one step: `npm run dev:fresh` (frees 5173/4173, clears the Vite cache, starts dev).",
   );
 } else {
   console.log("  ? Could not verify port 5173:", p5173);
