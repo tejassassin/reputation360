@@ -23,15 +23,14 @@ import LegalNoticePage from "./pages/LegalNoticePage.jsx";
 
 if (import.meta.env.DEV) {
   console.info(
-    "%c[R360 dev]%c Home page uses %cHomeTestimonials%c (text). Unsplash/parallax was removed. If you still see a photo column grid, the browser is serving a stale bundle — run %cnpm run dev:fresh%c and open the URL Vite prints; confirm %c/r360-build-info.txt%c returns this project.",
+    "%c[R360 dev]%c Testimonials are inlined in %cHomePage.jsx%c (text only, no Unsplash). If you still see stock photos, you are not loading this build — in this repo run %cnpm run dev%c and use the URL Vite prints. You should see a %cgreen line: “Text client quotes (no image gallery)”.",
     "color:#4CAF50;font-weight:bold",
     "color:inherit;font-weight:normal",
     "color:#1F3B64;font-weight:600",
     "color:inherit;font-weight:normal",
     "font-family:monospace",
     "color:inherit",
-    "font-family:monospace",
-    "color:inherit",
+    "color:#2e7d32;font-weight:600",
   );
 }
 
