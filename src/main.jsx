@@ -21,6 +21,20 @@ import InsightsBlogsPage from "./pages/InsightsBlogsPage.jsx";
 import GuidePage from "./pages/GuidePage.jsx";
 import LegalNoticePage from "./pages/LegalNoticePage.jsx";
 
+if (import.meta.env.DEV) {
+  console.info(
+    "%c[R360 dev]%c Home page uses %cHomeTestimonials%c (text). Unsplash/parallax was removed. If you still see a photo column grid, the browser is serving a stale bundle — run %cnpm run dev:fresh%c and open the URL Vite prints; confirm %c/r360-build-info.txt%c returns this project.",
+    "color:#4CAF50;font-weight:bold",
+    "color:inherit;font-weight:normal",
+    "color:#1F3B64;font-weight:600",
+    "color:inherit;font-weight:normal",
+    "font-family:monospace",
+    "color:inherit",
+    "font-family:monospace",
+    "color:inherit",
+  );
+}
+
 function normalizePath(pathname) {
   return pathname.replace(/\/+$/, "") || "/";
 }

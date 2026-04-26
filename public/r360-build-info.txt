@@ -1,0 +1,3 @@
+reputation360 — this file proves you are serving THIS project’s public/ folder.
+Home testimonials: text (HomeTestimonials.jsx). Parallax/Unsplash was removed.
+If the site still shows stock-photo columns, the browser or URL is not using the current dev server: run npm run dev:fresh, open the URL Vite prints, and View Page Source for the HTML comment in <body>.

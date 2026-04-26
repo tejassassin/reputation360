@@ -66,5 +66,5 @@ console.log(
   "  To match the Vercel production bundle locally (same JS/CSS as live):\n\n      npm run local:prod\n\n  Then open http://127.0.0.1:4173/ (Vite preview).\n",
 );
 console.log(
-  "  `npm run dev` clears node_modules/.vite before starting so localhost is less likely to show an outdated UI.\n",
+  "  `npm run dev` first frees port 5173/4173 (kills a stale Vite) and clears `node_modules/.vite`, so you do not keep browsing to an old dev server in memory. If you use another app on 5173, set a different port: `npm run dev -- --port 3000` (kill script only targets 5173/4173).\n",
 );

@@ -1,5 +1,5 @@
 /* @refresh reset */
-import { useEffect, useId, useRef } from "react";
+import { useId, useRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { homeTestimonials } from "../../data/homeTestimonials.js";
@@ -243,14 +243,6 @@ export function HomeTestimonials() {
   const underlineId = `r360-testimonials-underline-${baseId}`;
   const [spotlight, ...forStream] = homeTestimonials;
   const stream = forStream;
-
-  useEffect(() => {
-    if (!import.meta.env.DEV) return;
-    if (import.meta.env.VITE_R360_LOG_TESTIMONIALS === "0") return;
-    console.info(
-      "[R360] HomeTestimonials: text + spotlight. If the site still shows Unsplash images, stop the dev server and run: npm run dev:fresh (or: npm run dev:kill && npm run dev).",
-    );
-  }, []);
 
   return (
     <section

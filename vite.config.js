@@ -8,6 +8,9 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+/** Busts aggressive browser + proxy caches of `index.html` and `/src/main.jsx` when running `vite` (dev). */
+let r360DevEntryBust = null;
+
 function deployShaMeta() {
   const fromVercel = process.env.VERCEL_GIT_COMMIT_SHA;
   if (fromVercel) return fromVercel.slice(0, 7);
@@ -21,6 +24,34 @@ function deployShaMeta() {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    {
+      name: "r360-dev-bust-and-no-store-html",
+      configResolved(c) {
+        if (c.command === "serve" && r360DevEntryBust == null) {
+          r360DevEntryBust = `r360entry=${Date.now()}`;
+        }
+      },
+      transformIndexHtml: {
+        order: "pre",
+        /** @param {string} html */
+        handler(html) {
+          if (!r360DevEntryBust) return html;
+          return html
+            .replace(
+              "<head>",
+              `<head>\n    <meta http-equiv="Cache-Control" content="no-store" />`,
+            )
+            .replace(
+              'src="/src/main.jsx"',
+              `src="/src/main.jsx?${r360DevEntryBust}"`,
+            )
+            .replace(
+              "<body>",
+              "<body>\n    <!-- r360: dev bundle includes HomeTestimonials (text) — if you only see Unsplash, View Source: this comment should exist; if not, hard-refresh or run npm run dev:fresh. -->",
+            );
+        },
+      },
+    },
     react(),
     tailwindcss(),
     {

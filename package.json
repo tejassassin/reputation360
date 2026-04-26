@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/clear-vite-cache.mjs && node scripts/dev.mjs",
+    "dev": "node scripts/kill-vite-ports.mjs && node scripts/clear-vite-cache.mjs && node scripts/dev.mjs",
     "dev:kill": "node scripts/kill-vite-ports.mjs",
     "dev:fresh": "node scripts/kill-vite-ports.mjs && node scripts/clear-vite-cache.mjs && node scripts/dev.mjs",
     "start": "npm run dev",
