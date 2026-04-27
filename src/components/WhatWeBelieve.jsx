@@ -30,7 +30,7 @@ function WhatWeBelieve() {
       data-r360-section="what-we-believe"
       data-r360-visual="serp-mockup"
     >
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-16 lg:px-8 lg:py-22">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12 lg:px-8 lg:py-16">
         <div className="mb-8 lg:mb-10">
           <p className="font-heading mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#4CAF50]">
             Our philosophy

@@ -3,7 +3,7 @@ import AboutReputationVisual from "./AboutReputationVisual.jsx";
 
 function WhatWeDo() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-24 lg:px-8">
+    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
       <div className="flex flex-col items-stretch gap-12 lg:flex-row lg:gap-16">
         <div className="ha-lift min-w-0 overflow-hidden rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)] lg:w-[60%]">
           <AboutReputationVisual />

@@ -112,7 +112,7 @@ function HomeTestimonials() {
   return (
     <section
       id="testimonials"
-      className="relative border-y border-slate-200/80 bg-offwhite py-16 sm:py-20"
+      className="relative border-y border-slate-200/80 bg-offwhite py-12 sm:py-16"
       aria-labelledby="testimonials-heading"
     >
       <div className="relative z-[1] mx-auto max-w-3xl px-4 text-center sm:px-5">
@@ -288,7 +288,7 @@ function HomePage() {
         canonicalPath="/"
       />
       <Hero />
-      <main className="flex w-full flex-col gap-28 pt-16 md:gap-32 md:pt-24 lg:gap-40 lg:pt-28">
+      <main className="flex w-full flex-col gap-12 pt-8 md:gap-16 md:pt-12 lg:gap-20 lg:pt-16">
         <section>
           <WhatWeBelieve />
         </section>

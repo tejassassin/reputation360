@@ -48,10 +48,9 @@ Months 11–15: Page 1 stabilised; SEC content remains but is contextualised wit
     },
     {
       heading: "The Results (15 Months)",
-      body: `SEC and FINRA BrokerCheck records remain appropriately visible but now sit within a Page 1 dominated by professional content
-Overall negative search visibility reduced by 70%
-Page 1 dominated by professional, neutral financial content
-Search results stabilised with low volatility`,
+      body: `Overall negative search visibility reduced by 70%
+Page 1 dominated by professional, neutral financial content; SEC and FINRA records now contextualised among strong career assets
+SEC and FINRA records remain visible as required, with search results stabilised and low volatility`,
     },
     {
       heading: "Impact",
