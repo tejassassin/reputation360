@@ -15,10 +15,10 @@ const dockBtn =
 const MATCH_THRESHOLD = 5;
 
 const FALLBACK_REPLY =
-  "Thanks for your question. This assistant is trained on Reputation360's published FAQs and service pages - it is not legal or financial advice, and it cannot review your specific search results here. For a tailored assessment, book a free consultation or email us. You may also find a detailed answer in the FAQ library.";
+  "Thanks for reaching out. I am trained on Reputation360's playbook - ORM, suppression, and how we work with clients in the US, Canada, and Australia. I am not a lawyer or a financial advisor, I cannot name competitors, and I will not promise overnight miracles.";
 
 function buildWelcomeMessage() {
-  return `Hi - I am Reputation360's site assistant. Ask anything about how we work, timelines, confidentiality, or who we serve. I answer from our official FAQs and pages. For case-specific advice, use Contact or book a free call.`;
+  return `Hey - welcome to Reputation360. I can walk you through online reputation management, negative link suppression, timelines, and what to expect.`;
 }
 
 /**
@@ -158,7 +158,7 @@ export default function R360Chatbot() {
                   Reputation360 assistant
                 </h2>
                 <p className="truncate text-xs text-[#6B7280]">
-                  Answers from our FAQs - not legal advice
+                  Practical guidance - not legal advice
                 </p>
               </div>
               <button
