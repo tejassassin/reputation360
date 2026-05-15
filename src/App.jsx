@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import GlobalContactDock from "./components/GlobalContactDock.jsx";
 
 function App({ children }) {
   // Full document loads on internal route changes so `main.jsx` always runs with the correct path.
@@ -42,6 +43,7 @@ function App({ children }) {
       <Header />
       {children}
       <Footer />
+      <GlobalContactDock />
     </div>
   );
 }

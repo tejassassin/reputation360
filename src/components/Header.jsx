@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Mail } from "lucide-react";
+import { IconBrandWhatsapp } from "@tabler/icons-react";
 import {
   Navbar,
   NavBody,
@@ -12,6 +14,11 @@ import {
 } from "./ui/resizable-navbar";
 import logo from "../assets/Logo_360.png";
 import { CALENDLY_URL } from "../constants/scheduling";
+import {
+  CONTACT_EMAIL,
+  contactMailtoHref,
+  contactWhatsAppHref,
+} from "../constants/contact.js";
 
 const navItems = [
   { name: "Home", link: "/" },
@@ -175,6 +182,26 @@ function Header() {
               >
                 Book a call
               </NavbarButton>
+              <div className="flex w-full justify-center gap-4">
+                <a
+                  href={contactWhatsAppHref()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label="Chat on WhatsApp with Reputation360"
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-emerald-500/40 bg-[#25D366]/90 text-white transition hover:bg-[#25D366]"
+                >
+                  <IconBrandWhatsapp className="h-6 w-6 shrink-0" stroke={1.5} aria-hidden />
+                </a>
+                <a
+                  href={contactMailtoHref()}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label={`Email Reputation360 at ${CONTACT_EMAIL}`}
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-white/25 bg-white/10 text-white transition hover:bg-white/15"
+                >
+                  <Mail className="h-6 w-6 shrink-0" strokeWidth={2} aria-hidden />
+                </a>
+              </div>
             </div>
           </MobileNavMenu>
         </MobileNav>

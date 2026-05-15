@@ -2,18 +2,18 @@ import { useEffect, useId, useState } from "react";
 import { Calendar, Mail, ExternalLink, Lock } from "lucide-react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
+import {
+  CONTACT_EMAIL,
+  contactMailtoHref,
+  contactWhatsAppHref,
+} from "../constants/contact.js";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { SEO } from "../data/seoPageMeta.js";
 
 const calendarTabletImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuA-iNftxgB4MVtLYmaJLpcpPMCdIk9bo4K2vUXyEA2ZXH-BZhmfhL-8HD6Jt2GOFScH55bygI0bbHScErBYwqc9LNb_6eQBZuMJGi1trXwBsc3cLY_Av8Z34IJp_bM6r1CbUuzjq7-RNw4S1ffC5pcP2vOKqu5G6XAyqQVOS8MtT6wy6zLz3pSH77EgfqPgBDruvU6u1_vrhBJ-BCgrYislzYdg4iPWvU41nIaZO_AVY90uuI5seopRat1VNUXWv2d1Qw5hnw5knwU";
 
-/** WhatsApp: digits only with country code (no +). Update for your business line. */
-const WHATSAPP_PHONE = "919910000000";
-
-/** Inbox for contact form submissions (FormSubmit forwards to this address). */
-const CONTACT_INBOX_EMAIL = "hello@reputation360.in";
-const CONTACT_FORM_SUBMIT_URL = `https://formsubmit.co/${CONTACT_INBOX_EMAIL}`;
+const CONTACT_FORM_SUBMIT_URL = `https://formsubmit.co/${CONTACT_EMAIL}`;
 
 /** Shown in the auto-reply FormSubmit sends to the visitor (native POST only; not with AJAX). */
 const CONTACT_FORM_AUTORESPONSE =
@@ -247,9 +247,7 @@ function ContactPage() {
     }
   }, []);
 
-  const whatsappHref = `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent(
-    "Hello, I would like to connect with Reputation360.",
-  )}`;
+  const whatsappHref = contactWhatsAppHref();
 
   return (
     <>
@@ -352,10 +350,10 @@ function ContactPage() {
                   Email
                 </h3>
                 <a
-                  href={`mailto:${CONTACT_INBOX_EMAIL}`}
+                  href={contactMailtoHref()}
                   className="ha-nudge mt-3 block w-fit text-[15px] text-[#8ca6d5] md:mt-4 md:text-lg"
                 >
-                  {CONTACT_INBOX_EMAIL}
+                  {CONTACT_EMAIL}
                 </a>
                 <p className="mt-2 text-xs text-[#8ca6d5] md:text-sm">
                   Expect a detailed response within 8 hours.

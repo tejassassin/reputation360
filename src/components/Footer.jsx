@@ -1,6 +1,13 @@
 import React from "react";
+import { Mail } from "lucide-react";
+import { IconBrandWhatsapp } from "@tabler/icons-react";
 import logo from "../assets/Logo_360.png";
 import { serviceTitles } from "../data/reputationServices";
+import {
+  CONTACT_EMAIL,
+  contactMailtoHref,
+  contactWhatsAppHref,
+} from "../constants/contact.js";
 
 function Footer() {
   return (
@@ -67,17 +74,33 @@ function Footer() {
               <li>
                 <span className="block text-white/80 mb-1">Get in touch:</span>
                 <a
-                  href="mailto:hello@reputation360.in"
+                  href={contactMailtoHref()}
                   className="ha-nudge inline-block rounded px-0.5 transition-colors hover:text-green"
                 >
-                  Contact us - hello@reputation360.in
+                  Contact us - {CONTACT_EMAIL}
                 </a>
               </li>
               <li>
                 <span className="block text-white/80 mb-2">
                   Connect with us:
                 </span>
-                <div className="flex gap-3">
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={contactWhatsAppHref()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp Reputation360"
+                    className="ha-glow inline-flex rounded-full p-1 text-white/60 transition-colors hover:text-[#25D366]"
+                  >
+                    <IconBrandWhatsapp className="h-5 w-5" stroke={1.5} aria-hidden />
+                  </a>
+                  <a
+                    href={contactMailtoHref()}
+                    aria-label={`Email ${CONTACT_EMAIL}`}
+                    className="ha-glow inline-flex rounded-full p-1 text-white/60 transition-colors hover:text-green"
+                  >
+                    <Mail className="h-5 w-5" strokeWidth={2} aria-hidden />
+                  </a>
                   <a
                     href="https://www.linkedin.com/company/reputation360online/?viewAsMember=true"
                     target="_blank"
