@@ -1,5 +1,5 @@
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import "./index.css";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 import App from "./App.jsx";
@@ -74,10 +74,18 @@ if (!rootEl) {
   throw new Error("Missing #root - check index.html");
 }
 
-createRoot(rootEl).render(
+const app = (
   <StrictMode>
     <ErrorBoundary>
       <App>{page}</App>
     </ErrorBoundary>
-  </StrictMode>,
+  </StrictMode>
 );
+
+// If react-snap pre-rendered this page, hydrate the existing HTML.
+// Otherwise (dev, or a route not pre-rendered) do a fresh render.
+if (rootEl.hasChildNodes()) {
+  hydrateRoot(rootEl, app);
+} else {
+  createRoot(rootEl).render(app);
+}

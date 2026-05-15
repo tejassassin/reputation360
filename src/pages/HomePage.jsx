@@ -2,6 +2,7 @@ import { useId, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { SeoHead } from "../components/SeoHead.jsx";
+import { useGeoCountry } from "../hooks/useGeoCountry.js";
 import Hero from "../components/Hero";
 import WhatWeBelieve from "../components/WhatWeBelieve";
 import WhatWeDo from "../components/WhatWeDo";
@@ -14,11 +15,9 @@ import Contact from "../components/Contact";
 import { homeTestimonials } from "../data/homeTestimonials.js";
 import { testimonialPortraitUrl } from "../data/testimonialPortraits.js";
 
-const HOME_SEO = {
-  title: "Online Reputation Management in India | Reputation360",
-  description:
-    "Reputation360 helps individuals and brands in India take control of search and social: online reputation management, brand monitoring, and crisis response—backed by 7+ years of experience.",
-};
+// HOME_SEO is now geo-dynamic — see useGeoCountry hook inside the component
+const HOME_SEO_DESCRIPTION_SUFFIX =
+  "take control of search and social: online reputation management, brand monitoring, and crisis response—backed by 7+ years of experience.";
 
 function getInitials(fullName) {
   const n = fullName
@@ -280,11 +279,15 @@ function HomeTestimonials() {
 }
 
 function HomePage() {
+  const { country } = useGeoCountry();
+  const geoTitle = `Online Reputation Management in ${country} | Reputation360`;
+  const geoDescription = `Reputation360 helps individuals and brands in ${country} ${HOME_SEO_DESCRIPTION_SUFFIX}`;
+
   return (
     <>
       <SeoHead
-        title={HOME_SEO.title}
-        description={HOME_SEO.description}
+        title={geoTitle}
+        description={geoDescription}
         canonicalPath="/"
       />
       <Hero />

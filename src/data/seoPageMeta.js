@@ -6,12 +6,12 @@ export const SEO = {
   services: {
     title: "Our Services | Reputation360",
     description:
-      "Explore Reputation360’s services: online reputation management, employer branding, content, LinkedIn, performance marketing, and strategic consultation in India and globally.",
+      "Explore Reputation360’s services: online reputation management, employer branding, content, LinkedIn, performance marketing, and strategic consultation in the US and globally.",
   },
   caseStudies: {
     title: "Case Studies | Reputation360",
     description:
-      "In-depth case studies: how Reputation360 helps individuals and brands improve search results, protect reputation, and build credibility in India and beyond.",
+      "In-depth case studies: how Reputation360 helps individuals and brands improve search results, protect reputation, and build credibility in the US and beyond.",
   },
   blogs: {
     title: "Insights From Seven Years of Reputation Work | Reputation360",
@@ -47,12 +47,12 @@ export const SEO = {
   contact: {
     title: "Contact Reputation360 | Get a Free ORM Consultation",
     description:
-      "Get in touch with Reputation360 for a free consultation on online reputation management, brand monitoring, or crisis response in India.",
+      "Get in touch with Reputation360 for a free consultation on online reputation management, brand monitoring, or crisis response.",
   },
   about: {
-    title: "About Reputation360 | India's Trusted ORM Company",
+    title: "About Reputation360 | Trusted ORM Agency in the US",
     description:
-      "Learn about Reputation360 — India's trusted online reputation management company with 7+ years of experience helping individuals and brands control their digital narrative.",
+      "Learn about Reputation360 — a trusted online reputation management agency with 7+ years of experience helping individuals and brands in the US control their digital narrative.",
   },
   guide: {
     title:
@@ -65,25 +65,25 @@ export const SEO = {
     title: "Financial Advisors & ORM | Reputation360",
     path: "/services/financial-advisors",
     description:
-      "ORM for financial advisors: improve how clients see you in search, manage disclosures, and build trust before every meeting. India and global support.",
+      "ORM for financial advisors: improve how clients see you in search, manage disclosures, and build trust before every meeting. US and global support.",
   },
   jobSeekers: {
     title: "Job Seekers & Professional Reputation | Reputation360",
     path: "/services/job-seekers",
     description:
-      "Online reputation for job seekers in India: strengthen profiles, address negative results, and align search with the career you want.",
+      "Online reputation for job seekers in the US: strengthen profiles, address negative results, and align search with the career you want.",
   },
   doctors: {
     title: "Doctors & Healthcare Professionals | Reputation360",
     path: "/services/doctors",
     description:
-      "Medical reputation and search for doctors and healthcare leaders: balanced, compliant ORM and visibility strategy in India and abroad.",
+      "Medical reputation and search for doctors and healthcare leaders: balanced, compliant ORM and visibility strategy in the US and abroad.",
   },
   lawyers: {
     title: "Lawyers & Attorneys | Reputation360",
     path: "/services/lawyers",
     description:
-      "Reputation management for legal professionals: search visibility, content strategy, and discretion for lawyers and law firms in India and globally.",
+      "Reputation management for legal professionals: search visibility, content strategy, and discretion for lawyers and law firms in the US and globally.",
   },
   executives: {
     title: "Executives & C-Suite Leaders | Reputation360",
@@ -95,7 +95,7 @@ export const SEO = {
     title: "Businesses & Companies | Reputation360",
     path: "/services/businesses",
     description:
-      "Corporate and brand online reputation: monitoring, content, and response strategies for companies operating in and beyond India.",
+      "Corporate and brand online reputation: monitoring, content, and response strategies for companies operating in the US and beyond.",
   },
   individuals: {
     title: "Individuals | Reputation360",
