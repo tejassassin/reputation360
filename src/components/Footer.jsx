@@ -148,11 +148,6 @@ function Footer() {
                   </a>
                 </div>
               </li>
-              <li>
-                <span className="block text-white/80 mb-1">Address:</span>
-                1234 Maple Avenue, Apt 5B, San Francisco, CA 94107, California,
-                United States
-              </li>
             </ul>
           </div>
         </div>
