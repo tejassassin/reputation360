@@ -106,14 +106,14 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // `true` = listen on all interfaces (0.0.0.0). This matches VS Code / Cursor “Ports”
-  // forwarding and the in-editor Simple Browser, which can fail with host: "127.0.0.1" only.
+  // Use a concrete host instead of `true`. With `host: true`, Vite resolves URLs
+  // via `os.networkInterfaces()`, which can throw in restricted environments and the
+  // dev server never starts (browser shows "can't be reached").
   server: {
-    host: true,
+    host: "localhost",
     port: 5173,
-    // Fail fast if 5173 is taken instead of silently using another port (avoids
-    // editing the repo but “seeing” an old server on the bookmarked URL).
-    strictPort: true,
+    // If 5173 is taken, use the next free port instead of exiting.
+    strictPort: false,
     // Let your system browser or Cursor open the URL Vite prints (Local: http://localhost:5173/).
     open: false,
     headers: {
@@ -121,9 +121,9 @@ export default defineConfig({
     },
   },
   preview: {
-    host: true,
+    host: "localhost",
     port: 4173,
-    strictPort: true,
+    strictPort: false,
     open: false,
   },
 });

@@ -8,47 +8,45 @@
  */
 export const homeTestimonials = [
   {
-    id: "kavya-iyer",
+    id: "noah-bennett",
     quote:
       "The initial consultation alone was worth it — they identified blind spots in my online presence I didn't even know existed. The strategic roadmap they delivered gave me complete clarity, and the execution was flawless from day one.",
-    name: "Kavya Iyer",
+    name: "Noah Bennett",
     role: "High-Net-Worth Individual & Philanthropist",
   },
   {
-    id: "ananya-sharma",
+    id: "dr-sophia-reed",
     quote:
       "After a baseless complaint went viral on review sites, my practice lost three major clients in one month. Reputation360 buried those results and replaced them with content that actually reflects who I am. My pipeline is fuller than ever.",
-    name: "Dr. Ananya Sharma",
+    name: "Dr. Sophia Reed",
     role: "Consultant Cardiologist, Private Practice",
   },
   {
     id: "marcus-elliot",
-    label: "Financial services",
     quote:
       "A disgruntled ex-employee posted defamatory content about me that ranked on page one for months. Within fifteen weeks, it was gone — replaced by thought leadership pieces that actually built my credibility with prospective clients.",
     name: "Marcus Elliot",
     role: "Senior Financial Advisor, Wealth Management",
   },
   {
-    id: "priya-iyer",
+    id: "mathew-hemming",
     quote:
       "I had almost given up on landing another in-house role after a wrongful termination made headlines. Reputation360 rebuilt my online presence from the ground up — I had three offers within four months of working with them.",
-    name: "Priya Iyer",
+    name: "Mathew Hemming",
     role: "Job Seeker, Senior Marketing Director",
   },
   {
     id: "jonathan-reeves-legal",
-    label: "Legal",
     quote:
       "Our firm was being defined online by a single negative verdict that appeared above everything else. Reputation360 launched a targeted content strategy that repositioned us as thought leaders — our client enquiries have doubled since.",
     name: "Jonathan Reeves",
     role: "Managing Partner, Litigation & Dispute Resolution",
   },
   {
-    id: "jonathan-reeves-consulting",
+    id: "jon-t-walker",
     quote:
       "My LinkedIn profile was completely invisible. After Reputation360 overhauled my personal brand and positioning, I started getting inbound connection requests from decision-makers I had been chasing for years. The ROI has been extraordinary.",
-    name: "Jon T. Reeves",
+    name: "Jon T. Walker",
     role: "Independent Management Consultant",
   },
   {
@@ -59,10 +57,10 @@ export const homeTestimonials = [
     role: "Commercial Lawyer",
   },
   {
-    id: "christopher-walsh",
+    id: "christopher-parker",
     quote:
       "My arrest record from 1998 kept showing up. Sealed. Irrelevant. Apparently Google doesn't care. These people do. It's gone now.",
-    name: "Christopher Walsh",
+    name: "Christopher Parker",
     role: "Recruiter",
   },
   {
