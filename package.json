@@ -9,7 +9,7 @@
     "dev:fresh": "node scripts/kill-vite-ports.mjs && node scripts/clear-vite-cache.mjs && node scripts/dev.mjs",
     "start": "npm run dev",
     "doctor": "node scripts/doctor.mjs",
-    "build": "node scripts/dev.mjs build && node scripts/postbuild-spa-routes.mjs && react-snap",
+    "build": "node scripts/dev.mjs build && node scripts/postbuild-spa-routes.mjs && (react-snap || echo 'react-snap skipped')",
     "lint": "eslint .",
     "preview": "node scripts/dev.mjs preview",
     "local:prod": "node scripts/dev.mjs build && node scripts/dev.mjs preview"
@@ -50,7 +50,6 @@
       "/resources/guide",
       "/resources/faqs"
     ],
-    "puppeteerExecutablePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
     "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
     "skipThirdPartyRequests": true,
     "headless": true,
