@@ -5,6 +5,7 @@ import {
   contactMailtoHref,
   contactWhatsAppHref,
 } from "@/constants/contact.js";
+import R360Chatbot from "./R360Chatbot.jsx";
 
 const dockBtn =
   "inline-flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:scale-[0.97] motion-reduce:transition-none sm:h-14 sm:w-14";
@@ -42,6 +43,7 @@ export default function GlobalContactDock() {
           aria-hidden
         />
       </a>
+      <R360Chatbot />
     </nav>
   );
 }
