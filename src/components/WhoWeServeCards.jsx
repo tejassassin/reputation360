@@ -26,11 +26,11 @@ const categories = [
     Icon: Landmark,
   },
   {
-    title: "Job Seekers",
+    title: "Executives & C-Suite Leaders",
     description:
-      "Put your best foot forward when employers and recruiters search your background.",
-    href: "/services/job-seekers",
-    Icon: UserSearch,
+      "Protect your leadership reputation and ensure your vision and impact come through clearly.",
+    href: "/services/executives",
+    Icon: Briefcase,
   },
   {
     title: "Doctors & Healthcare Professionals",
@@ -47,11 +47,11 @@ const categories = [
     Icon: Gavel,
   },
   {
-    title: "Executives & C-Suite Leaders",
+    title: "Job Seekers",
     description:
-      "Protect your leadership reputation and ensure your vision and impact come through clearly.",
-    href: "/services/executives",
-    Icon: Briefcase,
+      "Put your best foot forward when employers and recruiters search your background.",
+    href: "/services/job-seekers",
+    Icon: UserSearch,
   },
   {
     title: "Businesses & Companies",

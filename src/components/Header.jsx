@@ -30,16 +30,16 @@ const navItems = [
     children: [
       { name: "Individuals", link: "/services/individuals" },
       { name: "Financial Advisors", link: "/services/financial-advisors" },
-      { name: "Job Seekers", link: "/services/job-seekers" },
+      {
+        name: "Executives & C-Suite Leaders",
+        link: "/services/executives",
+      },
       {
         name: "Doctors & Healthcare Professionals",
         link: "/services/doctors",
       },
       { name: "Lawyers & Attorneys", link: "/services/lawyers" },
-      {
-        name: "Executives & C-Suite Leaders",
-        link: "/services/executives",
-      },
+      { name: "Job Seekers", link: "/services/job-seekers" },
       {
         name: "Businesses & Companies",
         link: "/services/businesses",
