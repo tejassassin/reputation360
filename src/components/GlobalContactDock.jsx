@@ -23,7 +23,7 @@ export default function GlobalContactDock() {
         href={contactWhatsAppHref()}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${dockBtn} border-emerald-700/30 bg-[#25D366] text-white hover:bg-[#20bd5a] hover:shadow-xl`}
+        className={`${dockBtn} touch-manipulation border-emerald-700/30 bg-[#25D366] text-white hover:bg-[#20bd5a] hover:shadow-xl active:opacity-90`}
         aria-label={`Chat on WhatsApp with Reputation360 (opens in a new tab)`}
       >
         <IconBrandWhatsapp
@@ -34,7 +34,7 @@ export default function GlobalContactDock() {
       </a>
       <a
         href={contactMailtoHref()}
-        className={`${dockBtn} border-white/70 bg-white text-navy shadow-[0_12px_28px_-8px_rgba(31,59,100,0.22)] hover:border-[#4CAF50]/50 hover:bg-slate-50 hover:shadow-xl`}
+        className={`${dockBtn} touch-manipulation border-white/70 bg-white text-navy shadow-[0_12px_28px_-8px_rgba(31,59,100,0.22)] hover:border-[#4CAF50]/50 hover:bg-slate-50 hover:shadow-xl active:opacity-90`}
         aria-label={`Email Reputation360 at ${CONTACT_EMAIL}`}
       >
         <Mail

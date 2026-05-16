@@ -11,9 +11,9 @@ import {
 
 function Footer() {
   return (
-    <footer className="bg-charcoal text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-[1fr_1fr_2fr_1fr] gap-8 mb-8">
+    <footer className="bg-charcoal text-white py-10 sm:py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-[1fr_1fr_minmax(0,1.75fr)_1fr] lg:gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-13 h-13 rounded-full bg-white flex items-center justify-center pl-1">
@@ -53,7 +53,7 @@ function Footer() {
               ))}
             </ul>
           </div>
-          <div>
+          <div className="min-w-0">
             <h4 className="font-heading font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
               {serviceTitles.map((title, idx) => (
@@ -68,14 +68,14 @@ function Footer() {
               ))}
             </ul>
           </div>
-          <div>
+          <div className="min-w-0">
             <h4 className="font-heading font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 font-body text-white/60 text-sm">
               <li>
                 <span className="block text-white/80 mb-1">Get in touch:</span>
                 <a
                   href={contactMailtoHref()}
-                  className="ha-nudge inline-block rounded px-0.5 transition-colors hover:text-green"
+                  className="ha-nudge inline-block max-w-full break-words rounded px-0.5 transition-colors hover:text-green"
                 >
                   Contact us - {CONTACT_EMAIL}
                 </a>
@@ -84,20 +84,20 @@ function Footer() {
                 <span className="block text-white/80 mb-2">
                   Connect with us:
                 </span>
-                <div className="flex flex-wrap gap-3">
+                <div className="-mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-0.5 sm:gap-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                   <a
                     href={contactWhatsAppHref()}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="WhatsApp Reputation360"
-                    className="ha-glow inline-flex rounded-full p-1 text-white/60 transition-colors hover:text-[#25D366]"
+                    className="inline-flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full text-white/60 transition-colors hover:text-[#25D366] active:opacity-90"
                   >
                     <IconBrandWhatsapp className="h-5 w-5" stroke={1.5} aria-hidden />
                   </a>
                   <a
                     href={contactMailtoHref()}
                     aria-label={`Email ${CONTACT_EMAIL}`}
-                    className="ha-glow inline-flex rounded-full p-1 text-white/60 transition-colors hover:text-green"
+                    className="inline-flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full text-white/60 transition-colors hover:text-green active:opacity-90"
                   >
                     <Mail className="h-5 w-5" strokeWidth={2} aria-hidden />
                   </a>
@@ -105,7 +105,7 @@ function Footer() {
                     href="https://www.linkedin.com/company/reputation360online/?viewAsMember=true"
                     target="_blank"
                     aria-label="LinkedIn"
-                    className="ha-glow inline-flex rounded-full p-1 text-white/60 transition-colors hover:text-green"
+                    className="inline-flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full text-white/60 transition-colors hover:text-green active:opacity-90"
                   >
                     <svg
                       className="h-5 w-5"
@@ -120,7 +120,7 @@ function Footer() {
                     href="https://www.instagram.com/reputation360_online?igsh=ZThlOHpieWVpaWF1&utm_source=qr"
                     target="_blank"
                     aria-label="Instagram"
-                    className="ha-glow inline-flex rounded-full p-1 text-white/60 transition-colors hover:text-green"
+                    className="inline-flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full text-white/60 transition-colors hover:text-green active:opacity-90"
                   >
                     <svg
                       className="h-5 w-5"
@@ -135,7 +135,7 @@ function Footer() {
                     href="https://www.facebook.com/profile.php?id=61572090900344&mibextid=ZbWKwL"
                     target="_blank"
                     aria-label="Facebook"
-                    className="ha-glow inline-flex rounded-full p-1 text-white/60 transition-colors hover:text-green"
+                    className="inline-flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full text-white/60 transition-colors hover:text-green active:opacity-90"
                   >
                     <svg
                       className="h-5 w-5"
@@ -151,11 +151,11 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-body text-white/50 text-sm">
+        <div className="flex flex-col items-center gap-4 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between">
+          <p className="font-body text-center text-sm text-white/50 md:text-left">
             © 2026 Reputation360. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center gap-6 md:justify-end">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 md:justify-end">
             <a
               href="/privacy-policy"
               className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/50 transition-colors hover:text-green"

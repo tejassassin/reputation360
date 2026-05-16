@@ -140,14 +140,14 @@ export default function R360Chatbot() {
   );
 
   return (
-    <div className="relative z-[1] flex flex-col items-end gap-2.5">
+    <div className="relative z-[1] flex max-w-[100vw] flex-col items-end gap-2.5">
       {open ? (
         <section
           id={panelDialogId}
           role="dialog"
           aria-modal="true"
           aria-labelledby={panelTitleId}
-          className="flex h-[min(32rem,calc(100dvh-7rem))] w-[min(100vw-1.5rem,22rem)] flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-[#F5F7FA] shadow-[0_20px_50px_-12px_rgba(31,59,100,0.35)] sm:w-[24rem]"
+          className="flex h-[min(32rem,calc(100dvh-12.5rem))] w-[min(22rem,calc(100vw-1rem))] flex-col overflow-hidden overscroll-contain rounded-2xl border border-slate-200/90 bg-[#F5F7FA] shadow-[0_20px_50px_-12px_rgba(31,59,100,0.35)] sm:h-[min(32rem,calc(100dvh-8rem))] sm:w-96"
         >
             <header className="flex items-center justify-between gap-2 border-b border-slate-200/80 bg-white px-3 py-2.5">
               <div className="min-w-0">
@@ -164,7 +164,7 @@ export default function R360Chatbot() {
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[#1F3B64] hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50]"
+                className="inline-flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full text-[#1F3B64] hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] sm:h-9 sm:w-9"
                 aria-label="Close chat"
               >
                 <X className="h-5 w-5" strokeWidth={2} aria-hidden />
@@ -186,14 +186,14 @@ export default function R360Chatbot() {
               ))}
             </div>
 
-            <div className="border-t border-slate-200/80 bg-white px-3 py-2">
+            <div className="border-t border-slate-200/80 bg-white px-3 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
               <div className="mb-2 flex flex-wrap gap-1.5">
                 {R360_CHATBOT_QUICK_PROMPTS.map((label) => (
                   <button
                     key={label}
                     type="button"
                     onClick={() => handleSend(label)}
-                    className="rounded-full border border-[#2E5B88]/20 bg-[#2E5B88]/8 px-2.5 py-1 text-[11px] font-medium text-[#1F3B64] hover:border-[#4CAF50]/40 hover:bg-[#4CAF50]/12"
+                    className="min-h-10 touch-manipulation rounded-full border border-[#2E5B88]/20 bg-[#2E5B88]/8 px-3 py-2 text-left text-[11px] font-medium leading-snug text-[#1F3B64] hover:border-[#4CAF50]/40 hover:bg-[#4CAF50]/12 active:opacity-90 sm:min-h-0 sm:px-2.5 sm:py-1"
                   >
                     {label}
                   </button>
@@ -222,11 +222,12 @@ export default function R360Chatbot() {
                     }
                   }}
                   placeholder="Ask about ORM, timelines, privacy..."
-                  className="min-h-[2.75rem] flex-1 resize-none rounded-xl border border-slate-200 bg-[#F5F7FA] px-3 py-2 text-sm text-[#1F3B64] placeholder:text-slate-400 focus-visible:border-[#4CAF50]/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-[#4CAF50]/40"
+                  enterKeyHint="send"
+                  className="min-h-[2.75rem] min-w-0 flex-1 touch-manipulation resize-none rounded-xl border border-slate-200 bg-[#F5F7FA] px-3 py-2.5 text-base text-[#1F3B64] placeholder:text-slate-400 focus-visible:border-[#4CAF50]/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-[#4CAF50]/40 sm:text-sm"
                 />
                 <button
                   type="submit"
-                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#4CAF50] text-white shadow-sm hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2E5B88] disabled:opacity-40"
+                  className="inline-flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full bg-[#4CAF50] text-white shadow-sm hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2E5B88] disabled:opacity-40 active:opacity-90 sm:h-10 sm:w-10"
                   aria-label="Send message"
                   disabled={!input.trim()}
                 >
@@ -243,7 +244,7 @@ export default function R360Chatbot() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className={`${dockBtn} border-[#2E5B88]/35 bg-[#2E5B88] text-white shadow-[0_12px_28px_-8px_rgba(31,59,100,0.35)] hover:bg-[#254a73] hover:shadow-xl`}
+        className={`${dockBtn} touch-manipulation border-[#2E5B88]/35 bg-[#2E5B88] text-white shadow-[0_12px_28px_-8px_rgba(31,59,100,0.35)] hover:bg-[#254a73] hover:shadow-xl active:opacity-90`}
         aria-expanded={open}
         aria-controls={open ? panelDialogId : undefined}
         aria-label={open ? "Close Reputation360 assistant" : "Open Reputation360 assistant"}
