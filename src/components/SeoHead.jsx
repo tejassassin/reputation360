@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { SITE_CANONICAL_ORIGIN } from "../constants/siteUrl.js";
 
 const DESC_ID   = "r360-meta-description";
@@ -27,7 +27,7 @@ function upsertMeta(attr, attrVal, content) {
  * @param {string}  [props.ogImage]      Full URL to OG image (defaults to site default)
  */
 export function SeoHead({ title, description, canonicalPath, ogImage }) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     // ── Title ────────────────────────────────────────────────────────────────
     document.title = title;
 
@@ -47,15 +47,24 @@ export function SeoHead({ title, description, canonicalPath, ogImage }) {
     }
     link.setAttribute("href", href);
 
-    // ── Meta description ─────────────────────────────────────────────────────
+    // ── Meta description (single tag: index.html must use id=r360-meta-description) ──
     let meta = document.getElementById(DESC_ID);
     if (!meta) {
-      meta = document.createElement("meta");
-      meta.id = DESC_ID;
-      meta.setAttribute("name", "description");
-      document.head.appendChild(meta);
+      const existing = document.querySelector('meta[name="description"]');
+      if (existing) {
+        existing.id = DESC_ID;
+        meta = existing;
+      } else {
+        meta = document.createElement("meta");
+        meta.id = DESC_ID;
+        meta.setAttribute("name", "description");
+        document.head.appendChild(meta);
+      }
     }
     meta.setAttribute("content", description);
+    document.querySelectorAll('meta[name="description"]').forEach((el) => {
+      if (el !== meta) el.remove();
+    });
 
     // ── Open Graph ───────────────────────────────────────────────────────────
     const image = ogImage || DEFAULT_OG_IMAGE;
