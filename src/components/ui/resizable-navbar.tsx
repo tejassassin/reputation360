@@ -101,6 +101,8 @@ export const NavItems = ({
   items: {
     name: string;
     link: string;
+    /** When true (with children), the parent label is not a link; only submenu items navigate. */
+    parentNonNavigable?: boolean;
     children?: { name: string; link: string }[];
   }[];
   className?: string;
@@ -123,29 +125,52 @@ export const NavItems = ({
         className,
       )}
     >
-      {items.map((item, h) => (
+      {items.map((item, h) => {
+        const parentIsDropdownOnly = Boolean(
+          item.parentNonNavigable && item.children && item.children.length > 0,
+        );
+        return (
         <div
           onMouseEnter={() => setHovered(h)}
           className={cn("relative", h === 0 && "ml-8 lg:ml-14")}
           key={`link-${h}`}
         >
-          <a
-            onClick={(e) => {
-              if (item.link === "#") e.preventDefault();
-              onItemClick?.();
-            }}
-            className="relative block rounded-full px-4 py-2 text-white transition-transform duration-200 hover:scale-110 hover:text-green"
-            href={item.link}
-          >
-            {hovered === h && (
-              <motion.div
-                layoutId="hovered"
-                className="absolute inset-0 h-full w-full rounded-full bg-white/10"
-                transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              />
-            )}
-            <span className="relative z-20">{item.name}</span>
-          </a>
+          {parentIsDropdownOnly ? (
+            <button
+              type="button"
+              className="relative block w-full cursor-default rounded-full px-4 py-2 text-left text-white transition-transform duration-200 hover:scale-110 hover:text-green"
+              aria-haspopup="menu"
+              aria-expanded={hovered === h}
+              onClick={(e) => e.preventDefault()}
+            >
+              {hovered === h && (
+                <motion.div
+                  layoutId="hovered"
+                  className="absolute inset-0 h-full w-full rounded-full bg-white/10"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
+              <span className="relative z-20">{item.name}</span>
+            </button>
+          ) : (
+            <a
+              onClick={(e) => {
+                if (item.link === "#") e.preventDefault();
+                onItemClick?.();
+              }}
+              className="relative block rounded-full px-4 py-2 text-white transition-transform duration-200 hover:scale-110 hover:text-green"
+              href={item.link}
+            >
+              {hovered === h && (
+                <motion.div
+                  layoutId="hovered"
+                  className="absolute inset-0 h-full w-full rounded-full bg-white/10"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
+              <span className="relative z-20">{item.name}</span>
+            </a>
+          )}
           {item.children && item.children.length > 0 && hovered === h && (
             <div
               className="absolute left-0 top-full z-50 mt-2 min-w-44 rounded-lg border border-white/15 bg-navy/95 p-2 shadow-xl backdrop-blur-md"
@@ -164,7 +189,8 @@ export const NavItems = ({
             </div>
           )}
         </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

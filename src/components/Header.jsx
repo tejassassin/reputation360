@@ -35,6 +35,7 @@ const navItems = [
   {
     name: "Who We Serve?",
     link: "/who-we-serve",
+    parentNonNavigable: true,
     children: [
       { name: "Individuals", link: AUDIENCE_PATH.individuals },
       { name: "Financial Advisors", link: AUDIENCE_PATH.financialAdvisors },
@@ -147,19 +148,19 @@ function Header() {
           >
             {navItems.map((item, idx) => (
               <div key={`mobile-link-${idx}`} className="w-full">
-                <a
-                  href={item.link}
-                  onClick={(e) => {
-                    if (item.link === "#" && item.children?.length) {
-                      e.preventDefault();
-                      return;
-                    }
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="relative rounded-lg px-2 py-1 text-white font-heading font-medium transition-all hover:scale-[1.02] hover:bg-white/10 hover:text-green"
-                >
-                  <span className="block">{item.name}</span>
-                </a>
+                {item.parentNonNavigable && item.children?.length ? (
+                  <div className="relative rounded-lg px-2 py-1 font-heading text-white">
+                    <span className="block font-medium text-white/95">{item.name}</span>
+                  </div>
+                ) : (
+                  <a
+                    href={item.link}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="relative rounded-lg px-2 py-1 text-white font-heading font-medium transition-all hover:scale-[1.02] hover:bg-white/10 hover:text-green"
+                  >
+                    <span className="block">{item.name}</span>
+                  </a>
+                )}
                 {item.children?.map((subItem) => (
                   <a
                     key={`mobile-sublink-${item.name}-${subItem.name}`}

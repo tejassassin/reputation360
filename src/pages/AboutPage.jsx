@@ -1573,8 +1573,10 @@ function AboutPage() {
                     </p>
                     <a
                       href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`${headlineFont} mt-4 inline-flex text-sm font-bold text-[#4CAF50] underline decoration-[#4CAF50]/35 underline-offset-2 transition-colors hover:text-[#3db846] hover:decoration-[#3db846]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white`}
-                      aria-label={`Read more about ${title}`}
+                      aria-label={`Read more about ${title} (opens in a new tab)`}
                     >
                       Read more
                     </a>
