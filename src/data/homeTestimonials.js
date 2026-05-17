@@ -66,14 +66,14 @@ export const homeTestimonials = [
   {
     id: "elizabeth-hartley",
     quote:
-      "In January, an old lawsuit I'd already won started appearing in search results again. By April, I was losing consulting opportunities because potential clients only saw the headline, not the verdict. I called in June. By September, the lawsuit link was buried, and my speaking engagements and published work were ranking instead. The strategy was methodical — not quick, but it stuck.",
+      "An old lawsuit I'd already won started ranking again, and potential clients only saw the headline - not the verdict. Within a few months, the lawsuit link was buried, while my speaking engagements and published work ranked instead.",
     name: "Prof. Elizabeth Hartley",
     role: "Executive Coach",
   },
   {
     id: "rachel-sato",
     quote:
-      "I spent months watching a fabricated story spread online. Someone had written a forum post questioning my credentials — complete nonsense, but it appeared whenever anyone searched my name plus 'reviews'. I tried reporting it myself for months. Nothing happened. The team here was different. They didn't just push the bad link down. They built a case for why my actual portfolio and testimonials were more credible. Now when someone Googles me, they see my real work first. It's changed how clients find me.",
+      "I spent months watching a false story about me rank online. Reporting it myself changed nothing. This team didn't just push the link down - they built visibility around my real work, portfolio, and testimonials. Now when people Google me, they see my credibility first.",
     name: "Rachel Sato",
     role: "Healthcare Consultant",
   },
@@ -94,7 +94,7 @@ export const homeTestimonials = [
   {
     id: "thomas-chen",
     quote:
-      "Someone filed a false complaint against my clinic years ago. It got picked up by a health review site and kept ranking. Every potential patient saw it first. I tried everything to get it removed — nothing worked. When I called these guys, they mapped out exactly what was ranking and how they'd replace it with actual patient reviews and my credentials. Two months later, that false review is buried on page three. My practice is up twenty percent.",
+      "A false complaint about my clinic kept ranking online for years. Every patient saw it first, and nothing I tried worked. This team mapped out the issue and replaced it with real patient reviews and professional credentials. Two months later, the false review was on page three - and my practice was up 20%.",
     name: "Thomas Chen",
     role: "Psychiatrist",
   },
