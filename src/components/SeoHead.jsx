@@ -1,8 +1,8 @@
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { SITE_CANONICAL_ORIGIN } from "../constants/siteUrl.js";
 
-const DESC_ID   = "r360-meta-description";
-const CANON_ID  = "r360-link-canonical";
+const DESC_ID = "r360-meta-description";
+const CANON_ID = "r360-link-canonical";
 const DEFAULT_OG_IMAGE = `${SITE_CANONICAL_ORIGIN}/about-hero-search-mockup.png`;
 
 /** Create or update a <meta> tag by its identifying attribute. */
@@ -17,6 +17,44 @@ function upsertMeta(attr, attrVal, content) {
 }
 
 /**
+ * The one <meta name="description"> we own. Must stay a real META in <head>.
+ */
+function resolveDescriptionMeta() {
+  const head = document.head;
+  if (!head) return null;
+
+  const byId = document.getElementById(DESC_ID);
+  if (byId instanceof HTMLMetaElement) {
+    byId.setAttribute("name", "description");
+    return byId;
+  }
+  if (byId) {
+    byId.removeAttribute("id");
+  }
+
+  const first = head.querySelector('meta[name="description"]');
+  if (first instanceof HTMLMetaElement) {
+    first.id = DESC_ID;
+    return first;
+  }
+
+  const created = document.createElement("meta");
+  created.id = DESC_ID;
+  created.setAttribute("name", "description");
+  head.appendChild(created);
+  return created;
+}
+
+function removeExtraDescriptionMetas(canonical) {
+  const head = document.head;
+  if (!head || !canonical) return;
+  const list = [...head.querySelectorAll('meta[name="description"]')];
+  for (const el of list) {
+    if (el !== canonical) el.remove();
+  }
+}
+
+/**
  * Sets document title, meta description, rel=canonical, Open Graph, and
  * Twitter Card tags (SPA: updates <head> on every route change).
  *
@@ -27,11 +65,11 @@ function upsertMeta(attr, attrVal, content) {
  * @param {string}  [props.ogImage]      Full URL to OG image (defaults to site default)
  */
 export function SeoHead({ title, description, canonicalPath, ogImage }) {
-  useLayoutEffect(() => {
-    // ── Title ────────────────────────────────────────────────────────────────
-    document.title = title;
+  useEffect(() => {
+    if (!document.head) return;
 
-    // ── Canonical ────────────────────────────────────────────────────────────
+    document.title = title ?? "";
+
     const path =
       canonicalPath === "/" || canonicalPath === ""
         ? "/"
@@ -47,39 +85,25 @@ export function SeoHead({ title, description, canonicalPath, ogImage }) {
     }
     link.setAttribute("href", href);
 
-    // ── Meta description (single tag: index.html must use id=r360-meta-description) ──
-    let meta = document.getElementById(DESC_ID);
-    if (!meta) {
-      const existing = document.querySelector('meta[name="description"]');
-      if (existing) {
-        existing.id = DESC_ID;
-        meta = existing;
-      } else {
-        meta = document.createElement("meta");
-        meta.id = DESC_ID;
-        meta.setAttribute("name", "description");
-        document.head.appendChild(meta);
-      }
+    const text = description == null ? "" : String(description);
+    const meta = resolveDescriptionMeta();
+    if (meta) {
+      meta.setAttribute("content", text);
+      removeExtraDescriptionMetas(meta);
     }
-    meta.setAttribute("content", description);
-    document.querySelectorAll('meta[name="description"]').forEach((el) => {
-      if (el !== meta) el.remove();
-    });
 
-    // ── Open Graph ───────────────────────────────────────────────────────────
     const image = ogImage || DEFAULT_OG_IMAGE;
-    upsertMeta("property", "og:type",        "website");
-    upsertMeta("property", "og:site_name",   "Reputation360");
-    upsertMeta("property", "og:title",       title);
-    upsertMeta("property", "og:description", description);
-    upsertMeta("property", "og:url",         href);
-    upsertMeta("property", "og:image",       image);
+    upsertMeta("property", "og:type", "website");
+    upsertMeta("property", "og:site_name", "Reputation360");
+    upsertMeta("property", "og:title", title ?? "");
+    upsertMeta("property", "og:description", text);
+    upsertMeta("property", "og:url", href);
+    upsertMeta("property", "og:image", image);
 
-    // ── Twitter Card ─────────────────────────────────────────────────────────
-    upsertMeta("name", "twitter:card",        "summary_large_image");
-    upsertMeta("name", "twitter:title",       title);
-    upsertMeta("name", "twitter:description", description);
-    upsertMeta("name", "twitter:image",       image);
+    upsertMeta("name", "twitter:card", "summary_large_image");
+    upsertMeta("name", "twitter:title", title ?? "");
+    upsertMeta("name", "twitter:description", text);
+    upsertMeta("name", "twitter:image", image);
   }, [title, description, canonicalPath, ogImage]);
 
   return null;
