@@ -151,7 +151,7 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col items-center gap-4 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col items-center gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between md:gap-4">
           <p className="font-body text-center text-sm text-white/50 md:text-left">
             © 2026 Reputation360. All rights reserved.
           </p>

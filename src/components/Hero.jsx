@@ -53,7 +53,8 @@ function Hero() {
             <h1 className="font-heading font-bold text-2xl sm:text-4xl lg:text-5xl mx-2 my-1 sm:my-3 sm:mx-4 leading-[1.3] tracking-tight">
               Take control of your
               <br className="hidden sm:block" />
-              online reputation <Highlight>on your terms</Highlight>
+              online reputation{" "}
+              <Highlight>on your terms</Highlight>
               <span className="text-white/90">,</span>
               <br className="hidden sm:block" />
               <span className="text-white">not Google's</span>
