@@ -93,7 +93,7 @@ function CaseStudies() {
 
           <ul
             ref={scrollerRef}
-            className="mx-auto flex min-w-0 list-none items-stretch gap-4 overflow-x-auto scroll-px-4 [scrollbar-width:none] snap-x snap-mandatory [scroll-snap-type:x_mandatory] sm:gap-5 sm:px-0 md:px-0 [&::-webkit-scrollbar]:hidden"
+            className="mx-auto flex min-w-0 list-none items-stretch gap-4 overflow-x-auto overflow-y-visible overscroll-x-contain scroll-px-4 [scrollbar-width:none] snap-x snap-proximity sm:gap-5 sm:px-0 md:px-0 [&::-webkit-scrollbar]:hidden"
             style={{
               paddingLeft: "max(1rem, env(safe-area-inset-left))",
               paddingRight: "max(1rem, env(safe-area-inset-right))",

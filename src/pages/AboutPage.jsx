@@ -27,6 +27,8 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import { SEO } from "../data/seoPageMeta.js";
 import AboutHeroSearchMockup from "../components/AboutHeroSearchMockup.jsx";
 import { StatNumber } from "../components/StatNumber.jsx";
+import { homeTestimonials } from "../data/homeTestimonials.js";
+import { testimonialPortraitUrl } from "../data/testimonialPortraits.js";
 
 const whoWeAreStats = [
   { head: "Global", partA: "Time zones", partB: "covered", Icon: Globe2 },
@@ -262,54 +264,6 @@ function OurPromisePillButton({
     </Motion.button>
   );
 }
-
-const testimonials = [
-  {
-    id: "financial-professional",
-    quote:
-      '"I had almost given up on rebuilding my career after a false accusation. Reputation360 gave me my life back."',
-    name: "Financial Professional",
-    role: "Investment Banking Lead",
-  },
-  {
-    id: "physician-chief",
-    quote:
-      '"Within six months, the negative articles were gone from page one. My practice grew significantly."',
-    name: "Physician",
-    role: "Chief of Medicine",
-  },
-  {
-    id: "senior-executive-coo",
-    quote:
-      '"They treated my situation with complete discretion. The results were beyond what I expected."',
-    name: "Senior Executive",
-    role: "Fortune 500 COO",
-  },
-  {
-    id: "ecommerce-founder-apac",
-    quote: `"A competitor planted fake reviews across three platforms and our rating dropped overnight. Reputation360 didn't just suppress the damage - they built something strong enough that it couldn't happen again. Revenue recovered within a quarter."`,
-    name: "Founder, E-commerce Brand",
-    role: "Asia-Pacific",
-  },
-  {
-    id: "csuite-financial",
-    quote: `"I walked into a board meeting and watched someone Google me mid-presentation. I knew exactly what they were seeing. That was the moment I called Reputation360. Six months later, what comes up when you search me is who I actually am - not a headline from eight years ago."`,
-    name: "C-Suite Executive",
-    role: "Financial Services",
-  },
-  {
-    id: "gp-dubai",
-    quote: `"One anonymous review had been sitting on the first page of my results for three years. My appointment numbers dropped. I tried everything myself before finding Reputation360. Seven months later, my clinic is full again and that review is nowhere to be found."`,
-    name: "General Practitioner",
-    role: "Dubai",
-  },
-  {
-    id: "graduate-marketing",
-    quote: `"I graduated with a first-class degree and couldn't get past the first interview. A photo from years ago kept surfacing. Within four months of working with Reputation360, it was gone. I got three offers in the same week. I genuinely cannot explain what that meant to me."`,
-    name: "Graduate",
-    role: "Marketing Sector",
-  },
-];
 
 const testimonialCarouselResponsive = {
   desktop: {
@@ -986,12 +940,75 @@ function HowWeWorkSection() {
   );
 }
 
+function getAboutTestimonialInitials(fullName) {
+  const n = fullName
+    .replace(/^(dr\.?|prof\.?|mr\.?|mrs\.?|ms\.?)\s+/i, "")
+    .trim();
+  const parts = n.split(/\s+/).filter(Boolean);
+  if (parts.length >= 2) {
+    const a = parts[0][0];
+    const b = parts[parts.length - 1][0];
+    return (a + b).toUpperCase();
+  }
+  return (parts[0]?.slice(0, 2) ?? "?").toUpperCase();
+}
+
+function AboutReviewStars() {
+  return (
+    <div className="flex w-full justify-center" role="img" aria-label="5 out of 5 stars">
+      <div className="inline-flex items-center gap-0.5">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <Star
+            key={i}
+            className="h-4 w-4 text-amber-500 sm:h-[1.05rem] sm:w-[1.05rem]"
+            fill="currentColor"
+            strokeWidth={0}
+            aria-hidden
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function AboutTestimonialAvatar({ id, name, portraitUrl }) {
+  const [useFallback, setUseFallback] = useState(false);
+  const explicit =
+    typeof portraitUrl === "string" && portraitUrl.trim() !== "" ? portraitUrl : null;
+  const mapped = testimonialPortraitUrl(id);
+  const src = explicit || mapped || `https://i.pravatar.cc/200?u=${encodeURIComponent(id)}`;
+
+  if (useFallback) {
+    return (
+      <div
+        className="grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-slate-100 text-xs font-semibold text-slate-600 sm:h-11 sm:w-11 sm:text-sm"
+        aria-hidden
+      >
+        {getAboutTestimonialInitials(name)}
+      </div>
+    );
+  }
+  return (
+    <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-slate-200/90 bg-slate-100 sm:h-11 sm:w-11">
+      <img
+        src={src}
+        alt=""
+        className="h-full w-full object-cover object-top"
+        loading="lazy"
+        decoding="async"
+        onError={() => setUseFallback(true)}
+        referrerPolicy="no-referrer"
+      />
+    </div>
+  );
+}
+
 function ClientStoriesSection() {
   const carouselRef = useRef(null);
   const [nav, setNav] = useState({
     currentSlide: 0,
     slidesToShow: 3,
-    totalItems: testimonials.length,
+    totalItems: homeTestimonials.length,
   });
 
   const syncNavFromCarousel = () => {
@@ -1076,33 +1093,47 @@ function ClientStoriesSection() {
               transitionDuration={450}
               afterChange={() => syncNavFromCarousel()}
             >
-              {testimonials.map((t) => (
+              {homeTestimonials.map((t) => (
                 <div key={t.id}>
                   <Motion.div
                     whileHover={{ y: -6 }}
                     transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                    className="flex h-full flex-col justify-between rounded-3xl border border-slate-200/90 bg-gradient-to-b from-white to-slate-50/80 p-10 shadow-md transition-shadow duration-300 hover:border-[#4CAF50]/25 hover:shadow-xl md:p-12"
+                    className="flex h-full flex-col rounded-3xl border border-slate-200/90 bg-gradient-to-b from-white to-slate-50/80 shadow-md transition-shadow duration-300 hover:border-[#4CAF50]/25 hover:shadow-xl"
                   >
-                    <div>
-                      <div className="mb-10 flex gap-1 text-[#4CAF50]">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <Star
-                            key={i}
-                            className="h-4 w-4 fill-[#4CAF50] text-[#4CAF50]"
-                            strokeWidth={1.5}
+                    <article className="flex w-full min-w-0 max-w-full flex-1 flex-col overflow-hidden text-left">
+                      <div className="flex flex-1 flex-col p-6 sm:p-8 md:p-10 lg:p-11">
+                        <div className="flex w-full flex-col items-center text-center">
+                          <div className="w-full">
+                            <AboutReviewStars />
+                          </div>
+                        </div>
+                        <h3 className="sr-only">Client review: {t.name}</h3>
+                        <blockquote className="min-w-0 border-none pt-3 sm:pt-3.5">
+                          <p className="font-body text-[0.98rem] leading-[1.72] text-[#1F3B64]/90 [text-wrap:pretty] sm:text-base sm:leading-[1.7]">
+                            {t.quote}
+                          </p>
+                        </blockquote>
+                        <div
+                          className="my-5 h-px w-full bg-slate-200/90"
+                          aria-hidden
+                        />
+                        <footer className="mt-auto flex w-full min-w-0 items-start gap-3 sm:items-center sm:gap-3.5">
+                          <AboutTestimonialAvatar
+                            id={t.id}
+                            name={t.name}
+                            portraitUrl={t.portrait}
                           />
-                        ))}
+                          <div className="min-w-0 flex-1">
+                            <p className="font-heading text-sm font-bold leading-tight text-[#1F3B64] sm:text-[0.98rem]">
+                              {t.name}
+                            </p>
+                            <p className="mt-0.5 min-w-0 break-words text-sm leading-relaxed text-slate-600">
+                              {t.role}
+                            </p>
+                          </div>
+                        </footer>
                       </div>
-                      <p className="mb-8 text-base font-medium leading-relaxed text-[#1F3B64]/90 md:text-[17px]">
-                        {t.quote}
-                      </p>
-                    </div>
-                    <div className="border-t border-slate-100 pt-8">
-                      <p className="font-extrabold text-[#1F3B64]">{t.name}</p>
-                      <p className="mt-1 text-xs font-bold uppercase tracking-widest text-slate-400">
-                        {t.role}
-                      </p>
-                    </div>
+                    </article>
                   </Motion.div>
                 </div>
               ))}

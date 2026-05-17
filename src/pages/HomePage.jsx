@@ -1,6 +1,6 @@
 import { useId, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-import { motion, useReducedMotion } from "motion/react";
+import { useReducedMotion } from "motion/react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useGeoCountry } from "../hooks/useGeoCountry.js";
 import Hero from "../components/Hero";
@@ -171,7 +171,7 @@ function HomeTestimonials() {
           </button>
           <ul
             ref={scrollerRef}
-            className="mx-auto flex min-w-0 flex-1 list-none items-stretch gap-3 overflow-x-auto scroll-px-4 [scrollbar-width:none] snap-x snap-mandatory [scroll-snap-type:x_mandatory] sm:gap-4 sm:px-0 md:px-0 [&::-webkit-scrollbar]:hidden"
+            className="mx-auto flex min-w-0 flex-1 list-none items-stretch gap-3 overflow-x-auto overflow-y-visible overscroll-x-contain scroll-px-4 [scrollbar-width:none] snap-x snap-proximity sm:gap-4 sm:px-0 md:px-0 [&::-webkit-scrollbar]:hidden"
             style={{
               paddingLeft: "max(1.25rem, env(safe-area-inset-left))",
               paddingRight: "max(1.25rem, env(safe-area-inset-right))",
@@ -180,17 +180,9 @@ function HomeTestimonials() {
             aria-label="Testimonials, scroll horizontally"
           >
             {homeTestimonials.map((t) => (
-                <motion.li
+                <li
                   key={t.id}
                   className="w-[min(30rem,calc(100vw-2.5rem))] max-w-full shrink-0 snap-start pl-0 pr-1 last:pr-0 md:max-w-none md:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-3rem)/4)]"
-                  initial={reduce ? false : { opacity: 0, y: 6 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={
-                    reduce
-                      ? { duration: 0 }
-                      : { duration: 0.28, ease: [0.22, 1, 0.36, 1] }
-                  }
                 >
                   <article className="flex w-full min-w-0 max-w-full flex-1 flex-col overflow-hidden rounded-lg border border-slate-200/90 bg-white text-left shadow-sm transition hover:shadow">
                     <div className="flex flex-1 flex-col p-4 sm:p-5 sm:px-6 sm:py-5 md:p-4 md:px-5 md:py-5 lg:px-4 lg:py-4">
@@ -237,7 +229,7 @@ function HomeTestimonials() {
                       </footer>
                     </div>
                   </article>
-                </motion.li>
+                </li>
             ))}
 
           </ul>
