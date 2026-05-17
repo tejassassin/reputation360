@@ -30,7 +30,7 @@ export const SEO = {
       title: "Privacy Policy | Reputation360",
       path: "/privacy-policy",
       description:
-        "How Reputation360 handles personal data, cookies, and your privacy on reputation360.in.",
+        "Full Privacy Policy for Reputation360: what we collect, how we use and share data, your rights (including US, Canada, and Australia), security, cookies, retention, and how to contact us.",
     },
     terms: {
       title: "Terms of Service | Reputation360",

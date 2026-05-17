@@ -48,7 +48,10 @@
       "/contact",
       "/resources/blogs",
       "/resources/guide",
-      "/resources/faqs"
+      "/resources/faqs",
+      "/privacy-policy",
+      "/terms-of-service",
+      "/cookie-policy"
     ],
     "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
     "skipThirdPartyRequests": true,

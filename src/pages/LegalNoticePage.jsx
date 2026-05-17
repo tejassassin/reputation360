@@ -2,15 +2,6 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import { SEO } from "../data/seoPageMeta.js";
 
 const NOTICES = {
-  privacy: {
-    title: "Privacy Policy",
-    paragraphs: [
-      "Reputation360 respects your privacy. This policy describes how we handle information when you visit our website, request information, or work with us as a client.",
-      "We collect only what we need to respond to enquiries, deliver our services, and meet legal obligations. We do not sell your personal information. Data may be processed by trusted vendors who assist with hosting, email, or scheduling, under agreements that require appropriate safeguards.",
-      "You may request access, correction, or deletion of personal information we hold, subject to applicable law and legitimate business needs. For privacy-related requests, use the contact options on our Contact page.",
-      "We may update this policy from time to time. Continued use of the site after changes constitutes acceptance of the revised policy.",
-    ],
-  },
   terms: {
     title: "Terms of Service",
     paragraphs: [
