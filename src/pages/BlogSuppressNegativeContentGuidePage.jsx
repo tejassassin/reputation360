@@ -338,20 +338,26 @@ function FaqAccordion({ id, title, children, open, onToggle }) {
 }
 
 function ReadingProgressRail({ pct }) {
-  const rounded = Math.min(100, Math.max(0, Math.round(pct)));
+  const fill = Math.min(100, Math.max(0, pct));
+  const rounded = Math.round(fill);
   const label = rounded >= 100 ? "100% completed" : `${rounded}% completed`;
+  const clip = `inset(${100 - fill}% 0 0 0)`;
 
   return (
-    <div className="rounded-2xl border border-slate-200/80 bg-white/90 p-5 shadow-sm backdrop-blur-sm">
-      <p className="font-heading text-xs font-bold tracking-widest text-steel uppercase">Reading progress</p>
-      <p className="mt-2 font-heading text-3xl font-extrabold tabular-nums text-navy">{rounded}%</p>
-      <p className="mt-1 font-body text-sm font-medium text-steel">{label}</p>
-      <div className="mt-5 flex justify-center">
-        <div className="relative h-52 w-2.5 overflow-hidden rounded-full bg-slate-200" aria-hidden>
-          <div
-            className="absolute right-0 bottom-0 left-0 rounded-full bg-green transition-[height] duration-150 ease-out"
-            style={{ height: `${rounded}%` }}
-          />
+    <div className="flex min-h-0 flex-1 flex-col p-5">
+      <div className="w-full shrink-0 text-center">
+        <p className="font-heading text-xs font-bold tracking-widest text-steel uppercase">Reading progress</p>
+        <p className="mt-2 font-heading text-3xl font-extrabold tabular-nums text-navy">{rounded}%</p>
+        <p className="mt-1 font-body text-sm font-medium text-steel">{label}</p>
+      </div>
+      <div className="relative mt-5 min-h-0 flex-1">
+        <div className="absolute inset-0 flex justify-center px-0.5">
+          <div className="relative h-full w-3 max-w-full overflow-hidden rounded-full bg-slate-200/90" aria-hidden>
+            <div
+              className="absolute inset-0 rounded-full bg-green transition-[clip-path] duration-150 ease-out"
+              style={{ clipPath: clip }}
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -419,14 +425,16 @@ export default function BlogSuppressNegativeContentGuidePage() {
       />
 
       <div className="scroll-smooth bg-offwhite pb-1 font-body text-charcoal antialiased">
-        {/* Reading progress: full-width bar fixed to bottom of viewport */}
+        {/* Reading progress: full-width strip fixed to bottom; fill reveals bottom-to-top */}
         <div
-          className="pointer-events-none fixed right-0 bottom-0 left-0 z-40 h-1 bg-slate-200"
+          className="pointer-events-none fixed right-0 bottom-0 left-0 z-40 h-1.5 overflow-hidden bg-slate-200"
           aria-hidden
         >
           <div
-            className="h-full bg-green transition-[width] duration-150 ease-out"
-            style={{ width: `${Math.min(100, Math.max(0, readingPct))}%` }}
+            className="absolute inset-0 bg-green transition-[clip-path] duration-150 ease-out"
+            style={{
+              clipPath: `inset(${100 - Math.min(100, Math.max(0, readingPct))}% 0 0 0)`,
+            }}
           />
         </div>
 
@@ -951,8 +959,8 @@ export default function BlogSuppressNegativeContentGuidePage() {
               </section>
             </main>
 
-            {/* Right: reading progress + meter */}
-            <aside className="hidden w-56 shrink-0 lg:sticky lg:top-6 lg:block lg:h-fit lg:max-h-[calc(100dvh-1.5rem)] lg:overflow-y-auto lg:border-l lg:border-slate-200/80 lg:pl-6 lg:pt-4">
+            {/* Right: reading progress fills this sticky column */}
+            <aside className="hidden w-56 shrink-0 lg:sticky lg:top-6 lg:flex lg:h-[calc(100dvh-1.5rem)] lg:max-h-[calc(100dvh-1.5rem)] lg:min-h-0 lg:flex-col lg:overflow-hidden lg:border-l lg:border-slate-200/80 lg:pl-6 lg:pt-4">
               <ReadingProgressRail pct={readingPct} />
             </aside>
           </div>
