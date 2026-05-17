@@ -2,6 +2,8 @@
  * Default meta descriptions for static routes (Vite SPA + SeoHead).
  * Keep in sync with document titles in each page where applicable.
  */
+import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
+
 export const SEO = {
   services: {
     title: "Our Services | Reputation360",
@@ -94,43 +96,43 @@ export const SEO = {
   },
   financialAdvisors: {
     title: "Financial Advisors & ORM | Reputation360",
-    path: "/services/financial-advisors",
+    path: AUDIENCE_PATH.financialAdvisors,
     description:
       "ORM for financial advisors: improve how clients see you in search, manage disclosures, and build trust before every meeting. US and global support.",
   },
   jobSeekers: {
     title: "Job Seekers & Professional Reputation | Reputation360",
-    path: "/services/job-seekers",
+    path: AUDIENCE_PATH.jobSeekers,
     description:
       "Online reputation for job seekers in the US: strengthen profiles, address negative results, and align search with the career you want.",
   },
   doctors: {
     title: "Doctors & Healthcare Professionals | Reputation360",
-    path: "/services/doctors",
+    path: AUDIENCE_PATH.doctors,
     description:
       "Medical reputation and search for doctors and healthcare leaders: balanced, compliant ORM and visibility strategy in the US and abroad.",
   },
   lawyers: {
     title: "Lawyers & Attorneys | Reputation360",
-    path: "/services/lawyers",
+    path: AUDIENCE_PATH.lawyers,
     description:
       "Reputation management for legal professionals: search visibility, content strategy, and discretion for lawyers and law firms in the US and globally.",
   },
   executives: {
     title: "Executives & C-Suite Leaders | Reputation360",
-    path: "/services/executives",
+    path: AUDIENCE_PATH.executives,
     description:
       "Executive and leadership ORM: control your narrative in search, news, and social so your digital presence matches your role.",
   },
   businesses: {
     title: "Businesses & Companies | Reputation360",
-    path: "/services/businesses",
+    path: AUDIENCE_PATH.businesses,
     description:
       "Corporate and brand online reputation: monitoring, content, and response strategies for companies operating in the US and beyond.",
   },
   individuals: {
     title: "Individuals | Reputation360",
-    path: "/services/individuals",
+    path: AUDIENCE_PATH.individuals,
     description:
       "Personal online reputation for individuals: suppress harmful links, build authority, and protect your name in search.",
   },

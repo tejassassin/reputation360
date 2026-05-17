@@ -29,6 +29,7 @@ import AboutHeroSearchMockup from "../components/AboutHeroSearchMockup.jsx";
 import { StatNumber } from "../components/StatNumber.jsx";
 import { homeTestimonials } from "../data/homeTestimonials.js";
 import { testimonialPortraitUrl } from "../data/testimonialPortraits.js";
+import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 
 const whoWeAreStats = [
   { head: "Global", partA: "Time zones", partB: "covered", Icon: Globe2 },
@@ -140,31 +141,37 @@ const whoWeServe = [
     icon: User,
     title: "Individuals",
     text: "Anyone whose online presence does not reflect who they truly are",
+    href: AUDIENCE_PATH.individuals,
   },
   {
     icon: Landmark,
     title: "Financial Leaders",
     text: "Executives and advisors protecting decades of professional credibility",
+    href: AUDIENCE_PATH.financialAdvisors,
   },
   {
     icon: Stethoscope,
     title: "Doctors & Healthcare Professionals",
     text: "Physicians and healthcare professionals managing their digital standing",
+    href: AUDIENCE_PATH.doctors,
   },
   {
     icon: Gavel,
     title: "Lawyers & Attorneys",
     text: "Legal professionals maintaining the trust their practice depends on",
+    href: AUDIENCE_PATH.lawyers,
   },
   {
     icon: BarChart3,
     title: "Executives & C-Suite Leaders",
     text: "Leaders ensuring their influence and legacy are represented accurately online",
+    href: AUDIENCE_PATH.executives,
   },
   {
     icon: Building2,
     title: "Businesses and Companies",
     text: "E-commerce, manufacturing, and consumer brands protecting their market reputation",
+    href: AUDIENCE_PATH.businesses,
   },
 ];
 
@@ -1537,7 +1544,7 @@ function AboutPage() {
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
             {whoWeServe.map((row, i) => {
               const Icon = row.icon;
-              const { title, text, wide } = row;
+              const { title, text, wide, href } = row;
               return (
               <Motion.div
                 key={title}
@@ -1555,7 +1562,7 @@ function AboutPage() {
                   <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1F3B64]/[0.06] text-[#1F3B64] ring-1 ring-[#1F3B64]/10 transition-all duration-300 group-hover:scale-105 group-hover:bg-[#4CAF50]/12 group-hover:text-[#2d8a3e] group-hover:ring-[#4CAF50]/25">
                     <Icon className="h-7 w-7" strokeWidth={2} />
                   </div>
-                  <div className={wide ? "lg:text-left" : ""}>
+                  <div className={`min-w-0 flex-1 ${wide ? "lg:text-left" : ""}`}>
                     <h3
                       className={`${headlineFont} mb-2 text-lg font-extrabold text-[#1F3B64] ${wide ? "lg:text-xl" : ""}`}
                     >
@@ -1564,6 +1571,13 @@ function AboutPage() {
                     <p className="text-sm leading-relaxed text-slate-600 md:text-[15px]">
                       {text}
                     </p>
+                    <a
+                      href={href}
+                      className={`${headlineFont} mt-4 inline-flex text-sm font-bold text-[#4CAF50] underline decoration-[#4CAF50]/35 underline-offset-2 transition-colors hover:text-[#3db846] hover:decoration-[#3db846]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white`}
+                      aria-label={`Read more about ${title}`}
+                    >
+                      Read more
+                    </a>
                   </div>
                 </Motion.div>
               </Motion.div>

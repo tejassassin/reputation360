@@ -27,6 +27,7 @@ import RefundPolicyPage from "./pages/RefundPolicyPage.jsx";
 import TermsOfServicePage from "./pages/TermsOfServicePage.jsx";
 import TermsOfUsePage from "./pages/TermsOfUsePage.jsx";
 import DmcaCopyrightPolicyPage from "./pages/DmcaCopyrightPolicyPage.jsx";
+import { AUDIENCE_PATH, LEGACY_SERVICE_AUDIENCE_PATH } from "./constants/whoWeServePaths.js";
 
 if (import.meta.env.DEV) {
   console.info(
@@ -45,17 +46,33 @@ function normalizePath(pathname) {
   return pathname.replace(/\/+$/, "") || "/";
 }
 
+const audienceRouteRows = [
+  [IndividualsPage, AUDIENCE_PATH.individuals, LEGACY_SERVICE_AUDIENCE_PATH.individuals],
+  [
+    FinancialAdvisorsPage,
+    AUDIENCE_PATH.financialAdvisors,
+    LEGACY_SERVICE_AUDIENCE_PATH.financialAdvisors,
+  ],
+  [ExecutivesPage, AUDIENCE_PATH.executives, LEGACY_SERVICE_AUDIENCE_PATH.executives],
+  [DoctorsPage, AUDIENCE_PATH.doctors, LEGACY_SERVICE_AUDIENCE_PATH.doctors],
+  [LawyersPage, AUDIENCE_PATH.lawyers, LEGACY_SERVICE_AUDIENCE_PATH.lawyers],
+  [JobSeekersPage, AUDIENCE_PATH.jobSeekers, LEGACY_SERVICE_AUDIENCE_PATH.jobSeekers],
+  [BusinessesPage, AUDIENCE_PATH.businesses, LEGACY_SERVICE_AUDIENCE_PATH.businesses],
+];
+
+function audiencePageForPath(path) {
+  for (const [Page, canonicalPath, legacyPath] of audienceRouteRows) {
+    if (path === canonicalPath || path === legacyPath) return <Page />;
+  }
+  return null;
+}
+
 function pageForPath(path) {
   if (path === "/about") return <AboutPage />;
   if (path === "/services") return <ServicesPage />;
   if (path === "/who-we-serve") return <WhoWeServePage />;
-  if (path === "/services/financial-advisors") return <FinancialAdvisorsPage />;
-  if (path === "/services/job-seekers") return <JobSeekersPage />;
-  if (path === "/services/doctors") return <DoctorsPage />;
-  if (path === "/services/lawyers") return <LawyersPage />;
-  if (path === "/services/executives") return <ExecutivesPage />;
-  if (path === "/services/businesses") return <BusinessesPage />;
-  if (path === "/services/individuals") return <IndividualsPage />;
+  const audiencePage = audiencePageForPath(path);
+  if (audiencePage) return audiencePage;
   if (path === "/case-studies") return <CaseStudiesPage />;
   const caseStudyPath = path.match(/^\/case-studies\/([^/]+)$/);
   if (caseStudyPath) {

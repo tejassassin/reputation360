@@ -4,6 +4,13 @@
     { "source": "/services/online-reputation-management", "destination": "/services", "permanent": true },
     { "source": "/services/brand-monitoring", "destination": "/services", "permanent": true },
     { "source": "/services/crisis-management", "destination": "/services", "permanent": true },
+    { "source": "/services/individuals", "destination": "/who-we-serve/individual", "permanent": true },
+    { "source": "/services/financial-advisors", "destination": "/who-we-serve/financial-advisors", "permanent": true },
+    { "source": "/services/executives", "destination": "/who-we-serve/executives-and-c-suite-leaders", "permanent": true },
+    { "source": "/services/doctors", "destination": "/who-we-serve/doctors-and-healthcare-professionals", "permanent": true },
+    { "source": "/services/lawyers", "destination": "/who-we-serve/lawyers-and-attorneys", "permanent": true },
+    { "source": "/services/job-seekers", "destination": "/who-we-serve/job-seekers", "permanent": true },
+    { "source": "/services/businesses", "destination": "/who-we-serve/businesses-and-companies", "permanent": true },
     { "source": "/case-studies/1", "destination": "/case-studies/executive-and-founder-reputation-management", "permanent": true },
     { "source": "/case-studies/2", "destination": "/case-studies/financial-professional-reputation-recovery", "permanent": true },
     { "source": "/case-studies/3", "destination": "/case-studies/medical-and-healthcare-reputation-management", "permanent": true },
@@ -61,6 +68,15 @@
     },
     {
       "source": "/case-studies/:id*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/who-we-serve/:path*",
       "headers": [
         {
           "key": "Cache-Control",

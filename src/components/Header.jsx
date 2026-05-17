@@ -19,6 +19,7 @@ import {
   contactMailtoHref,
   contactWhatsAppHref,
 } from "../constants/contact.js";
+import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 
 const navItems = [
   { name: "Home", link: "/" },
@@ -35,21 +36,21 @@ const navItems = [
     name: "Who We Serve?",
     link: "/who-we-serve",
     children: [
-      { name: "Individuals", link: "/services/individuals" },
-      { name: "Financial Advisors", link: "/services/financial-advisors" },
+      { name: "Individuals", link: AUDIENCE_PATH.individuals },
+      { name: "Financial Advisors", link: AUDIENCE_PATH.financialAdvisors },
       {
         name: "Executives & C-Suite Leaders",
-        link: "/services/executives",
+        link: AUDIENCE_PATH.executives,
       },
       {
         name: "Doctors & Healthcare Professionals",
-        link: "/services/doctors",
+        link: AUDIENCE_PATH.doctors,
       },
-      { name: "Lawyers & Attorneys", link: "/services/lawyers" },
-      { name: "Job Seekers", link: "/services/job-seekers" },
+      { name: "Lawyers & Attorneys", link: AUDIENCE_PATH.lawyers },
+      { name: "Job Seekers", link: AUDIENCE_PATH.jobSeekers },
       {
         name: "Businesses & Companies",
-        link: "/services/businesses",
+        link: AUDIENCE_PATH.businesses,
       },
     ],
   },
