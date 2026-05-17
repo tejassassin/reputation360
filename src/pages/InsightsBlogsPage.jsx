@@ -3,6 +3,7 @@ import { BadgeCheck, ArrowRight, ArrowUpRight } from "lucide-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
+import { suppressNegativeGuideListing } from "../data/blogs/suppressNegativeContentGuide.js";
 
 const HERO_IMG =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuB9RkcKxX1nZCRrBRIu6rOONYqsNVBW7ImSuvITVmOpUNdh9vHBQk72dRRSVg466yzV7FRLVAR74vtVn6mQM0qSQN7nwSKV5FRcqM2cRWLPZgV0I9AcJ4dx6eKagNgJmw90lkVLTGDucXhp4xEv1BziO3gnOT71pR9W2Me9zrfnNhsuERyYBIMHr21Picl79YYv-_eICE0qZQ-fU8O-bUpr5Nvt-K4QLuuTjb8c1GJuhLQBP1XrKDHjlV0QvXkwWydskHpIgIc5xa8";
@@ -25,6 +26,9 @@ const ARTICLE_IMAGES = {
 const FILTER_LABELS = ["All", "Corporate", "Personal", "Legal", "Tech"];
 
 const latestArticles = [
+  {
+    ...suppressNegativeGuideListing,
+  },
   {
     id: "1",
     filter: "Corporate",
@@ -259,8 +263,9 @@ function InsightsBlogsPage() {
           </p>
         ) : (
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-            {filteredArticles.map((article) => (
-              <article key={article.id} className="group rounded-xl">
+            {filteredArticles.map((article) => {
+              const cardInner = (
+                <>
                 <div className="ha-lift mb-6 aspect-video overflow-hidden rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
                   <img
                     src={article.image}
@@ -282,8 +287,23 @@ function InsightsBlogsPage() {
                   <span className="h-1 w-1 rounded-full bg-[#c4c6d0]" />
                   <span>{article.author}</span>
                 </div>
-              </article>
-            ))}
+                </>
+              );
+              const slug = article.slug;
+              return slug ? (
+                <a
+                  key={article.id}
+                  href={`/resources/blogs/${slug}`}
+                  className="group block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f9f9ff]"
+                >
+                  {cardInner}
+                </a>
+              ) : (
+                <article key={article.id} className="group rounded-xl">
+                  {cardInner}
+                </article>
+              );
+            })}
           </div>
         )}
 

@@ -19,6 +19,7 @@ import CaseStudyDetailPage from "./pages/CaseStudyDetailPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import FaqsPage from "./pages/FaqsPage.jsx";
 import InsightsBlogsPage from "./pages/InsightsBlogsPage.jsx";
+import BlogSuppressNegativeContentGuidePage from "./pages/BlogSuppressNegativeContentGuidePage.jsx";
 import GuidePage from "./pages/GuidePage.jsx";
 import AcceptableUsePolicyPage from "./pages/AcceptableUsePolicyPage.jsx";
 import CookiePolicyPage from "./pages/CookiePolicyPage.jsx";
@@ -79,6 +80,9 @@ function pageForPath(path) {
     return <CaseStudyDetailPage caseStudySlug={caseStudyPath[1]} />;
   }
   if (path === "/contact") return <ContactPage />;
+  if (path === "/resources/blogs/how-to-suppress-negative-content-professionals-guide") {
+    return <BlogSuppressNegativeContentGuidePage />;
+  }
   if (path === "/resources/blogs") return <InsightsBlogsPage />;
   if (path === "/resources/guide") return <GuidePage />;
   if (path === "/resources/faqs") return <FaqsPage />;
