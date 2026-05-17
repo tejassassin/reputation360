@@ -8,6 +8,7 @@ import {
 } from "../data/caseStudies/index.js";
 import { caseStudySectionSlug } from "../lib/caseStudySectionSlug.js";
 import { CaseStudyPageCta } from "../components/CaseStudyPageCta.jsx";
+import { CaseStudyWhoWeServeBridge } from "../components/CaseStudyWhoWeServeBridge.jsx";
 import { CaseStudySectionBlock } from "../components/CaseStudySectionBlock.jsx";
 import { parseEngagementMonths } from "../utils/parseEngagement.js";
 import { ProfileValueLines } from "../components/ProfileValueLines.jsx";
@@ -390,6 +391,7 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
       </div>
 
       <div className="mt-6 px-4 pb-16 md:px-6 md:pb-24">
+        <CaseStudyWhoWeServeBridge study={study} />
         <CaseStudyPageCta />
       </div>
     </main>
