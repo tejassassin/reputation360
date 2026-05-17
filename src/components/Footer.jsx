@@ -174,6 +174,12 @@ function Footer() {
             >
               Cookie Policy
             </a>
+            <a
+              href="/refund-policy"
+              className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/50 transition-colors hover:text-green"
+            >
+              Refund Policy
+            </a>
           </div>
         </div>
       </div>

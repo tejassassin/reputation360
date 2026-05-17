@@ -35,13 +35,20 @@ export const SEO = {
     terms: {
       title: "Terms of Service | Reputation360",
       path: "/terms-of-service",
-      description: "Terms governing use of the Reputation360 website and services.",
+      description:
+        "Full Terms of Service for Reputation360: scope of Services, your responsibilities, fees, warranties and disclaimers, liability limits, IP, confidentiality, conduct, termination, governing law (India), and contact details.",
     },
     cookies: {
       title: "Cookie Policy | Reputation360",
       path: "/cookie-policy",
       description:
-        "How Reputation360 uses cookies and similar technologies on this site.",
+        "Full Cookie Policy for Reputation360: types of cookies, third-party tools, consent by region (GDPR, DPDPA, CCPA, PIPEDA, Australia), browser controls, opt-out links, and DNT.",
+    },
+    refund: {
+      title: "Refund Policy | Reputation360",
+      path: "/refund-policy",
+      description:
+        "Reputation360 refund policy: non-refundable services, limited eligibility, 7-day request window, how to request a refund, processing timelines, chargebacks, service credit, and contact details.",
     },
   },
   contact: {

@@ -51,7 +51,8 @@
       "/resources/faqs",
       "/privacy-policy",
       "/terms-of-service",
-      "/cookie-policy"
+      "/cookie-policy",
+      "/refund-policy"
     ],
     "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
     "skipThirdPartyRequests": true,

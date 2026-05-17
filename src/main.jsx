@@ -19,8 +19,10 @@ import ContactPage from "./pages/ContactPage.jsx";
 import FaqsPage from "./pages/FaqsPage.jsx";
 import InsightsBlogsPage from "./pages/InsightsBlogsPage.jsx";
 import GuidePage from "./pages/GuidePage.jsx";
-import LegalNoticePage from "./pages/LegalNoticePage.jsx";
+import CookiePolicyPage from "./pages/CookiePolicyPage.jsx";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage.jsx";
+import RefundPolicyPage from "./pages/RefundPolicyPage.jsx";
+import TermsOfServicePage from "./pages/TermsOfServicePage.jsx";
 
 if (import.meta.env.DEV) {
   console.info(
@@ -59,10 +61,9 @@ function pageForPath(path) {
   if (path === "/resources/guide") return <GuidePage />;
   if (path === "/resources/faqs") return <FaqsPage />;
   if (path === "/privacy-policy") return <PrivacyPolicyPage />;
-  if (path === "/terms-of-service")
-    return <LegalNoticePage variant="terms" />;
-  if (path === "/cookie-policy")
-    return <LegalNoticePage variant="cookies" />;
+  if (path === "/terms-of-service") return <TermsOfServicePage />;
+  if (path === "/cookie-policy") return <CookiePolicyPage />;
+  if (path === "/refund-policy") return <RefundPolicyPage />;
   return <HomePage />;
 }
 
