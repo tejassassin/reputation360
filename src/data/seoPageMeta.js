@@ -50,6 +50,24 @@ export const SEO = {
       description:
         "Reputation360 refund policy: non-refundable services, limited eligibility, 7-day request window, how to request a refund, processing timelines, chargebacks, service credit, and contact details.",
     },
+    acceptableUse: {
+      title: "Acceptable Use Policy | Reputation360",
+      path: "/acceptable-use-policy",
+      description:
+        "Reputation360 Acceptable Use Policy: prohibited conduct, account rules, content standards, IP and security, compliance, enforcement, suspension and termination, indemnification, and how to report violations.",
+    },
+    termsOfUse: {
+      title: "Website Terms of Use | Reputation360",
+      path: "/terms-of-use",
+      description:
+        "Website Terms of Use for reputation360.in: access and eligibility, acceptable use, user content, IP, third-party content, disclaimers, liability cap, indemnification, modifications, accounts, termination, governing law (India), and contact.",
+    },
+    dmcaCopyright: {
+      title: "DMCA / Copyright Policy | Reputation360",
+      path: "/dmca-copyright-policy",
+      description:
+        "Reputation360 DMCA and copyright policy: safe harbor, takedown notice requirements, counter-notifications, repeat infringer policy, fair use, and contact for dmca@reputation360.in.",
+    },
   },
   contact: {
     title: "Contact Reputation360 | Get a Free ORM Consultation",

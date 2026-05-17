@@ -9,11 +9,22 @@ import {
   contactWhatsAppHref,
 } from "../constants/contact.js";
 
+/** All legal / policy pages shown under the Policies column. Add new documents here only. */
+const POLICY_LINKS = [
+  { name: "Privacy Policy", href: "/privacy-policy" },
+  { name: "Terms of Service", href: "/terms-of-service" },
+  { name: "Website Terms of Use", href: "/terms-of-use" },
+  { name: "Cookie Policy", href: "/cookie-policy" },
+  { name: "Refund Policy", href: "/refund-policy" },
+  { name: "Acceptable Use Policy", href: "/acceptable-use-policy" },
+  { name: "DMCA / Copyright Policy", href: "/dmca-copyright-policy" },
+];
+
 function Footer() {
   return (
     <footer className="bg-charcoal text-white py-10 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-[1fr_1fr_minmax(0,1.75fr)_1fr] lg:gap-8">
+        <div className="mb-8 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-5 lg:gap-6 xl:gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-13 h-13 rounded-full bg-white flex items-center justify-center pl-1">
@@ -63,6 +74,21 @@ function Footer() {
                     className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
                   >
                     {title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="min-w-0">
+            <h4 className="font-heading font-semibold mb-4">Policies</h4>
+            <ul className="space-y-2">
+              {POLICY_LINKS.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
+                  >
+                    {item.name}
                   </a>
                 </li>
               ))}
@@ -151,36 +177,11 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col items-center gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between md:gap-4">
+
+        <div className="border-t border-white/10 pt-8">
           <p className="font-body text-center text-sm text-white/50 md:text-left">
             © 2026 Reputation360. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 md:justify-end">
-            <a
-              href="/privacy-policy"
-              className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/50 transition-colors hover:text-green"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="/terms-of-service"
-              className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/50 transition-colors hover:text-green"
-            >
-              Terms of Service
-            </a>
-            <a
-              href="/cookie-policy"
-              className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/50 transition-colors hover:text-green"
-            >
-              Cookie Policy
-            </a>
-            <a
-              href="/refund-policy"
-              className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/50 transition-colors hover:text-green"
-            >
-              Refund Policy
-            </a>
-          </div>
         </div>
       </div>
     </footer>

@@ -106,11 +106,12 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Use a concrete host instead of `true`. With `host: true`, Vite resolves URLs
-  // via `os.networkInterfaces()`, which can throw in restricted environments and the
-  // dev server never starts (browser shows "can't be reached").
+  // Listen on all IPv4 interfaces so http://localhost:5173/ works whether the OS
+  // resolves "localhost" to 127.0.0.1 or ::1 (binding only "localhost" can miss ::1).
+  // Avoid `host: true` here: it uses os.networkInterfaces() for the Network URL and
+  // can throw in some sandboxed or locked-down environments so Vite never starts.
   server: {
-    host: "localhost",
+    host: "0.0.0.0",
     port: 5173,
     // If 5173 is taken, use the next free port instead of exiting.
     strictPort: false,
@@ -121,7 +122,7 @@ export default defineConfig({
     },
   },
   preview: {
-    host: "localhost",
+    host: "0.0.0.0",
     port: 4173,
     strictPort: false,
     open: false,

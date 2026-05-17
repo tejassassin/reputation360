@@ -19,10 +19,13 @@ import ContactPage from "./pages/ContactPage.jsx";
 import FaqsPage from "./pages/FaqsPage.jsx";
 import InsightsBlogsPage from "./pages/InsightsBlogsPage.jsx";
 import GuidePage from "./pages/GuidePage.jsx";
+import AcceptableUsePolicyPage from "./pages/AcceptableUsePolicyPage.jsx";
 import CookiePolicyPage from "./pages/CookiePolicyPage.jsx";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage.jsx";
 import RefundPolicyPage from "./pages/RefundPolicyPage.jsx";
 import TermsOfServicePage from "./pages/TermsOfServicePage.jsx";
+import TermsOfUsePage from "./pages/TermsOfUsePage.jsx";
+import DmcaCopyrightPolicyPage from "./pages/DmcaCopyrightPolicyPage.jsx";
 
 if (import.meta.env.DEV) {
   console.info(
@@ -62,8 +65,11 @@ function pageForPath(path) {
   if (path === "/resources/faqs") return <FaqsPage />;
   if (path === "/privacy-policy") return <PrivacyPolicyPage />;
   if (path === "/terms-of-service") return <TermsOfServicePage />;
+  if (path === "/terms-of-use") return <TermsOfUsePage />;
   if (path === "/cookie-policy") return <CookiePolicyPage />;
   if (path === "/refund-policy") return <RefundPolicyPage />;
+  if (path === "/acceptable-use-policy") return <AcceptableUsePolicyPage />;
+  if (path === "/dmca-copyright-policy") return <DmcaCopyrightPolicyPage />;
   return <HomePage />;
 }
 

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/kill-vite-ports.mjs && node scripts/clear-vite-cache.mjs && node scripts/dev.mjs",
+    "dev:simple": "node scripts/dev.mjs",
     "dev:kill": "node scripts/kill-vite-ports.mjs",
     "dev:fresh": "node scripts/kill-vite-ports.mjs && node scripts/clear-vite-cache.mjs && node scripts/dev.mjs",
     "start": "npm run dev",
@@ -52,7 +53,10 @@
       "/privacy-policy",
       "/terms-of-service",
       "/cookie-policy",
-      "/refund-policy"
+      "/refund-policy",
+      "/acceptable-use-policy",
+      "/terms-of-use",
+      "/dmca-copyright-policy"
     ],
     "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
     "skipThirdPartyRequests": true,
