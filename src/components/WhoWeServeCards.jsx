@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import BrandSectionBackdrop from "./BrandSectionBackdrop";
 
-/** Mirrors Header “Who We Serve?” - one card per audience page. */
+/** Header “Who We Serve?” links to /who-we-serve; each card links to its audience page. */
 const categories = [
   {
     title: "Individuals",
@@ -62,9 +62,9 @@ const categories = [
   },
 ];
 
-/** Matches “Why clients…”: frosted card, growth green on icon ring only. */
+/** Matches “Why clients…”: frosted card, growth green on icon ring only. Card body is not a link; only “Read more” navigates. */
 const audienceCardClassName =
-  "ha-lift group relative block overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/6 p-6 no-underline shadow-[0_8px_32px_-8px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-all duration-300 sm:p-8 hover:-translate-y-0.5 hover:border-[#4CAF50]/50 hover:from-white/18 hover:to-white/8 hover:shadow-[0_12px_40px_-10px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.12)]";
+  "ha-lift group relative block overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/6 p-6 shadow-[0_8px_32px_-8px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-all duration-300 sm:p-8 hover:-translate-y-0.5 hover:border-[#4CAF50]/50 hover:from-white/18 hover:to-white/8 hover:shadow-[0_12px_40px_-10px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.12)]";
 
 function AudienceCard({
   title,
@@ -74,10 +74,7 @@ function AudienceCard({
   className = "",
 }) {
   return (
-    <a
-      href={href}
-      className={`${audienceCardClassName} ${className} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A3354]`.trim()}
-    >
+    <div className={`${audienceCardClassName} ${className}`.trim()}>
       <div className="absolute -right-12 -top-12 h-24 w-24 rounded-bl-full bg-[#2E5B88]/[0.15] transition-transform group-hover:scale-150" />
       <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-[#4CAF50]/30 bg-[#0f1c2c]/80 text-[#4CAF50] shadow-sm shadow-[#0d1825]/40 transition group-hover:border-[#4CAF50]/55 group-hover:shadow-[0_0_24px_-6px_rgba(76,175,80,0.3)]">
         <Icon className="h-7 w-7 stroke-[1.75]" aria-hidden />
@@ -88,7 +85,16 @@ function AudienceCard({
       <p className="text-[15px] font-medium leading-relaxed text-slate-100 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-base">
         {description}
       </p>
-    </a>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-5 inline-flex font-heading text-sm font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/35 underline-offset-2 transition-colors hover:text-[#3db846] hover:decoration-[#3db846]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A3354]"
+        aria-label={`Read more about ${title} (opens in a new tab)`}
+      >
+        Read more
+      </a>
+    </div>
   );
 }
 

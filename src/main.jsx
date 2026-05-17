@@ -14,6 +14,7 @@ import ExecutivesPage from "./pages/ExecutivesPage.jsx";
 import BusinessesPage from "./pages/BusinessesPage.jsx";
 import IndividualsPage from "./pages/IndividualsPage.jsx";
 import CaseStudiesPage from "./pages/CaseStudiesPage.jsx";
+import WhoWeServePage from "./pages/WhoWeServePage.jsx";
 import CaseStudyDetailPage from "./pages/CaseStudyDetailPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import FaqsPage from "./pages/FaqsPage.jsx";
@@ -47,6 +48,7 @@ function normalizePath(pathname) {
 function pageForPath(path) {
   if (path === "/about") return <AboutPage />;
   if (path === "/services") return <ServicesPage />;
+  if (path === "/who-we-serve") return <WhoWeServePage />;
   if (path === "/services/financial-advisors") return <FinancialAdvisorsPage />;
   if (path === "/services/job-seekers") return <JobSeekersPage />;
   if (path === "/services/doctors") return <DoctorsPage />;

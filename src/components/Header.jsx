@@ -33,7 +33,7 @@ const navItems = [
   { name: "Services", link: "/services" },
   {
     name: "Who We Serve?",
-    link: "/services/financial-advisors",
+    link: "/who-we-serve",
     children: [
       { name: "Individuals", link: "/services/individuals" },
       { name: "Financial Advisors", link: "/services/financial-advisors" },

@@ -8,6 +8,12 @@ export const SEO = {
     description:
       "Explore Reputation360’s services: online reputation management, employer branding, content, LinkedIn, performance marketing, and strategic consultation in the US and globally.",
   },
+  whoWeServe: {
+    title: "Who We Serve | Reputation360",
+    path: "/who-we-serve",
+    description:
+      "Audiences Reputation360 works with: individuals, financial advisors, executives, doctors, lawyers, job seekers, and businesses. See how we tailor online reputation management for each.",
+  },
   caseStudies: {
     title: "Case Studies | Reputation360",
     description:

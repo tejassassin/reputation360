@@ -274,7 +274,7 @@ export const R360_CHATBOT_ENTRIES = [
     ],
     reply:
       "We support both individuals and companies - from financial advisors, doctors, lawyers, and executives to job seekers and brands that need a steadier search narrative. Geography-wise, the US is primary, with strong experience supporting Canada and Australia as well.",
-    cta: { href: "/services", label: "Explore services" },
+    cta: { href: "/who-we-serve", label: "Who we serve" },
   },
   {
     id: "pricing",
