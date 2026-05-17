@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion as Motion } from "motion/react";
 import { calendlyNewTabProps } from "../constants/scheduling";
+import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import {
   FileText,
   TrendingUp,
@@ -22,7 +23,13 @@ import {
   Share2,
   FileWarning,
   LineChart,
-  ChevronDown,
+  User,
+  Landmark,
+  UserSearch,
+  Stethoscope,
+  Gavel,
+  Briefcase,
+  Building,
 } from "lucide-react";
 
 /** Hero intro under Services - single source so UI always matches intended copy. */
@@ -229,22 +236,51 @@ const whoWeWorkWithCards = [
   {
     id: "individuals",
     title: "Individuals",
-    body: "Anyone whose online presence does not reflect who they truly are.",
+    body: "Take control of what people find when they search your name online.",
+    href: AUDIENCE_PATH.individuals,
+    Icon: User,
+  },
+  {
+    id: "financial-advisors",
+    title: "Financial Advisors",
+    body: "Strengthen trust and credibility when clients and regulators look you up.",
+    href: AUDIENCE_PATH.financialAdvisors,
+    Icon: Landmark,
   },
   {
     id: "executives",
     title: "Executives & C-Suite Leaders",
-    body: "Leaders ensuring their influence and legacy are represented accurately online.",
+    body: "Protect your leadership reputation and ensure your vision and impact come through clearly.",
+    href: AUDIENCE_PATH.executives,
+    Icon: Briefcase,
   },
   {
-    id: "professionals",
-    title: "Doctors & Healthcare Professionals, Lawyers & Attorneys",
-    body: "Physicians, lawyers & attorneys, and healthcare professionals managing their digital standing.",
+    id: "doctors",
+    title: "Doctors & Healthcare Professionals",
+    body: "Protect your practice where patient reviews, listings, and search results meet.",
+    href: AUDIENCE_PATH.doctors,
+    Icon: Stethoscope,
+  },
+  {
+    id: "lawyers",
+    title: "Lawyers & Attorneys",
+    body: "Keep your professional standing clear when legal press and records surface in search.",
+    href: AUDIENCE_PATH.lawyers,
+    Icon: Gavel,
+  },
+  {
+    id: "job-seekers",
+    title: "Job Seekers",
+    body: "Put your best foot forward when employers and recruiters search your background.",
+    href: AUDIENCE_PATH.jobSeekers,
+    Icon: UserSearch,
   },
   {
     id: "businesses",
-    title: "Businesses & Brands",
-    body: "E-commerce, manufacturing, and consumer brands protecting their market reputation.",
+    title: "Businesses & Companies",
+    body: "Own your industry online through powerful branding and a strong search presence.",
+    href: AUDIENCE_PATH.businesses,
+    Icon: Building,
   },
 ];
 
@@ -394,8 +430,6 @@ function FlagshipSuppressionSection() {
 function ServicesAbout() {
   const [removalFocus, setRemovalFocus] = useState(null);
   const [timelinePhase, setTimelinePhase] = useState(0);
-  /** Index of expanded "Who we work with" card; null = all descriptions collapsed */
-  const [whoWeExpanded, setWhoWeExpanded] = useState(null);
 
   const removalLeftShell =
     "ha-lift relative flex h-full min-h-full min-w-0 w-full flex-col border-0 p-5 text-left outline-none transition-[box-shadow,background-color,ring,opacity] duration-200 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-navy/35 sm:p-6 md:p-7";
@@ -901,57 +935,41 @@ function ServicesAbout() {
           <h3 className="who-we-work-with-heading text-center font-heading font-bold tracking-tight text-navy">
             Who We Work With
           </h3>
-          <div className="mt-6 grid grid-cols-1 items-start gap-4 sm:grid-cols-2 md:mt-8 md:gap-5">
-            {whoWeWorkWithCards.map((card, i) => {
-              const expanded = whoWeExpanded === i;
+          <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-navy/70 md:text-base">
+            The same audiences we support across Reputation360. Open a dedicated page
+            for scope, approach, and examples.
+          </p>
+          <div className="mt-8 grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 md:mt-9 md:gap-5 xl:grid-cols-3">
+            {whoWeWorkWithCards.map((card) => {
+              const Icon = card.Icon;
               return (
-                <div
+                <article
                   key={card.id}
-                  className={`overflow-hidden rounded-2xl border bg-white transition-[border-color,box-shadow] duration-200 ${
-                    expanded
-                      ? "border-navy/25 shadow-md ring-2 ring-navy/10"
-                      : "border-navy/10 shadow-sm hover:border-navy/18 hover:shadow-[0_12px_32px_-18px_rgba(31,59,100,0.1)]"
+                  className={`ha-lift flex h-full flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-sm transition-[border-color,box-shadow] duration-200 hover:border-navy/18 hover:shadow-[0_12px_32px_-18px_rgba(31,59,100,0.12)] md:p-7 ${
+                    card.id === "businesses"
+                      ? "sm:col-span-2 sm:max-w-md sm:justify-self-center xl:col-span-1 xl:col-start-2 xl:max-w-none xl:justify-self-stretch"
+                      : ""
                   }`}
                 >
-                  <button
-                    type="button"
-                    aria-expanded={expanded}
-                    aria-controls={`who-desc-${card.id}`}
-                    id={`who-trigger-${card.id}`}
-                    onClick={() =>
-                      setWhoWeExpanded((prev) => (prev === i ? null : i))
-                    }
-                    className="flex w-full items-start justify-between gap-3 p-6 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-navy/30 md:p-7 md:pl-8 md:pr-6"
-                  >
-                    <h4 className="who-we-work-with-trigger min-w-0 font-heading font-bold text-navy">
-                      {card.title}
-                    </h4>
-                    <ChevronDown
-                      className={`mt-0.5 h-5 w-5 shrink-0 text-navy/40 transition-transform duration-200 ${
-                        expanded ? "rotate-180 text-navy/70" : ""
-                      }`}
-                      aria-hidden
-                    />
-                  </button>
-                  <div
-                    className={`grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${
-                      expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                    }`}
-                  >
-                    <div className="min-h-0 overflow-hidden">
-                      <div
-                        id={`who-desc-${card.id}`}
-                        role="region"
-                        aria-labelledby={`who-trigger-${card.id}`}
-                        className="border-t border-navy/10 px-6 pb-6 pt-1 md:px-8 md:pb-7"
-                      >
-                        <p className="text-sm leading-relaxed text-navy/75 md:text-[15px] md:leading-relaxed">
-                          {card.body}
-                        </p>
-                      </div>
-                    </div>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy/[0.06] text-navy ring-1 ring-navy/10">
+                    <Icon className="h-6 w-6" strokeWidth={2} aria-hidden />
                   </div>
-                </div>
+                  <h4 className="who-we-work-with-trigger mt-4 min-w-0 font-heading font-bold text-navy">
+                    {card.title}
+                  </h4>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-navy/75 md:text-[15px] md:leading-relaxed">
+                    {card.body}
+                  </p>
+                  <a
+                    href={card.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex font-heading text-sm font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/35 underline-offset-2 transition-colors hover:text-[#3db846] hover:decoration-[#3db846]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                    aria-label={`Read more about ${card.title} (opens in a new tab)`}
+                  >
+                    Read more
+                  </a>
+                </article>
               );
             })}
           </div>
