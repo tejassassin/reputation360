@@ -1,12 +1,12 @@
 /**
  * Fixed, unique portrait URLs (not real client photos). Each row in `homeTestimonials` maps to
  * one of RandomUser’s pre-generated “fake user” avatars: https://randomuser.me/photos
- * (API terms: https://randomuser.me/copyright) — for production use your own or licensed
+ * (API terms: https://randomuser.me/copyright) - for production use your own or licensed
  * headshots, and do not present stock as a named person’s real photo. See the block comment
  * in `homeTestimonials.js`.
  *
  * Diverse + unique indices so no two testimonials share the same file.
- * Women (45, 47–49) for named female entries; men (10–18, 32, 14, 17) for male entries.
+ * Women (45, 47-49) for named female entries; men (10-18, 32, 14, 17) for male entries.
  */
 const AV = {
   noahBennett: "https://randomuser.me/api/portraits/men/17.jpg",

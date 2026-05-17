@@ -41,10 +41,10 @@ Maintained a consistently forward-looking, non-reactive tone throughout - never 
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–2: SERP audit; website launched; professional profiles rebuilt
-Months 3–5: Thought leadership content gaining traction; website indexed on Page 2
-Months 6–9: Website enters Page 1; Glassdoor content beginning to drop
-Months 10–13: Page 1 stabilised around professional expertise content`,
+      body: `Months 1-2: SERP audit; website launched; professional profiles rebuilt
+Months 3-5: Thought leadership content gaining traction; website indexed on Page 2
+Months 6-9: Website enters Page 1; Glassdoor content beginning to drop
+Months 10-13: Page 1 stabilised around professional expertise content`,
     },
     {
       heading: "The Results (13 Months)",

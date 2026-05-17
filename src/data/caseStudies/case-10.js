@@ -37,9 +37,9 @@ Secured a short Q&A feature in a regional health magazine - a high-authority thi
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–2: Misattribution correction process initiated; one publisher complied; medical directory and LinkedIn profiles live
-Months 3–4: Escalation path resolved the remaining misattribution; personal website and practice blog indexed
-Months 5–6: Forum thread suppressed to Page 3; watchdog content corrected; new-patient impact subsiding; regional Q&A feature holding on Page 1
+      body: `Months 1-2: Misattribution correction process initiated; one publisher complied; medical directory and LinkedIn profiles live
+Months 3-4: Escalation path resolved the remaining misattribution; personal website and practice blog indexed
+Months 5-6: Forum thread suppressed to Page 3; watchdog content corrected; new-patient impact subsiding; regional Q&A feature holding on Page 1
 Month 7: Top search positions stabilised on verified, accurate professional identity`,
     },
     {

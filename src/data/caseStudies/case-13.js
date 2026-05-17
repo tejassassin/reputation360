@@ -35,24 +35,24 @@ Client redemptions increased within weeks. Three high-net-worth clients requeste
       body: `Conducted a regulatory-sensitive content audit with specific focus on FCA, regulatory disclosure, and financial press domains
 Accepted from the outset that FCA consumer alert pages could not and should not be displaced - strategy designed to surround them with credibility-building content
 Rebuilt firm website with deep, compliance-reviewed content covering investment philosophy, regulatory standing, 20-year track record, and client outcomes
-Submitted updated, comprehensive profiles to FCA Register, Unbiased, VouchedFor, and Trustpilot - all became indexed Page 1 assets within 8–10 weeks
+Submitted updated, comprehensive profiles to FCA Register, Unbiased, VouchedFor, and Trustpilot - all became indexed Page 1 assets within 8-10 weeks
 Launched a long-form monthly investment commentary distributed via LinkedIn and the firm's client newsletter - building consistent, compounding search traction
 Secured a contributor column in a respected mid-tier financial planning publication - 6 articles published over 6 months, each indexed and ranking
 All content reviewed by compliance counsel prior to publication to ensure full regulatory alignment throughout`,
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–3: Regulatory audit; firm website rebuilt; FCA Register and directory profiles updated; compliance review process established
-Months 4–6: First content assets indexed; VouchedFor and Unbiased profiles entering Page 1
-Months 7–10: Financial news articles dropping from Page 1; firm website climbing to Position 1
-Months 11–13: Consumer forum thread suppressed to Page 3; Page 1 stabilised around professional content`,
+      body: `Months 1-3: Regulatory audit; firm website rebuilt; FCA Register and directory profiles updated; compliance review process established
+Months 4-6: First content assets indexed; VouchedFor and Unbiased profiles entering Page 1
+Months 7-10: Financial news articles dropping from Page 1; firm website climbing to Position 1
+Months 11-13: Consumer forum thread suppressed to Page 3; Page 1 stabilised around professional content`,
     },
     {
       heading: "The Results (13 Months)",
-      body: `FCA consumer alert remains appropriately visible but now sits at Position 4–5, surrounded by strong professional content
+      body: `FCA consumer alert remains appropriately visible but now sits at Position 4-5, surrounded by strong professional content
 Financial news articles suppressed to Page 2 by month 9
 Consumer forum thread suppressed to Page 3 by month 11
-Firm website, VouchedFor profile, and LinkedIn occupy Positions 1–3
+Firm website, VouchedFor profile, and LinkedIn occupy Positions 1-3
 New client acquisition recovered to 80% of pre-incident levels by month 12`,
     },
     {

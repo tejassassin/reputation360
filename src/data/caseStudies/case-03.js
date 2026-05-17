@@ -29,7 +29,7 @@ Page 1 and Page 2 were dominated by adverse narratives. Patient confidence was v
     },
     {
       heading: "Our Strategy",
-      body: `Conducted a full SERP audit identifying all negative and neutral URLs across Pages 1–3
+      body: `Conducted a full SERP audit identifying all negative and neutral URLs across Pages 1-3
 Claimed and fully optimised the physician's Google Business Profile - a foundational asset that was entirely absent at the start
 Strengthened presence across patient-facing and professional platforms including GMC profile, Doctify, and Private Practice Hub
 Developed educational content aligned with the physician's specialisation - patient guides, clinical explainers, and condition-specific resources
@@ -39,10 +39,10 @@ Shifted search visibility progressively away from speculative media narratives t
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–2: SERP audit complete; GBP claimed; medical directories updated
-Months 3–4: Personal website launched and indexed; educational content published
-Months 5–7: Website enters Page 1; first negative article displaced from top 5
-Months 8–11: Page 1 stabilised around professional directory and owned content`,
+      body: `Months 1-2: SERP audit complete; GBP claimed; medical directories updated
+Months 3-4: Personal website launched and indexed; educational content published
+Months 5-7: Website enters Page 1; first negative article displaced from top 5
+Months 8-11: Page 1 stabilised around professional directory and owned content`,
     },
     {
       heading: "The Results (11 Months)",

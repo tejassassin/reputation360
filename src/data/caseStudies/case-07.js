@@ -40,10 +40,10 @@ Built a consistent cadence of forward-looking, performance-led content to displa
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–2: SERP audit; content strategy finalised; directory profiles optimised
-Months 3–5: First owned content assets indexed; company website climbs to Position 3
-Months 6–9: Controversy content beginning to drop from Page 1
-Months 10–12: 90% of negative URLs suppressed beyond Page 2; Page 1 stabilised`,
+      body: `Months 1-2: SERP audit; content strategy finalised; directory profiles optimised
+Months 3-5: First owned content assets indexed; company website climbs to Position 3
+Months 6-9: Controversy content beginning to drop from Page 1
+Months 10-12: 90% of negative URLs suppressed beyond Page 2; Page 1 stabilised`,
     },
     {
       heading: "The Results (12 Months)",

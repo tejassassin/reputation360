@@ -19,7 +19,7 @@ function linesFromBody(body) {
   if (typeof body !== "string" || !body.trim()) return [];
   return body
     .split(/\n+/)
-    .map((l) => l.trim().replace(/^[•\-–—]\s*/, ""))
+    .map((l) => l.trim().replace(/^[•\-\u2013\u2014]\s*/, ""))
     .filter(Boolean);
 }
 

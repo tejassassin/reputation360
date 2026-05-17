@@ -29,7 +29,7 @@ Page 1 and Page 2 were dominated by critical opinion pieces. Investor calls beca
     },
     {
       heading: "Our Strategy",
-      body: `Conducted a full name-based SERP audit mapping all 30 ranking URLs across Pages 1–3
+      body: `Conducted a full name-based SERP audit mapping all 30 ranking URLs across Pages 1-3
 Identified LinkedIn as the highest-leverage platform for rapid authority building given existing domain strength
 Rebuilt the founder's LinkedIn profile from scratch - professional headline, detailed career narrative, skills, and endorsements
 Launched a structured thought leadership programme: 3 posts per week covering governance best practices, operational leadership, and long-term industry vision
@@ -40,11 +40,11 @@ Consistently produced interview-style content positioning the founder as a forwa
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–2: SERP audit complete; LinkedIn rebuilt; personal website launched
-Months 3–4: LinkedIn content gaining traction; website indexed and appearing on Page 2
-Months 5–6: First opinion piece displaced from Page 1; website enters Page 1
-Months 7–9: Founder-authored content occupying 3 of top 5 positions
-Months 10–12: Page 1 fully stabilised around professional authority content`,
+      body: `Months 1-2: SERP audit complete; LinkedIn rebuilt; personal website launched
+Months 3-4: LinkedIn content gaining traction; website indexed and appearing on Page 2
+Months 5-6: First opinion piece displaced from Page 1; website enters Page 1
+Months 7-9: Founder-authored content occupying 3 of top 5 positions
+Months 10-12: Page 1 fully stabilised around professional authority content`,
     },
     {
       heading: "The Results (12 Months)",

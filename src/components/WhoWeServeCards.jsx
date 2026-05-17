@@ -119,7 +119,7 @@ export default function WhoWeServeCards() {
           />
         </div>
 
-      {/* sm–md: 2 cols; &lt;lg: stacked flow */}
+      {/* sm-md: 2 cols; &lt;lg: stacked flow */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:hidden">
         {categories.map((props) => (
           <AudienceCard key={props.title} {...props} />

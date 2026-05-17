@@ -38,10 +38,10 @@ Secured a podcast interview on a family law and personal wellbeing programme - t
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–2: Legal assessment complete; defamation letter sent; review campaign launched; website built
+      body: `Months 1-2: Legal assessment complete; defamation letter sent; review campaign launched; website built
 Month 3: Blog voluntarily removed following legal letter; review average climbing
-Months 4–5: Website indexed and entering Page 1; podcast transcript indexed
-Months 6–8: Page 1 fully stabilised; review average at 4.7 stars`,
+Months 4-5: Website indexed and entering Page 1; podcast transcript indexed
+Months 6-8: Page 1 fully stabilised; review average at 4.7 stars`,
     },
     {
       heading: "The Results (8 Months)",

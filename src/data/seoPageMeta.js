@@ -52,7 +52,7 @@ export const SEO = {
   about: {
     title: "About Reputation360 | Trusted ORM Agency in the US",
     description:
-      "Learn about Reputation360 — a trusted online reputation management agency with 7+ years of experience helping individuals and brands in the US control their digital narrative.",
+      "Learn about Reputation360 - a trusted online reputation management agency with 7+ years of experience helping individuals and brands in the US control their digital narrative.",
   },
   guide: {
     title:

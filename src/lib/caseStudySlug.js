@@ -7,7 +7,7 @@ export function slugifyCaseStudyListTitle(listTitle) {
   return String(listTitle || "")
     .toLowerCase()
     .replace(/&/g, " and ")
-    .replace(/[—–]/g, "-")
+    .replace(/\u2014|\u2013/g, "-")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");

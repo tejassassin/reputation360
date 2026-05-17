@@ -41,10 +41,10 @@ Updated and significantly expanded his Chambers & Partners and Legal 500 directo
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–2: SERP audit; firm bio rebuilt; Chambers and Legal 500 profiles updated; website launched
-Months 3–5: LinkedIn content gaining consistent traction; website indexed on Page 2
-Months 6–9: Website and LinkedIn enter Page 1; trade publication article begins dropping
-Months 10–14: Court reporting summary suppressed from Page 1; trade article drops to Page 3; Page 1 fully stabilised`,
+      body: `Months 1-2: SERP audit; firm bio rebuilt; Chambers and Legal 500 profiles updated; website launched
+Months 3-5: LinkedIn content gaining consistent traction; website indexed on Page 2
+Months 6-9: Website and LinkedIn enter Page 1; trade publication article begins dropping
+Months 10-14: Court reporting summary suppressed from Page 1; trade article drops to Page 3; Page 1 fully stabilised`,
     },
     {
       heading: "The Results (14 Months)",

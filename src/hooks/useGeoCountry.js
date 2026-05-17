@@ -3,11 +3,11 @@
  * Detects the visitor's country via IP geolocation and returns
  * a display-ready country name for use in page titles and meta tags.
  *
- * Each country shows its own name — France → "France", Germany → "Germany".
+ * Each country shows its own name - France → "France", Germany → "Germany".
  * A small set of overrides provide clean display names (GB → "the UK", US → "the US").
  * Fallback is always "the US" if detection fails or during SSR/pre-rendering.
  *
- * Result is cached in sessionStorage — only one API call per browser session.
+ * Result is cached in sessionStorage - only one API call per browser session.
  *
  * Usage:
  *   import { useGeoCountry } from '../hooks/useGeoCountry.js';
@@ -17,7 +17,7 @@
 
 import { useState, useEffect } from "react";
 
-// Display name overrides — only needed where the raw API name needs tweaking.
+// Display name overrides - only needed where the raw API name needs tweaking.
 // Any country NOT listed here uses the API's own country_name directly.
 const COUNTRY_DISPLAY_NAMES = {
   US: "the US",
@@ -58,7 +58,7 @@ export function useGeoCountry() {
         return;
       }
     } catch {
-      // sessionStorage unavailable — continue with live fetch
+      // sessionStorage unavailable - continue with live fetch
     }
 
     // 2. Detect country via free IP geolocation API (no key required)
@@ -88,7 +88,7 @@ export function useGeoCountry() {
         setLoading(false);
       })
       .catch(() => {
-        // Silently fall back to US — never break the page
+        // Silently fall back to US - never break the page
         setCountry(DEFAULT_COUNTRY);
         setCountryCode("US");
         setLoading(false);

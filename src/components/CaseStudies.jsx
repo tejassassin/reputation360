@@ -106,7 +106,7 @@ function CaseStudies() {
               const out = outcomePreview(rawOut);
               const eng = parseEngagementMonths(study.duration);
               const engText = engagementLabel(eng);
-              const hasDuration = Boolean(engText && engText !== "—");
+              const hasDuration = Boolean(engText && engText !== "-");
               const href = `/case-studies/${study.slug}`;
 
               const fieldLabelClass =
@@ -154,7 +154,7 @@ function CaseStudies() {
                               {engText}
                             </p>
                           ) : (
-                            <p className="mt-1.5 font-body text-sm text-slate-500">—</p>
+                            <p className="mt-1.5 font-body text-sm text-slate-500">-</p>
                           )}
                         </div>
                         <div className={CASE_FIELD_HOVER}>
@@ -165,7 +165,7 @@ function CaseStudies() {
                             </p>
                           ) : (
                             <p className="mt-1.5 font-body text-sm text-slate-500">
-                              —
+                              -
                             </p>
                           )}
                         </div>

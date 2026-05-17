@@ -44,10 +44,10 @@ Filed platform-specific factual dispute requests on two review entries containin
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–2: SERP audit complete; Google Business Profile claimed and optimised; website rebuilt
-Months 3–4: First content pieces indexed; new verified reviews begin appearing; website appearing on Page 2
-Months 5–6: Personal website enters Page 1; local news article drops to Position 7
-Months 7–9: News article exits Page 1; review platform average lifts to 4.6 stars; owned content holds 4 of top 5 positions`,
+      body: `Months 1-2: SERP audit complete; Google Business Profile claimed and optimised; website rebuilt
+Months 3-4: First content pieces indexed; new verified reviews begin appearing; website appearing on Page 2
+Months 5-6: Personal website enters Page 1; local news article drops to Position 7
+Months 7-9: News article exits Page 1; review platform average lifts to 4.6 stars; owned content holds 4 of top 5 positions`,
     },
     {
       heading: "The Results (9 Months)",

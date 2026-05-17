@@ -47,7 +47,7 @@ export default defineConfig({
             )
             .replace(
               "<body>",
-              "<body>\n    <!-- r360: dev bundle includes HomeTestimonials (text) — if you only see Unsplash, View Source: this comment should exist; if not, hard-refresh or run npm run dev:fresh. -->",
+              "<body>\n    <!-- r360: dev bundle includes HomeTestimonials (text) - if you only see Unsplash, View Source: this comment should exist; if not, hard-refresh or run npm run dev:fresh. -->",
             );
         },
       },

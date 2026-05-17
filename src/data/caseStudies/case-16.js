@@ -40,9 +40,9 @@ Secured a guest contribution on a well-regarded, high-authority product manageme
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–2: Glassdoor and forum requests filed; LinkedIn rebuilt; new website launched
+      body: `Months 1-2: Glassdoor and forum requests filed; LinkedIn rebuilt; new website launched
 Month 2: Glassdoor snippet updated; forum thread locked; website indexed and appearing in search
-Months 3–4: New website enters Page 1; LinkedIn climbing to Position 1
+Months 3-4: New website enters Page 1; LinkedIn climbing to Position 1
 Month 5: Forum thread drops to Page 3; old blog displaced from Page 1
 Month 6: Page 1 fully stabilised around owned professional content`,
     },

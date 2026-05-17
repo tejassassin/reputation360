@@ -1,16 +1,16 @@
 /* @refresh reset */
 /**
- * Home page — synthetic testimonial copy (fictional names/roles; not real clients). Optional
+ * Home page - synthetic testimonial copy (fictional names/roles; not real clients). Optional
  * `portrait` overrides the mapped URL in `testimonialPortraits.js`. Those URLs use
  * RandomUser’s pre-generated “fake” avatars: https://randomuser.me/photos
- * (see also https://randomuser.me/copyright) — for production, swap in licensed/approved
+ * (see also https://randomuser.me/copyright) - for production, swap in licensed/approved
  * headshots; do not imply a stock photo is a real named client.
  */
 export const homeTestimonials = [
   {
     id: "noah-bennett",
     quote:
-      "The initial consultation alone was worth it — they identified blind spots in my online presence I didn't even know existed. The strategic roadmap they delivered gave me complete clarity, and the execution was flawless from day one.",
+      "The initial consultation alone was worth it - they identified blind spots in my online presence I didn't even know existed. The strategic roadmap they delivered gave me complete clarity, and the execution was flawless from day one.",
     name: "Noah Bennett",
     role: "High-Net-Worth Individual & Philanthropist",
   },
@@ -24,21 +24,21 @@ export const homeTestimonials = [
   {
     id: "marcus-elliot",
     quote:
-      "A disgruntled ex-employee posted defamatory content about me that ranked on page one for months. Within fifteen weeks, it was gone — replaced by thought leadership pieces that actually built my credibility with prospective clients.",
+      "A disgruntled ex-employee posted defamatory content about me that ranked on page one for months. Within fifteen weeks, it was gone - replaced by thought leadership pieces that actually built my credibility with prospective clients.",
     name: "Marcus Elliot",
     role: "Senior Financial Advisor, Wealth Management",
   },
   {
     id: "mathew-hemming",
     quote:
-      "I had almost given up on landing another in-house role after a wrongful termination made headlines. Reputation360 rebuilt my online presence from the ground up — I had three offers within four months of working with them.",
+      "I had almost given up on landing another in-house role after a wrongful termination made headlines. Reputation360 rebuilt my online presence from the ground up - I had three offers within four months of working with them.",
     name: "Mathew Hemming",
     role: "Job Seeker, Senior Marketing Director",
   },
   {
     id: "jonathan-reeves-legal",
     quote:
-      "Our firm was being defined online by a single negative verdict that appeared above everything else. Reputation360 launched a targeted content strategy that repositioned us as thought leaders — our client enquiries have doubled since.",
+      "Our firm was being defined online by a single negative verdict that appeared above everything else. Reputation360 launched a targeted content strategy that repositioned us as thought leaders - our client enquiries have doubled since.",
     name: "Jonathan Reeves",
     role: "Managing Partner, Litigation & Dispute Resolution",
   },
@@ -52,7 +52,7 @@ export const homeTestimonials = [
   {
     id: "michael-park",
     quote:
-      "Honestly, I didn't believe it would work. The bad content felt permanent. But they showed me their process — what they'd push up, what they'd suppress, why it would stick. They were transparent the whole way. Three months later, I stopped worrying every time someone Googled my name.",
+      "Honestly, I didn't believe it would work. The bad content felt permanent. But they showed me their process - what they'd push up, what they'd suppress, why it would stick. They were transparent the whole way. Three months later, I stopped worrying every time someone Googled my name.",
     name: "Michael Park",
     role: "Commercial Lawyer",
   },

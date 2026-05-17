@@ -40,10 +40,10 @@ Initiated platform-level content flagging for social posts containing demonstrab
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–2: SERP triage; transparency statement published; new content pillars developed
-Months 3–4: Micro-influencer content gaining traction; social sentiment beginning to shift
-Months 5–6: Social sentiment moves net-positive; controversy content beginning to drop from Page 1
-Months 7–8: Page 1 stabilised around brand values and product content`,
+      body: `Months 1-2: SERP triage; transparency statement published; new content pillars developed
+Months 3-4: Micro-influencer content gaining traction; social sentiment beginning to shift
+Months 5-6: Social sentiment moves net-positive; controversy content beginning to drop from Page 1
+Months 7-8: Page 1 stabilised around brand values and product content`,
     },
     {
       heading: "The Results (8 Months)",

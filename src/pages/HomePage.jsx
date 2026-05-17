@@ -15,9 +15,9 @@ import Contact from "../components/Contact";
 import { homeTestimonials } from "../data/homeTestimonials.js";
 import { testimonialPortraitUrl } from "../data/testimonialPortraits.js";
 
-// HOME_SEO is now geo-dynamic — see useGeoCountry hook inside the component
+// HOME_SEO is now geo-dynamic - see useGeoCountry hook inside the component
 const HOME_SEO_DESCRIPTION_SUFFIX =
-  "take control of search and social: online reputation management, brand monitoring, and crisis response—backed by 7+ years of experience.";
+  "take control of search and social: online reputation management, brand monitoring, and crisis response - backed by 7+ years of experience.";
 
 function getInitials(fullName) {
   const n = fullName
@@ -55,7 +55,7 @@ function ReviewStars() {
 
 /**
  * Optional per-row `portrait`, else a fixed map from `testimonialPortraits.js` (one URL per
- * `id` — not duplicate pravatar). Last resort: pravatar. Falls back to initials on error.
+ * `id` - not duplicate pravatar). Last resort: pravatar. Falls back to initials on error.
  */
 function TestimonialAvatar({ id, name, portraitUrl }) {
   const [useFallback, setUseFallback] = useState(false);
@@ -90,7 +90,7 @@ function TestimonialAvatar({ id, name, portraitUrl }) {
 }
 
 /**
- * Inlined in HomePage — hero-style heading + B2B review cards (stars, horizontal scroller).
+ * Inlined in HomePage - hero-style heading + B2B review cards (stars, horizontal scroller).
  */
 function HomeTestimonials() {
   const reduce = useReducedMotion();

@@ -7,10 +7,10 @@ import { splitProfileParens } from "../utils/splitProfileParens.js";
  *
  * @param {object} props
  * @param {string} props.value
- * @param {string} [props.className] – wrapper span
+ * @param {string} [props.className] - wrapper span
  * @param {string} [props.line1ClassName]
- * @param {string} [props.line2ClassName] – default adds small top gap
- * @param {string} [props.title] – e.g. full value for native tooltip
+ * @param {string} [props.line2ClassName] - default adds small top gap
+ * @param {string} [props.title] - e.g. full value for native tooltip
  */
 export function ProfileValueLines({
   value,

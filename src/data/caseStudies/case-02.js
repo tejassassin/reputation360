@@ -41,10 +41,10 @@ Worked alongside compliance counsel throughout to ensure every piece of content 
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–3: SERP audit complete; professional profiles rebuilt; compliance review of all planned content
-Months 4–6: First authoritative assets indexed; BrokerCheck entry beginning to be surrounded by professional content
-Months 7–10: Financial news articles beginning to drop from Page 1
-Months 11–15: Page 1 stabilised; SEC content remains but is contextualised within a strong professional narrative`,
+      body: `Months 1-3: SERP audit complete; professional profiles rebuilt; compliance review of all planned content
+Months 4-6: First authoritative assets indexed; BrokerCheck entry beginning to be surrounded by professional content
+Months 7-10: Financial news articles beginning to drop from Page 1
+Months 11-15: Page 1 stabilised; SEC content remains but is contextualised within a strong professional narrative`,
     },
     {
       heading: "The Results (15 Months)",

@@ -42,17 +42,17 @@ Optimised Google Knowledge Panel data to reflect his current, accurate professio
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–2: Former employer page removal requested; BrokerCheck and SEC correction process initiated; LinkedIn rebuilt; website launched
+      body: `Months 1-2: Former employer page removal requested; BrokerCheck and SEC correction process initiated; LinkedIn rebuilt; website launched
 Month 2: Former employer page removed; website indexed and appearing in search
-Months 3–5: Website enters Page 1; LinkedIn profile climbing toward Position 1
-Months 6–8: Dismissal press articles dropping from Page 1 to Page 2
-Months 9–10: Both dismissal articles suppressed to Page 3; FINRA and SEC entries contextualised within professional content; Page 1 stabilised`,
+Months 3-5: Website enters Page 1; LinkedIn profile climbing toward Position 1
+Months 6-8: Dismissal press articles dropping from Page 1 to Page 2
+Months 9-10: Both dismissal articles suppressed to Page 3; FINRA and SEC entries contextualised within professional content; Page 1 stabilised`,
     },
     {
       heading: "The Results (10 Months)",
       body: `Both dismissal press articles suppressed to Page 3 by month 10
 LinkedIn profile holds Position 1
-Personal website and finance platform profile hold Positions 2–3
+Personal website and finance platform profile hold Positions 2-3
 Archived employer page removed within 30 days of formal request
 FINRA BrokerCheck and SEC-adjacent records updated to accurately reflect full professional standing
 Client secured two non-executive board advisory positions during the campaign period`,

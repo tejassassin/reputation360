@@ -20,7 +20,7 @@ Negative visibility was driven by:
 • Reddit threads and social media discussions amplifying the claims
 • Blog posts and product comparison websites republishing the allegations
 
-Pages 1–3 for branded search queries became dominated by authenticity concerns, directly impacting conversion rates and repeat purchase behaviour. Paid campaign performance deteriorated as landing page trust signals weakened.`,
+Pages 1-3 for branded search queries became dominated by authenticity concerns, directly impacting conversion rates and repeat purchase behaviour. Paid campaign performance deteriorated as landing page trust signals weakened.`,
     },
     {
       heading: "Baseline",
@@ -42,10 +42,10 @@ Gradually displaced speculative and allegation-driven content with fact-based, c
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–2: SERP audit; authenticity content developed; marketplace listings optimised
-Months 3–5: New content indexed; brand product pages begin reclaiming Page 1 positions
-Months 6–8: Complaint and allegation content dropping from Page 1
-Months 9–10: 89% of negative URLs suppressed beyond Page 3; Page 1 stabilised`,
+      body: `Months 1-2: SERP audit; authenticity content developed; marketplace listings optimised
+Months 3-5: New content indexed; brand product pages begin reclaiming Page 1 positions
+Months 6-8: Complaint and allegation content dropping from Page 1
+Months 9-10: 89% of negative URLs suppressed beyond Page 3; Page 1 stabilised`,
     },
     {
       heading: "The Results (10 Months)",

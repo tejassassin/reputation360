@@ -12,7 +12,7 @@ const caseStudy = {
     {
       heading: "The Challenge",
       body: `A consumer electronics brand with a 15-year operating history faced serious reputational damage after a manufacturing defect in their flagship wireless audio product led to a wave of customer complaints, a formal recall process, and significant refund volumes. The issue escalated when it was picked up by national technology media and a leading financial publication, creating a sustained negative search footprint.
-Negative visibility dominated Pages 1–4, driven by:
+Negative visibility dominated Pages 1-4, driven by:
 
 • Technology review platforms publishing detailed defect analyses
 • Consumer complaint forums with high domain authority
@@ -40,10 +40,10 @@ Developed a post-crisis product content strategy to rebuild category authority`,
     },
     {
       heading: "Month-by-Month Milestones",
-      body: `Months 1–2: Crisis SERP audit; brand response content published; website optimised
-Months 3–5: New content indexed; brand website reclaims Position 1
-Months 6–9: Forum and Reddit content beginning to drop from Page 1
-Months 10–14: 92% of negative URLs suppressed beyond Page 3; Page 1 stabilised`,
+      body: `Months 1-2: Crisis SERP audit; brand response content published; website optimised
+Months 3-5: New content indexed; brand website reclaims Position 1
+Months 6-9: Forum and Reddit content beginning to drop from Page 1
+Months 10-14: 92% of negative URLs suppressed beyond Page 3; Page 1 stabilised`,
     },
     {
       heading: "The Results (14 Months)",
