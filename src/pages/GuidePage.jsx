@@ -127,12 +127,12 @@ function GuidePage() {
         </div>
       </header>
 
-      <main className="relative mx-auto grid max-w-7xl gap-12 px-4 pb-24 md:px-8 lg:grid-cols-4">
-        {/* Mobile TOC */}
-        <nav
-          className="flex gap-2 overflow-x-auto pb-2 lg:hidden"
-          aria-label="Guide index"
-        >
+      {/* Mobile: fixed chapter bar (outside main so it does not consume a grid row) */}
+      <nav
+        className="fixed inset-x-0 top-28 z-30 border-b border-slate-200/60 bg-[#f9f9ff]/95 py-3 backdrop-blur-md supports-[backdrop-filter]:bg-[#f9f9ff]/88 lg:hidden"
+        aria-label="Guide index"
+      >
+        <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 md:px-8">
           {toc.map(({ id, label }) => {
             const isActive = activeGuideSection === id;
             return (
@@ -151,11 +151,13 @@ function GuidePage() {
               </a>
             );
           })}
-        </nav>
+        </div>
+      </nav>
 
-        {/* Sidebar */}
-        <aside className="hidden lg:block">
-          <div className="sticky top-28 h-fit rounded-xl bg-slate-50 p-6 text-sm leading-relaxed">
+      <main className="relative mx-auto grid max-w-7xl gap-12 px-4 pb-24 md:px-8 lg:grid-cols-4">
+        {/* Sidebar: grid cell stretches with the article; inner panel uses sticky */}
+        <aside className="hidden min-h-0 lg:block">
+          <div className="sticky top-28 z-20 max-h-[calc(100dvh-7.5rem)] overflow-y-auto rounded-xl bg-slate-50 p-6 text-sm leading-relaxed shadow-sm ring-1 ring-slate-200/60 overscroll-contain">
             <div className="mb-8">
               <h3 className="font-guide-headline mb-1 text-lg font-bold text-[#02254d]">
                 Guide Index
@@ -186,7 +188,7 @@ function GuidePage() {
           </div>
         </aside>
 
-        <div className="space-y-24 lg:col-span-3">
+        <div className="space-y-24 pt-[4.25rem] lg:col-span-3 lg:pt-0">
           {/* Chapter 1 */}
           <section className="scroll-mt-32" id="ch1">
             <div className="mb-8 flex items-baseline gap-4">
@@ -470,9 +472,9 @@ function GuidePage() {
                   </p>
                   <a
                     {...calendlyNewTabProps}
-                    className="font-guide-headline ha-pill rounded-full bg-cta-consult px-10 py-5 text-lg font-extrabold text-white shadow-xl shadow-cta-consult/30 transition hover:brightness-95"
+                    className="font-guide-headline inline-flex items-center justify-center rounded-lg bg-cta-consult px-6 py-3 text-sm font-heading font-semibold text-white shadow-md shadow-cta-consult/20 transition hover:brightness-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#02254d]"
                   >
-                    Book Your Free Consultation
+                    Book your free consultation
                   </a>
                 </div>
               </div>

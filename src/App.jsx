@@ -39,7 +39,7 @@ function App({ children }) {
   }, []);
 
   return (
-    <div className="relative flex min-h-screen min-h-[100dvh] flex-col overflow-x-hidden bg-offwhite">
+    <div className="relative flex min-h-screen min-h-[100dvh] flex-col overflow-x-clip bg-offwhite">
       <Header />
       {children}
       <Footer />
