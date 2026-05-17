@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import { SeoHead } from "../components/SeoHead.jsx";
-import { SEO } from "../data/seoPageMeta.js";
+import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { cn } from "@/lib/utils";
 import {
   BookOpen,
@@ -38,6 +38,7 @@ const GUIDE_SCROLL_SPY_OFFSET_PX = 140;
 function GuidePage() {
   const [activeGuideSection, setActiveGuideSection] = useState("ch1");
   const guideScrollRafRef = useRef(0);
+  const seo = useLocalizedSeo("guide");
 
   useEffect(() => {
     if (typeof window === "undefined" || typeof document === "undefined") {
@@ -89,9 +90,9 @@ function GuidePage() {
   return (
     <>
       <SeoHead
-        title={SEO.guide.title}
-        description={SEO.guide.description}
-        canonicalPath={SEO.guide.path}
+        title={seo.title}
+        description={seo.description}
+        canonicalPath={seo.path}
       />
     <div className="guide-page bg-[#f9f9ff] text-[#141b2b]">
       {/* Hero - site header is fixed; pt clears it */}

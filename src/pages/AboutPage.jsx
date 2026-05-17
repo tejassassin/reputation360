@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import { SeoHead } from "../components/SeoHead.jsx";
-import { SEO } from "../data/seoPageMeta.js";
+import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import AboutHeroSearchMockup from "../components/AboutHeroSearchMockup.jsx";
 import { StatNumber } from "../components/StatNumber.jsx";
 import { homeTestimonials } from "../data/homeTestimonials.js";
@@ -1179,6 +1179,8 @@ function AboutPage() {
   const whoWeAreRef = useRef(null);
   const [whoWeAreStatsLive, setWhoWeAreStatsLive] = useState(false);
 
+  const seo = useLocalizedSeo("about");
+
   useEffect(() => {
     const el = whoWeAreRef.current;
     if (!el) return undefined;
@@ -1260,9 +1262,9 @@ function AboutPage() {
   return (
     <>
       <SeoHead
-        title={SEO.about.title}
-        description={SEO.about.description}
-        canonicalPath="/about"
+        title={seo.title}
+        description={seo.description}
+        canonicalPath={seo.path}
       />
     <main className="relative flex-1 bg-[#f4f6fb] pt-28 text-slate-800 md:pt-32">
       <nav

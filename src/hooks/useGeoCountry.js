@@ -7,15 +7,22 @@
  * A small set of overrides provide clean display names (GB → "the UK", US → "the US").
  * Fallback is always "the US" if detection fails or during SSR/pre-rendering.
  *
+ * Also exposes `marketKey` (`default` | `europe`) for geo-targeted SEO copy
+ * (Europe-first phrasing vs US-first). See `deriveGeoMarketKey` in `geoMarket.js`.
+ *
  * Result is cached in sessionStorage - only one API call per browser session.
  *
  * Usage:
  *   import { useGeoCountry } from '../hooks/useGeoCountry.js';
- *   const { country } = useGeoCountry();
+ *   const { country, marketKey } = useGeoCountry();
  *   // country → "the US" | "Canada" | "India" | "France" | "Germany" | "the UK" | …
  */
 
 import { useState, useEffect } from "react";
+import {
+  deriveGeoMarketKey,
+  GEO_MARKET_DEFAULT,
+} from "../lib/geoMarket.js";
 
 // Display name overrides - only needed where the raw API name needs tweaking.
 // Any country NOT listed here uses the API's own country_name directly.
@@ -39,11 +46,12 @@ const COUNTRY_DISPLAY_NAMES = {
 };
 
 const DEFAULT_COUNTRY = "the US";
-const SESSION_KEY = "r360_geo_country";
+const SESSION_KEY = "r360_geo_v2";
 
 export function useGeoCountry() {
   const [country, setCountry] = useState(DEFAULT_COUNTRY);
   const [countryCode, setCountryCode] = useState("US");
+  const [marketKey, setMarketKey] = useState(GEO_MARKET_DEFAULT);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -54,6 +62,7 @@ export function useGeoCountry() {
         const parsed = JSON.parse(cached);
         setCountry(parsed.country);
         setCountryCode(parsed.countryCode);
+        setMarketKey(parsed.marketKey ?? GEO_MARKET_DEFAULT);
         setLoading(false);
         return;
       }
@@ -76,7 +85,15 @@ export function useGeoCountry() {
           data.country_name ||
           DEFAULT_COUNTRY;
 
-        const result = { country: displayName, countryCode: rawCode };
+        const marketKeyNext = deriveGeoMarketKey(
+          rawCode,
+          data.continent_code,
+        );
+        const result = {
+          country: displayName,
+          countryCode: rawCode,
+          marketKey: marketKeyNext,
+        };
         try {
           sessionStorage.setItem(SESSION_KEY, JSON.stringify(result));
         } catch {
@@ -85,15 +102,17 @@ export function useGeoCountry() {
 
         setCountry(displayName);
         setCountryCode(rawCode);
+        setMarketKey(marketKeyNext);
         setLoading(false);
       })
       .catch(() => {
         // Silently fall back to US - never break the page
         setCountry(DEFAULT_COUNTRY);
         setCountryCode("US");
+        setMarketKey(GEO_MARKET_DEFAULT);
         setLoading(false);
       });
   }, []);
 
-  return { country, countryCode, loading };
+  return { country, countryCode, loading, marketKey };
 }

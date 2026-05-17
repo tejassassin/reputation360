@@ -6,7 +6,7 @@ import {
   REPUTATION360_BUSINESS_STEPS,
 } from "../components/industry/IndustryReputation360Sections";
 import { SeoHead } from "../components/SeoHead.jsx";
-import { SEO } from "../data/seoPageMeta.js";
+import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
   ShieldCheck,
   Search,
@@ -563,12 +563,13 @@ function BusinessesFaqSection() {
 }
 
 function BusinessesPage() {
+  const seo = useLocalizedSeo("businesses");
   return (
     <>
       <SeoHead
-        title={SEO.businesses.title}
-        description={SEO.businesses.description}
-        canonicalPath={SEO.businesses.path}
+        title={seo.title}
+        description={seo.description}
+        canonicalPath={seo.path}
       />
     <main className="flex-1 bg-offwhite pt-28 md:pt-32">
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 md:px-6 md:py-14">

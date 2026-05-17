@@ -7,7 +7,7 @@ import {
 } from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import { SeoHead } from "../components/SeoHead.jsx";
-import { SEO } from "../data/seoPageMeta.js";
+import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
   ShieldCheck,
   Search,
@@ -581,12 +581,13 @@ function JobSeekersProblemSection() {
 }
 
 function JobSeekersPage() {
+  const seo = useLocalizedSeo("jobSeekers");
   return (
     <>
       <SeoHead
-        title={SEO.jobSeekers.title}
-        description={SEO.jobSeekers.description}
-        canonicalPath={SEO.jobSeekers.path}
+        title={seo.title}
+        description={seo.description}
+        canonicalPath={seo.path}
       />
     <main className="flex-1 pt-28 md:pt-32 bg-offwhite">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 space-y-10">

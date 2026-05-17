@@ -8,7 +8,7 @@ import {
   contactWhatsAppHref,
 } from "../constants/contact.js";
 import { SeoHead } from "../components/SeoHead.jsx";
-import { SEO } from "../data/seoPageMeta.js";
+import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 
 const calendarTabletImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuA-iNftxgB4MVtLYmaJLpcpPMCdIk9bo4K2vUXyEA2ZXH-BZhmfhL-8HD6Jt2GOFScH55bygI0bbHScErBYwqc9LNb_6eQBZuMJGi1trXwBsc3cLY_Av8Z34IJp_bM6r1CbUuzjq7-RNw4S1ffC5pcP2vOKqu5G6XAyqQVOS8MtT6wy6zLz3pSH77EgfqPgBDruvU6u1_vrhBJ-BCgrYislzYdg4iPWvU41nIaZO_AVY90uuI5seopRat1VNUXWv2d1Qw5hnw5knwU";
@@ -232,6 +232,7 @@ function ContactAuthorityRoadmap() {
 
 function ContactPage() {
   const gridPatternId = useId().replace(/:/g, "");
+  const seo = useLocalizedSeo("contact");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -252,9 +253,9 @@ function ContactPage() {
   return (
     <>
       <SeoHead
-        title={SEO.contact.title}
-        description={SEO.contact.description}
-        canonicalPath="/contact"
+        title={seo.title}
+        description={seo.description}
+        canonicalPath={seo.path}
       />
     <main className="flex-1 bg-[#f9f9ff] pt-28 md:pt-32">
       {/* How to Reach Us */}

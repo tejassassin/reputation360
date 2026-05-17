@@ -1,14 +1,15 @@
 import { SeoHead } from "../components/SeoHead.jsx";
-import { SEO } from "../data/seoPageMeta.js";
+import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import ServicesAbout from "../components/ServicesAbout";
 
 function ServicesPage() {
+  const seo = useLocalizedSeo("services");
   return (
     <>
       <SeoHead
-        title={SEO.services.title}
-        description={SEO.services.description}
-        canonicalPath="/services"
+        title={seo.title}
+        description={seo.description}
+        canonicalPath={seo.path}
       />
     <main className="flex-1 bg-offwhite pt-24 md:pt-28">
       <section className="bg-offwhite">

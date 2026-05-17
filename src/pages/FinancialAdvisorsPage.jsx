@@ -7,7 +7,7 @@ import {
 } from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import { SeoHead } from "../components/SeoHead.jsx";
-import { SEO } from "../data/seoPageMeta.js";
+import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
   ShieldCheck,
   FileWarning,
@@ -589,12 +589,13 @@ function FinancialAdvisorsMarketInsightBanner() {
 }
 
 function FinancialAdvisorsPage() {
+  const seo = useLocalizedSeo("financialAdvisors");
   return (
     <>
       <SeoHead
-        title={SEO.financialAdvisors.title}
-        description={SEO.financialAdvisors.description}
-        canonicalPath={SEO.financialAdvisors.path}
+        title={seo.title}
+        description={seo.description}
+        canonicalPath={seo.path}
       />
     <main className="flex-1 pt-28 md:pt-32 bg-offwhite">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 space-y-10">

@@ -7,7 +7,7 @@ import {
 } from "../components/industry/IndustryReputation360Sections";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import { SeoHead } from "../components/SeoHead.jsx";
-import { SEO } from "../data/seoPageMeta.js";
+import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
   Gavel,
   Newspaper,
@@ -585,12 +585,13 @@ function LawyersFaqSection() {
 }
 
 function LawyersPage() {
+  const seo = useLocalizedSeo("lawyers");
   return (
     <>
       <SeoHead
-        title={SEO.lawyers.title}
-        description={SEO.lawyers.description}
-        canonicalPath={SEO.lawyers.path}
+        title={seo.title}
+        description={seo.description}
+        canonicalPath={seo.path}
       />
     <main className="flex-1 bg-offwhite pb-16 pt-28 md:pb-20 md:pt-32">
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 md:px-6 md:py-14">

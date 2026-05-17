@@ -5,10 +5,18 @@
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 
 export const SEO = {
-  services: {
-    title: "Our Services | Reputation360",
+  home: {
+    title: "Reputation360 | Online Reputation Management in the US",
+    path: "/",
     description:
-      "Explore Reputation360’s services: online reputation management, employer branding, content, LinkedIn, performance marketing, and strategic consultation in the US and globally.",
+      "Suppress negative search results & control your online reputation globally. Trusted by founders & brands in the US, Europe & worldwide. Build credible digital reputations worldwide. Get your free audit today.",
+  },
+  services: {
+    title:
+      "Our Services | Online Reputation Management, Negative Link Suppression & More",
+    path: "/services",
+    description:
+      "Online reputation management & negative link suppression services around the world. Employer branding & content trusted across US, Europe & worldwide. Expert solutions for founders & businesses globally.",
   },
   whoWeServe: {
     title: "Who We Serve | Reputation360",
@@ -17,21 +25,24 @@ export const SEO = {
       "Audiences Reputation360 works with: individuals, financial advisors, executives, doctors, lawyers, job seekers, and businesses. See how we tailor online reputation management for each.",
   },
   caseStudies: {
-    title: "Case Studies | Reputation360",
+    title:
+      "Case Studies | Real Online Reputation Management Results by Reputation360",
+    path: "/case-studies",
     description:
-      "In-depth case studies: how Reputation360 helps individuals and brands improve search results, protect reputation, and build credibility in the US and beyond.",
+      "See how Reputation360 fixed damaged reputations worldwide. Real case studies from US, Europe & worldwide clients showing negative removal & ranking growth. Proven online reputation management solutions across industries around the world.",
   },
   blogs: {
-    title: "Insights From Seven Years of Reputation Work | Reputation360",
+    title:
+      "Online Reputation Management Blog | Strategy & Industry Insights",
     path: "/resources/blogs",
     description:
-      "Insights, lessons, and practical notes from years of online reputation, SEO, and brand work at Reputation360.",
+      "Online reputation management insights from 7 years of global reputation work. Expert blog posts on suppressing negatives, managing crises & building credible brands around the world. Industry trends serving US, Europe & worldwide.",
   },
   faqs: {
-    title: "FAQs | Reputation360 - The Curated Authority",
+    title: "FAQs | Online Reputation Management Questions Answered",
     path: "/resources/faqs",
     description:
-      "Answers to common questions about online reputation management, timelines, and how Reputation360 works with clients.",
+      "Online reputation management FAQs: How long does reputation repair take? What's the cost? Get answers to common reputation questions from Reputation360's global experts serving US, Europe & worldwide. Expert guidance around the world.",
   },
   legal: {
     privacy: {
@@ -78,62 +89,70 @@ export const SEO = {
     },
   },
   contact: {
-    title: "Contact Reputation360 | Get a Free ORM Consultation",
+    title:
+      "Contact Reputation360 | Get a Free Online Reputation Management Consultation",
+    path: "/contact",
     description:
-      "Get in touch with Reputation360 for a free consultation on online reputation management, brand monitoring, or crisis response.",
+      "Schedule your free online reputation management consultation with Reputation360. Get expert guidance from our global team serving US, Europe & worldwide. Custom strategies to suppress negatives & strengthen your brand worldwide.",
   },
   about: {
-    title: "About Reputation360 | Trusted ORM Agency in the US",
+    title:
+      "About Reputation360 | 7+ Years in Online Reputation Management & Digital Reputation",
+    path: "/about",
     description:
-      "Learn about Reputation360 - a trusted online reputation management agency with 7+ years of experience helping individuals and brands in the US control their digital narrative.",
+      "Meet Reputation360: 7+ years protecting reputations globally across the US. Expert online reputation management through negative suppression & positive amplification. Industry-leading success rates. Trusted worldwide.",
   },
   guide: {
-    title:
-      "The Complete Guide to Online Reputation Management in 2026 | Reputation360",
+    title: "Reputation Management Guides | Reputation360 Resources",
     path: "/resources/guide",
     description:
-      "A practical guide to how reputation, search, and content come together in the work Reputation360 does for clients.",
+      "The Complete Guide to Online Reputation Management 2026: Monitor, control & improve your digital footprint globally. Essential strategies for founders & brands in US, Europe & worldwide. Resources for around the world.",
   },
   financialAdvisors: {
-    title: "Financial Advisors & ORM | Reputation360",
+    title: "Reputation Management for Financial Advisors | Reputation360",
     path: AUDIENCE_PATH.financialAdvisors,
     description:
-      "ORM for financial advisors: improve how clients see you in search, manage disclosures, and build trust before every meeting. US and global support.",
+      "Online reputation management for financial advisors globally. Build trust with clients across US, Europe & worldwide by suppressing negative content & strengthening your credible online presence. Expert solutions for your practice.",
   },
   jobSeekers: {
-    title: "Job Seekers & Professional Reputation | Reputation360",
+    title: "Reputation Management for Job Seekers | Reputation360",
     path: AUDIENCE_PATH.jobSeekers,
     description:
-      "Online reputation for job seekers in the US: strengthen profiles, address negative results, and align search with the career you want.",
+      "Personal reputation management for job seekers globally. Remove negative search results & improve your online profile to impress employers across US, Europe & worldwide. Expert career reputation solutions.",
   },
   doctors: {
-    title: "Doctors & Healthcare Professionals | Reputation360",
+    title:
+      "Reputation Management for Doctors & Healthcare Professionals | Reputation360",
     path: AUDIENCE_PATH.doctors,
     description:
-      "Medical reputation and search for doctors and healthcare leaders: balanced, compliant ORM and visibility strategy in the US and abroad.",
+      "Healthcare professional reputation management for doctors & medical practices globally. Suppress negative reviews, build patient trust across US, Europe & worldwide. HIPAA-compliant online reputation management solutions. Expert support for practitioners.",
   },
   lawyers: {
-    title: "Lawyers & Attorneys | Reputation360",
+    title:
+      "Online Reputation Management for Lawyers & Attorneys | Reputation360",
     path: AUDIENCE_PATH.lawyers,
     description:
-      "Reputation management for legal professionals: search visibility, content strategy, and discretion for lawyers and law firms in the US and globally.",
+      "Attorney reputation management & online presence solutions worldwide. Reputation360 suppresses negative search results & builds credibility for legal professionals across US, Canada & Australia. Ethical online reputation management for lawyers.",
   },
   executives: {
-    title: "Executives & C-Suite Leaders | Reputation360",
+    title:
+      "Online Reputation Management for Executives & C-Suite Leaders | Reputation360",
     path: AUDIENCE_PATH.executives,
     description:
-      "Executive and leadership ORM: control your narrative in search, news, and social so your digital presence matches your role.",
+      "Executive reputation management for C-suite leaders worldwide. Reputation360 protects & enhances your professional brand across US, Europe & worldwide. Control your digital narrative. Expert online reputation management for leadership.",
   },
   businesses: {
-    title: "Businesses & Companies | Reputation360",
+    title:
+      "Online Reputation Management for Businesses & Companies | Reputation360",
     path: AUDIENCE_PATH.businesses,
     description:
-      "Corporate and brand online reputation: monitoring, content, and response strategies for companies operating in the US and beyond.",
+      "Business reputation management & negative link suppression globally. Reputation360 helps companies across US, Europe & worldwide control their online presence, remove harmful content & strengthen brand credibility. Expert online reputation management.",
   },
   individuals: {
-    title: "Individuals | Reputation360",
+    title:
+      "Online Reputation Management for Individuals | Protect Your Personal Reputation Online",
     path: AUDIENCE_PATH.individuals,
     description:
-      "Personal online reputation for individuals: suppress harmful links, build authority, and protect your name in search.",
+      "Protect your personal reputation online. Reputation360 helps individuals in the US, Europe & worldwide to suppress negative search results & build credible digital identities. Start your free reputation audit today.",
   },
 };

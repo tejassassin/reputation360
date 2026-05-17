@@ -6,7 +6,7 @@ import { CaseStudyListCard } from "../components/CaseStudyListCard.jsx";
 import { CaseStudyPageCta } from "../components/CaseStudyPageCta.jsx";
 import { CASE_STUDIES, INDUSTRY_CATEGORIES } from "../data/caseStudies/index.js";
 import { SeoHead } from "../components/SeoHead.jsx";
-import { SEO } from "../data/seoPageMeta.js";
+import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 
 const ALL = "All";
 
@@ -81,6 +81,7 @@ function ActiveChip({ children, onRemove, title }) {
 }
 
 export default function CaseStudiesPage() {
+  const seo = useLocalizedSeo("caseStudies");
   const heroStatsRef = useRef(null);
   const [heroStatsLive, setHeroStatsLive] = useState(false);
   const [industry, setIndustry] = useState(ALL);
@@ -161,9 +162,9 @@ export default function CaseStudiesPage() {
   return (
     <>
       <SeoHead
-        title={SEO.caseStudies.title}
-        description={SEO.caseStudies.description}
-        canonicalPath="/case-studies"
+        title={seo.title}
+        description={seo.description}
+        canonicalPath={seo.path}
       />
     <main className="relative flex-1 overflow-x-hidden bg-[#F5F7FA] pt-28 text-slate-900 selection:bg-[#4CAF50]/30 sm:pt-32">
       <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden>

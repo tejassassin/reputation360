@@ -1,9 +1,9 @@
 import { SeoHead } from "../components/SeoHead.jsx";
 import WhoWeServeCards from "../components/WhoWeServeCards";
-import { SEO } from "../data/seoPageMeta.js";
+import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 
 export default function WhoWeServePage() {
-  const seo = SEO.whoWeServe;
+  const seo = useLocalizedSeo("whoWeServe");
 
   return (
     <>

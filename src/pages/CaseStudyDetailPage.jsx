@@ -13,11 +13,11 @@ import { CaseStudySectionBlock } from "../components/CaseStudySectionBlock.jsx";
 import { parseEngagementMonths } from "../utils/parseEngagement.js";
 import { ProfileValueLines } from "../components/ProfileValueLines.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
-import { SEO } from "../data/seoPageMeta.js";
+import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 
-function metaDescriptionFromText(text) {
+function metaDescriptionFromText(text, fallbackDescription) {
   const t = String(text || "").replace(/\s+/g, " ").trim();
-  if (t.length <= 160) return t || SEO.caseStudies.description;
+  if (t.length <= 160) return t || fallbackDescription;
   return `${t.slice(0, 157).trimEnd()}...`;
 }
 
@@ -99,6 +99,7 @@ function CaseStudyEngagementBlock({ study }) {
 const TOC_OBSERVER_SUPPRESS_MS = 800;
 
 export default function CaseStudyDetailPage({ caseStudySlug }) {
+  const caseStudiesSeo = useLocalizedSeo("caseStudies");
   const { study, legacyNumeric } = useMemo(
     () => resolveStudyFromPathSegment(caseStudySlug),
     [caseStudySlug],
@@ -221,7 +222,7 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
       <>
         <SeoHead
           title="Case study | Reputation360"
-          description={SEO.caseStudies.description}
+          description={caseStudiesSeo.description}
           canonicalPath="/case-studies"
         />
       <main className="relative min-h-0 flex-1 overflow-x-hidden bg-slate-50 pt-28 text-center text-slate-900 md:pt-32">
@@ -242,7 +243,7 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
     <>
       <SeoHead
         title={`${study.listTitle} | Reputation360`}
-        description={metaDescriptionFromText(study.summary)}
+        description={metaDescriptionFromText(study.summary, caseStudiesSeo.description)}
         canonicalPath={`/case-studies/${study.slug}`}
       />
     <main className="relative min-h-0 flex-1 bg-slate-50 pt-24 text-slate-900 md:pt-28">
