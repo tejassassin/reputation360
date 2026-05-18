@@ -187,7 +187,7 @@ const FAQS = [
   {
     id: "faq-7",
     q: "Is this service different from traditional online reputation management agencies?",
-    a: "Most generic online reputation management companies use black-hat tactics or build low-quality content. Our reputation repair services focus on authentic authority - we help executives, doctors, lawyers, and founders build genuine professional narratives that naturally overshadow outdated or unfair content.",
+    a: "Most generic online reputation management companies use black-hat tactics or build low-quality content. At Reputation360, our reputation repair services focus on authentic authority - we help executives, doctors, lawyers, and founders build genuine professional narratives that naturally overshadow outdated or unfair content.",
   },
 ];
 
@@ -1033,7 +1033,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                     The first step is always the reputation audit. Knowing exactly where you stand allows you to move
                     from a position of anxiety to a position of action. Our free consultation reviews your search
                     landscape, identifies negative links affecting your Google reputation, and outlines your personalized
-                    reputation repair strategy. Whether you work with us or take these steps yourself, the cost of
+                    reputation repair strategy. Whether you work with Reputation360 or take these steps yourself, the cost of
                     inaction - in leads, revenue, and credibility - only grows with time.
                   </p>
                 </div>
