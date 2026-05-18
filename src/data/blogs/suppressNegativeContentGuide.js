@@ -23,6 +23,10 @@ export const suppressNegativeGuideListing = {
   imageAlt: "Professional reviewing strategy and search results on a laptop",
 };
 
+/** SEO meta description from keyword strategy doc (verbatim recommended string). */
+export const suppressNegativeGuideMetaDescription =
+  "Learn how to remove negative search results & improve Google search reputation. Professional guide to negative content suppression, reputation repair services, and online reputation management. Free audit included.";
+
 export const suppressNegativeGuideMetaLine =
   "Published: May 17, 2026 | Read Time: 8 minutes | Last Updated: May 17, 2026";
 

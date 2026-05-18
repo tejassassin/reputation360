@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import {
   ArrowRight,
   BarChart3,
@@ -13,6 +13,7 @@ import {
   Stethoscope,
   Wallet,
   Scale,
+  Briefcase,
 } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { cn } from "@/lib/utils";
@@ -20,6 +21,7 @@ import { calendlyCtaButtonClass, calendlyNewTabProps } from "@/constants/schedul
 import {
   SUPPRESS_NEGATIVE_GUIDE_PATH,
   suppressNegativeGuideListing,
+  suppressNegativeGuideMetaDescription,
 } from "../data/blogs/suppressNegativeContentGuide.js";
 
 const GUIDE_NAV = [
@@ -143,6 +145,11 @@ const MISTAKES = [
     title: "Mistake #4: Abandoning the Process Too Early",
     body: "Suppression is a momentum game. Stopping after 3 months often allows the negative content to spring back up. Long-term authority is the only permanent solution.",
   },
+  {
+    id: "mistake-5",
+    title: "Mistake #5: Not Using Professional Reputation Management Services",
+    body: "Attempting to remove negative search results or suppress negative content alone often fails because individuals lack authority-building access. Professional reputation repair services have established relationships with high-authority platforms and understand Google's algorithm nuances that solo attempts miss.",
+  },
 ];
 
 const FAQS = [
@@ -161,13 +168,33 @@ const FAQS = [
     q: "Is suppression ethical?",
     a: "Absolutely. Suppression is about ensuring that a single moment or an unfair criticism doesn't define a lifetime of professional achievement. It is about balancing the narrative with your actual contributions.",
   },
+  {
+    id: "faq-4",
+    q: "How long does it actually take to remove negative search results?",
+    a: "Timeline depends on the authority of the negative links and your target audience. Pushing down negative search results typically takes 60-90 days for early movement, 6+ months for full first-page clearance. Our case studies show most clients see measurable improvement within 120 days.",
+  },
+  {
+    id: "faq-5",
+    q: "What's the difference between reputation repair and reputation management?",
+    a: "Reputation repair is crisis-focused - removing or suppressing active negative content. Reputation management is ongoing - monitoring your online presence, building positive assets, and maintaining your professional reputation long-term. Most professionals need both: immediate repair followed by continuous monitoring.",
+  },
+  {
+    id: "faq-6",
+    q: "Can you legally suppress or remove negative content from Google?",
+    a: "Yes. Suppression (pushing down negative search results through legitimate positive content) is 100% ethical and legal. Removal is legal only when content violates Google's policies (defamatory, illegal, non-consensual intimate content, etc.). We specialize in both: removal where possible, suppression where appropriate.",
+  },
+  {
+    id: "faq-7",
+    q: "Is this service different from traditional online reputation management agencies?",
+    a: "Most generic online reputation management companies use black-hat tactics or build low-quality content. Our reputation repair services focus on authentic authority - we help executives, doctors, lawyers, and founders build genuine professional narratives that naturally overshadow outdated or unfair content.",
+  },
 ];
 
 const STEPS = [
   {
     n: 1,
-    title: "Step 1: Comprehensive Reputation Audit",
-    body: 'Map every keyword and search variant that triggers negative content. Identify "Low-Hanging Fruit" sites where your influence is highest. You cannot solve a problem you haven\'t fully measured.',
+    title: "Step 1: Comprehensive Reputation Audit & Negative Link Analysis",
+    body: "Map every keyword and search variant that triggers negative content. This audit identifies which negative articles and harmful links are damaging your first-page results. Identify 'Low-Hanging Fruit' sites where your influence is highest. You cannot remove negative content from Google if you haven't fully measured what you're fighting. You cannot solve a problem you haven't fully measured.",
     bullets: (
       <ul className="mt-0 space-y-3 pl-0 font-body">
         <li className="flex items-start gap-3 text-sm text-steel">
@@ -177,6 +204,10 @@ const STEPS = [
         <li className="flex items-start gap-3 text-sm text-steel">
           <Link2 className="mt-0.5 h-4 w-4 shrink-0 text-navy" aria-hidden />
           Catalog the &quot;Authority Score&quot; of negative URLs.
+        </li>
+        <li className="flex items-start gap-3 text-sm text-steel">
+          <ListChecks className="mt-0.5 h-4 w-4 shrink-0 text-navy" aria-hidden />
+          Identify reputation monitoring needs to prevent future negative content
         </li>
       </ul>
     ),
@@ -195,7 +226,7 @@ const STEPS = [
   {
     n: 3,
     title: "Step 3: Content Creation & Saturation",
-    body: 'Produce high-authority articles and multimedia. Google prioritizes "freshness" and "authority"- use this to bury stale negativity. The goal is to flood the first page with content you control.',
+    body: 'Produce high-authority articles and multimedia. Google prioritizes "freshness" and "authority"- use this to bury stale negativity. The goal is to flood the first page with content you control.\n\nThis phase of Google reputation management focuses on pushing down negative search results through authority-building.',
     extra: (
       <div className="mt-4 grid grid-cols-2 gap-3 md:gap-4">
         {["Video Interviews", "Industry Whitepapers", "Press Releases", "Podcast Features"].map((t) => (
@@ -209,7 +240,7 @@ const STEPS = [
   {
     n: 4,
     title: "Step 4: Citations and Link Building",
-    body: 'Build credibility through backlinks. A profile with 50 quality links will always outrank a blog post with none. Link building provides the "gravity" that keeps your positive content anchored at the top of search results.',
+    body: 'Build credibility through backlinks. A profile with 50 quality links will always outrank a blog post with none. Link building provides the "gravity" that keeps your positive content anchored at the top of search results.\n\nAs these reputation repair assets mature, you\'ll see negative links and articles gradually disappear from Google\'s first page.',
   },
   {
     n: 5,
@@ -224,28 +255,28 @@ const TIMELINE_PHASES = [
     range: "Month 1-2",
     summary: "Asset Creation & Baseline Auditing",
     detail:
-      "We establish measurement baselines, inventory existing assets, and begin publishing foundational authority pages so Google has fresh signals to crawl.",
+      "We establish measurement baselines and complete your reputation audit, inventory existing assets, and begin publishing foundational authority pages so Google has fresh signals to crawl and shift focus away from negative search results.",
   },
   {
     id: "p2",
     range: "Month 3-5",
-    summary: "First Page Movement & Indexing",
+    summary: "First Page Movement & Negative Content Pushed Down",
     detail:
-      "New and optimized assets start earning impressions; weaker negative URLs begin slipping as your owned properties gain traction and internal links strengthen.",
+      "Your positive content begins ranking on Google's first page, and previously dominant negative articles start moving to page 2+.",
   },
   {
     id: "p3",
     range: "Month 6-9",
     summary: "Significant Suppression (Top 10 Clearance)",
     detail:
-      "This is typically where meaningful shifts appear: stronger positives consolidate in the top 10 while high-friction negatives lose visibility for priority queries.",
+      "Most negative links and articles are successfully pushed down past page 1. Your reputation repair strategy is showing measurable ROI - leads report cleaner, more professional first impressions when they Google your name.",
   },
   {
     id: "p4",
     range: "Month 12+",
-    summary: "Long-term Shielding & Maintenance",
+    summary: "Long-term Shielding & Reputation Monitoring",
     detail:
-      "Ongoing publishing, monitoring, and citation hygiene keep your narrative resilient so negatives do not re-surface when algorithms refresh.",
+      "Ongoing reputation monitoring services ensure new negative content is caught early. Your improved Google search reputation is protected through consistent content updates and brand authority maintenance.",
   },
 ];
 
@@ -370,13 +401,8 @@ export default function BlogSuppressNegativeContentGuidePage() {
   const [openAccordion, setOpenAccordion] = useState({});
   const [activeStep, setActiveStep] = useState(1);
   const [activeScenario, setActiveScenario] = useState("chen");
-  const [checklist, setChecklist] = useState([false, false, false, false]);
+  const [checklist, setChecklist] = useState([false, false, false, false, false]);
   const [timelinePhase, setTimelinePhase] = useState(0);
-
-  const metaDescription = useMemo(() => {
-    const t = suppressNegativeGuideListing.excerpt;
-    return t.length <= 160 ? t : `${t.slice(0, 157).trimEnd()}...`;
-  }, []);
 
   const toggleAccordion = useCallback((key) => {
     setOpenAccordion((prev) => ({ ...prev, [key]: !prev[key] }));
@@ -419,7 +445,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
     <>
       <SeoHead
         title="How to Suppress Negative Content: The Professional's Guide to Online Reputation Control | Reputation360"
-        description={metaDescription}
+        description={suppressNegativeGuideMetaDescription}
         canonicalPath={SUPPRESS_NEGATIVE_GUIDE_PATH}
         ogImage={suppressNegativeGuideListing.image}
       />
@@ -504,42 +530,54 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 <div className="relative mt-8">
                   <p className="mb-8 font-heading text-2xl leading-relaxed font-bold italic text-charcoal md:text-3xl">
                     &quot;It starts with a search. A prospective patient, a potential high-value client, or a future
-                    partner enters your name. Then they see it-a lingering negative headline, an unfair review, or a
-                    misrepresentative archive.&quot;
-                  </p>
-                  <p className="text-lg leading-loose text-steel">
-                    In that split second, your authority evaporates. This is the Silent Crisis: the unseen exit of
-                    qualified leads who never call because Google&apos;s first page has already told them a story you
-                    didn&apos;t write. Suppression isn&apos;t about hiding truth; it&apos;s about reclaiming the
-                    context of your professional narrative.
+                    partner enters your name. Then they see it - a lingering negative headline, an unfair review, or a
+                    misrepresentative archive. In today&apos;s search landscape, they&apos;ll either find the negative
+                    content on Google&apos;s first page - or they won&apos;t find you at all. Our guide shows you how to
+                    remove negative search results and reclaim your digital presence.&quot;
                   </p>
                 </div>
-                <div className="mt-10 flex flex-col items-stretch gap-6 rounded-2xl border-l-8 border-green bg-navy/5 p-6 sm:flex-row sm:items-center sm:p-8">
-                  <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center self-center rounded-full bg-green font-heading text-2xl font-black text-navy sm:self-auto">
-                    88%
+                <div className="mt-10 flex flex-col gap-6">
+                  <div className="flex flex-col items-stretch gap-6 rounded-2xl border-l-8 border-green bg-navy/5 p-6 sm:flex-row sm:items-center sm:p-8">
+                    <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center self-center rounded-full bg-green font-heading text-2xl font-black text-navy sm:self-auto">
+                      88%
+                    </div>
+                    <div>
+                      <span className="mb-1 block font-heading text-xs font-bold tracking-widest text-navy uppercase">
+                        Quick fact
+                      </span>
+                      <p className="font-body font-medium italic text-steel">
+                        &quot;88% of consumers trust online reviews as much as personal recommendations. If they find it
+                        on page one, it is their truth.&quot;
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <span className="mb-1 block font-heading text-xs font-bold tracking-widest text-navy uppercase">
-                      Quick fact
-                    </span>
-                    <p className="font-body font-medium italic text-steel">
-                      &quot;88% of consumers trust online reviews as much as personal recommendations. If they find it
-                      on page one, it is their truth.&quot;
-                    </p>
+                  <div className="flex flex-col items-stretch gap-6 rounded-2xl border-l-8 border-navy bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:p-8">
+                    <div className="flex min-h-20 min-w-0 shrink-0 flex-col items-center justify-center self-center rounded-2xl bg-navy px-4 py-3 font-heading text-sm font-black leading-tight text-white sm:max-w-[11rem] sm:self-auto sm:text-base">
+                      22% Drop in Revenue
+                    </div>
+                    <div>
+                      <p className="font-body font-medium text-steel">
+                        A single negative link on Google&apos;s first page results in a 22% loss of qualified leads
+                        annually.
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <div className="mt-10 text-lg text-steel">
                   <p>
-                    At Reputation360, we have helped hundreds of professionals-from neurosurgeons to hedge fund
-                    managers-reclaim their digital identities. We understand that the internet doesn&apos;t have a
-                    &quot;forget&quot; button, but it does have a hierarchy. Our mission is to ensure your hierarchy
+                    At Reputation360, we have helped hundreds of professionals - from neurosurgeons to hedge fund
+                    managers - reclaim their digital identities. Our proven online reputation management and negative
+                    link suppression strategies work by understanding that the internet doesn&apos;t have a
+                    &apos;forget&apos; button, but it does have a hierarchy. Our mission is to ensure your hierarchy
                     reflects your excellence.
                   </p>
                 </div>
               </section>
 
               <section className="mb-20 scroll-mt-36" id="stakes">
-                <h2 className="mb-8 font-heading text-3xl font-bold text-navy">The Stakes: Why This Matters</h2>
+                <h2 className="mb-8 font-heading text-3xl font-bold text-navy">
+                  The Stakes: Why Google Reputation Management Matters
+                </h2>
                 <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm md:p-10">
                   <p className="mb-6 font-body text-lg leading-relaxed text-steel">
                     The Business Impact narrative is clear: A single negative link on the first page can result in a
@@ -563,8 +601,8 @@ export default function BlogSuppressNegativeContentGuidePage() {
                   The cost of ignoring your reputation
                 </h2>
                 <p className="mb-8 font-body text-lg text-steel">
-                  Negative search results aren&apos;t just a PR problem; they are a structural leak in your business
-                  model. Use the visualizer below to see the estimated annual loss by practice size.
+                  Ignoring negative search results - whether through inaction or ineffective tactics - costs you leads.
+                  These aren&apos;t just PR problems; they&apos;re structural leaks in your business model.
                 </p>
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
                   <div className="group cursor-default rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-navy/35 hover:bg-slate-50 hover:shadow-lg motion-reduce:transform-none md:p-8">
@@ -610,7 +648,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
 
               <section className="mb-20 scroll-mt-36" id="permanence">
                 <h2 className="mb-8 font-heading text-3xl font-bold text-navy">Why Negative Content Sticks</h2>
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                   {[
                     {
                       t: "The Permanence Problem",
@@ -623,6 +661,10 @@ export default function BlogSuppressNegativeContentGuidePage() {
                     {
                       t: "The Streisand Effect",
                       d: "Attempting to delete content often draws more attention to it. Suppression is the sophisticated alternative to a public battle.",
+                    },
+                    {
+                      t: "The Search Algorithm Reality",
+                      d: "Every day without a strategy to remove negative articles from Google compounds your reputation damage. The algorithm doesn't forget - it just keeps serving yesterday's problems to tomorrow's prospects.",
                     },
                   ].map((card, i) => (
                     <div
@@ -657,13 +699,13 @@ export default function BlogSuppressNegativeContentGuidePage() {
               <section className="mb-20 scroll-mt-36" id="works">
                 <h2 className="mb-6 font-heading text-3xl font-bold text-navy">What actually works</h2>
                 <div className="rounded-[2rem] bg-navy p-8 text-white md:p-10">
-                  <p className="mb-4 font-body text-lg">
+                  <p className="font-body text-lg leading-relaxed text-slate-200">
                     Real reputation control is built on three pillars:{" "}
-                    <span className="font-heading font-bold text-green">Ownership, Optimization, and Outreach.</span>
-                  </p>
-                  <p className="font-body text-slate-300">
-                    By creating a network of high-authority assets that you own, you force Google&apos;s algorithm to
-                    prioritize your current, professional narrative over outdated or unfair mentions.
+                    <span className="font-heading font-bold text-green">Ownership, Optimization, and Outreach.</span>{" "}
+                    Unlike quick fixes that fail, authentic reputation repair requires pushing down negative search
+                    results through strategic Google reputation management. By creating a network of high-authority
+                    assets that you own, you force Google&apos;s algorithm to prioritize your current, professional
+                    narrative over outdated or unfair mentions.
                   </p>
                 </div>
               </section>
@@ -711,7 +753,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                     <h3 className="mb-3 font-heading text-lg font-extrabold text-navy sm:text-xl">
                       {activeStepData.title}
                     </h3>
-                    <p className="mb-3 font-body text-sm leading-relaxed text-steel sm:mb-4 sm:text-base">
+                    <p className="mb-3 font-body text-sm leading-relaxed whitespace-pre-line text-steel sm:mb-4 sm:text-base">
                       {activeStepData.body}
                     </p>
                     {activeStepData.bullets ?? null}
@@ -722,7 +764,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
 
               <section className="mb-20 scroll-mt-36" id="scenarios">
                 <h2 className="mb-8 font-heading text-3xl font-bold text-navy">Real Professional Scenarios</h2>
-                <div className="grid gap-4 md:grid-cols-2">
+                <div className="grid gap-4 md:grid-cols-3">
                   <button
                     type="button"
                     onClick={() => setActiveScenario("chen")}
@@ -739,8 +781,9 @@ export default function BlogSuppressNegativeContentGuidePage() {
                       </span>
                       <Stethoscope className="h-5 w-5 shrink-0 text-navy" aria-hidden />
                     </div>
-                    <p className="font-heading text-lg font-bold text-navy">Dr. Sarah Chen</p>
-                    <p className="text-sm text-steel">Unfair staff blog ranking #2 for her name.</p>
+                    <p className="font-heading text-sm font-bold leading-snug text-navy md:text-base">
+                      Case 1: Dr. Sarah Chen - How to Remove Negative Articles from Google (#2 Ranking)
+                    </p>
                     <span className="text-xs font-semibold text-navy underline-offset-2 hover:underline">
                       {activeScenario === "chen" ? "Selected" : "View this case"}
                     </span>
@@ -761,10 +804,34 @@ export default function BlogSuppressNegativeContentGuidePage() {
                       </span>
                       <Scale className="h-5 w-5 shrink-0 text-navy" aria-hidden />
                     </div>
-                    <p className="font-heading text-lg font-bold text-navy">Attorney Marcus Johnson</p>
-                    <p className="text-sm text-steel">Old dismissed dispute still surfacing for prospects.</p>
+                    <p className="font-heading text-sm font-bold leading-snug text-navy md:text-base">
+                      Case 2: Attorney Marcus Johnson - Reputation Recovery from Negative Press
+                    </p>
                     <span className="text-xs font-semibold text-navy underline-offset-2 hover:underline">
                       {activeScenario === "johnson" ? "Selected" : "View this case"}
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveScenario("mitchell")}
+                    className={cn(
+                      "flex flex-col items-start gap-3 rounded-2xl border p-5 text-left font-body transition-all md:p-6",
+                      activeScenario === "mitchell"
+                        ? "border-navy bg-navy/5 shadow-md ring-2 ring-navy/30"
+                        : "border-slate-200 bg-white hover:border-navy/30 hover:shadow-sm",
+                    )}
+                  >
+                    <div className="flex w-full items-center justify-between gap-2">
+                      <span className="font-heading text-xs font-bold tracking-widest text-steel uppercase">
+                        Case 3
+                      </span>
+                      <Briefcase className="h-5 w-5 shrink-0 text-navy" aria-hidden />
+                    </div>
+                    <p className="font-heading text-sm font-bold leading-snug text-navy md:text-base">
+                      Case 3: Sarah Mitchell, Founder - Executive Reputation Management
+                    </p>
+                    <span className="text-xs font-semibold text-navy underline-offset-2 hover:underline">
+                      {activeScenario === "mitchell" ? "Selected" : "View this case"}
                     </span>
                   </button>
                 </div>
@@ -774,39 +841,42 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 >
                   {activeScenario === "chen" ? (
                     <div id="chen">
-                      <h4 className="mb-3 font-heading text-xl font-bold text-navy">The Case of the Unfair Review</h4>
-                      <p className="mb-5 font-body leading-relaxed text-steel">
-                        Dr. Chen faced a viral, misrepresentative blog post from an disgruntled former staff member. It
-                        appeared as the #2 result for her name.
+                      <h4 className="mb-5 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
+                        Case 1: Dr. Sarah Chen - How to Remove Negative Articles from Google (#2 Ranking)
+                      </h4>
+                      <p className="font-body leading-relaxed text-steel">
+                        Our negative content suppression strategy involved creating a series of high-authority medical
+                        guides on her own .com domain and establishing her as a contributor on Healthline. Within 180
+                        days, the negative blog - previously #2 for her name search - was pushed down to page 3, and
+                        her own professional content dominated Google&apos;s first page.
                       </p>
-                      <div className="rounded-2xl border-l-4 border-green bg-offwhite p-5 md:p-6">
-                        <span className="mb-2 block font-heading text-xs font-bold text-navy uppercase">
-                          The solution
-                        </span>
-                        <p className="font-body text-sm italic text-steel">
-                          &quot;We created a series of high-authority medical guides on her own .com domain and
-                          established her as a contributor on Healthline. Within 180 days, the negative blog was on
-                          page 3.&quot;
-                        </p>
-                      </div>
+                    </div>
+                  ) : activeScenario === "johnson" ? (
+                    <div id="johnson">
+                      <h4 className="mb-5 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
+                        Case 2: Attorney Marcus Johnson - Reputation Recovery from Negative Press
+                      </h4>
+                      <p className="font-body leading-relaxed text-steel">
+                        An old, dismissed legal dispute continued surfacing on Google when potential clients searched his
+                        name. Our reputation recovery strategy involved identifying which negative articles and links were
+                        most damaging, then systematically building authoritative legal content and professional profiles
+                        to push down negative Google results. Result: Within 6 months, the outdated dispute article dropped
+                        from position #4 to page 2, while his own case studies and credentials claimed positions #1-3.
+                      </p>
                     </div>
                   ) : (
-                    <div id="johnson">
-                      <h4 className="mb-3 font-heading text-xl font-bold text-navy">The Case of the Old Scandal</h4>
-                      <p className="mb-5 font-body leading-relaxed text-steel">
-                        Marcus had a 10-year-old local news story about a dismissed legal dispute that still haunted his
-                        firm&apos;s online presence.
+                    <div id="mitchell">
+                      <h4 className="mb-5 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
+                        Case 3: Sarah Mitchell, Founder - Executive Reputation Management
+                      </h4>
+                      <p className="font-body leading-relaxed text-steel">
+                        As a founder scaling her SaaS company, Sarah needed to establish thought leadership while
+                        suppressing an old blog post about a failed startup. Our executive reputation management service
+                        created a targeted strategy: publish on major tech blogs, speaking engagements, and LinkedIn
+                        articles. This shifted search results so that her professional reputation dominated instead of the
+                        negative archive. Result: Transformed from one negative link on page 1 to zero negative content
+                        in the top 10 results within 4 months.
                       </p>
-                      <div className="rounded-2xl border-l-4 border-green bg-offwhite p-5 md:p-6">
-                        <span className="mb-2 block font-heading text-xs font-bold text-navy uppercase">
-                          The solution
-                        </span>
-                        <p className="font-body text-sm italic text-steel">
-                          &quot;Through strategic professional citation building and the launch of a legal insights
-                          podcast, we pushed the archive link out of the top 20 results, ensuring it no longer impacted
-                          new client intake.&quot;
-                        </p>
-                      </div>
                     </div>
                   )}
                 </div>
@@ -877,6 +947,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                         "My professional website is on the first page of Google.",
                         "I publish authoritative content at least once per month.",
                         "I am notified instantly of any new online mentions.",
+                        "I have a reputation monitoring system that alerts me to new negative content within 24 hours.",
                       ].map((label, i) => (
                         <label
                           key={label}
@@ -940,9 +1011,11 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 <h2 className="mb-6 font-heading text-3xl font-bold text-navy">The next step & start today</h2>
                 <div className="mb-10 font-body text-lg text-steel">
                   <p>
-                    The first step is always the audit. Knowing exactly where you stand allows you to move from a
-                    position of anxiety to a position of action. Whether you work with us or take these steps yourself,
-                    the cost of inaction only grows with time.
+                    The first step is always the reputation audit. Knowing exactly where you stand allows you to move
+                    from a position of anxiety to a position of action. Our free consultation reviews your search
+                    landscape, identifies negative links affecting your Google reputation, and outlines your personalized
+                    reputation repair strategy. Whether you work with us or take these steps yourself, the cost of
+                    inaction - in leads, revenue, and credibility - only grows with time.
                   </p>
                 </div>
                 <section className="mx-auto max-w-2xl overflow-hidden rounded-2xl bg-linear-to-br from-navy via-slate to-navy px-5 py-8 text-center text-white shadow-lg sm:rounded-2xl sm:px-8 sm:py-9">
