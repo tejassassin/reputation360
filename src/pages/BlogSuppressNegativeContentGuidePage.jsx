@@ -14,6 +14,7 @@ import {
   Wallet,
   Scale,
   Briefcase,
+  TrendingDown,
 } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { cn } from "@/lib/utils";
@@ -551,11 +552,29 @@ export default function BlogSuppressNegativeContentGuidePage() {
                       </p>
                     </div>
                   </div>
-                  <div className="flex flex-col items-stretch gap-6 rounded-2xl border-l-8 border-navy bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:p-8">
-                    <div className="flex min-h-20 min-w-0 shrink-0 flex-col items-center justify-center self-center rounded-2xl bg-navy px-4 py-3 font-heading text-sm font-black leading-tight text-white sm:max-w-[11rem] sm:self-auto sm:text-base">
-                      22% Drop in Revenue
+                  <div className="flex flex-col items-stretch gap-6 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm ring-1 ring-slate-100 sm:flex-row sm:items-center sm:p-8">
+                    <div className="relative mx-auto flex aspect-square w-full max-w-[10.5rem] shrink-0 flex-col items-center justify-center gap-1.5 self-center overflow-hidden rounded-2xl bg-linear-to-br from-navy via-navy to-slate-900 p-4 text-center shadow-[0_12px_40px_-12px_rgba(15,23,42,0.45)] ring-1 ring-white/10 sm:mx-0 sm:max-w-[11.5rem] sm:self-auto">
+                      <div
+                        className="pointer-events-none absolute inset-0 opacity-[0.12]"
+                        style={{
+                          backgroundImage:
+                            "radial-gradient(circle at 30% 20%, rgba(255,255,255,0.9) 0%, transparent 55%)",
+                        }}
+                        aria-hidden
+                      />
+                      <TrendingDown
+                        className="relative z-10 h-6 w-6 text-green sm:h-7 sm:w-7"
+                        strokeWidth={2.25}
+                        aria-hidden
+                      />
+                      <p className="relative z-10 font-heading text-3xl font-black tabular-nums leading-none text-green sm:text-[2rem]">
+                        22%
+                      </p>
+                      <p className="relative z-10 max-w-[9rem] font-heading text-[0.65rem] font-bold leading-snug tracking-wide text-white uppercase sm:text-xs">
+                        Drop in Revenue
+                      </p>
                     </div>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <p className="font-body font-medium text-steel">
                         A single negative link on Google&apos;s first page results in a 22% loss of qualified leads
                         annually.
