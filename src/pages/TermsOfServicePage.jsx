@@ -90,7 +90,7 @@ export default function TermsOfServicePage() {
             <BulletList
               items={[
                 "Your purchase and use of our online reputation management services",
-                "Your access to our website at https://www.reputation360.in and related platforms",
+                "Your access to our website at https://www.thereputation360.com and related platforms",
                 "Any associated client portals, tools, reports, and communications",
                 "Your relationship with Reputation360",
               ]}
@@ -241,10 +241,10 @@ export default function TermsOfServicePage() {
               <p>
                 If you believe there is a billing error or unauthorized charge, contact us immediately at{" "}
                 <a
-                  href="mailto:support@reputation360.in"
+                  href="mailto:support@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  support@reputation360.in
+                  support@thereputation360.com
                 </a>{" "}
                 or by phone. You must report disputes prior to the next billing cycle.
               </p>
@@ -414,10 +414,10 @@ export default function TermsOfServicePage() {
                 If your Services include auto-renewal, you may cancel renewal by providing written notice at least 30 days
                 before the end of the current term. Contact:{" "}
                 <a
-                  href="mailto:support@reputation360.in"
+                  href="mailto:support@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  support@reputation360.in
+                  support@thereputation360.com
                 </a>{" "}
                 or call our office.
               </p>
@@ -494,10 +494,10 @@ export default function TermsOfServicePage() {
               <p>
                 Any notices required under this Agreement should be sent to{" "}
                 <a
-                  href="mailto:support@reputation360.in"
+                  href="mailto:support@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  support@reputation360.in
+                  support@thereputation360.com
                 </a>{" "}
                 or by mail to our registered address in India.
               </p>
@@ -545,21 +545,21 @@ export default function TermsOfServicePage() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:hello@reputation360.in"
+                  href="mailto:hello@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  hello@reputation360.in
+                  hello@thereputation360.com
                 </a>
               </p>
               <p>
                 Website:{" "}
                 <a
-                  href="https://www.reputation360.in"
+                  href="https://www.thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://www.reputation360.in
+                  https://www.thereputation360.com
                 </a>
               </p>
               <p className="mt-8 text-sm text-slate-500">

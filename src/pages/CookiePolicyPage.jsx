@@ -41,12 +41,12 @@ export default function CookiePolicyPage() {
                 This Cookie Policy explains how Reputation360 (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;, or &quot;Company&quot;) uses cookies and
                 similar tracking technologies on our website at{" "}
                 <a
-                  href="https://www.reputation360.in"
+                  href="https://www.thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://www.reputation360.in
+                  https://www.thereputation360.com
                 </a>{" "}
                 (the &quot;Site&quot;). This policy is part of our overall{" "}
                 <a
@@ -376,21 +376,21 @@ export default function CookiePolicyPage() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:hello@reputation360.in"
+                  href="mailto:hello@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  hello@reputation360.in
+                  hello@thereputation360.com
                 </a>
               </p>
               <p>
                 Website:{" "}
                 <a
-                  href="https://www.reputation360.in"
+                  href="https://www.thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://www.reputation360.in
+                  https://www.thereputation360.com
                 </a>
               </p>
               <p>

@@ -407,7 +407,7 @@ You now have the complete framework for suppressing negative content. The questi
 
 Most professionals who read guides like this don't act. They understand the value intellectually but don't make the commitment. The ones who succeed treat their online reputation like they treat their professional practice: with intention, consistency, and expertise.
 
-**If you want to explore your specific situation** - understand exactly what's ranking against you, identify which negative sources are the biggest problem, and create a custom suppression strategy - Reputation360 offers a [free 30-minute reputation assessment](https://www.reputation360.in/free-assessment) where we audit your current search results and show you exactly what needs to change.
+**If you want to explore your specific situation** - understand exactly what's ranking against you, identify which negative sources are the biggest problem, and create a custom suppression strategy - Reputation360 offers a [free 30-minute reputation assessment](https://www.thereputation360.com/contact) where we audit your current search results and show you exactly what needs to change.
 
 Your online reputation is the professional asset you probably think about the least but that affects you the most.
 
@@ -428,6 +428,6 @@ That's it. Simple, not complicated.
 
 ---
 
-**[Schedule Your Free Reputation Assessment](https://www.reputation360.in/free-assessment)** - **[Contact Our Team](https://www.reputation360.in/contact)**
+**[Schedule Your Free Reputation Assessment](https://www.thereputation360.com/contact)** - **[Contact Our Team](https://www.thereputation360.com/contact)**
 
 *Reputation360 helps professionals suppress negative content and control their online narrative. Over seven years, we've helped hundreds of doctors, lawyers, and consultants reclaim their search results.*

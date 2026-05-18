@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { SITE_CANONICAL_ORIGIN } from "../constants/siteUrl.js";
+import { METADATA_BASE } from "../constants/siteUrl.js";
 
 const DESC_ID = "r360-meta-description";
 const CANON_ID = "r360-link-canonical";
-const DEFAULT_OG_IMAGE = `${SITE_CANONICAL_ORIGIN}/about-hero-search-mockup.png`;
+const DEFAULT_OG_IMAGE = `${METADATA_BASE}/about-hero-search-mockup.png`;
 
 /** Create or update a <meta> tag by its identifying attribute. */
 function upsertMeta(attr, attrVal, content) {
@@ -56,7 +56,8 @@ function removeExtraDescriptionMetas(canonical) {
 
 /**
  * Sets document title, meta description, rel=canonical, Open Graph, and
- * Twitter Card tags (SPA: updates <head> on every route change).
+ * Twitter Card tags (SPA: updates <head> on every route change). Uses
+ * METADATA_BASE from siteUrl (Next.js metadataBase equivalent).
  *
  * @param {object}  props
  * @param {string}  props.title          Page <title> and og:title
@@ -74,7 +75,7 @@ export function SeoHead({ title, description, canonicalPath, ogImage }) {
       canonicalPath === "/" || canonicalPath === ""
         ? "/"
         : canonicalPath.replace(/\/+$/, "");
-    const href = `${SITE_CANONICAL_ORIGIN}${path}`;
+    const href = `${METADATA_BASE}${path}`;
 
     let link = document.getElementById(CANON_ID);
     if (!link) {

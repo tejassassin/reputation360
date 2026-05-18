@@ -121,19 +121,19 @@ export default function DmcaCopyrightPolicyPage() {
               <p>
                 <span className="font-semibold text-navy">Email:</span>{" "}
                 <a
-                  href="mailto:dmca@reputation360.in"
+                  href="mailto:dmca@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  dmca@reputation360.in
+                  dmca@thereputation360.com
                 </a>
               </p>
               <p>
                 <span className="font-semibold text-navy">Telephone:</span> available by request at{" "}
                 <a
-                  href="mailto:support@reputation360.in"
+                  href="mailto:support@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  support@reputation360.in
+                  support@thereputation360.com
                 </a>
               </p>
               <p className="mt-4">
@@ -176,10 +176,10 @@ export default function DmcaCopyrightPolicyPage() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:dmca@reputation360.in"
+                  href="mailto:dmca@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  dmca@reputation360.in
+                  dmca@thereputation360.com
                 </a>
               </p>
               <p>Mail your notice to our registered address (provide current address at the time of notice).</p>
@@ -244,10 +244,10 @@ export default function DmcaCopyrightPolicyPage() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:dmca@reputation360.in"
+                  href="mailto:dmca@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  dmca@reputation360.in
+                  dmca@thereputation360.com
                 </a>
               </p>
               <p>Include &quot;DMCA COUNTER-NOTIFICATION&quot; in the subject line.</p>
@@ -407,10 +407,10 @@ export default function DmcaCopyrightPolicyPage() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:dmca@reputation360.in"
+                  href="mailto:dmca@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  dmca@reputation360.in
+                  dmca@thereputation360.com
                 </a>
               </p>
               <p>
@@ -427,21 +427,21 @@ export default function DmcaCopyrightPolicyPage() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:support@reputation360.in"
+                  href="mailto:support@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  support@reputation360.in
+                  support@thereputation360.com
                 </a>
               </p>
               <p>
                 Website:{" "}
                 <a
-                  href="https://www.reputation360.in"
+                  href="https://www.thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://www.reputation360.in
+                  https://www.thereputation360.com
                 </a>
               </p>
             </Prose>

@@ -1,5 +1,5 @@
 /** Primary inbox (FormSubmit, footer, quick contact). */
-export const CONTACT_EMAIL = "hello@reputation360.in";
+export const CONTACT_EMAIL = "hello@thereputation360.com";
 
 /**
  * WhatsApp Business number: country code + national number, digits only (no +).

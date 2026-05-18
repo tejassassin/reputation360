@@ -8,6 +8,7 @@ import {
   contactWhatsAppHref,
 } from "../constants/contact.js";
 import { SeoHead } from "../components/SeoHead.jsx";
+import { SITE_CANONICAL_ORIGIN } from "../constants/siteUrl.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 
 const calendarTabletImage =
@@ -25,7 +26,7 @@ function contactFormReturnUrl() {
   if (typeof window !== "undefined" && window.location?.origin) {
     return `${window.location.origin}${CONTACT_FORM_THANKS_PATH}`;
   }
-  return `https://reputation360.in${CONTACT_FORM_THANKS_PATH}`;
+  return `${SITE_CANONICAL_ORIGIN}${CONTACT_FORM_THANKS_PATH}`;
 }
 
 const CONTACT_PAGE_TESTIMONIAL = {

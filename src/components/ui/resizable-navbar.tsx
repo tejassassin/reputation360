@@ -9,7 +9,7 @@ import {
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 import { Children, cloneElement, isValidElement, useState } from "react";
 
-/* Port of reputation360.in header (deploy bundle): fixed bg-navy bar, sticky top-20 shell,
+/* Port of thereputation360.com header (deploy bundle): fixed bg-navy bar, sticky top-20 shell,
    scroll>100 + motion (width/blur) on the pill row, NavItems absolute inset-0 centered. */
 
 interface NavbarProps {

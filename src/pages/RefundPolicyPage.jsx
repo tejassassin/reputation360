@@ -43,12 +43,12 @@ export default function RefundPolicyPage() {
                 This Refund Policy (&quot;Policy&quot;) outlines Reputation360&apos;s refund practices for services purchased through
                 our website at{" "}
                 <a
-                  href="https://www.reputation360.in"
+                  href="https://www.thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://www.reputation360.in
+                  https://www.thereputation360.com
                 </a>{" "}
                 or through a formal Service Agreement. Please read this policy carefully to understand when refunds are
                 available, what conditions apply, and how to request a refund.
@@ -230,10 +230,10 @@ export default function RefundPolicyPage() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:support@reputation360.in"
+                  href="mailto:support@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  support@reputation360.in
+                  support@thereputation360.com
                 </a>
               </p>
               <p>
@@ -290,7 +290,7 @@ export default function RefundPolicyPage() {
             </Prose>
             <BulletList
               items={[
-                "Contact Reputation360 first at support@reputation360.in with details of the dispute",
+                "Contact Reputation360 first at support@thereputation360.com with details of the dispute",
                 "Provide invoice number, amount, date, and explanation of why you believe the charge is incorrect",
                 "We will investigate within 5 business days",
               ]}
@@ -302,7 +302,7 @@ export default function RefundPolicyPage() {
             </Prose>
             <BulletList
               items={[
-                "Inform Reputation360: notify support@reputation360.in immediately of the dispute",
+                "Inform Reputation360: notify support@thereputation360.com immediately of the dispute",
                 "Cooperation required: we will cooperate with your payment provider's investigation and provide all relevant documentation",
                 "Resolution: if the dispute is resolved in your favor by your payment provider, we will accept their decision",
                 "Repeated disputes: multiple chargebacks or disputes may result in termination of your account and relationship with Reputation360",
@@ -378,21 +378,21 @@ export default function RefundPolicyPage() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:support@reputation360.in"
+                  href="mailto:support@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  support@reputation360.in
+                  support@thereputation360.com
                 </a>
               </p>
               <p>
                 Website:{" "}
                 <a
-                  href="https://www.reputation360.in"
+                  href="https://www.thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://www.reputation360.in
+                  https://www.thereputation360.com
                 </a>
               </p>
               <p>

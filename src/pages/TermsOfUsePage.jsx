@@ -58,12 +58,12 @@ export default function TermsOfUsePage() {
                 Welcome to Reputation360&apos;s website (&quot;Website&quot;). These Website Terms of Use govern your access to and use
                 of our website at{" "}
                 <a
-                  href="https://www.reputation360.in"
+                  href="https://www.thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://www.reputation360.in
+                  https://www.thereputation360.com
                 </a>
                 . By accessing, browsing, or using our Website, you agree to comply with these terms. If you do not agree to
                 these terms, please do not use the Website.
@@ -460,21 +460,21 @@ export default function TermsOfUsePage() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:support@reputation360.in"
+                  href="mailto:support@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  support@reputation360.in
+                  support@thereputation360.com
                 </a>
               </p>
               <p>
                 Website:{" "}
                 <a
-                  href="https://www.reputation360.in"
+                  href="https://www.thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://www.reputation360.in
+                  https://www.thereputation360.com
                 </a>
               </p>
               <p className="mt-8 text-sm text-slate-500">

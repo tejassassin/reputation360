@@ -49,12 +49,12 @@ export default function PrivacyPolicyPage() {
                 This Privacy Policy explains how we collect, use, protect, and manage your information when you visit our
                 website at{" "}
                 <a
-                  href="https://www.reputation360.in"
+                  href="https://www.thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://www.reputation360.in
+                  https://www.thereputation360.com
                 </a>{" "}
                 (the &quot;Site&quot;) and use our online reputation management services (our &quot;Services&quot;).
               </p>
@@ -289,21 +289,21 @@ export default function PrivacyPolicyPage() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:hello@reputation360.in"
+                  href="mailto:hello@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  hello@reputation360.in
+                  hello@thereputation360.com
                 </a>
               </p>
               <p>
                 Website:{" "}
                 <a
-                  href="https://www.reputation360.in"
+                  href="https://www.thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://www.reputation360.in
+                  https://www.thereputation360.com
                 </a>
               </p>
               <p>
@@ -377,10 +377,10 @@ export default function PrivacyPolicyPage() {
                 storage is completely secure. We cannot guarantee absolute security, though we maintain reasonable
                 precautions. If you believe your information has been compromised, please contact us immediately at{" "}
                 <a
-                  href="mailto:security@reputation360.in"
+                  href="mailto:security@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  security@reputation360.in
+                  security@thereputation360.com
                 </a>
                 .
               </p>
@@ -489,21 +489,21 @@ export default function PrivacyPolicyPage() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:hello@reputation360.in"
+                  href="mailto:hello@thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                 >
-                  hello@reputation360.in
+                  hello@thereputation360.com
                 </a>
               </p>
               <p>
                 Website:{" "}
                 <a
-                  href="https://www.reputation360.in"
+                  href="https://www.thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://www.reputation360.in
+                  https://www.thereputation360.com
                 </a>
               </p>
               <p>
