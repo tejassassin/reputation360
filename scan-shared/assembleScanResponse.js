@@ -20,7 +20,7 @@ export function assembleScanResponse(serpItems, searchQueryUsed, dataSource) {
   const scoreBundle = computeReputationScore(classified);
   const summary = buildScanSummary(classified, scoreBundle);
   const hurting = buildHurtingSection(classified);
-  const improving = buildImprovingSection(classified, scoreBundle.presenceLabel);
+  const improving = buildImprovingSection(classified, scoreBundle.reportedScore);
 
   return {
     ok: true,

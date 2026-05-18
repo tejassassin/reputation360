@@ -1,7 +1,42 @@
 /**
  * Reputation score: internal raw 0-100, displayed as X/100 with X capped at 85.
  * Scores below 45 are reserved for high-stakes negatives (major press, regulators, .gov, or many risks).
+ *
+ * Letter grades A-D (no F) and overall presence both derive from the reported score (0-85) so they stay aligned.
  */
+
+/**
+ * High-to-low tiers. First matching `minScore` wins. Grade D applies to reported scores 0-47 (below 48).
+ * @type {ReadonlyArray<{ minScore: number; letter: string; presenceLabel: string }>}
+ */
+export const REPUTATION_GRADE_RUBRIC = [
+  { minScore: 72, letter: "A", presenceLabel: "Well Positioned - Continue Monitoring" },
+  { minScore: 60, letter: "B", presenceLabel: "Growth Opportunities Identified" },
+  { minScore: 48, letter: "C", presenceLabel: "Reputation Requires Urgent Attention" },
+  { minScore: 0, letter: "D", presenceLabel: "Serious Reputation Threats Identified" },
+];
+
+/**
+ * @param {number} reportedScore 0-85 (shown on a /100 scale in the product)
+ */
+export function letterGradeForReportedScore(reportedScore) {
+  const s = Math.max(0, Math.min(85, reportedScore));
+  for (const tier of REPUTATION_GRADE_RUBRIC) {
+    if (s >= tier.minScore) return tier.letter;
+  }
+  return "D";
+}
+
+/**
+ * @param {number} reportedScore 0-85 (shown on a /100 scale in the product)
+ */
+export function presenceLabelForReportedScore(reportedScore) {
+  const s = Math.max(0, Math.min(85, reportedScore));
+  for (const tier of REPUTATION_GRADE_RUBRIC) {
+    if (s >= tier.minScore) return tier.presenceLabel;
+  }
+  return "Serious Reputation Threats Identified";
+}
 
 /** Government, regulators, and major news domains - negative hits here are weighted heavily. */
 const SEVERE_NEGATIVE_SIGNAL =
@@ -56,10 +91,9 @@ export function computeReputationScore(rows) {
   raw = Math.max(0, Math.min(100, raw));
 
   const strongPositiveCount = strongPositive.length;
-  const presenceLabel =
-    strongPositiveCount >= 5 ? "Good Online Presence" : "Weak Online Presence";
 
   const reportedScore = Math.min(85, raw);
+  const presenceLabel = presenceLabelForReportedScore(reportedScore);
 
   return {
     rawScore: raw,
@@ -95,21 +129,21 @@ export function buildHurtingSection(rows) {
   }
   return neg
     .slice(0, 5)
-    .map((r) => `- ${r.title} (${r.displayLink})`)
+    .map((r) => `${r.title} (${r.displayLink})`)
     .join("\n");
 }
 
 /**
  * @param {import('./classifySerp.js').ClassifiedResult[]} rows
- * @param {string} presenceLabel
+ * @param {number} reportedScore 0-85; below 48 (grades C and D) we add the authority-profile emphasis line
  */
-export function buildImprovingSection(rows, presenceLabel) {
+export function buildImprovingSection(rows, reportedScore) {
   const lines = [
     "Strengthen your anchor identity: complete your LinkedIn with a clear headline, photo, and roles that match how you want to be found.",
     "Own accurate bios on a few trusted surfaces you control (personal site, employer page, relevant industry directories) so searchers see consistent facts.",
     "Set a simple rhythm to check new results (for example quarterly), note anything that is not about you or is outdated, and decide what is worth addressing with evidence or outreach.",
   ];
-  if (presenceLabel === "Weak Online Presence") {
+  if (reportedScore < 48) {
     lines.unshift(
       "Your first pages lean light on recognizable authority profiles. Prioritize a small set of credible third-party profiles and mentions over chasing every possible listing.",
     );
@@ -118,5 +152,5 @@ export function buildImprovingSection(rows, presenceLabel) {
   if (weakSocial) {
     lines.push("Add or refresh a public LinkedIn profile that uses the exact professional name people search for.");
   }
-  return lines.join("\n\n");
+  return lines.join("\n");
 }

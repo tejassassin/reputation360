@@ -190,14 +190,14 @@ export default defineConfig(({ mode }) => ({
       "@scan": path.resolve(__dirname, "./scan-shared"),
     },
   },
-  // Use an explicit loopback host (not 0.0.0.0 / wildcard). Wildcard mode makes Vite call
-  // os.networkInterfaces() to print "Network" URLs; that syscall fails in some sandboxes,
-  // VPNs, or locked-down macOS setups (ERR_SYSTEM_ERROR / uv_interface_addresses), so the
-  // dev server never finishes starting and localhost appears "down".
-  // http://localhost:5173/ still works for typical setups (localhost -> 127.0.0.1).
+  // Bind to the hostname "localhost" (not only 127.0.0.1). On many macOS setups, "localhost"
+  // resolves to ::1 (IPv6) first; listening only on 127.0.0.1 makes http://localhost:5173/
+  // fail in the browser while http://127.0.0.1:5173/ still works.
+  // Avoid 0.0.0.0 unless you need LAN access: wildcard mode can make Vite call
+  // os.networkInterfaces() for "Network" URLs, which fails in some sandboxes/VPNs.
   // For LAN access: npm run dev -- --host 0.0.0.0
   server: {
-    host: "127.0.0.1",
+    host: "localhost",
     port: 5173,
     // If 5173 is taken, use the next free port instead of exiting.
     strictPort: false,
@@ -218,7 +218,7 @@ export default defineConfig(({ mode }) => ({
       : {}),
   },
   preview: {
-    host: "127.0.0.1",
+    host: "localhost",
     port: 4173,
     strictPort: false,
     open: false,

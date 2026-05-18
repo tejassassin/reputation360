@@ -16,6 +16,7 @@ import { calendlyNewTabProps } from "../constants/scheduling";
 import { cn } from "@/lib/utils";
 import { buildOfflineFreeScanPayload } from "@/lib/freeScanClientFallback.js";
 import { buildReputationScanPdfBytes } from "@scan/freeScanPdfBuild.js";
+import { letterGradeForReportedScore } from "@scan/scoreReputation.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -30,17 +31,6 @@ const COUNTRIES = [
 function freeScanEndpoint() {
   const base = import.meta.env.VITE_FREE_SCAN_API_URL?.replace(/\/$/, "") ?? "";
   return base ? `${base}/api/free-scan` : "/api/free-scan";
-}
-
-/**
- * @param {number} s
- */
-function letterForReportedScore(s) {
-  if (s >= 72) return "A";
-  if (s >= 60) return "B";
-  if (s >= 48) return "C";
-  if (s >= 36) return "D";
-  return "F";
 }
 
 /**
@@ -139,11 +129,34 @@ function ResultRow({ item, rank, total }) {
       </div>
       <h3 className="font-heading text-base font-bold text-slate-900 sm:text-lg">{item.title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.snippet}</p>
-      <p className="mt-3 text-xs font-medium uppercase tracking-wide text-slate-500">
-        Model tag:{" "}
-        <span className="text-slate-800 capitalize">{item.sentiment}</span>
-      </p>
     </article>
+  );
+}
+
+/**
+ * @param {{ hurting: string }} p
+ */
+function HurtingSummaryBody({ hurting }) {
+  const lines = hurting
+    .split("\n")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const proseOnly = lines.length === 1 && lines[0].startsWith("We did not flag");
+  if (proseOnly) {
+    return <p className="text-sm leading-relaxed text-slate-700">{lines[0]}</p>;
+  }
+  return (
+    <ul className="list-none space-y-3.5">
+      {lines.map((line, i) => (
+        <li key={i} className="flex gap-3 text-sm leading-relaxed text-slate-700">
+          <span
+            className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500 shadow-[0_0_0_3px_rgba(244,63,94,0.18)]"
+            aria-hidden
+          />
+          <span className="min-w-0 pt-0.5">{line}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -307,7 +320,7 @@ export default function FreeRiskScanPage() {
   }, [rows, filter]);
 
   const reported = scanPayload?.reportedScore ?? 0;
-  const letter = letterForReportedScore(reported);
+  const letter = letterGradeForReportedScore(reported);
 
   return (
     <main className="relative flex-1 overflow-x-hidden pt-28 md:pt-32">
@@ -617,8 +630,8 @@ export default function FreeRiskScanPage() {
                         </p>
                       </div>
                     </div>
-                    <div className="rounded-xl border border-rose-100/80 bg-white/70 py-4 pl-5 pr-4 shadow-sm">
-                      <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">{scanPayload.hurting}</p>
+                    <div className="rounded-xl border border-rose-100/80 bg-gradient-to-b from-white to-rose-50/30 py-5 pl-5 pr-4 shadow-sm sm:pl-6 sm:pr-5">
+                      <HurtingSummaryBody hurting={scanPayload.hurting} />
                     </div>
                   </div>
                 </div>
@@ -636,10 +649,22 @@ export default function FreeRiskScanPage() {
                         </p>
                       </div>
                     </div>
-                    <div className="rounded-xl border border-emerald-100/80 bg-white/70 py-4 pl-5 pr-4 shadow-sm">
-                      <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
-                        {scanPayload.improving}
-                      </p>
+                    <div className="rounded-xl border border-emerald-100/80 bg-gradient-to-b from-white to-emerald-50/30 py-5 pl-5 pr-4 shadow-sm sm:pl-6 sm:pr-5">
+                      <ul className="list-none space-y-3.5">
+                        {scanPayload.improving
+                          .split("\n")
+                          .map((line) => line.trim())
+                          .filter(Boolean)
+                          .map((line, i) => (
+                            <li key={i} className="flex gap-3 text-sm leading-relaxed text-slate-700">
+                              <span
+                                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500 shadow-[0_0_0_3px_rgba(16,185,129,0.18)]"
+                                aria-hidden
+                              />
+                              <span className="min-w-0 pt-0.5">{line}</span>
+                            </li>
+                          ))}
+                      </ul>
                     </div>
                   </div>
                 </div>

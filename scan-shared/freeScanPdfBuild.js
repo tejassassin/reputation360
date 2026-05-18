@@ -71,11 +71,26 @@ export function buildReputationScanPdfBytes(p) {
   y += 4;
 
   addParagraph("What may be hurting your reputation", "bold", 11, 14);
-  addParagraph(p.hurting, "normal", 10, 13);
+  const hurtingLines = String(p.hurting)
+    .split("\n")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  if (hurtingLines.length === 1 && hurtingLines[0].startsWith("We did not flag")) {
+    addParagraph(hurtingLines[0], "normal", 10, 13);
+  } else {
+    for (const line of hurtingLines) {
+      addParagraph(`\u2022 ${line}`, "normal", 10, 13);
+    }
+  }
   y += 4;
 
   addParagraph("What can improve", "bold", 11, 14);
-  addParagraph(p.improving, "normal", 10, 13);
+  for (const line of String(p.improving)
+    .split("\n")
+    .map((s) => s.trim())
+    .filter(Boolean)) {
+    addParagraph(`\u2022 ${line}`, "normal", 10, 13);
+  }
   y += 8;
 
   addParagraph("Query analyzed", "bold", 11, 14);
@@ -88,7 +103,7 @@ export function buildReputationScanPdfBytes(p) {
     addParagraph(title, "bold", 11, 14);
     const sorted = [...rows].sort((a, b) => a.rank - b.rank);
     for (const r of sorted.slice(0, 40)) {
-      const block = `#${r.rank} ${r.title}\n${r.displayLink || r.link}\n${r.snippet}\nTag: ${r.sentiment}`;
+      const block = `#${r.rank} ${r.title}\n${r.displayLink || r.link}\n${r.snippet}`;
       addParagraph(block, "normal", 8, 10);
       y += 4;
     }

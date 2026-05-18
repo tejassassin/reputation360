@@ -36,8 +36,29 @@ export async function sendReputationReportEmail(p) {
   const resend = new Resend(key);
   const name = `${p.firstName} ${p.lastName}`.trim();
 
-  const hurtingHtml = escapeHtml(p.hurting).replace(/\n/g, "<br />");
-  const improvingHtml = escapeHtml(p.improving).replace(/\n/g, "<br />");
+  const hurtingHtml = (() => {
+    const items = String(p.hurting)
+      .split("\n")
+      .map((s) => s.trim())
+      .filter(Boolean);
+    if (items.length === 0) return "";
+    if (items.length === 1 && items[0].startsWith("We did not flag")) {
+      return `<p style="margin:0;line-height:1.55;font-size:14px;color:#475569;">${escapeHtml(items[0])}</p>`;
+    }
+    return `<ul style="margin:0;padding-left:1.1em;line-height:1.55;font-size:14px;color:#475569;">${items
+      .map((item) => `<li style="margin:0 0 10px 0;">${escapeHtml(item)}</li>`)
+      .join("")}</ul>`;
+  })();
+  const improvingItems = String(p.improving)
+    .split("\n")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const improvingHtml =
+    improvingItems.length > 0
+      ? `<ul style="margin:0;padding-left:1.1em;line-height:1.55;font-size:14px;color:#475569;">${improvingItems
+          .map((item) => `<li style="margin:0 0 10px 0;">${escapeHtml(item)}</li>`)
+          .join("")}</ul>`
+      : "";
   const summaryHtml = escapeHtml(p.summary);
 
   const html = `<!DOCTYPE html>
@@ -70,10 +91,10 @@ export async function sendReputationReportEmail(p) {
           <p style="margin:0 0 20px;line-height:1.55;font-size:14px;color:#475569;">${summaryHtml}</p>
 
           <h2 style="font-size:15px;margin:0 0 8px;color:#b91c1c;">What may be hurting your reputation</h2>
-          <p style="margin:0 0 20px;line-height:1.55;font-size:14px;color:#475569;">${hurtingHtml}</p>
+          <div style="margin:0 0 20px;">${hurtingHtml}</div>
 
           <h2 style="font-size:15px;margin:0 0 8px;color:#15803d;">What can improve</h2>
-          <p style="margin:0 0 24px;line-height:1.55;font-size:14px;color:#475569;">${improvingHtml}</p>
+          <div style="margin:0 0 24px;">${improvingHtml}</div>
 
           <p style="margin:0;line-height:1.55;font-size:13px;color:#64748b;">A PDF copy of this report is attached when your message supports attachments. This is an automated, educational scan - not legal, employment, or financial advice. If you would like a human-led audit and remediation plan, reply to this email or book a consultation on thereputation360.com.</p>
         </td></tr>
