@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import { FREE_SCAN_LINK_LIMIT } from "../../scan-shared/freeScanConstants.js";
 
 /**
  * @param {string} s
@@ -73,7 +74,7 @@ export async function sendReputationReportEmail(p) {
         </td></tr>
         <tr><td style="padding:28px 24px;">
           <p style="margin:0 0 12px;font-size:16px;">Hi ${escapeHtml(p.firstName)},</p>
-          <p style="margin:0 0 20px;line-height:1.55;font-size:15px;">Thank you for running a free reputation scan with Reputation360. Below is a concise summary based on the first three pages of search results we analyzed for your name.</p>
+          <p style="margin:0 0 20px;line-height:1.55;font-size:15px;">Thank you for running a free reputation scan with Reputation360. Below is a concise summary based on up to ${FREE_SCAN_LINK_LIMIT} live Google search results we analyzed for your name.</p>
 
           <div style="border-radius:12px;background:#f0fdf4;border:1px solid #bbf7d0;padding:18px;margin-bottom:20px;">
             <div style="font-size:12px;font-weight:600;color:#166534;text-transform:uppercase;letter-spacing:0.04em;">Reputation score</div>

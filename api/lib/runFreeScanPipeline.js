@@ -1,5 +1,5 @@
-import { fetchGoogleCseFirstThreePages, mergeCseDedupe } from "./googleCse.js";
-import { buildFallbackSerpItems } from "../../scan-shared/fallbackSerp.js";
+import { fetchGoogleCseUpToN, mergeCseDedupe } from "./googleCse.js";
+import { FREE_SCAN_LINK_LIMIT } from "../../scan-shared/freeScanConstants.js";
 import { assembleScanResponse } from "../../scan-shared/assembleScanResponse.js";
 import { ensureFreeScanSchema, insertUserAndScan } from "./db.js";
 import { sendReputationReportEmail } from "./emailReport.js";
@@ -88,29 +88,53 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
   const q1 = hint ? `${full} ${hint}` : full;
 
   try {
-  const relaxed = env.FREE_SCAN_RELAXED_CONFIG === "1";
+  /** Fetch extra per query so merge+dedupe still yields up to {@link FREE_SCAN_LINK_LIMIT} live links. */
+  const fetchPerQuery = Math.min(100, FREE_SCAN_LINK_LIMIT * 2);
 
   let merged = [];
   let dataSource = "google_live";
-  const apiKey = env.GOOGLE_CSE_API_KEY;
-  const cx = env.GOOGLE_CSE_CX;
-
-  if (apiKey && cx) {
-    try {
-      const batchA = await fetchGoogleCseFirstThreePages(q1, apiKey, cx);
-      const batchB = hint ? await fetchGoogleCseFirstThreePages(full, apiKey, cx) : [];
-      merged = mergeCseDedupe(batchA, batchB);
-    } catch (e) {
-      console.warn("[free-scan] Google CSE failed, using illustrative fallback", e);
-    }
-  }
+  let cseThrew = false;
+  let cseErrorMessage = /** @type {string | null} */ (null);
+  const apiKey = String(env.GOOGLE_CSE_API_KEY ?? "").trim();
+  const cx = String(env.GOOGLE_CSE_CX ?? "").trim();
 
   let searchQueryUsed = hint ? `${q1} | ${full}` : full;
 
-  if (merged.length === 0) {
-    merged = buildFallbackSerpItems(firstName, lastName, country, hint);
-    dataSource = apiKey && cx ? "illustrative_fallback_empty_cse" : "illustrative_fallback_no_keys";
-    searchQueryUsed = `${searchQueryUsed} [fallback: illustrative results across three pages]`;
+  if (apiKey && cx) {
+    try {
+      const batchA = await fetchGoogleCseUpToN(q1, apiKey, cx, fetchPerQuery);
+      const batchB = hint ? await fetchGoogleCseUpToN(full, apiKey, cx, fetchPerQuery) : [];
+      merged = mergeCseDedupe(batchA, batchB).slice(0, FREE_SCAN_LINK_LIMIT);
+    } catch (e) {
+      cseThrew = true;
+      cseErrorMessage = e instanceof Error ? e.message : String(e);
+      console.warn("[free-scan] Google CSE failed", e);
+    }
+  }
+
+  if (!apiKey || !cx) {
+    return {
+      status: 503,
+      json: {
+        ok: false,
+        code: "GOOGLE_CSE_NOT_CONFIGURED",
+        error:
+          "Live Google results are required for this scan. Set GOOGLE_CSE_API_KEY and GOOGLE_CSE_CX in .env.local (local) or in your Vercel project environment. Each report uses the Programmable Search JSON API for the exact name you enter (we never substitute a template SERP).",
+      },
+    };
+  }
+
+  if (cseThrew) {
+    return {
+      status: 502,
+      json: {
+        ok: false,
+        code: "GOOGLE_CSE_FAILED",
+        error: `Google Programmable Search failed: ${cseErrorMessage ?? "unknown error"}`,
+      },
+    };
+  } else if (merged.length === 0) {
+    dataSource = "google_live_empty";
   }
 
   const base = assembleScanResponse(merged, searchQueryUsed, dataSource);
@@ -147,8 +171,6 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
     } catch (e) {
       console.error("[free-scan] database", e);
     }
-  } else if (!relaxed) {
-    /* optional: still return 200 without DB */
   }
 
   let emailSent = false;
@@ -210,19 +232,13 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
     },
   };
   } catch (fatal) {
-    console.error("[free-scan] fatal, returning illustrative recovery scan", fatal);
-    const mergedFb = buildFallbackSerpItems(firstName, lastName, country, hint);
-    const queryFb = `${q1} | ${full} [fallback: server error recovery]`;
-    const baseFb = assembleScanResponse(mergedFb, queryFb, "illustrative_fallback_server_error");
+    console.error("[free-scan] fatal", fatal);
     return {
-      status: 200,
+      status: 500,
       json: {
-        ...baseFb,
-        scanId: null,
-        userId: null,
-        emailSent: false,
-        emailError: "Scan completed in on-page recovery mode after a server error.",
-        storedInDatabase: false,
+        ok: false,
+        code: "FREE_SCAN_FATAL",
+        error: fatal instanceof Error ? fatal.message : "Unexpected scan failure",
       },
     };
   }

@@ -5,6 +5,8 @@
  * Letter grades A-D (no F) and overall presence both derive from the reported score (0-85) so they stay aligned.
  */
 
+import { FREE_SCAN_LINK_LIMIT } from "./freeScanConstants.js";
+
 /**
  * High-to-low tiers. First matching `minScore` wins. Grade D applies to reported scores 0-47 (below 48).
  * @type {ReadonlyArray<{ minScore: number; letter: string; presenceLabel: string }>}
@@ -113,7 +115,7 @@ export function buildScanSummary(rows, score) {
   const nNeg = rows.filter((r) => r.sentiment === "negative").length;
 
   return [
-    `We reviewed the first three pages of search results for your name (${rows.length} links).`,
+    `We reviewed up to ${FREE_SCAN_LINK_LIMIT} live search results for your name (${rows.length} links).`,
     `Our model tagged ${nPos} positive, ${nNeu} neutral, and ${nNeg} negative results.`,
     `Reputation score: ${score.reportedScore} out of 100. Overall presence: ${score.presenceLabel}.`,
   ].join("\n");
@@ -125,7 +127,7 @@ export function buildScanSummary(rows, score) {
 export function buildHurtingSection(rows) {
   const neg = rows.filter((r) => r.sentiment === "negative");
   if (neg.length === 0) {
-    return "We did not flag obvious high-risk links in the first three pages of results we reviewed. You should still verify each result manually.";
+    return `We did not flag obvious high-risk links in the results we reviewed (up to ${FREE_SCAN_LINK_LIMIT} links). You should still verify each result manually.`;
   }
   return neg
     .slice(0, 5)

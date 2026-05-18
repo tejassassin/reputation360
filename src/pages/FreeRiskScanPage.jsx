@@ -14,8 +14,8 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import { cn } from "@/lib/utils";
-import { buildOfflineFreeScanPayload } from "@/lib/freeScanClientFallback.js";
 import { buildReputationScanPdfBytes } from "@scan/freeScanPdfBuild.js";
+import { FREE_SCAN_LINK_LIMIT } from "@scan/freeScanConstants.js";
 import { letterGradeForReportedScore } from "@scan/scoreReputation.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -42,7 +42,7 @@ function ScanSummaryBanner({ linkCount, counts, reported, presenceLabel }) {
       <div className="border-b border-slate-100 bg-gradient-to-r from-sky-50/90 via-white to-indigo-50/50 px-5 py-4 sm:px-6">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[15px] font-medium leading-snug text-slate-800 sm:text-base">
-            We reviewed the first three pages of search results for your name.
+            We reviewed up to {FREE_SCAN_LINK_LIMIT} live links returned for your name.
           </p>
           <span className="inline-flex w-fit shrink-0 items-center rounded-full bg-navy px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide text-white">
             {linkCount} links analyzed
@@ -219,33 +219,22 @@ export default function FreeRiskScanPage() {
 
         const parsed = await res.json().catch(() => null);
 
-        let data = null;
         if (res.ok && parsed && parsed.ok !== false && typeof parsed.reportedScore === "number") {
-          data = parsed;
-        } else {
-          data = buildOfflineFreeScanPayload({
-            firstName: fn,
-            lastName: ln,
-            email: em,
-            country,
-            consentGiven,
-          });
+          setFilter("negative");
+          setScanPayload(parsed);
+          setPhase("results");
+          return;
         }
 
-        setFilter("negative");
-        setScanPayload(data);
-        setPhase("results");
+        const apiMsg =
+          parsed && typeof parsed.error === "string" && parsed.error.trim()
+            ? parsed.error.trim()
+            : `Scan could not complete (${res.status}).`;
+        setFormError(apiMsg);
+        setPhase("form");
       } catch {
-        const data = buildOfflineFreeScanPayload({
-          firstName: fn,
-          lastName: ln,
-          email: em,
-          country,
-          consentGiven,
-        });
-        setFilter("negative");
-        setScanPayload(data);
-        setPhase("results");
+        setFormError("Could not reach the scan service. Check your connection and try again.");
+        setPhase("form");
       }
     },
     [firstName, lastName, email, country, consentGiven],
@@ -346,8 +335,8 @@ export default function FreeRiskScanPage() {
               Free Google reputation scan
             </h1>
             <p className="mx-auto mt-4 max-w-md text-pretty text-sm leading-relaxed text-slate-600 md:text-base">
-              We analyze the first three pages of results for your name, score what we find, and email you a reputation
-              report card.
+              We call Google Programmable Search for the name you enter and score up to the first {FREE_SCAN_LINK_LIMIT}{" "}
+              links returned (titles, URLs, and snippets as Google provides them).
             </p>
           </div>
 
@@ -469,8 +458,8 @@ export default function FreeRiskScanPage() {
           <Loader2 className="mx-auto h-10 w-10 animate-spin text-sky-600" aria-hidden />
           <p className="mt-6 font-heading text-xl font-bold text-slate-900">Your report is being generated...</p>
           <p className="mt-2 text-sm text-slate-600">
-            We are querying Google results, scoring what we find, saving your scan, and sending your report card
-            to your inbox.
+            We are calling Google Programmable Search for your name, scoring the links returned, saving your scan, and
+            sending your report card to your inbox.
           </p>
         </div>
       ) : null}

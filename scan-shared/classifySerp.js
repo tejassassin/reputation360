@@ -3,6 +3,8 @@
  * Shared by Vercel API, Vite dev middleware, and browser fallback.
  */
 
+import { FREE_SCAN_LINK_LIMIT } from "./freeScanConstants.js";
+
 /** @typedef {'positive' | 'neutral' | 'negative'} Sentiment */
 
 /**
@@ -120,6 +122,5 @@ function safeHost(link) {
  * @returns {ClassifiedResult[]}
  */
 export function classifySerpItems(items) {
-  // Up to 3 CSE pages (10 each) merged across two queries; cap keeps work bounded.
-  return items.slice(0, 60).map((it, i) => classifySerpItem(it, i + 1));
+  return items.slice(0, FREE_SCAN_LINK_LIMIT).map((it, i) => classifySerpItem(it, i + 1));
 }

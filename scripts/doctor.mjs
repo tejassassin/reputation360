@@ -1,6 +1,6 @@
 import { execSync } from "node:child_process";
 import { createServer } from "node:net";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -18,6 +18,30 @@ if (!existsSync(vitePkg)) {
   process.exit(1);
 }
 console.log("  ✓ node_modules/vite present");
+
+const envLocalPath = join(root, ".env.local");
+if (!existsSync(envLocalPath)) {
+  console.log("\n  ! No .env.local. Free scan needs Google CSE keys for live results. Run:\n\n      npm run env:init\n");
+} else {
+  try {
+    const raw = readFileSync(envLocalPath, "utf8");
+    const val = (name) => {
+      const m = raw.match(new RegExp(`^${name}=(.*)$`, "m"));
+      return m?.[1]?.trim() ?? "";
+    };
+    const apiKey = val("GOOGLE_CSE_API_KEY");
+    const cx = val("GOOGLE_CSE_CX");
+    if (!apiKey || !cx) {
+      console.log(
+        "\n  ! .env.local exists but GOOGLE_CSE_API_KEY or GOOGLE_CSE_CX is empty. Paste both for real per-name Google results.\n",
+      );
+    } else {
+      console.log("  ✓ .env.local has GOOGLE_CSE_API_KEY and GOOGLE_CSE_CX set");
+    }
+  } catch {
+    console.log("  ? Could not read .env.local");
+  }
+}
 
 try {
   const dirty = execSync("git status --porcelain", { encoding: "utf8" }).trim();

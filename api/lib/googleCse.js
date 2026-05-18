@@ -64,25 +64,29 @@ export function mergeCseDedupe(a, b) {
   return out;
 }
 
-const MAX_CSE_PAGES = 3;
-
 /**
- * Fetches up to the first {@link MAX_CSE_PAGES} pages (10 results each) for one query.
+ * Fetches up to `maxResults` items for one query (10 per request, Google CSE paging).
  * @param {string} query
  * @param {string} apiKey
  * @param {string} cx
+ * @param {number} [maxResults]
  * @returns {Promise<CseItem[]>}
  */
-export async function fetchGoogleCseFirstThreePages(query, apiKey, cx) {
+export async function fetchGoogleCseUpToN(query, apiKey, cx, maxResults = 30) {
   const q = query.trim();
-  if (!q) return [];
+  if (!q || maxResults <= 0) return [];
 
+  const cap = Math.min(100, Math.max(1, maxResults));
   const merged = [];
-  for (let page = 0; page < MAX_CSE_PAGES; page++) {
-    const start = 1 + page * 10;
-    const batch = await fetchGoogleCse(q, apiKey, cx, 10, start);
+  let start = 1;
+  while (merged.length < cap) {
+    const remaining = cap - merged.length;
+    const num = Math.min(10, remaining);
+    const batch = await fetchGoogleCse(q, apiKey, cx, num, start);
     if (batch.length === 0) break;
     merged.push(...batch);
+    start += batch.length;
+    if (batch.length < num) break;
   }
   const seen = new Set();
   const deduped = [];

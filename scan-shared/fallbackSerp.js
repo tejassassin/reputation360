@@ -15,7 +15,7 @@ function slugify(s) {
   return t || "name";
 }
 
-/** Matches three Google result pages at 10 links per page when CSE is unavailable. */
+/** Matches scan cap when CSE is unavailable (legacy tests only; product scan requires live CSE). */
 const ILLUSTRATIVE_SERP_SLOTS = 30;
 
 /**
@@ -115,7 +115,7 @@ export function buildFallbackSerpItems(firstName, lastName, country, locationHin
       title: `${full} - related web results (${slot})`,
       link: `https://www.google.com/search?q=${encodeURIComponent(q)}&r360illustrative=${slot}`,
       displayLink: "www.google.com",
-      snippet: `Illustrative row ${slot} of ${ILLUSTRATIVE_SERP_SLOTS} (three pages of sample depth). Open Google to compare live rankings.${loc}`,
+      snippet: `Illustrative row ${slot} of ${ILLUSTRATIVE_SERP_SLOTS} (demo only; not a live Google ranking). Open Google to compare.${loc}`,
     });
   }
 
