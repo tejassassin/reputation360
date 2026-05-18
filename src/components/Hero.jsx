@@ -29,7 +29,7 @@ function Hero() {
       ref={sectionRef}
       className="h-dvh flex flex-col bg-linear-to-br from-navy via-slate to-navy text-white overflow-hidden pt-32 sm:pt-36"
     >
-      <div className="relative mx-auto flex min-h-0 max-w-7xl flex-1 flex-col justify-between gap-4 px-4 py-3 text-center sm:px-6 sm:py-4 lg:px-8">
+      <div className="relative mx-auto flex min-h-0 max-w-7xl flex-1 flex-col justify-evenly px-4 py-[2vh] text-center sm:px-6 lg:px-8">
         {/* Main Content - Centered (shrink-0 keeps CTAs from being pushed below the fold) */}
         <div className="flex shrink-0 flex-col items-center justify-center gap-[1.2vh] sm:gap-[1.8vh]">
           {/* Trust Badge */}
