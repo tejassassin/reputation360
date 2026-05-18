@@ -1037,29 +1037,33 @@ export default function BlogSuppressNegativeContentGuidePage() {
                     inaction - in leads, revenue, and credibility - only grows with time.
                   </p>
                 </div>
-                <section className="mx-auto max-w-2xl overflow-hidden rounded-2xl bg-linear-to-br from-navy via-slate to-navy px-5 py-8 text-center text-white shadow-lg sm:rounded-2xl sm:px-8 sm:py-9">
-                  <h2 className="mb-3 font-heading text-2xl font-bold leading-tight sm:text-3xl">
-                    Get your free consultation
-                  </h2>
-                  <p className="mx-auto mb-6 max-w-lg font-body text-sm leading-relaxed text-white/88 sm:text-base">
-                    Book a short call: we review your search landscape, set expectations, and outline practical next
-                    steps. No obligation.
-                  </p>
-                  <a
-                    {...calendlyNewTabProps}
-                    className={cn(
-                      "ha-pill inline-flex w-full max-w-xs items-center justify-center gap-2 rounded-xl px-6 py-3 font-heading text-sm font-semibold shadow-md transition hover:brightness-95 sm:w-auto sm:px-8 sm:text-base",
-                      calendlyCtaButtonClass,
-                    )}
-                  >
-                    Book a Free Consultation
-                    <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
-                  </a>
-                  <p className="mt-5 flex items-center justify-center gap-2 font-body text-xs font-medium text-white/70 sm:text-sm">
-                    <Lock className="h-3 w-3 text-green" aria-hidden />
-                    Confidential
-                  </p>
-                </section>
+                <div className="mx-auto w-full max-w-6xl">
+                  <div className="rounded-3xl bg-[linear-gradient(120deg,#08284f,#0f3f73)] px-6 py-10 text-center text-white shadow-lg md:px-12 md:py-12">
+                    <h2 className="mb-3 font-heading text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl">
+                      Get your free consultation
+                    </h2>
+                    <p className="mx-auto mb-6 max-w-3xl font-body text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">
+                      Book a short call: we review your search landscape, set expectations, and outline practical next
+                      steps. No obligation.
+                    </p>
+                    <div className="flex justify-center">
+                      <a
+                        {...calendlyNewTabProps}
+                        className={cn(
+                          "ha-pill inline-flex w-full max-w-md items-center justify-center gap-2 rounded-xl px-8 py-3.5 font-heading text-sm font-bold shadow-lg shadow-cta-consult/30 transition hover:brightness-95 sm:w-auto md:px-10 md:text-base",
+                          calendlyCtaButtonClass,
+                        )}
+                      >
+                        Book a Free Consultation
+                        <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+                      </a>
+                    </div>
+                    <p className="mt-5 flex items-center justify-center gap-2 font-body text-xs font-medium text-white/85 sm:text-sm">
+                      <Lock className="h-3 w-3 text-green" aria-hidden />
+                      Confidential
+                    </p>
+                  </div>
+                </div>
               </section>
             </main>
 
