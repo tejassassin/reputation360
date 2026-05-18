@@ -29,9 +29,9 @@ function Hero() {
       ref={sectionRef}
       className="h-dvh flex flex-col bg-linear-to-br from-navy via-slate to-navy text-white overflow-hidden pt-32 sm:pt-36"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative flex-1 flex flex-col justify-evenly py-[2vh]">
-        {/* Main Content - Centered */}
-        <div className="flex flex-col justify-center items-center gap-[1.5vh] sm:gap-[2vh]">
+      <div className="relative mx-auto flex min-h-0 max-w-7xl flex-1 flex-col justify-between gap-4 px-4 py-3 text-center sm:px-6 sm:py-4 lg:px-8">
+        {/* Main Content - Centered (shrink-0 keeps CTAs from being pushed below the fold) */}
+        <div className="flex shrink-0 flex-col items-center justify-center gap-[1.2vh] sm:gap-[1.8vh]">
           {/* Trust Badge */}
           <div className="inline-flex w-fit items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 self-center">
             <span className="flex h-2 w-2 relative">
@@ -67,10 +67,10 @@ function Hero() {
             </p>
           </HeroHighlight>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-2 sm:px-0">
+          <div className="flex w-full max-w-xl shrink-0 flex-col items-stretch justify-center gap-2.5 px-2 sm:max-w-none sm:flex-row sm:items-center sm:gap-3 sm:px-0">
             <a
               {...calendlyNewTabProps}
-              className="ha-pill group relative w-full cursor-pointer rounded-xl bg-cta-consult px-8 py-3 text-center text-base font-heading font-semibold text-white shadow-lg shadow-cta-consult/30 transition-all duration-300 hover:brightness-95 hover:shadow-xl hover:shadow-cta-consult/35 sm:w-auto sm:py-4 sm:text-lg"
+              className="ha-pill group relative w-full cursor-pointer rounded-xl bg-cta-consult px-6 py-2.5 text-center text-sm font-heading font-semibold text-white shadow-lg shadow-cta-consult/30 transition-all duration-300 hover:brightness-95 hover:shadow-xl hover:shadow-cta-consult/35 sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
             >
               <span className="flex items-center justify-center gap-2">
                 Book a Free Consultation
@@ -93,7 +93,7 @@ function Hero() {
               href={FREE_RISK_SCAN_PATH}
               target="_blank"
               rel="noopener noreferrer"
-              className="ha-pill w-full rounded-xl border-2 border-white/35 bg-white/10 px-8 py-3 text-center text-base font-heading font-semibold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 sm:w-auto sm:py-4 sm:text-lg"
+              className="ha-pill w-full rounded-xl border-2 border-white/35 bg-white/10 px-6 py-2.5 text-center text-sm font-heading font-semibold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
             >
               Free risk scan
             </a>
@@ -101,7 +101,7 @@ function Hero() {
         </div>
 
         {/* Stats - Pushed to bottom */}
-        <div className="grid grid-cols-3 gap-2 sm:gap-4 lg:gap-6 max-w-4xl mx-auto w-full shrink-0">
+        <div className="mx-auto grid w-full max-w-4xl shrink-0 grid-cols-3 gap-2 sm:gap-4 lg:gap-6">
           <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 lg:p-5 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
             <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative">

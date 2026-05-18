@@ -124,14 +124,25 @@ function Header() {
         <NavBody>
           <NavbarLogo logoSrc={logo} brandName="Reputation360" />
           <NavItems items={navItems} />
-          <NavbarButton
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="primary"
-          >
-            Book a call
-          </NavbarButton>
+          <div className="relative z-20 flex shrink-0 items-center gap-2">
+            <NavbarButton
+              href={FREE_RISK_SCAN_PATH}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="secondary"
+              className="!px-4 !py-2 text-sm sm:!px-5 sm:text-sm"
+            >
+              Free scan
+            </NavbarButton>
+            <NavbarButton
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="primary"
+            >
+              Book a call
+            </NavbarButton>
+          </div>
         </NavBody>
 
         {/* Mobile Navigation */}
@@ -179,6 +190,16 @@ function Header() {
               </div>
             ))}
             <div className="flex w-full flex-col gap-4">
+              <NavbarButton
+                href={FREE_RISK_SCAN_PATH}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                variant="secondary"
+                className="w-full"
+              >
+                Free scan
+              </NavbarButton>
               <NavbarButton
                 href={CALENDLY_URL}
                 target="_blank"
