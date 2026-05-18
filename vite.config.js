@@ -1,9 +1,10 @@
 import { execSync } from "node:child_process";
 import process from "node:process";
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "node:path";
+import { Buffer } from "node:buffer";
 import { fileURLToPath } from "node:url";
 import { METADATA_BASE } from "./src/constants/siteUrl.js";
 
@@ -27,9 +28,79 @@ function deployShaMeta() {
   }
 }
 
+/**
+ * @param {import('http').IncomingMessage} req
+ */
+function readHttpBody(req) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    req.on("data", (c) => chunks.push(c));
+    req.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+    req.on("error", reject);
+  });
+}
+
+/**
+ * Serves POST /api/free-scan during `npm run dev` so the free scan never 404s without a proxy.
+ * @param {string} mode
+ */
+function r360DevFreeScanApiPlugin(mode) {
+  const envFromFiles = loadEnv(mode, process.cwd(), "");
+  return {
+    name: "r360-dev-free-scan-api",
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        const pathname = req.url?.split("?")[0] ?? "";
+        if (pathname !== "/api/free-scan") {
+          next();
+          return;
+        }
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+        if (req.method === "OPTIONS") {
+          res.statusCode = 204;
+          res.end();
+          return;
+        }
+        if (req.method !== "POST") {
+          res.statusCode = 405;
+          res.setHeader("Content-Type", "application/json");
+          res.end(JSON.stringify({ ok: false, error: "Method not allowed" }));
+          return;
+        }
+        try {
+          const { runFreeScanPipeline } = await import("./api/lib/runFreeScanPipeline.js");
+          const raw = await readHttpBody(req);
+          let body = {};
+          try {
+            body = JSON.parse(raw || "{}");
+          } catch {
+            body = {};
+          }
+          const { status, json } = await runFreeScanPipeline(body, envFromFiles);
+          res.statusCode = status;
+          res.setHeader("Content-Type", "application/json");
+          res.end(JSON.stringify(json));
+        } catch (e) {
+          res.statusCode = 500;
+          res.setHeader("Content-Type", "application/json");
+          res.end(
+            JSON.stringify({
+              ok: false,
+              error: e instanceof Error ? e.message : "Dev API error",
+            }),
+          );
+        }
+      });
+    },
+  };
+}
+
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
+    r360DevFreeScanApiPlugin(mode),
     {
       name: "r360-dev-bust-and-no-store-html",
       configResolved(c) {
@@ -116,14 +187,17 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@scan": path.resolve(__dirname, "./scan-shared"),
     },
   },
-  // Listen on all IPv4 interfaces so http://localhost:5173/ works whether the OS
-  // resolves "localhost" to 127.0.0.1 or ::1 (binding only "localhost" can miss ::1).
-  // Avoid `host: true` here: it uses os.networkInterfaces() for the Network URL and
-  // can throw in some sandboxed or locked-down environments so Vite never starts.
+  // Use an explicit loopback host (not 0.0.0.0 / wildcard). Wildcard mode makes Vite call
+  // os.networkInterfaces() to print "Network" URLs; that syscall fails in some sandboxes,
+  // VPNs, or locked-down macOS setups (ERR_SYSTEM_ERROR / uv_interface_addresses), so the
+  // dev server never finishes starting and localhost appears "down".
+  // http://localhost:5173/ still works for typical setups (localhost -> 127.0.0.1).
+  // For LAN access: npm run dev -- --host 0.0.0.0
   server: {
-    host: "0.0.0.0",
+    host: "127.0.0.1",
     port: 5173,
     // If 5173 is taken, use the next free port instead of exiting.
     strictPort: false,
@@ -132,11 +206,21 @@ export default defineConfig({
     headers: {
       "Cache-Control": "no-store",
     },
+    ...(process.env.VITE_API_PROXY_TARGET
+      ? {
+          proxy: {
+            "/api": {
+              target: process.env.VITE_API_PROXY_TARGET,
+              changeOrigin: true,
+            },
+          },
+        }
+      : {}),
   },
   preview: {
-    host: "0.0.0.0",
+    host: "127.0.0.1",
     port: 4173,
     strictPort: false,
     open: false,
   },
-});
+}));

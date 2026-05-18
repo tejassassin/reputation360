@@ -100,7 +100,13 @@
       ]
     }
   ],
+  "functions": {
+    "api/free-scan.js": {
+      "maxDuration": 60
+    }
+  },
   "rewrites": [
+    { "handle": "filesystem" },
     {
       "source": "/(.*)",
       "destination": "/index.html"

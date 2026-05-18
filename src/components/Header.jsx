@@ -20,6 +20,7 @@ import {
   contactWhatsAppHref,
 } from "../constants/contact.js";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
+import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
 
 const navItems = [
   { name: "Home", link: "/" },
@@ -63,6 +64,7 @@ const navItems = [
       { name: "Insights & Blogs", link: "/blog" },
       { name: "Guide", link: "/resources/guide" },
       { name: "FAQs", link: "/resources/faqs" },
+      { name: "Free risk scan", link: FREE_RISK_SCAN_PATH, newTab: true },
     ],
   },
 ];
@@ -165,6 +167,9 @@ function Header() {
                   <a
                     key={`mobile-sublink-${item.name}-${subItem.name}`}
                     href={subItem.link}
+                    {...(subItem.newTab
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="ha-nudge mt-2 ml-4 block rounded-md py-1 text-sm text-white/85 font-heading transition-colors hover:bg-white/10 hover:text-green"
                   >

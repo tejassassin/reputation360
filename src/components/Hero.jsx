@@ -1,5 +1,6 @@
 import React from "react";
 import { calendlyNewTabProps } from "@/constants/scheduling";
+import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import { useState, useEffect, useRef } from "react";
 import { StatNumber } from "@/components/StatNumber.jsx";
@@ -87,6 +88,14 @@ function Hero() {
                   />
                 </svg>
               </span>
+            </a>
+            <a
+              href={FREE_RISK_SCAN_PATH}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ha-pill w-full rounded-xl border-2 border-white/35 bg-white/10 px-8 py-3 text-center text-base font-heading font-semibold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 sm:w-auto sm:py-4 sm:text-lg"
+            >
+              Free risk scan
             </a>
           </div>
         </div>

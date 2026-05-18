@@ -103,7 +103,7 @@ export const NavItems = ({
     link: string;
     /** When true (with children), the parent label is not a link; only submenu items navigate. */
     parentNonNavigable?: boolean;
-    children?: { name: string; link: string }[];
+    children?: { name: string; link: string; newTab?: boolean }[];
   }[];
   className?: string;
   onItemClick?: () => void;
@@ -180,6 +180,9 @@ export const NavItems = ({
                 <a
                   key={`${item.name}-${child.name}`}
                   href={child.link}
+                  {...(child.newTab
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   onClick={onItemClick}
                   className="ha-nudge block rounded-md px-3 py-2 text-sm text-white transition-colors hover:bg-white/15 hover:text-green hover:shadow-[inset_0_0_0_1px_rgba(120,220,119,0.35)]"
                 >

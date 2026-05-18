@@ -28,9 +28,11 @@ import RefundPolicyPage from "./pages/RefundPolicyPage.jsx";
 import TermsOfServicePage from "./pages/TermsOfServicePage.jsx";
 import TermsOfUsePage from "./pages/TermsOfUsePage.jsx";
 import DmcaCopyrightPolicyPage from "./pages/DmcaCopyrightPolicyPage.jsx";
+import FreeRiskScanPage from "./pages/FreeRiskScanPage.jsx";
 import { AUDIENCE_PATH, LEGACY_SERVICE_AUDIENCE_PATH } from "./constants/whoWeServePaths.js";
 import { BLOG_INDEX_PATH } from "./constants/blogPaths.js";
 import { SUPPRESS_NEGATIVE_GUIDE_SLUG } from "./data/blogs/suppressNegativeContentGuide.js";
+import { FREE_RISK_SCAN_PATH } from "./constants/freeRiskScan.js";
 
 if (import.meta.env.DEV) {
   console.info(
@@ -82,6 +84,7 @@ function pageForPath(path) {
     return <CaseStudyDetailPage caseStudySlug={caseStudyPath[1]} />;
   }
   if (path === "/contact") return <ContactPage />;
+  if (path === FREE_RISK_SCAN_PATH) return <FreeRiskScanPage />;
   if (path === BLOG_INDEX_PATH) return <InsightsBlogsPage />;
   const blogPost = path.match(/^\/blog\/([^/]+)$/);
   if (blogPost) {
