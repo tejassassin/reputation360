@@ -341,7 +341,7 @@ function ReadingProgressRail({ pct }) {
   const fill = Math.min(100, Math.max(0, pct));
   const rounded = Math.round(fill);
   const label = rounded >= 100 ? "100% completed" : `${rounded}% completed`;
-  const clip = `inset(${100 - fill}% 0 0 0)`;
+  const clip = `inset(0 0 ${100 - fill}% 0)`;
 
   return (
     <div className="flex min-h-0 flex-1 flex-col p-5">
@@ -396,7 +396,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
         const el = document.getElementById(sid);
         if (!el) continue;
         const sectionTop = el.offsetTop;
-        if (y >= sectionTop - 120) current = sid;
+        if (y >= sectionTop - 160) current = sid;
       }
       const inSidebar = GUIDE_NAV.some((g) => g.id === current);
       setActiveNavId(inSidebar ? current : "");
@@ -425,7 +425,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
       />
 
       <div className="scroll-smooth bg-offwhite pb-1 font-body text-charcoal antialiased">
-        {/* Reading progress: full-width strip fixed to bottom; fill reveals bottom-to-top */}
+        {/* Reading progress: full-width strip fixed to bottom; fill grows top-to-bottom */}
         <div
           className="pointer-events-none fixed right-0 bottom-0 left-0 z-40 h-1.5 overflow-hidden bg-slate-200"
           aria-hidden
@@ -433,15 +433,15 @@ export default function BlogSuppressNegativeContentGuidePage() {
           <div
             className="absolute inset-0 bg-green transition-[clip-path] duration-150 ease-out"
             style={{
-              clipPath: `inset(${100 - Math.min(100, Math.max(0, readingPct))}% 0 0 0)`,
+              clipPath: `inset(0 0 ${100 - Math.min(100, Math.max(0, readingPct))}% 0)`,
             }}
           />
         </div>
 
-        <div className="mx-auto max-w-[min(100%,90rem)] px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-8 pt-8 pb-4 lg:flex-row lg:gap-0">
+        <div className="mx-auto max-w-[min(100%,90rem)] px-4 pt-32 pb-4 sm:px-6 sm:pt-36 lg:px-8 lg:pt-40">
+          <div className="flex flex-col gap-8 pb-4 lg:flex-row lg:gap-0">
             {/* Left: Guide index */}
-            <aside className="hidden w-64 shrink-0 lg:sticky lg:top-6 lg:block lg:h-[calc(100dvh-1.5rem)] lg:overflow-y-auto lg:border-r lg:border-slate-200/80 lg:pr-6 lg:pt-4">
+            <aside className="hidden w-64 shrink-0 lg:sticky lg:top-28 lg:block lg:h-[calc(100dvh-8rem)] lg:overflow-y-auto lg:border-r lg:border-slate-200/80 lg:pr-6 lg:pt-2">
               <h4 className="mb-4 font-heading text-xs font-bold tracking-widest text-steel uppercase">
                 Guide Index
               </h4>
@@ -465,10 +465,32 @@ export default function BlogSuppressNegativeContentGuidePage() {
 
             {/* Center: article */}
             <main className="min-w-0 flex-1 px-0 pb-20 sm:px-2 lg:px-10">
-              <header className="mb-16 scroll-mt-28 font-heading" id="intro">
-                <h1 className="mb-8 text-4xl leading-tight font-extrabold text-navy md:text-5xl lg:text-6xl">
-                  {suppressNegativeGuideListing.title}
-                </h1>
+              <header className="mb-16 scroll-mt-32 font-heading" id="intro">
+                {(() => {
+                  const full = suppressNegativeGuideListing.title;
+                  const hasSplit = full.includes(": ");
+                  const [lead, ...tailParts] = hasSplit ? full.split(": ") : [full, ""];
+                  const tail = tailParts.join(": ").trim();
+                  return (
+                    <h1 className="mb-8 max-w-5xl">
+                      {hasSplit ? (
+                        <>
+                          <span className="block text-2xl font-bold leading-snug text-navy sm:text-3xl md:text-[2.1rem]">
+                            {lead}:
+                          </span>
+                          <span className="mt-2 block bg-linear-to-r from-navy via-slate to-navy bg-clip-text text-3xl leading-[1.12] font-extrabold tracking-tight text-transparent sm:text-4xl md:text-5xl lg:text-[3.25rem]">
+                            {tail}
+                          </span>
+                          <span className="mt-5 block h-1.5 w-20 rounded-full bg-green" aria-hidden />
+                        </>
+                      ) : (
+                        <span className="block text-4xl leading-tight font-extrabold text-navy md:text-5xl lg:text-6xl">
+                          {full}
+                        </span>
+                      )}
+                    </h1>
+                  );
+                })()}
                 <div className="flex flex-wrap items-center gap-6 border-y border-slate-200 py-6 font-body text-steel">
                   <div className="flex items-center gap-2">
                     <Clock className="h-3.5 w-3.5 shrink-0 text-navy" aria-hidden />
@@ -477,7 +499,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </div>
               </header>
 
-              <section className="mb-20 scroll-mt-28 font-body" id="silent-crisis">
+              <section className="mb-20 scroll-mt-36 font-body" id="silent-crisis">
                 <h2 className="mb-8 font-heading text-3xl font-bold text-navy">The Silent Crisis Affecting Your Credibility</h2>
                 <div className="relative mt-8">
                   <p className="mb-8 font-heading text-2xl leading-relaxed font-bold italic text-charcoal md:text-3xl">
@@ -516,7 +538,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </div>
               </section>
 
-              <section className="mb-20 scroll-mt-28" id="stakes">
+              <section className="mb-20 scroll-mt-36" id="stakes">
                 <h2 className="mb-8 font-heading text-3xl font-bold text-navy">The Stakes: Why This Matters</h2>
                 <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm md:p-10">
                   <p className="mb-6 font-body text-lg leading-relaxed text-steel">
@@ -535,7 +557,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </div>
               </section>
 
-              <section className="mb-20 scroll-mt-28" id="impact">
+              <section className="mb-20 scroll-mt-36" id="impact">
                 <h2 className="mb-6 flex flex-wrap items-center gap-3 font-heading text-3xl font-bold text-navy">
                   <Wallet className="h-8 w-8 shrink-0 text-navy" aria-hidden />
                   The cost of ignoring your reputation
@@ -586,7 +608,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </div>
               </section>
 
-              <section className="mb-20 scroll-mt-28" id="permanence">
+              <section className="mb-20 scroll-mt-36" id="permanence">
                 <h2 className="mb-8 font-heading text-3xl font-bold text-navy">Why Negative Content Sticks</h2>
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                   {[
@@ -619,7 +641,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </div>
               </section>
 
-              <section className="mb-20 scroll-mt-28" id="myths">
+              <section className="mb-20 scroll-mt-36" id="myths">
                 <h2 className="mb-8 font-heading text-3xl font-bold text-navy">
                   What doesn&apos;t work (and what does) - Myth vs. reality
                 </h2>
@@ -632,7 +654,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </div>
               </section>
 
-              <section className="mb-20 scroll-mt-28" id="works">
+              <section className="mb-20 scroll-mt-36" id="works">
                 <h2 className="mb-6 font-heading text-3xl font-bold text-navy">What actually works</h2>
                 <div className="rounded-[2rem] bg-navy p-8 text-white md:p-10">
                   <p className="mb-4 font-body text-lg">
@@ -646,7 +668,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </div>
               </section>
 
-              <section className="mb-20 scroll-mt-28" id="framework">
+              <section className="mb-20 scroll-mt-36" id="framework">
                 <h2 className="mb-6 font-heading text-3xl font-bold text-navy">The 5-Step Framework</h2>
                 <div className="flex max-w-4xl flex-col gap-4">
                   <div className="flex flex-wrap items-center justify-center gap-y-2 sm:justify-start">
@@ -698,7 +720,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </div>
               </section>
 
-              <section className="mb-20 scroll-mt-28" id="scenarios">
+              <section className="mb-20 scroll-mt-36" id="scenarios">
                 <h2 className="mb-8 font-heading text-3xl font-bold text-navy">Real Professional Scenarios</h2>
                 <div className="grid gap-4 md:grid-cols-2">
                   <button
@@ -790,7 +812,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </div>
               </section>
 
-              <section className="mb-20 scroll-mt-28" id="timeline">
+              <section className="mb-20 scroll-mt-36" id="timeline">
                 <h2 className="mb-6 font-heading text-3xl font-bold text-navy">How Long Really?</h2>
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
                   {TIMELINE_PHASES.map((p, i) => (
@@ -825,7 +847,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </p>
               </section>
 
-              <section className="mb-20 scroll-mt-28" id="mistakes">
+              <section className="mb-20 scroll-mt-36" id="mistakes">
                 <h2 className="mb-8 font-heading text-3xl font-bold text-navy">Common Critical Mistakes</h2>
                 <div className="space-y-4">
                   {MISTAKES.map((m) => (
@@ -836,7 +858,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </div>
               </section>
 
-              <section className="mb-20 scroll-mt-28" id="checklist">
+              <section className="mb-20 scroll-mt-36" id="checklist">
                 <div className="relative overflow-hidden rounded-[2.5rem] bg-navy p-8 text-white md:p-14">
                   <div className="pointer-events-none absolute top-0 right-0 p-10 text-white/10 md:p-12">
                     <ListChecks className="h-40 w-40 md:h-48 md:w-48" aria-hidden />
@@ -894,7 +916,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </div>
               </section>
 
-              <section className="mb-20 scroll-mt-28 font-body" id="2026-context">
+              <section className="mb-20 scroll-mt-36 font-body" id="2026-context">
                 <h2 className="mb-6 font-heading text-3xl font-bold text-navy">Why This Matters in 2026</h2>
                 <p className="text-lg leading-relaxed text-steel">
                   With the rise of AI-driven search experiences, the &quot;First Impression&quot; has moved from being
@@ -903,7 +925,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </p>
               </section>
 
-              <section className="mb-20 scroll-mt-28" id="faq">
+              <section className="mb-20 scroll-mt-36" id="faq">
                 <h2 className="mb-8 font-heading text-3xl font-bold text-navy">FAQ: Your Remaining Questions</h2>
                 <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
                   {FAQS.map((f) => (
@@ -914,7 +936,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </div>
               </section>
 
-              <section className="mb-20 scroll-mt-28" id="start">
+              <section className="mb-20 scroll-mt-36" id="start">
                 <h2 className="mb-6 font-heading text-3xl font-bold text-navy">The next step & start today</h2>
                 <div className="mb-10 font-body text-lg text-steel">
                   <p>
@@ -923,74 +945,39 @@ export default function BlogSuppressNegativeContentGuidePage() {
                     the cost of inaction only grows with time.
                   </p>
                 </div>
-                <section className="overflow-hidden rounded-2xl bg-linear-to-br from-navy via-slate to-navy px-6 py-12 text-center text-white shadow-xl sm:rounded-3xl sm:px-10 sm:py-14 md:px-14 md:py-16">
-                  <h2 className="mb-4 font-heading text-3xl font-bold leading-tight sm:text-4xl md:text-[2.35rem]">
+                <section className="mx-auto max-w-2xl overflow-hidden rounded-2xl bg-linear-to-br from-navy via-slate to-navy px-5 py-8 text-center text-white shadow-lg sm:rounded-2xl sm:px-8 sm:py-9">
+                  <h2 className="mb-3 font-heading text-2xl font-bold leading-tight sm:text-3xl">
                     Get your free consultation
                   </h2>
-                  <p className="mx-auto mb-10 max-w-2xl font-body text-base text-white/90 sm:text-lg">
-                    Book a short call with our team. We&apos;ll review your search landscape, explain what is realistic,
-                    and map practical next steps- no obligation.
+                  <p className="mx-auto mb-6 max-w-lg font-body text-sm leading-relaxed text-white/88 sm:text-base">
+                    Book a short call: we review your search landscape, set expectations, and outline practical next
+                    steps. No obligation.
                   </p>
-                  <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
-                    <a
-                      {...calendlyNewTabProps}
-                      className={cn(
-                        "ha-pill inline-flex min-w-[14rem] items-center justify-center gap-2 rounded-xl px-8 py-3.5 font-heading text-base font-semibold shadow-lg transition hover:brightness-95 sm:py-4 sm:text-lg",
-                        calendlyCtaButtonClass,
-                      )}
-                    >
-                      Book a Free Consultation
-                      <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
-                    </a>
-                    <a
-                      {...calendlyNewTabProps}
-                      className={cn(
-                        "ha-pill inline-flex min-w-[14rem] items-center justify-center rounded-xl border-2 border-white/40 bg-white/10 px-8 py-3.5 font-heading text-base font-semibold text-white backdrop-blur-sm transition hover:bg-white/20 sm:py-4 sm:text-lg",
-                      )}
-                    >
-                      Speak with a Partner
-                    </a>
-                  </div>
-                  <p className="mt-8 flex items-center justify-center gap-2 font-body text-sm font-medium text-white/75">
-                    <Lock className="h-3.5 w-3.5 text-green" aria-hidden />
-                    Confidential strategy call - same booking flow used across the site
+                  <a
+                    {...calendlyNewTabProps}
+                    className={cn(
+                      "ha-pill inline-flex w-full max-w-xs items-center justify-center gap-2 rounded-xl px-6 py-3 font-heading text-sm font-semibold shadow-md transition hover:brightness-95 sm:w-auto sm:px-8 sm:text-base",
+                      calendlyCtaButtonClass,
+                    )}
+                  >
+                    Book a Free Consultation
+                    <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+                  </a>
+                  <p className="mt-5 flex items-center justify-center gap-2 font-body text-xs font-medium text-white/70 sm:text-sm">
+                    <Lock className="h-3 w-3 text-green" aria-hidden />
+                    Confidential
                   </p>
                 </section>
               </section>
             </main>
 
             {/* Right: reading progress fills this sticky column */}
-            <aside className="hidden w-56 shrink-0 lg:sticky lg:top-6 lg:flex lg:h-[calc(100dvh-1.5rem)] lg:max-h-[calc(100dvh-1.5rem)] lg:min-h-0 lg:flex-col lg:overflow-hidden lg:border-l lg:border-slate-200/80 lg:pl-6 lg:pt-4">
+            <aside className="hidden w-56 shrink-0 lg:sticky lg:top-28 lg:flex lg:h-[calc(100dvh-8rem)] lg:max-h-[calc(100dvh-8rem)] lg:min-h-0 lg:flex-col lg:overflow-hidden lg:border-l lg:border-slate-200/80 lg:pl-6 lg:pt-2">
               <ReadingProgressRail pct={readingPct} />
             </aside>
           </div>
         </div>
 
-        <footer className="mt-16 w-full bg-navy text-white">
-          <div className="mx-auto flex max-w-[min(100%,90rem)] flex-col items-center justify-between gap-8 px-8 py-14 md:flex-row">
-            <div>
-              <div className="mb-2 font-heading text-xl font-bold text-green">Reputation360</div>
-              <p className="max-w-xs font-body text-sm text-slate-400">
-                The global leader in elite online reputation management and executive digital privacy.
-              </p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-8">
-              <a className="font-body text-sm text-slate-300 no-underline transition-opacity hover:text-white" href="/privacy-policy">
-                Privacy Policy
-              </a>
-              <a className="font-body text-sm text-slate-300 no-underline transition-opacity hover:text-white" href="/terms-of-service">
-                Terms of Service
-              </a>
-              <a className="font-body text-sm text-slate-300 no-underline transition-opacity hover:text-white" href="/acceptable-use-policy">
-                Security
-              </a>
-              <a className="font-body text-sm text-slate-300 no-underline transition-opacity hover:text-white" href="/contact">
-                Support
-              </a>
-            </div>
-            <div className="font-body text-sm text-slate-500">© 2024 Reputation360. All rights reserved.</div>
-          </div>
-        </footer>
       </div>
 
       <style>{`
