@@ -26,9 +26,8 @@ export function buildOfflineFreeScanPayload(input) {
   if (LEGACY_COUNTRY[country]) country = LEGACY_COUNTRY[country];
   const hint = COUNTRY_HINT[country] || "";
   const full = `${fn} ${ln}`.trim();
-  const q1 = hint ? `${full} ${hint}` : full;
   const items = buildFallbackSerpItems(fn, ln, country, hint);
-  const searchQueryUsed = `${q1} | ${full} [client fallback: API unreachable]`;
+  const searchQueryUsed = hint ? `${full} (${hint})` : full;
   const base = assembleScanResponse(items, searchQueryUsed, "client_offline_fallback");
   return {
     ...base,

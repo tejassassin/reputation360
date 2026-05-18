@@ -35,7 +35,7 @@ function freeScanEndpoint() {
 /**
  * @param {number} s
  */
-function letterForScore85(s) {
+function letterForReportedScore(s) {
   if (s >= 72) return "A";
   if (s >= 60) return "B";
   if (s >= 48) return "C";
@@ -48,11 +48,11 @@ function letterForScore85(s) {
  */
 function ScanSummaryBanner({ linkCount, counts, reported, presenceLabel }) {
   return (
-    <div className="mt-4 max-w-2xl overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-md ring-1 ring-slate-100/80">
+    <div className="mt-4 w-full overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-md ring-1 ring-slate-100/80">
       <div className="border-b border-slate-100 bg-gradient-to-r from-sky-50/90 via-white to-indigo-50/50 px-5 py-4 sm:px-6">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[15px] font-medium leading-snug text-slate-800 sm:text-base">
-            We reviewed the first three pages of Google-style results for your name.
+            We reviewed the first three pages of search results for your name.
           </p>
           <span className="inline-flex w-fit shrink-0 items-center rounded-full bg-navy px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide text-white">
             {linkCount} links analyzed
@@ -60,28 +60,46 @@ function ScanSummaryBanner({ linkCount, counts, reported, presenceLabel }) {
         </div>
       </div>
       <div className="grid grid-cols-3 divide-x divide-slate-100 bg-slate-50/40">
-        <div className="px-2 py-4 text-center sm:px-4">
+        <div
+          title="Positive-tagged results in this scan"
+          className={cn(
+            "cursor-default select-none px-2 py-4 text-center transition-[background-color,box-shadow,transform] duration-200 ease-out",
+            "hover:bg-emerald-100/70 hover:shadow-sm hover:-translate-y-px sm:px-4",
+          )}
+        >
           <p className="font-heading text-2xl font-bold tabular-nums text-emerald-700 sm:text-3xl">{counts.positive}</p>
           <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-emerald-800/80 sm:text-xs">Positive</p>
         </div>
-        <div className="px-2 py-4 text-center sm:px-4">
+        <div
+          title="Neutral-tagged results in this scan"
+          className={cn(
+            "cursor-default select-none px-2 py-4 text-center transition-[background-color,box-shadow,transform] duration-200 ease-out",
+            "hover:bg-slate-200/60 hover:shadow-sm hover:-translate-y-px sm:px-4",
+          )}
+        >
           <p className="font-heading text-2xl font-bold tabular-nums text-slate-700 sm:text-3xl">{counts.neutral}</p>
           <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-slate-600 sm:text-xs">Neutral</p>
         </div>
-        <div className="px-2 py-4 text-center sm:px-4">
+        <div
+          title="Negative-tagged results in this scan"
+          className={cn(
+            "cursor-default select-none px-2 py-4 text-center transition-[background-color,box-shadow,transform] duration-200 ease-out",
+            "hover:bg-rose-100/70 hover:shadow-sm hover:-translate-y-px sm:px-4",
+          )}
+        >
           <p className="font-heading text-2xl font-bold tabular-nums text-rose-700 sm:text-3xl">{counts.negative}</p>
           <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-rose-800/80 sm:text-xs">Negative</p>
         </div>
       </div>
-      <div className="flex flex-col gap-4 border-t border-slate-100 bg-white px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-        <div>
+      <div className="flex flex-col gap-4 border-t border-slate-100 bg-white px-5 py-5 sm:flex-row sm:items-center sm:gap-6 sm:px-6">
+        <div className="min-w-0 flex-1">
           <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Reputation score</p>
           <p className="mt-1 font-heading text-3xl font-bold tabular-nums text-slate-900">
             {reported}
-            <span className="text-lg font-semibold text-slate-500">/85</span>
+            <span className="text-lg font-semibold text-slate-500">/100</span>
           </p>
         </div>
-        <div className="rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3 sm:max-w-xs sm:text-right">
+        <div className="shrink-0 rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3 sm:min-w-[12rem] sm:text-right">
           <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Overall presence</p>
           <p className="mt-1 text-sm font-semibold text-slate-900">{presenceLabel}</p>
         </div>
@@ -141,7 +159,7 @@ export default function FreeRiskScanPage() {
   const [consentGiven, setConsentGiven] = useState(true);
   const [formError, setFormError] = useState(null);
   const [scanPayload, setScanPayload] = useState(null);
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("negative");
 
   const fullName = useMemo(
     () => `${firstName.trim()} ${lastName.trim()}`.trim(),
@@ -201,7 +219,7 @@ export default function FreeRiskScanPage() {
           });
         }
 
-        setFilter("all");
+        setFilter("negative");
         setScanPayload(data);
         setPhase("results");
       } catch {
@@ -212,7 +230,7 @@ export default function FreeRiskScanPage() {
           country,
           consentGiven,
         });
-        setFilter("all");
+        setFilter("negative");
         setScanPayload(data);
         setPhase("results");
       }
@@ -224,7 +242,7 @@ export default function FreeRiskScanPage() {
     setPhase("form");
     setScanPayload(null);
     setFormError(null);
-    setFilter("all");
+    setFilter("negative");
   };
 
   const onDownloadPdf = useCallback(() => {
@@ -289,7 +307,7 @@ export default function FreeRiskScanPage() {
   }, [rows, filter]);
 
   const reported = scanPayload?.reportedScore ?? 0;
-  const letter = letterForScore85(reported);
+  const letter = letterForReportedScore(reported);
 
   return (
     <main className="relative flex-1 overflow-x-hidden pt-28 md:pt-32">
@@ -314,12 +332,9 @@ export default function FreeRiskScanPage() {
             <h1 className="font-heading text-balance text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
               Free Google reputation scan
             </h1>
-            <p className="mx-auto mt-4 max-w-md text-pretty text-sm font-medium leading-relaxed text-slate-700 md:text-base">
-              Enter a few details.
-            </p>
-            <p className="mx-auto mt-2 max-w-md text-pretty text-sm leading-relaxed text-slate-600 md:text-base">
-              We analyze the first three pages of Google-style results for your name, score what we find, and email you a
-              reputation report card.
+            <p className="mx-auto mt-4 max-w-md text-pretty text-sm leading-relaxed text-slate-600 md:text-base">
+              We analyze the first three pages of results for your name, score what we find, and email you a reputation
+              report card.
             </p>
           </div>
 
@@ -449,49 +464,51 @@ export default function FreeRiskScanPage() {
 
       {phase === "results" && scanPayload ? (
         <section className="relative z-0 mx-auto max-w-6xl px-4 pb-16 pt-6 md:pt-10">
-          <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-            <div>
-              <h1 className="font-heading text-3xl font-bold text-slate-900 md:text-4xl">Your reputation report</h1>
-              <ScanSummaryBanner
-                linkCount={rows.length}
-                counts={counts}
-                reported={reported}
-                presenceLabel={scanPayload.presenceLabel}
-              />
-              {scanPayload.emailSent ? (
-                <p className="mt-2 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-900">
-                  <CheckCircle2 className="h-3.5 w-3.5" aria-hidden />
-                  Report sent to {email.trim().toLowerCase()}
-                </p>
-              ) : null}
+          <div className="mb-6 space-y-4">
+            <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between md:gap-6">
+              <h1 className="font-heading text-3xl font-bold text-slate-900 md:text-4xl">
+                Your reputation report
+              </h1>
+              <div className="flex shrink-0 flex-wrap gap-2 md:pt-1">
+                <a
+                  href={googleHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-sm hover:bg-slate-50"
+                >
+                  <Search className="h-4 w-4" aria-hidden />
+                  Open Google
+                  <ExternalLink className="h-3.5 w-3.5 opacity-70" aria-hidden />
+                </a>
+                <button
+                  type="button"
+                  onClick={onDownloadPdf}
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-sm hover:bg-slate-50"
+                >
+                  <FileDown className="h-4 w-4" aria-hidden />
+                  Download PDF
+                </button>
+                <button
+                  type="button"
+                  onClick={reset}
+                  className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-100"
+                >
+                  New scan
+                </button>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-2">
-              <a
-                href={googleHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-sm hover:bg-slate-50"
-              >
-                <Search className="h-4 w-4" aria-hidden />
-                Open Google
-                <ExternalLink className="h-3.5 w-3.5 opacity-70" aria-hidden />
-              </a>
-              <button
-                type="button"
-                onClick={onDownloadPdf}
-                className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-sm hover:bg-slate-50"
-              >
-                <FileDown className="h-4 w-4" aria-hidden />
-                Download PDF
-              </button>
-              <button
-                type="button"
-                onClick={reset}
-                className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-100"
-              >
-                New scan
-              </button>
-            </div>
+            <ScanSummaryBanner
+              linkCount={rows.length}
+              counts={counts}
+              reported={reported}
+              presenceLabel={scanPayload.presenceLabel}
+            />
+            {scanPayload.emailSent ? (
+              <p className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-900">
+                <CheckCircle2 className="h-3.5 w-3.5" aria-hidden />
+                Report sent to {email.trim().toLowerCase()}
+              </p>
+            ) : null}
           </div>
 
           <div className="grid gap-8 lg:grid-cols-[minmax(0,260px)_1fr]">
@@ -501,12 +518,12 @@ export default function FreeRiskScanPage() {
                 <p className="mt-2 font-heading text-6xl font-extrabold leading-none text-lime-600">{letter}</p>
                 <p className="mt-2 text-2xl font-bold tabular-nums text-slate-900">
                   {reported}
-                  <span className="text-base font-semibold text-slate-500">/85</span>
+                  <span className="text-base font-semibold text-slate-500">/100</span>
                 </p>
                 <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-100">
                   <div
                     className="h-full rounded-full bg-lime-500 transition-all"
-                    style={{ width: `${Math.min(100, (reported / 85) * 100)}%` }}
+                    style={{ width: `${Math.min(100, (reported / 100) * 100)}%` }}
                   />
                 </div>
                 <p className="mt-3 text-sm font-semibold text-slate-800">{scanPayload.presenceLabel}</p>
@@ -571,9 +588,6 @@ export default function FreeRiskScanPage() {
               <h2 className="font-heading text-lg font-bold capitalize text-slate-900">
                 {filter === "all" ? "All analyzed results" : `${filter} results`}
               </h2>
-              <p className="mt-1 text-sm text-slate-600">
-                Query used: <span className="font-mono text-xs text-slate-700">{scanPayload.searchQueryUsed}</span>
-              </p>
               <ul className="mt-5 space-y-4">
                 {filtered.length === 0 ? (
                   <li className="rounded-2xl border border-dashed border-slate-200 bg-white px-5 py-10 text-center text-sm text-slate-600">
@@ -618,7 +632,7 @@ export default function FreeRiskScanPage() {
                       <div>
                         <h3 className="font-heading text-lg font-bold text-emerald-950">What can improve</h3>
                         <p className="mt-0.5 text-xs font-medium uppercase tracking-wide text-emerald-800/80">
-                          Practical next steps
+                          Clear steps you can take next
                         </p>
                       </div>
                     </div>

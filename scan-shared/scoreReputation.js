@@ -1,6 +1,20 @@
 /**
- * Reputation score: internal model 0-100, user-facing max 85.
+ * Reputation score: internal raw 0-100, displayed as X/100 with X capped at 85.
+ * Scores below 45 are reserved for high-stakes negatives (major press, regulators, .gov, or many risks).
  */
+
+/** Government, regulators, and major news domains - negative hits here are weighted heavily. */
+const SEVERE_NEGATIVE_SIGNAL =
+  /(\.gov(\/|$)|(?:^https?:\/\/)?(?:www\.)?sec\.gov|sec\.gov\/|justice\.gov\/|fbi\.gov\/|ftc\.gov\/|consumerfinance\.gov\/|edgar|litigation-release)|wsj\.com\/articles\/|nytimes\.com\/\d{4}\/|washingtonpost\.com\/[^/]+\/\d{4}|reuters\.com\/(?:legal|world|business|markets)|bloomberg\.com\/news\/articles|ft\.com\/content\/|theguardian\.com\/[^/]+\/\d{4}|bbc\.com\/news\/|bbc\.co\.uk\/news\/|economist\.com\/[^/]+\/|latimes\.com\/(?:[^/]+\/)?\d{4}|npr\.org\/\d{4}\/\d{2}\/\d{2}\//i;
+
+/**
+ * @param {import('./classifySerp.js').ClassifiedResult} row
+ */
+export function isSevereNegativeThreat(row) {
+  if (row.sentiment !== "negative") return false;
+  const hay = `${row.link} ${row.title} ${row.snippet}`;
+  return SEVERE_NEGATIVE_SIGNAL.test(hay);
+}
 
 /**
  * @param {import('./classifySerp.js').ClassifiedResult[]} rows
@@ -10,30 +24,36 @@ export function computeReputationScore(rows) {
   const neutral = rows.filter((r) => r.sentiment === "neutral");
   const negative = rows.filter((r) => r.sentiment === "negative");
   const strongPositive = positive.filter((r) => r.strongPositive);
-  const negativeOnFirstPage = negative.filter((r) => r.rank <= 10);
 
-  let raw = 52;
-  raw += strongPositive.length * 8;
-  raw += Math.max(0, positive.length - strongPositive.length) * 4;
+  const severe = negative.filter((r) => isSevereNegativeThreat(r));
+  const softNeg = negative.filter((r) => !isSevereNegativeThreat(r));
+  const severeNearTop = severe.filter((r) => r.rank <= 15);
+
+  const hugeNegativeStory =
+    softNeg.length >= 8 ||
+    severeNearTop.length >= 1 ||
+    severe.length >= 3;
+
+  let raw = 58;
+  raw += strongPositive.length * 6;
+  raw += Math.max(0, positive.length - strongPositive.length) * 3;
   raw += neutral.length * 1;
-  raw -= negative.length * 17;
+  raw -= softNeg.length * 4;
+  raw -= severe.length * 13;
+  if (severeNearTop.length >= 1) raw -= 10;
+  if (severeNearTop.length >= 2) raw -= 10;
 
   if (rows.length === 0) {
-    raw = 58;
+    raw = 64;
   }
 
-  raw = Math.max(0, Math.min(100, Math.round(raw)));
+  raw = Math.round(raw);
 
-  const negPage1 = negativeOnFirstPage.length;
-  if (negPage1 >= 1) {
-    raw = Math.min(raw, 49);
+  if (!hugeNegativeStory) {
+    raw = Math.max(45, raw);
   }
-  if (negPage1 >= 2) {
-    raw = Math.min(raw, 44);
-  }
-  if (negPage1 >= 3) {
-    raw = Math.min(raw, 38);
-  }
+
+  raw = Math.max(0, Math.min(100, raw));
 
   const strongPositiveCount = strongPositive.length;
   const presenceLabel =
@@ -59,9 +79,9 @@ export function buildScanSummary(rows, score) {
   const nNeg = rows.filter((r) => r.sentiment === "negative").length;
 
   return [
-    `We reviewed the first three pages of Google-style results for your name (${rows.length} links).`,
+    `We reviewed the first three pages of search results for your name (${rows.length} links).`,
     `Our model tagged ${nPos} positive, ${nNeu} neutral, and ${nNeg} negative results.`,
-    `Reputation score: ${score.reportedScore} out of 85. Overall presence: ${score.presenceLabel}.`,
+    `Reputation score: ${score.reportedScore} out of 100. Overall presence: ${score.presenceLabel}.`,
   ].join("\n");
 }
 
@@ -85,18 +105,18 @@ export function buildHurtingSection(rows) {
  */
 export function buildImprovingSection(rows, presenceLabel) {
   const lines = [
-    "Claim and complete a consistent professional profile on LinkedIn with a clear headline and photo.",
-    "Publish 2-3 high-quality, accurate bios on properties you control (personal site, employer, industry associations).",
-    "Monitor new mentions quarterly and document anything that is not about you so it can be addressed strategically.",
+    "Strengthen your anchor identity: complete your LinkedIn with a clear headline, photo, and roles that match how you want to be found.",
+    "Own accurate bios on a few trusted surfaces you control (personal site, employer page, relevant industry directories) so searchers see consistent facts.",
+    "Set a simple rhythm to check new results (for example quarterly), note anything that is not about you or is outdated, and decide what is worth addressing with evidence or outreach.",
   ];
   if (presenceLabel === "Weak Online Presence") {
     lines.unshift(
-      "Your scan shows fewer strong authority profiles than we like to see for a resilient first page of results - prioritize credible third-party profiles and media.",
+      "Your first pages lean light on recognizable authority profiles. Prioritize a small set of credible third-party profiles and mentions over chasing every possible listing.",
     );
   }
   const weakSocial = !rows.some((r) => /linkedin\.com\/(in|pub)/i.test(r.link));
   if (weakSocial) {
-    lines.push("Add or refresh a LinkedIn URL that ranks for your exact professional name.");
+    lines.push("Add or refresh a public LinkedIn profile that uses the exact professional name people search for.");
   }
-  return lines.map((l) => `- ${l}`).join("\n");
+  return lines.join("\n\n");
 }

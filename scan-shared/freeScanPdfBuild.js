@@ -62,7 +62,7 @@ export function buildReputationScanPdfBytes(p) {
   addParagraph(`${who}\n${p.email}`, "normal", 10, 12);
   y += 6;
 
-  addParagraph(`Reputation score: ${p.reportedScore} / 85`, "bold", 12, 15);
+  addParagraph(`Reputation score: ${p.reportedScore} / 100`, "bold", 12, 15);
   addParagraph(`Presence: ${p.presenceLabel}`, "normal", 10, 13);
   y += 4;
 
@@ -74,7 +74,7 @@ export function buildReputationScanPdfBytes(p) {
   addParagraph(p.hurting, "normal", 10, 13);
   y += 4;
 
-  addParagraph("What can improve your online presence", "bold", 11, 14);
+  addParagraph("What can improve", "bold", 11, 14);
   addParagraph(p.improving, "normal", 10, 13);
   y += 8;
 

@@ -100,7 +100,7 @@ export const SEO = {
     title: "Free Online Reputation Risk Scan | Reputation360",
     path: FREE_RISK_SCAN_PATH,
     description:
-      "Free Google reputation scan: enter your name, email, and country (US, UK, Canada, Australia, or others). We analyze the first three pages of Google-style results, score your footprint (0-85), email a report card, and store your lead in PostgreSQL when DATABASE_URL is set.",
+      "Free Google reputation scan: enter your name, email, and country (US, UK, Canada, Australia, or others). We analyze the first three pages of search results, score your footprint (0-100 scale, up to 85 in this scan), email a report card, and store your lead in PostgreSQL when DATABASE_URL is set.",
   },
   about: {
     title:

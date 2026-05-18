@@ -52,11 +52,11 @@ export async function sendReputationReportEmail(p) {
         </td></tr>
         <tr><td style="padding:28px 24px;">
           <p style="margin:0 0 12px;font-size:16px;">Hi ${escapeHtml(p.firstName)},</p>
-          <p style="margin:0 0 20px;line-height:1.55;font-size:15px;">Thank you for running a free reputation scan with Reputation360. Below is a concise summary based on the first three pages of Google-style results we analyzed for your name.</p>
+          <p style="margin:0 0 20px;line-height:1.55;font-size:15px;">Thank you for running a free reputation scan with Reputation360. Below is a concise summary based on the first three pages of search results we analyzed for your name.</p>
 
           <div style="border-radius:12px;background:#f0fdf4;border:1px solid #bbf7d0;padding:18px;margin-bottom:20px;">
             <div style="font-size:12px;font-weight:600;color:#166534;text-transform:uppercase;letter-spacing:0.04em;">Reputation score</div>
-            <div style="font-size:42px;font-weight:800;color:#15803d;line-height:1.1;margin-top:6px;">${p.reportedScore}<span style="font-size:18px;color:#64748b;font-weight:600;"> / 85</span></div>
+            <div style="font-size:42px;font-weight:800;color:#15803d;line-height:1.1;margin-top:6px;">${p.reportedScore}<span style="font-size:18px;color:#64748b;font-weight:600;"> / 100</span></div>
             <div style="margin-top:8px;font-size:14px;color:#334155;"><strong>Presence:</strong> ${escapeHtml(p.presenceLabel)}</div>
           </div>
 
@@ -72,7 +72,7 @@ export async function sendReputationReportEmail(p) {
           <h2 style="font-size:15px;margin:0 0 8px;color:#b91c1c;">What may be hurting your reputation</h2>
           <p style="margin:0 0 20px;line-height:1.55;font-size:14px;color:#475569;">${hurtingHtml}</p>
 
-          <h2 style="font-size:15px;margin:0 0 8px;color:#15803d;">What can improve your online presence</h2>
+          <h2 style="font-size:15px;margin:0 0 8px;color:#15803d;">What can improve</h2>
           <p style="margin:0 0 24px;line-height:1.55;font-size:14px;color:#475569;">${improvingHtml}</p>
 
           <p style="margin:0;line-height:1.55;font-size:13px;color:#64748b;">A PDF copy of this report is attached when your message supports attachments. This is an automated, educational scan - not legal, employment, or financial advice. If you would like a human-led audit and remediation plan, reply to this email or book a consultation on thereputation360.com.</p>
@@ -99,7 +99,7 @@ export async function sendReputationReportEmail(p) {
   const { data, error } = await resend.emails.send({
     from,
     to: p.to,
-    subject: `Your Reputation Report Card - ${p.firstName} (score ${p.reportedScore}/85)`,
+    subject: `Your Reputation Report Card - ${p.firstName} (score ${p.reportedScore}/100)`,
     html,
     attachments,
   });
