@@ -2,6 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link
+      rel="canonical"
+      id="r360-link-canonical"
+      href="__R360_METADATA_BASE__/"
+    />
+    <meta name="r360-metadata-base" content="__R360_METADATA_BASE__" />
+    <script>
+      (function () {
+        var m = document.querySelector('meta[name="r360-metadata-base"]');
+        var base = (m && m.getAttribute("content")) || "";
+        if (!base) return;
+        base = base.replace(new RegExp("/+$"), "");
+        var raw = location.pathname.replace(new RegExp("/+$"), "") || "/";
+        var path = raw === "/" ? "/" : raw;
+        var href = base + (path === "/" ? "/" : path);
+        var link = document.getElementById("r360-link-canonical");
+        if (link) link.setAttribute("href", href);
+      })();
+    </script>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />

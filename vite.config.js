@@ -5,8 +5,14 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { METADATA_BASE } from "./src/constants/siteUrl.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+/** Escapes `"` and `&` for a double-quoted HTML attribute value. */
+function htmlAttrEscape(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+}
 
 /** Busts aggressive browser + proxy caches of `index.html` and `/src/main.jsx` when running `vite` (dev). */
 let r360DevEntryBust = null;
@@ -62,6 +68,12 @@ export default defineConfig({
           "<head>",
           `<head>\n    <meta name="deploy-sha" content="${sha}" />`,
         );
+      },
+    },
+    {
+      name: "r360-metadata-base-placeholder",
+      transformIndexHtml(html) {
+        return html.replaceAll("__R360_METADATA_BASE__", htmlAttrEscape(METADATA_BASE));
       },
     },
     {

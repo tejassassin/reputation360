@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { METADATA_BASE } from "../constants/siteUrl.js";
+import { canonicalHrefFromPath } from "../lib/canonicalHrefFromPath.js";
 
 const DESC_ID = "r360-meta-description";
 const CANON_ID = "r360-link-canonical";
@@ -56,8 +57,10 @@ function removeExtraDescriptionMetas(canonical) {
 
 /**
  * Sets document title, meta description, rel=canonical, Open Graph, and
- * Twitter Card tags (SPA: updates <head> on every route change). Uses
- * METADATA_BASE from siteUrl (Next.js metadataBase equivalent).
+ * Twitter Card tags (SPA). Canonical is also set synchronously from
+ * `location.pathname` via a small script injected by Vite into index.html so
+ * the tag exists before the React bundle runs. React then syncs the same
+ * `r360-link-canonical` link (useLayoutEffect) with the route’s canonicalPath.
  *
  * @param {object}  props
  * @param {string}  props.title          Page <title> and og:title
@@ -66,16 +69,12 @@ function removeExtraDescriptionMetas(canonical) {
  * @param {string}  [props.ogImage]      Full URL to OG image (defaults to site default)
  */
 export function SeoHead({ title, description, canonicalPath, ogImage }) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!document.head) return;
 
     document.title = title ?? "";
 
-    const path =
-      canonicalPath === "/" || canonicalPath === ""
-        ? "/"
-        : canonicalPath.replace(/\/+$/, "");
-    const href = `${METADATA_BASE}${path}`;
+    const href = canonicalHrefFromPath(canonicalPath);
 
     let link = document.getElementById(CANON_ID);
     if (!link) {
