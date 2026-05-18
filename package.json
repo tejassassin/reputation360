@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "node scripts/kill-vite-ports.mjs && node scripts/clear-vite-cache.mjs && node scripts/dev.mjs",
     "dev:simple": "node scripts/dev.mjs",
@@ -11,7 +14,7 @@
     "dev:vercel": "npx vercel dev",
     "start": "npm run dev",
     "doctor": "node scripts/doctor.mjs",
-    "build": "node scripts/dev.mjs build && node scripts/postbuild-spa-routes.mjs && node scripts/emit-spa-per-route-html.mjs && (react-snap || echo 'react-snap skipped') && node scripts/patch-dist-canonical-from-fspath.mjs",
+    "build": "node scripts/dev.mjs build && node scripts/postbuild-spa-routes.mjs && node scripts/emit-spa-per-route-html.mjs && node scripts/run-react-snap.mjs && node scripts/patch-dist-canonical-from-fspath.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "lint": "eslint .",
     "preview": "node scripts/dev.mjs preview",
