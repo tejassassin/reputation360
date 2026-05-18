@@ -10,12 +10,23 @@
     <meta name="r360-metadata-base" content="__R360_METADATA_BASE__" />
     <script>
       (function () {
+        function normalizePath(pathname) {
+          var p = String(pathname || "/");
+          var qi = p.indexOf("?");
+          if (qi >= 0) p = p.slice(0, qi);
+          var hi = p.indexOf("#");
+          if (hi >= 0) p = p.slice(0, hi);
+          try {
+            p = decodeURI(p);
+          } catch (e1) {}
+          p = p.replace(new RegExp("/+$"), "") || "/";
+          return p;
+        }
         var m = document.querySelector('meta[name="r360-metadata-base"]');
         var base = (m && m.getAttribute("content")) || "";
         if (!base) return;
         base = base.replace(new RegExp("/+$"), "");
-        var raw = location.pathname.replace(new RegExp("/+$"), "") || "/";
-        var path = raw === "/" ? "/" : raw;
+        var path = normalizePath(location.pathname);
         var href = base + (path === "/" ? "/" : path);
         var link = document.getElementById("r360-link-canonical");
         if (link) link.setAttribute("href", href);

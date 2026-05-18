@@ -1,6 +1,10 @@
 import { useLayoutEffect } from "react";
 import { METADATA_BASE } from "../constants/siteUrl.js";
-import { canonicalHrefFromPath } from "../lib/canonicalHrefFromPath.js";
+import {
+  canonicalHrefFromCurrentLocation,
+  canonicalHrefFromPath,
+  R360_PATHCHANGE_EVENT,
+} from "../lib/canonicalHrefFromPath.js";
 
 const DESC_ID = "r360-meta-description";
 const CANON_ID = "r360-link-canonical";
@@ -57,15 +61,15 @@ function removeExtraDescriptionMetas(canonical) {
 
 /**
  * Sets document title, meta description, rel=canonical, Open Graph, and
- * Twitter Card tags (SPA). Canonical is also set synchronously from
- * `location.pathname` via a small script injected by Vite into index.html so
- * the tag exists before the React bundle runs. React then syncs the same
- * `r360-link-canonical` link (useLayoutEffect) with the route’s canonicalPath.
+ * Twitter Card tags (SPA). Canonical and `og:url` always follow
+ * `window.location.pathname` (no query/UTM, no hash), with a trailing slash only
+ * on the homepage. An inline script in `index.html` sets the same link before
+ * React loads. `canonicalPath` is only a non-browser fallback (e.g. prerender).
  *
  * @param {object}  props
  * @param {string}  props.title          Page <title> and og:title
  * @param {string}  props.description    meta description and og:description
- * @param {string}  props.canonicalPath  Pathname starting with / e.g. "/about"
+ * @param {string}  props.canonicalPath  Fallback pathname when `window` is undefined
  * @param {string}  [props.ogImage]      Full URL to OG image (defaults to site default)
  */
 export function SeoHead({ title, description, canonicalPath, ogImage }) {
@@ -74,36 +78,54 @@ export function SeoHead({ title, description, canonicalPath, ogImage }) {
 
     document.title = title ?? "";
 
-    const href = canonicalHrefFromPath(canonicalPath);
+    const resolveCanonicalHref = () =>
+      typeof window !== "undefined"
+        ? canonicalHrefFromCurrentLocation()
+        : canonicalHrefFromPath(canonicalPath ?? "/");
 
-    let link = document.getElementById(CANON_ID);
-    if (!link) {
-      link = document.createElement("link");
-      link.id = CANON_ID;
-      link.setAttribute("rel", "canonical");
-      document.head.appendChild(link);
-    }
-    link.setAttribute("href", href);
+    const apply = () => {
+      const href = resolveCanonicalHref();
 
-    const text = description == null ? "" : String(description);
-    const meta = resolveDescriptionMeta();
-    if (meta) {
-      meta.setAttribute("content", text);
-      removeExtraDescriptionMetas(meta);
-    }
+      let link = document.getElementById(CANON_ID);
+      if (!link) {
+        link = document.createElement("link");
+        link.id = CANON_ID;
+        link.setAttribute("rel", "canonical");
+        document.head.appendChild(link);
+      }
+      link.setAttribute("href", href);
 
-    const image = ogImage || DEFAULT_OG_IMAGE;
-    upsertMeta("property", "og:type", "website");
-    upsertMeta("property", "og:site_name", "Reputation360");
-    upsertMeta("property", "og:title", title ?? "");
-    upsertMeta("property", "og:description", text);
-    upsertMeta("property", "og:url", href);
-    upsertMeta("property", "og:image", image);
+      const text = description == null ? "" : String(description);
+      const meta = resolveDescriptionMeta();
+      if (meta) {
+        meta.setAttribute("content", text);
+        removeExtraDescriptionMetas(meta);
+      }
 
-    upsertMeta("name", "twitter:card", "summary_large_image");
-    upsertMeta("name", "twitter:title", title ?? "");
-    upsertMeta("name", "twitter:description", text);
-    upsertMeta("name", "twitter:image", image);
+      const image = ogImage || DEFAULT_OG_IMAGE;
+      upsertMeta("property", "og:type", "website");
+      upsertMeta("property", "og:site_name", "Reputation360");
+      upsertMeta("property", "og:title", title ?? "");
+      upsertMeta("property", "og:description", text);
+      upsertMeta("property", "og:url", href);
+      upsertMeta("property", "og:image", image);
+
+      upsertMeta("name", "twitter:card", "summary_large_image");
+      upsertMeta("name", "twitter:title", title ?? "");
+      upsertMeta("name", "twitter:description", text);
+      upsertMeta("name", "twitter:image", image);
+    };
+
+    apply();
+
+    if (typeof window === "undefined") return undefined;
+
+    window.addEventListener("popstate", apply);
+    window.addEventListener(R360_PATHCHANGE_EVENT, apply);
+    return () => {
+      window.removeEventListener("popstate", apply);
+      window.removeEventListener(R360_PATHCHANGE_EVENT, apply);
+    };
   }, [title, description, canonicalPath, ogImage]);
 
   return null;

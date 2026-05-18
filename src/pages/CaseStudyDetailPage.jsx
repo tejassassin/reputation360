@@ -13,6 +13,7 @@ import { CaseStudySectionBlock } from "../components/CaseStudySectionBlock.jsx";
 import { parseEngagementMonths } from "../utils/parseEngagement.js";
 import { ProfileValueLines } from "../components/ProfileValueLines.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
+import { R360_PATHCHANGE_EVENT } from "../lib/canonicalHrefFromPath.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 
 function metaDescriptionFromText(text, fallbackDescription) {
@@ -116,6 +117,7 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
           : ""
       }`;
       window.history.replaceState(null, "", path);
+      window.dispatchEvent(new Event(R360_PATHCHANGE_EVENT));
     }
   }, [study, legacyNumeric]);
 
