@@ -1,9 +1,10 @@
 import suppressNegativeContentGuideSource from "./suppress-negative-content-guide.md?raw";
+import { blogPostPath } from "../../constants/blogPaths.js";
 
 export const SUPPRESS_NEGATIVE_GUIDE_SLUG =
   "how-to-suppress-negative-content-professionals-guide";
 
-export const SUPPRESS_NEGATIVE_GUIDE_PATH = `/resources/blogs/${SUPPRESS_NEGATIVE_GUIDE_SLUG}`;
+export const SUPPRESS_NEGATIVE_GUIDE_PATH = blogPostPath(SUPPRESS_NEGATIVE_GUIDE_SLUG);
 
 export const suppressNegativeGuideListing = {
   id: "suppress-negative-guide",

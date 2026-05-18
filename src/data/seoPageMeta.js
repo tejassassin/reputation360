@@ -34,7 +34,7 @@ export const SEO = {
   blogs: {
     title:
       "Online Reputation Management Blog | Strategy & Industry Insights",
-    path: "/resources/blogs",
+    path: "/blog",
     description:
       "Online reputation management insights from 7 years of global reputation work. Expert blog posts on suppressing negatives, managing crises & building credible brands around the world. Industry trends serving US, Europe & worldwide.",
   },

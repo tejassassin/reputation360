@@ -1,5 +1,11 @@
 {
   "redirects": [
+    { "source": "/resources/blogs", "destination": "/blog", "permanent": true },
+    {
+      "source": "/resources/blogs/:slug",
+      "destination": "/blog/:slug",
+      "permanent": true
+    },
     { "source": "/services/negative-link-suppression", "destination": "/services", "permanent": true },
     { "source": "/services/online-reputation-management", "destination": "/services", "permanent": true },
     { "source": "/services/brand-monitoring", "destination": "/services", "permanent": true },
@@ -97,7 +103,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/"
+      "destination": "/index.html"
     }
   ]
 }

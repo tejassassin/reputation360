@@ -297,7 +297,7 @@ function InsightsBlogsPage() {
               return slug ? (
                 <a
                   key={article.id}
-                  href={`/resources/blogs/${slug}`}
+                  href={`/blog/${slug}`}
                   {...(openBlogInNewTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="group block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f9f9ff]"
                 >

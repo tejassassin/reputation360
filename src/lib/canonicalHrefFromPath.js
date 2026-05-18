@@ -1,7 +1,7 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
 
 /**
- * Canonical URL helpers. Blog posts are served at `/resources/blogs/{slug}` (not `/blog/...`).
+ * Canonical URL helpers. Blog index is `/blog`; posts are `/blog/{slug}`.
  *
  * Strip query/hash, decode URI, collapse trailing slashes (root stays `/`).
  * Does not use `location.search` so UTM parameters never affect the canonical path.

@@ -29,6 +29,8 @@ import TermsOfServicePage from "./pages/TermsOfServicePage.jsx";
 import TermsOfUsePage from "./pages/TermsOfUsePage.jsx";
 import DmcaCopyrightPolicyPage from "./pages/DmcaCopyrightPolicyPage.jsx";
 import { AUDIENCE_PATH, LEGACY_SERVICE_AUDIENCE_PATH } from "./constants/whoWeServePaths.js";
+import { BLOG_INDEX_PATH } from "./constants/blogPaths.js";
+import { SUPPRESS_NEGATIVE_GUIDE_SLUG } from "./data/blogs/suppressNegativeContentGuide.js";
 
 if (import.meta.env.DEV) {
   console.info(
@@ -80,10 +82,14 @@ function pageForPath(path) {
     return <CaseStudyDetailPage caseStudySlug={caseStudyPath[1]} />;
   }
   if (path === "/contact") return <ContactPage />;
-  if (path === "/resources/blogs/how-to-suppress-negative-content-professionals-guide") {
-    return <BlogSuppressNegativeContentGuidePage />;
+  if (path === BLOG_INDEX_PATH) return <InsightsBlogsPage />;
+  const blogPost = path.match(/^\/blog\/([^/]+)$/);
+  if (blogPost) {
+    const slug = blogPost[1];
+    if (slug === SUPPRESS_NEGATIVE_GUIDE_SLUG) {
+      return <BlogSuppressNegativeContentGuidePage />;
+    }
   }
-  if (path === "/resources/blogs") return <InsightsBlogsPage />;
   if (path === "/resources/guide") return <GuidePage />;
   if (path === "/resources/faqs") return <FaqsPage />;
   if (path === "/privacy-policy") return <PrivacyPolicyPage />;

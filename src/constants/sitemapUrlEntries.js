@@ -147,9 +147,9 @@ export const SITEMAP_URL_ENTRIES = [
     changefreq: "monthly",
     priority: "0.8",
   },
-  { path: "/resources/blogs", lastmod: "2026-04-26", changefreq: "weekly", priority: "0.7" },
+  { path: "/blog", lastmod: "2026-04-26", changefreq: "weekly", priority: "0.7" },
   {
-    path: "/resources/blogs/how-to-suppress-negative-content-professionals-guide",
+    path: "/blog/how-to-suppress-negative-content-professionals-guide",
     lastmod: "2026-05-15",
     changefreq: "monthly",
     priority: "0.7",

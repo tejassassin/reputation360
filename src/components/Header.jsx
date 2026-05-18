@@ -58,9 +58,9 @@ const navItems = [
   { name: "Case Studies", link: "/case-studies" },
   {
     name: "Resources",
-    link: "/resources/blogs",
+    link: "/blog",
     children: [
-      { name: "Insights & Blogs", link: "/resources/blogs" },
+      { name: "Insights & Blogs", link: "/blog" },
       { name: "Guide", link: "/resources/guide" },
       { name: "FAQs", link: "/resources/faqs" },
     ],
