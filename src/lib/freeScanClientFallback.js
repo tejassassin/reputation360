@@ -1,5 +1,7 @@
 import { buildFallbackSerpItems } from "@scan/fallbackSerp.js";
 import { assembleScanResponse } from "@scan/assembleScanResponse.js";
+import { reputationGradeBundle } from "@scan/scoreReputation.js";
+import { FREE_SCAN_GOOGLE_PAGES, FREE_SCAN_LINK_LIMIT } from "@scan/freeScanConstants.js";
 
 const COUNTRY_HINT = {
   US: "United States",
@@ -9,10 +11,15 @@ const COUNTRY_HINT = {
   Others: "",
 };
 
-const LEGACY_COUNTRY = {
+const NORMALIZE_COUNTRY = {
   USA: "US",
-  India: "Others",
+  US: "US",
+  UK: "UK",
+  Canada: "Canada",
+  Australia: "Australia",
   Other: "Others",
+  Others: "Others",
+  India: "Others",
 };
 
 /**
@@ -22,15 +29,24 @@ const LEGACY_COUNTRY = {
 export function buildOfflineFreeScanPayload(input) {
   const fn = input.firstName.trim();
   const ln = input.lastName.trim();
-  let country = input.country;
-  if (LEGACY_COUNTRY[country]) country = LEGACY_COUNTRY[country];
+  const country = NORMALIZE_COUNTRY[input.country] ?? input.country;
   const hint = COUNTRY_HINT[country] || "";
   const full = `${fn} ${ln}`.trim();
   const items = buildFallbackSerpItems(fn, ln, country, hint);
   const searchQueryUsed = hint ? `${full} (${hint})` : full;
   const base = assembleScanResponse(items, searchQueryUsed, "client_offline_fallback");
+  const grade = reputationGradeBundle(base.reportedScore);
+  const totalLinksScanned =
+    base.positive.length + base.neutral.length + base.negative.length;
   return {
     ...base,
+    googlePagesAnalyzed: FREE_SCAN_GOOGLE_PAGES,
+    linksCap: FREE_SCAN_LINK_LIMIT,
+    totalLinksScanned,
+    letterGrade: grade.letter,
+    reputationStatus: grade.label,
+    scoreBandLabel: grade.bandLabel,
+    offlineDemoScan: true,
     scanId: null,
     userId: null,
     emailSent: false,

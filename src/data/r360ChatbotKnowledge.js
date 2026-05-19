@@ -378,6 +378,7 @@ export const R360_CHATBOT_ENTRIES = [
 
 /** Short prompts shown as chips in the chat panel. */
 export const R360_CHATBOT_QUICK_PROMPTS = [
+  "Scan a person's reputation",
   "What is ORM?",
   "Bad reviews in Google",
   "How long until results?",

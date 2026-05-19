@@ -5,7 +5,18 @@ import {
   R360_CHATBOT_QUICK_PROMPTS,
 } from "@/data/r360ChatbotKnowledge.js";
 import { matchR360ChatbotEntry } from "@/lib/r360ChatbotMatch.js";
+import {
+  fetchReputationAgentReport,
+  formatReputationReportForChat,
+} from "@/lib/formatReputationReport.js";
+import { AI_REPUTATION_SCAN_PATH } from "@/constants/reputationAgent.js";
 import { CONTACT_EMAIL } from "@/constants/contact.js";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const SCAN_START_PROMPT = "Scan a person's reputation";
+/** "Jane Doe" or "scan Jane Doe" */
+const FULL_NAME_RE =
+  /^(?:scan\s+)?([A-Za-z][\w'.-]*)\s+([A-Za-z][\w'.-]+(?:\s+[A-Za-z][\w'.-]+)*)$/i;
 
 /** Matches `GlobalContactDock` icon buttons for a consistent dock. */
 const dockBtn =
@@ -15,10 +26,10 @@ const dockBtn =
 const MATCH_THRESHOLD = 5;
 
 const FALLBACK_REPLY =
-  "Thanks for reaching out. I am trained on Reputation360's playbook - ORM, suppression, and how we work with clients in the US, Canada, and Australia. I am not a lawyer or a financial advisor, I cannot name competitors, and I will not promise overnight miracles.";
+  "For ORM and suppression FAQs I can help here. For a personalized web scan of a specific person, tap \"Scan a person's reputation\" or type their full name (for example Jane Doe), then your email - I'll search live results and summarize sentiment for that name only.";
 
 function buildWelcomeMessage() {
-  return `Hey - welcome to Reputation360. I can walk you through online reputation management, negative link suppression, timelines, and what to expect.`;
+  return `Hey - welcome to Reputation360. Ask about ORM, timelines, and pricing - or tap "${SCAN_START_PROMPT}" for a personalized web scan of someone's name.`;
 }
 
 /**
@@ -75,8 +86,20 @@ export default function R360Chatbot() {
   const [messages, setMessages] = useState(() => [
     { id: "w", role: "assistant", text: buildWelcomeMessage() },
   ]);
+  const [scanStep, setScanStep] = useState(null);
+  const [scanDraft, setScanDraft] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
   const listRef = useRef(null);
   const inputRef = useRef(null);
+  /** Synchronous name capture (avoids stale React state on the email step). */
+  const scanDraftRef = useRef({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
 
   useEffect(() => {
     if (!open) return;
@@ -111,10 +134,60 @@ export default function R360Chatbot() {
     ]);
   }, []);
 
+  const startScanFlow = useCallback(() => {
+    scanDraftRef.current = { firstName: "", lastName: "", email: "" };
+    setScanStep("first");
+    setScanDraft({ firstName: "", lastName: "", email: "" });
+    pushAssistant(
+      "I'll search the web for that person's name, read the top results, and summarize reputation sentiment. What is their first name?",
+    );
+  }, [pushAssistant]);
+
+  const runReputationScan = useCallback(
+    async (firstName, lastName, email) => {
+      const first = firstName.trim();
+      const last = lastName.trim();
+      const mail = email.trim();
+      if (!first || !last) {
+        pushAssistant(
+          "I need both first and last name for a web scan. Tap \"Scan a person's reputation\" or type a full name like Jane Doe.",
+        );
+        return;
+      }
+      setScanStep("loading");
+      pushAssistant(
+        `Researching ${first} ${last} on the web now. This usually takes 30-90 seconds...`,
+      );
+      try {
+        const data = await fetchReputationAgentReport({
+          firstName: first,
+          lastName: last,
+          email: mail,
+        });
+        const text = formatReputationReportForChat(data.report, data.subject);
+        pushAssistant(text, {
+          href: AI_REPUTATION_SCAN_PATH,
+          label: "Open full report page",
+        });
+      } catch (e) {
+        pushAssistant(
+          e instanceof Error
+            ? e.message
+            : "The reputation scan could not complete. Check that TAVILY_API_KEY and OPENROUTER_API_KEY are set in .env.local, then restart npm run dev.",
+        );
+      } finally {
+        setScanStep(null);
+        scanDraftRef.current = { firstName: "", lastName: "", email: "" };
+        setScanDraft({ firstName: "", lastName: "", email: "" });
+      }
+    },
+    [pushAssistant],
+  );
+
   const handleSend = useCallback(
-    (raw) => {
+    async (raw) => {
       const trimmed = raw.trim();
-      if (!trimmed) return;
+      if (!trimmed || scanStep === "loading") return;
 
       setMessages((prev) => [
         ...prev,
@@ -126,6 +199,60 @@ export default function R360Chatbot() {
       ]);
       setInput("");
 
+      if (trimmed === SCAN_START_PROMPT || /^scan\s*$/i.test(trimmed)) {
+        startScanFlow();
+        return;
+      }
+
+      const inlineName = trimmed.match(FULL_NAME_RE);
+      if (inlineName && scanStep !== "loading") {
+        const firstName = inlineName[1];
+        const lastName = inlineName[2];
+        scanDraftRef.current = {
+          ...scanDraftRef.current,
+          firstName,
+          lastName,
+        };
+        setScanDraft((d) => ({ ...d, firstName, lastName }));
+        setScanStep("email");
+        pushAssistant(
+          `I'll run a live web scan for ${firstName} ${lastName}. What email should we associate with this scan?`,
+        );
+        return;
+      }
+
+      if (scanStep === "first") {
+        scanDraftRef.current = {
+          ...scanDraftRef.current,
+          firstName: trimmed,
+        };
+        setScanDraft((d) => ({ ...d, firstName: trimmed }));
+        setScanStep("last");
+        pushAssistant(`Got it. What is ${trimmed}'s last name?`);
+        return;
+      }
+
+      if (scanStep === "last") {
+        scanDraftRef.current = {
+          ...scanDraftRef.current,
+          lastName: trimmed,
+        };
+        setScanDraft((d) => ({ ...d, lastName: trimmed }));
+        setScanStep("email");
+        pushAssistant("Thanks. What email should we associate with this scan?");
+        return;
+      }
+
+      if (scanStep === "email") {
+        if (!EMAIL_RE.test(trimmed)) {
+          pushAssistant("Please enter a valid email address to continue.");
+          return;
+        }
+        const { firstName, lastName } = scanDraftRef.current;
+        await runReputationScan(firstName, lastName, trimmed);
+        return;
+      }
+
       const { entry, score } = matchR360ChatbotEntry(trimmed, R360_CHATBOT_ENTRIES);
       if (entry && score >= MATCH_THRESHOLD) {
         pushAssistant(entry.reply, entry.cta);
@@ -136,18 +263,18 @@ export default function R360Chatbot() {
         });
       }
     },
-    [pushAssistant],
+    [pushAssistant, runReputationScan, scanStep, startScanFlow],
   );
 
   return (
-    <div className="relative z-[1] flex max-w-[100vw] flex-col items-end gap-2.5">
+    <div className="pointer-events-none relative z-0 flex max-w-[100vw] flex-col items-end gap-2.5">
       {open ? (
         <section
           id={panelDialogId}
           role="dialog"
           aria-modal="true"
           aria-labelledby={panelTitleId}
-          className="flex h-[min(32rem,calc(100dvh-12.5rem))] w-[min(22rem,calc(100vw-1rem))] flex-col overflow-hidden overscroll-contain rounded-2xl border border-slate-200/90 bg-[#F5F7FA] shadow-[0_20px_50px_-12px_rgba(31,59,100,0.35)] sm:h-[min(32rem,calc(100dvh-8rem))] sm:w-96"
+          className="pointer-events-auto flex h-[min(32rem,calc(100dvh-12.5rem))] w-[min(22rem,calc(100vw-1rem))] flex-col overflow-hidden overscroll-contain rounded-2xl border border-slate-200/90 bg-[#F5F7FA] shadow-[0_20px_50px_-12px_rgba(31,59,100,0.35)] sm:h-[min(32rem,calc(100dvh-8rem))] sm:w-96"
         >
             <header className="flex items-center justify-between gap-2 border-b border-slate-200/80 bg-white px-3 py-2.5">
               <div className="min-w-0">
@@ -221,7 +348,18 @@ export default function R360Chatbot() {
                       handleSend(input);
                     }
                   }}
-                  placeholder="Ask about ORM, timelines, privacy..."
+                  placeholder={
+                    scanStep === "first"
+                      ? "First name..."
+                      : scanStep === "last"
+                        ? "Last name..."
+                        : scanStep === "email"
+                          ? "Email address..."
+                          : scanStep === "loading"
+                            ? "Scan in progress..."
+                            : "Ask about ORM, timelines, or scan a name..."
+                  }
+                  disabled={scanStep === "loading"}
                   enterKeyHint="send"
                   className="min-h-[2.75rem] min-w-0 flex-1 touch-manipulation resize-none rounded-xl border border-slate-200 bg-[#F5F7FA] px-3 py-2.5 text-base text-[#1F3B64] placeholder:text-slate-400 focus-visible:border-[#4CAF50]/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-[#4CAF50]/40 sm:text-sm"
                 />
@@ -244,7 +382,7 @@ export default function R360Chatbot() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className={`${dockBtn} touch-manipulation border-[#2E5B88]/35 bg-[#2E5B88] text-white shadow-[0_12px_28px_-8px_rgba(31,59,100,0.35)] hover:bg-[#254a73] hover:shadow-xl active:opacity-90`}
+        className={`${dockBtn} pointer-events-auto touch-manipulation border-[#2E5B88]/35 bg-[#2E5B88] text-white shadow-[0_12px_28px_-8px_rgba(31,59,100,0.35)] hover:bg-[#254a73] hover:shadow-xl active:opacity-90`}
         aria-expanded={open}
         aria-controls={open ? panelDialogId : undefined}
         aria-label={open ? "Close Reputation360 assistant" : "Open Reputation360 assistant"}

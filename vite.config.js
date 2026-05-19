@@ -41,17 +41,21 @@ function readHttpBody(req) {
 }
 
 /**
- * Serves POST /api/free-scan during `npm run dev` so the free scan never 404s without a proxy.
+ * Serves POST /api/free-scan and /api/reputation-agent during `npm run dev`.
  * @param {string} mode
  */
-function r360DevFreeScanApiPlugin(mode) {
-  const envFromFiles = loadEnv(mode, process.cwd(), "");
+function r360DevApiPlugin(mode) {
+  const routes = {
+    "/api/free-scan": () => import("./api/lib/runFreeScanPipeline.js"),
+    "/api/reputation-agent": () => import("./api/lib/runReputationAgentPipeline.js"),
+  };
   return {
-    name: "r360-dev-free-scan-api",
+    name: "r360-dev-api",
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
         const pathname = req.url?.split("?")[0] ?? "";
-        if (pathname !== "/api/free-scan") {
+        const loadPipeline = routes[pathname];
+        if (!loadPipeline) {
           next();
           return;
         }
@@ -70,7 +74,11 @@ function r360DevFreeScanApiPlugin(mode) {
           return;
         }
         try {
-          const { runFreeScanPipeline } = await import("./api/lib/runFreeScanPipeline.js");
+          const mod = await loadPipeline();
+          const run =
+            pathname === "/api/free-scan"
+              ? mod.runFreeScanPipeline
+              : mod.runReputationAgentPipeline;
           const raw = await readHttpBody(req);
           let body = {};
           try {
@@ -78,7 +86,7 @@ function r360DevFreeScanApiPlugin(mode) {
           } catch {
             body = {};
           }
-          const { status, json } = await runFreeScanPipeline(body, envFromFiles);
+          const { status, json } = await run(body, loadEnv(mode, process.cwd(), ""));
           res.statusCode = status;
           res.setHeader("Content-Type", "application/json");
           res.end(JSON.stringify(json));
@@ -100,7 +108,7 @@ function r360DevFreeScanApiPlugin(mode) {
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   plugins: [
-    r360DevFreeScanApiPlugin(mode),
+    r360DevApiPlugin(mode),
     {
       name: "r360-dev-bust-and-no-store-html",
       configResolved(c) {

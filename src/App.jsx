@@ -7,11 +7,20 @@ import GlobalContactDock from "./components/GlobalContactDock.jsx";
 function App({ children }) {
   useEffect(() => {
     const onClick = (e) => {
-      if (e.defaultPrevented || e.button !== 0) return;
+      if (e.defaultPrevented) return;
+      if (typeof e.button === "number" && e.button !== 0) return;
       const el = e.target;
       if (!(el instanceof Element)) return;
       const a = el.closest("a[href]");
       if (!a || !(a instanceof HTMLAnchorElement)) return;
+      const rawHref = a.getAttribute("href")?.trim() ?? "";
+      if (
+        rawHref.startsWith("mailto:") ||
+        rawHref.startsWith("tel:") ||
+        rawHref.startsWith("sms:")
+      ) {
+        return;
+      }
       if (a.target === "_blank" || a.hasAttribute("download")) return;
       let url;
       try {
@@ -37,12 +46,14 @@ function App({ children }) {
   }, []);
 
   return (
-    <div className="relative flex min-h-screen min-h-[100dvh] flex-col overflow-x-clip bg-offwhite">
-      <Header />
-      {children}
-      <Footer />
+    <>
+      <div className="relative flex min-h-screen min-h-[100dvh] flex-col overflow-x-clip bg-offwhite">
+        <Header />
+        {children}
+        <Footer />
+      </div>
       <GlobalContactDock />
-    </div>
+    </>
   );
 }
 

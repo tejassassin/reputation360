@@ -12,7 +12,9 @@ const example = join(root, ".env.example");
 
 if (existsSync(local)) {
   console.log("\n  .env.local already exists.");
-  console.log("  Edit it and set GOOGLE_CSE_API_KEY and GOOGLE_CSE_CX (Programmable Search).\n");
+  console.log("  For live Google results: set GOOGLE_CSE_API_KEY and GOOGLE_CSE_CX.");
+  console.log("  For local UI without keys: ensure FREE_SCAN_RELAXED_CONFIG=1 (see .env.example).");
+  console.log("  Create keys: https://programmablesearchengine.google.com/ and enable Custom Search JSON API.\n");
   process.exit(0);
 }
 

@@ -9,8 +9,7 @@ import {
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 import { Children, cloneElement, isValidElement, useState } from "react";
 
-/* Port of thereputation360.com header (deploy bundle): fixed bg-navy bar, sticky top-20 shell,
-   scroll>100 + motion (width/blur) on the pill row, NavItems absolute inset-0 centered. */
+/* Sticky pill: scroll>100 adds opaque shell + shadow. Below 2xl, desktop uses 2 rows (links then CTAs) so links never share a row with buttons. */
 
 interface NavbarProps {
   children: ReactNode;
@@ -42,56 +41,39 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   });
 
   return (
-    <motion.div
-      className={cn("sticky inset-x-0 top-20 z-40 w-full", className)}
-    >
+    <div className={cn("sticky inset-x-0 top-20 z-40 w-full", className)}>
       {Children.map(children, (child) =>
         isValidElement(child) ? cloneElement(child, { visible } as WithVisible) : child,
       )}
-    </motion.div>
+    </div>
   );
 };
 
-const navBarAnim = (visible: boolean) => ({
-  backdropFilter: visible ? "blur(10px)" : "none",
-  boxShadow: visible
-    ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
-    : "none",
-  width: visible ? "40%" : "100%",
-  y: visible ? 20 : 0,
-});
-
-const navBarTransition = { type: "spring" as const, stiffness: 200, damping: 50 };
+function scrolledNavShellClass(visible: boolean) {
+  return cn(
+    "transition-[box-shadow,background-color] duration-300 ease-out",
+    /* Opaque bar after scroll so hero/content never bleeds through gaps (was read as overlap). */
+    visible &&
+      "bg-navy shadow-[0_16px_68px_rgba(47,48,55,0.12),0_0_0_1px_rgba(255,255,255,0.08)]",
+  );
+}
 
 export const NavBody = ({ children, className, visible = false }: NavBodyProps) => {
   return (
-    <motion.div
-      initial={false}
-      animate={navBarAnim(visible)}
-      transition={navBarTransition}
-      style={{ minWidth: "1000px" }}
+    <div
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex",
-        visible && "bg-navy/95 backdrop-blur-md",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl min-w-0 items-center gap-x-4 gap-y-2 self-start rounded-full bg-transparent px-3 py-2 sm:px-4",
+        /* lg-xl: logo (row-span 2) | [nav row][cta row]. 2xl+: one row, three columns. */
+        "lg:grid lg:grid-cols-[auto_minmax(0,1fr)] lg:grid-rows-[auto_auto] lg:items-stretch lg:gap-x-8 lg:gap-y-2 lg:py-2.5 xl:gap-x-10",
+        "2xl:grid-cols-[auto_minmax(0,1fr)_auto] 2xl:grid-rows-1 2xl:items-center 2xl:gap-x-8 2xl:gap-y-0 2xl:py-2",
+        scrolledNavShellClass(visible),
         className,
       )}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
-
-const mobileBarAnim = (visible: boolean) => ({
-  backdropFilter: visible ? "blur(10px)" : "none",
-  boxShadow: visible
-    ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
-    : "none",
-  width: visible ? "90%" : "100%",
-  paddingRight: visible ? "12px" : "0px",
-  paddingLeft: visible ? "12px" : "0px",
-  borderRadius: visible ? "4px" : "2rem",
-  y: visible ? 20 : 0,
-});
 
 export const NavItems = ({
   items,
@@ -121,7 +103,7 @@ export const NavItems = ({
         }
       }}
       className={cn(
-        "absolute inset-0 hidden min-h-0 flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-white transition duration-200 hover:text-green font-heading lg:flex lg:space-x-2",
+        "relative z-10 mx-0 hidden min-h-0 min-w-0 w-full max-w-full flex-row flex-wrap items-center justify-start gap-x-2 gap-y-1.5 text-[13px] font-medium text-white transition-colors duration-200 hover:text-green font-heading sm:gap-x-2.5 sm:text-sm lg:flex lg:gap-x-2 lg:gap-y-1.5 xl:gap-x-3",
         className,
       )}
     >
@@ -132,25 +114,25 @@ export const NavItems = ({
         return (
         <div
           onMouseEnter={() => setHovered(h)}
-          className={cn("relative", h === 0 && "ml-8 lg:ml-14")}
+          className="relative"
           key={`link-${h}`}
         >
           {parentIsDropdownOnly ? (
             <button
               type="button"
-              className="relative block w-full cursor-default rounded-full px-4 py-2 text-left text-white transition-transform duration-200 hover:scale-110 hover:text-green"
+              className="group relative block w-full cursor-default rounded-full px-2.5 py-1.5 text-left text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
               aria-haspopup="menu"
               aria-expanded={hovered === h}
               onClick={(e) => e.preventDefault()}
             >
-              {hovered === h && (
-                <motion.div
-                  layoutId="hovered"
-                  className="absolute inset-0 h-full w-full rounded-full bg-white/10"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
-              )}
-              <span className="relative z-20">{item.name}</span>
+              <span
+                className={cn(
+                  "pointer-events-none absolute inset-0 rounded-full bg-white/0 transition-colors duration-200 group-hover:bg-white/10 group-focus-visible:bg-white/10",
+                  hovered === h && "bg-white/10",
+                )}
+                aria-hidden
+              />
+              <span className="relative z-[1]">{item.name}</span>
             </button>
           ) : (
             <a
@@ -158,17 +140,14 @@ export const NavItems = ({
                 if (item.link === "#") e.preventDefault();
                 onItemClick?.();
               }}
-              className="relative block rounded-full px-4 py-2 text-white transition-transform duration-200 hover:scale-110 hover:text-green"
+              className="group relative block rounded-full px-2.5 py-1.5 text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
               href={item.link}
             >
-              {hovered === h && (
-                <motion.div
-                  layoutId="hovered"
-                  className="absolute inset-0 h-full w-full rounded-full bg-white/10"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
-              )}
-              <span className="relative z-20">{item.name}</span>
+              <span
+                className="pointer-events-none absolute inset-0 rounded-full bg-white/0 transition-colors duration-200 group-hover:bg-white/10 group-focus-visible:bg-white/10"
+                aria-hidden
+              />
+              <span className="relative z-[1]">{item.name}</span>
             </a>
           )}
           {item.children && item.children.length > 0 && hovered === h && (
@@ -206,18 +185,16 @@ interface MobileNavProps {
 
 export const MobileNav = ({ children, className, visible = false }: MobileNavProps) => {
   return (
-    <motion.div
-      initial={false}
-      animate={mobileBarAnim(visible)}
-      transition={navBarTransition}
+    <div
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden",
-        visible && "bg-navy/95 backdrop-blur-md",
+        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent py-2 lg:hidden",
+        visible ? "rounded-md px-3" : "rounded-full px-0",
+        scrolledNavShellClass(visible),
         className,
       )}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
 
@@ -297,14 +274,21 @@ export const MobileNavToggle = ({
 export const NavbarLogo = ({
   logoSrc,
   brandName = "Reputation360",
+  className,
 }: {
   logoSrc?: string;
   brandName?: string;
+  className?: string;
 } = {}) => {
   return (
     <a
       href="/"
-      className="relative z-20 mr-6 flex shrink-0 items-center gap-2 py-1 pr-2 text-xl font-bold text-white font-heading transition-transform duration-200 hover:scale-[1.02] lg:mr-10"
+      className={cn(
+        "relative z-20 flex shrink-0 items-center gap-2.5 py-1 pr-2 text-xl font-bold text-white font-heading transition-transform duration-200 hover:scale-[1.02] sm:gap-3 sm:pr-3",
+        "lg:row-span-2 lg:self-center lg:pr-4",
+        "2xl:row-span-1 2xl:self-auto 2xl:pr-2",
+        className,
+      )}
     >
       {logoSrc ? (
         <div className="flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center rounded-full bg-white pl-0.5">

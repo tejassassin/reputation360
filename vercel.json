@@ -103,6 +103,9 @@
   "functions": {
     "api/free-scan.js": {
       "maxDuration": 60
+    },
+    "api/reputation-agent.js": {
+      "maxDuration": 120
     }
   },
   "rewrites": [

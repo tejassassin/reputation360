@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Mail } from "lucide-react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
+import { cn } from "@/lib/utils";
 import {
   Navbar,
   NavBody,
@@ -18,6 +19,7 @@ import {
   CONTACT_EMAIL,
   contactMailtoHref,
   contactWhatsAppHref,
+  handleMailtoClick,
 } from "../constants/contact.js";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
@@ -64,7 +66,7 @@ const navItems = [
       { name: "Insights & Blogs", link: "/blog" },
       { name: "Guide", link: "/resources/guide" },
       { name: "FAQs", link: "/resources/faqs" },
-      { name: "Free risk scan", link: FREE_RISK_SCAN_PATH, newTab: true },
+      { name: "Free scan", link: FREE_RISK_SCAN_PATH, newTab: true },
     ],
   },
 ];
@@ -123,8 +125,14 @@ function Header() {
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo logoSrc={logo} brandName="Reputation360" />
-          <NavItems items={navItems} />
-          <div className="relative z-20 flex shrink-0 items-center gap-2">
+          <NavItems items={navItems} className="min-w-0" />
+          <div
+            className={cn(
+              "relative z-20 flex shrink-0 flex-wrap items-center justify-end gap-2 sm:gap-3",
+              "border-t border-white/15 pt-2 lg:col-start-2 lg:row-start-2 lg:border-l-0 lg:pl-0",
+              "2xl:col-start-3 2xl:row-start-1 2xl:border-t-0 2xl:border-l 2xl:border-white/20 2xl:pl-6 2xl:pt-0",
+            )}
+          >
             <NavbarButton
               href={FREE_RISK_SCAN_PATH}
               target="_blank"
@@ -223,7 +231,10 @@ function Header() {
                 </a>
                 <a
                   href={contactMailtoHref()}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    handleMailtoClick(e);
+                    queueMicrotask(() => setIsMobileMenuOpen(false));
+                  }}
                   aria-label={`Email Reputation360 at ${CONTACT_EMAIL}`}
                   className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-white/25 bg-white/10 text-white transition hover:bg-white/15"
                 >

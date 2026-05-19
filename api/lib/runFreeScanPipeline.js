@@ -1,9 +1,15 @@
-import { fetchGoogleCseUpToN, mergeCseDedupe } from "./googleCse.js";
-import { FREE_SCAN_LINK_LIMIT } from "../../scan-shared/freeScanConstants.js";
+import { fetchGoogleCseUpToN } from "./googleCse.js";
+import { webSearch } from "./tavily/webSearch.js";
+import {
+  FREE_SCAN_GOOGLE_PAGES,
+  FREE_SCAN_LINK_LIMIT,
+} from "../../scan-shared/freeScanConstants.js";
 import { assembleScanResponse } from "../../scan-shared/assembleScanResponse.js";
+import { reputationGradeBundle } from "../../scan-shared/scoreReputation.js";
 import { ensureFreeScanSchema, insertUserAndScan } from "./db.js";
 import { sendReputationReportEmail } from "./emailReport.js";
 import { buildReputationScanPdfBytes } from "../../scan-shared/freeScanPdfBuild.js";
+import { buildFallbackSerpItems } from "../../scan-shared/fallbackSerp.js";
 
 const COUNTRY_HINT = {
   US: "United States",
@@ -15,12 +21,94 @@ const COUNTRY_HINT = {
 
 const ALLOWED_COUNTRIES = new Set(["US", "UK", "Canada", "Australia", "Others"]);
 
-/** Maps older form values to current API values. */
-const LEGACY_COUNTRY = {
+/** Maps form / legacy values to stored country keys. */
+const NORMALIZE_COUNTRY = {
   USA: "US",
-  India: "Others",
+  US: "US",
+  UK: "UK",
+  Canada: "Canada",
+  Australia: "Australia",
   Other: "Others",
+  Others: "Others",
+  India: "Others",
 };
+
+/**
+ * @param {string | undefined} v
+ */
+function envTruthy(v) {
+  const s = String(v ?? "").trim().toLowerCase();
+  return s === "1" || s === "true" || s === "yes" || s === "on";
+}
+
+/**
+ * Illustrative SERP only when explicitly enabled and not on Vercel production.
+ * @param {Record<string, string | undefined>} env
+ */
+function relaxedIllustrativeSerp(env) {
+  if (!envTruthy(env.FREE_SCAN_RELAXED_CONFIG)) return false;
+  if (env.VERCEL_ENV === "production") return false;
+  return true;
+}
+
+/**
+ * Build live web-search queries for the free scan when Google CSE is unavailable.
+ * The first query always anchors on the exact full name plus country.
+ *
+ * @param {string} full
+ * @param {string} hint
+ * @returns {string[]}
+ */
+function buildFreeScanQueries(full, hint) {
+  const q = full.trim();
+  const withHint = hint ? `"${q}" "${hint}"` : `"${q}"`;
+  return [
+    withHint,
+    hint ? `"${q}" reputation "${hint}"` : `"${q}" reputation`,
+    hint ? `"${q}" news "${hint}"` : `"${q}" news`,
+    hint ? `"${q}" linkedin OR profile "${hint}"` : `"${q}" linkedin OR profile`,
+  ];
+}
+
+/**
+ * Live Tavily fallback for the free scan when Google CSE is not configured.
+ * Keeps ranking stable by merging in query order and de-duping by URL.
+ *
+ * @param {string} full
+ * @param {string} hint
+ * @returns {Promise<{ searchQueryUsed: string; rows: { title: string; link: string; displayLink: string; snippet: string }[] }>}
+ */
+async function fetchFreeScanTavilyRows(full, hint) {
+  const queries = buildFreeScanQueries(full, hint);
+  const out = [];
+  const seen = new Set();
+
+  for (const query of queries) {
+    const { results } = await webSearch(query, { maxResults: 10, searchDepth: "advanced" });
+    for (const row of results) {
+      const link = String(row.url ?? "").trim();
+      if (!link || seen.has(link)) continue;
+      seen.add(link);
+      let displayLink = "";
+      try {
+        displayLink = new URL(link).hostname.replace(/^www\./, "");
+      } catch {
+        displayLink = "";
+      }
+      out.push({
+        title: String(row.title ?? ""),
+        link,
+        displayLink,
+        snippet: String(row.snippet ?? ""),
+      });
+      if (out.length >= FREE_SCAN_LINK_LIMIT) {
+        return { searchQueryUsed: queries[0], rows: out };
+      }
+    }
+  }
+
+  return { searchQueryUsed: queries[0], rows: out };
+}
 
 /**
  * @param {Record<string, string | undefined>} extra
@@ -57,8 +145,8 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
   const firstName = String(body?.firstName ?? "").trim();
   const lastName = String(body?.lastName ?? "").trim();
   const email = String(body?.email ?? "").trim().toLowerCase();
-  let country = String(body?.country ?? "").trim();
-  if (LEGACY_COUNTRY[country]) country = LEGACY_COUNTRY[country];
+  const countryRaw = String(body?.country ?? "").trim();
+  const country = NORMALIZE_COUNTRY[countryRaw] ?? countryRaw;
   const consentGiven = Boolean(body?.consentGiven);
 
   if (!firstName || firstName.length > 60 || !lastName || lastName.length > 60) {
@@ -88,9 +176,7 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
   const q1 = hint ? `${full} ${hint}` : full;
 
   try {
-  /** Fetch extra per query so merge+dedupe still yields up to {@link FREE_SCAN_LINK_LIMIT} live links. */
-  const fetchPerQuery = Math.min(100, FREE_SCAN_LINK_LIMIT * 2);
-
+  /** First {@link FREE_SCAN_GOOGLE_PAGES} pages of the primary query only (SERP order, up to {@link FREE_SCAN_LINK_LIMIT} links). */
   let merged = [];
   let dataSource = "google_live";
   let cseThrew = false;
@@ -98,13 +184,11 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
   const apiKey = String(env.GOOGLE_CSE_API_KEY ?? "").trim();
   const cx = String(env.GOOGLE_CSE_CX ?? "").trim();
 
-  let searchQueryUsed = hint ? `${q1} | ${full}` : full;
+  const searchQueryUsed = hint ? `${full} (${hint})` : full;
 
   if (apiKey && cx) {
     try {
-      const batchA = await fetchGoogleCseUpToN(q1, apiKey, cx, fetchPerQuery);
-      const batchB = hint ? await fetchGoogleCseUpToN(full, apiKey, cx, fetchPerQuery) : [];
-      merged = mergeCseDedupe(batchA, batchB).slice(0, FREE_SCAN_LINK_LIMIT);
+      merged = await fetchGoogleCseUpToN(q1, apiKey, cx, FREE_SCAN_LINK_LIMIT);
     } catch (e) {
       cseThrew = true;
       cseErrorMessage = e instanceof Error ? e.message : String(e);
@@ -113,15 +197,28 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
   }
 
   if (!apiKey || !cx) {
-    return {
-      status: 503,
-      json: {
-        ok: false,
-        code: "GOOGLE_CSE_NOT_CONFIGURED",
-        error:
-          "Live Google results are required for this scan. Set GOOGLE_CSE_API_KEY and GOOGLE_CSE_CX in .env.local (local) or in your Vercel project environment. Each report uses the Programmable Search JSON API for the exact name you enter (we never substitute a template SERP).",
-      },
-    };
+    const tavilyKey = String(env.TAVILY_API_KEY ?? "").trim();
+    if (tavilyKey) {
+      const tavily = await fetchFreeScanTavilyRows(full, hint);
+      merged = tavily.rows;
+      dataSource = "tavily_live";
+    } else if (relaxedIllustrativeSerp(env)) {
+      merged = buildFallbackSerpItems(firstName, lastName, country, hint).slice(0, FREE_SCAN_LINK_LIMIT);
+      dataSource = "dev_offline_serp_fallback";
+      console.warn(
+        "[free-scan] FREE_SCAN_RELAXED_CONFIG is on: returning illustrative SERP (set GOOGLE_CSE_API_KEY and GOOGLE_CSE_CX for live Google, or TAVILY_API_KEY for live web fallback).",
+      );
+    } else {
+      return {
+        status: 503,
+        json: {
+          ok: false,
+          code: "GOOGLE_CSE_NOT_CONFIGURED",
+          error:
+            "Live search is not configured for this scan. Add GOOGLE_CSE_API_KEY and GOOGLE_CSE_CX for Google results, or TAVILY_API_KEY for live web fallback. For local UI testing only, add FREE_SCAN_RELAXED_CONFIG=1 to .env.local (illustrative links, not real live search).",
+        },
+      };
+    }
   }
 
   if (cseThrew) {
@@ -138,6 +235,9 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
   }
 
   const base = assembleScanResponse(merged, searchQueryUsed, dataSource);
+  const grade = reputationGradeBundle(base.reportedScore);
+  const totalLinksScanned =
+    base.positive.length + base.neutral.length + base.negative.length;
 
   let scanId = null;
   let userId = null;
@@ -224,6 +324,13 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
     status: 200,
     json: {
       ...base,
+      googlePagesAnalyzed: FREE_SCAN_GOOGLE_PAGES,
+      linksCap: FREE_SCAN_LINK_LIMIT,
+      totalLinksScanned,
+      letterGrade: grade.letter,
+      reputationStatus: grade.label,
+      scoreBandLabel: grade.bandLabel,
+      offlineDemoScan: dataSource === "dev_offline_serp_fallback",
       scanId,
       userId,
       emailSent,

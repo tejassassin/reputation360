@@ -1,11 +1,18 @@
 /**
- * Reputation score: internal raw 0-100, displayed as X/100 with X capped at 85.
- * Scores below 45 are reserved for high-stakes negatives (major press, regulators, .gov, or many risks).
+ * Reputation score: penalty-based perception model.
  *
- * Letter grades A-D (no F) and overall presence both derive from the reported score (0-85) so they stay aligned.
+ * Everyone starts at 80 internally and we never display more than 80,
+ * even though the public-facing UI presents the score on a /100 scale.
+ *
+ * - Positive links do NOT add points.
+ * - Neutral links do NOT change points.
+ * - Negative links reduce points by page:
+ *   - page 1 (ranks 1-10): -20 each
+ *   - page 2 (ranks 11-20): -10 each
+ *   - page 3 (ranks 21-30): -5 each
  */
 
-import { FREE_SCAN_LINK_LIMIT } from "./freeScanConstants.js";
+import { FREE_SCAN_GOOGLE_PAGES, FREE_SCAN_LINK_LIMIT } from "./freeScanConstants.js";
 
 /**
  * High-to-low tiers. First matching `minScore` wins. Grade D applies to reported scores 0-47 (below 48).
@@ -19,10 +26,10 @@ export const REPUTATION_GRADE_RUBRIC = [
 ];
 
 /**
- * @param {number} reportedScore 0-85 (shown on a /100 scale in the product)
+ * @param {number} reportedScore 0-80 (shown as part of a /100 score in the product)
  */
 export function letterGradeForReportedScore(reportedScore) {
-  const s = Math.max(0, Math.min(85, reportedScore));
+  const s = Math.max(0, Math.min(80, reportedScore));
   for (const tier of REPUTATION_GRADE_RUBRIC) {
     if (s >= tier.minScore) return tier.letter;
   }
@@ -30,27 +37,30 @@ export function letterGradeForReportedScore(reportedScore) {
 }
 
 /**
- * @param {number} reportedScore 0-85 (shown on a /100 scale in the product)
+ * @param {number} reportedScore 0-80 (shown as part of a /100 score in the product)
  */
 export function presenceLabelForReportedScore(reportedScore) {
-  const s = Math.max(0, Math.min(85, reportedScore));
+  const s = Math.max(0, Math.min(80, reportedScore));
   for (const tier of REPUTATION_GRADE_RUBRIC) {
     if (s >= tier.minScore) return tier.presenceLabel;
   }
   return "Serious Reputation Threats Identified";
 }
 
-/** Government, regulators, and major news domains - negative hits here are weighted heavily. */
-const SEVERE_NEGATIVE_SIGNAL =
-  /(\.gov(\/|$)|(?:^https?:\/\/)?(?:www\.)?sec\.gov|sec\.gov\/|justice\.gov\/|fbi\.gov\/|ftc\.gov\/|consumerfinance\.gov\/|edgar|litigation-release)|wsj\.com\/articles\/|nytimes\.com\/\d{4}\/|washingtonpost\.com\/[^/]+\/\d{4}|reuters\.com\/(?:legal|world|business|markets)|bloomberg\.com\/news\/articles|ft\.com\/content\/|theguardian\.com\/[^/]+\/\d{4}|bbc\.com\/news\/|bbc\.co\.uk\/news\/|economist\.com\/[^/]+\/|latimes\.com\/(?:[^/]+\/)?\d{4}|npr\.org\/\d{4}\/\d{2}\/\d{2}\//i;
-
 /**
- * @param {import('./classifySerp.js').ClassifiedResult} row
+ * Letter grade and status line for UI (same 0-80 internal scale as {@link letterGradeForReportedScore}).
+ * @param {number} reportedScore
+ * @returns {{ letter: string; label: string; bandLabel: string }}
  */
-export function isSevereNegativeThreat(row) {
-  if (row.sentiment !== "negative") return false;
-  const hay = `${row.link} ${row.title} ${row.snippet}`;
-  return SEVERE_NEGATIVE_SIGNAL.test(hay);
+export function reputationGradeBundle(reportedScore) {
+  const s = Math.max(0, Math.min(80, reportedScore));
+  const letter = letterGradeForReportedScore(s);
+  const label = presenceLabelForReportedScore(s);
+  let bandLabel = "0-47";
+  if (s >= 72) bandLabel = "72-80";
+  else if (s >= 60) bandLabel = "60-71";
+  else if (s >= 48) bandLabel = "48-59";
+  return { letter, label, bandLabel };
 }
 
 /**
@@ -58,43 +68,19 @@ export function isSevereNegativeThreat(row) {
  */
 export function computeReputationScore(rows) {
   const positive = rows.filter((r) => r.sentiment === "positive");
-  const neutral = rows.filter((r) => r.sentiment === "neutral");
   const negative = rows.filter((r) => r.sentiment === "negative");
   const strongPositive = positive.filter((r) => r.strongPositive);
-
-  const severe = negative.filter((r) => isSevereNegativeThreat(r));
-  const softNeg = negative.filter((r) => !isSevereNegativeThreat(r));
-  const severeNearTop = severe.filter((r) => r.rank <= 15);
-
-  const hugeNegativeStory =
-    softNeg.length >= 8 ||
-    severeNearTop.length >= 1 ||
-    severe.length >= 3;
-
-  let raw = 58;
-  raw += strongPositive.length * 6;
-  raw += Math.max(0, positive.length - strongPositive.length) * 3;
-  raw += neutral.length * 1;
-  raw -= softNeg.length * 4;
-  raw -= severe.length * 13;
-  if (severeNearTop.length >= 1) raw -= 10;
-  if (severeNearTop.length >= 2) raw -= 10;
-
-  if (rows.length === 0) {
-    raw = 64;
-  }
-
-  raw = Math.round(raw);
-
-  if (!hugeNegativeStory) {
-    raw = Math.max(45, raw);
-  }
-
-  raw = Math.max(0, Math.min(100, raw));
-
   const strongPositiveCount = strongPositive.length;
 
-  const reportedScore = Math.min(85, raw);
+  let raw = 80;
+  for (const row of negative) {
+    if (row.rank <= 10) raw -= 20;
+    else if (row.rank <= 20) raw -= 10;
+    else raw -= 5;
+  }
+
+  raw = Math.max(0, Math.min(80, raw));
+  const reportedScore = raw;
   const presenceLabel = presenceLabelForReportedScore(reportedScore);
 
   return {
@@ -114,10 +100,11 @@ export function buildScanSummary(rows, score) {
   const nNeu = rows.filter((r) => r.sentiment === "neutral").length;
   const nNeg = rows.filter((r) => r.sentiment === "negative").length;
 
+  const letter = letterGradeForReportedScore(score.reportedScore);
   return [
-    `We reviewed up to ${FREE_SCAN_LINK_LIMIT} live search results for your name (${rows.length} links).`,
-    `Our model tagged ${nPos} positive, ${nNeu} neutral, and ${nNeg} negative results.`,
-    `Reputation score: ${score.reportedScore} out of 100. Overall presence: ${score.presenceLabel}.`,
+    `We analyzed the first ${FREE_SCAN_GOOGLE_PAGES} pages of Google-style results for your name (${rows.length} links found, up to ${FREE_SCAN_LINK_LIMIT}).`,
+    `We tagged ${nPos} positive, ${nNeu} neutral, and ${nNeg} negative results based on public perception impact.`,
+    `Penalty-based reputation score: ${score.reportedScore} / 80 (${letter} grade). ${score.presenceLabel}`,
   ].join("\n");
 }
 
@@ -131,20 +118,27 @@ export function buildHurtingSection(rows) {
   }
   return neg
     .slice(0, 5)
-    .map((r) => `${r.title} (${r.displayLink})`)
+    .map((r) => `${r.title} (${r.displayLink}) - ${r.reason}`)
     .join("\n");
 }
 
 /**
  * @param {import('./classifySerp.js').ClassifiedResult[]} rows
- * @param {number} reportedScore 0-85; below 48 (grades C and D) we add the authority-profile emphasis line
+ * @param {number} reportedScore 0-80; below 48 (grades C and D) we add the authority-profile emphasis line
  */
 export function buildImprovingSection(rows, reportedScore) {
+  const topPositives = rows
+    .filter((r) => r.sentiment === "positive")
+    .slice(0, 2)
+    .map((r) => `${r.title} (${r.displayLink})`);
   const lines = [
     "Strengthen your anchor identity: complete your LinkedIn with a clear headline, photo, and roles that match how you want to be found.",
     "Own accurate bios on a few trusted surfaces you control (personal site, employer page, relevant industry directories) so searchers see consistent facts.",
     "Set a simple rhythm to check new results (for example quarterly), note anything that is not about you or is outdated, and decide what is worth addressing with evidence or outreach.",
   ];
+  if (topPositives.length) {
+    lines.unshift(`Visible trust-building assets already helping you: ${topPositives.join("; ")}.`);
+  }
   if (reportedScore < 48) {
     lines.unshift(
       "Your first pages lean light on recognizable authority profiles. Prioritize a small set of credible third-party profiles and mentions over chasing every possible listing.",

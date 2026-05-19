@@ -7,6 +7,7 @@ import {
   CONTACT_EMAIL,
   contactMailtoHref,
   contactWhatsAppHref,
+  handleMailtoClick,
 } from "../constants/contact.js";
 
 /** All legal / policy pages shown under the Policies column. Add new documents here only. */
@@ -101,6 +102,7 @@ function Footer() {
                 <span className="block text-white/80 mb-1">Get in touch:</span>
                 <a
                   href={contactMailtoHref()}
+                  onClick={handleMailtoClick}
                   className="ha-nudge inline-block max-w-full break-words rounded px-0.5 transition-colors hover:text-green"
                 >
                   Contact us - {CONTACT_EMAIL}
@@ -122,6 +124,7 @@ function Footer() {
                   </a>
                   <a
                     href={contactMailtoHref()}
+                    onClick={handleMailtoClick}
                     aria-label={`Email ${CONTACT_EMAIL}`}
                     className="inline-flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full text-white/60 transition-colors hover:text-green active:opacity-90"
                   >

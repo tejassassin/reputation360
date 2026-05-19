@@ -95,7 +95,7 @@ function Hero() {
               rel="noopener noreferrer"
               className="ha-pill w-full rounded-xl border-2 border-white/35 bg-white/10 px-6 py-2.5 text-center text-sm font-heading font-semibold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
             >
-              Free risk scan
+              Free scan
             </a>
           </div>
         </div>

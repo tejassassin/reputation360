@@ -29,6 +29,8 @@ import TermsOfServicePage from "./pages/TermsOfServicePage.jsx";
 import TermsOfUsePage from "./pages/TermsOfUsePage.jsx";
 import DmcaCopyrightPolicyPage from "./pages/DmcaCopyrightPolicyPage.jsx";
 import FreeRiskScanPage from "./pages/FreeRiskScanPage.jsx";
+import AIReputationScanPage from "./pages/AIReputationScanPage.jsx";
+import { AI_REPUTATION_SCAN_PATH } from "./constants/reputationAgent.js";
 import { AUDIENCE_PATH, LEGACY_SERVICE_AUDIENCE_PATH } from "./constants/whoWeServePaths.js";
 import { BLOG_INDEX_PATH } from "./constants/blogPaths.js";
 import { SUPPRESS_NEGATIVE_GUIDE_SLUG } from "./data/blogs/suppressNegativeContentGuide.js";
@@ -85,6 +87,7 @@ function pageForPath(path) {
   }
   if (path === "/contact") return <ContactPage />;
   if (path === FREE_RISK_SCAN_PATH) return <FreeRiskScanPage />;
+  if (path === AI_REPUTATION_SCAN_PATH) return <AIReputationScanPage />;
   if (path === BLOG_INDEX_PATH) return <InsightsBlogsPage />;
   const blogPost = path.match(/^\/blog\/([^/]+)$/);
   if (blogPost) {

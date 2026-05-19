@@ -6,6 +6,7 @@ import {
   CONTACT_EMAIL,
   contactMailtoHref,
   contactWhatsAppHref,
+  handleMailtoClick,
 } from "../constants/contact.js";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { SITE_CANONICAL_ORIGIN } from "../constants/siteUrl.js";
@@ -342,7 +343,7 @@ function ContactPage() {
             {/* Email + form */}
             <div
               id="email-inquiry"
-              className="flex flex-col gap-10 rounded-[1.75rem] bg-[#02254d] p-6 text-white md:col-span-12 md:flex-row md:items-center md:gap-12 md:rounded-[2rem] md:p-10 lg:p-12"
+              className="scroll-mt-28 flex flex-col gap-10 rounded-[1.75rem] bg-[#02254d] p-6 text-white md:col-span-12 md:flex-row md:items-center md:gap-12 md:rounded-[2rem] md:p-10 md:scroll-mt-32 lg:p-12"
             >
               <div className="md:w-1/3">
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 md:mb-6 md:h-14 md:w-14">
@@ -353,6 +354,7 @@ function ContactPage() {
                 </h3>
                 <a
                   href={contactMailtoHref()}
+                  onClick={handleMailtoClick}
                   className="ha-nudge mt-3 block w-fit text-[15px] text-[#8ca6d5] md:mt-4 md:text-lg"
                 >
                   {CONTACT_EMAIL}

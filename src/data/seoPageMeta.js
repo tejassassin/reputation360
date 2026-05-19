@@ -100,7 +100,7 @@ export const SEO = {
     title: "Free Online Reputation Risk Scan | Reputation360",
     path: FREE_RISK_SCAN_PATH,
     description:
-      "Free Google reputation scan: enter your name, email, and country (US, UK, Canada, Australia, or others). We use Google Programmable Search for your name, score up to the first 30 live links returned, email a report card (0-100 scale, up to 85 in this scan), and store your lead in PostgreSQL when DATABASE_URL is set.",
+      "Free Google reputation scan: full name, country (USA, UK, Canada, Australia, or other), and email. We use Google Programmable Search to analyze the first 3 pages of results (up to 30 links), classify positive, neutral, and negative URLs, assign an A-D grade, and email your report when delivery is configured.",
   },
   about: {
     title:
