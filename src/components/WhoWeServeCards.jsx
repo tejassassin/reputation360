@@ -16,6 +16,7 @@ const categories = [
     title: "Individuals",
     description:
       "Take control of what people find when they search your name online.",
+    linkLabel: "Personal Reputation Management Services",
     href: AUDIENCE_PATH.individuals,
     Icon: User,
   },
@@ -23,6 +24,7 @@ const categories = [
     title: "Financial Advisors",
     description:
       "Strengthen trust and credibility when clients and regulators look you up.",
+    linkLabel: "Online Reputation Management for Financial Advisors",
     href: AUDIENCE_PATH.financialAdvisors,
     Icon: Landmark,
   },
@@ -30,6 +32,7 @@ const categories = [
     title: "Executives & C-Suite Leaders",
     description:
       "Protect your leadership reputation and ensure your vision and impact come through clearly.",
+    linkLabel: "Executive Reputation Repair Solutions",
     href: AUDIENCE_PATH.executives,
     Icon: Briefcase,
   },
@@ -37,6 +40,7 @@ const categories = [
     title: "Doctors & Healthcare Professionals",
     description:
       "Protect your practice where patient reviews, listings, and search results meet.",
+    linkLabel: "Healthcare Reputation Management Services",
     href: AUDIENCE_PATH.doctors,
     Icon: Stethoscope,
   },
@@ -44,6 +48,7 @@ const categories = [
     title: "Lawyers & Attorneys",
     description:
       "Keep your professional standing clear when legal press and records surface in search.",
+    linkLabel: "Lawyer Reputation Management Solutions",
     href: AUDIENCE_PATH.lawyers,
     Icon: Gavel,
   },
@@ -51,6 +56,7 @@ const categories = [
     title: "Job Seekers",
     description:
       "Put your best foot forward when employers and recruiters search your background.",
+    linkLabel: "Personal Branding for Job Seekers",
     href: AUDIENCE_PATH.jobSeekers,
     Icon: UserSearch,
   },
@@ -58,17 +64,18 @@ const categories = [
     title: "Businesses & Companies",
     description:
       "Own your industry online through powerful branding and a strong search presence.",
+    linkLabel: "Business Reputation Management Services",
     href: AUDIENCE_PATH.businesses,
     Icon: Building,
   },
 ];
 
-/** Matches “Why clients…”: frosted card, growth green on icon ring only. Card body is not a link; only “Read more” navigates. */
+/** Matches “Why clients…”: frosted card, growth green on icon ring only. Card body is not a link; only the SEO anchor link navigates. */
 const audienceCardClassName =
   "ha-lift group relative block overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/6 p-6 shadow-[0_8px_32px_-8px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-all duration-300 sm:p-8 hover:-translate-y-0.5 hover:border-[#4CAF50]/50 hover:from-white/18 hover:to-white/8 hover:shadow-[0_12px_40px_-10px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.12)]";
 
 function AudienceCard(props) {
-  const { title, description, href, Icon, className = "" } = props;
+  const { title, description, linkLabel, href, Icon, className = "" } = props;
   return (
     <div className={`${audienceCardClassName} ${className}`.trim()}>
       <div className="absolute -right-12 -top-12 h-24 w-24 rounded-bl-full bg-[#2E5B88]/[0.15] transition-transform group-hover:scale-150" />
@@ -85,10 +92,10 @@ function AudienceCard(props) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-5 inline-flex font-heading text-sm font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/35 underline-offset-2 transition-colors hover:text-[#3db846] hover:decoration-[#3db846]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A3354]"
-        aria-label={`Read more about ${title} (opens in a new tab)`}
+        className="mt-5 inline-flex text-pretty font-heading text-sm font-semibold leading-snug text-[#4CAF50] underline decoration-[#4CAF50]/35 underline-offset-2 transition-colors hover:text-[#3db846] hover:decoration-[#3db846]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A3354]"
+        aria-label={`${linkLabel} (opens in a new tab)`}
       >
-        Read more
+        {linkLabel}
       </a>
     </div>
   );
