@@ -43,6 +43,7 @@ if (platform === "win32") {
         if (!pid) continue;
         try {
           process.kill(parseInt(pid, 10), "SIGKILL");
+          console.log(`kill-vite-ports: freed port ${port} (pid ${pid})`);
         } catch {
           /* ignore */
         }

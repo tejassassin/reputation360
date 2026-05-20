@@ -248,8 +248,8 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "localhost",
     port: 5173,
-    // If 5173 is taken, use the next free port instead of exiting.
-    strictPort: false,
+    // Fail loudly if 5173 is taken so an old Vite process cannot serve stale UI on another port.
+    strictPort: true,
     // Let your system browser or Cursor open the URL Vite prints (Local: http://localhost:5173/).
     open: false,
     headers: {
