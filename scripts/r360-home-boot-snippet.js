@@ -94,8 +94,8 @@ export const R360_HOME_BOOT_CSS = `
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.38;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%238ca6d5' cx='10' cy='10' r='2.5'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%23b8d9ff' cx='10' cy='10' r='2.75'/%3E%3C/svg%3E");
   background-repeat: repeat;
 }
 .r360-boot-copy {
@@ -222,7 +222,7 @@ export const R360_HOME_BOOT_CSS = `
     padding-bottom: 1rem;
   }
   .r360-boot-dots {
-    opacity: 0.5;
+    opacity: 0.42;
   }
   .r360-boot-badge {
     margin-top: 0;

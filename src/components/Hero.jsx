@@ -115,8 +115,12 @@ function Hero() {
       ref={sectionRef}
       className="flex flex-col overflow-hidden bg-linear-to-br from-navy via-slate to-navy text-white max-md:min-h-0 max-md:pb-6 max-md:pt-[calc(env(safe-area-inset-top)+5.25rem)] md:min-h-[100dvh] md:pt-[calc(env(safe-area-inset-top)+7.25rem)] lg:pt-[calc(env(safe-area-inset-top)+8.5rem)]"
     >
-      <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 pb-2 pt-0 text-center max-md:gap-3 md:min-h-0 md:flex-1 md:justify-evenly md:gap-0 md:px-6 md:py-[2vh] lg:px-8">
-        <div className="flex shrink-0 flex-col items-center justify-center gap-3 md:gap-[1.8vh]">
+      <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-4 overflow-hidden px-4 pb-2 pt-0 text-center max-md:gap-3 md:min-h-0 md:flex-1 md:justify-evenly md:gap-0 md:px-6 md:py-[2vh] lg:px-8">
+        <div
+          className="r360-hero-dot-grid pointer-events-none absolute inset-x-0 top-0 z-0 h-[min(100%,28rem)] opacity-[0.5] max-md:h-[min(100%,26rem)] md:h-[72%] md:opacity-[0.42]"
+          aria-hidden
+        />
+        <div className="relative z-10 flex shrink-0 flex-col items-center justify-center gap-3 md:gap-[1.8vh]">
           <div className="inline-flex w-fit items-center gap-2 self-center rounded-full border border-white/20 bg-white/10 px-3 py-1.5 backdrop-blur-sm max-md:mb-5 max-md:mt-6 sm:px-4 sm:py-2 md:mb-0 md:mt-0">
             <span className="flex h-2 w-2 relative max-md:static">
               <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-75 max-md:hidden animate-ping" />

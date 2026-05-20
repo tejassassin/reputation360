@@ -23,7 +23,7 @@ export function HeroHighlightLite({
     >
       {dotPattern ? (
         <div
-          className="r360-hero-dot-grid pointer-events-none absolute inset-0 z-0 opacity-[0.42] max-md:opacity-[0.38] md:opacity-50"
+          className="r360-hero-dot-grid pointer-events-none absolute inset-0 z-0 opacity-[0.55] max-md:opacity-[0.5] md:opacity-[0.45]"
           aria-hidden
         />
       ) : null}

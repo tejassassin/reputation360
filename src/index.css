@@ -271,9 +271,9 @@
   color: #78dc77;
 }
 
-/* Hero headline dot grid - CSS only (no JS, safe for LCP / PageSpeed) */
+/* Hero dot grid - CSS only (no JS, safe for LCP / PageSpeed) */
 .r360-hero-dot-grid {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%238ca6d5' cx='10' cy='10' r='2.5'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%23b8d9ff' cx='10' cy='10' r='2.75'/%3E%3C/svg%3E");
   background-repeat: repeat;
 }
 
