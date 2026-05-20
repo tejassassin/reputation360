@@ -76,9 +76,8 @@ function Hero() {
               </span>
             </h1>
 
-            <p className="mx-auto mb-0 max-w-[20rem] text-pretty font-body text-sm leading-relaxed text-white/90 max-md:mb-5 max-md:mt-4 md:mx-4 md:mb-3 md:mt-3 md:max-w-md md:text-lg">
-              Because one negative result can quietly undermine years of
-              credibility.
+            <p className="mx-auto mb-0 max-w-[20rem] text-pretty font-body text-sm leading-relaxed text-white/90 max-md:mb-5 max-md:mt-4 md:mx-4 md:mb-3 md:mt-3 md:max-w-none md:whitespace-nowrap md:text-lg">
+              Because one negative result can quietly undermine years of credibility.
             </p>
           </HeroHighlight>
 
