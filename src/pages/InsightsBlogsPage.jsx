@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BadgeCheck, ArrowRight, ArrowUpRight } from "lucide-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
+import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
@@ -374,13 +375,14 @@ function InsightsBlogsPage() {
             Our practitioners are ready to audit your digital presence and
             provide a custom roadmap for growth.
           </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              {...calendlyNewTabProps}
-              className="ha-pill rounded-xl bg-cta-consult px-10 py-5 text-lg font-bold text-white shadow-xl shadow-cta-consult/30 transition hover:brightness-95"
-            >
-              Book a Free Consultation
-            </a>
+          <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
+            <ConsultationCtas
+              variant="onLight"
+              consultLabel="Book a Free Consultation"
+              consultClassName="ha-pill rounded-xl bg-cta-consult px-10 py-5 text-lg font-bold text-white shadow-xl shadow-cta-consult/30 transition hover:brightness-95"
+              freeScanClassName="ha-pill rounded-xl border-2 border-[#02254d]/25 bg-white px-10 py-5 text-lg font-bold text-[#02254d] shadow-sm transition hover:border-[#02254d]/45 hover:bg-slate-50"
+              wrapperClassName="gap-4"
+            />
             <a
               {...calendlyNewTabProps}
               className="ha-pill rounded-xl bg-cta-consult px-10 py-5 text-lg font-bold text-white shadow-xl shadow-cta-consult/30 transition hover:brightness-95"

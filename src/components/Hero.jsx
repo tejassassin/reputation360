@@ -1,6 +1,5 @@
 import React from "react";
-import { calendlyNewTabProps } from "@/constants/scheduling";
-import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan";
+import { ConsultationCtas } from "@/components/ConsultationCtas";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import { useState, useEffect, useRef } from "react";
 import { StatNumber } from "@/components/StatNumber.jsx";
@@ -71,37 +70,7 @@ function Hero() {
             </p>
           </HeroHighlight>
 
-          <div className="flex w-full max-w-md shrink-0 flex-col items-stretch justify-center gap-2.5 px-0 max-md:mt-2 sm:max-w-none sm:flex-row sm:items-center sm:gap-3 sm:px-0 md:mt-0">
-            <a
-              {...calendlyNewTabProps}
-              className="ha-pill group relative w-full cursor-pointer rounded-xl bg-cta-consult px-6 py-2.5 text-center text-sm font-heading font-semibold text-white shadow-lg shadow-cta-consult/30 transition-all duration-300 hover:brightness-95 hover:shadow-xl hover:shadow-cta-consult/35 sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
-            >
-              <span className="flex items-center justify-center gap-2">
-                Book a Free Consultation
-                <svg
-                  className="h-5 w-5 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </span>
-            </a>
-            <a
-              href={FREE_RISK_SCAN_PATH}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ha-pill w-full rounded-xl border-2 border-white/35 bg-white/10 px-6 py-2.5 text-center text-sm font-heading font-semibold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
-            >
-              Free scan
-            </a>
-          </div>
+          <ConsultationCtas variant="hero" />
         </div>
 
         {/* Stats */}

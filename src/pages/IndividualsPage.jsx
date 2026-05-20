@@ -5,6 +5,7 @@ import {
   IndustryRealisticTimelineSection,
   REPUTATION360_INDIVIDUAL_STEPS,
 } from "../components/industry/IndustryReputation360Sections";
+import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
@@ -797,12 +798,12 @@ function IndividualsPage() {
               When your name is searched, old stories shouldn&apos;t own your next
               chapter.
             </p>
-            <a
-              href="/contact"
-              className="ha-pill mt-6 inline-flex items-center gap-2 rounded-[8px] bg-cta-consult px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cta-consult/25 transition hover:brightness-95"
-            >
-              Book a Free Confidential Consultation
-            </a>
+            <ConsultationCtas
+              variant="inlineLight"
+              consultHref="/contact"
+              consultLabel="Book a Free Confidential Consultation"
+              wrapperClassName="mt-6"
+            />
           </div>
           <div className="rounded-[6px] bg-[linear-gradient(180deg,#e8f5ef_0%,#e7f4ee_100%)] px-3 py-3 pt-1 space-y-3 md:px-4 md:py-4">
             {[
@@ -963,13 +964,13 @@ function IndividualsPage() {
               We help you get there.
             </span>
           </p>
-          <a
-            href="/contact"
-            className="ha-pill mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-cta-consult px-5 py-3 text-sm font-heading font-medium text-white shadow-sm transition-all duration-200 hover:brightness-95 hover:shadow-lg hover:shadow-cta-consult/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#072f5f]"
-          >
-            Book a Free Confidential Consultation
-            <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
-          </a>
+          <ConsultationCtas
+            variant="inlineDarkFooter"
+            consultHref="/contact"
+            consultLabel="Book a Free Confidential Consultation"
+            consultSuffix={<ChevronRight className="h-4 w-4 shrink-0" aria-hidden />}
+            wrapperClassName="mt-7"
+          />
         </section>
 
         <IndividualsFaqSection />

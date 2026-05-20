@@ -1,5 +1,5 @@
 import React from "react";
-import { calendlyNewTabProps } from "../constants/scheduling";
+import { ConsultationCtas } from "./ConsultationCtas";
 
 function Contact() {
   return (
@@ -15,13 +15,11 @@ function Contact() {
           Your reputation took years to build. Don’t let the internet decide its
           future.
         </p>
-        <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4 text-center">
-          <a
-            {...calendlyNewTabProps}
-            className="ha-pill m-auto inline-block cursor-pointer rounded-lg bg-cta-consult px-6 py-3 font-heading font-semibold whitespace-nowrap text-white shadow-md shadow-cta-consult/25 transition-colors hover:brightness-95"
-          >
-            Book a Free Consultation Call
-          </a>
+        <div className="mx-auto max-w-md text-center">
+          <ConsultationCtas
+            variant="compact"
+            consultLabel="Book a Free Consultation Call"
+          />
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ import {
   IndustryRealisticTimelineSection,
   REPUTATION360_FINANCIAL_ADVISOR_STEPS,
 } from "../components/industry/IndustryReputation360Sections";
-import { calendlyNewTabProps } from "../constants/scheduling";
+import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
@@ -608,12 +608,11 @@ function FinancialAdvisorsPage() {
             <p className="mt-5 text-[#4f5f75] text-[15px] md:text-[16px] leading-[1.5] max-w-[520px]">
               The wrong answer to that question costs more than you think.
             </p>
-            <a
-              {...calendlyNewTabProps}
-              className="ha-pill mt-6 inline-flex items-center gap-2 rounded-[8px] bg-cta-consult px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cta-consult/25 transition hover:brightness-95"
-            >
-              Book a Free Confidential Consultation
-            </a>
+            <ConsultationCtas
+              variant="inlineLight"
+              consultLabel="Book a Free Confidential Consultation"
+              wrapperClassName="mt-6"
+            />
           </div>
           <div className="rounded-[6px] bg-[linear-gradient(180deg,#e8f5ef_0%,#e7f4ee_100%)] px-3 py-3 md:px-4 md:py-4 space-y-3 pt-1">
             {[
@@ -751,13 +750,12 @@ function FinancialAdvisorsPage() {
               We make sure it doesn&apos;t.
             </span>
           </p>
-          <a
-            {...calendlyNewTabProps}
-            className="ha-pill mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-cta-consult px-5 py-3 text-sm font-heading font-medium text-white shadow-sm transition-all duration-200 hover:brightness-95 hover:shadow-lg hover:shadow-cta-consult/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#072f5f]"
-          >
-            Book a Free Confidential Consultation
-            <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
-          </a>
+          <ConsultationCtas
+            variant="inlineDarkFooter"
+            consultLabel="Book a Free Confidential Consultation"
+            consultSuffix={<ChevronRight className="h-4 w-4 shrink-0" aria-hidden />}
+            wrapperClassName="mt-7"
+          />
         </section>
 
         <FinancialAdvisorsFaqSection />

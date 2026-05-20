@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { FaqAccordion } from "../components/FaqAccordion";
-import { calendlyNewTabProps } from "../constants/scheduling";
+import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { StatNumber } from "../components/StatNumber.jsx";
@@ -1082,16 +1082,14 @@ function FaqsPage() {
                   30-minute consultation.
                 </p>
               </div>
-              <div className="shrink-0">
-                <a
-                  {...calendlyNewTabProps}
-                  className="inline-flex items-center gap-3 rounded-xl bg-cta-consult px-10 py-5 text-lg font-bold text-white shadow-xl shadow-cta-consult/30 transition-all hover:brightness-95 active:scale-95 md:hover:-translate-y-1"
-                  style={{ fontFamily: '"Manrope", sans-serif' }}
-                >
-                  Book a Free Consultation
-                  <ArrowRight className="h-6 w-6 shrink-0" aria-hidden />
-                </a>
-              </div>
+              <ConsultationCtas
+                variant="onDark"
+                consultLabel="Book a Free Consultation"
+                consultSuffix={<ArrowRight className="h-6 w-6 shrink-0" aria-hidden />}
+                wrapperClassName="shrink-0 flex-col md:flex-row"
+                freeScanClassName="inline-flex items-center justify-center rounded-xl border-2 border-white/35 bg-white/10 px-10 py-5 text-lg font-bold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 [font-family:Manrope,sans-serif]"
+                consultClassName="inline-flex items-center gap-3 rounded-xl bg-cta-consult px-10 py-5 text-lg font-bold text-white shadow-xl shadow-cta-consult/30 transition-all hover:brightness-95 active:scale-95 md:hover:-translate-y-1 [font-family:Manrope,sans-serif]"
+              />
             </div>
           </div>
         </section>

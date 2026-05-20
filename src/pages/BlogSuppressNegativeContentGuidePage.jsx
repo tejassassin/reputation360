@@ -18,7 +18,8 @@ import {
 } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { cn } from "@/lib/utils";
-import { calendlyCtaButtonClass, calendlyNewTabProps } from "@/constants/scheduling";
+import { calendlyCtaButtonClass } from "@/constants/scheduling";
+import { ConsultationCtas } from "@/components/ConsultationCtas";
 import {
   SUPPRESS_NEGATIVE_GUIDE_PATH,
   suppressNegativeGuideListing,
@@ -1046,18 +1047,17 @@ export default function BlogSuppressNegativeContentGuidePage() {
                       Book a short call: we review your search landscape, set expectations, and outline practical next
                       steps. No obligation.
                     </p>
-                    <div className="flex justify-center">
-                      <a
-                        {...calendlyNewTabProps}
-                        className={cn(
-                          "ha-pill inline-flex w-full max-w-md items-center justify-center gap-2 rounded-xl px-8 py-3.5 font-heading text-sm font-bold shadow-lg shadow-cta-consult/30 transition hover:brightness-95 sm:w-auto md:px-10 md:text-base",
-                          calendlyCtaButtonClass,
-                        )}
-                      >
-                        Book a Free Consultation
-                        <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
-                      </a>
-                    </div>
+                    <ConsultationCtas
+                      variant="onDark"
+                      consultLabel="Book a Free Consultation"
+                      consultSuffix={<ArrowRight className="h-4 w-4 shrink-0" aria-hidden />}
+                      wrapperClassName="justify-center"
+                      consultClassName={cn(
+                        "ha-pill inline-flex w-full max-w-md items-center justify-center gap-2 rounded-xl px-8 py-3.5 font-heading text-sm font-bold shadow-lg shadow-cta-consult/30 transition hover:brightness-95 sm:w-auto md:px-10 md:text-base",
+                        calendlyCtaButtonClass,
+                      )}
+                      freeScanClassName="ha-pill inline-flex w-full max-w-md items-center justify-center rounded-xl border-2 border-white/35 bg-white/10 px-8 py-3.5 font-heading text-sm font-bold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 sm:w-auto md:px-10 md:text-base"
+                    />
                     <p className="mt-5 flex items-center justify-center gap-2 font-body text-xs font-medium text-white/85 sm:text-sm">
                       <Lock className="h-3 w-3 text-green" aria-hidden />
                       Confidential

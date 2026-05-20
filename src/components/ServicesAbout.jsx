@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion as Motion } from "motion/react";
-import { calendlyNewTabProps } from "../constants/scheduling";
+import { ConsultationCtas } from "./ConsultationCtas";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import {
   FileText,
@@ -477,12 +477,13 @@ function ServicesAbout() {
               </p>
             </div>
           </aside>
-          <a
-            {...calendlyNewTabProps}
-            className="ha-pill mt-7 inline-flex rounded-md bg-cta-consult px-5 py-3 text-sm font-semibold text-white shadow-md shadow-cta-consult/20 hover:brightness-95"
-          >
-            BOOK YOUR FREE CONSULTATION
-          </a>
+          <ConsultationCtas
+            variant="inlineLight"
+            consultLabel="BOOK YOUR FREE CONSULTATION"
+            wrapperClassName="mt-7"
+            consultClassName="ha-pill inline-flex rounded-md bg-cta-consult px-5 py-3 text-sm font-semibold text-white shadow-md shadow-cta-consult/20 hover:brightness-95"
+            freeScanClassName="ha-pill inline-flex rounded-md border-2 border-cta-consult/50 bg-white px-5 py-3 text-sm font-semibold text-[#02254d] shadow-sm transition hover:bg-cta-consult/10"
+          />
         </div>
 
         <div>
@@ -983,14 +984,13 @@ function ServicesAbout() {
             Book a free strategy session and get a practical roadmap for your
             reputation goals, growth timeline, and next best actions.
           </p>
-          <div className="mt-7 flex justify-center">
-            <a
-              {...calendlyNewTabProps}
-              className="ha-pill inline-flex rounded-md bg-cta-consult px-5 py-3 text-sm font-semibold text-white shadow-md shadow-cta-consult/20 hover:brightness-95"
-            >
-              BOOK YOUR FREE CONSULTATION
-            </a>
-          </div>
+          <ConsultationCtas
+            variant="onDark"
+            consultLabel="BOOK YOUR FREE CONSULTATION"
+            wrapperClassName="mt-7 justify-center"
+            consultClassName="ha-pill inline-flex rounded-md bg-cta-consult px-5 py-3 text-sm font-semibold text-white shadow-md shadow-cta-consult/20 hover:brightness-95"
+            freeScanClassName="ha-pill inline-flex rounded-md border-2 border-white/35 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15"
+          />
         </div>
       </div>
     </section>

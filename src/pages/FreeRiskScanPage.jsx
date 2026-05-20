@@ -16,7 +16,7 @@ import { AnimatePresence, motion as Motion } from "motion/react";
 import { useReducedMotion } from "motion/react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
-import { calendlyNewTabProps } from "../constants/scheduling";
+import { ConsultationCtas } from "../components/ConsultationCtas";
 import { cn } from "@/lib/utils";
 import { buildReputationScanPdfBytes } from "@scan/freeScanPdfBuild.js";
 import { buildOfflineFreeScanPayload } from "@/lib/freeScanClientFallback.js";
@@ -859,12 +859,13 @@ export default function FreeRiskScanPage() {
           </div>
 
           <div className="mt-10 flex justify-center">
-            <a
-              {...calendlyNewTabProps}
-              className="ha-pill inline-flex min-w-[min(100%,20rem)] items-center justify-center rounded-2xl bg-cta-consult px-8 py-4 text-center text-base font-heading font-bold text-white shadow-lg"
-            >
-              Book a free consultation
-            </a>
+            <ConsultationCtas
+              variant="onLight"
+              consultLabel="Book a free consultation"
+              wrapperClassName="justify-center"
+              consultClassName="ha-pill inline-flex min-w-[min(100%,20rem)] items-center justify-center rounded-2xl bg-cta-consult px-8 py-4 text-center text-base font-heading font-bold text-white shadow-lg"
+              freeScanClassName="ha-pill inline-flex min-w-[min(100%,20rem)] items-center justify-center rounded-2xl border-2 border-[#02254d]/25 bg-white px-8 py-4 text-center text-base font-heading font-bold text-[#02254d] shadow-sm transition hover:border-[#02254d]/45 hover:bg-slate-50"
+            />
           </div>
 
           <div className="mt-14 grid gap-6 lg:grid-cols-2">

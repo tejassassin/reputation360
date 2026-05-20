@@ -4,7 +4,7 @@ import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import {
   CONTACT_EMAIL,
-  CONTACT_PAGE_EMAIL_SECTION_HREF,
+  contactGmailComposeHref,
   contactWhatsAppHref,
 } from "@/constants/contact.js";
 import R360Chatbot from "./R360Chatbot.jsx";
@@ -14,8 +14,7 @@ const dockBtn =
 
 /**
  * Portaled to document.body so no #root overflow/transform/stacking can block hits.
- * Email sits above the chatbot column (z-index) and uses a button so the SPA anchor
- * listener never runs on it.
+ * Email opens Gmail compose in a new tab (works without a desktop mail app).
  */
 export default function GlobalContactDock() {
   if (typeof document === "undefined") return null;
@@ -31,7 +30,7 @@ export default function GlobalContactDock() {
         rel="noopener noreferrer"
         className={cn(
           dockBtn,
-          "relative z-0 touch-manipulation border-emerald-700/30 bg-[#25D366] text-white hover:bg-[#20bd5a] hover:shadow-xl active:opacity-90",
+          "relative z-[10001] touch-manipulation border-emerald-700/30 bg-[#25D366] text-white hover:bg-[#20bd5a] hover:shadow-xl active:opacity-90",
         )}
         aria-label={`Chat on WhatsApp with Reputation360 (opens in a new tab)`}
       >
@@ -41,24 +40,24 @@ export default function GlobalContactDock() {
           aria-hidden
         />
       </a>
-      <button
-        type="button"
+      <a
+        href={contactGmailComposeHref()}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(e) => e.stopPropagation()}
         className={cn(
           dockBtn,
-          "relative z-[10002] touch-manipulation border-white/70 bg-white text-navy shadow-[0_12px_28px_-8px_rgba(31,59,100,0.22)] hover:border-[#4CAF50]/50 hover:bg-slate-50 hover:shadow-xl active:opacity-90",
+          "relative z-[10003] touch-manipulation border-white/70 bg-white text-navy shadow-[0_12px_28px_-8px_rgba(31,59,100,0.22)] hover:border-[#4CAF50]/50 hover:bg-slate-50 hover:shadow-xl active:opacity-90",
         )}
-        aria-label={`Email Reputation360 - opens contact page (${CONTACT_EMAIL})`}
-        title={`Opens contact form. Address: ${CONTACT_EMAIL}`}
-        onClick={() => {
-          window.location.assign(CONTACT_PAGE_EMAIL_SECTION_HREF);
-        }}
+        aria-label={`Email Reputation360 at ${CONTACT_EMAIL} (opens Gmail compose)`}
+        title={`Email ${CONTACT_EMAIL}`}
       >
         <Mail
           className="pointer-events-none h-5 w-5 shrink-0 text-[#1F3B64] sm:h-6 sm:w-6"
           strokeWidth={2.1}
           aria-hidden
         />
-      </button>
+      </a>
       <div className="relative z-[10001] flex w-auto flex-col items-end">
         <R360Chatbot />
       </div>

@@ -17,8 +17,39 @@ export const WHATSAPP_PHONE = "919910000000";
 export const WHATSAPP_PREFILL_MESSAGE =
   "Hello, I would like to connect with Reputation360.";
 
-export function contactMailtoHref(email = CONTACT_EMAIL) {
-  return `mailto:${email}`;
+export function contactMailtoHref(
+  email = CONTACT_EMAIL,
+  { subject = "Reputation360 inquiry" } = {},
+) {
+  const params = new URLSearchParams();
+  if (subject) params.set("subject", subject);
+  const qs = params.toString();
+  return qs ? `mailto:${email}?${qs}` : `mailto:${email}`;
+}
+
+/**
+ * Gmail compose in the browser - reliable when OS mailto handlers are missing
+ * (common on Windows/Linux and in embedded webviews).
+ */
+export function contactGmailComposeHref(email = CONTACT_EMAIL) {
+  const params = new URLSearchParams({
+    view: "cm",
+    fs: "1",
+    to: email,
+  });
+  return `https://mail.google.com/mail/?${params.toString()}`;
+}
+
+/**
+ * Opens the native mail client via mailto: (footer, header, contact page links).
+ */
+export function openMailClient(email = CONTACT_EMAIL) {
+  if (typeof document === "undefined") return;
+  const link = document.createElement("a");
+  link.href = contactMailtoHref(email);
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
 }
 
 /**
@@ -32,8 +63,8 @@ export function handleMailtoClick(e, email = CONTACT_EMAIL) {
   if (typeof e.button === "number" && e.button !== 0) return;
   if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
   e.preventDefault();
-  const href = contactMailtoHref(email);
-  window.location.href = href;
+  e.stopPropagation();
+  openMailClient(email);
 }
 
 /**
