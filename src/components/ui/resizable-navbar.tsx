@@ -1,13 +1,7 @@
 import { cn } from "@/lib/utils";
 import { IconMenu2, IconX } from "@tabler/icons-react";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-} from "motion/react";
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
-import { Children, cloneElement, isValidElement, useState } from "react";
+import { Children, cloneElement, isValidElement, useEffect, useState } from "react";
 
 /* Sticky pill: scroll>100 adds opaque shell + shadow. Below 2xl, desktop uses 2 rows (links then CTAs) so links never share a row with buttons. */
 
@@ -33,12 +27,14 @@ interface NavBodyProps {
 }
 
 export const Navbar = ({ children, className }: NavbarProps) => {
-  const { scrollY } = useScroll();
   const [visible, setVisible] = useState(false);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setVisible(latest > 100);
-  });
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 100);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <div className={cn("sticky inset-x-0 top-0 z-40 w-full lg:top-20", className)}>
@@ -234,23 +230,16 @@ export const MobileNavMenu = ({
   onClose: () => void;
 }) => {
   void _onClose;
+  if (!isOpen) return null;
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          key="mobile-menu"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-navy px-4 py-8 text-white shadow-lg",
-            className,
-          )}
-        >
-          {children}
-        </motion.div>
+    <div
+      className={cn(
+        "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-navy px-4 py-8 text-white shadow-lg transition-opacity duration-200",
+        className,
       )}
-    </AnimatePresence>
+    >
+      {children}
+    </div>
   );
 };
 
@@ -301,6 +290,8 @@ export const NavbarLogo = ({
             alt={brandName}
             width={36}
             height={36}
+            decoding="async"
+            fetchPriority="high"
             className="ml-1 object-contain"
           />
         </div>

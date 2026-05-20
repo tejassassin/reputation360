@@ -15,15 +15,21 @@ export default function DeferredGlobalContactDock() {
       if (!cancelled) setReady(true);
     };
 
+    const idleTimeout =
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(max-width: 767px)").matches
+        ? 4200
+        : 2800;
+
     if (typeof window.requestIdleCallback === "function") {
-      const id = window.requestIdleCallback(show, { timeout: 2800 });
+      const id = window.requestIdleCallback(show, { timeout: idleTimeout });
       return () => {
         cancelled = true;
         window.cancelIdleCallback(id);
       };
     }
 
-    const t = window.setTimeout(show, 1600);
+    const t = window.setTimeout(show, idleTimeout > 3000 ? 2200 : 1600);
     return () => {
       cancelled = true;
       window.clearTimeout(t);

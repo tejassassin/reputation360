@@ -73,17 +73,19 @@
       content="Suppress negative search results & control your online reputation globally. Trusted by founders & brands in the US, Europe & worldwide. Build credible digital reputations worldwide. Get your free audit today."
     />
 
-    <!-- Google Fonts: subset weights for faster LCP (Manrope loads async for blog/guide) -->
+    <!-- Google Fonts: desktop only so mobile LCP uses system fonts (faster first paint) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="preload"
       as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Source+Sans+3:wght@400;500&display=swap"
+      media="(min-width: 768px)"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Source+Sans+3:wght@400;500&display=swap"
       rel="stylesheet"
+      media="(min-width: 768px)"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&display=swap"

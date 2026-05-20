@@ -154,7 +154,7 @@ export function OurServicesGrid() {
           href="/services"
           className="font-medium text-inherit underline decoration-white/45 underline-offset-4 transition hover:text-white hover:decoration-[#4CAF50]/80"
         >
-          View the full Services page
+          Explore our online reputation management services
         </a>
       </p>
     </div>
