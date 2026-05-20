@@ -21,7 +21,7 @@ console.log("  ✓ node_modules/vite present");
 
 const envLocalPath = join(root, ".env.local");
 if (!existsSync(envLocalPath)) {
-  console.log("\n  ! No .env.local. Free scan needs Google CSE keys for live results. Run:\n\n      npm run env:init\n");
+  console.log("\n  ! No .env.local. Free Reputation Scan needs Google CSE keys for live results. Run:\n\n      npm run env:init\n");
 } else {
   try {
     const raw = readFileSync(envLocalPath, "utf8");

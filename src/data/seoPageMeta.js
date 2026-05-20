@@ -97,13 +97,13 @@ export const SEO = {
       "Schedule your free online reputation management consultation with Reputation360. Get expert guidance from our global team serving US, Europe & worldwide. Custom strategies to suppress negatives & strengthen your brand worldwide.",
   },
   freeRiskScan: {
-    title: "Free Online Reputation Risk Scan | Reputation360",
+    title: "Free Reputation Scan | Reputation360",
     path: FREE_RISK_SCAN_PATH,
     description:
       "Free Google reputation scan: full name, country (USA, UK, Canada, Australia, or other), and email. We use Google Programmable Search to analyze the first 3 pages of results (up to 30 links), classify positive, neutral, and negative URLs, assign an A-D grade, and email your report when delivery is configured.",
   },
   freeScanAdmin: {
-    title: "Free Scan Admin | Reputation360",
+    title: "Free Reputation Scan Admin | Reputation360",
     path: "/free-scan-admin",
     description:
       "Protected admin view for free reputation scan submissions and exports.",

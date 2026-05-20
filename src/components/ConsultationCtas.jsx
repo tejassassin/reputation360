@@ -1,5 +1,8 @@
 import { calendlyCtaButtonClass, calendlyNewTabProps } from "@/constants/scheduling";
-import { freeScanNewTabProps } from "@/constants/freeRiskScan";
+import {
+  FREE_REPUTATION_SCAN_LABEL,
+  freeScanNewTabProps,
+} from "@/constants/freeRiskScan";
 import { cn } from "@/lib/utils";
 
 const VARIANTS = {
@@ -66,7 +69,7 @@ function ConsultArrow() {
 }
 
 /**
- * Free scan first, then book-a-consultation (Calendly). Use wherever consultation CTAs appear.
+ * Free Reputation Scan first, then book-a-consultation (Calendly). Use wherever consultation CTAs appear.
  */
 export function ConsultationCtas({
   variant = "onLight",
@@ -87,7 +90,7 @@ export function ConsultationCtas({
   return (
     <div className={cn(styles.wrapper, wrapperClassName, className)}>
       <a {...freeScanNewTabProps} className={cn(styles.freeScan, freeScanClassName)}>
-        Free scan
+        {FREE_REPUTATION_SCAN_LABEL}
       </a>
       <a {...consultProps} className={cn(styles.consult, consultClassName)}>
         {styles.consultShowArrow ? (

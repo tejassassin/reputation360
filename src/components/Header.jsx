@@ -22,7 +22,10 @@ import {
   handleMailtoClick,
 } from "../constants/contact.js";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
-import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
+import {
+  FREE_REPUTATION_SCAN_LABEL,
+  FREE_RISK_SCAN_PATH,
+} from "../constants/freeRiskScan.js";
 
 const navItems = [
   { name: "Home", link: "/" },
@@ -66,7 +69,7 @@ const navItems = [
       { name: "Insights & Blogs", link: "/blog" },
       { name: "Guide", link: "/resources/guide" },
       { name: "FAQs", link: "/resources/faqs" },
-      { name: "Free scan", link: FREE_RISK_SCAN_PATH, newTab: true },
+      { name: FREE_REPUTATION_SCAN_LABEL, link: FREE_RISK_SCAN_PATH, newTab: true },
     ],
   },
 ];
@@ -139,7 +142,7 @@ function Header() {
               variant="secondary"
               className="!px-4 !py-2 text-sm sm:!px-5 sm:text-sm"
             >
-              Free scan
+              {FREE_REPUTATION_SCAN_LABEL}
             </NavbarButton>
             <NavbarButton
               href={CALENDLY_URL}
@@ -205,7 +208,7 @@ function Header() {
                 variant="secondary"
                 className="w-full"
               >
-                Free scan
+                {FREE_REPUTATION_SCAN_LABEL}
               </NavbarButton>
               <NavbarButton
                 href={CALENDLY_URL}

@@ -17,6 +17,7 @@ import { useReducedMotion } from "motion/react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { ConsultationCtas } from "../components/ConsultationCtas";
+import { FREE_REPUTATION_SCAN_LABEL } from "../constants/freeRiskScan.js";
 import { cn } from "@/lib/utils";
 import { buildReputationScanPdfBytes } from "@scan/freeScanPdfBuild.js";
 import { buildOfflineFreeScanPayload } from "@/lib/freeScanClientFallback.js";
@@ -527,7 +528,7 @@ export default function FreeRiskScanPage() {
               Google Programmable Search
             </span>
             <h1 className="mt-5 font-heading text-balance text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
-              Free reputation scan
+              {FREE_REPUTATION_SCAN_LABEL}
             </h1>
             <p className="mx-auto mt-4 max-w-lg text-pretty text-sm leading-relaxed text-slate-600 md:text-base">
               We analyze the first {FREE_SCAN_GOOGLE_PAGES} pages of Google-style results for your name and country
@@ -635,7 +636,7 @@ export default function FreeRiskScanPage() {
               type="submit"
               className="ha-pill mt-8 w-full rounded-2xl bg-gradient-to-r from-[#2E5B88] to-[#1F3B64] py-4 text-base font-heading font-bold text-white shadow-lg shadow-[#1F3B64]/25 transition hover:brightness-110"
             >
-              Start my free scan
+              Start my {FREE_REPUTATION_SCAN_LABEL.toLowerCase()}
             </button>
           </form>
         </div>

@@ -85,7 +85,7 @@ export default function FreeScanAdminPage() {
   return (
     <main className="flex-1 bg-[#f4f7fb] pt-28 md:pt-32">
       <SeoHead
-        title="Free Scan Admin | Reputation360"
+        title="Free Reputation Scan Admin | Reputation360"
         description="Protected admin view for free reputation scan submissions."
         canonicalPath="/free-scan-admin"
       />
@@ -98,7 +98,7 @@ export default function FreeScanAdminPage() {
                 Admin
               </div>
               <h1 className="mt-4 font-heading text-3xl font-bold text-slate-900 md:text-4xl">
-                Free scan submissions
+                Free reputation scan submissions
               </h1>
               <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
                 View stored free-scan leads and export them as CSV. This page reads from the protected
