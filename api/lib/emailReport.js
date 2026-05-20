@@ -36,6 +36,7 @@ export async function sendReputationReportEmail(p) {
 
   const resend = new Resend(key);
   const name = `${p.firstName} ${p.lastName}`.trim();
+  const attachmentName = `${name || "Reputation Scan"} Reputation Scan by Reputation360.pdf`;
 
   const hurtingHtml = (() => {
     const items = String(p.hurting)
@@ -111,7 +112,7 @@ export async function sendReputationReportEmail(p) {
     p.pdfBytes && p.pdfBytes.byteLength > 0
       ? [
           {
-            filename: "reputation360-free-scan-report.pdf",
+            filename: attachmentName,
             content: Buffer.from(p.pdfBytes),
             contentType: "application/pdf",
           },

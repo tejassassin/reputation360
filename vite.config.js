@@ -48,6 +48,7 @@ function r360DevApiPlugin(mode) {
   const routes = {
     "/api/free-scan": () => import("./api/lib/runFreeScanPipeline.js"),
     "/api/reputation-agent": () => import("./api/lib/runReputationAgentPipeline.js"),
+    "/api/free-scan-submissions": () => import("./api/free-scan-submissions.js"),
   };
   return {
     name: "r360-dev-api",
@@ -67,6 +68,39 @@ function r360DevApiPlugin(mode) {
           res.end();
           return;
         }
+        if (pathname === "/api/free-scan-submissions") {
+          if (req.method !== "GET") {
+            res.statusCode = 405;
+            res.setHeader("Content-Type", "application/json");
+            res.end(JSON.stringify({ ok: false, error: "Method not allowed" }));
+            return;
+          }
+          try {
+            const mod = await loadPipeline();
+            const envFromFiles = loadEnv(mode, process.cwd(), "");
+            const snapshot = {};
+            for (const [key, value] of Object.entries(envFromFiles)) {
+              snapshot[key] = process.env[key];
+              process.env[key] = value;
+            }
+            await mod.default(req, res);
+            for (const [key, prev] of Object.entries(snapshot)) {
+              if (prev === undefined) delete process.env[key];
+              else process.env[key] = prev;
+            }
+          } catch (e) {
+            res.statusCode = 500;
+            res.setHeader("Content-Type", "application/json");
+            res.end(
+              JSON.stringify({
+                ok: false,
+                error: e instanceof Error ? e.message : "Dev API error",
+              }),
+            );
+          }
+          return;
+        }
+
         if (req.method !== "POST") {
           res.statusCode = 405;
           res.setHeader("Content-Type", "application/json");

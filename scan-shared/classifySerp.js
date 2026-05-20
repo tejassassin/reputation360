@@ -69,6 +69,39 @@ const CONTEXTUAL_SAFE_TEXT =
 const NEUTRAL_TEXT =
   /\b(profile|directory|listing|mention|archive|reference|public record|database|people search|background|lookup)\b/i;
 
+const POSITIVE_RELEVANCE_TEXT =
+  /\b(official|founder|ceo|advisor|speaker|author|interview|podcast|article|featured|insights|leadership|company|website|bio|biography|portfolio|professional|social profile|quora|medium|soundcloud|guest article|press|philanthropy|donates?|charity|thought leadership)\b/i;
+
+/**
+ * Platforms or contexts that should remain negative even if other signals are present.
+ * These are high-risk from a reputation-perception standpoint.
+ *
+ * @param {string} host
+ * @param {string} blob
+ * @returns {{ forced: boolean; reason: string }}
+ */
+function forcedNegativeSignal(host, blob) {
+  if (COURT_OR_REGULATOR_HOST.test(host)) {
+    return {
+      forced: true,
+      reason: "Court, regulator, or legal-record platform creates immediate credibility risk on Google.",
+    };
+  }
+  if (HIGH_RISK_HOST.test(host) && !/quora\.com/i.test(host)) {
+    return {
+      forced: true,
+      reason: "Complaint, review, or high-risk discussion platform can create distrust for searchers.",
+    };
+  }
+  if (STRONG_NEGATIVE_TEXT.test(blob) && !CONTEXTUAL_SAFE_TEXT.test(blob)) {
+    return {
+      forced: true,
+      reason: "Strong legal, criminal, scam, or allegation language is visible in the result.",
+    };
+  }
+  return { forced: false, reason: "" };
+}
+
 /**
  * @param {number} rank
  */
@@ -147,6 +180,7 @@ export function classifySerpItem(item, rank) {
 
   let score = baseScore;
   let strongPositive = baseStrongPositive;
+  const forcedNegative = forcedNegativeSignal(host, blob);
 
   if (STRONG_NEGATIVE_TEXT.test(blob)) {
     if (CONTEXTUAL_SAFE_TEXT.test(blob)) {
@@ -175,14 +209,26 @@ export function classifySerpItem(item, rank) {
     reasons.push("Wikipedia is broadly credible but often informational rather than strongly reputation-building.");
   }
 
+  const clearlyRelevantPositive =
+    POSITIVE_RELEVANCE_TEXT.test(blob) ||
+    STRONG_POSITIVE_HOST.test(host) ||
+    POSITIVE_HOST.test(host);
+
   const weightedScore = score * rankWeight;
   let sentiment = /** @type {Sentiment} */ ("neutral");
-  if (weightedScore >= 3) sentiment = "positive";
-  else if (weightedScore <= -3) sentiment = "negative";
+  if (forcedNegative.forced) {
+    sentiment = "negative";
+    reasons.push(forcedNegative.reason);
+  } else if (weightedScore >= 3) {
+    sentiment = "positive";
+  } else if (weightedScore <= -3) {
+    sentiment = "negative";
+  }
 
-  if (sentiment !== "negative") {
+  if (sentiment !== "negative" && !forcedNegative.forced) {
     const looksIrrelevant =
       /\b(people search|lookup|background|directory|listing|reference|archive)\b/i.test(text) &&
+      !clearlyRelevantPositive &&
       weightedScore < 3;
     if (looksIrrelevant) {
       sentiment = "neutral";

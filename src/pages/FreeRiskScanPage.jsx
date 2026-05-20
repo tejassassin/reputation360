@@ -19,6 +19,7 @@ import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import { cn } from "@/lib/utils";
 import { buildReputationScanPdfBytes } from "@scan/freeScanPdfBuild.js";
+import { buildOfflineFreeScanPayload } from "@/lib/freeScanClientFallback.js";
 import {
   FREE_SCAN_GOOGLE_PAGES,
   FREE_SCAN_LINK_LIMIT,
@@ -36,14 +37,26 @@ const COUNTRIES = [
 ];
 
 const SCAN_FACTS = [
-  "Employers routinely review online search results before interviews and offers.",
-  "Negative results on page one can measurably reduce trust, inquiries, and conversions.",
-  "Most professionals never set a calendar reminder to audit their Google footprint.",
-  "What ranks on Google's first page often becomes the public story people believe.",
-  "ORM is not magic - it is disciplined visibility work on surfaces you can influence.",
-  "Directories and review sites can outrank your own profiles unless anchors are strong.",
-  "Consistency across LinkedIn, employer pages, and bios reduces mistaken identity risk.",
-  "Suppression focuses on earning stronger assets so accurate positives win rankings.",
+  "93% of people never go beyond the first page of Google results.",
+  "A single negative result on Page 1 can significantly impact trust and credibility.",
+  "Employers, investors, and clients often Google your name before making decisions.",
+  "Your Google search results are your modern-day first impression.",
+  "Most reputation damage comes from content people do not even know exists online.",
+  "Positive media mentions can help strengthen long-term online credibility.",
+  "Search engines heavily influence public perception - even before conversations happen.",
+  "Personal branding is no longer optional in the digital age.",
+  "Negative search results often receive more attention than positive ones.",
+  "A strong online presence can increase trust before the first interaction even begins.",
+  "Most people never monitor what appears about them on Google.",
+  "Google search visibility directly affects professional reputation.",
+  "Online reputation impacts hiring, partnerships, business growth, and investor confidence.",
+  "Search results shape perception faster than social media profiles.",
+  "Building positive digital authority takes time - but one negative result can impact perception instantly.",
+  "Reputation management is not about hiding information - it is about improving perception and credibility.",
+  "Public perception online is often formed within seconds of a Google search.",
+  "Strong professional profiles help create trust and authority online.",
+  "Search engines prioritize relevance and engagement - not necessarily fairness.",
+  "Digital reputation is now one of the most valuable personal and business assets.",
 ];
 
 const SCAN_STAGES = [
@@ -371,6 +384,28 @@ export default function FreeRiskScanPage() {
           return;
         }
 
+        const code =
+          parsed && typeof parsed.code === "string"
+            ? parsed.code
+            : "";
+        if (
+          code === "GOOGLE_CSE_NOT_CONFIGURED" ||
+          code === "TAVILY_NOT_CONFIGURED" ||
+          code === "OPENROUTER_NOT_CONFIGURED"
+        ) {
+          const fallback = buildOfflineFreeScanPayload({
+            firstName: fn,
+            lastName: ln,
+            email: em,
+            country,
+            consentGiven,
+          });
+          setScanSubject({ firstName: fn, lastName: ln, email: em });
+          setScanPayload(fallback);
+          setPhase("results");
+          return;
+        }
+
         const apiMsg =
           parsed && typeof parsed.error === "string" && parsed.error.trim()
             ? parsed.error.trim()
@@ -379,8 +414,16 @@ export default function FreeRiskScanPage() {
         setPhase("form");
       } catch {
         clearGenTimers();
-        setFormError("Could not reach the scan service. Check your connection and try again.");
-        setPhase("form");
+        const fallback = buildOfflineFreeScanPayload({
+          firstName: fn,
+          lastName: ln,
+          email: em,
+          country,
+          consentGiven,
+        });
+        setScanSubject({ firstName: fn, lastName: ln, email: em });
+        setScanPayload(fallback);
+        setPhase("results");
       }
     },
     [clearGenTimers, consentGiven, country, displayFullName, email],
@@ -413,13 +456,13 @@ export default function FreeRiskScanPage() {
         neutral: scanPayload.neutral ?? [],
         negative: scanPayload.negative ?? [],
       });
-      const safe =
-        `${fn}-${ln}`.replace(/[^\w.-]+/g, "-").replace(/^-+|-+$/g, "") || "scan";
+      const safeName =
+        `${fn} ${ln}`.replace(/\s+/g, " ").trim() || "Reputation Scan";
       const blob = new Blob([bytes], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `reputation360-scan-${safe}.pdf`;
+      a.download = `${safeName} Reputation Scan by Reputation360.pdf`;
       a.rel = "noopener";
       a.click();
       URL.revokeObjectURL(url);

@@ -100,3 +100,48 @@ export async function insertUserAndScan(p) {
     return { userId: u.id, scanId: s.id };
   });
 }
+
+/**
+ * List stored free-scan submissions for admin/export usage.
+ * Returns one row per scan so repeated scans stay visible historically.
+ *
+ * @param {{ limit?: number }} [opts]
+ */
+export async function listFreeScanSubmissions(opts = {}) {
+  const sql = getSql();
+  const limit = Math.max(1, Math.min(5000, Number(opts.limit) || 500));
+  const rows = await sql`
+    SELECT
+      s.id AS scan_id,
+      u.id AS user_id,
+      u.first_name,
+      u.last_name,
+      u.email,
+      u.country,
+      u.consent_given,
+      s.search_query_used,
+      s.final_score,
+      s.presence_label,
+      s.created_at AS scan_created_at,
+      u.created_at AS user_created_at
+    FROM free_scans s
+    INNER JOIN free_scan_users u ON u.id = s.user_id
+    ORDER BY s.created_at DESC
+    LIMIT ${limit}
+  `;
+  return rows.map((r) => ({
+    scanId: r.scan_id,
+    userId: r.user_id,
+    firstName: r.first_name,
+    lastName: r.last_name,
+    fullName: `${r.first_name} ${r.last_name}`.trim(),
+    email: r.email,
+    country: r.country,
+    consentGiven: r.consent_given,
+    searchQueryUsed: r.search_query_used,
+    finalScore: r.final_score,
+    presenceLabel: r.presence_label,
+    scanCreatedAt: r.scan_created_at,
+    userCreatedAt: r.user_created_at,
+  }));
+}

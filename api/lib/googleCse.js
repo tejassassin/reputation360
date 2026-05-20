@@ -3,6 +3,20 @@
  * Env: GOOGLE_CSE_API_KEY, GOOGLE_CSE_CX
  */
 
+const GOOGLE_GL_BY_COUNTRY = {
+  US: "us",
+  UK: "uk",
+  Canada: "ca",
+  Australia: "au",
+};
+
+const GOOGLE_CR_BY_COUNTRY = {
+  US: "countryUS",
+  UK: "countryUK",
+  Canada: "countryCA",
+  Australia: "countryAU",
+};
+
 /**
  * @typedef {{ title: string; link: string; displayLink: string; snippet: string }} CseItem
  */
@@ -13,9 +27,10 @@
  * @param {string} cx
  * @param {number} [num]
  * @param {number} [start] Google `start` index (1-based). Page 2 = 11, page 3 = 21.
+ * @param {"US"|"UK"|"Canada"|"Australia"|"Others"} [country]
  * @returns {Promise<CseItem[]>}
  */
-export async function fetchGoogleCse(query, apiKey, cx, num = 10, start = 1) {
+export async function fetchGoogleCse(query, apiKey, cx, num = 10, start = 1, country = "Others") {
   const q = query.trim();
   if (!q) return [];
 
@@ -25,6 +40,12 @@ export async function fetchGoogleCse(query, apiKey, cx, num = 10, start = 1) {
   url.searchParams.set("q", q);
   url.searchParams.set("num", String(Math.min(10, Math.max(1, num))));
   url.searchParams.set("start", String(Math.max(1, Math.min(91, start))));
+  if (GOOGLE_GL_BY_COUNTRY[country]) {
+    url.searchParams.set("gl", GOOGLE_GL_BY_COUNTRY[country]);
+  }
+  if (GOOGLE_CR_BY_COUNTRY[country]) {
+    url.searchParams.set("cr", GOOGLE_CR_BY_COUNTRY[country]);
+  }
 
   const res = await fetch(url.toString());
   const data = await res.json();
@@ -70,9 +91,10 @@ export function mergeCseDedupe(a, b) {
  * @param {string} apiKey
  * @param {string} cx
  * @param {number} [maxResults]
+ * @param {"US"|"UK"|"Canada"|"Australia"|"Others"} [country]
  * @returns {Promise<CseItem[]>}
  */
-export async function fetchGoogleCseUpToN(query, apiKey, cx, maxResults = 30) {
+export async function fetchGoogleCseUpToN(query, apiKey, cx, maxResults = 30, country = "Others") {
   const q = query.trim();
   if (!q || maxResults <= 0) return [];
 
@@ -82,7 +104,7 @@ export async function fetchGoogleCseUpToN(query, apiKey, cx, maxResults = 30) {
   while (merged.length < cap) {
     const remaining = cap - merged.length;
     const num = Math.min(10, remaining);
-    const batch = await fetchGoogleCse(q, apiKey, cx, num, start);
+    const batch = await fetchGoogleCse(q, apiKey, cx, num, start, country);
     if (batch.length === 0) break;
     merged.push(...batch);
     start += batch.length;

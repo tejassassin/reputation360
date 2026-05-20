@@ -19,6 +19,13 @@ const COUNTRY_HINT = {
   Others: "",
 };
 
+const TAVILY_COUNTRY = {
+  US: "united states",
+  UK: "united kingdom",
+  Canada: "canada",
+  Australia: "australia",
+};
+
 const ALLOWED_COUNTRIES = new Set(["US", "UK", "Canada", "Australia", "Others"]);
 
 /** Maps form / legacy values to stored country keys. */
@@ -78,13 +85,18 @@ function buildFreeScanQueries(full, hint) {
  * @param {string} hint
  * @returns {Promise<{ searchQueryUsed: string; rows: { title: string; link: string; displayLink: string; snippet: string }[] }>}
  */
-async function fetchFreeScanTavilyRows(full, hint) {
+async function fetchFreeScanTavilyRows(full, hint, country) {
   const queries = buildFreeScanQueries(full, hint);
   const out = [];
   const seen = new Set();
+  const tavilyCountry = TAVILY_COUNTRY[country] || undefined;
 
   for (const query of queries) {
-    const { results } = await webSearch(query, { maxResults: 10, searchDepth: "advanced" });
+    const { results } = await webSearch(query, {
+      maxResults: 20,
+      searchDepth: "advanced",
+      country: tavilyCountry,
+    });
     for (const row of results) {
       const link = String(row.url ?? "").trim();
       if (!link || seen.has(link)) continue;
@@ -103,6 +115,44 @@ async function fetchFreeScanTavilyRows(full, hint) {
       });
       if (out.length >= FREE_SCAN_LINK_LIMIT) {
         return { searchQueryUsed: queries[0], rows: out };
+      }
+    }
+  }
+
+  // If query variants still do not yield a full 30 unique links, pad with broad live results
+  // for the same person so the report consistently fills the requested first 3 pages equivalent.
+  if (out.length < FREE_SCAN_LINK_LIMIT) {
+    const broadQueries = [
+      hint ? `${full} ${hint}` : full,
+      `${full} profile`,
+      `${full} article OR interview`,
+      `${full} mentions`,
+    ];
+    for (const query of broadQueries) {
+      const { results } = await webSearch(query, {
+        maxResults: 20,
+        searchDepth: "advanced",
+        country: tavilyCountry,
+      });
+      for (const row of results) {
+        const link = String(row.url ?? "").trim();
+        if (!link || seen.has(link)) continue;
+        seen.add(link);
+        let displayLink = "";
+        try {
+          displayLink = new URL(link).hostname.replace(/^www\./, "");
+        } catch {
+          displayLink = "";
+        }
+        out.push({
+          title: String(row.title ?? ""),
+          link,
+          displayLink,
+          snippet: String(row.snippet ?? ""),
+        });
+        if (out.length >= FREE_SCAN_LINK_LIMIT) {
+          return { searchQueryUsed: queries[0], rows: out };
+        }
       }
     }
   }
@@ -188,7 +238,7 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
 
   if (apiKey && cx) {
     try {
-      merged = await fetchGoogleCseUpToN(q1, apiKey, cx, FREE_SCAN_LINK_LIMIT);
+      merged = await fetchGoogleCseUpToN(q1, apiKey, cx, FREE_SCAN_LINK_LIMIT, country);
     } catch (e) {
       cseThrew = true;
       cseErrorMessage = e instanceof Error ? e.message : String(e);
@@ -199,7 +249,7 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
   if (!apiKey || !cx) {
     const tavilyKey = String(env.TAVILY_API_KEY ?? "").trim();
     if (tavilyKey) {
-      const tavily = await fetchFreeScanTavilyRows(full, hint);
+      const tavily = await fetchFreeScanTavilyRows(full, hint, country);
       merged = tavily.rows;
       dataSource = "tavily_live";
     } else if (relaxedIllustrativeSerp(env)) {

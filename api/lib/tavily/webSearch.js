@@ -4,7 +4,7 @@ import { tavilyPost } from "./client.js";
  * Search the web via Tavily (agent tool: web_search).
  *
  * @param {string} query
- * @param {{ maxResults?: number; searchDepth?: "basic" | "advanced" }} [opts]
+ * @param {{ maxResults?: number; searchDepth?: "basic" | "advanced"; country?: string }} [opts]
  * @returns {Promise<{ query: string; results: { title: string; url: string; snippet: string; score?: number }[] }>}
  */
 export async function webSearch(query, opts = {}) {
@@ -21,6 +21,7 @@ export async function webSearch(query, opts = {}) {
     max_results: maxResults,
     search_depth: searchDepth,
     include_answer: false,
+    ...(opts.country?.trim() ? { country: opts.country.trim().toLowerCase() } : {}),
   });
 
   const rows = Array.isArray(data.results) ? data.results : [];

@@ -104,6 +104,9 @@
     "api/free-scan.js": {
       "maxDuration": 60
     },
+    "api/free-scan-submissions.js": {
+      "maxDuration": 60
+    },
     "api/reputation-agent.js": {
       "maxDuration": 120
     }

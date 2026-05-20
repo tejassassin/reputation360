@@ -102,6 +102,12 @@ export const SEO = {
     description:
       "Free Google reputation scan: full name, country (USA, UK, Canada, Australia, or other), and email. We use Google Programmable Search to analyze the first 3 pages of results (up to 30 links), classify positive, neutral, and negative URLs, assign an A-D grade, and email your report when delivery is configured.",
   },
+  freeScanAdmin: {
+    title: "Free Scan Admin | Reputation360",
+    path: "/free-scan-admin",
+    description:
+      "Protected admin view for free reputation scan submissions and exports.",
+  },
   about: {
     title:
       "About Reputation360 | 7+ Years in Online Reputation Management & Digital Reputation",
