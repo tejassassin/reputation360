@@ -27,7 +27,7 @@ function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="hero-section flex flex-col overflow-hidden bg-linear-to-br from-navy via-slate to-navy text-white max-md:min-h-0 max-md:pb-6 md:min-h-[100dvh] md:pt-[calc(env(safe-area-inset-top)+7.25rem)] lg:pt-[calc(env(safe-area-inset-top)+8.5rem)]"
+      className="flex flex-col overflow-hidden bg-linear-to-br from-navy via-slate to-navy text-white max-md:min-h-0 max-md:pb-6 max-md:pt-[calc(env(safe-area-inset-top)+5.25rem)] md:min-h-[100dvh] md:pt-[calc(env(safe-area-inset-top)+7.25rem)] lg:pt-[calc(env(safe-area-inset-top)+8.5rem)]"
     >
       <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 pb-2 pt-0 text-center max-md:gap-3 md:min-h-0 md:flex-1 md:justify-evenly md:gap-0 md:px-6 md:py-[2vh] lg:px-8">
         {/* Main Content - Centered (shrink-0 keeps CTAs from being pushed below the fold) */}
@@ -52,16 +52,20 @@ function Hero() {
 
           <HeroHighlight containerClassName="h-auto bg-transparent dark:bg-transparent">
             <h1 className="mx-auto w-full font-heading font-bold tracking-tight md:mx-4 md:my-3 md:max-w-none md:text-balance md:text-4xl md:leading-[1.3] lg:text-5xl">
-              {/* Phone: same story as desktop — 3 lines, even gaps (no huge splits). */}
-              <span className="hero-headline-phone">
-                <span className="hero-headline-phone__line">Take control of your</span>
-                <span className="hero-headline-phone__line">online reputation</span>
-                <span className="hero-headline-phone__line hero-headline-phone__line--closing">
-                  <Highlight className="!pb-0">on your terms</Highlight><span className="text-white/90">,</span> not Google&apos;s
+              <span className="flex flex-col items-center gap-1 text-center md:hidden">
+                <span className="block max-w-[20rem] text-[1.375rem] leading-tight text-white">
+                  Take control of your
+                </span>
+                <span className="block max-w-[20rem] text-[1.375rem] leading-tight text-white">
+                  online reputation
+                </span>
+                <span className="block max-w-[21rem] text-[1.375rem] leading-snug text-white">
+                  <Highlight className="!px-1 !pb-0">on your terms</Highlight>
+                  <span className="text-white/90">,</span> not Google&apos;s
                 </span>
               </span>
 
-              <span className="hero-headline-desktop">
+              <span className="hidden md:inline md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
                 Take control of your
                 <br />
                 online reputation{" "}
@@ -72,7 +76,7 @@ function Hero() {
               </span>
             </h1>
 
-            <p className="hero-subtitle mx-auto mb-0 max-w-[20rem] text-pretty font-body text-sm leading-relaxed text-white/90 md:mx-4 md:mb-3 md:mt-3 md:max-w-md md:text-lg">
+            <p className="mx-auto mb-0 max-w-[20rem] text-pretty font-body text-sm leading-relaxed text-white/90 max-md:mb-5 max-md:mt-4 md:mx-4 md:mb-3 md:mt-3 md:max-w-md md:text-lg">
               Because one negative result can quietly undermine years of
               credibility.
             </p>
