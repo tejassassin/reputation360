@@ -41,7 +41,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   });
 
   return (
-    <div className={cn("sticky inset-x-0 top-20 z-40 w-full", className)}>
+    <div className={cn("sticky inset-x-0 top-0 z-40 w-full lg:top-20", className)}>
       {Children.map(children, (child) =>
         isValidElement(child) ? cloneElement(child, { visible } as WithVisible) : child,
       )}

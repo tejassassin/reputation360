@@ -27,13 +27,13 @@ function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="h-dvh flex flex-col bg-linear-to-br from-navy via-slate to-navy text-white overflow-hidden pt-32 sm:pt-36"
+      className="hero-section flex flex-col overflow-hidden bg-linear-to-br from-navy via-slate to-navy text-white max-md:min-h-0 max-md:pb-6 md:min-h-[100dvh] md:pt-[calc(env(safe-area-inset-top)+7.25rem)] lg:pt-[calc(env(safe-area-inset-top)+8.5rem)]"
     >
-      <div className="relative mx-auto flex min-h-0 max-w-7xl flex-1 flex-col justify-evenly px-4 py-[2vh] text-center sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 pb-2 pt-0 text-center max-md:gap-3 md:min-h-0 md:flex-1 md:justify-evenly md:gap-0 md:px-6 md:py-[2vh] lg:px-8">
         {/* Main Content - Centered (shrink-0 keeps CTAs from being pushed below the fold) */}
-        <div className="flex shrink-0 flex-col items-center justify-center gap-[1.2vh] sm:gap-[1.8vh]">
+        <div className="flex shrink-0 flex-col items-center justify-center gap-3 md:gap-[1.8vh]">
           {/* Trust Badge */}
-          <div className="inline-flex w-fit items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 self-center">
+          <div className="inline-flex w-fit items-center gap-2 self-center rounded-full border border-white/20 bg-white/10 px-3 py-1.5 backdrop-blur-sm max-md:mb-5 max-md:mt-6 sm:px-4 sm:py-2 md:mb-0 md:mt-0">
             <span className="flex h-2 w-2 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green"></span>
@@ -51,23 +51,34 @@ function Hero() {
           </div>
 
           <HeroHighlight containerClassName="h-auto bg-transparent dark:bg-transparent">
-            <h1 className="font-heading font-bold text-2xl sm:text-4xl lg:text-5xl mx-2 my-1 sm:my-3 sm:mx-4 leading-[1.3] tracking-tight">
-              Take control of your
-              <br className="hidden sm:block" />
-              online reputation{" "}
-              <Highlight>on your terms</Highlight>
-              <span className="text-white/90">,</span>
-              <br className="hidden sm:block" />
-              <span className="text-white">not Google's</span>
+            <h1 className="mx-auto w-full font-heading font-bold tracking-tight md:mx-4 md:my-3 md:max-w-none md:text-balance md:text-4xl md:leading-[1.3] lg:text-5xl">
+              {/* Phone: same story as desktop — 3 lines, even gaps (no huge splits). */}
+              <span className="hero-headline-phone">
+                <span className="hero-headline-phone__line">Take control of your</span>
+                <span className="hero-headline-phone__line">online reputation</span>
+                <span className="hero-headline-phone__line hero-headline-phone__line--closing">
+                  <Highlight className="!pb-0">on your terms</Highlight><span className="text-white/90">,</span> not Google&apos;s
+                </span>
+              </span>
+
+              <span className="hero-headline-desktop">
+                Take control of your
+                <br />
+                online reputation{" "}
+                <Highlight>on your terms</Highlight>
+                <span className="text-white/90">,</span>{" "}
+                <br />
+                <span className="text-white">not Google&apos;s</span>
+              </span>
             </h1>
 
-            <p className="font-body text-white/90 text-sm sm:text-lg mx-2 mt-1 mb-1 sm:mx-4 sm:mb-3">
+            <p className="hero-subtitle mx-auto mb-0 max-w-[20rem] text-pretty font-body text-sm leading-relaxed text-white/90 md:mx-4 md:mb-3 md:mt-3 md:max-w-md md:text-lg">
               Because one negative result can quietly undermine years of
               credibility.
             </p>
           </HeroHighlight>
 
-          <div className="flex w-full max-w-xl shrink-0 flex-col items-stretch justify-center gap-2.5 px-2 sm:max-w-none sm:flex-row sm:items-center sm:gap-3 sm:px-0">
+          <div className="flex w-full max-w-md shrink-0 flex-col items-stretch justify-center gap-2.5 px-0 max-md:mt-2 sm:max-w-none sm:flex-row sm:items-center sm:gap-3 sm:px-0 md:mt-0">
             <a
               {...calendlyNewTabProps}
               className="ha-pill group relative w-full cursor-pointer rounded-xl bg-cta-consult px-6 py-2.5 text-center text-sm font-heading font-semibold text-white shadow-lg shadow-cta-consult/30 transition-all duration-300 hover:brightness-95 hover:shadow-xl hover:shadow-cta-consult/35 sm:w-auto sm:px-8 sm:py-4 sm:text-lg"
@@ -100,15 +111,15 @@ function Hero() {
           </div>
         </div>
 
-        {/* Stats - Pushed to bottom */}
-        <div className="mx-auto grid w-full max-w-4xl shrink-0 grid-cols-3 gap-2 sm:gap-4 lg:gap-6">
-          <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 lg:p-5 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
-            <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+        {/* Stats */}
+        <div className="mx-auto grid w-full max-w-4xl shrink-0 grid-cols-3 gap-1.5 max-md:mt-6 md:mt-0 sm:gap-4 lg:gap-6">
+          <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
+            <div className="absolute inset-0 rounded-lg bg-linear-to-br from-green/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100 sm:rounded-2xl" />
             <div className="relative">
-              <p className="font-heading font-bold text-xl sm:text-3xl lg:text-5xl text-green mb-0.5 lg:mb-1">
+              <p className="mb-0.5 font-heading text-lg font-bold text-green sm:mb-0.5 sm:text-3xl lg:mb-1 lg:text-5xl">
                 <StatNumber end={7} start={statsInView} />
               </p>
-              <p className="font-heading font-semibold text-white text-[9px] sm:text-xs lg:text-sm uppercase tracking-wider mb-0.5">
+              <p className="mb-0 font-heading text-[0.625rem] font-semibold uppercase leading-tight tracking-wide text-white sm:mb-0.5 sm:text-xs lg:text-sm">
                 Years of Experience
               </p>
               <p className="font-body text-xs text-white/60 hidden sm:block">
@@ -116,13 +127,13 @@ function Hero() {
               </p>
             </div>
           </div>
-          <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 lg:p-5 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
-            <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
+            <div className="absolute inset-0 rounded-lg bg-linear-to-br from-green/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100 sm:rounded-2xl" />
             <div className="relative">
-              <p className="font-heading font-bold text-xl sm:text-3xl lg:text-5xl text-green mb-0.5 lg:mb-1">
+              <p className="mb-0.5 font-heading text-lg font-bold text-green sm:mb-0.5 sm:text-3xl lg:mb-1 lg:text-5xl">
                 <StatNumber end={97} suffix="%" start={statsInView} />
               </p>
-              <p className="font-heading font-semibold text-white text-[9px] sm:text-xs lg:text-sm uppercase tracking-wider mb-0.5">
+              <p className="mb-0 font-heading text-[0.625rem] font-semibold uppercase leading-tight tracking-wide text-white sm:mb-0.5 sm:text-xs lg:text-sm">
                 Success Rate
               </p>
               <p className="font-body text-xs text-white/60 hidden sm:block">
@@ -130,13 +141,13 @@ function Hero() {
               </p>
             </div>
           </div>
-          <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 lg:p-5 hover:bg-white/10 hover:border-green/30 transition-all duration-300">
-            <div className="absolute inset-0 bg-linear-to-br from-green/5 to-transparent rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
+            <div className="absolute inset-0 rounded-lg bg-linear-to-br from-green/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100 sm:rounded-2xl" />
             <div className="relative">
-              <p className="font-heading font-bold text-xl sm:text-3xl lg:text-5xl text-green mb-0.5 lg:mb-1">
+              <p className="mb-0.5 font-heading text-lg font-bold text-green sm:mb-0.5 sm:text-3xl lg:mb-1 lg:text-5xl">
                 <StatNumber end={1100} suffix="+" start={statsInView} />
               </p>
-              <p className="font-heading font-semibold text-white text-[9px] sm:text-xs lg:text-sm uppercase tracking-wider mb-0.5">
+              <p className="mb-0 font-heading text-[0.625rem] font-semibold uppercase leading-tight tracking-wide text-white sm:mb-0.5 sm:text-xs lg:text-sm">
                 Happy Clients
               </p>
               <p className="font-body text-xs text-white/60 hidden sm:block">
