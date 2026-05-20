@@ -2,6 +2,7 @@ import { lazy } from "react";
 import HomePage from "../pages/HomePage.jsx";
 import { AUDIENCE_PATH, LEGACY_SERVICE_AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import { BLOG_INDEX_PATH } from "../constants/blogPaths.js";
+import { DIY_REPUTATION_GUIDE_SLUG } from "../data/blogs/diyReputationGuide.js";
 import { SUPPRESS_NEGATIVE_GUIDE_SLUG } from "../data/blogs/suppressNegativeContentGuide.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
 import { AI_REPUTATION_SCAN_PATH } from "../constants/reputationAgent.js";
@@ -23,6 +24,9 @@ const FaqsPage = lazy(() => import("../pages/FaqsPage.jsx"));
 const InsightsBlogsPage = lazy(() => import("../pages/InsightsBlogsPage.jsx"));
 const BlogSuppressNegativeContentGuidePage = lazy(
   () => import("../pages/BlogSuppressNegativeContentGuidePage.jsx"),
+);
+const BlogDiyReputationGuidePage = lazy(
+  () => import("../pages/BlogDiyReputationGuidePage.jsx"),
 );
 const GuidePage = lazy(() => import("../pages/GuidePage.jsx"));
 const AcceptableUsePolicyPage = lazy(() => import("../pages/AcceptableUsePolicyPage.jsx"));
@@ -79,6 +83,9 @@ export function pageForPath(path) {
     const slug = blogPost[1];
     if (slug === SUPPRESS_NEGATIVE_GUIDE_SLUG) {
       return <BlogSuppressNegativeContentGuidePage />;
+    }
+    if (slug === DIY_REPUTATION_GUIDE_SLUG) {
+      return <BlogDiyReputationGuidePage />;
     }
   }
   if (path === "/resources/guide") return <GuidePage />;

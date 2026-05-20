@@ -6,6 +6,7 @@ import {
   Gavel,
   Briefcase,
   Building,
+  ArrowRight,
 } from "lucide-react";
 import BrandSectionBackdrop from "./BrandSectionBackdrop";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
@@ -92,10 +93,16 @@ function AudienceCard(props) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-5 block w-full text-center text-pretty font-heading text-sm font-semibold leading-snug text-[#4CAF50] underline decoration-[#4CAF50]/35 underline-offset-2 transition-colors hover:text-[#3db846] hover:decoration-[#3db846]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A3354]"
+        className="ha-pill group/btn mt-6 flex w-full min-h-[3rem] items-center justify-between gap-3 rounded-xl border border-white/20 bg-[#2E5B88] px-4 py-3 text-left font-heading text-sm font-semibold leading-snug text-white shadow-[0_4px_14px_-4px_rgba(0,0,0,0.45)] transition hover:border-white/35 hover:bg-[#356a9a] hover:shadow-[0_6px_18px_-4px_rgba(0,0,0,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A3354] sm:min-h-[3.25rem] sm:px-5 sm:py-3.5"
         aria-label={`${linkLabel} (opens in a new tab)`}
       >
-        {linkLabel}
+        <span className="min-w-0 flex-1 text-pretty">{linkLabel}</span>
+        <span
+          className="grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-white/15 bg-white/10 transition group-hover/btn:border-white/25 group-hover/btn:bg-white/15"
+          aria-hidden
+        >
+          <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-0.5" />
+        </span>
       </a>
     </div>
   );

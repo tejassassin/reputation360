@@ -4,6 +4,10 @@ import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
+  DIY_REPUTATION_GUIDE_SLUG,
+  diyReputationGuideListing,
+} from "../data/blogs/diyReputationGuide.js";
+import {
   SUPPRESS_NEGATIVE_GUIDE_SLUG,
   suppressNegativeGuideListing,
 } from "../data/blogs/suppressNegativeContentGuide.js";
@@ -19,7 +23,7 @@ const AUTHOR_IMG =
 
 const FILTER_LABELS = ["All", "Corporate", "Personal", "Legal", "Tech"];
 
-const latestArticles = [suppressNegativeGuideListing];
+const latestArticles = [diyReputationGuideListing, suppressNegativeGuideListing];
 
 function InsightsBlogsPage() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -237,7 +241,8 @@ function InsightsBlogsPage() {
                 </>
               );
               const slug = article.slug;
-              const openBlogInNewTab = slug === SUPPRESS_NEGATIVE_GUIDE_SLUG;
+              const openBlogInNewTab =
+                slug === SUPPRESS_NEGATIVE_GUIDE_SLUG || slug === DIY_REPUTATION_GUIDE_SLUG;
               return slug ? (
                 <a
                   key={article.id}

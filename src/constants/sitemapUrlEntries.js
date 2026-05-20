@@ -156,6 +156,12 @@ export const SITEMAP_URL_ENTRIES = [
     changefreq: "monthly",
     priority: "0.7",
   },
+  {
+    path: "/blog/diy-online-reputation-management-complete-guide",
+    lastmod: "2026-05-20",
+    changefreq: "monthly",
+    priority: "0.7",
+  },
   { path: "/resources/guide", lastmod: "2026-04-26", changefreq: "monthly", priority: "0.7" },
   { path: "/resources/faqs", lastmod: "2026-04-26", changefreq: "monthly", priority: "0.6" },
   { path: "/privacy-policy", lastmod: "2026-05-15", changefreq: "yearly", priority: "0.4" },

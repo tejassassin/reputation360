@@ -1,0 +1,346 @@
+export const DIY_GUIDE_NAV = [
+  { id: "intro", label: "Introduction" },
+  { id: "audit", label: "Reputation Audit" },
+  { id: "google", label: "Google Results" },
+  { id: "positive", label: "Positive Content" },
+  { id: "review", label: "Reviews & Ratings" },
+  { id: "social", label: "Social Media" },
+  { id: "monitor", label: "Monitoring" },
+  { id: "crisis", label: "Crisis Response" },
+  { id: "advanced", label: "Advanced Tactics" },
+  { id: "myths", label: "DIY Myths" },
+  { id: "checklist", label: "Monthly Checklist" },
+  { id: "faq", label: "FAQ" },
+  { id: "start", label: "Get Started" },
+];
+
+export const DIY_SCROLL_SPY_ORDER = DIY_GUIDE_NAV.map((n) => n.id);
+
+export const AUDIT_STEPS = [
+  {
+    n: 1,
+    title: "Use incognito/private browsing",
+    body: "This removes personalization bias from your results. Open Chrome, Safari, or Firefox in private mode and search your name.",
+  },
+  {
+    n: 2,
+    title: "Search variations",
+    body: 'Try your full name, first + last, first + middle + last, and common nicknames. Include your profession (e.g., "John Smith entrepreneur").',
+  },
+  {
+    n: 3,
+    title: "Check multiple search engines",
+    body: "Do not just rely on Google. Check Bing, DuckDuckGo, and Yahoo. Results vary, and your reputation on all platforms matters.",
+  },
+  {
+    n: 4,
+    title: "Document everything",
+    body: "Screenshot the first 3-5 pages of results. Create a spreadsheet listing every result, the URL, what it says about you, and your assessment (positive, neutral, or negative).",
+  },
+];
+
+export const GBP_STEPS = [
+  {
+    n: 1,
+    title: "Claim your profile",
+    body: "Visit business.google.com and search for yourself. If your profile exists, claim it. If not, create one using your real name and location.",
+  },
+  {
+    n: 2,
+    title: "Complete 100% of your profile",
+    body: "Add a professional photo, comprehensive bio, services/expertise, business hours, phone, website, and complete all available fields.",
+  },
+  {
+    n: 3,
+    title: "Add your attributes and specialties",
+    body: "For professionals: list your certifications, specialties, and languages. For business owners: add key services and expertise areas.",
+  },
+  {
+    n: 4,
+    title: "Solicit and respond to reviews",
+    body: "Ask clients/colleagues to leave reviews. Respond to every review-positive and negative. This signals that you are responsive and professional.",
+  },
+];
+
+export const SUPPRESSION_STEPS = [
+  {
+    n: 1,
+    title: "Identify negative keywords",
+    body: 'Which search queries show negative content about you? Examples: "John Smith scam," "Jane Doe lawsuit," "CEO company failure"',
+  },
+  {
+    n: 2,
+    title: "Create counter-content",
+    body: 'Write articles addressing these exact keywords, but in a positive way. Example: If "bankruptcy" appears negatively, write about "lessons learned from business challenges."',
+  },
+  {
+    n: 3,
+    title: "Publish on high-authority platforms",
+    body: "Medium, LinkedIn, and industry publications have domain authority that gives your content ranking power.",
+  },
+  {
+    n: 4,
+    title: "Optimize for featured snippets",
+    body: "Use bulleted lists, clear headers, and direct answers to questions. Featured snippets appear above organic results.",
+  },
+  {
+    n: 5,
+    title: "Monitor and update",
+    body: "Check monthly if your content ranks for the target keywords. Refresh and update it every 6-8 weeks to maintain ranking power.",
+  },
+];
+
+export const REVIEW_RESPONSE_STEPS = [
+  {
+    n: 1,
+    title: "Acknowledge and empathize (non-defensive)",
+    body: 'Example: "Thank you for taking the time to share your feedback. We are sorry to hear you had this experience."',
+  },
+  {
+    n: 2,
+    title: "Take responsibility or clarify facts",
+    body: "Do not make excuses. If you made a mistake, own it. If there is a factual error, politely correct it with evidence.",
+  },
+  {
+    n: 3,
+    title: "Offer a resolution and move offline",
+    body: 'Example: "We would like to make this right. Please email us at [email] or call [number] so we can resolve this privately."',
+  },
+];
+
+export const CONTENT_PLATFORMS = [
+  {
+    id: "medium",
+    name: "Medium",
+    stars: 5,
+    effort: "Low",
+    bestFor: "Thought leadership, expertise",
+  },
+  {
+    id: "linkedin",
+    name: "LinkedIn Articles",
+    stars: 5,
+    effort: "Medium",
+    bestFor: "Professional achievements, insights",
+  },
+  {
+    id: "website",
+    name: "Personal Website/Blog",
+    stars: 4,
+    effort: "High",
+    bestFor: "Long-term authority building",
+  },
+  {
+    id: "quora",
+    name: "Quora",
+    stars: 4,
+    effort: "Low",
+    bestFor: "Expertise demonstration, Q&A",
+  },
+  {
+    id: "industry",
+    name: "Industry Publications",
+    stars: 3,
+    effort: "High",
+    bestFor: "Credibility and authority",
+  },
+];
+
+export const RESULT_CATEGORIES = [
+  {
+    id: "positive",
+    label: "Positive",
+    desc: "Authentic content that helps your reputation",
+    color: "border-green bg-green/5",
+  },
+  {
+    id: "neutral",
+    label: "Neutral",
+    desc: "Factual but non-promotional content",
+    color: "border-slate-300 bg-slate-50",
+  },
+  {
+    id: "negative",
+    label: "Negative",
+    desc: "Harmful, outdated, or misleading content",
+    color: "border-destructive/30 bg-destructive/5",
+  },
+  {
+    id: "invisible",
+    label: "Invisible",
+    desc: "Accounts that exist but do not rank",
+    color: "border-navy/20 bg-navy/5",
+  },
+];
+
+export const CRISIS_TIERS = [
+  {
+    id: "tier1",
+    label: "Tier 1 - Critical",
+    summary: "False accusations, defamation, threats",
+    detail:
+      "Consult a lawyer immediately. Document everything. Contact the platform for removal. Do NOT engage with the person directly on social media.",
+  },
+  {
+    id: "tier2",
+    label: "Tier 2 - High",
+    summary: "Negative client review, critical press, social attack",
+    detail:
+      "Use the 3-step review response formula. Move conversations offline. Begin counter-content within 48 hours.",
+  },
+  {
+    id: "tier3",
+    label: "Tier 3 - Medium",
+    summary: "Forum criticism, outdated info ranking high",
+    detail:
+      "Request updates from the source. Publish fresher, optimized content. Monitor weekly until pushed down.",
+  },
+  {
+    id: "tier4",
+    label: "Tier 4 - Low",
+    summary: "Minor mentions, niche platform criticism",
+    detail:
+      "Monitor but do not overreact. Focus energy on building positive assets that dominate page 1.",
+  },
+];
+
+export const DIY_TIMELINE_PHASES = [
+  {
+    id: "p1",
+    range: "Weeks 1-2",
+    summary: "Audit and foundation",
+    detail:
+      "Claim profiles, optimize LinkedIn and Google Business Profile, set up Google Alerts, and document your baseline search results.",
+  },
+  {
+    id: "p2",
+    range: "Weeks 3-8",
+    summary: "Content and early movement",
+    detail:
+      "Publish weekly on 2-3 platforms. Initial suppression efforts start showing as new positive URLs enter the top 10.",
+  },
+  {
+    id: "p3",
+    range: "Weeks 8-12",
+    summary: "First-page shift",
+    detail:
+      "Positive content ranks higher. Negative items move toward page 2. Review velocity and responses accelerate trust signals.",
+  },
+  {
+    id: "p4",
+    range: "3-6 months",
+    summary: "Page 1 dominance",
+    detail:
+      "Full first-page control with positive results. Ongoing monitoring prevents new negatives from sticking.",
+  },
+];
+
+export const DIY_MYTHS = [
+  {
+    id: "diy-myth-1",
+    title: 'Myth: "Delete my old accounts and the problem goes away."',
+    body: "Abandoned profiles can still rank or get scraped. Claim, update, or properly close accounts-don't leave zombie pages that contradict your current story.",
+  },
+  {
+    id: "diy-myth-2",
+    title: 'Myth: "One viral positive post will fix everything."',
+    body: "A single post rarely outranks entrenched negative URLs. Sustainable suppression needs multiple authoritative assets over weeks, not days.",
+  },
+  {
+    id: "diy-myth-3",
+    title: 'Myth: "I should respond to every critic publicly."',
+    body: "Public fights refresh negative pages and attract attention. Professional, brief responses plus offline resolution work better.",
+  },
+];
+
+export const DIY_MISTAKES = [
+  {
+    id: "diy-mistake-1",
+    title: "Engaging emotionally on social media",
+    body: "Defensive threads rank higher and spread faster. Pause 24 hours, then respond with a calm, factual statement-or not at all.",
+  },
+  {
+    id: "diy-mistake-2",
+    title: "Buying fake positive reviews",
+    body: "Platforms detect review manipulation. Penalties can remove your profile or trigger more scrutiny.",
+  },
+  {
+    id: "diy-mistake-3",
+    title: "Ignoring the issue",
+    body: "Negative content does not age out on high-authority sites. Without new positive signals, page 1 stays damaged for years.",
+  },
+  {
+    id: "diy-mistake-4",
+    title: "Stopping after 30 days",
+    body: "Suppression is momentum. Most DIY practitioners quit before Google has enough fresh authority to reorder results.",
+  },
+];
+
+export const DIY_CHECKLIST = [
+  "I searched my name in incognito on Google, Bing, and DuckDuckGo this month.",
+  "My Google Business Profile and LinkedIn are 100% complete and current.",
+  "I published at least one piece of positive, optimized content this month.",
+  "I responded to every new review within 48 hours.",
+  "Google Alerts are active for my name, brand, and key negative terms.",
+];
+
+export const DIY_FAQS = [
+  {
+    id: "diy-faq-1",
+    q: "How long does DIY reputation management take?",
+    a: "Expect early movement in 8-12 weeks with consistent effort. Full first-page control often takes 3-6 months depending on how entrenched the negative content is.",
+  },
+  {
+    id: "diy-faq-2",
+    q: "Can I remove negative content from Google myself?",
+    a: "Removal is only possible when content violates platform or Google policies. Most DIY success comes from suppression-creating stronger positive assets that outrank negatives.",
+  },
+  {
+    id: "diy-faq-3",
+    q: "Do I need a personal website?",
+    a: "Not required, but a owned domain you control is one of the strongest long-term assets. LinkedIn + Medium can work for many professionals if maintained consistently.",
+  },
+  {
+    id: "diy-faq-4",
+    q: "How many reviews do I need to offset one bad review?",
+    a: "Studies suggest 8-10 authentic five-star reviews can balance one one-star review in aggregate perception-but your public response matters just as much.",
+  },
+  {
+    id: "diy-faq-5",
+    q: "When should I hire a professional instead?",
+    a: "Consider help when negatives involve defamation, legal risk, high-authority news domains, or when DIY efforts stall after 90 days with no first-page movement.",
+  },
+];
+
+export const SOCIAL_PLATFORMS = [
+  {
+    id: "linkedin",
+    title: "LinkedIn",
+    tips: [
+      "Complete every profile section with detailed expertise",
+      "Post insights 2-3 times per week",
+      "Publish LinkedIn articles for branded searches",
+      "Collect recommendations from clients and colleagues",
+    ],
+  },
+  {
+    id: "twitter",
+    title: "Twitter/X",
+    tips: [
+      "Share genuine field insights consistently",
+      "Engage in relevant conversations professionally",
+      "Avoid reactive controversy that can spread fast",
+      "Announce wins and speaking engagements",
+    ],
+  },
+  {
+    id: "facebook",
+    title: "Facebook",
+    tips: [
+      "Keep personal profile professional but authentic",
+      "Use a dedicated page if you are a public figure",
+      "Participate in professional groups in your industry",
+      "Match photo and bio details across platforms",
+    ],
+  },
+];
