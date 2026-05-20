@@ -92,7 +92,7 @@ function AudienceCard(props) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-5 inline-flex text-pretty font-heading text-sm font-semibold leading-snug text-[#4CAF50] underline decoration-[#4CAF50]/35 underline-offset-2 transition-colors hover:text-[#3db846] hover:decoration-[#3db846]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A3354]"
+        className="mt-5 block w-full text-center text-pretty font-heading text-sm font-semibold leading-snug text-[#4CAF50] underline decoration-[#4CAF50]/35 underline-offset-2 transition-colors hover:text-[#3db846] hover:decoration-[#3db846]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A3354]"
         aria-label={`${linkLabel} (opens in a new tab)`}
       >
         {linkLabel}
