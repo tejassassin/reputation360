@@ -269,10 +269,13 @@ export const NavbarLogo = ({
   logoSrc,
   brandName = "Reputation360",
   className,
+  logoFetchPriority = "high",
 }: {
   logoSrc?: string;
   brandName?: string;
   className?: string;
+  /** Keep "high" on desktop; use "low" on mobile home to protect LCP. */
+  logoFetchPriority?: "high" | "low" | "auto";
 } = {}) => {
   return (
     <a
@@ -291,7 +294,7 @@ export const NavbarLogo = ({
             width={36}
             height={36}
             decoding="async"
-            fetchPriority="high"
+            fetchPriority={logoFetchPriority}
             className="ml-1 object-contain"
           />
         </div>

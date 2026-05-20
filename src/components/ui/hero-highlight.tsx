@@ -109,21 +109,4 @@ export const HeroHighlight = ({
   );
 };
 
-export const Highlight = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
-  return (
-    <span
-      className={cn(
-        "r360-hero-highlight relative inline rounded-lg bg-linear-to-r from-indigo-500 to-purple-400 px-1 pb-1 tracking-normal whitespace-normal dark:from-green-400 dark:to-emerald-400 dark:text-white",
-        className,
-      )}
-    >
-      {children}
-    </span>
-  );
-};
+export { Highlight } from "./hero-highlight-mark";

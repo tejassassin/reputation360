@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { ConsultationCtas } from "@/components/ConsultationCtas";
-import { Highlight } from "@/components/ui/hero-highlight";
+import { Highlight } from "@/components/ui/hero-highlight-mark";
 import { HeroHighlightLite } from "@/components/ui/hero-highlight-lite";
 import { StatNumber } from "@/components/StatNumber.jsx";
 
@@ -76,11 +76,26 @@ function HeroStats({ statsInView, mobile }) {
   );
 }
 
+function dismissMobileHomeBootShell() {
+  if (typeof window === "undefined") return;
+  if (!window.matchMedia("(max-width: 767px)").matches) return;
+  document.getElementById("r360-boot-shell")?.remove();
+  const mount = document.getElementById("r360-app-mount");
+  if (mount) {
+    mount.removeAttribute("aria-hidden");
+    mount.style.visibility = "";
+  }
+}
+
 function Hero() {
   const sectionRef = useRef(null);
   const [statsInView, setStatsInView] = useState(false);
   const [showStats, setShowStats] = useState(false);
   const mobile = useIsMobile();
+
+  useLayoutEffect(() => {
+    dismissMobileHomeBootShell();
+  }, []);
 
   useEffect(() => {
     const el = sectionRef.current;

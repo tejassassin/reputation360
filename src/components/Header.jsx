@@ -76,6 +76,11 @@ const navItems = [
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const logoFetchPriority =
+    typeof window !== "undefined" &&
+    window.matchMedia("(max-width: 767px)").matches
+      ? "low"
+      : "high";
   return (
     <header className="min-h-0 overflow-visible text-white fixed inset-x-0 top-0 z-50 bg-navy shadow-lg">
       {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -127,7 +132,11 @@ function Header() {
       <Navbar>
         {/* Desktop Navigation */}
         <NavBody>
-          <NavbarLogo logoSrc={logo} brandName="Reputation360" />
+          <NavbarLogo
+            logoSrc={logo}
+            brandName="Reputation360"
+            logoFetchPriority={logoFetchPriority}
+          />
           <NavItems items={navItems} />
           <div
             className={cn(
@@ -158,7 +167,11 @@ function Header() {
         {/* Mobile Navigation */}
         <MobileNav>
           <MobileNavHeader>
-            <NavbarLogo logoSrc={logo} brandName="Reputation360" />
+            <NavbarLogo
+            logoSrc={logo}
+            brandName="Reputation360"
+            logoFetchPriority={logoFetchPriority}
+          />
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

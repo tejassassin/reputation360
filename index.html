@@ -68,8 +68,8 @@
     />
 
     <!-- Google Fonts: desktop only so mobile LCP uses system fonts (faster first paint) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width: 768px)" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin media="(min-width: 768px)" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Source+Sans+3:wght@400;500&display=swap"
       rel="stylesheet"
@@ -86,12 +86,13 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&display=swap"
       rel="stylesheet"
       media="print"
-      onload="this.media='all'"
+      onload="this.media='(min-width: 768px)'"
     />
     <noscript>
       <link
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&display=swap"
         rel="stylesheet"
+        media="(min-width: 768px)"
       />
     </noscript>
   <!-- Schema.org: Organization + LocalBusiness (static - applies to all pages) -->

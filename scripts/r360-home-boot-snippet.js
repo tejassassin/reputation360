@@ -4,7 +4,7 @@ export const R360_HOME_BOOT_HTML = `
 <div class="r360-boot" id="r360-boot-shell">
   <header class="r360-boot-header">
     <a class="r360-boot-brand" href="/">
-      <span class="r360-boot-logo"><img src="/android-chrome-192x192.png" width="36" height="36" alt="" decoding="async" fetchpriority="high" /></span>
+      <span class="r360-boot-logo"><img src="/favicon-48x48.png" width="36" height="36" alt="" decoding="async" fetchpriority="low" /></span>
       Reputation360
     </a>
     <svg class="r360-boot-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -43,6 +43,15 @@ export const R360_HOME_BOOT_CSS = `
   min-height: 100dvh;
   padding-top: calc(env(safe-area-inset-top, 0px) + 5.25rem);
   padding-bottom: 1.5rem;
+}
+@media (max-width: 767px) {
+  .r360-boot {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 .r360-boot-header {
   position: fixed;
