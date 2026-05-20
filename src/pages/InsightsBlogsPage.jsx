@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { BadgeCheck, ArrowRight, ArrowUpRight } from "lucide-react";
-import { calendlyNewTabProps } from "../constants/scheduling";
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
@@ -18,74 +17,18 @@ const FEATURED_LARGE_IMG =
 const AUTHOR_IMG =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAODSNNz_0-uPP1uxKjRDq9aXF2XeIw8VGRiIyWW3LXGZjSLkzDKcIFDZqyXteU9L-YNL2DMgCS0N6-RzwD6ROT2XSd2fN2Pv9Gm4A0cVF6MRmDVDlaUWKqLf07TDi9CiiDrCJhndAi262WZL1GwWoQhe8eniYp359bgxOb9iYMuc-7cm9ksue6NDOB4f-yZCAN14TP1UejDgnR2lswLFb1q_bY6dsLIgVse-gHpShUhfrIt6A168R97YZazI8nEyfQFf2N8k4Syj4";
 
-const ARTICLE_IMAGES = {
-  corp:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuA9q7RQ1WtPClqHoz7wc6GkHOFW6TmClytSpSeoHcoxGWejXogVHwlgOHhA_J4Za10gVoNzv1wb8zSCG9akGHFWNRB-AUuQ4__42wtzoqT1FocHRCbj7FaPC_RnNacmJiHHHJIzFwy02TRPk0AL6dehQjyqCECmfTeXXCYj-FFig7fPIgR-0zfHNEp8PrbaeQLjfYoUWBppHGo58JPALOC_Jenrx3nbZeJCZ69JIj7UnskFP1GHo_jn-vbQWu2vR8Qg5QJyrzRsP5E",
-  personal:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuAI-hEmwZSSnM3sre-a-ql1cSWSn7CKWKSV2vLC3Ccev1mZVEfFFaIzlg6BeWyXIJC_3DggR6vgdxT6DYDX7-GhAHlCEFdZAXkb7-jNA3o_8OOE3uqTLAk4wSL29JCuxPRx5vpqzUw-8VL5XiUfR5BGXh3hVBZJkWtI3zPvNRTmRzn7qjZIEfPSB8i1Az34gwN558R9yb5AEGHGdZRmUKUR4tgi8ULPe-oeobaCWtzigGbAXzoQfMdltSpkWzekhAyskCxwStDdJzg",
-  legal:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDPDLTDl517y16nT9ii79G4iU4t_BrteAxgzTk9lbGglde2xSrUlbyS7QYyaUY9SsCRC2RLQcA5qDlBWGEH5BQ0uWMXuFc7MF_WE4VvGIWkzS3_maq3-UKxCmujE64a3rNXPnH123eDXFdExAlJjP8GsOE6EH2J1rr3-3T6qVYo3d6Cu2DkJWbo0BjVogi6UH_XOPhRuMHPiPMZ-iQRdBN_aZbbT62bD3I-7zDnwvsyX47ZSDSuaRcDhAtwAYBBt8IJlJ-a1AcMq4c",
-};
-
 const FILTER_LABELS = ["All", "Corporate", "Personal", "Legal", "Tech"];
 
-const latestArticles = [
-  {
-    ...suppressNegativeGuideListing,
-  },
-  {
-    id: "1",
-    filter: "Corporate",
-    category: "Corporate Identity",
-    title: "Why Your Wikipedia Page is Your Biggest Liability in 2026",
-    excerpt:
-      "Internal data shows that Wikipedia remains the #1 source for LLMs. If yours is outdated, your AI reputation is already compromised.",
-    date: "Jan 12, 2026",
-    author: "Sarah Jenkins",
-    image: ARTICLE_IMAGES.corp,
-    imageAlt: "Corporate meeting",
-  },
-  {
-    id: "2",
-    filter: "Personal",
-    category: "Personal Branding",
-    title:
-      "The Invisible Wall: How Hidden Metadata Affects High-Net-Worth Individuals",
-    excerpt:
-      "Beyond what you see on Google, there's a world of data brokers and metadata that dictates your privacy and security status.",
-    date: "Jan 08, 2026",
-    author: "David Chen",
-    image: ARTICLE_IMAGES.personal,
-    imageAlt: "Digital data",
-  },
-  {
-    id: "3",
-    filter: "Legal",
-    category: "Legal Strategy",
-    title:
-      "Defamation vs. Free Speech: The Evolving Legal Landscape of Online Reviews",
-    excerpt:
-      "Recent court rulings have shifted the burden of proof for online criticism. Here is what business owners need to know now.",
-    date: "Dec 22, 2025",
-    author: "Elena Rodriguez",
-    image: ARTICLE_IMAGES.legal,
-    imageAlt: "Legal Gavel",
-  },
-];
+const latestArticles = [suppressNegativeGuideListing];
 
 function InsightsBlogsPage() {
   const [activeFilter, setActiveFilter] = useState("All");
-  const [email, setEmail] = useState("");
   const seo = useLocalizedSeo("blogs");
 
   const filteredArticles =
     activeFilter === "All"
       ? latestArticles
       : latestArticles.filter((a) => a.filter === activeFilter);
-
-  function handleNewsletterSubmit(e) {
-    e.preventDefault();
-  }
 
   return (
     <>
@@ -323,73 +266,23 @@ function InsightsBlogsPage() {
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="px-6 py-24 md:px-8">
-        <div className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl bg-[#1f3b64] p-12 md:p-20">
-          <div className="absolute top-0 right-0 h-full w-1/3 translate-x-1/2 -translate-y-1/2 rounded-full bg-[#78dc77]/5 blur-3xl" />
-          <div className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-            <div>
-              <h2 className="font-insights-headline mb-6 text-4xl font-extrabold text-white">
-                Join &apos;The Authority&apos;
-              </h2>
-              <p className="text-lg leading-relaxed font-light text-[#8ca6d5]">
-                Our weekly briefing for the C-Suite. No fluff, just 3
-                high-impact strategies for protecting and growing your digital
-                authority.
-              </p>
-            </div>
-            <div>
-              <form
-                className="flex flex-col space-y-4"
-                onSubmit={handleNewsletterSubmit}
-              >
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Professional email address"
-                  className="border-b-2 border-[#c4c6d0]/20 bg-[#02254d]/30 px-0 py-4 text-white outline-none transition-colors placeholder:text-[#8ca6d5]/50 focus:border-[#78dc77]"
-                />
-                <button
-                  type="submit"
-                  className="ha-pill rounded-xl bg-[#78dc77] py-4 text-lg font-bold text-white active:scale-[0.98]"
-                >
-                  Subscribe to the Briefing
-                </button>
-                <p className="text-center text-[10px] tracking-tighter text-[#8ca6d5]/60 uppercase">
-                  Join 12,000+ industry leaders. Unsubscribe anytime.
-                </p>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="bg-[#f9f9ff] px-6 py-24 text-center md:px-8">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-insights-headline mb-6 text-4xl font-bold text-[#02254d]">
-            Ready to Own Your Narrative?
+            Ready to Take the Next Step?
           </h2>
           <p className="mb-12 text-xl font-light text-[#43474e]">
-            Our practitioners are ready to audit your digital presence and
-            provide a custom roadmap for growth.
+            Your reputation took years to build. Don&apos;t let the internet decide its
+            future.
           </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
-            <ConsultationCtas
-              variant="onLight"
-              consultLabel="Book a Free Consultation"
-              consultClassName="ha-pill rounded-xl bg-cta-consult px-10 py-5 text-lg font-bold text-white shadow-xl shadow-cta-consult/30 transition hover:brightness-95"
-              freeScanClassName="ha-pill rounded-xl border-2 border-[#02254d]/25 bg-white px-10 py-5 text-lg font-bold text-[#02254d] shadow-sm transition hover:border-[#02254d]/45 hover:bg-slate-50"
-              wrapperClassName="gap-4"
-            />
-            <a
-              {...calendlyNewTabProps}
-              className="ha-pill rounded-xl bg-cta-consult px-10 py-5 text-lg font-bold text-white shadow-xl shadow-cta-consult/30 transition hover:brightness-95"
-            >
-              Speak with a Partner
-            </a>
-          </div>
+          <ConsultationCtas
+            variant="onLight"
+            consultLabel="Book a Free Consultation"
+            consultClassName="ha-pill rounded-xl bg-cta-consult px-10 py-5 text-lg font-bold text-white shadow-xl shadow-cta-consult/30 transition hover:brightness-95"
+            freeScanClassName="ha-pill rounded-xl border-2 border-[#02254d]/25 bg-white px-10 py-5 text-lg font-bold text-[#02254d] shadow-sm transition hover:border-[#02254d]/45 hover:bg-slate-50"
+            wrapperClassName="justify-center gap-4"
+          />
         </div>
       </section>
     </main>
