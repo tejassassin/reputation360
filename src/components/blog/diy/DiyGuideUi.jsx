@@ -1,4 +1,4 @@
-import { Check, ChevronDown, Minus, Plus, Sparkles } from "lucide-react";
+import { Check, ChevronDown, Minus, Plus, Sparkles, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function DiyInteractiveHint() {
@@ -17,7 +17,7 @@ export function DiyKeyBox({ icon, title, children }) {
         <span aria-hidden>{icon}</span>
         <span>{title}</span>
       </div>
-      <div className="font-body text-sm leading-relaxed text-charcoal">{children}</div>
+      <div className="font-body text-sm leading-relaxed text-jet">{children}</div>
     </div>
   );
 }
@@ -52,7 +52,7 @@ export function DiyAccordion({ id, title, children, open, onToggle, variant = "d
         id={id}
         role="region"
         aria-labelledby={`${id}-btn`}
-        className={cn("px-6 pb-6 font-body leading-relaxed text-steel", !open && "hidden")}
+        className={cn("px-6 pb-6 font-body leading-relaxed text-jet", !open && "hidden")}
       >
         {children}
       </div>
@@ -82,7 +82,7 @@ export function DiyFaqAccordion({ id, title, children, open, onToggle }) {
         id={id}
         role="region"
         aria-labelledby={`${id}-btn`}
-        className={cn("px-8 pb-8 font-body leading-relaxed text-steel", !open && "hidden")}
+        className={cn("px-8 pb-8 font-body leading-relaxed text-jet", !open && "hidden")}
       >
         {children}
       </div>
@@ -177,7 +177,7 @@ export function StepPicker({ steps, activeStep, onSelectStep, panelId = "stepCon
           </div>
           <div className="min-w-0">
             <h4 className="font-heading text-base font-bold text-navy sm:text-lg">{active.title}</h4>
-            <p className="mt-2 font-body text-sm leading-relaxed text-steel sm:text-base">{active.body}</p>
+            <p className="mt-2 font-body text-sm leading-relaxed text-jet sm:text-base">{active.body}</p>
           </div>
         </div>
       </div>
@@ -185,12 +185,95 @@ export function StepPicker({ steps, activeStep, onSelectStep, panelId = "stepCon
   );
 }
 
-export function StarRating({ count }) {
+export function DiyDoAvoidSection({ doItems, avoidItems }) {
   return (
-    <span className="text-green" aria-label={`${count} out of 5 stars`}>
-      {"★".repeat(count)}
-      <span className="text-slate-300">{"★".repeat(5 - count)}</span>
+    <div className="mt-5 grid gap-3 md:grid-cols-2">
+      <div className="rounded-2xl border-2 border-green/30 bg-green/[0.06] p-5 md:p-6">
+        <p className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-navy">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-green text-white">
+            <Check className="h-4 w-4" aria-hidden />
+          </span>
+          Do this
+        </p>
+        <ul className="space-y-3">
+          {doItems.map((item) => (
+            <li key={item.title}>
+              <p className="font-heading text-sm font-bold text-navy">{item.title}</p>
+              <p className="mt-0.5 font-body text-sm text-jet">{item.text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 md:p-6">
+        <p className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-navy">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-300 text-white">
+            <X className="h-4 w-4" aria-hidden />
+          </span>
+          Avoid this
+        </p>
+        <ul className="space-y-3">
+          {avoidItems.map((item) => (
+            <li key={item.title}>
+              <p className="font-heading text-sm font-bold text-navy">{item.title}</p>
+              <p className="mt-0.5 font-body text-sm text-jet">{item.text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+export function StarRating({ count, size = "md", inverted = false }) {
+  const filled = Math.min(5, Math.max(0, Number(count) || 0));
+  const starSize = size === "sm" ? "text-sm" : "text-xl";
+  const color = inverted ? "text-white" : "text-[#4CAF50]";
+  return (
+    <span
+      className={cn("inline-flex gap-px leading-none tracking-tight", starSize)}
+      aria-label={`${filled} out of 5 stars`}
+    >
+      {Array.from({ length: 5 }, (_, i) => (
+        <span
+          key={i}
+          className={cn(i < filled ? color : inverted ? "text-white/35" : "text-slate-300")}
+          aria-hidden
+        >
+          ★
+        </span>
+      ))}
     </span>
+  );
+}
+
+export function DiyPlatformTable({ platforms }) {
+  return (
+    <div className="diy-table-wrap">
+      <table className="diy-comparison-table">
+        <thead>
+          <tr>
+            <th scope="col">Platform</th>
+            <th scope="col">Ranking Power</th>
+            <th scope="col">Effort Required</th>
+            <th scope="col">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          {platforms.map((p) => (
+            <tr key={p.id}>
+              <td>
+                <strong>{p.name}</strong>
+              </td>
+              <td>
+                <StarRating count={p.stars} />
+              </td>
+              <td>{p.effort}</td>
+              <td>{p.bestFor}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

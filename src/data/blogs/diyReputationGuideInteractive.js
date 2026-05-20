@@ -20,7 +20,7 @@ export const AUDIT_STEPS = [
   {
     n: 1,
     title: "Use incognito/private browsing",
-    body: "This removes personalization bias from your results. Open Chrome, Safari, or Firefox in private mode and search your name.",
+    body: "Visit usearchfrom.com in incognito mode and search your name there. This removes personalization bias from your results and shows what unbiased, unpersonalized search results actually look like for you across multiple search engines.",
   },
   {
     n: 2,
@@ -58,7 +58,7 @@ export const GBP_STEPS = [
   {
     n: 4,
     title: "Solicit and respond to reviews",
-    body: "Ask clients/colleagues to leave reviews. Respond to every review-positive and negative. This signals that you are responsive and professional.",
+    body: "Ask clients/colleagues to leave reviews. Respond to every review - positive and negative. This signals that you are responsive and professional.",
   },
 ];
 
@@ -108,43 +108,12 @@ export const REVIEW_RESPONSE_STEPS = [
   },
 ];
 
-export const CONTENT_PLATFORMS = [
-  {
-    id: "medium",
-    name: "Medium",
-    stars: 5,
-    effort: "Low",
-    bestFor: "Thought leadership, expertise",
-  },
-  {
-    id: "linkedin",
-    name: "LinkedIn Articles",
-    stars: 5,
-    effort: "Medium",
-    bestFor: "Professional achievements, insights",
-  },
-  {
-    id: "website",
-    name: "Personal Website/Blog",
-    stars: 4,
-    effort: "High",
-    bestFor: "Long-term authority building",
-  },
-  {
-    id: "quora",
-    name: "Quora",
-    stars: 4,
-    effort: "Low",
-    bestFor: "Expertise demonstration, Q&A",
-  },
-  {
-    id: "industry",
-    name: "Industry Publications",
-    stars: 3,
-    effort: "High",
-    bestFor: "Credibility and authority",
-  },
-];
+export {
+  CONTENT_PLATFORMS_RANKING,
+  CONTENT_PLATFORMS_STRATEGY_AVOID,
+  CONTENT_PLATFORMS_STRATEGY_DO,
+  CONTENT_PLATFORMS_WHY,
+} from "./contentPlatformsRanking.js";
 
 export const RESULT_CATEGORIES = [
   {
@@ -158,18 +127,6 @@ export const RESULT_CATEGORIES = [
     label: "Neutral",
     desc: "Factual but non-promotional content",
     color: "border-slate-300 bg-slate-50",
-  },
-  {
-    id: "negative",
-    label: "Negative",
-    desc: "Harmful, outdated, or misleading content",
-    color: "border-destructive/30 bg-destructive/5",
-  },
-  {
-    id: "invisible",
-    label: "Invisible",
-    desc: "Accounts that exist but do not rank",
-    color: "border-navy/20 bg-navy/5",
   },
 ];
 

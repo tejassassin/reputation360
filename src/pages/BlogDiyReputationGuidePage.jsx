@@ -14,7 +14,10 @@ import {
 } from "../data/blogs/diyReputationGuide.js";
 import {
   AUDIT_STEPS,
-  CONTENT_PLATFORMS,
+  CONTENT_PLATFORMS_RANKING,
+  CONTENT_PLATFORMS_STRATEGY_AVOID,
+  CONTENT_PLATFORMS_STRATEGY_DO,
+  CONTENT_PLATFORMS_WHY,
   CRISIS_TIERS,
   DIY_CHECKLIST,
   DIY_FAQS,
@@ -31,6 +34,7 @@ import {
 } from "../data/blogs/diyReputationGuideInteractive.js";
 import {
   ChecklistBlock,
+  DiyDoAvoidSection,
   DiyAccordion,
   DiyFaqAccordion,
   DiyKeyBox,
@@ -101,7 +105,7 @@ export default function BlogDiyReputationGuidePage() {
         ogImage={diyReputationGuideListing.image}
       />
 
-      <div className="r360-diy-interactive scroll-smooth pb-1 font-body text-charcoal antialiased">
+      <div className="r360-diy-interactive scroll-smooth pb-1 font-body text-jet antialiased">
         <div className="diy-hero-band" id="intro">
           <span className="diy-hero-badge">{diyReputationGuideHero.badge}</span>
           <h1 className="diy-hero-title">{diyReputationGuideHero.title}</h1>
@@ -190,7 +194,7 @@ export default function BlogDiyReputationGuidePage() {
 
                 <h3 className="mb-4 mt-10 font-heading text-xl font-bold text-slate">Step 3: Analyze your results</h3>
                 <p className="mb-4 font-body text-steel">Click a category to see what to do with each type of result:</p>
-                <div className="mb-4 grid grid-cols-2 gap-3 md:grid-cols-4">
+                <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {RESULT_CATEGORIES.map((cat) => (
                     <button
                       key={cat.id}
@@ -222,7 +226,7 @@ export default function BlogDiyReputationGuidePage() {
               <section className="mb-20 scroll-mt-36" id="google">
                 <DiySectionHeader number="02" title="Master Google Search Results Management" />
                 <p className="mb-8 font-body text-lg text-steel">
-                  Google is where your reputation is decided. Focus on the top 10 results-90% of people never
+                  Google is where your reputation is decided. Focus on the top 10 results - 90% of people never
                   scroll past page 1.
                 </p>
 
@@ -232,14 +236,13 @@ export default function BlogDiyReputationGuidePage() {
                   activeStep={gbpStep}
                   onSelectStep={setGbpStep}
                   panelId="gbpStepContent"
-                  hint="Tap steps to optimize your Google Business Profile"
                 />
 
                 <h3 className="mb-4 mt-10 font-heading text-xl font-bold text-slate">
-                  Content platforms that rank well
+                  Content Platforms That Rank Well
                 </h3>
                 <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                  {CONTENT_PLATFORMS.map((p) => (
+                  {CONTENT_PLATFORMS_RANKING.map((p) => (
                     <div
                       key={p.id}
                       className="rounded-2xl border border-slate-200 bg-white p-5"
@@ -254,6 +257,26 @@ export default function BlogDiyReputationGuidePage() {
                       </p>
                     </div>
                   ))}
+                </div>
+                <div className="my-8 max-w-3xl">
+                  <h4 className="mb-4 font-heading text-lg font-bold text-navy">
+                    Why Platform Choice Matters
+                  </h4>
+                  <div className="space-y-4 font-body text-base leading-relaxed text-steel">
+                    {CONTENT_PLATFORMS_WHY.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="my-8 max-w-3xl">
+                  <h4 className="mb-4 font-heading text-lg font-bold text-navy">
+                    Strategy for Maximum Impact
+                  </h4>
+                  <DiyDoAvoidSection
+                    doItems={CONTENT_PLATFORMS_STRATEGY_DO}
+                    avoidItems={CONTENT_PLATFORMS_STRATEGY_AVOID}
+                  />
                 </div>
 
                 <h3 className="mb-4 mt-10 font-heading text-xl font-bold text-slate">

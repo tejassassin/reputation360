@@ -1,6 +1,19 @@
 /* DIY guide: original mock visuals + interactive layout */
 .r360-diy-interactive {
   background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 55%);
+  --diy-copy: #0a0a0a;
+}
+
+/* Body copy in jet black for readability (overrides text-steel in main) */
+.r360-diy-interactive main {
+  color: var(--diy-copy);
+}
+
+.r360-diy-interactive main .text-steel,
+.r360-diy-interactive main .text-charcoal,
+.r360-diy-interactive .diy-hero-lead,
+.r360-diy-interactive .diy-key-box .font-body {
+  color: var(--diy-copy);
 }
 
 .r360-diy-interactive .diy-hero-band {
@@ -51,7 +64,7 @@
 
 .r360-diy-interactive .diy-hero-lead {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
-  color: #6b7280;
+  color: var(--diy-copy);
   max-width: 40rem;
   margin: 0 auto 2rem;
   line-height: 1.75;
@@ -258,6 +271,46 @@
   .r360-diy-interactive .diy-mobile-nav {
     display: none;
   }
+}
+
+.r360-diy-interactive .diy-table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.r360-diy-interactive .diy-comparison-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(31, 59, 100, 0.1);
+}
+
+.r360-diy-interactive .diy-comparison-table th {
+  background: #1f3b64;
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  font-family: var(--font-heading, Inter, system-ui, sans-serif);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.r360-diy-interactive .diy-comparison-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(31, 59, 100, 0.1);
+  font-size: 0.9rem;
+  vertical-align: top;
+}
+
+.r360-diy-interactive .diy-comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.r360-diy-interactive .diy-comparison-table tr:nth-child(even) {
+  background: rgba(31, 59, 100, 0.02);
 }
 
 .r360-diy-interactive .diy-interactive-hint {
