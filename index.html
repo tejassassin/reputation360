@@ -73,13 +73,30 @@
       content="Suppress negative search results & control your online reputation globally. Trusted by founders & brands in the US, Europe & worldwide. Build credible digital reputations worldwide. Get your free audit today."
     />
 
-    <!-- Google Fonts: Inter (headings, UI) & Source Sans 3 (body) -->
+    <!-- Google Fonts: subset weights for faster LCP (Manrope loads async for blog/guide) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@400;600;700;800&family=Source+Sans+3:wght@400;500&display=swap"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Source+Sans+3:wght@400;500&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Source+Sans+3:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
   <!-- Schema.org: Organization + LocalBusiness (static - applies to all pages) -->
   <script type="application/ld+json">
   {
@@ -133,17 +150,20 @@
         <a href="/">return to the home page</a>.
       </p>
     </noscript>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-RYTXH6TPSM"
-    ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-RYTXH6TPSM");
+      window.addEventListener("load", function () {
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-RYTXH6TPSM";
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        window.gtag = gtag;
+        gtag("js", new Date());
+        gtag("config", "G-RYTXH6TPSM");
+      });
     </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>

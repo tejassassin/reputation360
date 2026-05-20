@@ -272,4 +272,25 @@ export default defineConfig(({ mode }) => ({
     strictPort: false,
     open: false,
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("/src/pages/")) {
+            const match = id.match(/\/pages\/([^/]+)\./);
+            if (match) return `page-${match[1].toLowerCase()}`;
+          }
+          if (!id.includes("node_modules")) return undefined;
+          if (id.includes("motion")) return "vendor-motion";
+          if (id.includes("@tsparticles")) return "vendor-particles";
+          if (id.includes("jspdf")) return "vendor-jspdf";
+          if (id.includes("react-markdown") || id.includes("remark-")) return "vendor-markdown";
+          if (id.includes("react-multi-carousel")) return "vendor-carousel";
+          if (id.includes("@tabler/icons")) return "vendor-icons-tabler";
+          if (id.includes("lucide-react")) return "vendor-icons-lucide";
+          return undefined;
+        },
+      },
+    },
+  },
 }));

@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
-import GlobalContactDock from "./components/GlobalContactDock.jsx";
+import DeferredGlobalContactDock from "./components/DeferredGlobalContactDock.jsx";
+import { LazyWhenVisible } from "./components/LazyWhenVisible.jsx";
+
+const Footer = lazy(() => import("./components/Footer"));
 
 function App({ children }) {
   useEffect(() => {
@@ -50,9 +52,13 @@ function App({ children }) {
       <div className="relative flex min-h-screen min-h-[100dvh] flex-col overflow-x-clip bg-offwhite">
         <Header />
         {children}
-        <Footer />
+        <LazyWhenVisible minHeight="12rem" fallback={<div className="min-h-[12rem] bg-charcoal" aria-hidden />}>
+          <Suspense fallback={<div className="min-h-[12rem] bg-charcoal" aria-hidden />}>
+            <Footer />
+          </Suspense>
+        </LazyWhenVisible>
       </div>
-      <GlobalContactDock />
+      <DeferredGlobalContactDock />
     </>
   );
 }

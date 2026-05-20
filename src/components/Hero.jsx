@@ -1,6 +1,7 @@
 import React from "react";
 import { ConsultationCtas } from "@/components/ConsultationCtas";
-import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
+import { Highlight } from "@/components/ui/hero-highlight";
+import { HeroHighlightLite } from "@/components/ui/hero-highlight-lite";
 import { useState, useEffect, useRef } from "react";
 import { StatNumber } from "@/components/StatNumber.jsx";
 
@@ -49,7 +50,7 @@ function Hero() {
             </span>
           </div>
 
-          <HeroHighlight containerClassName="h-auto bg-transparent dark:bg-transparent">
+          <HeroHighlightLite containerClassName="h-auto bg-transparent dark:bg-transparent">
             <h1 className="mx-auto flex w-full flex-col items-center gap-1 text-center font-heading font-bold tracking-tight md:mx-4 md:my-3 md:max-w-none md:gap-0 md:text-balance md:text-4xl md:leading-[1.3] lg:text-5xl">
               <span className="block max-w-[20rem] text-[1.375rem] leading-tight text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
                 Take control of your
@@ -68,7 +69,7 @@ function Hero() {
             <p className="mx-auto mb-0 max-w-[20rem] text-pretty font-body text-sm leading-relaxed text-white/90 max-md:mb-5 max-md:mt-4 md:mx-4 md:mb-3 md:mt-3 md:max-w-none md:whitespace-nowrap md:text-lg">
               Because one negative result can quietly undermine years of credibility.
             </p>
-          </HeroHighlight>
+          </HeroHighlightLite>
 
           <ConsultationCtas variant="hero" />
         </div>

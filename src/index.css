@@ -260,6 +260,30 @@
   color: #78dc77;
 }
 
+/* Hero headline highlight - CSS only (avoids motion on LCP element) */
+@keyframes r360-hero-highlight-grow {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+.r360-hero-highlight {
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 0% 100%;
+  animation: r360-hero-highlight-grow 2s linear 0.5s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .r360-hero-highlight {
+    animation: none;
+    background-size: 100% 100%;
+  }
+}
+
 /* -------------------------------------------------------------------------- */
 /* Hover affordance - cards, tabs, pills, nav targets (respect reduced motion) */
 /* -------------------------------------------------------------------------- */

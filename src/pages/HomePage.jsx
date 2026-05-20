@@ -1,19 +1,28 @@
-import { useId, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useId, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-import { useReducedMotion } from "motion/react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
+import { LazyWhenVisible } from "../components/LazyWhenVisible.jsx";
 import Hero from "../components/Hero";
-import WhatWeBelieve from "../components/WhatWeBelieve";
-import WhatWeDo from "../components/WhatWeDo";
-import OurServices from "../components/OurServices";
-import WhoWeServeCards from "../components/WhoWeServeCards";
-import HowReputation360Works from "../components/HowReputation360Works";
-import WhyClientsChoose from "../components/WhyClientsChoose";
-import CaseStudies from "../components/CaseStudies";
-import Contact from "../components/Contact";
 import { homeTestimonials } from "../data/homeTestimonials.js";
 import { testimonialPortraitUrl } from "../data/testimonialPortraits.js";
+
+const WhatWeBelieve = lazy(() => import("../components/WhatWeBelieve"));
+const WhatWeDo = lazy(() => import("../components/WhatWeDo"));
+const OurServices = lazy(() => import("../components/OurServices"));
+const WhoWeServeCards = lazy(() => import("../components/WhoWeServeCards"));
+const HowReputation360Works = lazy(() => import("../components/HowReputation360Works"));
+const WhyClientsChoose = lazy(() => import("../components/WhyClientsChoose"));
+const CaseStudies = lazy(() => import("../components/CaseStudies"));
+const Contact = lazy(() => import("../components/Contact"));
+
+function SectionShell({ minHeight, children }) {
+  return (
+    <LazyWhenVisible minHeight={minHeight} fallback={<div style={{ minHeight }} aria-hidden />}>
+      <Suspense fallback={<div style={{ minHeight }} aria-hidden />}>{children}</Suspense>
+    </LazyWhenVisible>
+  );
+}
 
 function getInitials(fullName) {
   const n = fullName
@@ -30,7 +39,6 @@ function getInitials(fullName) {
 
 const SCROLL_PAD = 0.9;
 
-/** Filled star row, centered. */
 function ReviewStars() {
   return (
     <div className="flex w-full justify-center" role="img" aria-label="5 out of 5 stars">
@@ -49,10 +57,6 @@ function ReviewStars() {
   );
 }
 
-/**
- * Optional per-row `portrait`, else a fixed map from `testimonialPortraits.js` (one URL per
- * `id` - not duplicate pravatar). Last resort: pravatar. Falls back to initials on error.
- */
 function TestimonialAvatar({ id, name, portraitUrl }) {
   const [useFallback, setUseFallback] = useState(false);
   const explicit =
@@ -85,11 +89,15 @@ function TestimonialAvatar({ id, name, portraitUrl }) {
   );
 }
 
-/**
- * Inlined in HomePage - hero-style heading + B2B review cards (stars, horizontal scroller).
- */
 function HomeTestimonials() {
-  const reduce = useReducedMotion();
+  const [reduce, setReduce] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setReduce(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
   const scrollerRef = useRef(null);
   const baseId = useId().replace(/[^a-z0-9_-]/gi, "x");
   const underlineId = `r360-testimonials-underline-${baseId}`;
@@ -176,58 +184,44 @@ function HomeTestimonials() {
             aria-label="Testimonials, scroll horizontally"
           >
             {homeTestimonials.map((t) => (
-                <li
-                  key={t.id}
-                  className="w-[min(30rem,calc(100vw-2.5rem))] max-w-full shrink-0 snap-start pl-0 pr-1 last:pr-0 md:max-w-none md:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-3rem)/4)]"
-                >
-                  <article className="flex w-full min-w-0 max-w-full flex-1 flex-col overflow-hidden rounded-lg border border-slate-200/90 bg-white text-left shadow-sm transition hover:shadow">
-                    <div className="flex flex-1 flex-col p-4 sm:p-5 sm:px-6 sm:py-5 md:p-4 md:px-5 md:py-5 lg:px-4 lg:py-4">
-                      <div className="flex w-full flex-col items-center text-center">
-                        {t.label ? (
-                          <span className="inline-flex max-w-full rounded border border-slate-200/90 bg-slate-50/90 px-2.5 py-0.5 text-xs font-medium text-slate-600 sm:text-[0.8rem]">
-                            {t.label}
-                          </span>
-                        ) : null}
-                        <div
-                          className={
-                            t.label
-                              ? "mt-2.5 w-full sm:mt-3"
-                              : "w-full"
-                          }
-                        >
-                          <ReviewStars />
-                        </div>
+              <li
+                key={t.id}
+                className="w-[min(30rem,calc(100vw-2.5rem))] max-w-full shrink-0 snap-start pl-0 pr-1 last:pr-0 md:max-w-none md:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-3rem)/4)]"
+              >
+                <article className="flex w-full min-w-0 max-w-full flex-1 flex-col overflow-hidden rounded-lg border border-slate-200/90 bg-white text-left shadow-sm transition hover:shadow">
+                  <div className="flex flex-1 flex-col p-4 sm:p-5 sm:px-6 sm:py-5 md:p-4 md:px-5 md:py-5 lg:px-4 lg:py-4">
+                    <div className="flex w-full flex-col items-center text-center">
+                      {t.label ? (
+                        <span className="inline-flex max-w-full rounded border border-slate-200/90 bg-slate-50/90 px-2.5 py-0.5 text-xs font-medium text-slate-600 sm:text-[0.8rem]">
+                          {t.label}
+                        </span>
+                      ) : null}
+                      <div className={t.label ? "mt-2.5 w-full sm:mt-3" : "w-full"}>
+                        <ReviewStars />
                       </div>
-                      <h3 className="sr-only">Client review: {t.name}</h3>
-                      <blockquote className="min-w-0 border-none pt-3 sm:pt-3.5">
-                        <p className="font-body text-[0.98rem] leading-[1.72] text-slate-800 [text-wrap:pretty] sm:text-base sm:leading-[1.7]">
-                          {t.quote}
-                        </p>
-                      </blockquote>
-                      <div
-                        className="my-5 h-px w-full bg-slate-200/90"
-                        aria-hidden
-                      />
-                      <footer className="flex w-full min-w-0 items-start gap-3 sm:items-center sm:gap-3.5">
-                        <TestimonialAvatar
-                          id={t.id}
-                          name={t.name}
-                          portraitUrl={t.portrait}
-                        />
-                        <div className="min-w-0 flex-1">
-                          <p className="font-heading text-sm font-bold leading-tight text-navy sm:text-[0.98rem]">
-                            {t.name}
-                          </p>
-                          <p className="mt-0.5 min-w-0 break-words text-sm leading-relaxed text-slate-600">
-                            {t.role}
-                          </p>
-                        </div>
-                      </footer>
                     </div>
-                  </article>
-                </li>
+                    <h3 className="sr-only">Client review: {t.name}</h3>
+                    <blockquote className="min-w-0 border-none pt-3 sm:pt-3.5">
+                      <p className="font-body text-[0.98rem] leading-[1.72] text-slate-800 [text-wrap:pretty] sm:text-base sm:leading-[1.7]">
+                        {t.quote}
+                      </p>
+                    </blockquote>
+                    <div className="my-5 h-px w-full bg-slate-200/90" aria-hidden />
+                    <footer className="flex w-full min-w-0 items-start gap-3 sm:items-center sm:gap-3.5">
+                      <TestimonialAvatar id={t.id} name={t.name} portraitUrl={t.portrait} />
+                      <div className="min-w-0 flex-1">
+                        <p className="font-heading text-sm font-bold leading-tight text-navy sm:text-[0.98rem]">
+                          {t.name}
+                        </p>
+                        <p className="mt-0.5 min-w-0 break-words text-sm leading-relaxed text-slate-600">
+                          {t.role}
+                        </p>
+                      </div>
+                    </footer>
+                  </div>
+                </article>
+              </li>
             ))}
-
           </ul>
           <button
             type="button"
@@ -248,10 +242,7 @@ function HomeTestimonials() {
           >
             <ChevronLeft className="h-5 w-5" strokeWidth={2.25} />
           </button>
-          <div
-            className="mx-1 h-1 w-12 rounded-full bg-slate-200/90"
-            aria-hidden
-          />
+          <div className="mx-1 h-1 w-12 rounded-full bg-slate-200/90" aria-hidden />
           <button
             type="button"
             onClick={() => scroll(1)}
@@ -278,23 +269,41 @@ function HomePage() {
       />
       <Hero />
       <main className="flex w-full flex-col gap-12 pt-8 md:gap-16 md:pt-12 lg:gap-20 lg:pt-16">
-        <section>
-          <WhatWeBelieve />
-        </section>
-        <section>
-          <WhatWeDo />
-        </section>
-        <OurServices />
-        <section className="bg-offwhite">
-          <HomeTestimonials />
-        </section>
-        <WhoWeServeCards />
-        <section className="bg-white">
-          <HowReputation360Works />
-        </section>
-        <WhyClientsChoose />
-        <CaseStudies />
-        <Contact />
+        <SectionShell minHeight="22rem">
+          <section>
+            <WhatWeBelieve />
+          </section>
+        </SectionShell>
+        <SectionShell minHeight="20rem">
+          <section>
+            <WhatWeDo />
+          </section>
+        </SectionShell>
+        <SectionShell minHeight="18rem">
+          <OurServices />
+        </SectionShell>
+        <SectionShell minHeight="24rem">
+          <section className="bg-offwhite">
+            <HomeTestimonials />
+          </section>
+        </SectionShell>
+        <SectionShell minHeight="16rem">
+          <WhoWeServeCards />
+        </SectionShell>
+        <SectionShell minHeight="20rem">
+          <section className="bg-white">
+            <HowReputation360Works />
+          </section>
+        </SectionShell>
+        <SectionShell minHeight="18rem">
+          <WhyClientsChoose />
+        </SectionShell>
+        <SectionShell minHeight="22rem">
+          <CaseStudies />
+        </SectionShell>
+        <SectionShell minHeight="14rem">
+          <Contact />
+        </SectionShell>
       </main>
     </>
   );

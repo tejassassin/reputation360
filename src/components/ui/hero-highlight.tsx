@@ -117,28 +117,13 @@ export const Highlight = ({
   className?: string;
 }) => {
   return (
-    <motion.span
-      initial={{
-        backgroundSize: "0% 100%",
-      }}
-      animate={{
-        backgroundSize: "100% 100%",
-      }}
-      transition={{
-        duration: 2,
-        ease: "linear",
-        delay: 0.5,
-      }}
-      style={{
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "left center",
-      }}
+    <span
       className={cn(
-        "relative inline rounded-lg bg-linear-to-r from-indigo-500 to-purple-400 px-1 pb-1 tracking-normal whitespace-normal dark:from-green-400 dark:to-emerald-400 dark:text-white",
+        "r360-hero-highlight relative inline rounded-lg bg-linear-to-r from-indigo-500 to-purple-400 px-1 pb-1 tracking-normal whitespace-normal dark:from-green-400 dark:to-emerald-400 dark:text-white",
         className,
       )}
     >
       {children}
-    </motion.span>
+    </span>
   );
 };
