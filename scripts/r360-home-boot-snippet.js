@@ -10,6 +10,8 @@ export const R360_HOME_BOOT_HTML = `
     <svg class="r360-boot-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
   </header>
   <div class="r360-boot-inner">
+    <div class="r360-boot-dots" aria-hidden="true"></div>
+    <div class="r360-boot-copy">
     <p class="r360-boot-badge"><span class="r360-boot-dot" aria-hidden="true"></span> Trusted by <strong>1,100+</strong> clients globally</p>
     <h1>
       <span>Take control of your</span>
@@ -20,6 +22,7 @@ export const R360_HOME_BOOT_HTML = `
     <div class="r360-boot-ctas">
       <a class="r360-boot-scan" href="/free-risk-scan" target="_blank" rel="noopener noreferrer">Free Reputation Scan</a>
       <a class="r360-boot-consult" href="https://calendly.com/reputation360/30min?back=1&month=2026-04" target="_blank" rel="noopener noreferrer">Book a Free Consultation</a>
+    </div>
     </div>
     <div class="r360-boot-stats" aria-hidden="true">
       <div class="r360-boot-stat"><strong>7</strong><small>Years</small></div>
@@ -79,10 +82,25 @@ export const R360_HOME_BOOT_CSS = `
   opacity: 0.9;
 }
 .r360-boot-inner {
+  position: relative;
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 1rem;
   text-align: center;
+  overflow: hidden;
+}
+.r360-boot-dots {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.38;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%238ca6d5' cx='10' cy='10' r='2.5'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+.r360-boot-copy {
+  position: relative;
+  z-index: 1;
 }
 .r360-boot-badge {
   display: inline-flex;
@@ -202,6 +220,9 @@ export const R360_HOME_BOOT_CSS = `
     justify-content: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
+  }
+  .r360-boot-dots {
+    opacity: 0.5;
   }
   .r360-boot-badge {
     margin-top: 0;
