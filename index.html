@@ -33,6 +33,26 @@
       })();
     </script>
     <meta name="theme-color" content="#1f3b64" />
+    <style>
+      html {
+        background: #1f3b64;
+      }
+      body {
+        margin: 0;
+        background: #1f3b64;
+        color: #fff;
+      }
+      #root:empty {
+        display: flex;
+        min-height: 100dvh;
+        align-items: center;
+        justify-content: center;
+        font: 500 1rem/1.5 system-ui, sans-serif;
+      }
+      #root:empty::after {
+        content: "Loading…";
+      }
+    </style>
     <link rel="icon" type="image/png" sizes="512x512" href="__R360_METADATA_BASE__/android-chrome-512x512.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="__R360_METADATA_BASE__/android-chrome-192x192.png" />
     <link rel="icon" type="image/png" sizes="48x48" href="__R360_METADATA_BASE__/favicon-48x48.png" />

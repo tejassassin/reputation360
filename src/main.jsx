@@ -1,5 +1,5 @@
 import { StrictMode } from "react";
-import { createRoot, hydrateRoot } from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import "./index.css";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 import App from "./App.jsx";
@@ -126,10 +126,6 @@ const app = (
   </StrictMode>
 );
 
-// If react-snap pre-rendered this page, hydrate the existing HTML.
-// Otherwise (dev, or a route not pre-rendered) do a fresh render.
-if (rootEl.hasChildNodes()) {
-  hydrateRoot(rootEl, app);
-} else {
-  createRoot(rootEl).render(app);
-}
+// Always mount fresh. Hydrating against stale or partial prerender HTML can fail
+// silently and leave a blank page; Vercel builds do not rely on react-snap output.
+createRoot(rootEl).render(app);

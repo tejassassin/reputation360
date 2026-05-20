@@ -5,7 +5,8 @@
 import { execSync } from "node:child_process";
 import { platform } from "node:process";
 
-const ports = [5173, 4173];
+// Free default dev/preview ports and a small range of stale Vite fallbacks.
+const ports = [5173, 5174, 5175, 5176, 5177, 4173];
 
 if (platform === "win32") {
   for (const port of ports) {

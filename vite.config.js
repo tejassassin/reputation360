@@ -210,6 +210,10 @@ export default defineConfig(({ mode }) => ({
             / crossorigin(="(anonymous|use-credentials)")?/g,
             "",
           );
+          const jsHref = tag.match(/\bsrc="([^"]+)"/)?.[1];
+          const preload = jsHref
+            ? `\n    <link rel="modulepreload" href="${jsHref}" />`
+            : "";
           const stripped = html.replace(m[0], "\n");
           const cssFixed = stripped.replace(
             /(<link rel="stylesheet"[^>]+)( \/>|>)/,
@@ -221,7 +225,10 @@ export default defineConfig(({ mode }) => ({
               return `${clean}${end}`;
             },
           );
-          return cssFixed.replace(/(\r?\n)\s*<\/body>/, (_, nl) => `${tag}${nl}</body>`);
+          return cssFixed.replace(
+            /(\r?\n)\s*<\/body>/,
+            (_, nl) => `${preload}${tag}${nl}</body>`,
+          );
         },
       },
     },

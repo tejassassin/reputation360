@@ -51,31 +51,18 @@ function Hero() {
           </div>
 
           <HeroHighlight containerClassName="h-auto bg-transparent dark:bg-transparent">
-            <h1 className="mx-auto w-full font-heading font-bold tracking-tight md:mx-4 md:my-3 md:max-w-none md:text-balance md:text-4xl md:leading-[1.3] lg:text-5xl">
-              {/*
-                Single copy of the headline in the DOM. The old approach used two spans
-                (md:hidden vs hidden md:inline); if utilities never apply, both render inline
-                and the text concatenates. Here mobile uses a flex column; md:contents lifts
-                children into the h1 so desktop line breaks use real <br> nodes.
-              */}
-              <span className="flex flex-col items-center gap-1 text-center md:contents">
-                <span className="block max-w-[20rem] text-[1.375rem] leading-tight text-white md:inline md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
-                  Take control of your
-                </span>
-                <br className="hidden md:block" aria-hidden="true" />
-                <span className="block max-w-[20rem] text-[1.375rem] leading-tight text-white md:inline md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
-                  online reputation
-                </span>
-                <span className="block max-w-[21rem] text-[1.375rem] leading-snug text-white md:inline md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
-                  {" "}
-                  <Highlight className="max-md:!px-1 max-md:!pb-0">
-                    on your terms
-                  </Highlight>
-                  <span className="text-white/90">,</span>{" "}
-                  <span className="text-white max-md:inline md:block">
-                    not Google&apos;s
-                  </span>
-                </span>
+            <h1 className="mx-auto flex w-full flex-col items-center gap-1 text-center font-heading font-bold tracking-tight md:mx-4 md:my-3 md:max-w-none md:gap-0 md:text-balance md:text-4xl md:leading-[1.3] lg:text-5xl">
+              <span className="block max-w-[20rem] text-[1.375rem] leading-tight text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
+                Take control of your
+              </span>
+              <span className="block max-w-[20rem] text-[1.375rem] leading-tight text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
+                online reputation
+              </span>
+              <span className="block max-w-[21rem] text-[1.375rem] leading-snug text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
+                <Highlight className="max-md:!px-1 max-md:!pb-0">
+                  on your terms
+                </Highlight>
+                <span className="text-white/90">,</span> not Google&apos;s
               </span>
             </h1>
 
