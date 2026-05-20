@@ -479,7 +479,6 @@ function ServicesAbout() {
           </aside>
           <ConsultationCtas
             variant="inlineLight"
-            consultLabel="Book your free consultation"
             wrapperClassName="mt-7"
             consultClassName="ha-pill inline-flex rounded-md bg-cta-consult px-5 py-3 text-sm font-semibold text-white shadow-md shadow-cta-consult/20 hover:brightness-95"
             freeScanClassName="ha-pill inline-flex rounded-md border-2 border-cta-consult/50 bg-white px-5 py-3 text-sm font-semibold text-[#02254d] shadow-sm transition hover:bg-cta-consult/10"
@@ -986,7 +985,6 @@ function ServicesAbout() {
           </p>
           <ConsultationCtas
             variant="onDark"
-            consultLabel="Book your free consultation"
             wrapperClassName="mt-7 justify-center"
             consultClassName="ha-pill inline-flex rounded-md bg-cta-consult px-5 py-3 text-sm font-semibold text-white shadow-md shadow-cta-consult/20 hover:brightness-95"
             freeScanClassName="ha-pill inline-flex rounded-md border-2 border-white/35 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15"
