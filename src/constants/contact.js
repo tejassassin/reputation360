@@ -40,6 +40,30 @@ export function contactGmailComposeHref(email = CONTACT_EMAIL) {
   return `https://mail.google.com/mail/?${params.toString()}`;
 }
 
+/** Centered popup size for dock “email” (Gmail compose). */
+const GMAIL_POPUP_WIDTH = 560;
+const GMAIL_POPUP_HEIGHT = 680;
+
+/**
+ * Opens Gmail compose in a small browser popup (not a full tab).
+ * Returns null if the browser blocked the popup.
+ */
+export function openGmailComposeWindow(email = CONTACT_EMAIL) {
+  if (typeof window === "undefined") return null;
+  const url = contactGmailComposeHref(email);
+  const left = Math.max(0, Math.round((window.screen.width - GMAIL_POPUP_WIDTH) / 2));
+  const top = Math.max(0, Math.round((window.screen.height - GMAIL_POPUP_HEIGHT) / 2));
+  const features = [
+    `width=${GMAIL_POPUP_WIDTH}`,
+    `height=${GMAIL_POPUP_HEIGHT}`,
+    `left=${left}`,
+    `top=${top}`,
+    "scrollbars=yes",
+    "resizable=yes",
+  ].join(",");
+  return window.open(url, "r360_gmail_compose", features);
+}
+
 /**
  * Opens the native mail client via mailto: (footer, header, contact page links).
  */
