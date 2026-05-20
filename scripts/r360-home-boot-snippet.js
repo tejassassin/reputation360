@@ -183,6 +183,66 @@ export const R360_HOME_BOOT_CSS = `
   letter-spacing: 0.04em;
   color: #fff;
 }
+@media (min-width: 768px) {
+  .r360-boot {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 100dvh;
+    padding-top: calc(env(safe-area-inset-top, 0px) + 7.25rem);
+    padding-bottom: 2rem;
+  }
+  .r360-boot-menu {
+    display: none;
+  }
+  .r360-boot-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .r360-boot-badge {
+    margin-top: 0;
+  }
+  .r360-boot h1 {
+    max-width: 52rem;
+    font-size: 2.25rem;
+    line-height: 1.3;
+  }
+  .r360-boot-sub {
+    max-width: 42rem;
+    font-size: 1.125rem;
+  }
+  .r360-boot-ctas {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: none;
+    gap: 0.75rem;
+  }
+  .r360-boot-ctas a {
+    width: auto;
+    min-width: 12rem;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+  }
+  .r360-boot-stats {
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+  .r360-boot-stat {
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+  }
+  .r360-boot-stat strong {
+    font-size: 1.875rem;
+  }
+  .r360-boot-stat small {
+    font-size: 0.75rem;
+  }
+}
 `;
 
 export function buildHomeBootInjectScript() {
@@ -196,7 +256,6 @@ export function buildHomeBootInjectScript() {
     return p.replace(/\\/+$/,"") || "/";
   }
   if (norm(location.pathname) !== "/") return;
-  if (window.matchMedia && window.matchMedia("(min-width: 768px)").matches) return;
   var root = document.getElementById("root");
   if (!root || root.childElementCount > 0) return;
   root.innerHTML = ${JSON.stringify(R360_HOME_BOOT_HTML)};

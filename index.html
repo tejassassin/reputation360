@@ -43,14 +43,8 @@
         color: #fff;
       }
       #root:empty {
-        display: flex;
         min-height: 100dvh;
-        align-items: center;
-        justify-content: center;
-        font: 500 1rem/1.5 system-ui, sans-serif;
-      }
-      #root:empty::after {
-        content: "Loading…";
+        background: linear-gradient(135deg, #1f3b64 0%, #2e5b88 50%, #1f3b64 100%);
       }
     </style>
     <link rel="icon" type="image/png" sizes="512x512" href="__R360_METADATA_BASE__/android-chrome-512x512.png" />
@@ -77,16 +71,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Source+Sans+3:wght@400;500&display=swap"
-      media="(min-width: 768px)"
-    />
-    <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Source+Sans+3:wght@400;500&display=swap"
       rel="stylesheet"
-      media="(min-width: 768px)"
+      media="print"
+      onload="this.media='(min-width: 768px)'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Source+Sans+3:wght@400;500&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&display=swap"
       rel="stylesheet"

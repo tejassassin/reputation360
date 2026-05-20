@@ -1,4 +1,4 @@
-import { StrictMode, Suspense } from "react";
+import { Fragment, StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
@@ -34,14 +34,16 @@ if (!rootEl) {
   throw new Error("Missing #root - check index.html");
 }
 
+const Root = import.meta.env.DEV ? StrictMode : Fragment;
+
 const app = (
-  <StrictMode>
+  <Root>
     <ErrorBoundary>
       <App>
         <Suspense fallback={<RouteFallback />}>{page}</Suspense>
       </App>
     </ErrorBoundary>
-  </StrictMode>
+  </Root>
 );
 
 createRoot(rootEl).render(app);

@@ -18,7 +18,11 @@ const Contact = lazy(() => import("../components/Contact"));
 
 function SectionShell({ minHeight, children }) {
   return (
-    <LazyWhenVisible minHeight={minHeight} fallback={<div style={{ minHeight }} aria-hidden />}>
+    <LazyWhenVisible
+      minHeight={minHeight}
+      rootMargin="320px 0px"
+      fallback={<div style={{ minHeight }} aria-hidden />}
+    >
       <Suspense fallback={<div style={{ minHeight }} aria-hidden />}>{children}</Suspense>
     </LazyWhenVisible>
   );

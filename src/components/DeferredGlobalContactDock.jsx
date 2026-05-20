@@ -3,8 +3,8 @@ import { lazy, Suspense, useEffect, useState } from "react";
 const GlobalContactDock = lazy(() => import("./GlobalContactDock.jsx"));
 
 /**
- * Loads the floating dock (chatbot + email) after first paint / idle time
- * so it does not compete with LCP on the home hero.
+ * Loads the floating dock after idle time or first user interaction so it
+ * does not inflate TBT during Lighthouse / first paint.
  */
 export default function DeferredGlobalContactDock() {
   const [ready, setReady] = useState(false);
@@ -15,24 +15,38 @@ export default function DeferredGlobalContactDock() {
       if (!cancelled) setReady(true);
     };
 
-    const idleTimeout =
+    const isMobile =
       typeof window.matchMedia === "function" &&
-      window.matchMedia("(max-width: 767px)").matches
-        ? 4200
-        : 2800;
+      window.matchMedia("(max-width: 767px)").matches;
+    const idleTimeout = isMobile ? 5000 : 6000;
+
+    const interactionEvents = ["pointerdown", "keydown"];
+    const onInteraction = () => show();
+    interactionEvents.forEach((name) => {
+      window.addEventListener(name, onInteraction, {
+        once: true,
+        passive: true,
+      });
+    });
+
+    let idleId = 0;
+    let timeoutId = 0;
 
     if (typeof window.requestIdleCallback === "function") {
-      const id = window.requestIdleCallback(show, { timeout: idleTimeout });
-      return () => {
-        cancelled = true;
-        window.cancelIdleCallback(id);
-      };
+      idleId = window.requestIdleCallback(show, { timeout: idleTimeout });
+    } else {
+      timeoutId = window.setTimeout(show, idleTimeout);
     }
 
-    const t = window.setTimeout(show, idleTimeout > 3000 ? 2200 : 1600);
     return () => {
       cancelled = true;
-      window.clearTimeout(t);
+      interactionEvents.forEach((name) => {
+        window.removeEventListener(name, onInteraction);
+      });
+      if (idleId && typeof window.cancelIdleCallback === "function") {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId) window.clearTimeout(timeoutId);
     };
   }, []);
 
