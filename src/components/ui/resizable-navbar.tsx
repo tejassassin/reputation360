@@ -64,7 +64,7 @@ export const NavBody = ({ children, className, visible = false }: NavBodyProps) 
       className={cn(
         "relative z-[60] mx-auto hidden w-full max-w-7xl min-w-0 items-center gap-x-4 gap-y-0 self-start rounded-full bg-transparent px-3 py-2 sm:px-4",
         /* lg+: logo | nav links | CTAs on one row */
-        "lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:grid-rows-1 lg:items-center lg:gap-x-6 lg:py-2.5 xl:gap-x-8 2xl:gap-x-8",
+        "lg:grid lg:grid-cols-[auto_minmax(max-content,1fr)_auto] lg:grid-rows-1 lg:items-center lg:gap-x-6 lg:py-2.5 xl:gap-x-8 2xl:gap-x-8",
         scrolledNavShellClass(visible),
         className,
       )}
@@ -102,7 +102,7 @@ export const NavItems = ({
         }
       }}
       className={cn(
-        "relative z-10 mx-0 hidden min-h-0 min-w-0 w-full max-w-full flex-row flex-nowrap items-center justify-start gap-x-2 text-[13px] font-medium text-white transition-colors duration-200 hover:text-green font-heading sm:gap-x-2.5 sm:text-sm lg:col-start-2 lg:row-start-1 lg:flex lg:gap-x-2 xl:gap-x-3",
+        "relative z-10 mx-0 hidden min-h-0 w-full flex-row flex-nowrap items-center justify-start gap-x-2 text-[13px] font-medium text-white transition-colors duration-200 hover:text-green font-heading sm:gap-x-2.5 sm:text-sm lg:col-start-2 lg:row-start-1 lg:flex lg:w-auto lg:max-w-none lg:gap-x-2 xl:gap-x-3",
         className,
       )}
     >
@@ -114,13 +114,13 @@ export const NavItems = ({
         <div
           onMouseEnter={() => setHovered(h)}
           onMouseLeave={() => setHovered(null)}
-          className="relative"
+          className="relative shrink-0"
           key={`link-${h}`}
         >
           {parentIsDropdownOnly ? (
             <button
               type="button"
-              className="group relative block w-full cursor-default rounded-full px-2.5 py-1.5 text-left text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
+              className="group relative block w-full shrink-0 cursor-default whitespace-nowrap rounded-full px-2.5 py-1.5 text-left text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
               aria-haspopup="menu"
               aria-expanded={hovered === h}
               onClick={(e) => e.preventDefault()}
@@ -132,7 +132,7 @@ export const NavItems = ({
                 )}
                 aria-hidden
               />
-              <span className="relative z-[1]">{item.name}</span>
+              <span className="relative z-[1] whitespace-nowrap">{item.name}</span>
             </button>
           ) : (
             <a
@@ -140,14 +140,14 @@ export const NavItems = ({
                 if (item.link === "#") e.preventDefault();
                 onItemClick?.();
               }}
-              className="group relative block rounded-full px-2.5 py-1.5 text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
+              className="group relative block shrink-0 whitespace-nowrap rounded-full px-2.5 py-1.5 text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
               href={item.link}
             >
               <span
                 className="pointer-events-none absolute inset-0 rounded-full bg-white/0 transition-colors duration-200 group-hover:bg-white/10 group-focus-visible:bg-white/10"
                 aria-hidden
               />
-              <span className="relative z-[1]">{item.name}</span>
+              <span className="relative z-[1] whitespace-nowrap">{item.name}</span>
             </a>
           )}
           {item.children && item.children.length > 0 && hovered === h && (

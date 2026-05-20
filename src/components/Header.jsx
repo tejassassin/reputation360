@@ -128,7 +128,7 @@ function Header() {
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo logoSrc={logo} brandName="Reputation360" />
-          <NavItems items={navItems} className="min-w-0" />
+          <NavItems items={navItems} />
           <div
             className={cn(
               "relative z-20 flex shrink-0 items-center justify-end gap-2 sm:gap-3",
