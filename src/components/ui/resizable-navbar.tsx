@@ -62,10 +62,9 @@ export const NavBody = ({ children, className, visible = false }: NavBodyProps) 
   return (
     <div
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl min-w-0 items-center gap-x-4 gap-y-2 self-start rounded-full bg-transparent px-3 py-2 sm:px-4",
-        /* lg-xl: logo (row-span 2) | [nav row][cta row]. 2xl+: one row, three columns. */
-        "lg:grid lg:grid-cols-[auto_minmax(0,1fr)] lg:grid-rows-[auto_auto] lg:items-stretch lg:gap-x-8 lg:gap-y-2 lg:py-2.5 xl:gap-x-10",
-        "2xl:grid-cols-[auto_minmax(0,1fr)_auto] 2xl:grid-rows-1 2xl:items-center 2xl:gap-x-8 2xl:gap-y-0 2xl:py-2",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl min-w-0 items-center gap-x-4 gap-y-0 self-start rounded-full bg-transparent px-3 py-2 sm:px-4",
+        /* lg+: logo | nav links | CTAs on one row */
+        "lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:grid-rows-1 lg:items-center lg:gap-x-6 lg:py-2.5 xl:gap-x-8 2xl:gap-x-8",
         scrolledNavShellClass(visible),
         className,
       )}
@@ -103,7 +102,7 @@ export const NavItems = ({
         }
       }}
       className={cn(
-        "relative z-10 mx-0 hidden min-h-0 min-w-0 w-full max-w-full flex-row flex-wrap items-center justify-start gap-x-2 gap-y-1.5 text-[13px] font-medium text-white transition-colors duration-200 hover:text-green font-heading sm:gap-x-2.5 sm:text-sm lg:flex lg:gap-x-2 lg:gap-y-1.5 xl:gap-x-3",
+        "relative z-10 mx-0 hidden min-h-0 min-w-0 w-full max-w-full flex-row flex-nowrap items-center justify-start gap-x-2 text-[13px] font-medium text-white transition-colors duration-200 hover:text-green font-heading sm:gap-x-2.5 sm:text-sm lg:col-start-2 lg:row-start-1 lg:flex lg:gap-x-2 xl:gap-x-3",
         className,
       )}
     >
@@ -114,6 +113,7 @@ export const NavItems = ({
         return (
         <div
           onMouseEnter={() => setHovered(h)}
+          onMouseLeave={() => setHovered(null)}
           className="relative"
           key={`link-${h}`}
         >
@@ -151,23 +151,28 @@ export const NavItems = ({
             </a>
           )}
           {item.children && item.children.length > 0 && hovered === h && (
+            /* pt-2 bridge: fills the gap under the trigger so the menu stays open while moving the cursor down */
             <div
-              className="absolute left-0 top-full z-50 mt-2 min-w-44 rounded-lg border border-white/15 bg-navy/95 p-2 shadow-xl backdrop-blur-md"
-              onMouseDown={(e) => e.stopPropagation()}
+              className="absolute left-0 top-full z-[70] min-w-44 pt-2"
+              role="menu"
+              aria-label={`${item.name} submenu`}
             >
-              {item.children.map((child) => (
-                <a
-                  key={`${item.name}-${child.name}`}
-                  href={child.link}
-                  {...(child.newTab
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                  onClick={onItemClick}
-                  className="ha-nudge block rounded-md px-3 py-2 text-sm text-white transition-colors hover:bg-white/15 hover:text-green hover:shadow-[inset_0_0_0_1px_rgba(120,220,119,0.35)]"
-                >
-                  {child.name}
-                </a>
-              ))}
+              <div className="rounded-lg border border-white/15 bg-navy p-2 shadow-xl backdrop-blur-md">
+                {item.children.map((child) => (
+                  <a
+                    key={`${item.name}-${child.name}`}
+                    href={child.link}
+                    role="menuitem"
+                    {...(child.newTab
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    onClick={onItemClick}
+                    className="ha-nudge block rounded-md px-3 py-2 text-sm text-white transition-colors hover:bg-white/15 hover:text-green hover:shadow-[inset_0_0_0_1px_rgba(120,220,119,0.35)]"
+                  >
+                    {child.name}
+                  </a>
+                ))}
+              </div>
             </div>
           )}
         </div>
@@ -285,8 +290,7 @@ export const NavbarLogo = ({
       href="/"
       className={cn(
         "relative z-20 flex shrink-0 items-center gap-2.5 py-1 pr-2 text-xl font-bold text-white font-heading transition-transform duration-200 hover:scale-[1.02] sm:gap-3 sm:pr-3",
-        "lg:row-span-2 lg:self-center lg:pr-4",
-        "2xl:row-span-1 2xl:self-auto 2xl:pr-2",
+        "lg:self-center lg:pr-4 2xl:pr-2",
         className,
       )}
     >

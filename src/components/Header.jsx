@@ -128,9 +128,8 @@ function Header() {
           <NavItems items={navItems} className="min-w-0" />
           <div
             className={cn(
-              "relative z-20 flex shrink-0 flex-wrap items-center justify-end gap-2 sm:gap-3",
-              "border-t border-white/15 pt-2 lg:col-start-2 lg:row-start-2 lg:border-l-0 lg:pl-0",
-              "2xl:col-start-3 2xl:row-start-1 2xl:border-t-0 2xl:border-l 2xl:border-white/20 2xl:pl-6 2xl:pt-0",
+              "relative z-20 flex shrink-0 items-center justify-end gap-2 sm:gap-3",
+              "lg:col-start-3 lg:row-start-1 lg:border-l lg:border-white/20 lg:pl-6",
             )}
           >
             <NavbarButton
