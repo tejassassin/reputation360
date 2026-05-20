@@ -1,6 +1,12 @@
 /** Primary inbox (FormSubmit, footer, quick contact). */
 export const CONTACT_EMAIL = "hello@thereputation360.com";
 
+export const CONTACT_FORM_SUBMIT_URL = `https://formsubmit.co/${CONTACT_EMAIL}`;
+export const CONTACT_FORM_SUBMIT_AJAX_URL = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
+
+export const CONTACT_FORM_AUTORESPONSE =
+  "Thank you for your message. We have received your information. We'll get back to you ASAP.";
+
 /**
  * Same-origin URL for the email + form block on the contact page.
  * Use for UI where `mailto:` is unreliable (e.g. floating dock in embedded or in-app browsers).
@@ -101,4 +107,56 @@ export function contactWhatsAppHref(message = WHATSAPP_PREFILL_MESSAGE) {
     text: message,
   });
   return `https://api.whatsapp.com/send?${params.toString()}`;
+}
+
+/**
+ * Sends a contact message via FormSubmit AJAX (stays on the page).
+ * @param {{ from: string; message: string; name?: string; subject?: string }} payload
+ */
+export async function submitContactInquiry({
+  from,
+  message,
+  name = "",
+  subject = "Contact inquiry - Reputation360",
+}) {
+  const res = await fetch(CONTACT_FORM_SUBMIT_AJAX_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      name: name.trim() || "Website visitor",
+      email: from.trim(),
+      message: message.trim(),
+      _subject: subject,
+      _template: "table",
+      _captcha: "false",
+      _autoresponse: CONTACT_FORM_AUTORESPONSE,
+    }),
+  });
+
+  let data = {};
+  try {
+    data = await res.json();
+  } catch {
+    data = {};
+  }
+
+  const ok =
+    res.ok &&
+    (data.success === true ||
+      data.success === "true" ||
+      (typeof data.message === "string" &&
+        data.message.toLowerCase().includes("success")));
+
+  if (!ok) {
+    throw new Error(
+      typeof data.message === "string"
+        ? data.message
+        : "Could not send your message. Please try again.",
+    );
+  }
+
+  return data;
 }

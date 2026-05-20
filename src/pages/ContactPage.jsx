@@ -4,6 +4,8 @@ import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   CONTACT_EMAIL,
+  CONTACT_FORM_AUTORESPONSE,
+  CONTACT_FORM_SUBMIT_URL,
   contactMailtoHref,
   contactWhatsAppHref,
   handleMailtoClick,
@@ -14,12 +16,6 @@ import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 
 const calendarTabletImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuA-iNftxgB4MVtLYmaJLpcpPMCdIk9bo4K2vUXyEA2ZXH-BZhmfhL-8HD6Jt2GOFScH55bygI0bbHScErBYwqc9LNb_6eQBZuMJGi1trXwBsc3cLY_Av8Z34IJp_bM6r1CbUuzjq7-RNw4S1ffC5pcP2vOKqu5G6XAyqQVOS8MtT6wy6zLz3pSH77EgfqPgBDruvU6u1_vrhBJ-BCgrYislzYdg4iPWvU41nIaZO_AVY90uuI5seopRat1VNUXWv2d1Qw5hnw5knwU";
-
-const CONTACT_FORM_SUBMIT_URL = `https://formsubmit.co/${CONTACT_EMAIL}`;
-
-/** Shown in the auto-reply FormSubmit sends to the visitor (native POST only; not with AJAX). */
-const CONTACT_FORM_AUTORESPONSE =
-  "Thank you for your message. We have received your information. We'll get back to you ASAP.";
 
 const CONTACT_FORM_THANKS_PATH = "/contact?thanks=1";
 
