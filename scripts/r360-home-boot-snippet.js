@@ -21,7 +21,7 @@ export const R360_HOME_BOOT_HTML = `
         </h1>
         <p class="r360-boot-sub">Because one negative result can quietly undermine years of credibility.</p>
         <div class="r360-boot-ctas">
-          <a class="r360-boot-scan" href="/free-risk-scan" target="_blank" rel="noopener noreferrer">Free Reputation Scan</a>
+          <a class="r360-boot-scan" href="/free-reputation-scan" target="_blank" rel="noopener noreferrer">Free Reputation Scan</a>
           <a class="r360-boot-consult" href="https://calendly.com/reputation360/30min?back=1&month=2026-04" target="_blank" rel="noopener noreferrer">Book a Free Consultation</a>
         </div>
       </div>

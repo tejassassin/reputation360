@@ -70,8 +70,8 @@ export const SUPPRESSION_STEPS = [
   },
   {
     n: 2,
-    title: "Create counter-content",
-    body: 'Write articles addressing these exact keywords, but in a positive way. Example: If "bankruptcy" appears negatively, write about "lessons learned from business challenges."',
+    title: "Create Positive Content",
+    body: "Instead of directly addressing negative keywords, focus on creating high-quality, valuable content around your expertise, achievements, and positive narrative.",
   },
   {
     n: 3,
@@ -86,7 +86,7 @@ export const SUPPRESSION_STEPS = [
   {
     n: 5,
     title: "Monitor and update",
-    body: "Check monthly if your content ranks for the target keywords. Refresh and update it every 6-8 weeks to maintain ranking power.",
+    body: "Work on your platforms every week with consistent activity - share insights, engage with comments, respond to reviews. Check monthly if your content ranks for target keywords and refresh your top-performing articles every 6-8 weeks to maintain ranking power.",
   },
 ];
 
@@ -127,6 +127,12 @@ export const RESULT_CATEGORIES = [
     label: "Neutral",
     desc: "Factual but non-promotional content",
     color: "border-slate-300 bg-slate-50",
+  },
+  {
+    id: "negative",
+    label: "Negative",
+    desc: "Harmful, outdated, or misleading content",
+    color: "border-destructive/30 bg-destructive/5",
   },
 ];
 

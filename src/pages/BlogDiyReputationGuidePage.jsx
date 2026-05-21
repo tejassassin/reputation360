@@ -92,8 +92,6 @@ export default function BlogDiyReputationGuidePage() {
 
   const phase = DIY_TIMELINE_PHASES[timelinePhase] ?? DIY_TIMELINE_PHASES[0];
   const crisis = CRISIS_TIERS[crisisTier] ?? CRISIS_TIERS[0];
-  const resultCat =
-    RESULT_CATEGORIES.find((c) => c.id === activeResultCat) ?? RESULT_CATEGORIES[0];
   const social = SOCIAL_PLATFORMS.find((p) => p.id === socialTab) ?? SOCIAL_PLATFORMS[0];
 
   return (
@@ -194,7 +192,7 @@ export default function BlogDiyReputationGuidePage() {
 
                 <h3 className="mb-4 mt-10 font-heading text-xl font-bold text-slate">Step 3: Analyze your results</h3>
                 <p className="mb-4 font-body text-steel">Click a category to see what to do with each type of result:</p>
-                <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
                   {RESULT_CATEGORIES.map((cat) => (
                     <button
                       key={cat.id}
@@ -211,10 +209,6 @@ export default function BlogDiyReputationGuidePage() {
                       <p className="mt-1 font-body text-xs text-steel">{cat.desc}</p>
                     </button>
                   ))}
-                </div>
-                <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-inner md:p-6">
-                  <p className="font-heading text-sm font-bold text-navy">{resultCat.label} results</p>
-                  <p className="mt-2 font-body text-sm text-steel">{resultCat.desc}</p>
                 </div>
 
                 <DiyKeyBox icon="💡" title="Critical finding from our data">
@@ -338,7 +332,6 @@ export default function BlogDiyReputationGuidePage() {
                   activeStep={reviewStep}
                   onSelectStep={setReviewStep}
                   panelId="reviewStepContent"
-                  hint="Tap steps for the 3-step negative review response formula"
                 />
               </section>
 
