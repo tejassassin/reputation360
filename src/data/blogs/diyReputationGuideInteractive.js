@@ -16,6 +16,29 @@ export const DIY_GUIDE_NAV = [
 
 export const DIY_SCROLL_SPY_ORDER = DIY_GUIDE_NAV.map((n) => n.id);
 
+export const AMPLIFY_PLATFORMS_EXPAND = {
+  heading: "Expand Across Multiple Platforms",
+  lead:
+    "Don't limit yourself to one or two platforms. The more social media and content platforms you maintain, the more control you have over your online narrative. Each platform you're active on is another opportunity to rank on page 1 for searches about you.",
+  listIntro: "Consider building a presence on:",
+  closing:
+    "The more platforms you engage on consistently, the more positive real estate you own on the internet. Each active profile pushes down negative content and gives Google multiple positive URLs to show when people search for you.",
+  platforms: [
+    "LinkedIn",
+    "X (Twitter)",
+    "Instagram",
+    "Medium",
+    "Substack",
+    "SlideShare",
+    "Issuu",
+    "Vocal Media",
+    "Muck Rack",
+    "Crunchbase",
+    "Wellfound",
+    "Contently",
+  ],
+};
+
 export const AUDIT_STEPS = [
   {
     n: 1,
@@ -173,7 +196,7 @@ export const DIY_TIMELINE_PHASES = [
     range: "Weeks 1-2",
     summary: "Audit and foundation",
     detail:
-      "Claim profiles, optimize LinkedIn and Google Business Profile, set up Google Alerts, and document your baseline search results.",
+      "Claim profiles, create and optimize social media platforms, set up Google Alerts, and document your baseline search results.",
   },
   {
     id: "p2",
@@ -202,7 +225,7 @@ export const DIY_MYTHS = [
   {
     id: "diy-myth-1",
     title: 'Myth: "Delete my old accounts and the problem goes away."',
-    body: "Abandoned profiles can still rank or get scraped. Claim, update, or properly close accounts-don't leave zombie pages that contradict your current story.",
+    body: "Abandoned profiles can still rank or get scraped. Claim, update, or properly close accounts - don't leave zombie pages that contradict your current story.",
   },
   {
     id: "diy-myth-2",
@@ -225,7 +248,7 @@ export const DIY_MISTAKES = [
   {
     id: "diy-mistake-2",
     title: "Buying fake positive reviews",
-    body: "Platforms detect review manipulation. Penalties can remove your profile or trigger more scrutiny.",
+    body: "Social media and review platforms use automated systems to catch fake reviews, fake accounts leaving reviews, or paid review schemes. If caught, your profile gets deleted, suspended, or flagged for extra monitoring - making the damage far worse than having honest reviews.",
   },
   {
     id: "diy-mistake-3",
@@ -256,12 +279,12 @@ export const DIY_FAQS = [
   {
     id: "diy-faq-2",
     q: "Can I remove negative content from Google myself?",
-    a: "Removal is only possible when content violates platform or Google policies. Most DIY success comes from suppression-creating stronger positive assets that outrank negatives.",
+    a: "Removal is only possible when content violates platform or Google policies. Most DIY success comes from suppression - creating stronger positive assets that outrank negatives.",
   },
   {
     id: "diy-faq-3",
     q: "Do I need a personal website?",
-    a: "Not required, but a owned domain you control is one of the strongest long-term assets. LinkedIn + Medium can work for many professionals if maintained consistently.",
+    a: "While LinkedIn and Medium are powerful free platforms that rank well, owning your own website with a domain in your name (e.g., yourname.com) is one of the strongest long-term assets for reputation management. An owned domain gives you complete control - no algorithm changes, no platform shutdowns, no policy violations to worry about. LinkedIn and Medium can work perfectly for many professionals if maintained consistently, but your personal website is the foundation you truly own and control forever.",
   },
   {
     id: "diy-faq-4",

@@ -4,7 +4,6 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import { cn } from "@/lib/utils";
 import { calendlyCtaButtonClass } from "@/constants/scheduling";
 import { ConsultationCtas } from "@/components/ConsultationCtas";
-import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
 import {
   DIY_REPUTATION_GUIDE_PATH,
   diyReputationGuideHero,
@@ -13,6 +12,7 @@ import {
   diyReputationGuideToc,
 } from "../data/blogs/diyReputationGuide.js";
 import {
+  AMPLIFY_PLATFORMS_EXPAND,
   AUDIT_STEPS,
   CONTENT_PLATFORMS_RANKING,
   CONTENT_PLATFORMS_STRATEGY_AVOID,
@@ -290,6 +290,30 @@ export default function BlogDiyReputationGuidePage() {
                   You control your narrative. Positive content creation is the foundation of sustainable reputation
                   management.
                 </p>
+
+                <h3 className="mb-4 font-heading text-xl font-bold text-slate">
+                  {AMPLIFY_PLATFORMS_EXPAND.heading}
+                </h3>
+                <p className="mb-4 font-body text-base leading-relaxed text-steel">
+                  {AMPLIFY_PLATFORMS_EXPAND.lead}
+                </p>
+                <p className="mb-4 font-body text-base font-semibold text-navy">
+                  {AMPLIFY_PLATFORMS_EXPAND.listIntro}
+                </p>
+                <ul className="mb-6 flex flex-wrap gap-2">
+                  {AMPLIFY_PLATFORMS_EXPAND.platforms.map((platform) => (
+                    <li
+                      key={platform}
+                      className="rounded-full border border-slate-200 bg-white px-4 py-2 font-heading text-sm font-semibold text-navy shadow-sm"
+                    >
+                      {platform}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mb-10 font-body text-base leading-relaxed text-steel">
+                  {AMPLIFY_PLATFORMS_EXPAND.closing}
+                </p>
+
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
                   {[
                     { pct: "80%", label: "Valuable, educational content", w: "w-4/5" },
@@ -516,15 +540,6 @@ export default function BlogDiyReputationGuidePage() {
                   ))}
                 </div>
               </section>
-
-              <div className="diy-cta-gradient">
-                <h2>Ready to Take Control of Your Reputation?</h2>
-                <p>You now have a complete roadmap to manage your reputation yourself.</p>
-                <p>Reputation360 can accelerate removal, authority building, and first-page dominance.</p>
-                <a href={FREE_RISK_SCAN_PATH} className="diy-cta-btn">
-                  Get a Free Reputation Audit
-                </a>
-              </div>
 
               <section className="mb-20 scroll-mt-36" id="start">
                 <span className="diy-section-tag">Next step</span>
