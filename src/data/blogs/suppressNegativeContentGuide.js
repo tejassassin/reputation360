@@ -27,6 +27,14 @@ export const suppressNegativeGuideListing = {
 export const suppressNegativeGuideMetaDescription =
   "Learn how to remove negative search results & improve Google search reputation. Professional guide to negative content suppression, reputation repair services, and online reputation management. Free audit included.";
 
+export const suppressNegativeGuideHero = {
+  badge: "Professional Guide",
+  title:
+    "How to Suppress Negative Content: The Professional's Guide to Online Reputation Control",
+  lead:
+    "A potential patient finds your practice through Google. Before scheduling an appointment, they scroll through your search results. There it is - a negative article from 2019.",
+};
+
 export const suppressNegativeGuideMetaLine =
   "Published: May 17, 2026 | Read Time: 8 minutes | Last Updated: May 17, 2026";
 

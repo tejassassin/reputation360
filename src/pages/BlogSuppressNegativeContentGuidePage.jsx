@@ -22,9 +22,11 @@ import { calendlyCtaButtonClass } from "@/constants/scheduling";
 import { ConsultationCtas } from "@/components/ConsultationCtas";
 import {
   SUPPRESS_NEGATIVE_GUIDE_PATH,
+  suppressNegativeGuideHero,
   suppressNegativeGuideListing,
   suppressNegativeGuideMetaDescription,
 } from "../data/blogs/suppressNegativeContentGuide.js";
+import "../styles/r360-diy-interactive.css";
 
 const GUIDE_NAV = [
   { id: "intro", label: "Introduction" },
@@ -452,8 +454,16 @@ export default function BlogSuppressNegativeContentGuidePage() {
         ogImage={suppressNegativeGuideListing.image}
       />
 
-      <div className="scroll-smooth bg-offwhite pb-1 font-body text-charcoal antialiased">
-        {/* Reading progress: full-width strip fixed to bottom; fill grows top-to-bottom */}
+      <div className="r360-diy-interactive scroll-smooth pb-1 font-body text-jet antialiased">
+        <div className="diy-hero-band" id="intro">
+          <span className="diy-hero-badge">{suppressNegativeGuideHero.badge}</span>
+          <h1 className="diy-hero-title">{suppressNegativeGuideHero.title}</h1>
+          <p className="diy-hero-lead">{suppressNegativeGuideHero.lead}</p>
+          <p className="mt-8 flex items-center justify-center gap-2 font-body text-sm text-steel">
+            <Clock className="h-4 w-4 text-navy" aria-hidden />
+            {suppressNegativeGuideListing.readTime} read
+          </p>
+        </div>
         <div
           className="pointer-events-none fixed right-0 bottom-0 left-0 z-40 h-1.5 overflow-hidden bg-slate-200"
           aria-hidden
@@ -466,7 +476,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
           />
         </div>
 
-        <div className="mx-auto max-w-[min(100%,90rem)] px-4 pt-32 pb-4 sm:px-6 sm:pt-36 lg:px-8 lg:pt-40">
+        <div className="mx-auto max-w-[min(100%,90rem)] px-4 pb-4 pt-8 sm:px-6 sm:pt-10 lg:px-8 lg:pt-12">
           <div className="flex flex-col gap-8 pb-4 lg:flex-row lg:gap-0">
             {/* Left: Guide index */}
             <aside className="hidden w-64 shrink-0 lg:sticky lg:top-28 lg:block lg:h-[calc(100dvh-8rem)] lg:overflow-y-auto lg:border-r lg:border-slate-200/80 lg:pr-6 lg:pt-2">
@@ -492,41 +502,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
             </aside>
 
             {/* Center: article */}
-            <main className="min-w-0 flex-1 px-0 pb-20 sm:px-2 lg:px-10">
-              <header className="mb-16 scroll-mt-32 font-heading" id="intro">
-                {(() => {
-                  const full = suppressNegativeGuideListing.title;
-                  const hasSplit = full.includes(": ");
-                  const [lead, ...tailParts] = hasSplit ? full.split(": ") : [full, ""];
-                  const tail = tailParts.join(": ").trim();
-                  return (
-                    <h1 className="mb-8 max-w-5xl">
-                      {hasSplit ? (
-                        <>
-                          <span className="block text-2xl font-bold leading-snug text-navy sm:text-3xl md:text-[2.1rem]">
-                            {lead}:
-                          </span>
-                          <span className="mt-2 block bg-linear-to-r from-navy via-slate to-navy bg-clip-text text-3xl leading-[1.12] font-extrabold tracking-tight text-transparent sm:text-4xl md:text-5xl lg:text-[3.25rem]">
-                            {tail}
-                          </span>
-                          <span className="mt-5 block h-1.5 w-20 rounded-full bg-green" aria-hidden />
-                        </>
-                      ) : (
-                        <span className="block text-4xl leading-tight font-extrabold text-navy md:text-5xl lg:text-6xl">
-                          {full}
-                        </span>
-                      )}
-                    </h1>
-                  );
-                })()}
-                <div className="flex flex-wrap items-center gap-6 border-y border-slate-200 py-6 font-body text-steel">
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-3.5 w-3.5 shrink-0 text-navy" aria-hidden />
-                    <span className="text-sm font-medium">Read time: 8 minutes</span>
-                  </div>
-                </div>
-              </header>
-
+            <main className="min-w-0 flex-1 px-0 pb-20 sm:px-2 lg:max-w-[52rem] lg:px-10">
               <section className="mb-20 scroll-mt-36 font-body" id="silent-crisis">
                 <h2 className="mb-8 font-heading text-3xl font-bold text-navy">The Silent Crisis Affecting Your Credibility</h2>
                 <div className="relative mt-8">
