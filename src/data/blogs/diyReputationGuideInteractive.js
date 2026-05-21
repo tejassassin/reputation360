@@ -297,13 +297,13 @@ export const SOCIAL_PLATFORMS = [
     ],
   },
   {
-    id: "facebook",
-    title: "Facebook",
+    id: "instagram",
+    title: "Instagram",
     tips: [
-      "Keep personal profile professional but authentic",
-      "Use a dedicated page if you are a public figure",
-      "Participate in professional groups in your industry",
-      "Match photo and bio details across platforms",
+      "Use a professional headshot (matching LinkedIn) and optimize your bio with your role, expertise keywords, and one clear link",
+      "Post 80% expertise content (industry insights, tips, Reels) and 20% personal moments to build credibility while staying humanized",
+      "Highlight client wins, speaking engagements, and case studies through carousel posts and Reels for maximum visibility",
+      "Maintain consistent username, photo, and bio across all platforms (LinkedIn, Twitter, website) to build brand recognition",
     ],
   },
 ];

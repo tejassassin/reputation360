@@ -185,40 +185,76 @@ export function StepPicker({ steps, activeStep, onSelectStep, panelId = "stepCon
   );
 }
 
+function DoAvoidColumn({ variant, title, icon: Icon, items }) {
+  const isDo = variant === "do";
+  return (
+    <div
+      className={cn(
+        "relative p-6 md:p-7",
+        isDo
+          ? "bg-gradient-to-br from-green/[0.09] via-white to-white"
+          : "bg-gradient-to-br from-slate-100/80 via-white to-white",
+      )}
+    >
+      <div
+        className={cn(
+          "absolute inset-y-0 left-0 w-1",
+          isDo ? "bg-green" : "bg-slate-400",
+        )}
+        aria-hidden
+      />
+      <div className="mb-5 flex items-center gap-3">
+        <span
+          className={cn(
+            "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl shadow-sm",
+            isDo ? "bg-green text-white" : "bg-navy/90 text-white",
+          )}
+        >
+          <Icon className="h-5 w-5" aria-hidden />
+        </span>
+        <div>
+          <p className="font-heading text-base font-bold text-navy md:text-lg">{title}</p>
+          <p className="font-body text-xs text-steel">
+            {isDo ? "Focus here for ranking impact" : "Common mistakes that slow progress"}
+          </p>
+        </div>
+      </div>
+      <ul className="space-y-3">
+        {items.map((item, index) => (
+          <li
+            key={item.title}
+            className={cn(
+              "flex gap-3 rounded-xl border p-4 shadow-sm transition-shadow hover:shadow-md",
+              isDo
+                ? "border-green/20 bg-white/90"
+                : "border-slate-200/90 bg-white/70",
+            )}
+          >
+            <span
+              className={cn(
+                "flex h-7 w-7 shrink-0 items-center justify-center rounded-full font-heading text-xs font-bold",
+                isDo ? "bg-green/15 text-green" : "bg-slate-200 text-navy",
+              )}
+            >
+              {index + 1}
+            </span>
+            <div className="min-w-0">
+              <p className="font-heading text-sm font-bold leading-snug text-navy">{item.title}</p>
+              <p className="mt-1 font-body text-sm leading-relaxed text-jet">{item.text}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function DiyDoAvoidSection({ doItems, avoidItems }) {
   return (
-    <div className="mt-5 grid gap-3 md:grid-cols-2">
-      <div className="rounded-2xl border-2 border-green/30 bg-green/[0.06] p-5 md:p-6">
-        <p className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-navy">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-green text-white">
-            <Check className="h-4 w-4" aria-hidden />
-          </span>
-          Do this
-        </p>
-        <ul className="space-y-3">
-          {doItems.map((item) => (
-            <li key={item.title}>
-              <p className="font-heading text-sm font-bold text-navy">{item.title}</p>
-              <p className="mt-0.5 font-body text-sm text-jet">{item.text}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-5 md:p-6">
-        <p className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-navy">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-300 text-white">
-            <X className="h-4 w-4" aria-hidden />
-          </span>
-          Avoid this
-        </p>
-        <ul className="space-y-3">
-          {avoidItems.map((item) => (
-            <li key={item.title}>
-              <p className="font-heading text-sm font-bold text-navy">{item.title}</p>
-              <p className="mt-0.5 font-body text-sm text-jet">{item.text}</p>
-            </li>
-          ))}
-        </ul>
+    <div className="diy-do-avoid mt-6 overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-md ring-1 ring-slate-200/50">
+      <div className="grid md:grid-cols-2 md:divide-x md:divide-slate-200/80">
+        <DoAvoidColumn variant="do" title="Do this" icon={Check} items={doItems} />
+        <DoAvoidColumn variant="avoid" title="Avoid this" icon={X} items={avoidItems} />
       </div>
     </div>
   );

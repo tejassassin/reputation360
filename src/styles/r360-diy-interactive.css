@@ -313,6 +313,12 @@
   background: rgba(31, 59, 100, 0.02);
 }
 
+.r360-diy-interactive .diy-do-avoid {
+  box-shadow:
+    0 4px 24px rgba(31, 59, 100, 0.06),
+    0 1px 3px rgba(31, 59, 100, 0.04);
+}
+
 .r360-diy-interactive .diy-interactive-hint {
   display: inline-flex;
   align-items: center;

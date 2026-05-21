@@ -263,7 +263,7 @@ export default function BlogDiyReputationGuidePage() {
                   </div>
                 </div>
 
-                <div className="my-8 max-w-3xl">
+                <div className="my-8">
                   <h4 className="mb-4 font-heading text-lg font-bold text-navy">
                     Strategy for Maximum Impact
                   </h4>
@@ -281,7 +281,6 @@ export default function BlogDiyReputationGuidePage() {
                   activeStep={suppressionStep}
                   onSelectStep={setSuppressionStep}
                   panelId="suppressionStepContent"
-                  hint="Tap steps for the content suppression workflow"
                 />
               </section>
 
@@ -377,7 +376,7 @@ export default function BlogDiyReputationGuidePage() {
                     { t: "Google Alerts", d: "Free email alerts when your name appears online." },
                     { t: "Search Console", d: "Track queries and rankings for your site." },
                     { t: "Review tools", d: "Mention, Brand24, or Hootsuite for cross-platform mentions." },
-                    { t: "Native analytics", d: "LinkedIn, Facebook, and X analytics for engagement." },
+                    { t: "Native analytics", d: "LinkedIn, Instagram, and X analytics for engagement." },
                   ].map((card, i) => (
                     <div
                       key={card.t}
