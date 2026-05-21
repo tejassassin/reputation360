@@ -505,15 +505,15 @@ export default function BlogSuppressNegativeContentGuidePage() {
             <main className="min-w-0 flex-1 px-0 pb-20 sm:px-2 lg:max-w-[52rem] lg:px-10">
               <section className="mb-20 scroll-mt-36 font-body" id="silent-crisis">
                 <h2 className="mb-8 font-heading text-3xl font-bold text-navy">The Silent Crisis Affecting Your Credibility</h2>
-                <div className="relative mt-8">
-                  <p className="mb-8 font-heading text-2xl leading-relaxed font-bold italic text-charcoal md:text-3xl">
-                    &quot;It starts with a search. A prospective patient, a potential high-value client, or a future
-                    partner enters your name. Then they see it - a lingering negative headline, an unfair review, or a
+                <blockquote className="diy-pull-quote">
+                  <p>
+                    It starts with a search. A prospective patient, a potential high-value client, or a future partner
+                    enters your name. Then they see it - a lingering negative headline, an unfair review, or a
                     misrepresentative archive. In today&apos;s search landscape, they&apos;ll either find the negative
                     content on Google&apos;s first page - or they won&apos;t find you at all. Our guide shows you how to
-                    remove negative search results and reclaim your digital presence.&quot;
+                    remove negative search results and reclaim your digital presence.&rdquo;
                   </p>
-                </div>
+                </blockquote>
                 <div className="mt-10 flex flex-col gap-6">
                   <div className="flex flex-col items-stretch gap-6 rounded-2xl border-l-8 border-green bg-navy/5 p-6 sm:flex-row sm:items-center sm:p-8">
                     <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center self-center rounded-full bg-green font-heading text-2xl font-black text-navy sm:self-auto">

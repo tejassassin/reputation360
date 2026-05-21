@@ -70,6 +70,45 @@
   line-height: 1.75;
 }
 
+.r360-diy-interactive .diy-pull-quote {
+  position: relative;
+  margin: 1rem 0 1.75rem;
+  padding: 0.25rem 0 0.25rem 2.25rem;
+  border: none;
+  background: none;
+}
+
+.r360-diy-interactive .diy-pull-quote::before {
+  content: "\201C";
+  position: absolute;
+  left: 0;
+  top: -0.2rem;
+  font-family: var(--font-heading, Inter, system-ui, sans-serif);
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 800;
+  color: #1f3b64;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.r360-diy-interactive .diy-pull-quote p {
+  margin: 0;
+  font-family: var(--font-heading, Inter, system-ui, sans-serif);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  font-weight: 500;
+  font-style: italic;
+  color: #1f3b64;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 768px) {
+  .r360-diy-interactive .diy-pull-quote p {
+    font-size: 1.1875rem;
+  }
+}
+
 .r360-diy-interactive .diy-meta-grid {
   display: flex;
   flex-wrap: wrap;
