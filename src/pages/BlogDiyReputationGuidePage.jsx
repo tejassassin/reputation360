@@ -3,7 +3,10 @@ import { ArrowRight, Check, Clock, Lock, Search } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { cn } from "@/lib/utils";
 import { calendlyCtaButtonClass } from "@/constants/scheduling";
+import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
+import { AUDIENCE_PATH } from "@/constants/whoWeServePaths.js";
 import { ConsultationCtas } from "@/components/ConsultationCtas";
+import { SUPPRESS_NEGATIVE_GUIDE_PATH } from "../data/blogs/suppressNegativeContentGuide.js";
 import {
   DIY_REPUTATION_GUIDE_PATH,
   diyReputationGuideHero,
@@ -37,6 +40,7 @@ import {
   DiyDoAvoidSection,
   DiyAccordion,
   DiyFaqAccordion,
+  DiyInternalLink,
   DiyKeyBox,
   DiySectionHeader,
   MobileGuideNav,
@@ -175,7 +179,10 @@ export default function BlogDiyReputationGuidePage() {
                 <DiySectionHeader number="01" title="Conduct a Complete Online Reputation Audit" />
                 <p className="mb-8 font-body text-lg text-steel">
                   Before you can fix your reputation, you need to understand what exists. A thorough audit
-                  reveals what people see when they search for you and establishes a baseline for improvement.
+                  reveals what people see when they search for you and establishes a baseline for improvement. You
+                  can also run a{" "}
+                  <DiyInternalLink href={FREE_RISK_SCAN_PATH}>free reputation scan</DiyInternalLink> to see exactly
+                  what&apos;s ranking for your name right now.
                 </p>
 
                 <h3 className="mb-4 flex items-center gap-2 font-heading text-xl font-bold text-slate">
@@ -273,6 +280,15 @@ export default function BlogDiyReputationGuidePage() {
                   />
                 </div>
 
+                <p className="mb-6 font-body text-base leading-relaxed text-steel">
+                  When it comes to pushing negative results off page 1, content volume alone isn&apos;t enough - you
+                  need a deliberate suppression strategy. For a complete breakdown of how this works, read our{" "}
+                  <DiyInternalLink href={SUPPRESS_NEGATIVE_GUIDE_PATH}>
+                    Professional&apos;s Guide to Suppressing Negative Content
+                  </DiyInternalLink>
+                  .
+                </p>
+
                 <h3 className="mb-4 mt-10 font-heading text-xl font-bold text-slate">
                   Content strategy for reputation suppression
                 </h3>
@@ -310,8 +326,15 @@ export default function BlogDiyReputationGuidePage() {
                     </li>
                   ))}
                 </ul>
-                <p className="mb-10 font-body text-base leading-relaxed text-steel">
+                <p className="mb-4 font-body text-base leading-relaxed text-steel">
                   {AMPLIFY_PLATFORMS_EXPAND.closing}
+                </p>
+                <p className="mb-10 font-body text-base leading-relaxed text-steel">
+                  To understand the mechanics behind this, see{" "}
+                  <DiyInternalLink href={SUPPRESS_NEGATIVE_GUIDE_PATH}>
+                    how negative content suppression actually works
+                  </DiyInternalLink>
+                  .
                 </p>
 
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
@@ -356,6 +379,18 @@ export default function BlogDiyReputationGuidePage() {
                   onSelectStep={setReviewStep}
                   panelId="reviewStepContent"
                 />
+                <p className="mt-8 font-body text-base leading-relaxed text-steel">
+                  See how we&apos;ve handled targeted review attacks and coordinated campaigns in{" "}
+                  <DiyInternalLink href="/case-studies">our case studies</DiyInternalLink> - including a{" "}
+                  <DiyInternalLink href="/case-studies/the-review-that-almost-ended-the-surgeons-career">
+                    surgeon whose practice was nearly destroyed by a single complaint
+                  </DiyInternalLink>
+                  , and a{" "}
+                  <DiyInternalLink href="/case-studies/the-family-lawyer-and-the-client-vendetta">
+                    family lawyer targeted by a former client
+                  </DiyInternalLink>
+                  .
+                </p>
               </section>
 
               <section className="mb-20 scroll-mt-36" id="social">
@@ -390,6 +425,17 @@ export default function BlogDiyReputationGuidePage() {
                       </li>
                     ))}
                   </ul>
+                  {socialTab === "linkedin" && (
+                    <p className="mt-6 border-t border-slate-100 pt-6 font-body text-base leading-relaxed text-steel">
+                      Maintaining a strong, consistent presence across multiple platforms takes real discipline. If
+                      you&apos;d rather have experts handle your digital footprint while you focus on your work,
+                      explore our{" "}
+                      <DiyInternalLink href={AUDIENCE_PATH.individuals}>
+                        Personal Reputation Management Services
+                      </DiyInternalLink>
+                      .
+                    </p>
+                  )}
                 </div>
               </section>
 
@@ -448,6 +494,13 @@ export default function BlogDiyReputationGuidePage() {
                   <p className="font-heading text-sm font-bold text-navy">{crisis.label}</p>
                   <p className="mt-2 font-body text-sm leading-relaxed text-steel">{crisis.detail}</p>
                 </div>
+                <p className="mt-6 font-body text-base leading-relaxed text-steel">
+                  Every situation is different - what works for a low-tier forum post will fail against coordinated
+                  defamation. Browse{" "}
+                  <DiyInternalLink href="/case-studies">our case studies</DiyInternalLink> to see how we&apos;ve
+                  navigated reputation crises across industries, from executives facing boardroom leaks to doctors
+                  dealing with media coverage of patient complaints.
+                </p>
                 <div className="mt-8 space-y-4">
                   {DIY_MISTAKES.map((m) => (
                     <DiyAccordion
@@ -492,6 +545,25 @@ export default function BlogDiyReputationGuidePage() {
                 <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-inner md:p-6">
                   <p className="font-heading text-sm font-bold text-navy">{phase.range}</p>
                   <p className="mt-2 font-body text-sm leading-relaxed text-steel">{phase.detail}</p>
+                  {timelinePhase === 1 && (
+                    <p className="mt-4 font-body text-sm leading-relaxed text-steel">
+                      This phase is where most DIY efforts either gain momentum or stall. For a detailed breakdown
+                      of what effective suppression content looks like - and how to build links that actually move
+                      the needle - read{" "}
+                      <DiyInternalLink href={SUPPRESS_NEGATIVE_GUIDE_PATH}>
+                        The Professional&apos;s Guide to Suppressing Negative Content
+                      </DiyInternalLink>
+                      .
+                    </p>
+                  )}
+                  {timelinePhase === 3 && (
+                    <p className="mt-4 font-body text-sm leading-relaxed text-steel">
+                      By month 6, you should be seeing meaningful movement. If progress is slower than expected - or if
+                      the negative content is particularly entrenched - this is the point where{" "}
+                      <DiyInternalLink href="/services">professional suppression support</DiyInternalLink> can
+                      dramatically accelerate your timeline.
+                    </p>
+                  )}
                 </div>
               </section>
 
@@ -535,7 +607,19 @@ export default function BlogDiyReputationGuidePage() {
                       open={!!openAccordion[f.id]}
                       onToggle={toggleAccordion}
                     >
-                      <p>{f.a}</p>
+                      {f.id === "diy-faq-5" ? (
+                        <p>
+                          If you&apos;re dealing with content that&apos;s ranking on page 1 for your name, content
+                          that cannot be removed, or a situation that&apos;s actively affecting your career or
+                          business - professional help is worth it. Start with a{" "}
+                          <DiyInternalLink href={FREE_RISK_SCAN_PATH}>free reputation scan</DiyInternalLink> to
+                          understand exactly what you&apos;re up against, or explore{" "}
+                          <DiyInternalLink href="/services">what professional ORM looks like</DiyInternalLink> before
+                          making a decision.
+                        </p>
+                      ) : (
+                        <p>{f.a}</p>
+                      )}
                     </DiyFaqAccordion>
                   ))}
                 </div>

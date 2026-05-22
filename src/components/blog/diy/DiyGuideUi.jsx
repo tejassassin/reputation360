@@ -1,6 +1,18 @@
 import { Check, ChevronDown, Minus, Plus, Sparkles, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+/** In-article internal link (green, underlined) per DIY guide SEO spec. */
+export function DiyInternalLink({ href, children }) {
+  return (
+    <a
+      href={href}
+      className="diy-internal-link font-semibold text-green underline decoration-green/70 underline-offset-[3px] transition-colors hover:text-navy hover:decoration-navy/80"
+    >
+      {children}
+    </a>
+  );
+}
+
 export function DiyInteractiveHint() {
   return (
     <span className="diy-interactive-hint">
