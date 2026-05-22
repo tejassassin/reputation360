@@ -16,6 +16,20 @@
   color: var(--diy-copy);
 }
 
+/* In-article internal links (both blog guides) */
+.r360-diy-interactive a.diy-internal-link {
+  color: #2563eb !important;
+  text-decoration: underline !important;
+  text-decoration-color: #2563eb !important;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+.r360-diy-interactive a.diy-internal-link:hover {
+  color: #1d4ed8 !important;
+  text-decoration-color: #1d4ed8 !important;
+}
+
 .r360-diy-interactive .diy-hero-band {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
