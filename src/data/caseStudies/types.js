@@ -12,6 +12,8 @@
  * @property {string} challengeType
  * @property {string} duration
  * @property {string} summary
+ * @property {string} [seoTitle] - document title for SEO (includes brand suffix)
+ * @property {string} [metaDescription] - meta description for SEO
  * @property {Section[]} sections
  */
 

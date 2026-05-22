@@ -15,6 +15,7 @@ import case14 from "./case-14.js";
 import case15 from "./case-15.js";
 import case16 from "./case-16.js";
 import { slugifyCaseStudyListTitle } from "../../lib/caseStudySlug.js";
+import { CASE_STUDY_SEO_BY_N } from "./caseStudySeo.js";
 
 /** Fixed audience verticals for filtering; each case study uses exactly one. */
 export const INDUSTRY_CATEGORIES = [
@@ -55,7 +56,13 @@ export const CASE_STUDIES = CASE_STUDIES_RAW.map((c) => {
     throw new Error(`Duplicate case study slug for n=${c.n}: "${slug}"`);
   }
   seen.add(slug);
-  return { ...c, slug };
+  const seo = CASE_STUDY_SEO_BY_N[c.n];
+  return {
+    ...c,
+    slug,
+    ...(seo?.seoTitle ? { seoTitle: seo.seoTitle } : {}),
+    ...(seo?.metaDescription ? { metaDescription: seo.metaDescription } : {}),
+  };
 });
 
 export const CASE_STUDIES_FOOTER =

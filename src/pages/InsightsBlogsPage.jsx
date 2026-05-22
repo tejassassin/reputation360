@@ -4,6 +4,7 @@ import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
+  DIY_REPUTATION_GUIDE_PATH,
   DIY_REPUTATION_GUIDE_SLUG,
   diyReputationGuideListing,
 } from "../data/blogs/diyReputationGuide.js";
@@ -14,12 +15,6 @@ import {
 
 const HERO_IMG =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuB9RkcKxX1nZCRrBRIu6rOONYqsNVBW7ImSuvITVmOpUNdh9vHBQk72dRRSVg466yzV7FRLVAR74vtVn6mQM0qSQN7nwSKV5FRcqM2cRWLPZgV0I9AcJ4dx6eKagNgJmw90lkVLTGDucXhp4xEv1BziO3gnOT71pR9W2Me9zrfnNhsuERyYBIMHr21Picl79YYv-_eICE0qZQ-fU8O-bUpr5Nvt-K4QLuuTjb8c1GJuhLQBP1XrKDHjlV0QvXkwWydskHpIgIc5xa8";
-
-const FEATURED_LARGE_IMG =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuD5QuhCjOmDdhtcEyUvdgWvUr7qktAkSFxHBYEU6AS-vSI8j9pN_Eevw_S8dgjzcEecOkIWMPnvGWpYi9DjKcFnAdO8fT0ScLFULrNtK5ifYgRvNqS-tKW6IgjVAcXO0mCY9fhQzGq2knD0zGDyTclbjhrKXsw0iYy9Sw6seRPc9LFTaff2OP-EAdl20a9bADaHc6JP1Yr5cRgEMwPghNMvc1SI8fC3TW5OR3Qk0GyUKdsXvcKSbGbnDwcI3Zr9MualNrPZiVrVpD8";
-
-const AUTHOR_IMG =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAODSNNz_0-uPP1uxKjRDq9aXF2XeIw8VGRiIyWW3LXGZjSLkzDKcIFDZqyXteU9L-YNL2DMgCS0N6-RzwD6ROT2XSd2fN2Pv9Gm4A0cVF6MRmDVDlaUWKqLf07TDi9CiiDrCJhndAi262WZL1GwWoQhe8eniYp359bgxOb9iYMuc-7cm9ksue6NDOB4f-yZCAN14TP1UejDgnR2lswLFb1q_bY6dsLIgVse-gHpShUhfrIt6A168R97YZazI8nEyfQFf2N8k4Syj4";
 
 const FILTER_LABELS = ["All", "Corporate", "Personal", "Legal", "Tech"];
 
@@ -99,38 +94,32 @@ function InsightsBlogsPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
-            <div className="group ha-lift relative flex min-h-[500px] flex-col justify-end overflow-hidden rounded-xl bg-[#02254d] p-8 text-white md:col-span-2 md:row-span-2">
+            <a
+              href={DIY_REPUTATION_GUIDE_PATH}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group ha-lift relative flex min-h-[500px] flex-col justify-end overflow-hidden rounded-xl bg-[#02254d] p-8 text-white outline-none focus-visible:ring-2 focus-visible:ring-[#78dc77] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff] md:col-span-2 md:row-span-2"
+            >
               <div className="absolute inset-0 z-0">
                 <img
-                  src={FEATURED_LARGE_IMG}
-                  alt="Executive desk"
-                  className="h-full w-full object-cover opacity-30"
+                  src={diyReputationGuideListing.image}
+                  alt={diyReputationGuideListing.imageAlt}
+                  className="h-full w-full object-cover opacity-40 transition-opacity duration-300 group-hover:opacity-50"
                 />
               </div>
               <div className="relative z-10">
-                <span className="mb-4 block text-xs font-bold tracking-widest text-[#78dc77] uppercase">
-                  Executive Reputation
-                </span>
-                <h3 className="font-insights-headline mb-4 text-3xl leading-tight font-bold">
-                  The 2026 CEO Playbook: Why Personal SEO is Dead and Identity
-                  Authority is Everything
+                <h3 className="font-insights-headline mb-6 text-3xl leading-tight font-bold text-white">
+                  {diyReputationGuideListing.title}
                 </h3>
-                <p className="mb-6 line-clamp-3 text-lg text-[#8ca6d5]">
-                  In a world of generative AI search, traditional link-building for
-                  executives no longer works. We break down the new hierarchy of
-                  digital trust.
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="ha-lift h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-[#1f3b64] shadow-[0_12px_28px_-10px_rgba(0,0,0,0.25)]">
-                    <img src={AUTHOR_IMG} alt="Marcus Thorne" className="h-full w-full object-cover" />
+                <div className="flex items-center justify-between gap-4 text-sm">
+                  <div>
+                    <p className="font-bold">{diyReputationGuideListing.author}</p>
+                    <p className="opacity-70">{diyReputationGuideListing.date}</p>
                   </div>
-                  <div className="text-sm">
-                    <p className="font-bold">Marcus Thorne</p>
-                    <p className="opacity-70">Managing Partner</p>
-                  </div>
+                  <span className="shrink-0 opacity-80">{diyReputationGuideListing.readTime}</span>
                 </div>
               </div>
-            </div>
+            </a>
 
             <div className="glass-card group ha-lift flex flex-col justify-between rounded-xl border-none p-6 transition-colors hover:bg-[#e1e8fd] md:col-span-2">
               <div>

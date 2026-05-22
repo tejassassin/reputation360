@@ -244,8 +244,11 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
   return (
     <>
       <SeoHead
-        title={`${study.listTitle} | Reputation360`}
-        description={metaDescriptionFromText(study.summary, caseStudiesSeo.description)}
+        title={study.seoTitle ?? `${study.listTitle} | Reputation360`}
+        description={
+          study.metaDescription ??
+          metaDescriptionFromText(study.summary, caseStudiesSeo.description)
+        }
         canonicalPath={`/case-studies/${study.slug}`}
       />
     <main className="relative min-h-0 flex-1 bg-slate-50 pt-24 text-slate-900 md:pt-28">
