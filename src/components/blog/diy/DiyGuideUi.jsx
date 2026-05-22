@@ -1,14 +1,15 @@
 import { Check, ChevronDown, Minus, Plus, Sparkles, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-/** In-article internal link (green, underlined) per DIY guide SEO spec. */
-export function DiyInternalLink({ href, children }) {
+/** In-article internal link (blue, underlined) for blog guides. */
+export function DiyInternalLink({ href, children, onClick }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="diy-internal-link font-semibold text-green underline decoration-green/70 underline-offset-[3px] transition-colors hover:text-navy hover:decoration-navy/80"
+      onClick={onClick}
+      className="diy-internal-link font-semibold text-blue-600 underline decoration-blue-600 underline-offset-2 transition-colors hover:text-blue-800 hover:decoration-blue-800"
     >
       {children}
     </a>

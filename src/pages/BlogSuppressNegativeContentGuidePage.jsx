@@ -20,6 +20,10 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import { cn } from "@/lib/utils";
 import { calendlyCtaButtonClass } from "@/constants/scheduling";
 import { ConsultationCtas } from "@/components/ConsultationCtas";
+import { DiyInternalLink } from "@/components/blog/diy/DiyGuideUi.jsx";
+import { BLOG_INDEX_PATH } from "@/constants/blogPaths.js";
+import { AUDIENCE_PATH, WHO_WE_SERVE_HUB_PATH } from "@/constants/whoWeServePaths.js";
+import { DIY_REPUTATION_GUIDE_PATH } from "../data/blogs/diyReputationGuide.js";
 import {
   SUPPRESS_NEGATIVE_GUIDE_PATH,
   suppressNegativeGuideHero,
@@ -214,6 +218,13 @@ const STEPS = [
           Identify reputation monitoring needs to prevent future negative content
         </li>
       </ul>
+    ),
+    extra: (
+      <p className="mt-4 font-body text-sm leading-relaxed text-steel sm:text-base">
+        For a structured walkthrough of how to conduct this audit yourself - including which search variants to check
+        and how to score each result - see our{" "}
+        <DiyInternalLink href={DIY_REPUTATION_GUIDE_PATH}>complete reputation audit guide</DiyInternalLink>.
+      </p>
     ),
   },
   {
@@ -561,11 +572,15 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </div>
                 <div className="mt-10 text-lg text-steel">
                   <p>
-                    At Reputation360, we have helped hundreds of professionals - from neurosurgeons to hedge fund
-                    managers - reclaim their digital identities. Our proven online reputation management and negative
-                    link suppression strategies work by understanding that the internet doesn&apos;t have a
-                    &apos;forget&apos; button, but it does have a hierarchy. Our mission is to ensure your hierarchy
-                    reflects your excellence.
+                    At <DiyInternalLink href="/about">Reputation360</DiyInternalLink>, we have helped hundreds of
+                    professionals - from{" "}
+                    <DiyInternalLink href={WHO_WE_SERVE_HUB_PATH}>
+                      neurosurgeons to hedge fund managers
+                    </DiyInternalLink>{" "}
+                    - reclaim their digital identities. Our proven online reputation management and negative link
+                    suppression strategies work by understanding that the internet doesn&apos;t have a &apos;forget&apos;
+                    button, but it does have a hierarchy. Our mission is to ensure your hierarchy reflects your
+                    excellence.
                   </p>
                 </div>
               </section>
@@ -640,6 +655,15 @@ export default function BlogSuppressNegativeContentGuidePage() {
                     </p>
                   </div>
                 </div>
+                <p className="mt-8 font-body text-lg leading-relaxed text-steel">
+                  If you&apos;re in the early stages and want to understand what you can address yourself before bringing
+                  in professional support, our{" "}
+                  <DiyInternalLink href={DIY_REPUTATION_GUIDE_PATH}>
+                    DIY Online Reputation Management guide
+                  </DiyInternalLink>{" "}
+                  walks through the foundational steps. For situations where the damage is already on page 1,
+                  professional intervention is usually the faster path.
+                </p>
               </section>
 
               <section className="mb-20 scroll-mt-36" id="permanence">
@@ -761,11 +785,18 @@ export default function BlogSuppressNegativeContentGuidePage() {
               <section className="mb-20 scroll-mt-36" id="scenarios">
                 <h2 className="mb-8 font-heading text-3xl font-bold text-navy">Real Professional Scenarios</h2>
                 <div className="grid gap-4 md:grid-cols-3">
-                  <button
-                    type="button"
+                  <div
+                    role="button"
+                    tabIndex={0}
                     onClick={() => setActiveScenario("chen")}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setActiveScenario("chen");
+                      }
+                    }}
                     className={cn(
-                      "flex flex-col items-start gap-3 rounded-2xl border p-5 text-left font-body transition-all md:p-6",
+                      "flex cursor-pointer flex-col items-start gap-3 rounded-2xl border p-5 text-left font-body transition-all md:p-6",
                       activeScenario === "chen"
                         ? "border-navy bg-navy/5 shadow-md ring-2 ring-navy/30"
                         : "border-slate-200 bg-white hover:border-navy/30 hover:shadow-sm",
@@ -778,17 +809,31 @@ export default function BlogSuppressNegativeContentGuidePage() {
                       <Stethoscope className="h-5 w-5 shrink-0 text-navy" aria-hidden />
                     </div>
                     <p className="font-heading text-sm font-bold leading-snug text-navy md:text-base">
-                      Case 1: Dr. Sarah Chen - How to Remove Negative Articles from Google (#2 Ranking)
+                      Case 1:{" "}
+                      <DiyInternalLink
+                        href={AUDIENCE_PATH.doctors}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Dr. Sarah Chen
+                      </DiyInternalLink>{" "}
+                      - How to Remove Negative Articles from Google (#2 Ranking)
                     </p>
                     <span className="text-xs font-semibold text-navy underline-offset-2 hover:underline">
                       {activeScenario === "chen" ? "Selected" : "View this case"}
                     </span>
-                  </button>
-                  <button
-                    type="button"
+                  </div>
+                  <div
+                    role="button"
+                    tabIndex={0}
                     onClick={() => setActiveScenario("johnson")}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setActiveScenario("johnson");
+                      }
+                    }}
                     className={cn(
-                      "flex flex-col items-start gap-3 rounded-2xl border p-5 text-left font-body transition-all md:p-6",
+                      "flex cursor-pointer flex-col items-start gap-3 rounded-2xl border p-5 text-left font-body transition-all md:p-6",
                       activeScenario === "johnson"
                         ? "border-navy bg-navy/5 shadow-md ring-2 ring-navy/30"
                         : "border-slate-200 bg-white hover:border-navy/30 hover:shadow-sm",
@@ -801,17 +846,31 @@ export default function BlogSuppressNegativeContentGuidePage() {
                       <Scale className="h-5 w-5 shrink-0 text-navy" aria-hidden />
                     </div>
                     <p className="font-heading text-sm font-bold leading-snug text-navy md:text-base">
-                      Case 2: Attorney Marcus Johnson - Reputation Recovery from Negative Press
+                      Case 2:{" "}
+                      <DiyInternalLink
+                        href={AUDIENCE_PATH.lawyers}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Attorney Marcus Johnson
+                      </DiyInternalLink>{" "}
+                      - Reputation Recovery from Negative Press
                     </p>
                     <span className="text-xs font-semibold text-navy underline-offset-2 hover:underline">
                       {activeScenario === "johnson" ? "Selected" : "View this case"}
                     </span>
-                  </button>
-                  <button
-                    type="button"
+                  </div>
+                  <div
+                    role="button"
+                    tabIndex={0}
                     onClick={() => setActiveScenario("mitchell")}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setActiveScenario("mitchell");
+                      }
+                    }}
                     className={cn(
-                      "flex flex-col items-start gap-3 rounded-2xl border p-5 text-left font-body transition-all md:p-6",
+                      "flex cursor-pointer flex-col items-start gap-3 rounded-2xl border p-5 text-left font-body transition-all md:p-6",
                       activeScenario === "mitchell"
                         ? "border-navy bg-navy/5 shadow-md ring-2 ring-navy/30"
                         : "border-slate-200 bg-white hover:border-navy/30 hover:shadow-sm",
@@ -824,12 +883,19 @@ export default function BlogSuppressNegativeContentGuidePage() {
                       <Briefcase className="h-5 w-5 shrink-0 text-navy" aria-hidden />
                     </div>
                     <p className="font-heading text-sm font-bold leading-snug text-navy md:text-base">
-                      Case 3: Sarah Mitchell, Founder - Executive Reputation Management
+                      Case 3:{" "}
+                      <DiyInternalLink
+                        href={AUDIENCE_PATH.executives}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Sarah Mitchell, Founder
+                      </DiyInternalLink>{" "}
+                      - Executive Reputation Management
                     </p>
                     <span className="text-xs font-semibold text-navy underline-offset-2 hover:underline">
                       {activeScenario === "mitchell" ? "Selected" : "View this case"}
                     </span>
-                  </button>
+                  </div>
                 </div>
                 <div
                   key={activeScenario}
@@ -838,7 +904,9 @@ export default function BlogSuppressNegativeContentGuidePage() {
                   {activeScenario === "chen" ? (
                     <div id="chen">
                       <h4 className="mb-5 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
-                        Case 1: Dr. Sarah Chen - How to Remove Negative Articles from Google (#2 Ranking)
+                        Case 1:{" "}
+                        <DiyInternalLink href={AUDIENCE_PATH.doctors}>Dr. Sarah Chen</DiyInternalLink> - How to Remove
+                        Negative Articles from Google (#2 Ranking)
                       </h4>
                       <p className="font-body leading-relaxed text-steel">
                         Our negative content suppression strategy involved creating a series of high-authority medical
@@ -850,7 +918,9 @@ export default function BlogSuppressNegativeContentGuidePage() {
                   ) : activeScenario === "johnson" ? (
                     <div id="johnson">
                       <h4 className="mb-5 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
-                        Case 2: Attorney Marcus Johnson - Reputation Recovery from Negative Press
+                        Case 2:{" "}
+                        <DiyInternalLink href={AUDIENCE_PATH.lawyers}>Attorney Marcus Johnson</DiyInternalLink> -
+                        Reputation Recovery from Negative Press
                       </h4>
                       <p className="font-body leading-relaxed text-steel">
                         An old, dismissed legal dispute continued surfacing on Google when potential clients searched his
@@ -863,7 +933,9 @@ export default function BlogSuppressNegativeContentGuidePage() {
                   ) : (
                     <div id="mitchell">
                       <h4 className="mb-5 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
-                        Case 3: Sarah Mitchell, Founder - Executive Reputation Management
+                        Case 3:{" "}
+                        <DiyInternalLink href={AUDIENCE_PATH.executives}>Sarah Mitchell, Founder</DiyInternalLink> -
+                        Executive Reputation Management
                       </h4>
                       <p className="font-body leading-relaxed text-steel">
                         As a founder scaling her SaaS company, Sarah needed to establish thought leadership while
@@ -990,6 +1062,11 @@ export default function BlogSuppressNegativeContentGuidePage() {
                   just a list of links to a summarized narrative. If you don&apos;t control the data feeding these
                   models, they will hallucinate or amplify the negatives.
                 </p>
+                <p className="mt-6 text-lg leading-relaxed text-steel">
+                  We cover the latest shifts in search and reputation strategy in our{" "}
+                  <DiyInternalLink href={BLOG_INDEX_PATH}>insights blog</DiyInternalLink> - updated regularly by our
+                  team of practitioners.
+                </p>
               </section>
 
               <section className="mb-20 scroll-mt-36" id="faq">
@@ -997,7 +1074,18 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
                   {FAQS.map((f) => (
                     <FaqAccordion key={f.id} id={f.id} title={f.q} open={!!openAccordion[f.id]} onToggle={toggleAccordion}>
-                      <p>{f.a}</p>
+                      {f.id === "faq-5" ? (
+                        <p>
+                          Reputation repair is crisis-focused - removing or suppressing active negative content.
+                          Reputation management is ongoing - monitoring your online presence, building positive assets,
+                          and maintaining your professional reputation long-term. Both are part of what we do at
+                          Reputation360. Learn more about{" "}
+                          <DiyInternalLink href={WHO_WE_SERVE_HUB_PATH}>who we work with</DiyInternalLink> and how we
+                          approach each situation.
+                        </p>
+                      ) : (
+                        <p>{f.a}</p>
+                      )}
                     </FaqAccordion>
                   ))}
                 </div>
