@@ -49,6 +49,35 @@ function resolveCalloutVariant({ variant, icon, title }) {
   return "insight";
 }
 
+const ANSWER_VERDICT_STYLES = {
+  yes: "bg-green text-white",
+  sometimes: "bg-amber-500 text-white",
+  rarely: "bg-orange-600 text-white",
+  no: "bg-red-500 text-white",
+};
+
+/** Verdict panel for "can removal work?" style blog sections. */
+export function DiyAnswerBox({ label, verdict, verdictLabel, children }) {
+  return (
+    <div className="my-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="flex flex-wrap items-center gap-3 bg-navy px-5 py-4">
+        <span className="font-heading text-xs font-bold tracking-wide text-white uppercase">
+          {label}
+        </span>
+        <span
+          className={cn(
+            "ml-auto rounded-full px-3 py-1 font-heading text-xs font-bold uppercase tracking-wide",
+            ANSWER_VERDICT_STYLES[verdict] ?? ANSWER_VERDICT_STYLES.sometimes,
+          )}
+        >
+          {verdictLabel}
+        </span>
+      </div>
+      <div className="p-5 font-body text-base leading-relaxed text-steel sm:p-6">{children}</div>
+    </div>
+  );
+}
+
 /** Highlighted callout (insight, tip, warning) - shared across blog guides. */
 export function DiyKeyBox({ icon, title, children, variant }) {
   const resolved = resolveCalloutVariant({ variant, icon, title });
