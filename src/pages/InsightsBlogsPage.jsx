@@ -6,6 +6,7 @@ import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
   DIY_REPUTATION_GUIDE_PATH,
   DIY_REPUTATION_GUIDE_SLUG,
+  diyReputationGuideHero,
   diyReputationGuideListing,
 } from "../data/blogs/diyReputationGuide.js";
 import {
@@ -109,7 +110,7 @@ function InsightsBlogsPage() {
               </div>
               <div className="relative z-10">
                 <h3 className="font-insights-headline mb-6 text-3xl leading-tight font-bold text-white">
-                  {diyReputationGuideListing.title}
+                  {diyReputationGuideHero.title}
                 </h3>
                 <div className="flex items-center justify-between gap-4 text-sm">
                   <div>

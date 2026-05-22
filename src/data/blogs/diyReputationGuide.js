@@ -11,7 +11,7 @@ export const diyReputationGuideListing = {
   filter: "Personal",
   category: "DIY Reputation Management",
   title:
-    "DIY Online Reputation Management: A Complete Guide for Individuals",
+    "Take Control of Your Online Reputation: A Comprehensive Self-Management Guide",
   excerpt:
     "Your digital footprint is permanent. Learn proven strategies to build credibility, suppress negative content, and dominate your search results-without hiring an agency.",
   date: "May 20, 2026",
