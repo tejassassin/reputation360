@@ -218,7 +218,7 @@ export default function BlogDiyReputationGuidePage() {
                   ))}
                 </div>
 
-                <DiyKeyBox icon="💡" title="Critical finding from our data">
+                <DiyKeyBox variant="insight" title="Critical finding from our data">
                   88% of consumers trust online information about a person or business as much as personal
                   recommendations.
                 </DiyKeyBox>
@@ -360,7 +360,7 @@ export default function BlogDiyReputationGuidePage() {
                     </div>
                   ))}
                 </div>
-                <DiyKeyBox icon="✍️" title="The 30-day content challenge">
+                <DiyKeyBox variant="tip" title="The 30-day content challenge">
                   Publish one piece per week across 2-3 platforms. By day 30 you will have multiple positive URLs
                   competing for page 1.
                 </DiyKeyBox>

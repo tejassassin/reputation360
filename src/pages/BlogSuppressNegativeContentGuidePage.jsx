@@ -232,10 +232,12 @@ const STEPS = [
     title: "Step 2: Optimize Existing Digital Assets",
     body: 'Turn your LinkedIn, professional bios, and company site into Google-favored "Super Assets" that dominate the top slots. Most professionals have existing profiles that are simply under-optimized for search authority.',
     extra: (
-      <p className="rounded-xl border-l-4 border-navy bg-offwhite p-4 font-body text-sm italic text-steel">
-        &quot;Optimization isn&apos;t just about keywords; it&apos;s about building meaningful, interconnected digital
-        authority.&quot;
-      </p>
+      <blockquote className="diy-pull-quote">
+        <p>
+          &quot;Optimization isn&apos;t just about keywords; it&apos;s about building meaningful, interconnected
+          digital authority.&quot;
+        </p>
+      </blockquote>
     ),
   },
   {

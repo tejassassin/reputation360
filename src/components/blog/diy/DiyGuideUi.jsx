@@ -1,4 +1,15 @@
-import { Check, ChevronDown, Minus, Plus, Sparkles, X } from "lucide-react";
+import {
+  AlertTriangle,
+  ArrowRight,
+  Check,
+  ChevronDown,
+  Lightbulb,
+  Minus,
+  PenLine,
+  Plus,
+  Sparkles,
+  X,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /** In-article internal link (blue, underlined) for blog guides. */
@@ -25,15 +36,41 @@ export function DiyInteractiveHint() {
   );
 }
 
-export function DiyKeyBox({ icon, title, children }) {
+const CALLOUT_VARIANTS = {
+  insight: { Icon: Lightbulb, className: "diy-callout--insight" },
+  tip: { Icon: PenLine, className: "diy-callout--tip" },
+  warning: { Icon: AlertTriangle, className: "diy-callout--warning" },
+};
+
+function resolveCalloutVariant({ variant, icon, title }) {
+  if (variant && CALLOUT_VARIANTS[variant]) return variant;
+  if (icon === "⚠️" || /important|caution|warning/i.test(title ?? "")) return "warning";
+  if (icon === "✍️" || /challenge|tip/i.test(title ?? "")) return "tip";
+  return "insight";
+}
+
+/** Highlighted callout (insight, tip, warning) - shared across blog guides. */
+export function DiyKeyBox({ icon, title, children, variant }) {
+  const resolved = resolveCalloutVariant({ variant, icon, title });
+  const { Icon, className: variantClass } = CALLOUT_VARIANTS[resolved];
+
   return (
-    <div className="diy-key-box">
-      <div className="diy-key-box-title">
-        <span aria-hidden>{icon}</span>
-        <span>{title}</span>
+    <aside
+      className={cn("diy-callout my-6", variantClass)}
+      aria-label={title}
+    >
+      <div className="diy-callout-inner">
+        <div className="diy-callout-head">
+          <span className="diy-callout-icon" aria-hidden>
+            <Icon className="h-[1.125rem] w-[1.125rem]" strokeWidth={2.25} />
+          </span>
+          <p className="diy-callout-label">{title}</p>
+        </div>
+        <div className="diy-callout-body font-body text-[15px] leading-relaxed text-jet sm:text-base">
+          {children}
+        </div>
       </div>
-      <div className="font-body text-sm leading-relaxed text-jet">{children}</div>
-    </div>
+    </aside>
   );
 }
 
@@ -383,6 +420,65 @@ export function DiySectionHeader({ number, title }) {
       <span className="diy-section-tag">Section {number}</span>
       <h2 className="mb-6 font-heading text-3xl font-bold text-navy">{title}</h2>
     </>
+  );
+}
+
+/** Mini card row for related guides (compact, matches Insights-style tiles). */
+export function DiyRelatedReading({ articles, title = "Related reading" }) {
+  return (
+    <section className="diy-related-reading scroll-mt-36" aria-labelledby="diy-related-reading-heading">
+      <h2
+        id="diy-related-reading-heading"
+        className="mb-4 font-heading text-xl font-bold text-navy"
+      >
+        {title}
+      </h2>
+      <ul className="diy-related-scroll -mx-1 flex list-none gap-3 overflow-x-auto px-1 pb-1 snap-x snap-mandatory sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0">
+        {articles.map((article) => (
+          <li
+            key={article.href}
+            className="w-[min(82vw,240px)] shrink-0 snap-start sm:w-auto sm:min-w-0"
+          >
+            <a
+              href={article.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white no-underline shadow-sm ring-1 ring-slate-100/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-green/30 hover:shadow-md motion-reduce:transform-none"
+            >
+              <div className="diy-related-thumb aspect-[5/3] overflow-hidden bg-slate-100">
+                {article.image ? (
+                  <img
+                    src={article.image}
+                    alt={article.imageAlt ?? ""}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="h-full w-full bg-gradient-to-br from-navy to-slate" aria-hidden />
+                )}
+              </div>
+              <div className="flex flex-1 flex-col p-3.5 sm:p-4">
+                {article.category ? (
+                  <span className="font-heading text-[10px] font-bold tracking-widest text-green uppercase">
+                    {article.category}
+                  </span>
+                ) : null}
+                <p className="mt-1.5 flex-1 font-heading text-[13px] font-bold leading-snug text-navy transition-colors group-hover:text-slate sm:text-sm">
+                  {article.title}
+                </p>
+                <p className="mt-2 flex items-center justify-between gap-2 font-body text-[11px] font-medium text-steel">
+                  <span>{article.readTime}</span>
+                  <ArrowRight
+                    className="h-3.5 w-3.5 shrink-0 text-blue-600 transition-transform group-hover:translate-x-0.5"
+                    aria-hidden
+                  />
+                </p>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 
