@@ -228,8 +228,20 @@ export function StepPicker({ steps, activeStep, onSelectStep, panelId = "stepCon
             {active.n}
           </div>
           <div className="min-w-0">
-            <h4 className="font-heading text-base font-bold text-navy sm:text-lg">{active.title}</h4>
-            <p className="mt-2 font-body text-sm leading-relaxed text-jet sm:text-base">{active.body}</p>
+            {active.timespan ? (
+              <p className="font-heading text-xs font-bold tracking-wide text-green uppercase">
+                {active.timespan}
+              </p>
+            ) : null}
+            <h4
+              className={cn(
+                "font-heading text-base font-bold text-navy sm:text-lg",
+                active.timespan ? "mt-1" : "",
+              )}
+            >
+              {active.title}
+            </h4>
+            <div className="mt-2 font-body text-sm leading-relaxed text-jet sm:text-base">{active.body}</div>
           </div>
         </div>
       </div>

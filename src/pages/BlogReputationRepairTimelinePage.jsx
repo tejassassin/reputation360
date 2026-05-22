@@ -114,10 +114,64 @@ export default function BlogReputationRepairTimelinePage() {
   const scenario =
     TIMELINE_SCENARIOS.find((s) => s.id === scenarioId) ?? TIMELINE_SCENARIOS[0];
 
+  const repairPhaseBodies = {
+    phase1: (
+      <>
+        Every engagement begins with a thorough audit of your current search presence - mapping every result across
+        the first three pages, identifying the authority and backlink profile of damaging content, assessing your
+        existing positive digital assets, and defining the gap between where you are now and where you need to be.
+        This is where your{" "}
+        <DiyInternalLink href={FREE_RISK_SCAN_PATH}>free reputation scan</DiyInternalLink> gives you the starting
+        picture. The strategy built in this phase determines everything that follows.
+      </>
+    ),
+    phase2: (
+      <>
+        This phase involves creating and optimising the content that will ultimately outrank the damaging material.
+        That includes SEO-optimised articles and thought leadership pieces, profile pages on high-authority platforms
+        (LinkedIn, Crunchbase, industry directories), press releases, and in many cases editorial placements in
+        relevant publications. The quality and authority of these assets directly determines how quickly they climb in
+        rankings. For{" "}
+        <DiyInternalLink href={AUDIENCE_PATH.executives}>executives and C-suite leaders</DiyInternalLink>, this phase
+        often includes personal brand content that positions them as a named authority in their field.
+      </>
+    ),
+    phase3: (
+      <>
+        Content without backlinks rarely outranks entrenched negative results. This phase involves a strategic{" "}
+        <DiyInternalLink href={REMOVE_NEGATIVE_SEARCH_RESULTS_PATH}>
+          negative link suppression
+        </DiyInternalLink>{" "}
+        campaign - directing link authority toward your positive pages so they compete effectively in search. This is
+        often the phase that separates fast results from slow ones: a well-executed link-building campaign can
+        accelerate suppression dramatically.
+      </>
+    ),
+    phase4: (
+      <>
+        By the end of month two, most clients see positive content beginning to move into the top 20 results. By month
+        three, some of it has reached page one. This is typically the point at which the narrative visible to someone
+        searching your name or brand begins to change perceptibly. For{" "}
+        <DiyInternalLink href={AUDIENCE_PATH.businesses}>businesses</DiyInternalLink> with review management as part of
+        their engagement, improved ratings often become visible at this stage too.
+      </>
+    ),
+    phase5: (
+      <>
+        The final phase is about pushing damaging content entirely off page one - and keeping it there. This requires
+        continued content publication, ongoing link signals, and active monitoring. Google&apos;s algorithm re-evaluates
+        rankings continuously; without sustained effort, initial gains can erode. This is why ongoing{" "}
+        <DiyInternalLink href={DIY_REPUTATION_GUIDE_PATH}>reputation management</DiyInternalLink> rather than a
+        one-time fix produces the most durable results.
+      </>
+    ),
+  };
+
   const repairSteps = REPAIR_PHASES.map((p) => ({
     n: p.n,
+    timespan: p.timespan,
     title: p.title,
-    body: `${p.timespan}. ${p.body}`,
+    body: repairPhaseBodies[p.bodyKey],
   }));
 
   return (
@@ -364,8 +418,9 @@ export default function BlogReputationRepairTimelinePage() {
               <section className="mb-20 scroll-mt-36" id="phases">
                 <DiySectionHeader number="04" title="What Happens in Each Phase of Reputation Repair" />
                 <p className="mb-6 font-body text-lg text-steel">
-                  Understanding the timeline means knowing what happens during those months - and why some phases
-                  take longer. Here is how a professional{" "}
+                  Understanding the timeline isn&apos;t just about knowing how many months are involved - it&apos;s
+                  about knowing what&apos;s happening during those months, and why some phases take longer than others.
+                  Here&apos;s how a professional{" "}
                   <DiyInternalLink href={SERVICES_PATH}>online reputation management</DiyInternalLink> engagement
                   typically unfolds:
                 </p>
@@ -375,24 +430,6 @@ export default function BlogReputationRepairTimelinePage() {
                   onSelectStep={setRepairPhase}
                   panelId="repairPhaseContent"
                 />
-                <p className="mt-6 font-body text-base text-steel">
-                  Every engagement begins with a thorough audit - mapping results across the first three pages,
-                  scoring damaging URLs, and defining the gap to your goal. Start with a{" "}
-                  <DiyInternalLink href={FREE_RISK_SCAN_PATH}>free reputation scan</DiyInternalLink> for your
-                  baseline. For{" "}
-                  <DiyInternalLink href={AUDIENCE_PATH.executives}>executives and C-suite leaders</DiyInternalLink>,
-                  phase two often includes personal brand content that positions you as a named authority.
-                </p>
-                <p className="mt-4 font-body text-base text-steel">
-                  Content without backlinks rarely outranks entrenched negatives. See our guide on{" "}
-                  <DiyInternalLink href={REMOVE_NEGATIVE_SEARCH_RESULTS_PATH}>
-                    removing or suppressing negative search results
-                  </DiyInternalLink>{" "}
-                  for link-building context. By month two, most clients see positive content entering the top 20;
-                  by month three, some reaches page one. For{" "}
-                  <DiyInternalLink href={AUDIENCE_PATH.businesses}>businesses</DiyInternalLink> with review
-                  management in the engagement, improved ratings often show at this stage too.
-                </p>
                 <blockquote className="diy-pull-quote mt-8">
                   <p>
                     &quot;The clients who see results fastest are rarely the ones with the easiest situations - they&apos;re

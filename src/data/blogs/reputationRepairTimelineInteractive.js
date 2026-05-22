@@ -181,33 +181,33 @@ export const TIMELINE_SCENARIOS = [
 export const REPAIR_PHASES = [
   {
     n: 1,
-    title: "Deep diagnosis (audit & strategy)",
-    body: "Map every result across the first three pages, score authority of damaging URLs, assess existing assets, and define the gap between now and where you need to be. The strategy built here determines everything that follows.",
-    timespan: "Weeks 1-2",
+    timespan: "Weeks 1-2: Audit & Strategy",
+    title: "Deep Diagnosis",
+    bodyKey: "phase1",
   },
   {
     n: 2,
-    title: "Building positive infrastructure",
-    body: "Create and optimize SEO articles, high-authority profiles, press, and editorial placements. Quality and authority of these assets determine ranking speed.",
-    timespan: "Weeks 2-6",
+    timespan: "Weeks 2-6: Content & Asset Creation",
+    title: "Building the Positive Infrastructure",
+    bodyKey: "phase2",
   },
   {
     n: 3,
-    title: "Link building & amplification",
-    body: "Direct link authority toward positive pages so they compete with entrenched negatives. A strong link campaign often separates fast results from slow ones.",
-    timespan: "Weeks 4-12",
+    timespan: "Weeks 4-12: Link Building & Amplification",
+    title: "Building the Authority Signal",
+    bodyKey: "phase3",
   },
   {
     n: 4,
-    title: "First visible results",
-    body: "By month two, positive content often enters the top 20. By month three, some reaches page one - the visible narrative begins to change.",
-    timespan: "Month 2-4",
+    timespan: "Month 2-4: First Visible Results",
+    title: "Rankings Begin to Shift",
+    bodyKey: "phase4",
   },
   {
     n: 5,
-    title: "Consolidation & dominance",
-    body: "Push damaging content off page one and keep it there with continued publication, link signals, and monitoring. Sustainable effort prevents gains from eroding.",
-    timespan: "Month 3-12",
+    timespan: "Month 3-12: Consolidation & Dominance",
+    title: "Locking In the New Narrative",
+    bodyKey: "phase5",
   },
 ];
 
