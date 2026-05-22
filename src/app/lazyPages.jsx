@@ -5,6 +5,7 @@ import { BLOG_INDEX_PATH } from "../constants/blogPaths.js";
 import { DIY_REPUTATION_GUIDE_SLUG } from "../data/blogs/diyReputationGuide.js";
 import { SUPPRESS_NEGATIVE_GUIDE_SLUG } from "../data/blogs/suppressNegativeContentGuide.js";
 import { REMOVE_NEGATIVE_SEARCH_RESULTS_SLUG } from "../data/blogs/removeNegativeSearchResultsGuide.js";
+import { REPUTATION_REPAIR_TIMELINE_SLUG } from "../data/blogs/reputationRepairTimelineGuide.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
 import { AI_REPUTATION_SCAN_PATH } from "../constants/reputationAgent.js";
 
@@ -31,6 +32,9 @@ const BlogDiyReputationGuidePage = lazy(
 );
 const BlogRemoveNegativeSearchResultsPage = lazy(
   () => import("../pages/BlogRemoveNegativeSearchResultsPage.jsx"),
+);
+const BlogReputationRepairTimelinePage = lazy(
+  () => import("../pages/BlogReputationRepairTimelinePage.jsx"),
 );
 const GuidePage = lazy(() => import("../pages/GuidePage.jsx"));
 const AcceptableUsePolicyPage = lazy(() => import("../pages/AcceptableUsePolicyPage.jsx"));
@@ -93,6 +97,9 @@ export function pageForPath(path) {
     }
     if (slug === REMOVE_NEGATIVE_SEARCH_RESULTS_SLUG) {
       return <BlogRemoveNegativeSearchResultsPage />;
+    }
+    if (slug === REPUTATION_REPAIR_TIMELINE_SLUG) {
+      return <BlogReputationRepairTimelinePage />;
     }
   }
   if (path === "/resources/guide") return <GuidePage />;
