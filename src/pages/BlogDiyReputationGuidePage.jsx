@@ -219,8 +219,8 @@ export default function BlogDiyReputationGuidePage() {
                 </div>
 
                 <DiyKeyBox icon="💡" title="Critical finding from our data">
-                  43% of individuals searching for themselves discover outdated information or forgotten accounts.
-                  Identify zombie profiles during your audit.
+                  88% of consumers trust online information about a person or business as much as personal
+                  recommendations.
                 </DiyKeyBox>
               </section>
 

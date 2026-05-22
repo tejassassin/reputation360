@@ -6,6 +6,8 @@ export function DiyInternalLink({ href, children }) {
   return (
     <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className="diy-internal-link font-semibold text-green underline decoration-green/70 underline-offset-[3px] transition-colors hover:text-navy hover:decoration-navy/80"
     >
       {children}
