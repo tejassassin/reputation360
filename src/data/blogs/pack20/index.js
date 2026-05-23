@@ -12,6 +12,11 @@ import { article as article12 } from "./blog12.js";
 import { article as article13 } from "./blog13.js";
 import { article as article14 } from "./blog14.js";
 import { article as article15 } from "./blog15.js";
+import { article as article16 } from "./blog16.js";
+import { article as article17 } from "./blog17.js";
+import { article as article18 } from "./blog18.js";
+import { article as article19 } from "./blog19.js";
+import { article as article20 } from "./blog20.js";
 
 export { SLUG as SLUG01 } from "./blog01.js";
 export { SLUG as SLUG02 } from "./blog02.js";
@@ -27,12 +32,22 @@ export { SLUG as SLUG12 } from "./blog12.js";
 export { SLUG as SLUG13 } from "./blog13.js";
 export { SLUG as SLUG14 } from "./blog14.js";
 export { SLUG as SLUG15 } from "./blog15.js";
+export { SLUG as SLUG16 } from "./blog16.js";
+export { SLUG as SLUG17 } from "./blog17.js";
+export { SLUG as SLUG18 } from "./blog18.js";
+export { SLUG as SLUG19 } from "./blog19.js";
+export { SLUG as SLUG20 } from "./blog20.js";
 
 export { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 /** @type {import('./types.js').Pack20Article[]} */
 /** Published pack articles; add more here when content is ready. */
 export const PACK20_ARTICLES = [
+  article20,
+  article19,
+  article18,
+  article17,
+  article16,
   article15,
   article14,
   article13,
