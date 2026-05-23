@@ -6,6 +6,7 @@ import { article as article06 } from "./blog06.js";
 import { article as article07 } from "./blog07.js";
 import { article as article08 } from "./blog08.js";
 import { article as article09 } from "./blog09.js";
+import { article as article10 } from "./blog10.js";
 
 export { SLUG as SLUG01 } from "./blog01.js";
 export { SLUG as SLUG02 } from "./blog02.js";
@@ -15,12 +16,14 @@ export { SLUG as SLUG06 } from "./blog06.js";
 export { SLUG as SLUG07 } from "./blog07.js";
 export { SLUG as SLUG08 } from "./blog08.js";
 export { SLUG as SLUG09 } from "./blog09.js";
+export { SLUG as SLUG10 } from "./blog10.js";
 
 export { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 /** @type {import('./types.js').Pack20Article[]} */
 /** Published pack articles; add more here when content is ready. */
 export const PACK20_ARTICLES = [
+  article10,
   article09,
   article08,
   article07,
