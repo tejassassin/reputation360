@@ -39,7 +39,7 @@ export const article = {
   listing: {
     id: "pack20-profile-claiming",
     slug: SLUG,
-    filter: "Personal",
+    filter: "Social Media",
     category: "Profile Strategy",
     title:
       "Building a Positive Google Presence: Reputation360's Profile Claiming Guide",

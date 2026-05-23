@@ -40,7 +40,7 @@ export const article = {
   listing: {
     id: "pack20-roi-reputation",
     slug: SLUG,
-    filter: "Corporate",
+    filter: "Strategy",
     category: "ROI & Results",
     title: "The ROI of Reputation Management: What Reputation360 Clients See",
     excerpt:

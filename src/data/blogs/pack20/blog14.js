@@ -42,7 +42,7 @@ export const article = {
   listing: {
     id: "pack20-hidden-cost-reputation",
     slug: SLUG,
-    filter: "Corporate",
+    filter: "Strategy",
     category: "Reputation Analysis",
     title: "The Hidden Cost of Ignoring Your Online Reputation (Reputation360 Analysis)",
     excerpt:

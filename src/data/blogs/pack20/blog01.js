@@ -36,7 +36,7 @@ export const article = {
   listing: {
     id: "pack20-suppress-framework",
     slug: SLUG,
-    filter: "Personal",
+    filter: "Suppression",
     category: "Suppression Strategy",
     title: "How to Suppress Negative Search Results: The Reputation360 Framework",
     excerpt:

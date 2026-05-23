@@ -42,7 +42,7 @@ export const article = {
   listing: {
     id: "pack20-first-result-psychology",
     slug: SLUG,
-    filter: "Personal",
+    filter: "Strategy",
     category: "Reputation Psychology",
     title:
       "Why Your First Google Results Matter: Reputation360's Psychology Deep Dive",

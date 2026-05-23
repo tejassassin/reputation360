@@ -40,7 +40,7 @@ export const article = {
   listing: {
     id: "pack20-recruiters-google",
     slug: SLUG,
-    filter: "Personal",
+    filter: "Career",
     category: "Job Search & Reputation",
     title: "What Do Recruiters Google About You? Reputation360's Insider Report",
     excerpt:

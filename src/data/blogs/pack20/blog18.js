@@ -42,7 +42,7 @@ export const article = {
   listing: {
     id: "pack20-monitoring-guide",
     slug: SLUG,
-    filter: "Corporate",
+    filter: "Monitoring",
     category: "Monitoring",
     title: "Monitoring Your Online Reputation: Reputation360's Tools & Tactics Guide",
     excerpt:

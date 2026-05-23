@@ -44,7 +44,7 @@ export const article = {
   listing: {
     id: "pack20-crisis-playbook",
     slug: SLUG,
-    filter: "Corporate",
+    filter: "Crisis",
     category: "Crisis Management",
     title: "Crisis Management and Reputation Recovery: The Reputation360 Playbook",
     excerpt:

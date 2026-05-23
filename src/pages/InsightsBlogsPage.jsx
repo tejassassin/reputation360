@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BadgeCheck, ArrowRight, ArrowUpRight } from "lucide-react";
+import { BadgeCheck, ArrowRight } from "lucide-react";
 import { BlogGuideCtaPanel } from "../components/blog/BlogGuideCtaSection.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
@@ -25,12 +25,33 @@ import {
   REMOVE_NEWS_ARTICLES_FROM_GOOGLE_SLUG,
   removeNewsArticlesFromGoogleListing,
 } from "../data/blogs/removeNewsArticlesFromGoogleGuide.js";
-import { getPack20Listings, PACK20_SLUGS } from "../data/blogs/pack20/index.js";
+import {
+  getPack20Listings,
+  PACK20_SLUGS,
+} from "../data/blogs/pack20/index.js";
+import { article as socialPostsArticle } from "../data/blogs/pack20/blog05.js";
+import { article as crisisPlaybookArticle } from "../data/blogs/pack20/blog08.js";
+import { article as ormMethodologyArticle } from "../data/blogs/pack20/blog15.js";
+
+const FEATURED_PACK_INSIGHTS = [
+  socialPostsArticle.listing,
+  crisisPlaybookArticle.listing,
+  ormMethodologyArticle.listing,
+];
 
 const HERO_IMG =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuB9RkcKxX1nZCRrBRIu6rOONYqsNVBW7ImSuvITVmOpUNdh9vHBQk72dRRSVg466yzV7FRLVAR74vtVn6mQM0qSQN7nwSKV5FRcqM2cRWLPZgV0I9AcJ4dx6eKagNgJmw90lkVLTGDucXhp4xEv1BziO3gnOT71pR9W2Me9zrfnNhsuERyYBIMHr21Picl79YYv-_eICE0qZQ-fU8O-bUpr5Nvt-K4QLuuTjb8c1GJuhLQBP1XrKDHjlV0QvXkwWydskHpIgIc5xa8";
 
-const FILTER_LABELS = ["All", "Corporate", "Personal", "Legal", "Tech"];
+const FILTER_LABELS = [
+  "All",
+  "Suppression",
+  "Social Media",
+  "Monitoring",
+  "Strategy",
+  "Career",
+  "Crisis",
+  "Legal",
+];
 
 const latestArticles = [
   ...getPack20Listings(),
@@ -107,9 +128,14 @@ function InsightsBlogsPage() {
             </div>
             <button
               type="button"
+              onClick={() =>
+                document
+                  .getElementById("latest-articles")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               className="group ha-nudge flex items-center gap-2 self-start rounded-lg bg-[#02254d] px-4 py-2.5 font-semibold text-white transition-colors hover:bg-[#35618e] sm:self-auto"
             >
-              <span>View all features</span>
+              <span>Browse all articles</span>
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
@@ -119,7 +145,7 @@ function InsightsBlogsPage() {
               href={DIY_REPUTATION_GUIDE_PATH}
               target="_blank"
               rel="noopener noreferrer"
-              className="group ha-lift relative flex min-h-[500px] flex-col justify-end overflow-hidden rounded-xl bg-[#02254d] p-8 text-white outline-none focus-visible:ring-2 focus-visible:ring-[#78dc77] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff] md:col-span-2 md:row-span-2"
+              className="group ha-lift relative flex min-h-[400px] flex-col justify-end overflow-hidden rounded-xl bg-[#02254d] p-8 text-white outline-none focus-visible:ring-2 focus-visible:ring-[#78dc77] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff] md:col-span-2 md:row-span-2 md:min-h-[500px]"
             >
               <div className="absolute inset-0 z-0">
                 <img
@@ -142,60 +168,88 @@ function InsightsBlogsPage() {
               </div>
             </a>
 
-            <div className="glass-card group ha-lift flex flex-col justify-between rounded-xl border-none p-6 transition-colors hover:bg-[#e1e8fd] md:col-span-2">
-              <div>
-                <span className="mb-3 block text-xs font-bold tracking-widest text-[#35618e] uppercase">
-                  Crisis Management
-                </span>
-                <h3 className="font-insights-headline mb-3 text-xl font-bold text-[#02254d]">
-                  Responding to Viral Misinformation in the First 120 Minutes
-                </h3>
-                <p className="line-clamp-2 text-sm text-[#43474e]">
-                  Speed used to be the only metric. Now, accuracy and narrative
-                  control are the only things that save your stock price.
-                </p>
-              </div>
-              <div className="mt-6 flex items-center justify-between">
-                <span className="text-xs text-[#74777f]">8 min read</span>
-                <ArrowUpRight className="h-5 w-5 text-[#35618e] opacity-0 transition-opacity group-hover:opacity-100" />
-              </div>
-            </div>
+            {FEATURED_PACK_INSIGHTS.map((insight, index) => {
+              const href = `/blog/${insight.slug}`;
+              const isWide = index === 0;
+              const isCrisis = index === 1;
 
-            <div className="group ha-lift flex flex-col justify-between rounded-xl border-none bg-white p-6 transition-shadow hover:shadow-xl md:col-span-1">
-              <div>
-                <span className="mb-3 inline-block rounded bg-[#00450e] px-2 py-0.5 text-[10px] font-bold tracking-widest text-[#78dc77] uppercase">
-                  Legal
-                </span>
-                <h3 className="font-insights-headline mb-3 text-lg font-bold text-[#02254d]">
-                  {"Google's New 'Right to be Forgotten' Policies"}
-                </h3>
-              </div>
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-xs text-[#74777f]">5 min read</span>
-                <ArrowUpRight className="h-5 w-5 text-[#35618e] opacity-0 transition-opacity group-hover:opacity-100" />
-              </div>
-            </div>
+              if (isWide) {
+                return (
+                  <a
+                    key={insight.id}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glass-card group ha-lift flex flex-col justify-between rounded-xl border-none p-6 transition-colors hover:bg-[#e1e8fd] md:col-span-2 outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff]"
+                  >
+                    <div>
+                      <span className="mb-3 block text-xs font-bold tracking-widest text-[#35618e] uppercase">
+                        {insight.category}
+                      </span>
+                      <h3 className="font-insights-headline mb-3 text-xl font-bold text-[#02254d] transition-colors group-hover:text-[#35618e]">
+                        {insight.title}
+                      </h3>
+                      <p className="line-clamp-3 text-sm text-[#43474e]">
+                        {insight.excerpt}
+                      </p>
+                    </div>
+                    <div className="mt-6 flex items-center justify-between">
+                      <span className="text-xs text-[#74777f]">{insight.readTime}</span>
+                      <ArrowRight className="h-5 w-5 text-[#35618e] opacity-0 transition-opacity group-hover:opacity-100" />
+                    </div>
+                  </a>
+                );
+              }
 
-            <div className="group ha-lift flex flex-col justify-between rounded-xl border-none bg-white p-6 transition-shadow hover:shadow-xl md:col-span-1">
-              <div>
-                <span className="mb-3 block text-xs font-bold tracking-widest text-[#35618e] uppercase">
-                  Corporate
-                </span>
-                <h3 className="font-insights-headline mb-3 text-lg font-bold text-[#02254d]">
-                  ESG and the Reputation Paradox
-                </h3>
-              </div>
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-xs text-[#74777f]">12 min read</span>
-                <ArrowUpRight className="h-5 w-5 text-[#35618e] opacity-0 transition-opacity group-hover:opacity-100" />
-              </div>
-            </div>
+              return (
+                <a
+                  key={insight.id}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group ha-lift flex flex-col justify-between rounded-xl border-none p-6 transition-shadow hover:shadow-xl md:col-span-1 outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff] ${
+                    isCrisis ? "bg-[#f1f3ff]" : "bg-white"
+                  }`}
+                >
+                  <div>
+                    <span
+                      className={`mb-3 block text-xs font-bold tracking-widest uppercase ${
+                        isCrisis
+                          ? "text-[#35618e]"
+                          : "inline-block rounded bg-[#00450e] px-2 py-0.5 text-[10px] text-[#78dc77]"
+                      }`}
+                    >
+                      {insight.category}
+                    </span>
+                    <h3 className="font-insights-headline mb-3 text-lg font-bold text-[#02254d] transition-colors group-hover:text-[#35618e]">
+                      {insight.title}
+                    </h3>
+                    <p
+                      className={`text-sm leading-snug text-[#43474e] ${
+                        isCrisis ? "font-semibold" : "line-clamp-4"
+                      }`}
+                    >
+                      {insight.excerpt}
+                    </p>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className="text-xs text-[#74777f]">
+                      {insight.date} · {insight.author}
+                    </span>
+                    <ArrowRight className="h-5 w-5 shrink-0 text-[#35618e] opacity-0 transition-opacity group-hover:opacity-100" />
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Latest Articles */}
-      <section className="mx-auto max-w-7xl px-6 py-24 md:px-8">
+      <section
+        id="latest-articles"
+        className="mx-auto max-w-7xl px-6 py-24 md:px-8"
+      >
         <div className="mb-16 flex flex-col justify-between gap-8 md:flex-row md:items-center">
           <h2 className="font-insights-headline text-4xl font-extrabold tracking-tight text-[#02254d]">
             Latest Articles

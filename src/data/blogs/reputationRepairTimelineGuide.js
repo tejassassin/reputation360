@@ -7,7 +7,7 @@ export const REPUTATION_REPAIR_TIMELINE_PATH = blogPostPath(REPUTATION_REPAIR_TI
 export const reputationRepairTimelineListing = {
   id: "reputation-repair-timeline",
   slug: REPUTATION_REPAIR_TIMELINE_SLUG,
-  filter: "Personal",
+  filter: "Suppression",
   category: "Reputation Repair",
   title: "How Long Does It Take to Fix an Online Reputation?",
   excerpt:

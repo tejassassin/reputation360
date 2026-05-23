@@ -43,7 +43,7 @@ export const article = {
   listing: {
     id: "pack20-social-reputation",
     slug: SLUG,
-    filter: "Corporate",
+    filter: "Social Media",
     category: "Social Media",
     title: "Social Media Reputation Management: Reputation360's Multi-Platform Strategy",
     excerpt:

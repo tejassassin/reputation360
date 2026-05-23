@@ -40,7 +40,7 @@ export const article = {
   listing: {
     id: "pack20-negative-links-cases",
     slug: SLUG,
-    filter: "Personal",
+    filter: "Career",
     category: "Case Studies",
     title: "Negative Links That Cost Jobs and Deals: Real Cases Reputation360 Solved",
     excerpt:

@@ -2,7 +2,7 @@
  * @typedef {object} Pack20Listing
  * @property {string} id
  * @property {string} slug
- * @property {"Corporate"|"Personal"|"Legal"} filter
+ * @property {"Suppression"|"Social Media"|"Monitoring"|"Strategy"|"Career"|"Crisis"|"Legal"} filter
  * @property {string} category
  * @property {string} title
  * @property {string} excerpt

@@ -40,7 +40,7 @@ export const article = {
   listing: {
     id: "pack20-linkedin-checklist",
     slug: SLUG,
-    filter: "Personal",
+    filter: "Social Media",
     category: "LinkedIn & Search",
     title:
       "LinkedIn Profile Optimization for Search Results: The Reputation360 Checklist",

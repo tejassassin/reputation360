@@ -42,7 +42,7 @@ export const article = {
   listing: {
     id: "pack20-first-page-ownership",
     slug: SLUG,
-    filter: "Personal",
+    filter: "Suppression",
     category: "First Page Strategy",
     title: "Own Your First Page: Reputation360's Strategy to Control Google Results",
     excerpt:

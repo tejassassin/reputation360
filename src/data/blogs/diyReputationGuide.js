@@ -8,7 +8,7 @@ export const DIY_REPUTATION_GUIDE_PATH = blogPostPath(DIY_REPUTATION_GUIDE_SLUG)
 export const diyReputationGuideListing = {
   id: "diy-reputation-guide",
   slug: DIY_REPUTATION_GUIDE_SLUG,
-  filter: "Personal",
+  filter: "Suppression",
   category: "DIY Reputation Management",
   title:
     "Take Control of Your Online Reputation: A Comprehensive Self-Management Guide",

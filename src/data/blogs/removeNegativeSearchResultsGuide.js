@@ -13,7 +13,7 @@ export const REMOVE_NEGATIVE_SEARCH_RESULTS_PATH = blogPostPath(
 export const removeNegativeSearchResultsListing = {
   id: "remove-negative-search-results",
   slug: REMOVE_NEGATIVE_SEARCH_RESULTS_SLUG,
-  filter: "Corporate",
+  filter: "Suppression",
   category: "Google Reputation Management",
   title: "How to Remove or Suppress Negative Search Results from Google",
   excerpt:

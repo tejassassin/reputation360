@@ -45,7 +45,7 @@ export const article = {
   listing: {
     id: "pack20-social-posts-google",
     slug: SLUG,
-    filter: "Personal",
+    filter: "Social Media",
     category: "Social & Search",
     title:
       "Dealing With Old Social Media Posts That Show Up in Google: The Reputation360 Guide",

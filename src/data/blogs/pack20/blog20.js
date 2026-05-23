@@ -49,7 +49,7 @@ export const article = {
   listing: {
     id: "pack20-ai-search-reputation",
     slug: SLUG,
-    filter: "Corporate",
+    filter: "Strategy",
     category: "AI & Search",
     title:
       "How AI Search Changes Reputation: Reputation360's Guide to ChatGPT & Beyond",

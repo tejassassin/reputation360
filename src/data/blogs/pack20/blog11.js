@@ -42,7 +42,7 @@ export const article = {
   listing: {
     id: "pack20-pre-interview-reputation",
     slug: SLUG,
-    filter: "Personal",
+    filter: "Career",
     category: "Job Search & Reputation",
     title: "How to Fix Your Reputation Before Your Job Interview: Reputation360 Guide",
     excerpt:
