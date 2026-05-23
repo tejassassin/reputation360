@@ -522,7 +522,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                   <p>
                     It starts with a search. A prospective patient, a potential high-value client, or a future partner
                     enters your name. Then they see it - a lingering negative headline, an unfair review, or a
-                    misrepresentative archive. In today&apos;s search landscape, they&apos;ll either find the negative
+                    misrepresentative archive. In today&apos;s online world, they&apos;ll either find the negative
                     content on Google&apos;s first page - or they won&apos;t find you at all. Our guide shows you how to
                     remove negative search results and reclaim your digital presence.&rdquo;
                   </p>
@@ -1110,7 +1110,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                       Get your free consultation
                     </h2>
                     <p className="mx-auto mb-6 max-w-3xl font-body text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">
-                      Book a short call: we review your search landscape, set expectations, and outline practical next
+                      Book a short call: we review your online world, set expectations, and outline practical next
                       steps. No obligation.
                     </p>
                     <ConsultationCtas
