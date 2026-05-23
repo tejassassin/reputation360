@@ -27,13 +27,30 @@ function escapeHtml(s) {
  * @param {string} p.improving
  * @param {Uint8Array} [p.pdfBytes]
  */
+/**
+ * Resend expects `email@domain.com` or `Display Name <email@domain.com>`.
+ * Strip accidental wrapping quotes from Vercel env values.
+ * @param {string | undefined} raw
+ */
+function normalizeResendFrom(raw) {
+  let from = String(raw ?? "").trim();
+  if (
+    (from.startsWith('"') && from.endsWith('"')) ||
+    (from.startsWith("'") && from.endsWith("'"))
+  ) {
+    from = from.slice(1, -1).trim();
+  }
+  return from;
+}
+
 export async function sendReputationReportEmail(p) {
   const key = process.env.RESEND_API_KEY;
-  const from = process.env.RESEND_FROM_EMAIL;
-  if (!key || !from) {
+  const fromRaw = process.env.RESEND_FROM_EMAIL;
+  if (!key || !fromRaw) {
     throw new Error("RESEND_API_KEY and RESEND_FROM_EMAIL must be set");
   }
 
+  const from = normalizeResendFrom(fromRaw);
   const resend = new Resend(key);
   const name = `${p.firstName} ${p.lastName}`.trim();
   const attachmentName = `${name || "Reputation Scan"} Reputation Scan by Reputation360.pdf`;

@@ -770,6 +770,16 @@ export default function FreeRiskScanPage() {
               <CheckCircle2 className="h-4 w-4" aria-hidden />
               Report sent to {scanSubject.email}
             </p>
+          ) : scanPayload.emailError ? (
+            <p className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950">
+              <strong className="font-semibold">Email not sent.</strong> Your report is on this page
+              {scanPayload.emailError ? (
+                <>
+                  {" "}
+                  and you can download the PDF - but we could not deliver email: {scanPayload.emailError}
+                </>
+              ) : null}
+            </p>
           ) : null}
 
           {/* Metric strip */}

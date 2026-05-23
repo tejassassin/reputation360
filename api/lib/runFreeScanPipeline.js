@@ -367,7 +367,8 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
       console.error("[free-scan] email", e);
     }
   } else {
-    emailError = null;
+    emailError =
+      "Email is not configured on the server (set RESEND_API_KEY and RESEND_FROM_EMAIL in Vercel).";
   }
 
   return {
