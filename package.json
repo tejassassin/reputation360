@@ -19,7 +19,9 @@
     "sitemap": "node scripts/generate-sitemap.mjs",
     "lint": "eslint .",
     "preview": "node scripts/dev.mjs preview",
-    "local:prod": "node scripts/dev.mjs build && node scripts/dev.mjs preview"
+    "local:prod": "node scripts/dev.mjs build && node scripts/dev.mjs preview",
+    "verify:live": "node scripts/verify-live-deploy.mjs",
+    "verify:live:about": "node scripts/verify-live-deploy.mjs /about"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.36.1",
