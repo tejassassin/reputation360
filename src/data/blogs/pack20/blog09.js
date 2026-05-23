@@ -4,15 +4,31 @@ import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 export const SLUG = "linkedin-profile-optimization-search-results-reputation360-checklist";
 export const PATH = blogPostPath(SLUG);
 
+const SUPPRESS_FRAMEWORK_PATH = blogPostPath(
+  "how-to-suppress-negative-search-results-reputation360-framework",
+);
+
+const RANK_POSITIVE_PATH = blogPostPath(
+  "rank-positive-content-above-negative-results-reputation360-strategy",
+);
+
+const SOCIAL_POSTS_PATH = blogPostPath(
+  "old-social-media-posts-showing-up-google-reputation360-guide",
+);
+
 const TOC = [
   { id: "why-linkedin-ranks", label: "01. Why LinkedIn ranks for name searches" },
   { id: "optimization-checklist", label: "02. The optimization checklist" },
   { id: "profile-ecosystem", label: "03. Beyond LinkedIn: the profile ecosystem" },
+  { id: "put-it-together", label: "04. Put the checklist to work" },
 ];
 
 const NAV = [
   { id: "intro", label: "Introduction" },
-  ...TOC,
+  { id: "why-linkedin-ranks", label: "Why LinkedIn ranks" },
+  { id: "optimization-checklist", label: "Checklist" },
+  { id: "profile-ecosystem", label: "Profile ecosystem" },
+  { id: "put-it-together", label: "Next actions" },
   { id: "start", label: "Next step" },
   { id: "faq", label: "FAQ" },
   { id: "related", label: "Related reading" },
@@ -32,7 +48,7 @@ export const article = {
       "LinkedIn is often the fastest path to page one. A field-by-field checklist to rank for your name and push negative results down.",
     date: PACK20_DATE,
     author: PACK20_AUTHOR,
-    readTime: "11 minutes",
+    readTime: "15 minutes",
     image: pack20Image("linkedin"),
     imageAlt: "Professional working on a laptop with LinkedIn branding context",
   },
@@ -45,8 +61,30 @@ export const article = {
     title: "LinkedIn Profile Optimization for Search Results",
     lead:
       "If one action produces fast, reliable improvement for a personal name search, it is a fully optimized LinkedIn profile. High domain authority, quick indexing, and full control make it the first move in most suppression campaigns.",
+    meta: [
+      { value: "DA 98", label: "LinkedIn domain authority" },
+      { value: "2-4 weeks", label: "Typical top-3 timing" },
+      { value: "1,100+", label: "Clients served" },
+    ],
   },
+  introBlocks: [
+    {
+      type: "p",
+      text: "If there is one single action that produces the fastest, most reliable improvement in a personal name search result, it is a fully optimized LinkedIn profile. LinkedIn's domain authority is among the highest of any platform on the internet. Google treats LinkedIn profiles as highly credible, highly relevant sources for personal name searches. And unlike many other reputation assets, a LinkedIn profile is entirely within your control.",
+    },
+    {
+      type: "p",
+      text: "At Reputation360, LinkedIn optimization is the first action we take for virtually every individual client across the US, Canada, Australia, and Europe - seven years of experience and more than 1,100 engagements. Here is the complete checklist we use, and why each element matters.",
+    },
+    {
+      type: "lead",
+      label: "What this guide covers",
+      text: "Why LinkedIn wins name searches, a field-by-field optimization checklist you can work through in order, how to build a supporting profile ecosystem, and what to do if LinkedIn is not the right platform for you.",
+    },
+  ],
   toc: TOC,
+  tocTitle: "What You'll Learn",
+  tocAriaLabel: "What you'll learn",
   nav: NAV,
   scrollSpyOrder: NAV.map((n) => n.id),
   sections: [
@@ -57,14 +95,18 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "LinkedIn carries exceptional domain authority. Google treats person-specific LinkedIn URLs as credible matches for name queries. A complete, keyword-aware profile often lands in the top three positions - and every positive slot you hold is one a negative cannot occupy.",
+          text: "LinkedIn.com has a domain authority of 98 out of 100. Google considers LinkedIn one of the most trustworthy sites on the internet. When a page on LinkedIn is about a specific person, Google has strong signals that it is relevant to searches for that person's name. A fully completed, keyword-optimized LinkedIn profile will rank in the top three positions for a personal name search in the vast majority of cases.",
+        },
+        {
+          type: "p",
+          text: "This matters for reputation because position 1 or 2 is incredibly valuable search real estate. If your LinkedIn profile is in position 1, the negative result cannot be in position 1. Every spot your positive assets occupy is a spot the negative content cannot have.",
         },
         {
           type: "stats",
           items: [
-            { value: "98", label: "Domain authority (typical scale)" },
-            { value: "2-4 wk", label: "Time to top-3 movement" },
-            { value: "50", label: "Skills to add (max)" },
+            { value: "Top 3", label: "Typical rank after full optimization" },
+            { value: "2-4 weeks", label: "Movement for exact name search" },
+            { value: "50", label: "Skills to add (maximum)" },
           ],
         },
       ],
@@ -76,32 +118,79 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Work through each item. Skipping headline or About sections leaves ranking power on the table.",
+          text: "Work through each item below. Skipping headline, About, or Experience sections leaves ranking power on the table. Select a checklist area to see what to change and why Google cares.",
         },
         {
-          type: "accordion",
+          type: "pills",
+          pickerKey: "linkedin-optimization-checklist",
           items: [
             {
-              id: "li-photo-banner",
-              title: "Photo, banner, and custom URL",
-              body: "Use a professional headshot and on-brand banner. Set linkedin.com/in/your-name (add middle initial or credential if needed) for an exact-match URL signal.",
+              id: "photo-banner",
+              label: "Photo and banner",
+              title: "Profile photo and banner",
+              body: "Use a professional, high-quality headshot as your profile photo. It signals credibility and increases profile views. Your banner image should reinforce your professional identity - a relevant background, a company logo, or a simple professional graphic. Both images contribute to overall perception and encourage visitors to read further.",
             },
             {
-              id: "li-headline-about",
-              title: "Headline and About (500+ words)",
-              body: "Headline: title, specialty, sector - no vague labels. About: first-person narrative with full name, geography, expertise, and outcomes. Both fields are heavily indexed.",
+              id: "headline",
+              label: "Headline",
+              title: "Headline",
+              body: "Your LinkedIn headline is one of the most important SEO elements on your profile. It appears in search results alongside your name and is weighted heavily by both LinkedIn's internal search and Google. Write a headline that clearly states your title, your specialty, and your sector. Include keywords someone would use when searching for a professional like you. Avoid generic phrases like Experienced Professional - be specific about what you do and who you serve.",
             },
             {
-              id: "li-experience-skills",
-              title: "Experience, skills, recommendations",
-              body: "3-5 sentences per role with real accomplishments. Add up to 50 skills; prioritize top 10. Secure five-plus specific recommendations mentioning your name and work.",
+              id: "custom-url",
+              label: "Custom URL",
+              title: "Custom URL",
+              body: "Set your LinkedIn URL to your full name (for example linkedin.com/in/johnsmith or linkedin.com/in/john-smith-cpa). This creates an exact-match URL for your name, which is one of the strongest ranking signals Google uses for name-based searches. If your exact name is taken, add a middle initial, credential abbreviation, or location descriptor.",
             },
             {
-              id: "li-activity-network",
-              title: "Activity, location, and network",
-              body: "Post at least twice weekly. Complete location and industry fields. Grow toward 500+ relevant connections to boost internal visibility and post reach.",
+              id: "about",
+              label: "About",
+              title: "About section",
+              body: "The About section should be written in first person, be comprehensive (aim for 500+ words), and naturally include your full name, your title, your geographic focus (city, country, or regions served), and your areas of expertise. This section is indexed by both LinkedIn and Google and should read as a professional narrative of your career - not a bullet list of skills. Include specific outcomes, industries, and accomplishments.",
+            },
+            {
+              id: "experience",
+              label: "Experience",
+              title: "Experience section",
+              body: "Each role should have a detailed description - not just job title and dates. Write 3 to 5 sentences about your responsibilities and specific accomplishments in each position. Use the title field exactly as it appears professionally, since this is a keyword-rich indexed field. For current roles, keep descriptions updated and add media such as presentations, articles, or project links where available.",
+            },
+            {
+              id: "linkedin",
+              label: "Skills",
+              title: "Skills and endorsements",
+              body: "Add the maximum number of skills LinkedIn allows (50). Prioritize skills that match the keywords people would use to find someone in your profession. Reorder your skills so the most relevant ones appear in the top 10. Actively seek endorsements for your top skills from colleagues and clients - endorsement counts are a social proof signal that increases profile credibility.",
+            },
+            {
+              id: "recommendations",
+              label: "Recommendations",
+              title: "Recommendations",
+              body: "LinkedIn recommendations are one of the most powerful credibility signals on the platform. Aim for at least five recommendations from people who can speak specifically to your professional work. Write recommendations for others - they often reciprocate. Recommendations that mention your full name and specific accomplishments are especially valuable for SEO purposes.",
+            },
+            {
+              id: "contact",
+              label: "Contact info",
+              title: "Contact and location",
+              body: "Ensure your location, industry, and contact information are complete and accurate. These fields help LinkedIn and Google match your profile to location-based searches for your name. If you operate across multiple markets - including the US, Canada, Australia, or Europe - mention this in your About section and services description.",
+            },
+            {
+              id: "activity",
+              label: "Activity",
+              title: "Content activity",
+              body: "LinkedIn profiles that are actively posting content rank higher in LinkedIn's internal search and signal to Google that the profile is a live, maintained entity rather than a static page. Post at minimum twice a week - industry commentary, professional updates, brief articles, or curated content relevant to your field. Each post creates a new indexed URL and reinforces the keyword associations Google builds with your name.",
+            },
+            {
+              id: "network",
+              label: "Network",
+              title: "Connections and network",
+              body: "LinkedIn's algorithm partially determines profile visibility based on network size. Profiles with 500+ connections display prominently in LinkedIn searches and signal credibility to visitors. Actively grow your network with relevant professional connections. A larger network also increases the organic reach of your posts, creating more indexed engagement around your name.",
             },
           ],
+        },
+        {
+          type: "keyBox",
+          variant: "tip",
+          title: "Work in this order",
+          text: "Photo, URL, and headline first (fast wins in Google snippets). Then About and Experience (bulk of indexed text). Finish with skills, recommendations, activity, and network growth so the profile stays fresh.",
         },
       ],
     },
@@ -112,13 +201,64 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "LinkedIn works best alongside Crunchbase, X, company About pages, and industry directories - each another indexed positive URL. If LinkedIn is not the right fit, the same ranking principles apply across personal sites, press, and alternate professional platforms.",
+          text: "LinkedIn is the most powerful single profile platform for reputation management, but it works best as part of an ecosystem. Reputation360 recommends also optimizing profiles on Crunchbase (for executives and entrepreneurs), Twitter/X (for public professionals), company About pages (with your biographical information), and industry-specific directories. Each additional optimized profile is another search position that belongs to positive, professional content about you.",
+        },
+        {
+          type: "bullets",
+          items: [
+            "Crunchbase and company About pages for executives and founders.",
+            "Twitter/X and industry forums for visible public professionals.",
+            "Directories and association listings tied to your name and credentials.",
+            "Personal website or portfolio when you need full narrative control.",
+          ],
         },
         {
           type: "keyBox",
-          variant: "tip",
+          variant: "insight",
           title: "Privacy-conscious clients",
-          body: "Strong outcomes are possible without LinkedIn using websites, press, and other high-authority profiles. The checklist logic - completeness, keywords, activity, links - transfers to whichever platforms you choose.",
+          text: "There are situations where LinkedIn is not the right choice, and we never push clients toward a platform they are not comfortable with. In those cases we build suppression around personal websites, press, directories, and alternate professional platforms. The checklist logic - completeness, keywords, activity, cross-links - transfers to whichever platforms you choose. We have delivered strong outcomes for clients who were not on LinkedIn at all.",
+        },
+      ],
+    },
+    {
+      id: "put-it-together",
+      number: "04",
+      title: "Put the checklist to work",
+      blocks: [
+        {
+          type: "p",
+          text: "Treat this like an audit, not a one-time edit. Search your exact name in an incognito window, note where your LinkedIn URL ranks today, then work the checklist until headline, About, and Experience all reflect your current professional story.",
+        },
+        {
+          type: "steps",
+          pickerKey: "linkedin-audit-steps",
+          steps: [
+            {
+              n: 1,
+              title: "Baseline search audit",
+              body: "Search your full name in a private window. Screenshot page one and note your LinkedIn position and any negative URLs beside it.",
+            },
+            {
+              n: 2,
+              title: "Complete high-impact fields",
+              body: "Update photo, banner, custom URL, headline, and About (500+ words with your full name and geography).",
+            },
+            {
+              n: 3,
+              title: "Deepen Experience and skills",
+              body: "Add 3-5 sentences per role, max out skills, reorder top 10, and request five or more specific recommendations.",
+            },
+            {
+              n: 4,
+              title: "Activate and expand",
+              body: "Post twice weekly, grow toward 500+ relevant connections, and claim one or two complementary profiles (Crunchbase, X, or a directory).",
+            },
+            {
+              n: 5,
+              title: "Re-check in two weeks",
+              body: "Repeat the name search. Most clients see top-three movement within 2-4 weeks after a full optimization pass.",
+            },
+          ],
         },
       ],
     },
@@ -126,28 +266,49 @@ export const article = {
   faqs: [
     {
       id: "faq-1",
-      q: "How quickly will an optimized profile rank?",
-      a: "Most people see top-three placement for exact name searches within 2-4 weeks after a full optimization. Brand-new profiles may need slightly longer to accumulate signals.",
+      q: "How quickly will a fully optimized LinkedIn profile rank for my name?",
+      a: "For most individuals, a freshly optimized or re-optimized LinkedIn profile will appear in the top 3 Google results for an exact name search within 2 to 4 weeks of the changes. If your profile is brand new, it may take slightly longer to accumulate the authority signals needed for top placement.",
     },
     {
       id: "faq-2",
-      q: "Can LinkedIn outrank major news sites?",
-      a: "Often yes for personal name queries, especially combined with other positive assets. News remains harder but LinkedIn is a direct competitor on page one.",
+      q: "Does LinkedIn optimization help if the negative result is also on a high-authority site?",
+      a: "Yes - LinkedIn can directly compete with and outrank most high-authority sites for a personal name search. Even content on major news platforms can be outranked by a strongly optimized LinkedIn profile when combined with other positive assets.",
     },
     {
       id: "faq-3",
-      q: "What if I do not want a LinkedIn presence?",
-      a: "Build suppression through personal sites, press, directories, and other platforms using the same completeness and keyword discipline.",
+      q: "What if I do not want to be on LinkedIn for privacy reasons?",
+      a: "We build suppression entirely around other assets: personal websites, alternative professional platforms, social presences, press placements, and directory listings that collectively do the same job. LinkedIn is a strong tool for name-search suppression, but it is not the only path.",
     },
   ],
   cta: {
-    title: "Audit your profile like a recruiter",
+    title: "Take the next step",
     lead:
-      "Search your exact name in an incognito window, open your LinkedIn URL, and compare what Google shows versus what your profile delivers. Close the gaps field by field.",
+      "Search your exact name in an incognito window, open your LinkedIn URL, and compare what Google shows versus what your profile delivers. We can audit gaps field by field.",
   },
-  relatedSlugs: [
-    "what-recruiters-google-about-you-reputation360-insider-report",
-    "rank-positive-content-above-negative-results-reputation360-strategy",
-    "old-social-media-posts-showing-up-google-reputation360-guide",
+  relatedReading: [
+    {
+      title: "How to Rank Positive Content Above Negative Results",
+      href: RANK_POSITIVE_PATH,
+      category: "Content Strategy",
+      readTime: "18 min read",
+      image: pack20Image("rank"),
+      imageAlt: "Professional reviewing content performance on a laptop",
+    },
+    {
+      title: "How to Suppress Negative Search Results: The Reputation360 Framework",
+      href: SUPPRESS_FRAMEWORK_PATH,
+      category: "Suppression Strategy",
+      readTime: "18 min read",
+      image: pack20Image("suppress"),
+      imageAlt: "Analytics dashboard representing search result monitoring",
+    },
+    {
+      title: "Dealing With Old Social Media Posts That Show Up in Google",
+      href: SOCIAL_POSTS_PATH,
+      category: "Social & Search",
+      readTime: "16 min read",
+      image: pack20Image("social"),
+      imageAlt: "Social media apps on a smartphone screen",
+    },
   ],
 };
