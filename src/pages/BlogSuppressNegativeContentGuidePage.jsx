@@ -1098,8 +1098,8 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 <div className="mb-10 font-body text-lg text-steel">
                   <p>
                     The first step is always the reputation audit. Knowing exactly where you stand allows you to move
-                    from a position of anxiety to a position of action. Our free consultation reviews your search
-                    landscape, identifies negative links affecting your Google reputation, and outlines your personalized
+                    from a position of anxiety to a position of action. Our free consultation reviews your online
+                    world, identifies negative links affecting your Google reputation, and outlines your personalized
                     reputation repair strategy. Whether you work with Reputation360 or take these steps yourself, the cost of
                     inaction - in leads, revenue, and credibility - only grows with time.
                   </p>
