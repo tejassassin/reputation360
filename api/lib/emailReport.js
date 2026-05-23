@@ -47,6 +47,13 @@ function normalizeResendFrom(raw) {
     from = from.slice(1, -1).trim();
   }
 
+  // Square brackets are often pasted instead of angle brackets around the address.
+  from = from.replace(/\[\s*(?=<?[^\s@]+@)/g, " ");
+  from = from.replace(
+    /\[\s*<?\s*([^\]>]+@[^\]>]+)\s*>?\s*\]?/g,
+    "<$1>",
+  );
+
   const emailMatch = from.match(EMAIL_RE);
   if (!emailMatch) {
     throw new Error(
@@ -64,7 +71,10 @@ function normalizeResendFrom(raw) {
     return `${namedAngle[1].trim()} <${namedAngle[2].trim()}>`;
   }
 
-  const beforeEmail = from.slice(0, emailMatch.index).replace(/[<>"']/g, "").trim();
+  const beforeEmail = from
+    .slice(0, emailMatch.index)
+    .replace(/[<>"'\[\]]/g, "")
+    .trim();
   if (beforeEmail) {
     return `${beforeEmail} <${email}>`;
   }
