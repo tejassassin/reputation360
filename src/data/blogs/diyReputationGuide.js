@@ -18,8 +18,8 @@ export const diyReputationGuideListing = {
   author: "Reputation360",
   readTime: "25 minutes",
   image:
-    "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
-  imageAlt: "Person reviewing online search results on a laptop",
+    "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1200&q=80",
+  imageAlt: "Notebook and laptop representing a DIY reputation action plan",
 };
 
 export const diyReputationGuideSeoTitle =

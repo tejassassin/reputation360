@@ -49,7 +49,7 @@ export const article = {
     date: PACK20_DATE,
     author: PACK20_AUTHOR,
     readTime: "15 minutes",
-    image: pack20Image("linkedin"),
+    image: pack20Image("linkedinChecklist"),
     imageAlt: "Professional working on a laptop with LinkedIn branding context",
   },
   seoTitle:

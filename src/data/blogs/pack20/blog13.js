@@ -51,7 +51,7 @@ export const article = {
     date: PACK20_DATE,
     author: PACK20_AUTHOR,
     readTime: "12 minutes",
-    image: pack20Image("suppress"),
+    image: pack20Image("psychology"),
     imageAlt: "Person considering search results on a laptop screen",
   },
   seoTitle:

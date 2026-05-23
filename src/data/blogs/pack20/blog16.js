@@ -48,7 +48,7 @@ export const article = {
     date: PACK20_DATE,
     author: PACK20_AUTHOR,
     readTime: "10 minutes",
-    image: pack20Image("cases"),
+    image: pack20Image("roi"),
     imageAlt: "Professional reviewing return on reputation investment metrics",
   },
   seoTitle: "ROI of Reputation Management | Reputation360",

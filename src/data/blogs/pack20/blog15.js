@@ -59,7 +59,7 @@ export const article = {
     date: PACK20_DATE,
     author: PACK20_AUTHOR,
     readTime: "18 minutes",
-    image: pack20Image("default"),
+    image: pack20Image("methodology"),
     imageAlt: "Team collaborating on reputation management strategy",
   },
   seoTitle:

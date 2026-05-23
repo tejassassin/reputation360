@@ -49,7 +49,7 @@ export const article = {
     date: PACK20_DATE,
     author: PACK20_AUTHOR,
     readTime: "18 minutes",
-    image: pack20Image("removal"),
+    image: pack20Image("removalDecision"),
     imageAlt: "Legal scales representing removal and compliance decisions",
   },
   seoTitle:

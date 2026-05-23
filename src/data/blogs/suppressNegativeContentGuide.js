@@ -19,8 +19,8 @@ export const suppressNegativeGuideListing = {
   author: "Reputation360",
   readTime: "8 minutes",
   image:
-    "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
-  imageAlt: "Professional reviewing strategy and search results on a laptop",
+    "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1200&q=80",
+  imageAlt: "Documents and strategy notes representing professional negative content suppression",
 };
 
 export const suppressNegativeGuideSeoTitle =

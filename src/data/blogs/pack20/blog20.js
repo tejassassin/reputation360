@@ -58,7 +58,7 @@ export const article = {
     date: PACK20_DATE,
     author: PACK20_AUTHOR,
     readTime: "16 minutes",
-    image: pack20Image("default"),
+    image: pack20Image("aiSearch"),
     imageAlt: "AI search interface representing reputation in the AI era",
   },
   seoTitle: "AI Search and Online Reputation | Reputation360",

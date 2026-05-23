@@ -48,7 +48,7 @@ export const article = {
     date: PACK20_DATE,
     author: PACK20_AUTHOR,
     readTime: "14 minutes",
-    image: pack20Image("linkedin"),
+    image: pack20Image("profileClaiming"),
     imageAlt: "Professional claiming and optimizing online profiles",
   },
   seoTitle: "Profile Claiming Guide for Google Presence | Reputation360",

@@ -52,7 +52,7 @@ export const article = {
     date: PACK20_DATE,
     author: PACK20_AUTHOR,
     readTime: "18 minutes",
-    image: pack20Image("crisis"),
+    image: pack20Image("crisisTeam"),
     imageAlt: "Team planning crisis response at a conference table",
   },
   seoTitle:

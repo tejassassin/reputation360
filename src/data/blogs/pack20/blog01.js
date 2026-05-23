@@ -44,7 +44,7 @@ export const article = {
     date: PACK20_DATE,
     author: PACK20_AUTHOR,
     readTime: "18 minutes",
-    image: pack20Image("suppress"),
+    image: pack20Image("searchFramework"),
     imageAlt: "Analytics dashboard representing search result monitoring",
   },
   seoTitle:

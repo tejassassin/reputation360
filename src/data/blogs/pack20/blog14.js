@@ -50,7 +50,7 @@ export const article = {
     date: PACK20_DATE,
     author: PACK20_AUTHOR,
     readTime: "12 minutes",
-    image: pack20Image("cases"),
+    image: pack20Image("reputationCost"),
     imageAlt: "Business professionals reviewing financial impact of reputation",
   },
   seoTitle:

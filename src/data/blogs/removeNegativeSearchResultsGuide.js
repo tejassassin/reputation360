@@ -22,8 +22,8 @@ export const removeNegativeSearchResultsListing = {
   author: "Reputation360",
   readTime: "10 minutes",
   image:
-    "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
-  imageAlt: "Person reviewing Google search results on a laptop",
+    "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80",
+  imageAlt: "Laptop workspace representing Google search result cleanup",
 };
 
 export const removeNegativeSearchResultsSeoTitle =

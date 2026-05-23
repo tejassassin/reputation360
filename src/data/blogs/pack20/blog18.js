@@ -50,7 +50,7 @@ export const article = {
     date: PACK20_DATE,
     author: PACK20_AUTHOR,
     readTime: "14 minutes",
-    image: pack20Image("suppress"),
+    image: pack20Image("monitoring"),
     imageAlt: "Dashboard showing online reputation monitoring alerts",
   },
   seoTitle: "Monitor Your Online Reputation | Reputation360",
