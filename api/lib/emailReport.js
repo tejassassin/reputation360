@@ -27,20 +27,49 @@ function escapeHtml(s) {
  * @param {string} p.improving
  * @param {Uint8Array} [p.pdfBytes]
  */
+const EMAIL_RE = /[^\s<>()[\],;]+@[^\s<>()[\],;]+\.[^\s<>()[\],;]+/;
+
 /**
  * Resend expects `email@domain.com` or `Display Name <email@domain.com>`.
- * Strip accidental wrapping quotes from Vercel env values.
+ * Normalize common Vercel / copy-paste mistakes (quotes, missing angle brackets, smart punctuation).
  * @param {string | undefined} raw
  */
 function normalizeResendFrom(raw) {
-  let from = String(raw ?? "").trim();
+  let from = String(raw ?? "")
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/[\u201C\u201D]/g, '"')
+    .trim();
+
   if (
     (from.startsWith('"') && from.endsWith('"')) ||
     (from.startsWith("'") && from.endsWith("'"))
   ) {
     from = from.slice(1, -1).trim();
   }
-  return from;
+
+  const emailMatch = from.match(EMAIL_RE);
+  if (!emailMatch) {
+    throw new Error(
+      "RESEND_FROM_EMAIL must include a valid email, e.g. reports@thereputation360.com",
+    );
+  }
+  const email = emailMatch[0];
+
+  if (/^[^\s<>]+@[^\s<>]+\.[^\s<>]+$/.test(from)) {
+    return from;
+  }
+
+  const namedAngle = from.match(/^(.+?)<\s*([^>]+)\s*>$/);
+  if (namedAngle) {
+    return `${namedAngle[1].trim()} <${namedAngle[2].trim()}>`;
+  }
+
+  const beforeEmail = from.slice(0, emailMatch.index).replace(/[<>"']/g, "").trim();
+  if (beforeEmail) {
+    return `${beforeEmail} <${email}>`;
+  }
+
+  return email;
 }
 
 export async function sendReputationReportEmail(p) {
