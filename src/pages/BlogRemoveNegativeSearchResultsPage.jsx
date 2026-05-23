@@ -31,6 +31,7 @@ import {
   ChecklistBlock,
   DiyAccordion,
   DiyKeyBox,
+  DiyLeadHighlight,
   DiyRelatedReading,
   DiySectionHeader,
   MobileGuideNav,
@@ -333,13 +334,12 @@ export default function BlogRemoveNegativeSearchResultsPage() {
                   <h3 className="font-heading text-xl font-bold text-navy">{suppressionTactic.title}</h3>
                   <p className="mt-3 font-body text-base leading-relaxed text-steel">{suppressionTactic.body}</p>
                 </div>
-                <blockquote className="diy-pull-quote mt-8">
+                <DiyLeadHighlight className="mt-8">
                   <p>
-                    &quot;Suppression isn&apos;t about hiding the truth - it&apos;s about ensuring the complete picture
-                    of who you are gets seen. One bad article shouldn&apos;t permanently define you in search
-                    results.&quot;
+                    Suppression isn&apos;t about hiding the truth - it&apos;s about ensuring the complete picture of who
+                    you are gets seen. One bad article shouldn&apos;t permanently define you in search results.
                   </p>
-                </blockquote>
+                </DiyLeadHighlight>
                 <p className="mt-6 font-body text-base text-steel">
                   For a full professional framework, read{" "}
                   <DiyInternalLink href={SUPPRESS_NEGATIVE_GUIDE_PATH}>

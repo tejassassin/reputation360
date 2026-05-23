@@ -20,7 +20,7 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import { cn } from "@/lib/utils";
 import { calendlyCtaButtonClass } from "@/constants/scheduling";
 import { ConsultationCtas } from "@/components/ConsultationCtas";
-import { DiyInternalLink } from "@/components/blog/diy/DiyGuideUi.jsx";
+import { DiyInternalLink, DiyLeadHighlight } from "@/components/blog/diy/DiyGuideUi.jsx";
 import { BLOG_INDEX_PATH } from "@/constants/blogPaths.js";
 import { AUDIENCE_PATH, WHO_WE_SERVE_HUB_PATH } from "@/constants/whoWeServePaths.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "../data/blogs/diyReputationGuide.js";
@@ -232,12 +232,12 @@ const STEPS = [
     title: "Step 2: Optimize Existing Digital Assets",
     body: 'Turn your LinkedIn, professional bios, and company site into Google-favored "Super Assets" that dominate the top slots. Most professionals have existing profiles that are simply under-optimized for search authority.',
     extra: (
-      <blockquote className="diy-pull-quote">
+      <DiyLeadHighlight>
         <p>
-          &quot;Optimization isn&apos;t just about keywords; it&apos;s about building meaningful, interconnected
-          digital authority.&quot;
+          Optimization isn&apos;t just about keywords; it&apos;s about building meaningful, interconnected digital
+          authority.
         </p>
-      </blockquote>
+      </DiyLeadHighlight>
     ),
   },
   {
@@ -518,15 +518,15 @@ export default function BlogSuppressNegativeContentGuidePage() {
             <main className="min-w-0 flex-1 px-0 pb-20 sm:px-2 lg:max-w-[52rem] lg:px-10">
               <section className="mb-20 scroll-mt-36 font-body" id="silent-crisis">
                 <h2 className="mb-8 font-heading text-3xl font-bold text-navy">The Silent Crisis Affecting Your Credibility</h2>
-                <blockquote className="diy-pull-quote">
+                <DiyLeadHighlight>
                   <p>
                     It starts with a search. A prospective patient, a potential high-value client, or a future partner
                     enters your name. Then they see it - a lingering negative headline, an unfair review, or a
                     misrepresentative archive. In today&apos;s online world, they&apos;ll either find the negative
                     content on Google&apos;s first page - or they won&apos;t find you at all. Our guide shows you how to
-                    remove negative search results and reclaim your digital presence.&rdquo;
+                    remove negative search results and reclaim your digital presence.
                   </p>
-                </blockquote>
+                </DiyLeadHighlight>
                 <div className="mt-10 flex flex-col gap-6">
                   <div className="flex flex-col items-stretch gap-6 rounded-2xl border-l-8 border-green bg-navy/5 p-6 sm:flex-row sm:items-center sm:p-8">
                     <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center self-center rounded-full bg-green font-heading text-2xl font-black text-navy sm:self-auto">

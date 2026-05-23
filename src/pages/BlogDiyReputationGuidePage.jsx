@@ -194,11 +194,9 @@ export default function BlogDiyReputationGuidePage() {
                   activeStep={auditStep}
                   onSelectStep={setAuditStep}
                   panelId="auditStepContent"
-                  hint="Tap each number to walk through the audit steps"
                 />
 
                 <h3 className="mb-4 mt-10 font-heading text-xl font-bold text-slate">Step 3: Analyze your results</h3>
-                <p className="mb-4 font-body text-steel">Click a category to see what to do with each type of result:</p>
                 <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
                   {RESULT_CATEGORIES.map((cat) => (
                     <button
@@ -596,35 +594,6 @@ export default function BlogDiyReputationGuidePage() {
                 />
               </section>
 
-              <section className="mb-20 scroll-mt-36" id="faq">
-                <h2 className="mb-8 font-heading text-3xl font-bold text-navy">FAQ</h2>
-                <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-                  {DIY_FAQS.map((f) => (
-                    <DiyFaqAccordion
-                      key={f.id}
-                      id={f.id}
-                      title={f.q}
-                      open={!!openAccordion[f.id]}
-                      onToggle={toggleAccordion}
-                    >
-                      {f.id === "diy-faq-5" ? (
-                        <p>
-                          If you&apos;re dealing with content that&apos;s ranking on page 1 for your name, content
-                          that cannot be removed, or a situation that&apos;s actively affecting your career or
-                          business - professional help is worth it. Start with a{" "}
-                          <DiyInternalLink href={FREE_RISK_SCAN_PATH}>free reputation scan</DiyInternalLink> to
-                          understand exactly what you&apos;re up against, or explore{" "}
-                          <DiyInternalLink href="/services">what professional ORM looks like</DiyInternalLink> before
-                          making a decision.
-                        </p>
-                      ) : (
-                        <p>{f.a}</p>
-                      )}
-                    </DiyFaqAccordion>
-                  ))}
-                </div>
-              </section>
-
               <section className="mb-20 scroll-mt-36" id="start">
                 <span className="diy-section-tag">Next step</span>
                 <h2 className="mb-6 font-heading text-3xl font-bold text-navy">Take the next step</h2>
@@ -655,6 +624,35 @@ export default function BlogDiyReputationGuidePage() {
                       Confidential
                     </p>
                   </div>
+                </div>
+              </section>
+
+              <section className="mb-20 scroll-mt-36" id="faq">
+                <h2 className="mb-8 font-heading text-3xl font-bold text-navy">FAQ</h2>
+                <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+                  {DIY_FAQS.map((f) => (
+                    <DiyFaqAccordion
+                      key={f.id}
+                      id={f.id}
+                      title={f.q}
+                      open={!!openAccordion[f.id]}
+                      onToggle={toggleAccordion}
+                    >
+                      {f.id === "diy-faq-5" ? (
+                        <p>
+                          If you&apos;re dealing with content that&apos;s ranking on page 1 for your name, content
+                          that cannot be removed, or a situation that&apos;s actively affecting your career or
+                          business - professional help is worth it. Start with a{" "}
+                          <DiyInternalLink href={FREE_RISK_SCAN_PATH}>free reputation scan</DiyInternalLink> to
+                          understand exactly what you&apos;re up against, or explore{" "}
+                          <DiyInternalLink href="/services">what professional ORM looks like</DiyInternalLink> before
+                          making a decision.
+                        </p>
+                      ) : (
+                        <p>{f.a}</p>
+                      )}
+                    </DiyFaqAccordion>
+                  ))}
                 </div>
               </section>
             </main>

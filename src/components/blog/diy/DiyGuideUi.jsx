@@ -78,6 +78,11 @@ export function DiyAnswerBox({ label, verdict, verdictLabel, children }) {
   );
 }
 
+/** Editorial lead-in — highlighted prose, not styled as a quotation. */
+export function DiyLeadHighlight({ children, className }) {
+  return <div className={cn("diy-lead-highlight", className)}>{children}</div>;
+}
+
 /** Highlighted callout (insight, tip, warning) - shared across blog guides. */
 export function DiyKeyBox({ icon, title, children, variant }) {
   const resolved = resolveCalloutVariant({ variant, icon, title });

@@ -10,6 +10,7 @@ import {
   DiyAccordion,
   DiyAnswerBox,
   DiyInternalLink,
+  DiyLeadHighlight,
   DiyKeyBox,
   DiyRelatedReading,
   DiySectionHeader,
@@ -290,13 +291,13 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
                     </LegalAccordion>
                   ))}
                 </div>
-                <blockquote className="diy-pull-quote mt-8">
+                <DiyLeadHighlight className="mt-8">
                   <p>
-                    &quot;The legal route takes time and carries no guarantee of success. But for content that is
-                    provably false and demonstrably damaging, it changes the conversation with publishers in a way that
-                    nothing else does.&quot;
+                    The legal route takes time and carries no guarantee of success. But for content that is provably
+                    false and demonstrably damaging, it changes the conversation with publishers in a way that nothing
+                    else does.
                   </p>
-                </blockquote>
+                </DiyLeadHighlight>
               </section>
 
               <section className="mb-20 scroll-mt-36" id="when-removal-fails">

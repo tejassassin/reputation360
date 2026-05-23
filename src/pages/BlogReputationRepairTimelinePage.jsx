@@ -43,6 +43,7 @@ import {
 import {
   DiyAccordion,
   DiyKeyBox,
+  DiyLeadHighlight,
   DiyRelatedReading,
   DiySectionHeader,
   MobileGuideNav,
@@ -430,12 +431,12 @@ export default function BlogReputationRepairTimelinePage() {
                   onSelectStep={setRepairPhase}
                   panelId="repairPhaseContent"
                 />
-                <blockquote className="diy-pull-quote mt-8">
+                <DiyLeadHighlight className="mt-8">
                   <p>
-                    &quot;The clients who see results fastest are rarely the ones with the easiest situations - they&apos;re
-                    the ones who start early, trust the process, and don&apos;t pause the strategy halfway through.&quot;
+                    The clients who see results fastest are rarely the ones with the easiest situations - they&apos;re the
+                    ones who start early, trust the process, and don&apos;t pause the strategy halfway through.
                   </p>
-                </blockquote>
+                </DiyLeadHighlight>
               </section>
 
               <section className="mb-20 scroll-mt-36" id="diy-vs-professional">

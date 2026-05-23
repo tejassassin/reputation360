@@ -10,8 +10,8 @@ export const DIY_GUIDE_NAV = [
   { id: "advanced", label: "Advanced Tactics" },
   { id: "myths", label: "DIY Myths" },
   { id: "checklist", label: "Monthly Checklist" },
-  { id: "faq", label: "FAQ" },
   { id: "start", label: "Get Started" },
+  { id: "faq", label: "FAQ" },
 ];
 
 export const DIY_SCROLL_SPY_ORDER = DIY_GUIDE_NAV.map((n) => n.id);
