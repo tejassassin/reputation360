@@ -645,6 +645,125 @@
   }
 }
 
+/* Do / don't checklist (crisis and similar guides) */
+.r360-diy-interactive .diy-do-dont {
+  display: grid;
+  gap: 1rem;
+  margin: 0 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .r360-diy-interactive .diy-do-dont {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    align-items: stretch;
+  }
+}
+
+.r360-diy-interactive .diy-do-dont-column {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgba(31, 59, 100, 0.12);
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(31, 59, 100, 0.06);
+}
+
+.r360-diy-interactive .diy-do-dont-column--do {
+  border-color: rgba(22, 101, 52, 0.2);
+}
+
+.r360-diy-interactive .diy-do-dont-column--dont {
+  border-color: rgba(185, 28, 28, 0.15);
+}
+
+.r360-diy-interactive .diy-do-dont-column__header {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-family: var(--font-heading, inherit);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.35;
+}
+
+.r360-diy-interactive .diy-do-dont-column--do .diy-do-dont-column__header {
+  background: linear-gradient(90deg, #e6f7ec 0%, #dff3e6 100%);
+  color: rgba(6, 78, 59, 0.95);
+}
+
+.r360-diy-interactive .diy-do-dont-column--dont .diy-do-dont-column__header {
+  background: linear-gradient(90deg, #fde8e8 0%, #fce4e4 100%);
+  color: rgba(127, 29, 29, 0.92);
+}
+
+.r360-diy-interactive .diy-do-dont-column__list {
+  flex: 1;
+  margin: 0;
+  padding: 1rem 1.1rem 1.2rem;
+  list-style: none;
+}
+
+.r360-diy-interactive .diy-do-dont-column__item {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(51, 65, 85, 0.95);
+}
+
+.r360-diy-interactive .diy-do-dont-column__item + .diy-do-dont-column__item {
+  margin-top: 0.85rem;
+}
+
+.r360-diy-interactive .diy-do-dont-column__icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.1rem;
+  border-radius: 9999px;
+}
+
+.r360-diy-interactive .diy-do-dont-column__icon--do {
+  background: rgba(22, 101, 52, 0.12);
+  color: rgba(6, 95, 70, 0.95);
+}
+
+.r360-diy-interactive .diy-do-dont-column__icon--dont {
+  background: rgba(185, 28, 28, 0.1);
+  color: rgba(153, 27, 27, 0.95);
+}
+
+.r360-diy-interactive .diy-do-dont-column__text {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (hover: hover) {
+  .r360-diy-interactive .diy-do-dont-column {
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .r360-diy-interactive .diy-do-dont-column:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -12px rgba(31, 59, 100, 0.16);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .r360-diy-interactive .diy-do-dont-column:hover {
+    transform: none;
+  }
+}
+
 /* Before / after case study (situation vs outcome) */
 .r360-diy-interactive .diy-case-compare {
   margin: 0 0 2rem;

@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import {
   ArrowRight,
+  Check,
   Facebook,
   Globe,
   Linkedin,
@@ -8,6 +9,7 @@ import {
   Newspaper,
   PenLine,
   UserRound,
+  X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -91,6 +93,42 @@ function ContentTypePicker({ items, pillKey, pillState, setPillState }) {
           <p className="mt-3 font-body text-base leading-relaxed text-steel">{active?.body}</p>
         </div>
       </div>
+    </div>
+  );
+}
+
+/**
+ * @param {import('../../../data/blogs/pack20/types.js').Pack20DoDontColumn} column
+ * @param {"do"|"dont"} variant
+ */
+function DoDontColumn({ column, variant }) {
+  const isDo = variant === "do";
+  const Icon = isDo ? Check : X;
+
+  return (
+    <div
+      className={cn(
+        "diy-do-dont-column",
+        isDo ? "diy-do-dont-column--do" : "diy-do-dont-column--dont",
+      )}
+    >
+      <div className="diy-do-dont-column__header">{column.title}</div>
+      <ul className="diy-do-dont-column__list">
+        {column.items.map((item) => (
+          <li key={item} className="diy-do-dont-column__item">
+            <span
+              className={cn(
+                "diy-do-dont-column__icon",
+                isDo ? "diy-do-dont-column__icon--do" : "diy-do-dont-column__icon--dont",
+              )}
+              aria-hidden
+            >
+              <Icon className="h-4 w-4" strokeWidth={2.5} />
+            </span>
+            <span className="diy-do-dont-column__text">{item}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -273,6 +311,15 @@ export function Pack20Blocks({
           pillState={pillState}
           setPillState={setPillState}
         />
+      );
+    }
+
+    if (block.type === "doDont") {
+      return (
+        <div key={key} className="diy-do-dont" role="group" aria-label="Crisis response checklist">
+          <DoDontColumn column={block.do} variant="do" />
+          <DoDontColumn column={block.dont} variant="dont" />
+        </div>
       );
     }
 

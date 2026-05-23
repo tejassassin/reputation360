@@ -101,17 +101,26 @@ export const article = {
           text: "The decisions made in the first 48 hours of a reputation crisis have an outsized effect on outcomes. The most common mistake is inaction - hoping that the story will not gain traction, or waiting for legal counsel before doing anything. Delay in the digital environment is never neutral. It allows negative content to accumulate links, engagement, and authority while your positive assets remain static.",
         },
         {
-          type: "cards",
-          items: [
-            {
-              title: "Do in the first 48 hours",
-              body: "Conduct a full search audit. Document everything appearing for your name, brand, and related keywords. Take screenshots with timestamps. Identify the primary source - news article, social post, review, or forum post. Activate existing positive assets: update LinkedIn, publish on owned channels, issue a factual statement when appropriate. Do not go silent. Contact a reputation specialist immediately so suppression and positive content strategies can begin.",
-            },
-            {
-              title: "Do not in the first 48 hours",
-              body: "Do not respond aggressively or defensively in public forums - arguments amplify the story and create new indexed content. Do not send cease-and-desist letters without legal guidance; that can generate additional press coverage. Do not delete social accounts or go dark - that reads as admission and leaves search entirely to negative content. Do not make sweeping public apologies without coordination; context-free apologies can be used against you.",
-            },
-          ],
+          type: "doDont",
+          do: {
+            title: "Do in the first 48 hours",
+            items: [
+              "Conduct a full search audit for your name, brand, and related keywords. Screenshot results with timestamps.",
+              "Identify the primary source: news article, social post, review, or forum thread.",
+              "Activate existing positive assets - update LinkedIn, publish on owned channels, issue a factual statement when appropriate.",
+              "Stay visible. Silence leaves the narrative entirely to negative content.",
+              "Contact a reputation specialist immediately so suppression and positive content work can begin.",
+            ],
+          },
+          dont: {
+            title: "Do not in the first 48 hours",
+            items: [
+              "Respond aggressively or defensively in public forums - arguments amplify the story and create new indexed content.",
+              "Send cease-and-desist letters without legal guidance; they can generate additional press coverage.",
+              "Delete social accounts or go dark - that reads as admission and cedes search to negative URLs.",
+              "Make sweeping public apologies without coordination; context-free apologies can be used against you.",
+            ],
+          },
         },
       ],
     },

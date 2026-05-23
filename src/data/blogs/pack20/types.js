@@ -89,6 +89,19 @@
  */
 
 /**
+ * @typedef {object} Pack20DoDontColumn
+ * @property {string} title
+ * @property {string[]} items
+ */
+
+/**
+ * @typedef {object} Pack20BlockDoDont
+ * @property {"doDont"} type
+ * @property {Pack20DoDontColumn} do
+ * @property {Pack20DoDontColumn} dont
+ */
+
+/**
  * @typedef {object} Pack20CompareItem
  * @property {string} id
  * @property {string} title
@@ -122,7 +135,7 @@
  */
 
 /**
- * @typedef {Pack20BlockP|Pack20BlockLead|Pack20BlockKeyBox|Pack20BlockSteps|Pack20BlockPills|Pack20BlockAccordion|Pack20BlockCards|Pack20BlockCompare|Pack20BlockBullets|Pack20BlockStats} Pack20Block
+ * @typedef {Pack20BlockP|Pack20BlockLead|Pack20BlockKeyBox|Pack20BlockSteps|Pack20BlockPills|Pack20BlockAccordion|Pack20BlockCards|Pack20BlockDoDont|Pack20BlockCompare|Pack20BlockBullets|Pack20BlockStats} Pack20Block
  */
 
 /**
