@@ -28,6 +28,7 @@ const PILL_ICONS = {
   owned: Globe,
   x: MessageCircle,
   facebook: Facebook,
+  instagram: UserRound,
   reddit: MessageCircle,
 };
 
