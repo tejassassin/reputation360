@@ -42,8 +42,8 @@ export const article = {
   listing: {
     id: "pack20-hidden-cost-reputation",
     slug: SLUG,
-    filter: "Strategy",
-    category: "Reputation Analysis",
+    filter: "ORM Strategy & Education",
+    category: "ORM Strategy & Education",
     title: "The Hidden Cost of Ignoring Your Online Reputation (Reputation360 Analysis)",
     excerpt:
       "Ignoring your online reputation has a real cost - in deals that never close and roles you never hear about. Reputation360 breaks down what inaction actually costs.",

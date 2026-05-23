@@ -40,8 +40,8 @@ export const article = {
   listing: {
     id: "pack20-recruiters-google",
     slug: SLUG,
-    filter: "Career",
-    category: "Job Search & Reputation",
+    filter: "Career, Crisis & Case Studies",
+    category: "Career, Crisis & Case Studies",
     title: "What Do Recruiters Google About You? Reputation360's Insider Report",
     excerpt:
       "Recruiters run a sequence of searches, not just one. Learn what they look for, what stalls offers, and how to prepare your presence before you apply.",

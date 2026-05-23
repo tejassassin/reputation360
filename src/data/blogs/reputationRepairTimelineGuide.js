@@ -7,8 +7,8 @@ export const REPUTATION_REPAIR_TIMELINE_PATH = blogPostPath(REPUTATION_REPAIR_TI
 export const reputationRepairTimelineListing = {
   id: "reputation-repair-timeline",
   slug: REPUTATION_REPAIR_TIMELINE_SLUG,
-  filter: "Suppression",
-  category: "Reputation Repair",
+  filter: "ORM Strategy & Education",
+  category: "ORM Strategy & Education",
   title: "How Long Does It Take to Fix an Online Reputation?",
   excerpt:
     "Wondering how long reputation repair takes? Realistic timelines from 30 days to 12+ months - based on severity, content type, and strategy.",

@@ -2,7 +2,7 @@
  * @typedef {object} Pack20Listing
  * @property {string} id
  * @property {string} slug
- * @property {"Suppression"|"Social Media"|"Monitoring"|"Strategy"|"Career"|"Crisis"|"Legal"} filter
+ * @property {"ORM Strategy & Education"|"Suppression & Removal"|"Building Your Positive Presence"|"Social Media, AI & Monitoring"|"Career, Crisis & Case Studies"} filter
  * @property {string} category
  * @property {string} title
  * @property {string} excerpt

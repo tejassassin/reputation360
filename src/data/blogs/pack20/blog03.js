@@ -41,8 +41,8 @@ export const article = {
   listing: {
     id: "pack20-removal-vs-suppression",
     slug: SLUG,
-    filter: "Suppression",
-    category: "Removal vs. Suppression",
+    filter: "Suppression & Removal",
+    category: "Suppression & Removal",
     title: "The Reputation360 Method: Removal vs. Suppression (Which Actually Works?)",
     excerpt:
       "Removal sounds ideal but is often unavailable. Learn the three types of removal, when each applies, and why suppression should run in parallel from day one.",

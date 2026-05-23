@@ -42,8 +42,8 @@ export const article = {
   listing: {
     id: "pack20-monitoring-guide",
     slug: SLUG,
-    filter: "Monitoring",
-    category: "Monitoring",
+    filter: "Social Media, AI & Monitoring",
+    category: "Social Media, AI & Monitoring",
     title: "Monitoring Your Online Reputation: Reputation360's Tools & Tactics Guide",
     excerpt:
       "You cannot protect what you cannot see. Reputation360's guide shows how to monitor your online reputation - free tools, paid tools, and when to escalate.",

@@ -44,8 +44,8 @@ export const article = {
   listing: {
     id: "pack20-crisis-playbook",
     slug: SLUG,
-    filter: "Crisis",
-    category: "Crisis Management",
+    filter: "Career, Crisis & Case Studies",
+    category: "Career, Crisis & Case Studies",
     title: "Crisis Management and Reputation Recovery: The Reputation360 Playbook",
     excerpt:
       "When a crisis hits, the first 48 hours set the trajectory. A phased playbook for containment, stabilization, recovery, and resilience.",

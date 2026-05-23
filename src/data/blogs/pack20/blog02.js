@@ -36,8 +36,8 @@ export const article = {
   listing: {
     id: "pack20-rank-positive",
     slug: SLUG,
-    filter: "Suppression",
-    category: "Content Strategy",
+    filter: "Building Your Positive Presence",
+    category: "Building Your Positive Presence",
     title: "How to Rank Positive Content Above Negative Results: The Reputation360 Strategy",
     excerpt:
       "Discover which assets consistently claim page one, how links and keywords work together, and how long it takes to outrank harmful URLs.",

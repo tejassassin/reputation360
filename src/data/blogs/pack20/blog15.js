@@ -50,8 +50,8 @@ export const article = {
   listing: {
     id: "pack20-orm-methodology",
     slug: SLUG,
-    filter: "Strategy",
-    category: "ORM Methodology",
+    filter: "ORM Strategy & Education",
+    category: "ORM Strategy & Education",
     title:
       "Online Reputation Management Best Practices: The Reputation360 Methodology",
     excerpt:

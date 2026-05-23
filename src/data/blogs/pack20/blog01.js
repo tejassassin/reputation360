@@ -36,8 +36,8 @@ export const article = {
   listing: {
     id: "pack20-suppress-framework",
     slug: SLUG,
-    filter: "Suppression",
-    category: "Suppression Strategy",
+    filter: "Suppression & Removal",
+    category: "Suppression & Removal",
     title: "How to Suppress Negative Search Results: The Reputation360 Framework",
     excerpt:
       "A single negative result can block contracts, job offers, and investment. Learn the five-phase framework Reputation360 uses to push harmful links off page one.",

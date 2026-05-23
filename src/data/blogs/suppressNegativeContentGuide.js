@@ -9,8 +9,8 @@ export const SUPPRESS_NEGATIVE_GUIDE_PATH = blogPostPath(SUPPRESS_NEGATIVE_GUIDE
 export const suppressNegativeGuideListing = {
   id: "suppress-negative-guide",
   slug: SUPPRESS_NEGATIVE_GUIDE_SLUG,
-  filter: "Suppression",
-  category: "Reputation Strategy",
+  filter: "Suppression & Removal",
+  category: "Suppression & Removal",
   title:
     "How to Suppress Negative Content: The Professional's Guide to Online Reputation Control",
   excerpt:

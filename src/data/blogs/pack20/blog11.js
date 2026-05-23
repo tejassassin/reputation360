@@ -42,8 +42,8 @@ export const article = {
   listing: {
     id: "pack20-pre-interview-reputation",
     slug: SLUG,
-    filter: "Career",
-    category: "Job Search & Reputation",
+    filter: "Career, Crisis & Case Studies",
+    category: "Career, Crisis & Case Studies",
     title: "How to Fix Your Reputation Before Your Job Interview: Reputation360 Guide",
     excerpt:
       "A negative Google result before an interview can end a process. Learn what to fix fast, what takes months, and the 30-day plan when time is short.",

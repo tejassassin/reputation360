@@ -42,8 +42,8 @@ export const article = {
   listing: {
     id: "pack20-first-page-ownership",
     slug: SLUG,
-    filter: "Suppression",
-    category: "First Page Strategy",
+    filter: "Building Your Positive Presence",
+    category: "Building Your Positive Presence",
     title: "Own Your First Page: Reputation360's Strategy to Control Google Results",
     excerpt:
       "Your Google first page is your most visible asset. Learn how to claim all ten positions with content you control and a deliberate build sequence.",

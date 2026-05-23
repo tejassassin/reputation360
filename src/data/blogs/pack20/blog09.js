@@ -40,8 +40,8 @@ export const article = {
   listing: {
     id: "pack20-linkedin-checklist",
     slug: SLUG,
-    filter: "Social Media",
-    category: "LinkedIn & Search",
+    filter: "Building Your Positive Presence",
+    category: "Building Your Positive Presence",
     title:
       "LinkedIn Profile Optimization for Search Results: The Reputation360 Checklist",
     excerpt:

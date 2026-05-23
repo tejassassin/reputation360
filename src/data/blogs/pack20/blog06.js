@@ -40,8 +40,8 @@ export const article = {
   listing: {
     id: "pack20-negative-links-cases",
     slug: SLUG,
-    filter: "Career",
-    category: "Case Studies",
+    filter: "Career, Crisis & Case Studies",
+    category: "Career, Crisis & Case Studies",
     title: "Negative Links That Cost Jobs and Deals: Real Cases Reputation360 Solved",
     excerpt:
       "Deals stall and offers pause when search results raise doubt. Representative cases show how structured suppression changed outcomes.",

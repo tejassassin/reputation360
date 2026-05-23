@@ -10,8 +10,8 @@ export const REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH = blogPostPath(
 export const removeNewsArticlesFromGoogleListing = {
   id: "remove-news-articles-google",
   slug: REMOVE_NEWS_ARTICLES_FROM_GOOGLE_SLUG,
-  filter: "Legal",
-  category: "Google Reputation Management",
+  filter: "Suppression & Removal",
+  category: "Suppression & Removal",
   title: "Can You Remove News Articles From Google Search?",
   excerpt:
     "Can a news article be removed from Google? When removal is possible, when it isn't, and what actually works to protect your reputation online.",

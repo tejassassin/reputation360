@@ -40,8 +40,8 @@ export const article = {
   listing: {
     id: "pack20-roi-reputation",
     slug: SLUG,
-    filter: "Strategy",
-    category: "ROI & Results",
+    filter: "ORM Strategy & Education",
+    category: "ORM Strategy & Education",
     title: "The ROI of Reputation Management: What Reputation360 Clients See",
     excerpt:
       "What is the ROI of reputation management? Reputation360 breaks down real results across career outcomes, business growth, and deal conversion.",

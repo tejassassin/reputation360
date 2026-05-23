@@ -39,8 +39,8 @@ export const article = {
   listing: {
     id: "pack20-profile-claiming",
     slug: SLUG,
-    filter: "Social Media",
-    category: "Profile Strategy",
+    filter: "Building Your Positive Presence",
+    category: "Building Your Positive Presence",
     title:
       "Building a Positive Google Presence: Reputation360's Profile Claiming Guide",
     excerpt:

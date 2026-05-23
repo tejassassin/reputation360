@@ -44,13 +44,11 @@ const HERO_IMG =
 
 const FILTER_LABELS = [
   "All",
-  "Suppression",
-  "Social Media",
-  "Monitoring",
-  "Strategy",
-  "Career",
-  "Crisis",
-  "Legal",
+  "ORM Strategy & Education",
+  "Suppression & Removal",
+  "Building Your Positive Presence",
+  "Social Media, AI & Monitoring",
+  "Career, Crisis & Case Studies",
 ];
 
 const latestArticles = [
@@ -250,20 +248,20 @@ function InsightsBlogsPage() {
         id="latest-articles"
         className="mx-auto max-w-7xl px-6 py-24 md:px-8"
       >
-        <div className="mb-16 flex flex-col justify-between gap-8 md:flex-row md:items-center">
+        <div className="mb-16 flex flex-col gap-8">
           <h2 className="font-insights-headline text-4xl font-extrabold tracking-tight text-[#02254d]">
             Latest Articles
           </h2>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-nowrap justify-start gap-1.5">
             {FILTER_LABELS.map((label) => (
               <button
                 key={label}
                 type="button"
                 onClick={() => setActiveFilter(label)}
-                className={`ha-pill rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
+                className={`ha-pill rounded-full px-2.5 py-2 text-[10px] font-semibold whitespace-nowrap transition-colors lg:px-3 lg:text-[11px] xl:px-4 xl:text-xs ${
                   activeFilter === label
-                    ? "bg-[#02254d] text-white"
-                    : "bg-[#35618e] text-white hover:bg-[#02254d]"
+                    ? "bg-[#02254d] text-white shadow-sm"
+                    : "border border-[#d7e2ef] bg-white text-[#35618e] hover:border-[#35618e] hover:bg-[#eef4fb] hover:text-[#02254d]"
                 }`}
               >
                 {label}

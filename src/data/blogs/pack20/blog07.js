@@ -42,8 +42,8 @@ export const article = {
   listing: {
     id: "pack20-court-records",
     slug: SLUG,
-    filter: "Legal",
-    category: "Legal Records & Search",
+    filter: "Suppression & Removal",
+    category: "Suppression & Removal",
     title: "How to Remove Court Records From Google: What Reputation360 Knows",
     excerpt:
       "Court records are public and often high-authority in search. Learn expungement limits, data-broker opt-outs, and suppression for what cannot be removed.",

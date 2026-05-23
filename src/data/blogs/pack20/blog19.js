@@ -43,8 +43,8 @@ export const article = {
   listing: {
     id: "pack20-social-reputation",
     slug: SLUG,
-    filter: "Social Media",
-    category: "Social Media",
+    filter: "Social Media, AI & Monitoring",
+    category: "Social Media, AI & Monitoring",
     title: "Social Media Reputation Management: Reputation360's Multi-Platform Strategy",
     excerpt:
       "Social media is central to how reputations are built - and broken. Reputation360's multi-platform strategy covers every channel and crisis response.",

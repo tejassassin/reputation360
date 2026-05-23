@@ -49,8 +49,8 @@ export const article = {
   listing: {
     id: "pack20-ai-search-reputation",
     slug: SLUG,
-    filter: "Strategy",
-    category: "AI & Search",
+    filter: "Social Media, AI & Monitoring",
+    category: "Social Media, AI & Monitoring",
     title:
       "How AI Search Changes Reputation: Reputation360's Guide to ChatGPT & Beyond",
     excerpt:
