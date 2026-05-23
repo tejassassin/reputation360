@@ -1,12 +1,14 @@
 import { article as article01 } from "./blog01.js";
+import { article as article02 } from "./blog02.js";
 
 export { SLUG as SLUG01 } from "./blog01.js";
+export { SLUG as SLUG02 } from "./blog02.js";
 
 export { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 /** @type {import('./types.js').Pack20Article[]} */
-/** Only blog 01 is published from the pack for now; add more articles here when ready. */
-export const PACK20_ARTICLES = [article01];
+/** Published pack articles; add more here when content is ready. */
+export const PACK20_ARTICLES = [article01, article02];
 
 /** @type {Map<string, import('./types.js').Pack20Article>} */
 export const PACK20_BY_SLUG = new Map(PACK20_ARTICLES.map((a) => [a.slug, a]));

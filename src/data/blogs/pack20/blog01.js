@@ -205,14 +205,19 @@ export const article = {
           text: "For most individual clients, meaningful first-page movement happens within 60 to 90 days. Full first-page transformation - where positive content occupies the majority of visible results - typically takes about six months. For brands with high-authority negative content (major news coverage, for instance), the timeline can extend to 10 to 12 months.",
         },
         {
-          type: "cards",
+          type: "compare",
+          pickerKey: "finance-case-study",
           items: [
             {
+              id: "situation",
               title: "The situation",
+              tone: "before",
               body: "A senior finance professional on the US East Coast came to us after a years-old news article about a regulatory inquiry - resolved without findings - still ranked in position 2 for his name search.",
             },
             {
+              id: "outcome",
               title: "The outcome",
+              tone: "after",
               body: "Within six months the article moved off page one entirely. Nine months in, the top six results for his name were positive professional assets. He subsequently closed a board advisory role that had stalled during due diligence.",
             },
           ],

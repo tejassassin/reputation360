@@ -89,6 +89,21 @@
  */
 
 /**
+ * @typedef {object} Pack20CompareItem
+ * @property {string} id
+ * @property {string} title
+ * @property {string} body
+ * @property {"before"|"after"} [tone]
+ */
+
+/**
+ * @typedef {object} Pack20BlockCompare
+ * @property {"compare"} type
+ * @property {string} [pickerKey]
+ * @property {Pack20CompareItem[]} items
+ */
+
+/**
  * @typedef {object} Pack20BlockBullets
  * @property {"bullets"} type
  * @property {string[]} items
@@ -107,7 +122,7 @@
  */
 
 /**
- * @typedef {Pack20BlockP|Pack20BlockLead|Pack20BlockKeyBox|Pack20BlockSteps|Pack20BlockPills|Pack20BlockAccordion|Pack20BlockCards|Pack20BlockBullets|Pack20BlockStats} Pack20Block
+ * @typedef {Pack20BlockP|Pack20BlockLead|Pack20BlockKeyBox|Pack20BlockSteps|Pack20BlockPills|Pack20BlockAccordion|Pack20BlockCards|Pack20BlockCompare|Pack20BlockBullets|Pack20BlockStats} Pack20Block
  */
 
 /**

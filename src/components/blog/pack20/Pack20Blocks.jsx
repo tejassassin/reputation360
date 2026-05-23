@@ -1,3 +1,14 @@
+import { Fragment } from "react";
+import {
+  ArrowRight,
+  Facebook,
+  Globe,
+  Linkedin,
+  MessageCircle,
+  Newspaper,
+  PenLine,
+  UserRound,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   DiyAccordion,
@@ -7,6 +18,156 @@ import {
   DiySectionHeader,
   StepPicker,
 } from "../diy/DiyGuideUi.jsx";
+
+/** @type {Record<string, import('lucide-react').LucideIcon>} */
+const PILL_ICONS = {
+  "social-profiles": Linkedin,
+  linkedin: Linkedin,
+  press: Newspaper,
+  "thought-leadership": PenLine,
+  owned: Globe,
+  x: MessageCircle,
+  facebook: Facebook,
+  reddit: MessageCircle,
+};
+
+/**
+ * @param {import('../../../data/blogs/pack20/types.js').Pack20PillItem[]} items
+ * @param {string} pillKey
+ * @param {Record<string, string>} pillState
+ * @param {(key: string, value: string) => void} setPillState
+ */
+function ContentTypePicker({ items, pillKey, pillState, setPillState }) {
+  const activeId = pillState[pillKey] ?? items[0]?.id;
+  const active = items.find((item) => item.id === activeId) ?? items[0];
+  const ActiveIcon = PILL_ICONS[active?.id ?? ""] ?? UserRound;
+
+  return (
+    <div className="diy-content-picker my-8">
+      <div className="diy-content-picker-grid" role="tablist" aria-label="Content types">
+        {items.map((item, index) => {
+          const selected = activeId === item.id;
+          const Icon = PILL_ICONS[item.id] ?? UserRound;
+          return (
+            <button
+              key={item.id}
+              id={`${pillKey}-${item.id}-tab`}
+              type="button"
+              role="tab"
+              aria-selected={selected}
+              onClick={() => setPillState(pillKey, item.id)}
+              className={cn(
+                "diy-content-picker-tile motion-reduce:transform-none",
+                selected && "is-selected",
+              )}
+            >
+              <span className="diy-content-picker-tile__num" aria-hidden>
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="diy-content-picker-tile__icon" aria-hidden>
+                <Icon className="h-6 w-6" strokeWidth={1.75} />
+              </span>
+              <span className="diy-content-picker-tile__label">{item.label}</span>
+            </button>
+          );
+        })}
+      </div>
+      <div
+        key={activeId}
+        role="tabpanel"
+        className="diy-content-picker-panel"
+        aria-labelledby={`${pillKey}-${activeId}-tab`}
+      >
+        <div className="diy-content-picker-panel__accent" aria-hidden>
+          <ActiveIcon className="h-5 w-5" strokeWidth={2} />
+        </div>
+        <div className="min-w-0 flex-1">
+          {active?.title ? (
+            <h4 className="font-heading text-lg font-bold leading-snug text-navy sm:text-xl">
+              {active.title}
+            </h4>
+          ) : null}
+          <p className="mt-3 font-body text-base leading-relaxed text-steel">{active?.body}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * @param {import('../../../data/blogs/pack20/types.js').Pack20CompareItem[]} items
+ * @param {string} pickerKey
+ * @param {Record<string, string>} pillState
+ * @param {(key: string, value: string) => void} setPillState
+ */
+function CaseCompare({ items, pickerKey, pillState, setPillState }) {
+  const hasFocus = Object.prototype.hasOwnProperty.call(pillState, pickerKey);
+  const activeId = pillState[pickerKey] ?? items[0]?.id;
+  const showPanel = (id) => activeId === id;
+
+  const focusPanel = (id) => {
+    setPillState(pickerKey, id);
+  };
+
+  return (
+    <div className="diy-case-compare">
+      <div className="diy-case-compare-tabs md:hidden" role="tablist" aria-label="Case study">
+        {items.map((item) => {
+          const selected = activeId === item.id;
+          return (
+            <button
+              key={item.id}
+              type="button"
+              role="tab"
+              aria-selected={selected}
+              onClick={() => focusPanel(item.id)}
+              className={cn(
+                "ha-pill rounded-full px-4 py-2 font-body text-sm font-semibold transition-colors",
+                selected ? "bg-navy text-white" : "bg-slate-100 text-navy hover:bg-slate-200",
+              )}
+            >
+              {item.title}
+            </button>
+          );
+        })}
+      </div>
+      <div className="diy-case-compare-grid">
+        {items.map((item, index) => {
+          const tone = item.tone ?? (item.id === "outcome" ? "after" : "before");
+          const isBefore = tone === "before";
+          const focused = hasFocus && activeId === item.id;
+          const dimmed = hasFocus && activeId !== item.id;
+
+          return (
+            <Fragment key={item.id}>
+              {index > 0 ? (
+                <div className="diy-case-compare-arrow max-md:hidden" aria-hidden>
+                  <ArrowRight className="h-6 w-6" strokeWidth={2} />
+                </div>
+              ) : null}
+              <button
+                type="button"
+                role="tab"
+                aria-selected={focused || (!hasFocus && index === 0)}
+                onClick={() => focusPanel(item.id)}
+                className={cn(
+                  "diy-case-compare-panel motion-reduce:transform-none",
+                  isBefore ? "diy-case-compare-panel--before" : "diy-case-compare-panel--after",
+                  !showPanel(item.id) && "max-md:hidden",
+                  focused && "is-focused",
+                  dimmed && "is-dimmed max-md:hidden",
+                )}
+              >
+                <div className="diy-case-compare-panel__header">{item.title}</div>
+                <p className="diy-case-compare-panel__body">{item.body}</p>
+              </button>
+            </Fragment>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 /**
  * @param {object} props
@@ -72,34 +233,14 @@ export function Pack20Blocks({
 
     if (block.type === "pills") {
       const pillKey = block.pickerKey ?? `${sectionId}-pills`;
-      const activeId = pillState[pillKey] ?? block.items[0]?.id;
-      const active = block.items.find((item) => item.id === activeId) ?? block.items[0];
       return (
-        <div key={key} className="my-6">
-          <div className="mb-4 flex flex-wrap gap-2">
-            {block.items.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => setPillState(pillKey, item.id)}
-                className={cn(
-                  "rounded-full border px-4 py-2 font-heading text-sm font-semibold transition-all",
-                  activeId === item.id
-                    ? "border-navy bg-navy text-white shadow-md"
-                    : "border-slate-200 bg-white text-steel hover:border-navy/30",
-                )}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            {active?.title ? (
-              <h4 className="mb-3 font-heading text-lg font-bold text-navy">{active.title}</h4>
-            ) : null}
-            <p className="font-body text-base leading-relaxed text-steel">{active?.body}</p>
-          </div>
-        </div>
+        <ContentTypePicker
+          key={key}
+          items={block.items}
+          pillKey={pillKey}
+          pillState={pillState}
+          setPillState={setPillState}
+        />
       );
     }
 
@@ -118,6 +259,19 @@ export function Pack20Blocks({
             </DiyAccordion>
           ))}
         </div>
+      );
+    }
+
+    if (block.type === "compare") {
+      const compareKey = block.pickerKey ?? `${sectionId}-compare`;
+      return (
+        <CaseCompare
+          key={key}
+          items={block.items}
+          pickerKey={compareKey}
+          pillState={pillState}
+          setPillState={setPillState}
+        />
       );
     }
 
