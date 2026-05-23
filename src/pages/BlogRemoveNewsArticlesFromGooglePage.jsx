@@ -14,6 +14,7 @@ import {
   DiyKeyBox,
   DiyRelatedReading,
   DiySectionHeader,
+  DiyGuideToc,
   MobileGuideNav,
   ReadingProgressRail,
 } from "../components/blog/diy/DiyGuideUi.jsx";
@@ -162,16 +163,11 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
                 </p>
               </div>
 
-              <nav className="diy-toc-numbered scroll-mt-28" aria-label="In this article">
-                <h2>In This Article</h2>
-                <ul className="diy-toc-numbered-list">
-                  {removeNewsArticlesFromGoogleToc.map((item) => (
-                    <li key={item.id}>
-                      <a href={`#${item.id}`}>{item.label}</a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+              <DiyGuideToc
+                items={removeNewsArticlesFromGoogleToc}
+                title="What You'll Learn"
+                ariaLabel="What you'll learn"
+              />
 
               <section className="mb-20 scroll-mt-36" id="how-google-works">
                 <DiySectionHeader number="01" title="Why Google Shows News Articles - And Why That Matters" />

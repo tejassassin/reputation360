@@ -35,6 +35,7 @@ import {
   DiyLeadHighlight,
   DiyRelatedReading,
   DiySectionHeader,
+  DiyGuideToc,
   MobileGuideNav,
   ReadingProgressRail,
   StepPicker,
@@ -195,16 +196,11 @@ export default function BlogRemoveNegativeSearchResultsPage() {
                 ))}
               </div>
 
-              <nav className="diy-toc-numbered scroll-mt-28" aria-label="In this article">
-                <h2>In This Article</h2>
-                <ul className="diy-toc-numbered-list">
-                  {removeNegativeSearchResultsToc.map((item) => (
-                    <li key={item.id}>
-                      <a href={`#${item.id}`}>{item.label}</a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+              <DiyGuideToc
+                items={removeNegativeSearchResultsToc}
+                title="What You'll Learn"
+                ariaLabel="What you'll learn"
+              />
 
               <section className="mb-20 scroll-mt-36" id="understand">
                 <DiySectionHeader number="01" title="Understanding What You're Up Against" />

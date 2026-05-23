@@ -47,6 +47,7 @@ import {
   DiyLeadHighlight,
   DiyRelatedReading,
   DiySectionHeader,
+  DiyGuideToc,
   MobileGuideNav,
   ReadingProgressRail,
   StepPicker,
@@ -277,16 +278,11 @@ export default function BlogReputationRepairTimelinePage() {
                 ))}
               </div>
 
-              <nav className="diy-toc-numbered scroll-mt-28" aria-label="In this article">
-                <h2>In This Article</h2>
-                <ul className="diy-toc-numbered-list">
-                  {reputationRepairTimelineToc.map((item) => (
-                    <li key={item.id}>
-                      <a href={`#${item.id}`}>{item.label}</a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+              <DiyGuideToc
+                items={reputationRepairTimelineToc}
+                title="What You'll Learn"
+                ariaLabel="What you'll learn"
+              />
 
               <section className="mb-20 scroll-mt-36" id="what-fixing-means">
                 <DiySectionHeader number="01" title='What "Fixing" a Reputation Actually Means' />

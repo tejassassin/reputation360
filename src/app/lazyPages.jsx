@@ -7,6 +7,7 @@ import { SUPPRESS_NEGATIVE_GUIDE_SLUG } from "../data/blogs/suppressNegativeCont
 import { REMOVE_NEGATIVE_SEARCH_RESULTS_SLUG } from "../data/blogs/removeNegativeSearchResultsGuide.js";
 import { REPUTATION_REPAIR_TIMELINE_SLUG } from "../data/blogs/reputationRepairTimelineGuide.js";
 import { REMOVE_NEWS_ARTICLES_FROM_GOOGLE_SLUG } from "../data/blogs/removeNewsArticlesFromGoogleGuide.js";
+import { PACK20_SLUGS } from "../data/blogs/pack20/index.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
 import { AI_REPUTATION_SCAN_PATH } from "../constants/reputationAgent.js";
 
@@ -40,6 +41,7 @@ const BlogReputationRepairTimelinePage = lazy(
 const BlogRemoveNewsArticlesFromGooglePage = lazy(
   () => import("../pages/BlogRemoveNewsArticlesFromGooglePage.jsx"),
 );
+const BlogPack20ArticlePage = lazy(() => import("../pages/BlogPack20ArticlePage.jsx"));
 const GuidePage = lazy(() => import("../pages/GuidePage.jsx"));
 const AcceptableUsePolicyPage = lazy(() => import("../pages/AcceptableUsePolicyPage.jsx"));
 const CookiePolicyPage = lazy(() => import("../pages/CookiePolicyPage.jsx"));
@@ -107,6 +109,9 @@ export function pageForPath(path) {
     }
     if (slug === REMOVE_NEWS_ARTICLES_FROM_GOOGLE_SLUG) {
       return <BlogRemoveNewsArticlesFromGooglePage />;
+    }
+    if (PACK20_SLUGS.has(slug)) {
+      return <BlogPack20ArticlePage slug={slug} />;
     }
   }
   if (path === "/resources/guide") return <GuidePage />;

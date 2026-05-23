@@ -44,6 +44,7 @@ import {
   DiyInternalLink,
   DiyKeyBox,
   DiySectionHeader,
+  DiyGuideToc,
   MobileGuideNav,
   ReadingProgressRail,
   StarRating,
@@ -165,16 +166,7 @@ export default function BlogDiyReputationGuidePage() {
             <main className="min-w-0 flex-1 px-0 pb-20 sm:px-2 lg:max-w-[52rem] lg:px-10">
               <MobileGuideNav nav={DIY_GUIDE_NAV} activeNavId={activeNavId} readingPct={readingPct} />
 
-              <nav className="diy-toc-numbered scroll-mt-28" aria-label="What you'll learn">
-                <h2>What You&apos;ll Learn</h2>
-                <ul className="diy-toc-numbered-list">
-                  {diyReputationGuideToc.map((item) => (
-                    <li key={item.id}>
-                      <a href={`#${item.id}`}>{item.label}</a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+              <DiyGuideToc items={diyReputationGuideToc} />
 
               <section className="mb-20 scroll-mt-36" id="audit">
                 <DiySectionHeader number="01" title="Conduct a Complete Online Reputation Audit" />

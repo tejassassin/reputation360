@@ -3,6 +3,7 @@
  * Keep in sync with SeoHead on each page and blog guide data files.
  */
 import { blogPostPath } from "../constants/blogPaths.js";
+import { PACK20_ARTICLES } from "./blogs/pack20/index.js";
 import { SEO } from "./seoPageMeta.js";
 import { CASE_STUDY_SEO_BY_N } from "./caseStudies/caseStudySeo.js";
 import { CASE_STUDIES } from "./caseStudies/index.js";
@@ -55,6 +56,13 @@ Object.assign(ROUTE_SEO, {
       "A proven 5-step framework for suppressing negative Google results used by professionals in healthcare, law & finance. Includes real case studies & timelines.",
   },
 });
+
+for (const packArticle of PACK20_ARTICLES) {
+  ROUTE_SEO[packArticle.path] = {
+    title: packArticle.seoTitle,
+    description: packArticle.metaDescription,
+  };
+}
 
 for (const study of CASE_STUDIES) {
   const seo = CASE_STUDY_SEO_BY_N[study.n];

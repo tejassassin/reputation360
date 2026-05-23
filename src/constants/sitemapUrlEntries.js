@@ -2,6 +2,15 @@
  * Paths emitted into `public/sitemap.xml` by `npm run sitemap`.
  * Keep in sync with public routes and `reactSnap.include` in package.json.
  */
+import { PACK20_ARTICLES } from "../data/blogs/pack20/index.js";
+
+const PACK20_SITEMAP_ENTRIES = PACK20_ARTICLES.map((article) => ({
+  path: article.path,
+  lastmod: "2026-05-23",
+  changefreq: "monthly",
+  priority: "0.7",
+}));
+
 export const SITEMAP_URL_ENTRIES = [
   { path: "/", lastmod: "2026-04-26", changefreq: "weekly", priority: "1.0" },
   { path: "/about", lastmod: "2026-04-26", changefreq: "monthly", priority: "0.8" },
@@ -180,6 +189,7 @@ export const SITEMAP_URL_ENTRIES = [
     changefreq: "monthly",
     priority: "0.7",
   },
+  ...PACK20_SITEMAP_ENTRIES,
   { path: "/resources/guide", lastmod: "2026-04-26", changefreq: "monthly", priority: "0.7" },
   { path: "/resources/faqs", lastmod: "2026-04-26", changefreq: "monthly", priority: "0.6" },
   { path: "/privacy-policy", lastmod: "2026-05-15", changefreq: "yearly", priority: "0.4" },

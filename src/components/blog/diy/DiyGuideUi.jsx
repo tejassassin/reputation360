@@ -482,6 +482,29 @@ export function DiySectionHeader({ number, title }) {
   );
 }
 
+/**
+ * Numbered table of contents panel (lavender box) used at the top of DIY-style guides.
+ * @param {{ items: { id: string; label: string }[]; title?: string; ariaLabel?: string }} props
+ */
+export function DiyGuideToc({
+  items,
+  title = "What You'll Learn",
+  ariaLabel = "What you'll learn",
+}) {
+  return (
+    <nav className="diy-toc-numbered scroll-mt-28" aria-label={ariaLabel}>
+      <h2>{title}</h2>
+      <ul className="diy-toc-numbered-list">
+        {items.map((item) => (
+          <li key={item.id}>
+            <a href={`#${item.id}`}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
 /** Mini card row for related guides (compact, matches Insights-style tiles). */
 export function DiyRelatedReading({ articles, title = "Related reading" }) {
   return (
