@@ -196,7 +196,7 @@ const howWeWorkSteps = [
 const whatWeDont = [
   {
     title: "No Unethical Engagements",
-    text: "We are selective - and we are proud of it. Integrity is at the core of everything we do. We only take on clients whose reputations are worth restoring. We do not represent individuals involved in exploitation, organised crime, or conduct that causes deliberate harm to others.",
+    text: "We're selective. Integrity drives everything we do. We only represent clients whose reputations deserve restoration, never those involved in exploitation, crime, or deliberate harm.",
   },
   {
     title: "No Black-Hat Tactics",
@@ -213,10 +213,6 @@ const whatWeDont = [
   {
     title: "No Compromise on Privacy",
     text: "Your identity and the nature of our engagement remain strictly confidential.",
-  },
-  {
-    title: "No Outsourced Work",
-    text: "Every client is assigned a dedicated account manager who stays with you throughout your entire journey.",
   },
 ];
 
@@ -1645,10 +1641,11 @@ function AboutPage() {
               Clear boundaries build trust - and lasting results.
             </p>
           </Motion.div>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
+          <div className="flex flex-wrap justify-center gap-5 md:gap-6">
             {whatWeDont.map(({ title, text }, i) => (
               <Motion.div
                 key={title}
+                className="w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] lg:max-w-sm"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={aboutView}
@@ -1657,9 +1654,9 @@ function AboutPage() {
                 <Motion.div
                   whileHover={{ y: -4, scale: 1.01 }}
                   transition={{ type: "spring", stiffness: 380, damping: 26 }}
-                  className="group h-full rounded-2xl border border-white/18 bg-gradient-to-b from-white/[0.1] to-white/[0.04] p-8 shadow-[0_8px_40px_-12px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-colors duration-300 hover:border-[#4CAF50]/40 hover:from-white/[0.14] hover:to-white/[0.06] hover:shadow-[0_16px_50px_-14px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.1)] md:p-9"
+                  className="group h-full rounded-2xl border border-white/18 bg-gradient-to-b from-white/[0.1] to-white/[0.04] p-8 text-center shadow-[0_8px_40px_-12px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-colors duration-300 hover:border-[#4CAF50]/40 hover:from-white/[0.14] hover:to-white/[0.06] hover:shadow-[0_16px_50px_-14px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.1)] md:p-9"
                 >
-                  <div className="mb-5 flex items-center gap-3">
+                  <div className="mb-5 flex flex-col items-center gap-3">
                     <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/20 bg-[#0f1c2c]/85 text-rose-200/95 shadow-inner shadow-black/20 ring-1 ring-[#2E5B88]/40">
                       <XCircle className="h-6 w-6" strokeWidth={2} aria-hidden />
                     </div>
