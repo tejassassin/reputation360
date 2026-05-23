@@ -7,6 +7,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { SITEMAP_URL_ENTRIES } from "../src/constants/sitemapUrlEntries.js";
+import { getRouteSeoMeta } from "../src/data/routeSeoByPath.js";
 import {
   canonicalHrefForNormalizedPath,
   normalizeCanonicalPath,
@@ -14,6 +15,14 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.join(__dirname, "..", "dist");
+
+/** @param {string} value */
+function escapeHtmlAttr(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;");
+}
 
 function patchCanonicalHref(html, pathname) {
   const href = canonicalHrefForNormalizedPath(normalizeCanonicalPath(pathname));
@@ -30,23 +39,51 @@ function patchCanonicalHref(html, pathname) {
   return next;
 }
 
+function patchRouteDocumentMeta(html, pathname) {
+  let next = patchCanonicalHref(html, pathname);
+  const seo = getRouteSeoMeta(pathname);
+  if (!seo) return next;
+
+  if (seo.title) {
+    const title = escapeHtmlAttr(seo.title);
+    next = next.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
+  }
+
+  if (seo.description) {
+    const description = escapeHtmlAttr(seo.description);
+    next = next.replace(
+      /(<meta\b[^>]*\bid\s*=\s*["']r360-meta-description["'][^>]*\bcontent\s*=\s*["'])[^"']*(["'])/i,
+      `$1${description}$2`,
+    );
+    next = next.replace(
+      /(<meta\b[^>]*\bname\s*=\s*["']description["'][^>]*\bcontent\s*=\s*["'])([^"']*)(["'])/i,
+      (match, open, _content, close) => {
+        if (match.includes("r360-meta-description")) return match;
+        return `${open}${description}${close}`;
+      },
+    );
+  }
+
+  return next;
+}
+
 async function main() {
   const indexPath = path.join(dist, "index.html");
   const baseRaw = await readFile(indexPath, "utf8");
   const routes = [...new Set(SITEMAP_URL_ENTRIES.map((e) => e.path))];
 
-  await writeFile(indexPath, patchCanonicalHref(baseRaw, "/"), "utf8");
+  await writeFile(indexPath, patchRouteDocumentMeta(baseRaw, "/"), "utf8");
 
   for (const pathname of routes) {
     if (pathname === "/") continue;
     const segments = pathname.split("/").filter(Boolean);
     const outFile = path.join(dist, ...segments, "index.html");
     await mkdir(path.dirname(outFile), { recursive: true });
-    await writeFile(outFile, patchCanonicalHref(baseRaw, pathname), "utf8");
+    await writeFile(outFile, patchRouteDocumentMeta(baseRaw, pathname), "utf8");
   }
 
   console.log(
-    `emit-spa-per-route-html: patched root and wrote ${routes.length - 1} nested index.html copies`,
+    `emit-spa-per-route-html: patched canonical, title, and description for ${routes.length} routes`,
   );
 }
 

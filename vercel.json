@@ -5,6 +5,11 @@
       "destination": "/free-reputation-scan",
       "permanent": true
     },
+    {
+      "source": "/blog/how-to-remove-or-suppress-negative-search-results-from-google",
+      "destination": "/blog/remove-negative-search-results-from-google",
+      "permanent": true
+    },
     { "source": "/resources/blogs", "destination": "/blog", "permanent": true },
     {
       "source": "/resources/blogs/:slug",

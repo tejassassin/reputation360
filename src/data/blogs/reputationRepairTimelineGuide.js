@@ -20,8 +20,11 @@ export const reputationRepairTimelineListing = {
   imageAlt: "Calendar and planning for reputation repair timeline",
 };
 
+export const reputationRepairTimelineSeoTitle =
+  "How Long Does Online Reputation Repair Take? | Reputation360";
+
 export const reputationRepairTimelineMetaDescription =
-  "Wondering how long reputation repair takes? Reputation360 breaks down realistic timelines - from 30 days to 12+ months - based on severity, content type, and strategy. Get honest answers here.";
+  "Most clients see visible page-one improvements in 60-90 days. Full transformation takes 3-12 months. See the 6 key factors that drive your timeline.";
 
 export const reputationRepairTimelineHero = {
   badge: "Reputation Repair",

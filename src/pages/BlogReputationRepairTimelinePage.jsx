@@ -26,6 +26,7 @@ import {
   reputationRepairTimelineHero,
   reputationRepairTimelineListing,
   reputationRepairTimelineMetaDescription,
+  reputationRepairTimelineSeoTitle,
   reputationRepairTimelineToc,
 } from "../data/blogs/reputationRepairTimelineGuide.js";
 import {
@@ -178,7 +179,7 @@ export default function BlogReputationRepairTimelinePage() {
   return (
     <>
       <SeoHead
-        title="How Long Does It Take to Fix an Online Reputation? | Reputation360"
+        title={reputationRepairTimelineSeoTitle}
         description={reputationRepairTimelineMetaDescription}
         canonicalPath={REPUTATION_REPAIR_TIMELINE_PATH}
         ogImage={reputationRepairTimelineListing.image}

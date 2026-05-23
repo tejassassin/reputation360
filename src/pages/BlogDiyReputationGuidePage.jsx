@@ -12,6 +12,7 @@ import {
   diyReputationGuideHero,
   diyReputationGuideListing,
   diyReputationGuideMetaDescription,
+  diyReputationGuideSeoTitle,
   diyReputationGuideToc,
 } from "../data/blogs/diyReputationGuide.js";
 import {
@@ -101,7 +102,7 @@ export default function BlogDiyReputationGuidePage() {
   return (
     <>
       <SeoHead
-        title="DIY Online Reputation Management: A Complete Guide for Individuals | Reputation360"
+        title={diyReputationGuideSeoTitle}
         description={diyReputationGuideMetaDescription}
         canonicalPath={DIY_REPUTATION_GUIDE_PATH}
         ogImage={diyReputationGuideListing.image}

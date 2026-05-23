@@ -22,8 +22,11 @@ export const diyReputationGuideListing = {
   imageAlt: "Person reviewing online search results on a laptop",
 };
 
+export const diyReputationGuideSeoTitle =
+  "DIY Online Reputation Management Guide (2026) | Reputation360";
+
 export const diyReputationGuideMetaDescription =
-  "DIY online reputation management guide for individuals: audit your digital footprint, control Google results, earn reviews, monitor mentions, and suppress negative content in 8-12 weeks.";
+  "Take control of your reputation yourself. Step-by-step guide covering Google audits, positive content strategy, review management, and suppression tactics.";
 
 export const diyReputationGuideHero = {
   badge: "Complete DIY Guide",

@@ -29,6 +29,7 @@ import {
   suppressNegativeGuideHero,
   suppressNegativeGuideListing,
   suppressNegativeGuideMetaDescription,
+  suppressNegativeGuideSeoTitle,
 } from "../data/blogs/suppressNegativeContentGuide.js";
 import "../styles/r360-diy-interactive.css";
 
@@ -461,7 +462,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
   return (
     <>
       <SeoHead
-        title="How to Suppress Negative Content: The Professional's Guide to Online Reputation Control | Reputation360"
+        title={suppressNegativeGuideSeoTitle}
         description={suppressNegativeGuideMetaDescription}
         canonicalPath={SUPPRESS_NEGATIVE_GUIDE_PATH}
         ogImage={suppressNegativeGuideListing.image}

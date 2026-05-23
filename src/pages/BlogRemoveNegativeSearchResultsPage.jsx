@@ -13,6 +13,7 @@ import {
   removeNegativeSearchResultsHero,
   removeNegativeSearchResultsListing,
   removeNegativeSearchResultsMetaDescription,
+  removeNegativeSearchResultsSeoTitle,
   removeNegativeSearchResultsToc,
 } from "../data/blogs/removeNegativeSearchResultsGuide.js";
 import {
@@ -99,7 +100,7 @@ export default function BlogRemoveNegativeSearchResultsPage() {
   return (
     <>
       <SeoHead
-        title="How to Remove or Suppress Negative Search Results from Google | Reputation360"
+        title={removeNegativeSearchResultsSeoTitle}
         description={removeNegativeSearchResultsMetaDescription}
         canonicalPath={REMOVE_NEGATIVE_SEARCH_RESULTS_PATH}
         ogImage={removeNegativeSearchResultsListing.image}

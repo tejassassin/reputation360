@@ -23,9 +23,11 @@ export const suppressNegativeGuideListing = {
   imageAlt: "Professional reviewing strategy and search results on a laptop",
 };
 
-/** SEO meta description from keyword strategy doc (verbatim recommended string). */
+export const suppressNegativeGuideSeoTitle =
+  "How to Suppress Negative Content Online | Reputation360";
+
 export const suppressNegativeGuideMetaDescription =
-  "Learn how to remove negative search results & improve Google search reputation. Professional guide to negative content suppression, reputation repair services, and online reputation management. Free audit included.";
+  "A proven 5-step framework for suppressing negative Google results used by professionals in healthcare, law & finance. Includes real case studies & timelines.";
 
 export const suppressNegativeGuideHero = {
   badge: "Professional Guide",

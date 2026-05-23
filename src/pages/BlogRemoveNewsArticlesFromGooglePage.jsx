@@ -26,6 +26,7 @@ import {
   removeNewsArticlesFromGoogleHero,
   removeNewsArticlesFromGoogleListing,
   removeNewsArticlesFromGoogleMetaDescription,
+  removeNewsArticlesFromGoogleSeoTitle,
   removeNewsArticlesFromGoogleToc,
 } from "../data/blogs/removeNewsArticlesFromGoogleGuide.js";
 import {
@@ -89,7 +90,7 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
   return (
     <>
       <SeoHead
-        title="Can You Remove News Articles From Google Search? | Reputation360"
+        title={removeNewsArticlesFromGoogleSeoTitle}
         description={removeNewsArticlesFromGoogleMetaDescription}
         canonicalPath={REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH}
         ogImage={removeNewsArticlesFromGoogleListing.image}

@@ -1,6 +1,9 @@
 import { blogPostPath } from "../../constants/blogPaths.js";
 
-export const REMOVE_NEGATIVE_SEARCH_RESULTS_SLUG =
+export const REMOVE_NEGATIVE_SEARCH_RESULTS_SLUG = "remove-negative-search-results-from-google";
+
+/** Previous slug; 301 redirect in vercel.json */
+export const REMOVE_NEGATIVE_SEARCH_RESULTS_LEGACY_SLUG =
   "how-to-remove-or-suppress-negative-search-results-from-google";
 
 export const REMOVE_NEGATIVE_SEARCH_RESULTS_PATH = blogPostPath(
@@ -23,8 +26,11 @@ export const removeNegativeSearchResultsListing = {
   imageAlt: "Person reviewing Google search results on a laptop",
 };
 
+export const removeNegativeSearchResultsSeoTitle =
+  "Remove Negative Search Results from Google | Reputation360";
+
 export const removeNegativeSearchResultsMetaDescription =
-  "Learn how to remove or suppress negative search results from Google. Reputation360 shares proven strategies to clean up your Google search presence and protect your online reputation.";
+  "Proven steps to remove or suppress negative Google results. Publisher outreach, Google removal tools, legal routes & professional suppression - all covered.";
 
 export const removeNegativeSearchResultsHero = {
   badge: "Google Reputation Management",

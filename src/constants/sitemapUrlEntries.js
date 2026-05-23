@@ -163,7 +163,7 @@ export const SITEMAP_URL_ENTRIES = [
     priority: "0.7",
   },
   {
-    path: "/blog/how-to-remove-or-suppress-negative-search-results-from-google",
+    path: "/blog/remove-negative-search-results-from-google",
     lastmod: "2026-05-22",
     changefreq: "monthly",
     priority: "0.7",

@@ -23,8 +23,11 @@ export const removeNewsArticlesFromGoogleListing = {
   imageAlt: "Newspaper and digital news headlines",
 };
 
+export const removeNewsArticlesFromGoogleSeoTitle =
+  "Can You Remove News Articles from Google? | Reputation360";
+
 export const removeNewsArticlesFromGoogleMetaDescription =
-  "Can a news article be removed from Google? Reputation360 explains exactly when removal is possible, when it isn't, and what actually works to protect your reputation online.";
+  "Find out when Google removes news articles - and what to do when it won't. Publisher requests, legal routes & expert suppression explained.";
 
 export const removeNewsArticlesFromGoogleHero = {
   badge: "Google Reputation Management",
