@@ -171,7 +171,12 @@ export default function BlogPack20ArticlePage({ slug }) {
                 <Pack20ContentSection key={section.id} section={section} {...blockProps} />
               ))}
 
-              <Pack20CtaSection title={article.cta.title} lead={article.cta.lead} />
+              <Pack20CtaSection
+                title={article.cta.title}
+                lead={article.cta.lead}
+                panelTitle={article.cta.panelTitle}
+                panelLead={article.cta.panelLead}
+              />
 
               <Pack20FaqSection
                 faqs={article.faqs}

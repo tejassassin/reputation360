@@ -281,9 +281,9 @@ export const article = {
     },
   ],
   cta: {
-    title: "Book a strategy consultation",
+    title: "Take the next step",
     lead:
-      "Get a clear audit of what ranks today for your name or brand and a personalized content ranking plan built around the assets that will outrank your highest-priority negatives.",
+      "Get a clear audit of what ranks today for your name or brand and which content assets will outrank your highest-priority negatives.",
   },
   relatedReading: [
     {

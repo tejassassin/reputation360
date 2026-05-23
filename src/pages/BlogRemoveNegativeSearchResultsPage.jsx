@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import { ArrowRight, Check, Clock, Lock, Search, ShieldAlert, TrendingUp } from "lucide-react";
+import { Check, Clock, ShieldAlert, TrendingUp } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { cn } from "@/lib/utils";
-import { calendlyCtaButtonClass } from "@/constants/scheduling";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
-import { ConsultationCtas } from "@/components/ConsultationCtas";
+import { BlogGuideCtaSection } from "@/components/blog/BlogGuideCtaSection.jsx";
 import { DiyInternalLink } from "@/components/blog/diy/DiyGuideUi.jsx";
 import { DIY_REPUTATION_GUIDE_PATH } from "../data/blogs/diyReputationGuide.js";
 import { SUPPRESS_NEGATIVE_GUIDE_PATH } from "../data/blogs/suppressNegativeContentGuide.js";
@@ -402,42 +401,10 @@ export default function BlogRemoveNegativeSearchResultsPage() {
                 </div>
               </section>
 
-              <section className="mb-20 scroll-mt-36" id="start">
-                <span className="diy-section-tag">Next step</span>
-                <h2 className="mb-6 font-heading text-3xl font-bold text-navy">
-                  Ready to clean up your Google search results?
-                </h2>
-                <p className="mb-8 font-body text-lg text-steel">
-                  Get a free, no-obligation view of your current search presence. We&apos;ll identify what&apos;s
-                  working against you - and practical next steps to fix it.
-                </p>
-                <div className="rounded-3xl bg-[linear-gradient(120deg,#08284f,#0f3f73)] px-6 py-10 text-center text-white shadow-lg md:px-12 md:py-12">
-                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                    <Search className="h-6 w-6 text-green" aria-hidden />
-                  </div>
-                  <h3 className="mb-3 font-heading text-2xl font-bold text-white sm:text-3xl">
-                    Get your free reputation audit
-                  </h3>
-                  <p className="mx-auto mb-6 max-w-xl font-body text-sm text-white/85 sm:text-base">
-                    Book a consultation or run a scan - whichever fits your timeline.
-                  </p>
-                  <ConsultationCtas
-                    variant="onDark"
-                    consultLabel="Book a Free Consultation"
-                    consultSuffix={<ArrowRight className="h-4 w-4 shrink-0" aria-hidden />}
-                    wrapperClassName="justify-center"
-                    consultClassName={cn(
-                      "ha-pill inline-flex w-full max-w-md items-center justify-center gap-2 rounded-xl px-8 py-3.5 font-heading text-sm font-bold shadow-lg shadow-cta-consult/30 transition hover:brightness-95 sm:w-auto md:px-10 md:text-base",
-                      calendlyCtaButtonClass,
-                    )}
-                    freeScanClassName="ha-pill inline-flex w-full max-w-md items-center justify-center rounded-xl border-2 border-white/35 bg-white/10 px-8 py-3.5 font-heading text-sm font-bold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 sm:w-auto md:px-10 md:text-base"
-                  />
-                  <p className="mt-5 flex items-center justify-center gap-2 font-body text-xs font-medium text-white/85 sm:text-sm">
-                    <Lock className="h-3 w-3 text-green" aria-hidden />
-                    Confidential
-                  </p>
-                </div>
-              </section>
+              <BlogGuideCtaSection
+                sectionTitle="Ready to clean up your Google search results?"
+                sectionLead="Get a free, no-obligation view of your current search presence. We&apos;ll identify what&apos;s working against you - and practical next steps to fix it."
+              />
 
               <div className="mb-16 mt-10 border-t border-slate-200/80 pt-10" id="related">
                 <DiyRelatedReading articles={RELATED_ARTICLES} />

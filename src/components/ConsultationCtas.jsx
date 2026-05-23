@@ -73,6 +73,7 @@ function ConsultArrow() {
  */
 export function ConsultationCtas({
   variant = "onLight",
+  freeScanLabel = FREE_REPUTATION_SCAN_LABEL,
   consultLabel = "Book a Free Consultation",
   consultHref,
   consultLinkProps,
@@ -90,7 +91,7 @@ export function ConsultationCtas({
   return (
     <div className={cn(styles.wrapper, wrapperClassName, className)}>
       <a {...freeScanNewTabProps} className={cn(styles.freeScan, freeScanClassName)}>
-        {FREE_REPUTATION_SCAN_LABEL}
+        {freeScanLabel}
       </a>
       <a {...consultProps} className={cn(styles.consult, consultClassName)}>
         {styles.consultShowArrow ? (

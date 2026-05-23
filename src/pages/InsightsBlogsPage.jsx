@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BadgeCheck, ArrowRight, ArrowUpRight } from "lucide-react";
-import { ConsultationCtas } from "../components/ConsultationCtas";
+import { BlogGuideCtaPanel } from "../components/blog/BlogGuideCtaSection.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
@@ -287,22 +287,9 @@ function InsightsBlogsPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#f9f9ff] px-6 py-24 text-center md:px-8">
+      <section className="bg-[#f9f9ff] px-6 py-24 md:px-8">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-insights-headline mb-6 text-4xl font-bold text-[#02254d]">
-            Ready to Take the Next Step?
-          </h2>
-          <p className="mb-12 text-xl font-light text-[#43474e]">
-            Your reputation took years to build. Don&apos;t let the internet decide its
-            future.
-          </p>
-          <ConsultationCtas
-            variant="onLight"
-            consultLabel="Book a Free Consultation"
-            consultClassName="ha-pill rounded-xl bg-cta-consult px-10 py-5 text-lg font-bold text-white shadow-xl shadow-cta-consult/30 transition hover:brightness-95"
-            freeScanClassName="ha-pill rounded-xl border-2 border-[#02254d]/25 bg-white px-10 py-5 text-lg font-bold text-[#02254d] shadow-sm transition hover:border-[#02254d]/45 hover:bg-slate-50"
-            wrapperClassName="justify-center gap-4"
-          />
+          <BlogGuideCtaPanel />
         </div>
       </section>
     </main>

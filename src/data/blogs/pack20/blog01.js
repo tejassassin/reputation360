@@ -270,7 +270,7 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "See exactly what Google shows for your name today and which suppression levers apply to your situation. Book a consultation or run a free reputation scan to get a clear starting point.",
+      "See exactly what Google shows for your name today and which suppression levers apply to your situation.",
   },
   relatedReading: [
     {
