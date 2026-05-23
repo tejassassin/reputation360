@@ -518,11 +518,11 @@ export default function BlogSuppressNegativeContentGuidePage() {
             <main className="min-w-0 flex-1 px-0 pb-20 sm:px-2 lg:max-w-[52rem] lg:px-10">
               <section className="mb-20 scroll-mt-36 font-body" id="silent-crisis">
                 <h2 className="mb-8 font-heading text-3xl font-bold text-navy">The Silent Crisis Affecting Your Credibility</h2>
-                <DiyLeadHighlight>
+                <DiyLeadHighlight variant="panel" label="What happens">
                   <p>
-                    It starts with a search. A prospective patient, a potential high-value client, or a future partner
-                    enters your name. Then they see it - a lingering negative headline, an unfair review, or a
-                    misrepresentative archive. In today&apos;s online world, they&apos;ll either find the negative
+                    <strong>It starts with a search.</strong> A prospective patient, a potential high-value client, or
+                    a future partner enters your name. Then they see it - a lingering negative headline, an unfair review,
+                    or a misrepresentative archive. In today&apos;s online world, they&apos;ll either find the negative
                     content on Google&apos;s first page - or they won&apos;t find you at all. Our guide shows you how to
                     remove negative search results and reclaim your digital presence.
                   </p>

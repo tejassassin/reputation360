@@ -78,9 +78,22 @@ export function DiyAnswerBox({ label, verdict, verdictLabel, children }) {
   );
 }
 
-/** Editorial lead-in — highlighted prose, not styled as a quotation. */
-export function DiyLeadHighlight({ children, className }) {
-  return <div className={cn("diy-lead-highlight", className)}>{children}</div>;
+/**
+ * Editorial lead-in — highlighted prose, not styled as a quotation.
+ * @param {{ children: import('react').ReactNode; className?: string; label?: string; variant?: 'accent' | 'panel' }} props
+ */
+export function DiyLeadHighlight({ children, className, label, variant = "accent" }) {
+  return (
+    <div
+      className={cn(
+        variant === "panel" ? "diy-lead-panel" : "diy-lead-highlight",
+        className,
+      )}
+    >
+      {label ? <p className="diy-lead-panel-label">{label}</p> : null}
+      <div className={variant === "panel" ? "diy-lead-panel-body" : undefined}>{children}</div>
+    </div>
+  );
 }
 
 /** Highlighted callout (insight, tip, warning) - shared across blog guides. */

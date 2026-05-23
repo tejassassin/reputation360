@@ -111,6 +111,40 @@
   color: #334155;
 }
 
+.r360-diy-interactive .diy-lead-panel {
+  margin: 1.5rem 0 2rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(31, 59, 100, 0.12);
+  background: linear-gradient(160deg, #f8fafc 0%, #fff 55%);
+  box-shadow: 0 8px 28px -12px rgba(31, 59, 100, 0.18);
+}
+
+.r360-diy-interactive .diy-lead-panel-label {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-heading, Inter, system-ui, sans-serif);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #16a34a;
+}
+
+.r360-diy-interactive .diy-lead-panel-body p {
+  margin: 0;
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  font-weight: 400;
+  font-style: normal;
+  color: #475569;
+}
+
+.r360-diy-interactive .diy-lead-panel-body p strong {
+  font-weight: 600;
+  color: #1f3b64;
+}
+
 .r360-diy-interactive .diy-meta-grid {
   display: flex;
   flex-wrap: wrap;
