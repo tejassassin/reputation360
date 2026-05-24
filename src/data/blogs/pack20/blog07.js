@@ -59,7 +59,8 @@ export const article = {
     "Court records in Google are among the hardest reputation problems. Reputation360 explains what is possible, what is not, and what actually works.",
   hero: {
     badge: "Legal Records Guide",
-    title: "How to Remove Court Records From Google",
+    title:
+      "How to Remove Court Records From Google: What Reputation360 Knows",
     lead:
       "Arrests with dropped charges, settled civil matters, and old proceedings can dominate name searches. Public record no longer means paper-only - it means indexed, often on .gov and legal databases Google trusts deeply.",
     meta: [

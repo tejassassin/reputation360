@@ -56,7 +56,8 @@ export const article = {
     "Claiming the right profiles is the fastest way to own your first page. Reputation360's guide covers 12 platforms to claim immediately.",
   hero: {
     badge: "Profile Strategy",
-    title: "Building a Positive Google Presence",
+    title:
+      "Building a Positive Google Presence: Reputation360's Profile Claiming Guide",
     lead:
       "One of the most underutilized tactics in online reputation management is also one of the most effective: claiming and completing the third-party profiles Google already wants to rank for your name.",
     meta: [

@@ -53,7 +53,8 @@ export const article = {
     "Discover how to rank positive content above harmful links using Reputation360's proven strategy. Dominate page one of Google with the right assets.",
   hero: {
     badge: "Content Ranking Strategy",
-    title: "How to Rank Positive Content Above Negative Results",
+    title:
+      "How to Rank Positive Content Above Negative Results: The Reputation360 Strategy",
     lead:
       "Google's first page has ten organic slots. Some may be occupied by content you did not write and cannot easily remove. The answer is not waiting for the internet to forget - it is building content more authoritative, relevant, and trusted than what you want to displace.",
     meta: [

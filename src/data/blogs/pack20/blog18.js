@@ -58,7 +58,8 @@ export const article = {
     "You cannot protect what you cannot see. Reputation360's guide shows how to monitor your online reputation - free tools, paid tools, and when to escalate.",
   hero: {
     badge: "Monitoring",
-    title: "Monitoring Your Online Reputation",
+    title:
+      "Monitoring Your Online Reputation: Reputation360's Tools & Tactics Guide",
     lead:
       "Reputation damage is almost always more expensive to fix the later you catch it. The sooner you know about a problem, the more options you have - and the less it costs to address.",
     meta: [

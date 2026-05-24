@@ -63,7 +63,8 @@ export const article = {
     "Old social media posts showing in Google? Reputation360's guide covers platform deletion, privacy settings, and when suppression is the smarter move.",
   hero: {
     badge: "Social & Google",
-    title: "Old Social Media Posts That Show Up in Google",
+    title:
+      "Dealing With Old Social Media Posts That Show Up in Google: The Reputation360 Guide",
     lead:
       "Something you posted years ago - or something posted about you on another account - can still rank for your name. This guide covers what you control, what you cannot, and when to build positive results instead of waiting for caches to clear.",
     meta: [

@@ -68,7 +68,8 @@ export const article = {
     "What does excellent ORM look like? Reputation360 shares the methodology behind our 97% suppression success rate across 1,100+ clients.",
   hero: {
     badge: "ORM Methodology",
-    title: "Online Reputation Management Best Practices",
+    title:
+      "Online Reputation Management Best Practices: The Reputation360 Methodology",
     lead:
       "Online reputation management is not a single action - it is a system. A coordinated, ongoing set of activities that together determine how you appear in search and how you are perceived across the internet.",
     meta: [

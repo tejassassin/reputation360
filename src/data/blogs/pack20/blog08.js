@@ -61,7 +61,8 @@ export const article = {
     "When a reputation crisis hits, the first 48 hours matter most. Reputation360's playbook shows exactly what to do - and what not to do.",
   hero: {
     badge: "Crisis Playbook",
-    title: "Crisis Management and Reputation Recovery",
+    title:
+      "Crisis Management and Reputation Recovery: The Reputation360 Playbook",
     lead:
       "A major story, viral post, or public dispute can change your search results within hours. Decisions in the first two days have outsized impact on whether you contain damage or let negative URLs accumulate authority unchecked.",
     meta: [

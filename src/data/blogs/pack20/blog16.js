@@ -56,7 +56,8 @@ export const article = {
     "What is the ROI of reputation management? Reputation360 breaks down real results across career outcomes, business growth, and deal conversion.",
   hero: {
     badge: "ROI & Results",
-    title: "The ROI of Reputation Management",
+    title:
+      "The ROI of Reputation Management: What Reputation360 Clients See",
     lead:
       "Reputation management is an investment. Like any investment, the question that matters most is: what do you get back? After seven years and more than 1,100 clients, this is what the return actually looks like.",
     meta: [

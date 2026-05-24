@@ -60,7 +60,8 @@ export const article = {
     "The first Google result shapes every impression. Reputation360 explains the psychology behind first results - and why controlling it is worth it.",
   hero: {
     badge: "Psychology Deep Dive",
-    title: "Why Your First Google Results Matter",
+    title:
+      "Why Your First Google Results Matter: Reputation360's Psychology Deep Dive",
     lead:
       "The first result in a Google search is not just the most visible. It is cognitively privileged. Human beings give disproportionate weight to the first piece of information they receive - and in name searches, that first result sets the frame for everything else.",
     meta: [

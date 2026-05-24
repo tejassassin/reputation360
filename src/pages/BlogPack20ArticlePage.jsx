@@ -94,7 +94,7 @@ export default function BlogPack20ArticlePage({ slug }) {
       <div className="r360-diy-interactive scroll-smooth pb-1 font-body text-jet antialiased">
         <div className="diy-hero-band" id="intro">
           <span className="diy-hero-badge">{article.hero.badge}</span>
-          <h1 className="diy-hero-title">{article.hero.title}</h1>
+          <h1 className="diy-hero-title">{article.listing.title}</h1>
           <p className="diy-hero-lead">{article.hero.lead}</p>
           {article.hero.meta?.length ? (
             <div className="diy-meta-grid">

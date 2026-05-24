@@ -66,7 +66,8 @@ export const article = {
     "AI search changes how people research names and brands. Reputation360 explains how ChatGPT, Perplexity, and AI Overviews affect your reputation.",
   hero: {
     badge: "AI & Search",
-    title: "How AI Search Changes Reputation",
+    title:
+      "How AI Search Changes Reputation: Reputation360's Guide to ChatGPT & Beyond",
     lead:
       "For most of the last two decades, online reputation management was synonymous with Google search management. That is still largely true - but it is no longer the complete picture.",
     meta: [

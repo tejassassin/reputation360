@@ -57,7 +57,8 @@ export const article = {
     "Negative results cost real opportunities. Reputation360 shares the cases we solve and the results achieved for clients across the US and beyond.",
   hero: {
     badge: "Real Outcomes",
-    title: "Negative Links That Cost Jobs and Deals",
+    title:
+      "Negative Links That Cost Jobs and Deals: Real Cases Reputation360 Solved",
     lead:
       "No one tells you the Google result killed the deal. The email stops, the offer goes on hold, and the link between search and opportunity stays invisible. These patterns appear again and again across our client work.",
     meta: [

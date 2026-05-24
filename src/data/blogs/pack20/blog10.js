@@ -57,7 +57,8 @@ export const article = {
     "Recruiters Google every candidate. Reputation360's insider report reveals what they find, what raises red flags, and how to prepare your presence.",
   hero: {
     badge: "Insider Report",
-    title: "What Do Recruiters Google About You?",
+    title:
+      "What Do Recruiters Google About You? Reputation360's Insider Report",
     lead:
       "Roughly seven in ten employers use social and search screening; for senior and high-trust roles the practice is effectively universal. Before an offer, someone types your name - this is what they run and what they conclude.",
     meta: [

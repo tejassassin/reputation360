@@ -58,7 +58,8 @@ export const article = {
     "Removal or suppression? Reputation360 breaks down which actually works for negative search results - and why most people choose the wrong option first.",
   hero: {
     badge: "Strategy Guide",
-    title: "Removal vs. Suppression: Which Actually Works?",
+    title:
+      "The Reputation360 Method: Removal vs. Suppression (Which Actually Works?)",
     lead:
       "Most people want damaging Google results to disappear. Removal is far less available than assumed - and far more complicated than quick-fix vendors imply. Here is what works, when, and why both paths often belong in the same plan.",
     meta: [

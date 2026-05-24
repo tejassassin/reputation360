@@ -59,7 +59,8 @@ export const article = {
     "Ignoring your online reputation has a real cost. Reputation360 breaks down what inaction costs professionals and businesses - and when it's irreversible.",
   hero: {
     badge: "Reputation Analysis",
-    title: "The Hidden Cost of Ignoring Your Online Reputation",
+    title:
+      "The Hidden Cost of Ignoring Your Online Reputation (Reputation360 Analysis)",
     lead:
       "The cost of a bad online reputation is almost always invisible. No one sends you an invoice for the deal that did not close or the interview that ended without an offer. The cost is felt as absence - in opportunities that never materialize.",
     meta: [

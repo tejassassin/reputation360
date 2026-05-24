@@ -53,7 +53,8 @@ export const article = {
     "Learn how to suppress negative search results with Reputation360's proven framework. Push harmful links down and reclaim your Google first page.",
   hero: {
     badge: "Suppression Framework",
-    title: "How to Suppress Negative Search Results: The Reputation360 Framework",
+    title:
+      "How to Suppress Negative Search Results: The Reputation360 Framework",
     lead:
       "When a harmful article, misleading review, or old court record sits on page one, it does not just damage perception - it kills opportunity in silence. This guide breaks down the exact framework we use so you know what realistic suppression looks like, what it requires, and what it can achieve.",
     meta: [

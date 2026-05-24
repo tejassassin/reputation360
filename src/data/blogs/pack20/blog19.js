@@ -59,7 +59,8 @@ export const article = {
     "Social media is central to how reputations are built - and broken. Reputation360's multi-platform strategy covers every channel and crisis response.",
   hero: {
     badge: "Social Media",
-    title: "Social Media Reputation Management",
+    title:
+      "Social Media Reputation Management: Reputation360's Multi-Platform Strategy",
     lead:
       "Social media is simultaneously the most powerful tool for building a reputation and the most dangerous environment for losing one. A single post can reach millions. A single screenshot can resurface at exactly the wrong moment.",
     meta: [

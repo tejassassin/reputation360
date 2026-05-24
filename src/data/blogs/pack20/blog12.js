@@ -59,7 +59,8 @@ export const article = {
     "Your Google first page is your most visible asset. Reputation360's strategy shows how to claim all 10 positions with content you control.",
   hero: {
     badge: "First Page Strategy",
-    title: "Own Your First Page",
+    title:
+      "Own Your First Page: Reputation360's Strategy to Control Google Results",
     lead:
       "Think of the first page of Google as real estate. Ten organic positions are available - and someone else may be occupying some of them. Reputation360's first-page ownership strategy is about building a deliberate presence that fills those slots with content that serves your professional interests.",
     meta: [

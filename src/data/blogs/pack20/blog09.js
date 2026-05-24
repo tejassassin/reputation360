@@ -58,7 +58,8 @@ export const article = {
     "LinkedIn is your most powerful reputation asset. Reputation360's checklist shows how to make it rank #1 for your name and push negative results down.",
   hero: {
     badge: "LinkedIn Checklist",
-    title: "LinkedIn Profile Optimization for Search Results",
+    title:
+      "LinkedIn Profile Optimization for Search Results: The Reputation360 Checklist",
     lead:
       "If one action produces fast, reliable improvement for a personal name search, it is a fully optimized LinkedIn profile. High domain authority, quick indexing, and full control make it the first move in most suppression campaigns.",
     meta: [
