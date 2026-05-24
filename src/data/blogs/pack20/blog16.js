@@ -89,7 +89,24 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "For individual professionals, the return on reputation management is most directly visible in compensation and role access. Clients who have fixed a negative first-page result before a major career move consistently report better outcomes in the hiring process - fewer stalls at due diligence, stronger final-round performance, and in many cases, compensation above what they had previously achieved.",
+          text: "For individual professionals, the return on reputation management is most directly visible in compensation and role access. Clients who invest in fixing your reputation before a major career move consistently report better outcomes in the hiring process - fewer stalls at due diligence, stronger final-round performance, and in many cases, compensation above what they had previously achieved. That pattern matches how hiring teams evaluate your search presence before the offer.",
+          parts: [
+            {
+              text: "For individual professionals, the return on reputation management is most directly visible in compensation and role access. Clients who invest in ",
+            },
+            {
+              text: "fixing your reputation before a major career move",
+              href: "https://www.thereputation360.com/blog/fix-reputation-before-job-interview-reputation360-guide",
+            },
+            {
+              text: " consistently report better outcomes in the hiring process - fewer stalls at due diligence, stronger final-round performance, and in many cases, compensation above what they had previously achieved. That pattern matches ",
+            },
+            {
+              text: "how hiring teams evaluate your search presence before the offer",
+              href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
+            },
+            { text: "." },
+          ],
         },
         {
           type: "keyBox",
@@ -99,7 +116,17 @@ export const article = {
         },
         {
           type: "p",
-          text: "We also see return in the form of board appointments, speaking invitations, advisory roles, and partnership opportunities - none of which come with a simple salary number, but all of which represent tangible professional and financial value. These opportunities consistently increase for clients who have strengthened their search presence.",
+          text: "We also see return in the form of board appointments, speaking invitations, advisory roles, and partnership opportunities - none of which come with a simple salary number, but all of which represent tangible professional and financial value. These opportunities consistently increase for clients who have strengthened their search presence. Review documented client outcomes across career and crisis contexts when you want proof before modeling your own return.",
+          parts: [
+            {
+              text: "We also see return in the form of board appointments, speaking invitations, advisory roles, and partnership opportunities - none of which come with a simple salary number, but all of which represent tangible professional and financial value. These opportunities consistently increase for clients who have strengthened their search presence. Review ",
+            },
+            {
+              text: "documented client outcomes across career and crisis contexts",
+              href: "https://www.thereputation360.com/case-studies",
+            },
+            { text: " when you want proof before modeling your own return." },
+          ],
         },
       ],
     },
@@ -110,7 +137,32 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "For businesses, the ROI of reputation management is most visible in conversion rates and lead quality. When negative search results are suppressed and positive content occupies the first page, more prospects who research the business before buying complete their inquiry or purchase. The improvement in conversion rate from a negative-to-neutral or negative-to-positive first page shift is typically 15% to 35%, depending on the industry and the severity of the original reputation issue.",
+          text: "For businesses, the ROI of reputation management is most visible in conversion rates and lead quality. When negative search results are suppressed through owning the first page with positive content, more prospects who research the business before buying complete their inquiry or purchase - which is why first-page results directly influence purchase decisions. The improvement in conversion rate from a negative-to-positive first page shift is typically 15% to 35%, consistent with research that shows online reputation directly drives conversion rates, depending on industry and severity.",
+          parts: [
+            {
+              text: "For businesses, the ROI of reputation management is most visible in conversion rates and lead quality. When negative search results are suppressed through ",
+            },
+            {
+              text: "owning the first page with positive content",
+              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
+            },
+            {
+              text: ", more prospects who research the business before buying complete their inquiry or purchase - which is ",
+            },
+            {
+              text: "why first-page results directly influence purchase decisions",
+              href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
+            },
+            {
+              text: ". The improvement in conversion rate from a negative-to-positive first page shift is typically 15% to 35%, consistent with ",
+            },
+            {
+              text: "research consistently shows online reputation directly drives conversion rates",
+              href: "https://spiegel.medill.northwestern.edu/how-online-reviews-influence-sales/",
+              external: true,
+            },
+            { text: ", depending on industry and severity." },
+          ],
         },
         {
           type: "stats",
@@ -122,7 +174,17 @@ export const article = {
         },
         {
           type: "p",
-          text: "For a business generating $2 million in annual revenue from inbound leads with a 20% close rate, a 25% improvement in conversion represents $500,000 in additional annual revenue. The investment in achieving that conversion improvement - even in a sustained engagement - typically produces a multiple-of-cost return within 12 to 18 months.",
+          text: "For a business generating $2 million in annual revenue from inbound leads with a 20% close rate, a 25% improvement in conversion represents $500,000 in additional annual revenue. The investment in achieving that conversion improvement - even in a sustained engagement - typically produces a multiple-of-cost return within 12 to 18 months. See how long different types of engagements typically take before you budget the payback window.",
+          parts: [
+            {
+              text: "For a business generating $2 million in annual revenue from inbound leads with a 20% close rate, a 25% improvement in conversion represents $500,000 in additional annual revenue. The investment in achieving that conversion improvement - even in a sustained engagement - typically produces a multiple-of-cost return within 12 to 18 months. See ",
+            },
+            {
+              text: "how long different types of engagements typically take",
+              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+            },
+            { text: " before you budget the payback window." },
+          ],
         },
         {
           type: "p",
@@ -137,7 +199,19 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "A different way to measure the ROI of reputation management is through the lens of cost avoidance. For a business hit by a reputation crisis - a viral negative story, a coordinated review attack, a public executive controversy - the cost of no action is measured in revenue attrition, customer churn, and employee retention problems. Reputation360 has worked with clients where inaction during a crisis cost more per month than a full-year reputation management engagement.",
+          text: "A different way to measure the ROI of reputation management is through the lens of cost avoidance. For a business hit by a reputation crisis - a viral negative story, a coordinated review attack, a public executive controversy - start with the crisis management and recovery playbook. The cost of no action is measured in revenue attrition, customer churn, and employee retention problems. Reputation360 has worked with clients where inaction during a crisis cost more per month than a full-year reputation management engagement.",
+          parts: [
+            {
+              text: "A different way to measure the ROI of reputation management is through the lens of cost avoidance. For a business hit by a reputation crisis - a viral negative story, a coordinated review attack, a public executive controversy - start with ",
+            },
+            {
+              text: "the crisis management and recovery playbook",
+              href: "https://www.thereputation360.com/blog/crisis-management-reputation-recovery-reputation360-playbook",
+            },
+            {
+              text: ". The cost of no action is measured in revenue attrition, customer churn, and employee retention problems. Reputation360 has worked with clients where inaction during a crisis cost more per month than a full-year reputation management engagement.",
+            },
+          ],
         },
         {
           type: "compare",
@@ -153,7 +227,18 @@ export const article = {
               id: "strategic",
               title: "Strategic outcome",
               tone: "after",
-              body: "We contained what could have become an existential business problem - the kind of revenue attrition, customer churn, and employee retention damage that inaction allows to compound.",
+              body: "We contained what could have become an existential business problem - the kind of revenue attrition, customer churn, and employee retention damage that reputation risk and its financial consequences describe when left unaddressed.",
+              parts: [
+                {
+                  text: "We contained what could have become an existential business problem - the kind of revenue attrition, customer churn, and employee retention damage that ",
+                },
+                {
+                  text: "reputation risk and its financial consequences",
+                  href: "https://hbr.org/2007/02/reputation-and-its-risks",
+                  external: true,
+                },
+                { text: " describe when left unaddressed." },
+              ],
             },
           ],
         },
@@ -193,6 +278,36 @@ export const article = {
               label: "Doing nothing",
               title: "Reliably zero or negative",
               body: "What is consistent across engagements in the US, Canada, Australia, and Europe is that clients who take action - even at modest scale - consistently report better outcomes than they experienced before. The return on doing nothing, by contrast, is reliably zero or negative.",
+            },
+          ],
+        },
+        {
+          type: "p",
+          text: "Read real cases where reputation management changed the outcome when you want documented proof behind these ranges - not just illustrative math.",
+          parts: [
+            { text: "Read " },
+            {
+              text: "real cases where reputation management changed the outcome",
+              href: "https://www.thereputation360.com/blog/negative-links-cost-jobs-deals-real-cases-reputation360",
+            },
+            {
+              text: " when you want documented proof behind these ranges - not just illustrative math.",
+            },
+          ],
+        },
+        {
+          type: "p",
+          text: "If one of the tiers above matches your situation, the next step is understanding what engaging looks like. Our reputation management services map scope, timeline, and realistic return for career, business, and crisis contexts.",
+          parts: [
+            {
+              text: "If one of the tiers above matches your situation, the next step is understanding what engaging looks like. ",
+            },
+            {
+              text: "Our reputation management services",
+              href: "https://www.thereputation360.com/services",
+            },
+            {
+              text: " map scope, timeline, and realistic return for career, business, and crisis contexts.",
             },
           ],
         },
