@@ -98,6 +98,19 @@ export const article = {
         {
           type: "p",
           text: "Anchoring is one of the most robust and well-documented cognitive biases in psychology research. First described by Amos Tversky and Daniel Kahneman, anchoring shows that people make decisions by starting from an initial value - the anchor - and adjusting from there, but they typically adjust insufficiently.",
+          parts: [
+            {
+              text: "Anchoring is ",
+            },
+            {
+              text: "one of the most robust and well-documented cognitive biases in psychology",
+              href: "https://thedecisionlab.com/biases/anchoring-bias",
+              external: true,
+            },
+            {
+              text: " research. First described by Amos Tversky and Daniel Kahneman, anchoring shows that people make decisions by starting from an initial value - the anchor - and adjusting from there, but they typically adjust insufficiently.",
+            },
+          ],
         },
         {
           type: "p",
@@ -107,7 +120,17 @@ export const article = {
           type: "keyBox",
           variant: "insight",
           title: "Applied to search results",
-          text: "If the first result for your name is a positive, professional LinkedIn profile, subsequent results are interpreted through the lens of credible professional. If the first result is a critical news article, subsequent positive results are interpreted through the lens of did this happen? - and the positive content feels like the footnotes, not the story.",
+          text: "If the first result for your name is a fully optimised LinkedIn profile, subsequent results are interpreted through the lens of credible professional. If the first result is a critical news article, subsequent positive results are interpreted through the lens of did this happen? - and the positive content feels like the footnotes, not the story.",
+          parts: [
+            { text: "If the first result for your name is " },
+            {
+              text: "a fully optimised LinkedIn profile",
+              href: "https://www.thereputation360.com/blog/linkedin-profile-optimization-search-results-reputation360-checklist",
+            },
+            {
+              text: ", subsequent results are interpreted through the lens of credible professional. If the first result is a critical news article, subsequent positive results are interpreted through the lens of did this happen? - and the positive content feels like the footnotes, not the story.",
+            },
+          ],
         },
       ],
     },
@@ -118,7 +141,20 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Beyond psychology, there is a mathematical reality to first-position results. Research consistently shows that the first organic result in a Google search captures approximately 28% to 31% of all clicks. The second position captures roughly 15%. By position five, the click-through rate has dropped to under 7%. By position ten, it is below 2%.",
+          text: "Beyond psychology, there is a mathematical reality to first-position results. Research consistently shows position 1 captures 28-31% of all clicks. The second position captures roughly 15%. By position five, the click-through rate has dropped to under 7%. By position ten, it is below 2%.",
+          parts: [
+            {
+              text: "Beyond psychology, there is a mathematical reality to first-position results. ",
+            },
+            {
+              text: "Research consistently shows position 1 captures 28-31% of all clicks",
+              href: "https://backlinko.com/google-ctr-stats",
+              external: true,
+            },
+            {
+              text: ". The second position captures roughly 15%. By position five, the click-through rate has dropped to under 7%. By position ten, it is below 2%.",
+            },
+          ],
         },
         {
           type: "stats",
@@ -130,7 +166,17 @@ export const article = {
         },
         {
           type: "p",
-          text: "This means that if a negative result is in position 1, it receives clicks from roughly one in three searchers. If it is in position 5, it receives roughly one in 14. If it is pushed to position 10 or below, its practical impact on most searchers is minimal. The mathematics of suppression are stark: moving a negative result from position 1 to position 6 reduces its average click exposure by roughly 75%.",
+          text: "This means that if a negative result is in position 1, it receives clicks from roughly one in three searchers. If it is in position 5, it receives roughly one in 14. If it is pushed to position 10 or below, its practical impact on most searchers is minimal. The mathematics of suppression are stark: moving a negative result from position 1 to position 6 reduces its average click exposure by roughly 75%. The strategic response is owning all ten positions on your first page - not just defending a single slot.",
+          parts: [
+            {
+              text: "This means that if a negative result is in position 1, it receives clicks from roughly one in three searchers. If it is in position 5, it receives roughly one in 14. If it is pushed to position 10 or below, its practical impact on most searchers is minimal. The mathematics of suppression are stark: moving a negative result from position 1 to position 6 reduces its average click exposure by roughly 75%. The strategic response is ",
+            },
+            {
+              text: "owning all ten positions on your first page",
+              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
+            },
+            { text: " - not just defending a single slot." },
+          ],
         },
       ],
     },
@@ -141,11 +187,35 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Search results also function as social proof. When something appears in a Google search - particularly on an authoritative news site or professional platform - it carries an implicit endorsement of credibility. People reason: Google showed me this; therefore it must be trustworthy. This heuristic, known as algorithm trust, means that even inaccurate or one-sided content carries persuasive weight simply by virtue of appearing prominently in search.",
+          text: "Search results also function as social proof. When something appears in a Google search - particularly on an authoritative news site or professional platform - it carries an implicit endorsement of credibility. People reason: Google showed me this; therefore it must be trustworthy. Even people who consider themselves objective are influenced by what Google surfaces - and the tangible cost of a negative first impression compounds from there. This heuristic, known as algorithm trust, means that even inaccurate or one-sided content carries persuasive weight simply by virtue of appearing prominently in search.",
+          parts: [
+            {
+              text: "Search results also function as social proof. When something appears in a Google search - particularly on an authoritative news site or professional platform - it carries an implicit endorsement of credibility. People reason: Google showed me this; therefore it must be trustworthy. Even people who consider themselves objective are influenced by what Google surfaces - and ",
+            },
+            {
+              text: "the tangible cost of a negative first impression",
+              href: "https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis",
+            },
+            {
+              text: " compounds from there. This heuristic, known as algorithm trust, means that even inaccurate or one-sided content carries persuasive weight simply by virtue of appearing prominently in search.",
+            },
+          ],
         },
         {
           type: "p",
-          text: "This also means that positive content in high positions carries the same trust premium. A LinkedIn profile in position 1 is not just informative - it is trusted. A press feature in position 3 is not just coverage - it is credible. Building authoritative positive assets into top positions does not just suppress negative content - it actively builds trust in the people who find those results.",
+          text: "This also means that positive content in high positions carries the same trust premium - including in hiring decisions, where how recruiters process what they find in search follows the same rules. A LinkedIn profile in position 1 is not just informative - it is trusted. A press feature in position 3 is not just coverage - it is credible. Building authoritative positive assets into top positions does not just suppress negative content - it actively builds trust in the people who find those results.",
+          parts: [
+            {
+              text: "This also means that positive content in high positions carries the same trust premium - including in hiring decisions, where ",
+            },
+            {
+              text: "how recruiters process what they find in search",
+              href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
+            },
+            {
+              text: " follows the same rules. A LinkedIn profile in position 1 is not just informative - it is trusted. A press feature in position 3 is not just coverage - it is credible. Building authoritative positive assets into top positions does not just suppress negative content - it actively builds trust in the people who find those results.",
+            },
+          ],
         },
       ],
     },
@@ -172,7 +242,30 @@ export const article = {
               id: "horns",
               title: "Horns effect",
               tone: "before",
-              body: "A negative first result creates a horns effect: it primes the viewer to interpret subsequent results with suspicion, looking for evidence that confirms the negative impression. Even neutral or positive content below a negative first result may be read as less credible or relevant.",
+              body: "A negative first result creates a horns effect: it primes the viewer to interpret subsequent results with suspicion, looking for evidence that confirms the negative impression. Even neutral or positive content below a negative first result may be read as less credible or relevant - as real cases where the horns effect cost professionals opportunities demonstrate.",
+              parts: [
+                {
+                  text: "A negative first result creates a horns effect: it primes the viewer to interpret subsequent results with suspicion, looking for evidence that confirms the negative impression. Even neutral or positive content below a negative first result may be read as less credible or relevant - as ",
+                },
+                {
+                  text: "real cases where the horns effect cost professionals opportunities",
+                  href: "https://www.thereputation360.com/blog/negative-links-cost-jobs-deals-real-cases-reputation360",
+                },
+                { text: " demonstrate." },
+              ],
+            },
+          ],
+        },
+        {
+          type: "p",
+          text: "See how this plays out in real client cases when you want documented before-and-after outcomes across both halo and horns dynamics.",
+          parts: [
+            {
+              text: "See how this plays out in real client cases",
+              href: "https://www.thereputation360.com/case-studies",
+            },
+            {
+              text: " when you want documented before-and-after outcomes across both halo and horns dynamics.",
             },
           ],
         },
@@ -189,7 +282,29 @@ export const article = {
         },
         {
           type: "p",
-          text: "For professionals across the US, Canada, Australia, and Europe engaged in business development, career advancement, or public-facing activities, the first result when someone searches their name may be the single most influential determinant of how they are perceived - before they ever say a word. Investing in that result is not vanity. It is strategy.",
+          text: "For professionals across the US, Canada, Australia, and Europe engaged in business development, career transitions, investment contexts, and public-facing activities, the first result when someone searches their name may be the single most influential determinant of how they are perceived - before they ever say a word. The measurable outcomes of controlling your first result show why this is strategy, not vanity; if an interview is approaching, read what to do before your next interview. When you want professional execution, our reputation management services build the assets that control position one.",
+          parts: [
+            {
+              text: "For professionals across the US, Canada, Australia, and Europe engaged in business development, career transitions, investment contexts, and public-facing activities, the first result when someone searches their name may be the single most influential determinant of how they are perceived - before they ever say a word. ",
+            },
+            {
+              text: "The measurable outcomes of controlling your first result",
+              href: "https://www.thereputation360.com/blog/roi-reputation-management-what-clients-see-reputation360",
+            },
+            {
+              text: " show why this is strategy, not vanity; if an interview is approaching, read ",
+            },
+            {
+              text: "what to do before your next interview",
+              href: "https://www.thereputation360.com/blog/fix-reputation-before-job-interview-reputation360-guide",
+            },
+            { text: ". When you want professional execution, " },
+            {
+              text: "our reputation management services",
+              href: "https://www.thereputation360.com/services",
+            },
+            { text: " build the assets that control position one." },
+          ],
         },
       ],
     },
