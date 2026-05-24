@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ConsultationCtas } from "@/components/ConsultationCtas";
 import { Highlight } from "@/components/ui/hero-highlight-mark";
 import { HeroHighlightLite } from "@/components/ui/hero-highlight-lite";
@@ -76,26 +76,11 @@ function HeroStats({ statsInView, mobile }) {
   );
 }
 
-function dismissMobileHomeBootShell() {
-  if (typeof window === "undefined") return;
-  if (!window.matchMedia("(max-width: 767px)").matches) return;
-  document.getElementById("r360-boot-shell")?.remove();
-  const mount = document.getElementById("r360-app-mount");
-  if (mount) {
-    mount.removeAttribute("aria-hidden");
-    mount.style.visibility = "";
-  }
-}
-
 function Hero() {
   const sectionRef = useRef(null);
   const [statsInView, setStatsInView] = useState(false);
   const [showStats, setShowStats] = useState(false);
   const mobile = useIsMobile();
-
-  useLayoutEffect(() => {
-    dismissMobileHomeBootShell();
-  }, []);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -113,15 +98,13 @@ function Hero() {
   }, []);
 
   useEffect(() => {
-    if (!mobile) {
-      setShowStats(true);
-      return undefined;
-    }
     let id = 0;
     const run = () => setShowStats(true);
-    id = window.requestAnimationFrame(() => {
-      id = window.requestAnimationFrame(run);
-    });
+    id = mobile
+      ? window.requestAnimationFrame(() => {
+          id = window.requestAnimationFrame(run);
+        })
+      : window.requestAnimationFrame(run);
     return () => window.cancelAnimationFrame(id);
   }, [mobile]);
 

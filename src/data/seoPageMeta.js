@@ -94,7 +94,7 @@ export const SEO = {
       "Contact Reputation360 | Get a Free Online Reputation Management Consultation",
     path: "/contact",
     description:
-      "Schedule your free online reputation management consultation with Reputation360. Get expert guidance from our global team serving US, Europe & worldwide. Custom strategies to suppress negatives & strengthen your brand worldwide.",
+      "Schedule your free online reputation management consultation with Reputation360. Get expert guidance from our global team serving US, Europe & worldwide. Custom strategies to suppress negatives & strengthen your brand.",
   },
   freeRiskScan: {
     title: "Free Reputation Scan | Reputation360",

@@ -7,7 +7,10 @@ import {
 import { assembleScanResponse } from "../../scan-shared/assembleScanResponse.js";
 import { reputationGradeBundle } from "../../scan-shared/scoreReputation.js";
 import { ensureFreeScanSchema, insertUserAndScan } from "./db.js";
-import { sendReputationReportEmail } from "./emailReport.js";
+import {
+  sendFreeScanLeadNotificationEmail,
+  sendReputationReportEmail,
+} from "./emailReport.js";
 import { buildReputationScanPdfBytes } from "../../scan-shared/freeScanPdfBuild.js";
 import { buildFallbackSerpItems } from "../../scan-shared/fallbackSerp.js";
 
@@ -369,6 +372,33 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
   } else {
     emailError =
       "Email is not configured on the server (set RESEND_API_KEY and RESEND_FROM_EMAIL in Vercel).";
+  }
+
+  if (env.RESEND_API_KEY && env.RESEND_FROM_EMAIL) {
+    try {
+      await sendFreeScanLeadNotificationEmail({
+        firstName,
+        lastName,
+        email,
+        country,
+        consentGiven,
+        searchQueryUsed: base.searchQueryUsed,
+        reportedScore: base.reportedScore,
+        presenceLabel: base.presenceLabel,
+        letterGrade: grade.letter,
+        reputationStatus: grade.label,
+        scanId,
+        userId,
+        summary: base.summary,
+        hurting: base.hurting,
+        improving: base.improving,
+        positive: base.positive,
+        neutral: base.neutral,
+        negative: base.negative,
+      });
+    } catch (e) {
+      console.error("[free-scan] internal notification email", e);
+    }
   }
 
   return {

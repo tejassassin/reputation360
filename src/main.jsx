@@ -22,9 +22,7 @@ function normalizePath(pathname) {
   return pathname.replace(/\/+$/, "") || "/";
 }
 
-function RouteFallback() {
-  return <div className="min-h-[40vh] flex-1 bg-offwhite" aria-hidden />;
-}
+const routeFallback = <div className="min-h-[40vh] flex-1 bg-offwhite" aria-hidden />;
 
 const normalizedPath = normalizePath(window.location.pathname);
 const page = pageForPath(normalizedPath);
@@ -34,33 +32,16 @@ if (!rootEl) {
   throw new Error("Missing #root - check index.html");
 }
 
-const bootShell = document.getElementById("r360-boot-shell");
-const isHomeMobile =
-  normalizedPath === "/" &&
-  typeof window.matchMedia === "function" &&
-  window.matchMedia("(max-width: 767px)").matches &&
-  bootShell;
-
-let mountTarget = rootEl;
-if (isHomeMobile) {
-  const mount = document.createElement("div");
-  mount.id = "r360-app-mount";
-  mount.setAttribute("aria-hidden", "true");
-  mount.style.visibility = "hidden";
-  rootEl.appendChild(mount);
-  mountTarget = mount;
-}
-
 const Root = import.meta.env.DEV ? StrictMode : Fragment;
 
 const app = (
   <Root>
     <ErrorBoundary>
       <App>
-        <Suspense fallback={<RouteFallback />}>{page}</Suspense>
+        <Suspense fallback={routeFallback}>{page}</Suspense>
       </App>
     </ErrorBoundary>
   </Root>
 );
 
-createRoot(mountTarget).render(app);
+createRoot(rootEl).render(app);

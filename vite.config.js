@@ -7,10 +7,6 @@ import path from "node:path";
 import { Buffer } from "node:buffer";
 import { fileURLToPath } from "node:url";
 import { METADATA_BASE } from "./src/constants/siteUrl.js";
-import {
-  R360_HOME_BOOT_CSS,
-  buildHomeBootInjectScript,
-} from "./scripts/r360-home-boot-snippet.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -184,19 +180,6 @@ export default defineConfig(({ mode }) => ({
         return html.replace(
           "<head>",
           `<head>\n    <meta name="deploy-sha" content="${sha}" />`,
-        );
-      },
-    },
-    {
-      name: "r360-home-boot-shell",
-      transformIndexHtml(html) {
-        const withCss = html.replace(
-          "</head>",
-          `    <style id="r360-critical-home">${R360_HOME_BOOT_CSS}</style>\n  </head>`,
-        );
-        return withCss.replace(
-          '<div id="root"></div>',
-          `<div id="root"></div>\n    <script>${buildHomeBootInjectScript()}<\/script>`,
         );
       },
     },
