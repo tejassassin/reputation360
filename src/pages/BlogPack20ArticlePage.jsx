@@ -14,19 +14,48 @@ import {
   Pack20ContentSection,
   Pack20FaqSection,
 } from "../components/blog/pack20/Pack20Blocks.jsx";
-import { getPack20Article, getPack20RelatedArticles } from "../data/blogs/pack20/index.js";
+import {
+  loadPack20Article,
+  loadPack20RelatedArticles,
+} from "../data/blogs/pack20/loadPack20.js";
 import "../styles/r360-diy-interactive.css";
+
+function Pack20ArticleFallback() {
+  return <div className="min-h-[40vh] flex-1 bg-offwhite" aria-busy="true" aria-label="Loading article" />;
+}
 
 /**
  * @param {{ slug: string }} props
  */
 export default function BlogPack20ArticlePage({ slug }) {
-  const article = getPack20Article(slug);
+  /** @type {[import('../data/blogs/pack20/types.js').Pack20Article | null | undefined, Function]} */
+  const [article, setArticle] = useState(undefined);
+  const [related, setRelated] = useState([]);
   const [readingPct, setReadingPct] = useState(0);
   const [activeNavId, setActiveNavId] = useState("");
   const [pickerState, setPickerState] = useState({});
   const [pillState, setPillState] = useState({});
   const [accordionState, setAccordionState] = useState({});
+
+  useEffect(() => {
+    let cancelled = false;
+
+    loadPack20Article(slug).then((loaded) => {
+      if (cancelled) return;
+      if (!loaded) {
+        setArticle(null);
+        return;
+      }
+      setArticle(loaded);
+      loadPack20RelatedArticles(loaded).then((items) => {
+        if (!cancelled) setRelated(items);
+      });
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
 
   const setPicker = useCallback((key, value) => {
     setPickerState((prev) => ({ ...prev, [key]: value }));
@@ -67,6 +96,10 @@ export default function BlogPack20ArticlePage({ slug }) {
     return () => document.documentElement.classList.remove("scroll-smooth");
   }, []);
 
+  if (article === undefined) {
+    return <Pack20ArticleFallback />;
+  }
+
   if (!article) {
     return null;
   }
@@ -79,8 +112,6 @@ export default function BlogPack20ArticlePage({ slug }) {
     accordionState,
     toggleAccordion,
   };
-
-  const related = getPack20RelatedArticles(article);
 
   return (
     <>

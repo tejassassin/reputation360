@@ -7,7 +7,7 @@ import { SUPPRESS_NEGATIVE_GUIDE_SLUG } from "../data/blogs/suppressNegativeCont
 import { REMOVE_NEGATIVE_SEARCH_RESULTS_SLUG } from "../data/blogs/removeNegativeSearchResultsGuide.js";
 import { REPUTATION_REPAIR_TIMELINE_SLUG } from "../data/blogs/reputationRepairTimelineGuide.js";
 import { REMOVE_NEWS_ARTICLES_FROM_GOOGLE_SLUG } from "../data/blogs/removeNewsArticlesFromGoogleGuide.js";
-import { PACK20_SLUGS } from "../data/blogs/pack20/index.js";
+import { PACK20_SLUGS } from "../data/blogs/pack20/slugs.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
 import { AI_REPUTATION_SCAN_PATH } from "../constants/reputationAgent.js";
 
@@ -111,7 +111,7 @@ export function pageForPath(path) {
       return <BlogRemoveNewsArticlesFromGooglePage />;
     }
     if (PACK20_SLUGS.has(slug)) {
-      return <BlogPack20ArticlePage slug={slug} />;
+      return <BlogPack20ArticlePage key={slug} slug={slug} />;
     }
   }
   if (path === "/resources/guide") return <GuidePage />;

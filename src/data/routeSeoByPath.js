@@ -3,7 +3,7 @@
  * Keep in sync with SeoHead on each page and blog guide data files.
  */
 import { blogPostPath } from "../constants/blogPaths.js";
-import { PACK20_ARTICLES } from "./blogs/pack20/index.js";
+import { PACK20_ARTICLES } from "./blogs/pack20/catalog.js";
 import { SEO } from "./seoPageMeta.js";
 import { CASE_STUDY_SEO_BY_N } from "./caseStudies/caseStudySeo.js";
 import { CASE_STUDIES } from "./caseStudies/index.js";

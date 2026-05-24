@@ -1,23 +1,3 @@
-import { article as article01 } from "./blog01.js";
-import { article as article02 } from "./blog02.js";
-import { article as article03 } from "./blog03.js";
-import { article as article05 } from "./blog05.js";
-import { article as article06 } from "./blog06.js";
-import { article as article07 } from "./blog07.js";
-import { article as article08 } from "./blog08.js";
-import { article as article09 } from "./blog09.js";
-import { article as article10 } from "./blog10.js";
-import { article as article11 } from "./blog11.js";
-import { article as article12 } from "./blog12.js";
-import { article as article13 } from "./blog13.js";
-import { article as article14 } from "./blog14.js";
-import { article as article15 } from "./blog15.js";
-import { article as article16 } from "./blog16.js";
-import { article as article17 } from "./blog17.js";
-import { article as article18 } from "./blog18.js";
-import { article as article19 } from "./blog19.js";
-import { article as article20 } from "./blog20.js";
-
 export { SLUG as SLUG01 } from "./blog01.js";
 export { SLUG as SLUG02 } from "./blog02.js";
 export { SLUG as SLUG03 } from "./blog03.js";
@@ -39,35 +19,16 @@ export { SLUG as SLUG19 } from "./blog19.js";
 export { SLUG as SLUG20 } from "./blog20.js";
 
 export { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
+export { PACK20_SLUGS } from "./slugs.js";
+export { PACK20_ARTICLES, PACK20_BY_SLUG } from "./catalog.js";
+export {
+  loadPack20Article,
+  loadPack20RelatedArticles,
+  pack20RelatedFromArticle,
+} from "./loadPack20.js";
 
-/** @type {import('./types.js').Pack20Article[]} */
-/** Published pack articles; add more here when content is ready. */
-export const PACK20_ARTICLES = [
-  article20,
-  article19,
-  article18,
-  article17,
-  article16,
-  article15,
-  article14,
-  article13,
-  article12,
-  article11,
-  article10,
-  article09,
-  article08,
-  article07,
-  article06,
-  article05,
-  article03,
-  article02,
-  article01,
-];
-
-/** @type {Map<string, import('./types.js').Pack20Article>} */
-export const PACK20_BY_SLUG = new Map(PACK20_ARTICLES.map((a) => [a.slug, a]));
-
-export const PACK20_SLUGS = new Set(PACK20_ARTICLES.map((a) => a.slug));
+import { PACK20_ARTICLES, PACK20_BY_SLUG } from "./catalog.js";
+import { pack20RelatedFromArticle } from "./loadPack20.js";
 
 /**
  * @param {string} slug
@@ -79,7 +40,6 @@ export function getPack20Article(slug) {
 
 /**
  * @param {import('./types.js').Pack20Article} article
- * @returns {import('./types.js').Pack20Article[]}
  */
 export function getPack20RelatedArticles(article) {
   if (article.relatedReading?.length) {
@@ -88,21 +48,7 @@ export function getPack20RelatedArticles(article) {
   return (article.relatedSlugs ?? [])
     .map((s) => PACK20_BY_SLUG.get(s))
     .filter(Boolean)
-    .map((related) => ({
-      title: related.listing.title,
-      href: related.path,
-      category: related.listing.category,
-      readTime: related.listing.readTime.includes("read")
-        ? related.listing.readTime
-        : `${related.listing.readTime} read`,
-      image: related.listing.image,
-      imageAlt: related.listing.imageAlt,
-    }));
+    .map(pack20RelatedFromArticle);
 }
 
-/**
- * @returns {import('./types.js').Pack20Listing[]}
- */
-export function getPack20Listings() {
-  return PACK20_ARTICLES.map((a) => a.listing);
-}
+export { getPack20Listings } from "./catalog.js";

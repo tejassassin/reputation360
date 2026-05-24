@@ -27,8 +27,8 @@ import {
 } from "../data/blogs/removeNewsArticlesFromGoogleGuide.js";
 import {
   getPack20Listings,
-  PACK20_SLUGS,
-} from "../data/blogs/pack20/index.js";
+} from "../data/blogs/pack20/catalog.js";
+import { PACK20_SLUGS } from "../data/blogs/pack20/slugs.js";
 import { article as socialPostsArticle } from "../data/blogs/pack20/blog05.js";
 import { article as crisisPlaybookArticle } from "../data/blogs/pack20/blog08.js";
 import { article as ormMethodologyArticle } from "../data/blogs/pack20/blog15.js";

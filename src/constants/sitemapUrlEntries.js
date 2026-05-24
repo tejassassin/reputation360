@@ -2,7 +2,7 @@
  * Paths emitted into `public/sitemap.xml` by `npm run sitemap`.
  * Keep in sync with public routes and `reactSnap.include` in package.json.
  */
-import { PACK20_ARTICLES } from "../data/blogs/pack20/index.js";
+import { PACK20_ARTICLES } from "../data/blogs/pack20/catalog.js";
 
 const PACK20_SITEMAP_ENTRIES = PACK20_ARTICLES.map((article) => ({
   path: article.path,

@@ -67,16 +67,6 @@ export const article = {
     {
       type: "p",
       text: "A single negative search result sits between you and a signed contract. Or a job offer. Or a new investor. These are negative links that cost deals and career opportunities. That is not exaggeration - it is the reality we see for clients across the United States, Canada, Australia, and Europe every week. According to research published by BrightLocal, 98% of people read online reviews and search results before making a trust-based decision.",
-      parts: [
-        { text: "A single negative search result sits between you and a signed contract. Or a job offer. Or a new investor. These are " },
-        {
-          text: "negative links that cost deals and career opportunities",
-          href: "https://www.thereputation360.com/blog/negative-links-cost-jobs-deals-real-cases-reputation360",
-        },
-        {
-          text: ". That is not exaggeration - it is the reality we see for clients across the United States, Canada, Australia, and Europe every week. According to research published by BrightLocal, 98% of people read online reviews and search results before making a trust-based decision.",
-        },
-      ],
     },
     {
       type: "p",
@@ -183,16 +173,6 @@ export const article = {
         {
           type: "p",
           text: "A single new profile or blog post rarely moves the needle alone. What moves the needle is a deliberate, multi-asset strategy executed consistently until positive URLs become content that outranks the negative.",
-          parts: [
-            {
-              text: "A single new profile or blog post rarely moves the needle alone. What moves the needle is a deliberate, multi-asset strategy executed consistently until positive URLs become ",
-            },
-            {
-              text: "content that outranks the negative",
-              href: "https://www.thereputation360.com/blog/rank-positive-content-above-negative-results-reputation360-strategy",
-            },
-            { text: "." },
-          ],
         },
       ],
     },
