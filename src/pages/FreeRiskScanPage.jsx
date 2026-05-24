@@ -530,11 +530,7 @@ export default function FreeRiskScanPage() {
       {phase === "form" ? (
         <div className="relative z-0 mx-auto grid w-full max-w-5xl gap-6 px-3 pb-10 pt-5 sm:px-4 md:min-h-[calc(100dvh-6rem)] md:grid-cols-[0.9fr_1fr] md:items-center md:gap-10 md:pt-0">
           <div className="mb-6 text-center md:mb-0 md:text-left">
-            <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#2E5B88]/20 bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-[#2E5B88] shadow-sm sm:px-4 sm:text-xs">
-              <Shield className="h-3.5 w-3.5" aria-hidden />
-              Google Programmable Search
-            </span>
-            <h1 className="mt-4 font-heading text-balance text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
+            <h1 className="font-heading text-balance text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
               {FREE_REPUTATION_SCAN_LABEL}
             </h1>
             <p className="mx-auto mt-3 max-w-md text-pretty text-sm leading-relaxed text-slate-600 md:mx-0 md:text-base">
