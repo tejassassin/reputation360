@@ -48,8 +48,24 @@ function IconLineList({ lines, variant }) {
   const rowClass =
     "group/li flex items-start gap-3 rounded-2xl border border-transparent py-0.5 pl-0.5 pr-1 transition duration-200 hover:border-slate-200/60 hover:bg-white/90 hover:shadow-sm";
 
+  const iconStyles = {
+    challenge:
+      "from-slate/15 to-offwhite text-navy ring-slate/25 group-hover/li:from-slate/25 group-hover/li:ring-slate/40",
+    strategy:
+      "from-slate/15 to-offwhite text-navy ring-slate/20 group-hover/li:from-slate/25 group-hover/li:ring-slate/35",
+    results:
+      "from-navy/15 to-offwhite text-navy ring-navy/25 group-hover/li:from-navy/25 group-hover/li:ring-navy/40",
+  };
+
+  const listWrapClass =
+    variant === "results"
+      ? "rounded-2xl border border-navy/15 bg-offwhite/90 p-3 sm:p-4"
+      : variant === "challenge"
+        ? "rounded-2xl border border-slate/20 bg-offwhite/80 p-3 sm:p-4"
+        : "rounded-2xl border border-slate/15 bg-offwhite/60 p-3 sm:p-4";
+
   return (
-    <ul className="m-0 list-none space-y-2.5 p-0 sm:space-y-3">
+    <ul className={`m-0 list-none space-y-2.5 p-0 sm:space-y-3 ${listWrapClass}`}>
       {lines.map((line, i) => {
         const icon =
           variant === "results" ? (
@@ -62,7 +78,7 @@ function IconLineList({ lines, variant }) {
         const inner = (
           <>
             <span
-              className="mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-slate-100/95 to-white text-navy ring-1 ring-slate-200/70 transition group-hover/li:from-[#4CAF50]/20 group-hover/li:to-white group-hover/li:text-[#1d4d1d] group-hover/li:ring-[#4CAF50]/30"
+              className={`mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-xl bg-gradient-to-br ring-1 transition ${iconStyles[variant]}`}
               aria-hidden
             >
               {icon}
@@ -106,7 +122,7 @@ export function CaseStudyBodyRenderer({ heading, body }) {
   const miles = parseMilestoneItems(body, heading);
   if (miles && miles.length >= 2) {
     return (
-      <div className="overflow-x-hidden rounded-2xl border border-[#dce3ec] bg-white p-4 shadow-sm sm:p-5">
+      <div className="overflow-x-hidden rounded-2xl border border-slate/20 bg-gradient-to-br from-offwhite via-white to-slate/5 p-4 shadow-sm sm:p-5">
         <CaseStudyMilestoneInteractive
           items={miles}
           headingForLabel={heading}
@@ -121,7 +137,7 @@ export function CaseStudyBodyRenderer({ heading, body }) {
       const [first, ...rest] = lines;
       return (
         <div className="space-y-5">
-          <p className="whitespace-pre-line text-[0.95rem] leading-[1.82] text-slate-700 [text-wrap:pretty] first-letter:float-left first-letter:mr-2 first-letter:mt-0.5 first-letter:font-heading first-letter:text-3xl first-letter:font-extrabold first-letter:leading-none first-letter:text-navy sm:text-base md:leading-[1.85] md:first-letter:text-4xl">
+          <p className="rounded-2xl border border-slate/20 bg-offwhite/80 p-4 whitespace-pre-line text-[0.95rem] leading-[1.82] text-slate-700 [text-wrap:pretty] first-letter:float-left first-letter:mr-2 first-letter:mt-0.5 first-letter:font-heading first-letter:text-3xl first-letter:font-extrabold first-letter:leading-none first-letter:text-navy sm:text-base md:leading-[1.85] md:first-letter:text-4xl">
             {first}
           </p>
           {rest.length > 0 ? (
@@ -138,6 +154,19 @@ export function CaseStudyBodyRenderer({ heading, body }) {
         />
       );
     }
+  }
+
+  const calloutClass =
+    kind === "baseline"
+      ? "rounded-2xl border border-navy/15 bg-offwhite/90 p-4 sm:p-5"
+      : kind === "objective"
+        ? "rounded-2xl border border-slate/20 bg-slate/5 p-4 sm:p-5"
+        : kind === "impact"
+          ? "rounded-2xl border border-navy/15 bg-offwhite/90 p-4 sm:p-5"
+          : "";
+
+  if (calloutClass) {
+    return <ProseBlock text={body} className={`text-slate-700 ${calloutClass}`} />;
   }
 
   return <ProseBlock text={body} className="text-slate-700" />;

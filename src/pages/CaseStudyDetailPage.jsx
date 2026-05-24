@@ -8,7 +8,6 @@ import {
 } from "../data/caseStudies/index.js";
 import { caseStudySectionSlug } from "../lib/caseStudySectionSlug.js";
 import { CaseStudyPageCta } from "../components/CaseStudyPageCta.jsx";
-import { CaseStudyWhoWeServeBridge } from "../components/CaseStudyWhoWeServeBridge.jsx";
 import { CaseStudySectionBlock } from "../components/CaseStudySectionBlock.jsx";
 import { parseEngagementMonths } from "../utils/parseEngagement.js";
 import { ProfileValueLines } from "../components/ProfileValueLines.jsx";
@@ -78,9 +77,11 @@ function CaseStudyEngagementBlock({ study }) {
         <p className="mb-0.5 text-xs font-extrabold uppercase tracking-wider text-slate-500">
           Engagement
         </p>
-        <p className="flex flex-wrap items-baseline gap-x-2 gap-y-0 font-heading font-extrabold leading-none tracking-tight text-navy">
-          <span className="text-5xl tabular-nums sm:text-6xl md:text-7xl">{e.value}</span>
-          <span className="text-2xl font-bold text-slate/90 sm:text-3xl">{e.unit}</span>
+        <p className="flex flex-wrap items-baseline gap-x-2 gap-y-0 font-heading font-extrabold leading-none tracking-tight">
+          <span className="bg-gradient-to-r from-navy via-slate to-green bg-clip-text text-5xl tabular-nums text-transparent sm:text-6xl md:text-7xl">
+            {e.value}
+          </span>
+          <span className="text-2xl font-bold text-slate sm:text-3xl">{e.unit}</span>
         </p>
       </div>
     );
@@ -254,7 +255,7 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
     <main className="relative min-h-0 flex-1 bg-slate-50 pt-24 text-slate-900 md:pt-28">
       <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_15%_-5%,rgba(120,200,100,0.2),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_95%_0%,rgba(100,150,200,0.12),transparent_45%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_95%_0%,rgba(46,91,136,0.12),transparent_45%)]" />
         <div className="absolute bottom-0 left-0 right-0 top-1/3 bg-gradient-to-b from-transparent to-slate-100/90" />
         <div
           className="absolute inset-0 opacity-[0.35] mix-blend-multiply"
@@ -269,7 +270,7 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
           transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
         />
         <Motion.div
-          className="absolute -right-10 top-1/3 h-72 w-72 rounded-full bg-sky-200/40 blur-3xl"
+          className="absolute -right-10 top-1/3 h-72 w-72 rounded-full bg-slate/15 blur-3xl"
           animate={{ x: [0, -16, 0], y: [0, -20, 0] }}
           transition={{ duration: 14, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
         />
@@ -304,33 +305,42 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
               animate={{ opacity: 1, y: 0 }}
               whileHover={{ y: -2, transition: { type: "spring", stiffness: 400, damping: 35 } }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="group/hero relative overflow-hidden rounded-3xl border-2 border-slate-200/90 bg-gradient-to-b from-offwhite/90 via-white to-offwhite/50 text-navy shadow-[0_10px_40px_-20px_rgba(31,59,100,0.18),inset_0_1px_0_#fff] transition-shadow duration-300 hover:shadow-[0_20px_50px_-16px_rgba(31,59,100,0.22),0_0_0_1px_rgba(45,138,45,0.1),inset_0_1px_0_#fff]"
+              className="group/hero relative overflow-hidden rounded-3xl border-2 border-slate/20 bg-gradient-to-br from-green/5 via-white to-offwhite text-navy shadow-[0_10px_40px_-20px_rgba(31,59,100,0.18),inset_0_1px_0_#fff] transition-shadow duration-300 hover:shadow-[0_20px_50px_-16px_rgba(31,59,100,0.22),0_0_0_1px_rgba(76,175,80,0.15),inset_0_1px_0_#fff]"
             >
               <div
-                className="h-1.5 w-full origin-left scale-x-95 bg-gradient-to-r from-navy/95 via-slate/90 to-[#4CAF50] transition duration-500 ease-out group-hover/hero:scale-x-100"
+                className="h-2 w-full bg-gradient-to-r from-navy via-green to-slate"
                 aria-hidden
               />
               <div className="flex min-h-0 flex-col gap-0 md:flex-row md:min-h-[12rem]">
-                <div className="w-full border-b border-slate-200/80 bg-offwhite/25 p-6 sm:p-7 md:max-w-md md:w-[40%] md:shrink-0 md:border-b-0 md:border-r md:py-8">
+                <div className="w-full border-b border-green/15 bg-gradient-to-br from-green/8 to-offwhite p-6 sm:p-7 md:max-w-md md:w-[40%] md:shrink-0 md:border-b-0 md:border-r md:py-8">
                   <CaseStudyEngagementBlock study={study} />
                 </div>
                 <div className="flex min-h-0 flex-1 flex-col p-6 sm:p-7 md:py-8">
-                  <p className="text-xs font-extrabold uppercase tracking-wider text-slate-500">
+                  <span className="inline-flex w-fit items-center rounded-full bg-gradient-to-r from-navy/10 to-green/10 px-3 py-1 text-[0.65rem] font-extrabold uppercase tracking-wider text-slate ring-1 ring-green/20 sm:text-xs">
+                    {study.industry}
+                  </span>
+                  <p className="mt-3 text-xs font-extrabold uppercase tracking-wider text-green">
                     Case study
                   </p>
                   <h1 className="mt-1 font-heading text-2xl font-extrabold leading-tight tracking-tight text-navy sm:text-3xl md:text-[2rem] md:leading-tight">
                     {study.listTitle}
                   </h1>
+                  {study.summary ? (
+                    <p className="mt-3 text-sm leading-relaxed text-slate-600 [text-wrap:pretty] sm:text-[0.95rem] md:leading-relaxed">
+                      {study.summary}
+                    </p>
+                  ) : null}
                   <div className="mt-6 flex flex-col gap-2.5 sm:gap-3">
                     <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3 sm:items-stretch">
-                      <MetaPill icon={Building2} k="Industry" v={study.industry} />
-                      <MetaPill icon={User} k="Profile" v={study.profile} />
+                      <MetaPill icon={Building2} k="Industry" v={study.industry} tone="industry" />
+                      <MetaPill icon={User} k="Profile" v={study.profile} tone="profile" />
                     </div>
                     <MetaPill
                       icon={Fingerprint}
                       k="Challenge"
                       v={study.challengeType}
                       variant="wide"
+                      tone="challenge"
                     />
                   </div>
                 </div>
@@ -338,11 +348,11 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
           </Motion.header>
 
           <nav
-            className="sticky top-24 z-[45] mt-4 border-b border-slate-200/90 bg-slate-50/90 py-2.5 pl-0 pr-0 shadow-[0_1px_0_0_rgba(15,35,60,0.04),0_4px_16px_-8px_rgba(15,35,60,0.1)] supports-[backdrop-filter]:bg-slate-50/75 supports-[backdrop-filter]:backdrop-blur sm:mt-5 sm:py-3 md:mt-6"
+            className="sticky top-24 z-[45] mt-4 rounded-2xl border border-slate/15 bg-white/90 py-2.5 pl-3 pr-3 shadow-[0_4px_20px_-8px_rgba(31,59,100,0.12)] supports-[backdrop-filter]:bg-white/80 supports-[backdrop-filter]:backdrop-blur sm:mt-5 sm:py-3 sm:pl-4 md:mt-6"
             aria-label="On this page"
           >
-            <p className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-slate-500">
-              <List className="h-3.5 w-3.5 text-[#2d8a2d]" aria-hidden />
+            <p className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-slate">
+              <List className="h-3.5 w-3.5 text-green" aria-hidden />
               On this page
             </p>
             <div className="mt-2.5 -mx-1 flex min-w-0 overflow-x-auto overflow-y-hidden pb-1 [scrollbar-width:thin] [scroll-padding-inline:0.5rem] [touch-pan-x] sm:mt-3 sm:mx-0 sm:overflow-x-visible sm:pb-0">
@@ -361,8 +371,8 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
                         className={[
                           "block w-full min-w-0 max-w-[min(20rem,90vw)] rounded-full border border-transparent px-3 py-1.5 text-left text-xs font-medium leading-snug transition sm:w-auto sm:min-w-0 sm:px-3.5 sm:py-2 sm:text-[13px]",
                           active
-                            ? "border-[#3d9a3d]/55 bg-[#4CAF50]/24 font-semibold text-navy shadow-sm"
-                            : "border-slate-200/90 bg-white text-slate-600 shadow-sm hover:border-slate-300/90 hover:text-navy",
+                            ? "border-green/50 bg-gradient-to-b from-green/20 to-green/10 font-semibold text-navy shadow-sm"
+                            : "border-slate-200/90 bg-offwhite/80 text-steel shadow-sm hover:border-green/30 hover:bg-green/5 hover:text-navy",
                         ].join(" ")}
                         title={s.short}
                       >
@@ -397,7 +407,6 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
       </div>
 
       <div className="mt-6 px-4 pb-16 md:px-6 md:pb-24">
-        <CaseStudyWhoWeServeBridge study={study} />
         <CaseStudyPageCta />
       </div>
     </main>
@@ -411,15 +420,36 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
  * @param {string} props.k
  * @param {string} props.v
  * @param {'default' | 'wide'} [props.variant]
+ * @param {'industry' | 'profile' | 'challenge'} [props.tone]
  * @param {string} [props.className]
  */
-function MetaPill({ icon, k, v, variant = "default", className = "" }) {
+function MetaPill({ icon, k, v, variant = "default", tone = "default", className = "" }) {
   const Icon = icon;
   const isWide = variant === "wide";
+  const toneStyles = {
+    industry: {
+      shell: "border-slate/20 bg-slate/5 hover:border-slate/35",
+      icon: "bg-gradient-to-br from-slate to-navy",
+    },
+    profile: {
+      shell: "border-green/25 bg-green/5 hover:border-green/40",
+      icon: "bg-gradient-to-br from-green to-cta-consult",
+    },
+    challenge: {
+      shell: "border-navy/20 bg-navy/5 hover:border-navy/35",
+      icon: "bg-gradient-to-br from-navy to-slate",
+    },
+    default: {
+      shell: "border-slate/15 bg-white/90 hover:border-slate/30",
+      icon: "bg-navy/90",
+    },
+  };
+  const styles = toneStyles[tone] ?? toneStyles.default;
   return (
     <div
       className={[
-        "flex min-h-0 rounded-2xl border-2 border-slate-200/80 bg-white/90 transition hover:border-slate-300/90 hover:shadow-sm",
+        "flex min-h-0 rounded-2xl border-2 transition hover:shadow-sm",
+        styles.shell,
         isWide
           ? "items-start gap-3 p-3.5 sm:gap-4 sm:p-4"
           : "h-full min-h-0 items-start gap-2.5 p-3.5",
@@ -429,7 +459,7 @@ function MetaPill({ icon, k, v, variant = "default", className = "" }) {
         .join(" ")}
     >
       <div
-        className={`grid shrink-0 place-items-center rounded-xl bg-navy/90 text-white shadow-inner ${isWide ? "mt-0.5 h-9 w-9 sm:h-10 sm:w-10" : "h-8 w-8"}`}
+        className={`grid shrink-0 place-items-center rounded-xl text-white shadow-inner ${styles.icon} ${isWide ? "mt-0.5 h-9 w-9 sm:h-10 sm:w-10" : "h-8 w-8"}`}
       >
         <Icon
           className={isWide ? "h-4 w-4 sm:h-[1.15rem] sm:w-[1.15rem]" : "h-4 w-4"}
