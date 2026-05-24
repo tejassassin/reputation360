@@ -262,15 +262,22 @@ function HurtingSummaryBody({ hurting }) {
   }
   return (
     <ul className="list-none space-y-3.5">
-      {lines.map((line, i) => (
-        <li key={i} className="flex gap-3 text-sm leading-relaxed text-slate-700">
-          <span
-            className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500 shadow-[0_0_0_3px_rgba(244,63,94,0.18)]"
-            aria-hidden
-          />
-          <span className="min-w-0 pt-0.5">{line}</span>
-        </li>
-      ))}
+      {lines.map((line, i) => {
+        const [result, risk, impact] = line.split(" - ");
+        return (
+          <li key={i} className="flex gap-3 rounded-xl bg-rose-50/50 p-3 text-sm leading-relaxed text-slate-700">
+            <span
+              className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500 shadow-[0_0_0_3px_rgba(244,63,94,0.18)]"
+              aria-hidden
+            />
+            <span className="min-w-0 space-y-1 pt-0.5">
+              <strong className="block font-semibold text-rose-950">{result}</strong>
+              {risk ? <span className="block">{risk}</span> : null}
+              {impact ? <span className="block text-slate-600">{impact}</span> : null}
+            </span>
+          </li>
+        );
+      })}
     </ul>
   );
 }
