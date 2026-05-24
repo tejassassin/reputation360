@@ -635,7 +635,7 @@ export default function FreeRiskScanPage() {
 
             <button
               type="submit"
-              className="ha-pill mt-5 w-full rounded-2xl bg-gradient-to-r from-[#2E5B88] to-[#1F3B64] py-3.5 text-base font-heading font-bold text-white shadow-lg shadow-[#1F3B64]/25 transition hover:brightness-110"
+              className="ha-pill mt-5 w-full rounded-2xl bg-cta-consult py-3.5 text-base font-heading font-bold text-white shadow-lg shadow-cta-consult/25 transition hover:brightness-95"
             >
               Start my {FREE_REPUTATION_SCAN_LABEL.toLowerCase()}
             </button>
