@@ -372,7 +372,9 @@ export function Pack20Blocks({
               className="ha-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm motion-reduce:transform-none"
             >
               <h4 className="mb-2 font-heading text-base font-bold text-navy">{item.title}</h4>
-              <p className="font-body text-sm leading-relaxed text-steel">{item.body}</p>
+              <p className="font-body text-sm leading-relaxed text-steel">
+                <Pack20RichText text={item.body} parts={item.parts} />
+              </p>
             </li>
           ))}
         </ul>

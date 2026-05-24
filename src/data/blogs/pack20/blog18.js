@@ -71,6 +71,16 @@ export const article = {
     {
       type: "p",
       text: "Reputation damage is almost always more expensive to fix the later you catch it. A negative article accumulates authority over time. A critical review accumulates more one-star ratings below it. A harmful social post gets shared, screenshotted, and referenced in other content. The sooner you know about a problem, the more options you have - and the less it costs to address.",
+      parts: [
+        { text: "Reputation damage is almost always " },
+        {
+          text: "more expensive to fix the later you catch it",
+          href: "https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis",
+        },
+        {
+          text: ". A negative article accumulates authority over time. A critical review accumulates more one-star ratings below it. A harmful social post gets shared, screenshotted, and referenced in other content. The sooner you know about a problem, the more options you have - and the less it costs to address.",
+        },
+      ],
     },
     {
       type: "p",
@@ -99,6 +109,17 @@ export const article = {
             {
               title: "Google Alerts",
               body: "Set up alerts at alerts.google.com for your full name (in quotes for exact match), your business name, your name plus company, and any known negative keywords from past issues. Use All results and As-it-happens frequency. Free and catches a significant percentage of new indexed content.",
+              parts: [
+                { text: "Set up alerts at " },
+                {
+                  text: "alerts.google.com",
+                  href: "https://alerts.google.com",
+                  external: true,
+                },
+                {
+                  text: " for your full name (in quotes for exact match), your business name, your name plus company, and any known negative keywords from past issues. Use All results and As-it-happens frequency. Free and catches a significant percentage of new indexed content.",
+                },
+              ],
             },
             {
               title: "Monthly manual search audit",
@@ -106,7 +127,19 @@ export const article = {
             },
             {
               title: "Social search monitoring",
-              body: "Search your name on Twitter/X, LinkedIn, Facebook, Instagram, and Reddit monthly. Captures mentions not yet indexed by Google. On Twitter/X, use advanced search to find any mention regardless of whether the account follows you.",
+              body: "Search your name on Twitter/X, LinkedIn, Facebook, Instagram, and Reddit monthly - and audit old social posts that surface during a name search. Captures mentions not yet indexed by Google. On Twitter/X, use advanced search to find any mention regardless of whether the account follows you.",
+              parts: [
+                {
+                  text: "Search your name on Twitter/X, LinkedIn, Facebook, Instagram, and Reddit monthly - and audit ",
+                },
+                {
+                  text: "old social posts that surface during a name search",
+                  href: "https://www.thereputation360.com/blog/old-social-media-posts-showing-up-google-reputation360-guide",
+                },
+                {
+                  text: ". Captures mentions not yet indexed by Google. On Twitter/X, use advanced search to find any mention regardless of whether the account follows you.",
+                },
+              ],
             },
             {
               title: "Review platform checks",
@@ -154,7 +187,17 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "For clients on active Reputation360 engagements, we provide continuous monitoring through our proprietary dashboard: daily search position tracking for all target keywords, alert-based notifications for new negative content, monthly reports showing the full first-page composition, and a direct response protocol when new threats emerge.",
+          text: "For clients on active Reputation360 engagements, we provide continuous monitoring through our proprietary dashboard: daily search position tracking for all target keywords, alert-based notifications for new negative content, monthly reports showing the full first-page composition, and a direct response protocol when new threats emerge. Monitoring only pays off when you are building the first page that's worth monitoring.",
+          parts: [
+            {
+              text: "For clients on active Reputation360 engagements, we provide continuous monitoring through our proprietary dashboard: daily search position tracking for all target keywords, alert-based notifications for new negative content, monthly reports showing the full first-page composition, and a direct response protocol when new threats emerge. Monitoring only pays off when you are ",
+            },
+            {
+              text: "building the first page that's worth monitoring",
+              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
+            },
+            { text: "." },
+          ],
         },
         {
           type: "stats",
@@ -162,6 +205,19 @@ export const article = {
             { value: "Daily", label: "Position tracking" },
             { value: "Instant", label: "Negative content alerts" },
             { value: "Monthly", label: "Full first-page reports" },
+          ],
+        },
+        {
+          type: "p",
+          text: "See the outcomes our monitoring has helped protect when you want documented examples of what proactive tracking produces for active clients.",
+          parts: [
+            {
+              text: "See the outcomes our monitoring has helped protect",
+              href: "https://www.thereputation360.com/case-studies",
+            },
+            {
+              text: " when you want documented examples of what proactive tracking produces for active clients.",
+            },
           ],
         },
       ],
@@ -180,10 +236,38 @@ export const article = {
           do: {
             title: "Act now",
             items: [
-              "New negative content on a high-authority site (DA 50+)",
-              "Content in positions 1-5 for your primary name search",
-              "False factual claims (potential defamation)",
-              "Content involving sensitive personal information",
+              {
+                text: "New negative content on a high-authority site (DA 50+) or in positions 1-5 for your primary name search - start with how to respond when monitoring flags a serious result",
+                parts: [
+                  {
+                    text: "New negative content on a high-authority site (DA 50+) or in positions 1-5 for your primary name search - start with ",
+                  },
+                  {
+                    text: "how to respond when monitoring flags a serious result",
+                    href: "https://www.thereputation360.com/blog/how-to-suppress-negative-search-results-reputation360-framework",
+                  },
+                ],
+              },
+              {
+                text: "False factual claims (potential defamation) - often when monitoring uncovers something that needs a crisis response",
+                parts: [
+                  { text: "False factual claims (potential defamation) - often " },
+                  {
+                    text: "when monitoring uncovers something that needs a crisis response",
+                    href: "https://www.thereputation360.com/blog/crisis-management-reputation-recovery-reputation360-playbook",
+                  },
+                ],
+              },
+              {
+                text: "Content involving sensitive personal information - also when monitoring uncovers something that needs a crisis response",
+                parts: [
+                  { text: "Content involving sensitive personal information - also " },
+                  {
+                    text: "when monitoring uncovers something that needs a crisis response",
+                    href: "https://www.thereputation360.com/blog/crisis-management-reputation-recovery-reputation360-playbook",
+                  },
+                ],
+              },
             ],
           },
           dont: {
@@ -195,6 +279,20 @@ export const article = {
               "Page 3+ content with no new engagement",
             ],
           },
+        },
+        {
+          type: "p",
+          text: "Once you have triaged a new finding, map how long it takes to address what monitoring uncovers so you can set expectations before you commit resources.",
+          parts: [
+            { text: "Once you have triaged a new finding, map " },
+            {
+              text: "how long it takes to address what monitoring uncovers",
+              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+            },
+            {
+              text: " so you can set expectations before you commit resources.",
+            },
+          ],
         },
       ],
     },

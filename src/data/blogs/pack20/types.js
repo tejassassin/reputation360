@@ -96,6 +96,7 @@
  * @typedef {object} Pack20CardItem
  * @property {string} title
  * @property {string} body
+ * @property {Pack20RichTextPart[]} [parts]
  */
 
 /**
