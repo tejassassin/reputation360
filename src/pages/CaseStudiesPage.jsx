@@ -169,7 +169,7 @@ export default function CaseStudiesPage() {
     <main className="relative flex-1 overflow-x-hidden bg-[#F5F7FA] pt-28 text-slate-900 selection:bg-[#4CAF50]/30 sm:pt-32">
       <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_15%_-5%,rgba(120,200,100,0.2),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_95%_0%,rgba(100,150,200,0.12),transparent_45%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_95%_0%,rgba(46,91,136,0.12),transparent_45%)]" />
         <div className="absolute bottom-0 left-0 right-0 top-1/3 bg-gradient-to-b from-transparent to-slate-100/90" />
         <div
           className="absolute inset-0 opacity-[0.35] mix-blend-multiply"
@@ -184,7 +184,7 @@ export default function CaseStudiesPage() {
           transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
         />
         <Motion.div
-          className="absolute -right-10 top-1/3 h-72 w-72 rounded-full bg-sky-200/40 blur-3xl"
+          className="absolute -right-10 top-1/3 h-72 w-72 rounded-full bg-slate/15 blur-3xl"
           animate={{ x: [0, -16, 0], y: [0, -20, 0] }}
           transition={{ duration: 14, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
         />
@@ -237,7 +237,7 @@ export default function CaseStudiesPage() {
             className="relative rounded-2xl border border-slate-200/80 bg-gradient-to-b from-white via-white to-slate-50/90 p-5 shadow-[0_1px_2px_rgba(15,35,60,0.04),0_12px_32px_-12px_rgba(15,35,60,0.08)] ring-1 ring-slate-200/50 sm:p-6"
           >
             <div
-              className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#2d8a2d] via-[#4CAF50] to-sky-500/70"
+              className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-navy via-green to-slate"
               aria-hidden
             />
             <div className="space-y-6 sm:space-y-7">

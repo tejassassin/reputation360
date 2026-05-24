@@ -9,8 +9,14 @@ import {
 import { caseStudySectionSlug } from "../lib/caseStudySectionSlug.js";
 import { CaseStudyPageCta } from "../components/CaseStudyPageCta.jsx";
 import { CaseStudySectionBlock } from "../components/CaseStudySectionBlock.jsx";
-import { parseEngagementMonths } from "../utils/parseEngagement.js";
-import { ProfileValueLines } from "../components/ProfileValueLines.jsx";
+import { CaseStudyEngagementBlock } from "../components/CaseStudyEngagementBlock.jsx";
+import {
+  CASE_STUDY_CARD_BAR,
+  CASE_STUDY_CARD_SHELL,
+  CASE_STUDY_ENGAGEMENT_PANEL,
+  CASE_STUDY_HERO_BODY,
+  CaseStudyMetaPill,
+} from "../components/CaseStudyMetaPill.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { R360_PATHCHANGE_EVENT } from "../lib/canonicalHrefFromPath.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
@@ -60,42 +66,6 @@ function queryTocSectionNode(id) {
     /* fall through */
   }
   return document.getElementById(id)?.closest("section");
-}
-
-/**
- * @param {object} props
- * @param {object} props.study
- */
-function CaseStudyEngagementBlock({ study }) {
-  const e = useMemo(
-    () => parseEngagementMonths(study.duration),
-    [study.duration],
-  );
-  if (e.value) {
-    return (
-      <div>
-        <p className="mb-0.5 text-xs font-extrabold uppercase tracking-wider text-slate-500">
-          Engagement
-        </p>
-        <p className="flex flex-wrap items-baseline gap-x-2 gap-y-0 font-heading font-extrabold leading-none tracking-tight">
-          <span className="bg-gradient-to-r from-navy via-slate to-green bg-clip-text text-5xl tabular-nums text-transparent sm:text-6xl md:text-7xl">
-            {e.value}
-          </span>
-          <span className="text-2xl font-bold text-slate sm:text-3xl">{e.unit}</span>
-        </p>
-      </div>
-    );
-  }
-  return (
-    <div>
-      <p className="mb-0.5 text-xs font-extrabold uppercase tracking-wider text-slate-500">
-        Timeline
-      </p>
-      <p className="font-heading text-2xl font-extrabold leading-tight text-navy sm:text-3xl">
-        {e.full}
-      </p>
-    </div>
-  );
 }
 
 const TOC_OBSERVER_SUPPRESS_MS = 800;
@@ -305,17 +275,14 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
               animate={{ opacity: 1, y: 0 }}
               whileHover={{ y: -2, transition: { type: "spring", stiffness: 400, damping: 35 } }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="group/hero relative overflow-hidden rounded-3xl border-2 border-slate/20 bg-gradient-to-br from-green/5 via-white to-offwhite text-navy shadow-[0_10px_40px_-20px_rgba(31,59,100,0.18),inset_0_1px_0_#fff] transition-shadow duration-300 hover:shadow-[0_20px_50px_-16px_rgba(31,59,100,0.22),0_0_0_1px_rgba(76,175,80,0.15),inset_0_1px_0_#fff]"
+              className={`group/hero ${CASE_STUDY_CARD_SHELL} transition-shadow duration-300 hover:shadow-[0_20px_50px_-16px_rgba(31,59,100,0.22),0_0_0_1px_rgba(76,175,80,0.15),inset_0_1px_0_#fff]`}
             >
-              <div
-                className="h-2 w-full bg-gradient-to-r from-navy via-green to-slate"
-                aria-hidden
-              />
+              <div className={CASE_STUDY_CARD_BAR} aria-hidden />
               <div className="flex min-h-0 flex-col gap-0 md:flex-row md:min-h-[12rem]">
-                <div className="w-full border-b border-green/15 bg-gradient-to-br from-green/8 to-offwhite p-6 sm:p-7 md:max-w-md md:w-[40%] md:shrink-0 md:border-b-0 md:border-r md:py-8">
+                <div className={CASE_STUDY_ENGAGEMENT_PANEL}>
                   <CaseStudyEngagementBlock study={study} />
                 </div>
-                <div className="flex min-h-0 flex-1 flex-col p-6 sm:p-7 md:py-8">
+                <div className={CASE_STUDY_HERO_BODY}>
                   <span className="inline-flex w-fit items-center rounded-full bg-gradient-to-r from-navy/10 to-green/10 px-3 py-1 text-[0.65rem] font-extrabold uppercase tracking-wider text-slate ring-1 ring-green/20 sm:text-xs">
                     {study.industry}
                   </span>
@@ -332,10 +299,10 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
                   ) : null}
                   <div className="mt-6 flex flex-col gap-2.5 sm:gap-3">
                     <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3 sm:items-stretch">
-                      <MetaPill icon={Building2} k="Industry" v={study.industry} tone="industry" />
-                      <MetaPill icon={User} k="Profile" v={study.profile} tone="profile" />
+                      <CaseStudyMetaPill icon={Building2} k="Industry" v={study.industry} tone="industry" />
+                      <CaseStudyMetaPill icon={User} k="Profile" v={study.profile} tone="profile" />
                     </div>
-                    <MetaPill
+                    <CaseStudyMetaPill
                       icon={Fingerprint}
                       k="Challenge"
                       v={study.challengeType}
@@ -411,88 +378,5 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
       </div>
     </main>
     </>
-  );
-}
-
-/**
- * @param {object} props
- * @param {import('lucide-react').LucideIcon} props.icon
- * @param {string} props.k
- * @param {string} props.v
- * @param {'default' | 'wide'} [props.variant]
- * @param {'industry' | 'profile' | 'challenge'} [props.tone]
- * @param {string} [props.className]
- */
-function MetaPill({ icon, k, v, variant = "default", tone = "default", className = "" }) {
-  const Icon = icon;
-  const isWide = variant === "wide";
-  const toneStyles = {
-    industry: {
-      shell: "border-slate/20 bg-slate/5 hover:border-slate/35",
-      icon: "bg-gradient-to-br from-slate to-navy",
-    },
-    profile: {
-      shell: "border-green/25 bg-green/5 hover:border-green/40",
-      icon: "bg-gradient-to-br from-green to-cta-consult",
-    },
-    challenge: {
-      shell: "border-navy/20 bg-navy/5 hover:border-navy/35",
-      icon: "bg-gradient-to-br from-navy to-slate",
-    },
-    default: {
-      shell: "border-slate/15 bg-white/90 hover:border-slate/30",
-      icon: "bg-navy/90",
-    },
-  };
-  const styles = toneStyles[tone] ?? toneStyles.default;
-  return (
-    <div
-      className={[
-        "flex min-h-0 rounded-2xl border-2 transition hover:shadow-sm",
-        styles.shell,
-        isWide
-          ? "items-start gap-3 p-3.5 sm:gap-4 sm:p-4"
-          : "h-full min-h-0 items-start gap-2.5 p-3.5",
-        className,
-      ]
-        .filter(Boolean)
-        .join(" ")}
-    >
-      <div
-        className={`grid shrink-0 place-items-center rounded-xl text-white shadow-inner ${styles.icon} ${isWide ? "mt-0.5 h-9 w-9 sm:h-10 sm:w-10" : "h-8 w-8"}`}
-      >
-        <Icon
-          className={isWide ? "h-4 w-4 sm:h-[1.15rem] sm:w-[1.15rem]" : "h-4 w-4"}
-          strokeWidth={1.8}
-        />
-      </div>
-      <div className="min-w-0 flex-1 text-left">
-        <p className="text-[0.7rem] font-extrabold uppercase tracking-wider text-slate-500 sm:text-xs">
-          {k}
-        </p>
-        <p
-          className={[
-            "mt-1 text-slate-800",
-            isWide
-              ? "break-words text-sm font-medium leading-relaxed [text-wrap:pretty] sm:text-[0.95rem] sm:leading-[1.55]"
-              : k === "Profile"
-                ? "min-w-0 break-words text-sm font-semibold leading-normal"
-                : "break-words text-sm font-semibold leading-snug [text-wrap:balance]",
-          ]
-            .filter(Boolean)
-            .join(" ")}
-        >
-          {k === "Profile" ? (
-            <ProfileValueLines
-              value={v}
-              line2ClassName="mt-0.5 sm:mt-1"
-              title={v}
-            />
-          ) : (
-            v
-          )}
-        </p>
-      </div>
-    </div>
   );
 }

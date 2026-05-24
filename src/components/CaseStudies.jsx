@@ -122,7 +122,7 @@ function CaseStudies() {
                     aria-label={`Case study: ${study.listTitle}`}
                   >
                     <div
-                      className="h-1.5 w-full bg-gradient-to-r from-[#1b4d2e] via-[#4CAF50] to-[#2E5B88]"
+                      className="h-1.5 w-full bg-gradient-to-r from-navy via-green to-slate"
                       aria-hidden
                     />
                     <div className="flex min-h-0 flex-1 flex-col p-5 sm:p-6">
