@@ -65,6 +65,7 @@
  * @property {string} id
  * @property {string} label
  * @property {string} [title]
+ * @property {Pack20RichTextPart[]} [titleParts]
  * @property {string} body
  * @property {Pack20RichTextPart[]} [parts]
  */

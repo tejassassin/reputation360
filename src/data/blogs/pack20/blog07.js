@@ -72,6 +72,16 @@ export const article = {
     {
       type: "p",
       text: "Court records are one of the most complex and high-stakes categories in online reputation management - and one of the areas where Reputation360 has developed the deepest expertise. An arrest that led to dropped charges. A civil lawsuit settled without findings. A bankruptcy from a decade ago. Divorce proceedings. These are matters of public record, and in the internet era, public record means one thing: it shows up in Google when someone types your name.",
+      parts: [
+        { text: "Court records are one of the " },
+        {
+          text: "most complex and high-stakes categories in online reputation management",
+          href: "https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis",
+        },
+        {
+          text: " - and one of the areas where Reputation360 has developed the deepest expertise. An arrest that led to dropped charges. A civil lawsuit settled without findings. A bankruptcy from a decade ago. Divorce proceedings. These are matters of public record, and in the internet era, public record means one thing: it shows up in Google when someone types your name.",
+        },
+      ],
     },
     {
       type: "p",
@@ -111,6 +121,16 @@ export const article = {
               label: "Government databases",
               title: "Federal and state government databases",
               body: ".gov domains carry some of the highest domain authority on the internet. PACER (the US federal court records system), state court portals, and SEC EDGAR filings are all indexed by Google and rank extremely well because of the inherent authority Google assigns to government domains.",
+              parts: [
+                {
+                  text: ".gov domains carry some of the highest domain authority on the internet",
+                  href: "https://backlinko.com/increase-domain-authority",
+                  external: true,
+                },
+                {
+                  text: ". PACER (the US federal court records system), state court portals, and SEC EDGAR filings are all indexed by Google and rank extremely well because of the inherent authority Google assigns to government domains.",
+                },
+              ],
             },
             {
               id: "sec",
@@ -153,7 +173,17 @@ export const article = {
           type: "bullets",
           items: [
             "What expungement does: removes the record from official government criminal databases, which affects background check services that draw from official sources and may affect employment screening.",
-            "What expungement does not do: require news organizations to remove coverage of the original arrest or proceedings.",
+            {
+              text: "What expungement does not do: require news organizations to remove coverage of the original arrest or proceedings.",
+              parts: [
+                { text: "What expungement " },
+                {
+                  text: "does not require news organizations to remove coverage of the original arrest or proceedings",
+                  href: "https://www.thereputation360.com/blog/can-you-remove-news-articles-from-google-search",
+                },
+                { text: "." },
+              ],
+            },
             "It does not automatically remove legal database entries, court document repositories, or data aggregator listings.",
             "It does not de-index Google search results on its own.",
           ],
@@ -194,8 +224,28 @@ export const article = {
             {
               id: "google",
               label: "Google de-indexing",
-              title: "Google's de-indexing policies",
-              body: "Google's policies allow de-indexing of certain categories of personal information. For court records specifically, there is no blanket removal policy. However, if a record has been officially expunged and a government body provides certification, Google may consider removal requests on a case-by-case basis. Google also has removal pathways for certain sensitive personal information - including some financial records and government identification data - that can apply in specific circumstances. These requests require thorough documentation and are not always successful, but they are a legitimate path we pursue when conditions are met.",
+              title: "Google de-indexing policies",
+              titleParts: [
+                {
+                  text: "Google de-indexing",
+                  href: "https://www.thereputation360.com/blog/remove-negative-search-results-from-google",
+                },
+                { text: " policies" },
+              ],
+              body: "Google's policies allow de-indexing of certain categories of personal information. For court records specifically, there is no blanket removal policy. However, if a record has been officially expunged and a government body provides certification, Google may consider removal requests on a case-by-case basis. Google also allows people to request removal of personally identifiable information - including some financial records and government identification data - that can apply in specific circumstances. These requests require thorough documentation and are not always successful, but they are a legitimate path we pursue when conditions are met.",
+              parts: [
+                {
+                  text: "Google's policies allow de-indexing of certain categories of personal information. For court records specifically, there is no blanket removal policy. However, if a record has been officially expunged and a government body provides certification, Google may consider removal requests on a case-by-case basis. Google also allows people to ",
+                },
+                {
+                  text: "request removal of personally identifiable information",
+                  href: "https://www.searchenginejournal.com/google-remove-personal-information/447805/",
+                  external: true,
+                },
+                {
+                  text: " - including some financial records and government identification data - that can apply in specific circumstances. These requests require thorough documentation and are not always successful, but they are a legitimate path we pursue when conditions are met.",
+                },
+              ],
             },
             {
               id: "gov-wall",
@@ -223,6 +273,21 @@ export const article = {
         {
           type: "p",
           text: "At Reputation360, court record suppression engagements involve a comprehensive, multi-channel build: personal websites optimized for name search, LinkedIn restructuring, social media profiles established and maintained across multiple platforms, press releases distributed through major wire services, expert media placements, professional directory profiles, and Wikipedia-eligible biographies where achievements warrant it. Every asset is cross-linked, maintained, and monitored - not published once and left static, but actively managed throughout the engagement.",
+          parts: [
+            { text: "At Reputation360, " },
+            {
+              text: "court record suppression engagements",
+              href: "https://www.thereputation360.com/blog/how-to-suppress-negative-content-professionals-guide",
+            },
+            { text: " involve a " },
+            {
+              text: "comprehensive, multi-channel build",
+              href: "https://www.thereputation360.com/blog/rank-positive-content-above-negative-results-reputation360-strategy",
+            },
+            {
+              text: ": personal websites optimized for name search, LinkedIn restructuring, social media profiles established and maintained across multiple platforms, press releases distributed through major wire services, expert media placements, professional directory profiles, and Wikipedia-eligible biographies where achievements warrant it. Every asset is cross-linked, maintained, and monitored - not published once and left static, but actively managed throughout the engagement.",
+            },
+          ],
         },
         {
           type: "stats",
@@ -255,6 +320,16 @@ export const article = {
               n: 1,
               title: "Audit everything indexed",
               body: "Start with a professional audit of everything indexed for your name - not just the obvious result, but every source and position. Understand what you are dealing with before deciding on approach.",
+              parts: [
+                { text: "Start with a " },
+                {
+                  text: "professional audit of everything indexed for your name",
+                  href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
+                },
+                {
+                  text: " - not just the obvious result, but every source and position. Understand what you are dealing with before deciding on approach.",
+                },
+              ],
             },
             {
               n: 2,
@@ -287,6 +362,15 @@ export const article = {
           type: "lead",
           label: "Where to start today",
           text: "Search your full name in an incognito window and label each page-one URL by source type: aggregator, news, .gov, legal database, or social. That map tells you which removal paths are worth effort and where suppression must lead.",
+          parts: [
+            {
+              text: "Search your full name in an incognito window and label each page-one URL",
+              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
+            },
+            {
+              text: " by source type: aggregator, news, .gov, legal database, or social. That map tells you which removal paths are worth effort and where suppression must lead.",
+            },
+          ],
         },
       ],
     },
@@ -311,7 +395,17 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "Tell us what is ranking for your name. We will map each source, outline which removal paths apply, and recommend a suppression plan for what cannot come down.",
+      "Tell us what is ranking for your name. We will map each source, outline which removal paths apply, and recommend a suppression plan for what cannot come down through our online reputation management services.",
+    leadParts: [
+      {
+        text: "Tell us what is ranking for your name. We will map each source, outline which removal paths apply, and recommend a suppression plan for what cannot come down through ",
+      },
+      {
+        text: "our online reputation management services",
+        href: "https://www.thereputation360.com/services",
+      },
+      { text: "." },
+    ],
   },
   relatedReading: [
     {

@@ -112,7 +112,7 @@ function ContentTypePicker({ items, pillKey, pillState, setPillState, renderBody
         <div className="min-w-0 flex-1">
           {active?.title ? (
             <h4 className="font-heading text-lg font-bold leading-snug text-navy sm:text-xl">
-              {active.title}
+              <Pack20RichText text={active.title} parts={active.titleParts} />
             </h4>
           ) : null}
           <p className="mt-3 font-body text-base leading-relaxed text-steel">
