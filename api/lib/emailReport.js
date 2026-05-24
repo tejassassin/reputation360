@@ -93,6 +93,14 @@ export async function sendReputationReportEmail(p) {
   const resend = new Resend(key);
   const name = `${p.firstName} ${p.lastName}`.trim();
   const attachmentName = `${name || "Reputation Scan"} Reputation Scan by Reputation360.pdf`;
+  const internalNotificationEmail = String(
+    process.env.FREE_SCAN_NOTIFICATION_EMAIL || "hello@thereputation360.com",
+  ).trim();
+  const bcc =
+    internalNotificationEmail &&
+    internalNotificationEmail.toLowerCase() !== String(p.to).trim().toLowerCase()
+      ? internalNotificationEmail
+      : undefined;
 
   const hurtingHtml = (() => {
     const items = String(p.hurting)
@@ -178,6 +186,7 @@ export async function sendReputationReportEmail(p) {
   const { data, error } = await resend.emails.send({
     from,
     to: p.to,
+    ...(bcc ? { bcc } : {}),
     subject: `Your Reputation Report Card - ${p.firstName} (score ${p.reportedScore}/100)`,
     html,
     attachments,

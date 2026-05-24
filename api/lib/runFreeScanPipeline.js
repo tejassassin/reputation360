@@ -396,6 +396,11 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
         neutral: base.neutral,
         negative: base.negative,
       });
+      console.info("[free-scan] internal notification email sent", {
+        to: env.FREE_SCAN_NOTIFICATION_EMAIL || "hello@thereputation360.com",
+        scanId,
+        userId,
+      });
     } catch (e) {
       console.error("[free-scan] internal notification email", e);
     }
