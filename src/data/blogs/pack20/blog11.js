@@ -71,7 +71,17 @@ export const article = {
   introBlocks: [
     {
       type: "p",
-      text: "You have the resume. You have the experience. The phone screen went well and you have been invited for a formal interview. Between now and that meeting, someone on the hiring team is going to search your name. What they find in the next 30 seconds may determine whether the process continues - and most candidates have no idea what that search returns.",
+      text: "You have the resume. You have the experience. The phone screen went well and you have been invited for a formal interview. Between now and that meeting, someone on the hiring team is going to search your name. What they find in the next 30 seconds may determine whether the process continues - which is why that first search result carries so much weight - and most candidates have no idea what that search returns.",
+      parts: [
+        {
+          text: "You have the resume. You have the experience. The phone screen went well and you have been invited for a formal interview. Between now and that meeting, someone on the hiring team is going to search your name. What they find in the next 30 seconds may determine whether the process continues - which is ",
+        },
+        {
+          text: "why that first search result carries so much weight",
+          href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
+        },
+        { text: " - and most candidates have no idea what that search returns." },
+      ],
     },
     {
       type: "p",
@@ -96,7 +106,17 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Open an incognito or private browsing window - this prevents your own search history from personalizing the results - and search your full name. Then search your name plus your current employer, your name plus your most recent employer, and your name plus your city. Document everything you find.",
+          text: "Open an incognito or private browsing window - this prevents your own search history from personalizing the results - and search your full name. Then search your name plus your current employer, your name plus your most recent employer, and your name plus your city - the same combinations covered in the exact search sequence recruiters run. Document everything you find.",
+          parts: [
+            {
+              text: "Open an incognito or private browsing window - this prevents your own search history from personalizing the results - and search your full name. Then search your name plus your current employer, your name plus your most recent employer, and your name plus your city - the same combinations covered in ",
+            },
+            {
+              text: "the exact search sequence recruiters run",
+              href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
+            },
+            { text: ". Document everything you find." },
+          ],
         },
         {
           type: "p",
@@ -147,25 +167,74 @@ export const article = {
               id: "linkedin",
               label: "LinkedIn",
               title: "LinkedIn profile (1-2 days; ranking in 2-4 weeks)",
-              body: "A fully optimized LinkedIn profile is the single most impactful thing you can do for your name in Google. If your profile is incomplete, thin, or outdated, update it comprehensively: full work history, detailed role descriptions, a strong About section that uses your full name, skills and endorsements, and a custom URL matching your name. LinkedIn's high domain authority means a well-optimized profile can rank position 1 or 2 within two to four weeks.",
+              body: "A fully optimized LinkedIn profile is the single most impactful thing you can do for your name in Google. If your profile is incomplete, thin, or outdated, update it comprehensively: full work history, detailed role descriptions, a strong About section that uses your full name, skills and endorsements, and a custom URL matching your name. Start with LinkedIn's own profile optimisation guidance, then layer in our checklist tactics. LinkedIn's high domain authority means a well-optimized profile can rank position 1 or 2 within two to four weeks.",
+              parts: [
+                {
+                  text: "A fully optimized LinkedIn profile is the single most impactful thing you can do for your name in Google. If your profile is incomplete, thin, or outdated, update it comprehensively: full work history, detailed role descriptions, a strong About section that uses your full name, skills and endorsements, and a custom URL matching your name. Start with ",
+                },
+                {
+                  text: "LinkedIn's own profile optimisation guidance",
+                  href: "https://www.linkedin.com/help/linkedin/answer/a554351",
+                  external: true,
+                },
+                {
+                  text: ", then layer in our checklist tactics. LinkedIn's high domain authority means a well-optimized profile can rank position 1 or 2 within two to four weeks.",
+                },
+              ],
             },
             {
               id: "social",
               label: "Social cleanup",
               title: "Social media cleanup (1-7 days; indexing in 2-4 weeks)",
-              body: "Review all public social media accounts for content that could raise questions: strong political statements, controversial opinions, immature humor, unprofessional behavior. Delete or make private the most concerning content. Set personal accounts (Instagram, Facebook) to private so future posts are not indexed. Note that deleted content may remain in Google's cache for a few weeks - this is normal and resolves with time.",
+              body: "Review all public social media accounts for content that could raise questions: strong political statements, controversial opinions, immature humor, unprofessional behavior. Delete or make private the most concerning content, and follow our guide on cleaning up old social media posts that appear in Google when posts still surface in search. Set personal accounts (Instagram, Facebook) to private so future posts are not indexed. Note that deleted content may remain in Google's cache for a few weeks - this is normal and resolves with time.",
+              parts: [
+                {
+                  text: "Review all public social media accounts for content that could raise questions: strong political statements, controversial opinions, immature humor, unprofessional behavior. Delete or make private the most concerning content, and follow our guide on ",
+                },
+                {
+                  text: "cleaning up old social media posts that appear in Google",
+                  href: "https://www.thereputation360.com/blog/old-social-media-posts-showing-up-google-reputation360-guide",
+                },
+                {
+                  text: " when posts still surface in search. Set personal accounts (Instagram, Facebook) to private so future posts are not indexed. Note that deleted content may remain in Google's cache for a few weeks - this is normal and resolves with time.",
+                },
+              ],
             },
             {
               id: "profiles",
               label: "Profile claims",
               title: "Profile claims (3-7 days; indexing in 1-2 weeks)",
-              body: "Claim and fill out profiles on high-authority platforms: Crunchbase, AngelList (for tech and startup professionals), About.me, Medium, and any industry-specific directory relevant to your field. Each claimed profile is a new URL indexed by Google, and each one is a positive result that may outrank negative content. Complete profiles with your full name, title, and a professional summary in each About section.",
+              body: "Claim and fill out profiles on high-authority platforms: Crunchbase, AngelList (for tech and startup professionals), About.me, Medium, and any industry-specific directory relevant to your field. Our profile claiming guide walks through claiming the right profiles for your situation. Each claimed profile is a new URL indexed by Google, and each one is a positive result that may outrank negative content. Complete profiles with your full name, title, and a professional summary in each About section.",
+              parts: [
+                {
+                  text: "Claim and fill out profiles on high-authority platforms: Crunchbase, AngelList (for tech and startup professionals), About.me, Medium, and any industry-specific directory relevant to your field. Our profile claiming guide walks through ",
+                },
+                {
+                  text: "claiming the right profiles",
+                  href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+                },
+                {
+                  text: " for your situation. Each claimed profile is a new URL indexed by Google, and each one is a positive result that may outrank negative content. Complete profiles with your full name, title, and a professional summary in each About section.",
+                },
+              ],
             },
             {
               id: "website",
               label: "Personal website",
               title: "Personal website or portfolio (1-2 weeks; ranking in 4-6 weeks)",
-              body: "A professional single-page website - your name as the domain if possible - built with your bio, career highlights, and contact information can rank well for an exact name search within 4 to 6 weeks. This is an especially strong asset because it gives you complete control over the narrative. Services like Squarespace, Wix, and WordPress make this achievable without technical expertise. The key SEO elements are: your full name in the title tag, H1, and About text; a fast-loading page; and mobile-friendly design.",
+              body: "A professional single-page website - your name as the domain if possible - built with your bio, career highlights, and contact information can rank well for an exact name search within 4 to 6 weeks. Pair the site with a content strategy focused on ranking positive content above negative results so Google has stronger assets to show. This is an especially strong asset because it gives you complete control over the narrative. Services like Squarespace, Wix, and WordPress make this achievable without technical expertise. The key SEO elements are: your full name in the title tag, H1, and About text; a fast-loading page; and mobile-friendly design.",
+              parts: [
+                {
+                  text: "A professional single-page website - your name as the domain if possible - built with your bio, career highlights, and contact information can rank well for an exact name search within 4 to 6 weeks. Pair the site with a content strategy focused on ",
+                },
+                {
+                  text: "ranking positive content above negative results",
+                  href: "https://www.thereputation360.com/blog/rank-positive-content-above-negative-results-reputation360-strategy",
+                },
+                {
+                  text: " so Google has stronger assets to show. This is an especially strong asset because it gives you complete control over the narrative. Services like Squarespace, Wix, and WordPress make this achievable without technical expertise. The key SEO elements are: your full name in the title tag, H1, and About text; a fast-loading page; and mobile-friendly design.",
+                },
+              ],
             },
           ],
         },
@@ -178,7 +247,17 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "If you have a negative result from a high-authority source - a major newspaper, a national news network, a significant legal database - 30 days is not enough to push it off page one on its own. These results carry too much authority to be displaced quickly by profile optimization alone.",
+          text: "If you have a negative result from a high-authority source - a major newspaper, a national news network, a significant legal database - 30 days is not enough to push it off page one on its own. These results carry too much authority to be displaced quickly by profile optimization alone. Our guide on realistic timelines for reputation repair breaks down what to expect by severity and asset mix.",
+          parts: [
+            {
+              text: "If you have a negative result from a high-authority source - a major newspaper, a national news network, a significant legal database - 30 days is not enough to push it off page one on its own. These results carry too much authority to be displaced quickly by profile optimization alone. Our guide on ",
+            },
+            {
+              text: "realistic timelines for reputation repair",
+              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+            },
+            { text: " breaks down what to expect by severity and asset mix." },
+          ],
         },
         {
           type: "compare",
@@ -194,7 +273,17 @@ export const article = {
               id: "suppression",
               title: "Suppression track",
               tone: "before",
-              body: "Professional suppression for high-authority negatives. Runs in parallel from day one. Even if page one has not fully shifted before the interview, a stronger positive surround reduces impact significantly.",
+              body: "Professional suppression for high-authority negatives. Runs in parallel from day one. Even if page one has not fully shifted before the interview, a stronger positive surround reduces impact significantly - as real cases where negative links stalled job offers show.",
+              parts: [
+                {
+                  text: "Professional suppression for high-authority negatives. Runs in parallel from day one. Even if page one has not fully shifted before the interview, a stronger positive surround reduces impact significantly - as ",
+                },
+                {
+                  text: "real cases where negative links stalled job offers",
+                  href: "https://www.thereputation360.com/blog/negative-links-cost-jobs-deals-real-cases-reputation360",
+                },
+                { text: " show." },
+              ],
             },
           ],
         },
@@ -237,7 +326,18 @@ export const article = {
             {
               n: 1,
               title: "Week 1",
-              body: "Google audit, LinkedIn full optimization, social media cleanup, submit URL removal requests for deleted content.",
+              body: "Google audit, LinkedIn full optimization, social media cleanup, submit URL removal requests for deleted content through Google's URL removal tool.",
+              parts: [
+                {
+                  text: "Google audit, LinkedIn full optimization, social media cleanup, submit URL removal requests for deleted content through ",
+                },
+                {
+                  text: "Google's URL removal tool",
+                  href: "https://support.google.com/websearch/troubleshooter/9685456",
+                  external: true,
+                },
+                { text: "." },
+              ],
             },
             {
               n: 2,
@@ -279,7 +379,17 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "In an active job search with limited time? We can begin building your positive search profile within 48 hours and map what is realistic before your next interview.",
+      "In an active job search with limited time? We can begin building your positive search profile within 48 hours and map what is realistic before your next interview. See how we've handled similar cases when serious negatives are on page one.",
+    leadParts: [
+      {
+        text: "In an active job search with limited time? We can begin building your positive search profile within 48 hours and map what is realistic before your next interview. ",
+      },
+      {
+        text: "See how we've handled similar cases",
+        href: "https://www.thereputation360.com/case-studies",
+      },
+      { text: " when serious negatives are on page one." },
+    ],
   },
   relatedReading: [
     {

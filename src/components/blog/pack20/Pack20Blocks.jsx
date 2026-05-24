@@ -227,7 +227,9 @@ function CaseCompare({ items, pickerKey, pillState, setPillState }) {
                 )}
               >
                 <div className="diy-case-compare-panel__header">{item.title}</div>
-                <p className="diy-case-compare-panel__body">{item.body}</p>
+                <p className="diy-case-compare-panel__body">
+                  <Pack20RichText text={item.body} parts={item.parts} />
+                </p>
               </button>
             </Fragment>
           );
