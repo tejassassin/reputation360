@@ -38,8 +38,6 @@ import {
 } from "../data/blogs/removeNewsArticlesFromGoogleInteractive.js";
 import "../styles/r360-diy-interactive.css";
 
-const SERVICES_PATH = "/services";
-
 function LegalAccordion({ id, title, children, open, onToggle }) {
   return (
     <DiyAccordion id={id} title={title} open={open} onToggle={onToggle}>
@@ -155,9 +153,8 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
                 <p>
                   It&apos;s the right question. But the honest answer is more nuanced than most people expect - and the
                   path forward depends on what the article says, where it&apos;s published, how long it&apos;s been
-                  ranking, and what your overall{" "}
-                  <DiyInternalLink href={SERVICES_PATH}>online reputation management strategy</DiyInternalLink> looks
-                  like. In this guide, we walk through exactly when removal is possible, when it isn&apos;t, and what
+                  ranking, and what your overall online reputation management strategy looks like. In this guide, we
+                  walk through exactly when removal is possible, when it isn&apos;t, and what
                   actually works when Google seems like it won&apos;t budge.
                 </p>
               </div>

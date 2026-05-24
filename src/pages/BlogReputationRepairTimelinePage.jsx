@@ -246,8 +246,7 @@ export default function BlogReputationRepairTimelinePage() {
                 <p className="mb-6">
                   It&apos;s one of the first questions everyone asks: <em>&quot;How long will this take?&quot;</em>{" "}
                   The most accurate answer - the one that actually helps you plan - is: it depends. But that
-                  doesn&apos;t mean the answer is vague. The timeline for{" "}
-                  <DiyInternalLink href={SERVICES_PATH}>online reputation repair</DiyInternalLink> is highly
+                  doesn&apos;t mean the answer is vague. The timeline for online reputation repair is highly
                   predictable once you understand the variables that drive it.
                 </p>
                 <p className="mb-6">
@@ -501,12 +500,12 @@ export default function BlogReputationRepairTimelinePage() {
                   doesn&apos;t reflect what you deliver, the most important thing right now is understanding exactly
                   what you&apos;re working with.
                 </p>
-                <p className="mb-6 font-body text-base text-steel">
+                <p className="mb-6 font-body text-lg text-steel">
                   The earlier you act, the faster results come - and the lower the overall investment. Negative
                   content ranking for two years is exponentially harder to suppress than content from six months
                   ago. Waiting is always the most expensive option.
                 </p>
-                <p className="mb-8 font-body text-base text-steel">
+                <p className="mb-8 font-body text-lg text-steel">
                   Whether you&apos;re an individual who Googled yourself, a{" "}
                   <DiyInternalLink href={AUDIENCE_PATH.executives}>C-suite executive</DiyInternalLink> managing a
                   personal brand, or a business owner watching leads dry up - the path forward starts with a clear
