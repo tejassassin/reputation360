@@ -1,3 +1,4 @@
+import { createElement } from "react";
 import {
   AlertTriangle,
   ArrowRight,
@@ -222,7 +223,15 @@ export function ReadingProgressRail({ pct }) {
 }
 
 /** Green numbered circles + detail panel (original HTML mock style). */
-export function StepPicker({ steps, activeStep, onSelectStep, panelId = "stepContent", hint }) {
+export function StepPicker({
+  steps,
+  activeStep,
+  onSelectStep,
+  panelId = "stepContent",
+  hint,
+  renderTitle,
+  renderBody,
+}) {
   const active = steps.find((s) => s.n === activeStep) ?? steps[0];
   return (
     <div className="my-6">
@@ -286,9 +295,11 @@ export function StepPicker({ steps, activeStep, onSelectStep, panelId = "stepCon
                 active.timespan ? "mt-1" : "",
               )}
             >
-              {active.title}
+              {renderTitle ? renderTitle(active) : active.title}
             </h4>
-            <div className="mt-2 font-body text-sm leading-relaxed text-jet sm:text-base">{active.body}</div>
+            <div className="mt-2 font-body text-sm leading-relaxed text-jet sm:text-base">
+              {renderBody ? renderBody(active) : active.body}
+            </div>
           </div>
         </div>
       </div>
@@ -321,7 +332,7 @@ function DoAvoidColumn({ variant, title, icon: Icon, items }) {
             isDo ? "bg-green text-white" : "bg-navy/90 text-white",
           )}
         >
-          <Icon className="h-5 w-5" aria-hidden />
+          {createElement(Icon, { className: "h-5 w-5", "aria-hidden": true })}
         </span>
         <div>
           <p className="font-heading text-base font-bold text-navy md:text-lg">{title}</p>

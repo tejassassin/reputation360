@@ -1,4 +1,11 @@
 /**
+ * @typedef {object} Pack20RichTextPart
+ * @property {string} text
+ * @property {string} [href]
+ * @property {boolean} [external]
+ */
+
+/**
  * @typedef {object} Pack20Listing
  * @property {string} id
  * @property {string} slug
@@ -17,6 +24,7 @@
  * @typedef {object} Pack20BlockP
  * @property {"p"} type
  * @property {string} text
+ * @property {Pack20RichTextPart[]} [parts]
  */
 
 /**
@@ -24,6 +32,7 @@
  * @property {"lead"} type
  * @property {string} label
  * @property {string} text
+ * @property {Pack20RichTextPart[]} [parts]
  */
 
 /**
@@ -32,6 +41,7 @@
  * @property {"insight"|"tip"|"warning"} [variant]
  * @property {string} title
  * @property {string} text
+ * @property {Pack20RichTextPart[]} [parts]
  */
 
 /**
@@ -39,6 +49,8 @@
  * @property {number} n
  * @property {string} title
  * @property {string} body
+ * @property {Pack20RichTextPart[]} [titleParts]
+ * @property {Pack20RichTextPart[]} [parts]
  */
 
 /**

@@ -21,6 +21,35 @@ import {
   StepPicker,
 } from "../diy/DiyGuideUi.jsx";
 
+function isExternalHref(href) {
+  return /^https?:\/\//i.test(href) && !/^https?:\/\/(www\.)?thereputation360\.com/i.test(href);
+}
+
+function Pack20RichText({ text, parts }) {
+  if (!parts?.length) {
+    return text;
+  }
+
+  return parts.map((part, index) => {
+    if (!part.href) {
+      return <Fragment key={`${part.text}-${index}`}>{part.text}</Fragment>;
+    }
+
+    const external = part.external ?? isExternalHref(part.href);
+    return (
+      <a
+        key={`${part.href}-${index}`}
+        href={part.href}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        className="font-semibold text-blue-600 underline decoration-blue-600 underline-offset-2 transition-colors hover:text-blue-800 hover:decoration-blue-800"
+      >
+        {part.text}
+      </a>
+    );
+  });
+}
+
 /** @type {Record<string, import('lucide-react').LucideIcon>} */
 const PILL_ICONS = {
   "social-profiles": Linkedin,
@@ -235,7 +264,7 @@ export function Pack20Blocks({
     if (block.type === "p") {
       return (
         <p key={key} className="mb-6 font-body text-lg leading-relaxed text-steel">
-          {block.text}
+          <Pack20RichText text={block.text} parts={block.parts} />
         </p>
       );
     }
@@ -243,7 +272,9 @@ export function Pack20Blocks({
     if (block.type === "lead") {
       return (
         <DiyLeadHighlight key={key} variant="panel" label={block.label}>
-          <p>{block.text}</p>
+          <p>
+            <Pack20RichText text={block.text} parts={block.parts} />
+          </p>
         </DiyLeadHighlight>
       );
     }
@@ -251,7 +282,9 @@ export function Pack20Blocks({
     if (block.type === "keyBox") {
       return (
         <DiyKeyBox key={key} variant={block.variant ?? "insight"} title={block.title}>
-          <p>{block.text}</p>
+          <p>
+            <Pack20RichText text={block.text} parts={block.parts} />
+          </p>
         </DiyKeyBox>
       );
     }
@@ -266,6 +299,8 @@ export function Pack20Blocks({
           activeStep={active}
           onSelectStep={(n) => setPickerState(pickerKey, n)}
           panelId={`${pickerKey}-panel`}
+          renderTitle={(step) => <Pack20RichText text={step.title} parts={step.titleParts} />}
+          renderBody={(step) => <Pack20RichText text={step.body} parts={step.parts} />}
         />
       );
     }

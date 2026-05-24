@@ -65,7 +65,17 @@ export const article = {
   introBlocks: [
     {
       type: "p",
-      text: "A single negative search result sits between you and a signed contract. Or a job offer. Or a new investor. That is not exaggeration - it is the reality we see for clients across the United States, Canada, Australia, and Europe every week. According to research published by BrightLocal, 98% of people read online reviews and search results before making a trust-based decision.",
+      text: "A single negative search result sits between you and a signed contract. Or a job offer. Or a new investor. These are negative links that cost deals and career opportunities. That is not exaggeration - it is the reality we see for clients across the United States, Canada, Australia, and Europe every week. According to research published by BrightLocal, 98% of people read online reviews and search results before making a trust-based decision.",
+      parts: [
+        { text: "A single negative search result sits between you and a signed contract. Or a job offer. Or a new investor. These are " },
+        {
+          text: "negative links that cost deals and career opportunities",
+          href: "https://www.thereputation360.com/blog/negative-links-cost-jobs-deals-real-cases-reputation360",
+        },
+        {
+          text: ". That is not exaggeration - it is the reality we see for clients across the United States, Canada, Australia, and Europe every week. According to research published by BrightLocal, 98% of people read online reviews and search results before making a trust-based decision.",
+        },
+      ],
     },
     {
       type: "p",
@@ -90,15 +100,36 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Suppression is not deletion. It is important to be clear about that upfront. Negative link suppression is the process of reducing the search visibility of harmful content by outranking it with positive, authoritative, and relevant material. The damaging page does not disappear from the internet - it slides from page one to page two, three, or further.",
+          text: "Suppression is not deletion. It is important to be clear about that upfront. In online reputation management, negative link suppression is the process of reducing the search visibility of harmful content by outranking it with positive, authoritative, and relevant material. The damaging page does not disappear from the internet - it slides from page one to page two, three, or further.",
+          parts: [
+            { text: "Suppression is not deletion. It is important to be clear about that upfront. In " },
+            {
+              text: "online reputation management",
+              href: "https://neilpatel.com/blog/guide-to-reputation-management/",
+              external: true,
+            },
+            {
+              text: ", negative link suppression is the process of reducing the search visibility of harmful content by outranking it with positive, authoritative, and relevant material. The damaging page does not disappear from the internet - it slides from page one to page two, three, or further.",
+            },
+          ],
         },
         {
           type: "p",
-          text: "Since fewer than 1% of searchers move past page one of Google, even a shift from position 3 to position 12 can be transformative. The negative URL may still exist, but it stops shaping first impressions.",
+          text: "Because page-one visibility drives nearly all search behavior, even a shift from position 3 to position 12 can be transformative. The negative URL may still exist, but it stops shaping first impressions.",
         },
         {
           type: "p",
-          text: "True removal - meaning a page is permanently taken offline or de-indexed by Google - is possible in a narrow set of circumstances: legal violations (defamation, copyright), outdated government records under specific state laws, or direct requests to platforms that agree to comply. When removal is achievable, Reputation360 pursues it. In the majority of cases, suppression is both faster and more reliable than waiting on legal or platform remedies that may take months or never materialize.",
+          text: "For readers comparing removal vs. suppression, true removal - meaning a page is permanently taken offline or de-indexed by Google - is possible in a narrow set of circumstances: legal violations (defamation, copyright), outdated government records under specific state laws, or direct requests to platforms that agree to comply. When removal is achievable, Reputation360 pursues it. In the majority of cases, suppression is both faster and more reliable than waiting on legal or platform remedies that may take months or never materialize.",
+          parts: [
+            { text: "For readers comparing " },
+            {
+              text: "removal vs. suppression",
+              href: "https://www.thereputation360.com/blog/removal-vs-suppression-which-actually-works-reputation360",
+            },
+            {
+              text: ", true removal - meaning a page is permanently taken offline or de-indexed by Google - is possible in a narrow set of circumstances: legal violations (defamation, copyright), outdated government records under specific state laws, or direct requests to platforms that agree to comply. When removal is achievable, Reputation360 pursues it. In the majority of cases, suppression is both faster and more reliable than waiting on legal or platform remedies that may take months or never materialize.",
+            },
+          ],
         },
         {
           type: "keyBox",
@@ -115,7 +146,16 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Before suppression can work, it helps to understand why a negative result is ranking in the first place. Google surfaces content based on relevance, authority, and engagement signals.",
+          text: "Before suppression can work, it helps to understand why a negative result is ranking in the first place. SEO and reputation management both start with how Google weighs relevance, authority, and engagement signals.",
+          parts: [
+            { text: "Before suppression can work, it helps to understand why a negative result is ranking in the first place. " },
+            {
+              text: "SEO and reputation management",
+              href: "https://www.searchenginejournal.com/seo-reputation-management/478005/",
+              external: true,
+            },
+            { text: " both start with how Google weighs relevance, authority, and engagement signals." },
+          ],
         },
         {
           type: "bullets",
@@ -127,11 +167,31 @@ export const article = {
         },
         {
           type: "p",
-          text: "Fighting that content requires understanding its ranking power - and building something stronger. This is not a one-step process. Suppression requires a coordinated set of signals sent to Google over time.",
+          text: "Fighting that content requires understanding its ranking power - especially because fewer than 1% of searchers move past page one - and building something stronger. This is not a one-step process. Suppression requires a coordinated set of signals sent to Google over time.",
+          parts: [
+            { text: "Fighting that content requires understanding its ranking power - especially because " },
+            {
+              text: "fewer than 1% of searchers move past page one",
+              href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
+            },
+            {
+              text: " - and building something stronger. This is not a one-step process. Suppression requires a coordinated set of signals sent to Google over time.",
+            },
+          ],
         },
         {
           type: "p",
-          text: "A single new profile or blog post rarely moves the needle alone. What moves the needle is a deliberate, multi-asset strategy executed consistently until positive URLs earn more trust than the negative ones.",
+          text: "A single new profile or blog post rarely moves the needle alone. What moves the needle is a deliberate, multi-asset strategy executed consistently until positive URLs become content that outranks the negative.",
+          parts: [
+            {
+              text: "A single new profile or blog post rarely moves the needle alone. What moves the needle is a deliberate, multi-asset strategy executed consistently until positive URLs become ",
+            },
+            {
+              text: "content that outranks the negative",
+              href: "https://www.thereputation360.com/blog/rank-positive-content-above-negative-results-reputation360-strategy",
+            },
+            { text: "." },
+          ],
         },
       ],
     },
@@ -156,11 +216,23 @@ export const article = {
             {
               n: 2,
               title: "Positive asset creation",
+              titleParts: [
+                {
+                  text: "Positive asset creation",
+                  href: "https://www.thereputation360.com/blog/rank-positive-content-above-negative-results-reputation360-strategy",
+                },
+              ],
               body: "Suppression works by filling search results with content Google prefers to show. We create and optimize professionally written author bios and thought leadership articles, press releases distributed to news networks, blog content on high-authority domains, and platform profiles (LinkedIn, Crunchbase, Wikipedia where eligible, and more). Each asset is keyword-optimized to your name or brand and built on a domain that carries ranking potential.",
             },
             {
               n: 3,
               title: "Profile claiming and optimization",
+              titleParts: [
+                {
+                  text: "Profile claiming and optimization",
+                  href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+                },
+              ],
               body: "High-authority platforms like LinkedIn, Wikipedia, Crunchbase, Bloomberg, and Angel.co regularly appear on the first page of Google for personal and business name searches. Claiming and fully optimizing profiles on these platforms is one of the fastest ways to occupy search real estate. We ensure each profile is complete, keyword-rich, and cross-linked so Google treats them as authoritative sources on your name.",
             },
             {
@@ -171,6 +243,12 @@ export const article = {
             {
               n: 5,
               title: "Monitoring and maintenance",
+              titleParts: [
+                {
+                  text: "Monitoring and maintenance",
+                  href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
+                },
+              ],
               body: "Search results are not static. New content can surface. Algorithm changes can shift rankings. Positive assets need refreshing over time. We track search results continuously and report so you always know where things stand. For clients on ongoing agreements, we actively maintain suppression work so results do not degrade.",
             },
           ],
@@ -196,13 +274,23 @@ export const article = {
           type: "stats",
           items: [
             { value: "60-90", label: "Days to meaningful movement" },
-            { value: "6 mo", label: "Typical full page-one shift" },
+            { value: "6 months", label: "Typical full page-one shift" },
             { value: "10-12", label: "Months for major news hits" },
           ],
         },
         {
           type: "p",
           text: "For most individual clients, meaningful first-page movement happens within 60 to 90 days. Full first-page transformation - where positive content occupies the majority of visible results - typically takes about six months. For brands with high-authority negative content (major news coverage, for instance), the timeline can extend to 10 to 12 months.",
+          parts: [
+            { text: "For most individual clients, meaningful first-page movement happens within " },
+            {
+              text: "60 to 90 days",
+              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+            },
+            {
+              text: ". Full first-page transformation - where positive content occupies the majority of visible results - typically takes about six months. For brands with high-authority negative content (major news coverage, for instance), the timeline can extend to 10 to 12 months.",
+            },
+          ],
         },
         {
           type: "compare",
@@ -235,7 +323,19 @@ export const article = {
         },
         {
           type: "p",
-          text: "Reputation360 has a 97% success rate because we treat every engagement as a long-term investment in your digital standing. We do not sell quick fixes. We build durable results - the kind that still protect you when something new surfaces six months from now.",
+          text: "Reputation360 has a 97% success rate because we treat every engagement as a long-term investment in your digital standing. Readers ready to enquire can explore our online reputation management services before choosing the right next step. We do not sell quick fixes. We build durable results - the kind that still protect you when something new surfaces six months from now.",
+          parts: [
+            {
+              text: "Reputation360 has a 97% success rate because we treat every engagement as a long-term investment in your digital standing. Readers ready to enquire can explore ",
+            },
+            {
+              text: "our online reputation management services",
+              href: "https://www.thereputation360.com/services",
+            },
+            {
+              text: " before choosing the right next step. We do not sell quick fixes. We build durable results - the kind that still protect you when something new surfaces six months from now.",
+            },
+          ],
         },
         {
           type: "lead",
