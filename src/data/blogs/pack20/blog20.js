@@ -148,7 +148,19 @@ export const article = {
           type: "keyBox",
           variant: "warning",
           title: "Rehabilitation lag",
-          text: "A person who repaired their Google reputation in 2024 may still receive negative AI responses if the model's training data includes the pre-rehabilitation content. Addressing this requires ensuring positive, authoritative content is so widespread and well-documented that it outweighs historical negative content in any model's weighted assessment.",
+          text: "A person who repaired their Google reputation in 2024 may still receive negative AI responses if the model's training data includes the pre-rehabilitation content. We have seen cases where lingering training data continued affecting clients after their Google results were fixed. Addressing this requires ensuring positive, authoritative content is so widespread and well-documented that it outweighs historical negative content in any model's weighted assessment.",
+          parts: [
+            {
+              text: "A person who repaired their Google reputation in 2024 may still receive negative AI responses if the model's training data includes the pre-rehabilitation content. We have seen ",
+            },
+            {
+              text: "cases where lingering training data continued affecting clients after their Google results were fixed",
+              href: "https://www.thereputation360.com/blog/negative-links-cost-jobs-deals-real-cases-reputation360",
+            },
+            {
+              text: ". Addressing this requires ensuring positive, authoritative content is so widespread and well-documented that it outweighs historical negative content in any model's weighted assessment.",
+            },
+          ],
         },
         {
           type: "p",
@@ -167,7 +179,19 @@ export const article = {
         },
         {
           type: "p",
-          text: "The sources that Google's AI Overview cites are drawn from the same authoritative, highly-ranked content that traditional Google results favor - but the synthesis process means that a mix of positive and negative sources can produce a summary that is more negative than any individual source. Reputation360 monitors AI Overviews as part of our active client management and has identified specific content strategies that improve AI Overview sentiment for client names.",
+          text: "The sources that Google's AI Overview cites are drawn from the same authoritative, highly-ranked content that traditional Google results favor - but the synthesis process means that a mix of positive and negative sources can produce a summary that is more negative than any individual source. Focus on ranking positive content that AI Overviews will draw from. Reputation360 monitors AI Overviews as part of our active client management and has identified specific content strategies that improve AI Overview sentiment for client names.",
+          parts: [
+            {
+              text: "The sources that Google's AI Overview cites are drawn from the same authoritative, highly-ranked content that traditional Google results favor - but the synthesis process means that a mix of positive and negative sources can produce a summary that is more negative than any individual source. Focus on ",
+            },
+            {
+              text: "ranking positive content that AI Overviews will draw from",
+              href: "https://www.thereputation360.com/blog/rank-positive-content-above-negative-results-reputation360-strategy",
+            },
+            {
+              text: ". Reputation360 monitors AI Overviews as part of our active client management and has identified specific content strategies that improve AI Overview sentiment for client names.",
+            },
+          ],
         },
       ],
     },
@@ -182,7 +206,17 @@ export const article = {
         },
         {
           type: "p",
-          text: "Perplexity is increasingly popular among sophisticated users - investors, senior executives, due diligence researchers - who prefer its citation-rich format over standard search. For clients whose audiences include these groups, Perplexity representation is particularly important.",
+          text: "Perplexity is increasingly popular among sophisticated users - investors, senior executives, due diligence researchers - who prefer its citation-rich format over standard search. For clients whose audiences include these groups, Perplexity representation is particularly important - and so is understanding what a negative AI answer costs in due diligence and investment contexts.",
+          parts: [
+            {
+              text: "Perplexity is increasingly popular among sophisticated users - investors, senior executives, due diligence researchers - who prefer its citation-rich format over standard search. For clients whose audiences include these groups, Perplexity representation is particularly important - and so is understanding ",
+            },
+            {
+              text: "what a negative AI answer costs in due diligence and investment contexts",
+              href: "https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis",
+            },
+            { text: "." },
+          ],
         },
       ],
     },
@@ -203,7 +237,19 @@ export const article = {
               id: "dominance",
               label: "1. Multi-source dominance",
               title: "Own ten good sources, not one great one",
-              body: "AI tools synthesize across sources - so owning one great source is less effective than owning ten good sources consistently saying the same positive things. The first-page ownership strategy we outlined in our guide to controlling Google results is also the foundation of AI reputation strategy. When positive information appears on LinkedIn, Wikipedia, company websites, news features, industry publications, and multiple social profiles, AI tools receive consistent positive signals. Contradictory information (some positive, some negative) produces inconsistent AI answers; consistent positive information produces reliable positive summaries.",
+              body: "AI tools synthesize across sources - so owning one great source is less effective than owning ten good sources consistently saying the same positive things. Start with building across multiple high-authority platforms through profile claiming and first-page ownership. When positive information appears on LinkedIn, Wikipedia, company websites, news features, industry publications, and multiple social profiles, AI tools receive consistent positive signals. Contradictory information (some positive, some negative) produces inconsistent AI answers; consistent positive information produces reliable positive summaries.",
+              parts: [
+                {
+                  text: "AI tools synthesize across sources - so owning one great source is less effective than owning ten good sources consistently saying the same positive things. Start with ",
+                },
+                {
+                  text: "building across multiple high-authority platforms",
+                  href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+                },
+                {
+                  text: " through profile claiming and first-page ownership. When positive information appears on LinkedIn, Wikipedia, company websites, news features, industry publications, and multiple social profiles, AI tools receive consistent positive signals. Contradictory information (some positive, some negative) produces inconsistent AI answers; consistent positive information produces reliable positive summaries.",
+                },
+              ],
             },
             {
               id: "wikipedia",
@@ -233,6 +279,20 @@ export const article = {
       title: "What to do right now: AI search reputation checklist",
       blocks: [
         {
+          type: "p",
+          text: "Run this checklist quarterly - and fold it into a broader monitoring routine that now includes AI tools alongside traditional search audits.",
+          parts: [
+            {
+              text: "Run this checklist quarterly - and fold it into ",
+            },
+            {
+              text: "a broader monitoring routine that now includes AI tools",
+              href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
+            },
+            { text: " alongside traditional search audits." },
+          ],
+        },
+        {
           type: "steps",
           pickerKey: "ai-reputation-checklist",
           steps: [
@@ -244,6 +304,13 @@ export const article = {
             {
               n: 2,
               title: "Ask Perplexity",
+              titleParts: [
+                {
+                  text: "Ask Perplexity",
+                  href: "https://www.perplexity.ai",
+                  external: true,
+                },
+              ],
               body: "Run the same query in Perplexity. Note which sources it cites - these are the pages influencing real-time AI answers today.",
             },
             {
@@ -282,7 +349,17 @@ export const article = {
           type: "keyBox",
           variant: "insight",
           title: "Same strategy, higher stakes",
-          text: "This is not a new strategy - it is the same comprehensive positive presence strategy that Reputation360 has been executing for clients across the US, Canada, Australia, and Europe for seven years. The AI era makes it more important, not different.",
+          text: "This is not a new strategy - it is the same comprehensive strategy we've always advocated for clients across the US, Canada, Australia, and Europe for seven years. The AI era makes it more important, not different.",
+          parts: [
+            { text: "This is not a new strategy - it is " },
+            {
+              text: "the same comprehensive strategy we've always advocated",
+              href: "https://www.thereputation360.com/blog/online-reputation-management-best-practices-reputation360-methodology",
+            },
+            {
+              text: " for clients across the US, Canada, Australia, and Europe for seven years. The AI era makes it more important, not different.",
+            },
+          ],
         },
       ],
     },
@@ -293,7 +370,17 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "The shift to AI search is not a future challenge - it is a present one. And it is one that Reputation360's comprehensive positive presence strategy is well-equipped to address. The same breadth, authority, and consistency that we build for Google search is exactly what AI tools need to represent you accurately and positively.",
+          text: "The shift to AI search is not a future challenge - it is a present one. And it is one that Reputation360's comprehensive positive presence strategy is well-equipped to address. The same breadth, authority, and consistency that we build for Google search is exactly what AI tools need to represent you accurately and positively. Review client outcomes in the AI search era when you want proof that this work is already producing results.",
+          parts: [
+            {
+              text: "The shift to AI search is not a future challenge - it is a present one. And it is one that Reputation360's comprehensive positive presence strategy is well-equipped to address. The same breadth, authority, and consistency that we build for Google search is exactly what AI tools need to represent you accurately and positively. Review ",
+            },
+            {
+              text: "client outcomes in the AI search era",
+              href: "https://www.thereputation360.com/case-studies",
+            },
+            { text: " when you want proof that this work is already producing results." },
+          ],
         },
       ],
     },
