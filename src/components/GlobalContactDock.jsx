@@ -22,12 +22,7 @@ export default function GlobalContactDock() {
 
   if (typeof document === "undefined") return null;
 
-  const isMobileFreeScan =
-    window.location.pathname === FREE_RISK_SCAN_PATH &&
-    typeof window.matchMedia === "function" &&
-    window.matchMedia("(max-width: 767px)").matches;
-
-  if (isMobileFreeScan) return null;
+  if (window.location.pathname === FREE_RISK_SCAN_PATH) return null;
 
   return createPortal(
     <nav

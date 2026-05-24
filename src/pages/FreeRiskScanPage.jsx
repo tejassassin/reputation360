@@ -511,7 +511,7 @@ export default function FreeRiskScanPage() {
   const accent = gradeAccent(letter);
 
   return (
-    <main className="relative w-full max-w-full flex-1 overflow-x-clip pt-24 md:pt-32">
+    <main className="relative w-full max-w-full flex-1 overflow-x-clip pt-20 md:pt-24">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-slate-100" aria-hidden />
       <div
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_120%_70%_at_50%_-18%,rgba(56,189,248,0.18),transparent_58%)]"
@@ -528,16 +528,16 @@ export default function FreeRiskScanPage() {
       <SeoHead title={seo.title} description={seo.description} canonicalPath={seo.path} />
 
       {phase === "form" ? (
-        <div className="relative z-0 mx-auto w-full max-w-xl px-3 pb-20 pt-6 sm:px-4 md:pt-14">
-          <div className="mb-10 text-center">
+        <div className="relative z-0 mx-auto grid w-full max-w-5xl gap-6 px-3 pb-10 pt-5 sm:px-4 md:min-h-[calc(100dvh-6rem)] md:grid-cols-[0.9fr_1fr] md:items-center md:gap-10 md:pt-0">
+          <div className="mb-6 text-center md:mb-0 md:text-left">
             <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#2E5B88]/20 bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-[#2E5B88] shadow-sm sm:px-4 sm:text-xs">
               <Shield className="h-3.5 w-3.5" aria-hidden />
               Google Programmable Search
             </span>
-            <h1 className="mt-5 font-heading text-balance text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
+            <h1 className="mt-4 font-heading text-balance text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
               {FREE_REPUTATION_SCAN_LABEL}
             </h1>
-            <p className="mx-auto mt-4 max-w-lg text-pretty text-sm leading-relaxed text-slate-600 md:text-base">
+            <p className="mx-auto mt-3 max-w-md text-pretty text-sm leading-relaxed text-slate-600 md:mx-0 md:text-base">
               We analyze the first {FREE_SCAN_GOOGLE_PAGES} pages of Google-style results for your name and country
               context (up to {FREE_SCAN_LINK_LIMIT} links), classify each URL, and email a polished report card.
             </p>
@@ -545,7 +545,7 @@ export default function FreeRiskScanPage() {
 
           <form
             onSubmit={onSubmit}
-            className="w-full rounded-3xl border border-slate-200/80 bg-white/95 p-4 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-100/90 backdrop-blur-sm sm:p-9"
+            className="w-full rounded-3xl border border-slate-200/80 bg-white/95 p-4 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-100/90 backdrop-blur-sm sm:p-6"
           >
             <div>
               <label className="mb-2 block text-sm font-bold text-slate-900" htmlFor={`${baseId}-name`}>
@@ -559,7 +559,7 @@ export default function FreeRiskScanPage() {
                 placeholder="e.g. Jane Smith"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-base text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-500/15"
+                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-500/15"
               />
               <p className="mt-2 text-xs leading-relaxed text-slate-500">
                 Use the name people search when they look you up. We query Google with this exact string plus your
@@ -567,7 +567,7 @@ export default function FreeRiskScanPage() {
               </p>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-4">
               <label className="mb-2 block text-sm font-bold text-slate-900" htmlFor={`${baseId}-ct`}>
                 Country <span className="text-rose-600">*</span>
               </label>
@@ -576,7 +576,7 @@ export default function FreeRiskScanPage() {
                 name="country"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
-                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-base text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-500/15"
+                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-500/15"
               >
                 {COUNTRIES.map((c) => (
                   <option key={c.value} value={c.value}>
@@ -586,7 +586,7 @@ export default function FreeRiskScanPage() {
               </select>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-4">
               <label className="mb-2 block text-sm font-bold text-slate-900" htmlFor={`${baseId}-em`}>
                 Get your detailed reputation report at:
               </label>
@@ -599,14 +599,12 @@ export default function FreeRiskScanPage() {
                 placeholder="you@company.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-base text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-500/15"
+                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-500/15"
               />
-              <p className="mt-2 text-xs text-slate-500">
-                We will send your PDF summary here when email delivery is enabled on this deployment.
-              </p>
+              <p className="mt-2 text-xs text-slate-500">We will send your PDF summary here.</p>
             </div>
 
-            <label className="mt-7 flex cursor-pointer gap-3 rounded-2xl border border-slate-100 bg-slate-50/60 px-4 py-3 text-sm leading-relaxed text-slate-600">
+            <label className="mt-5 flex cursor-pointer gap-3 rounded-2xl border border-slate-100 bg-slate-50/60 px-4 py-2.5 text-sm leading-relaxed text-slate-600">
               <input
                 type="checkbox"
                 checked={consentGiven}
@@ -618,7 +616,7 @@ export default function FreeRiskScanPage() {
               </span>
             </label>
 
-            <p className="mt-4 text-xs leading-relaxed text-slate-500">
+            <p className="mt-3 text-xs leading-relaxed text-slate-500">
               By continuing you agree to our{" "}
               <a href="/terms-of-service" className="font-semibold text-sky-700 underline underline-offset-2">
                 Terms of Service
@@ -633,7 +631,7 @@ export default function FreeRiskScanPage() {
             {formError ? (
               <p
                 role="alert"
-                className="mt-5 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-900"
+              className="mt-4 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-900"
               >
                 {formError}
               </p>
@@ -641,7 +639,7 @@ export default function FreeRiskScanPage() {
 
             <button
               type="submit"
-              className="ha-pill mt-8 w-full rounded-2xl bg-gradient-to-r from-[#2E5B88] to-[#1F3B64] py-4 text-base font-heading font-bold text-white shadow-lg shadow-[#1F3B64]/25 transition hover:brightness-110"
+              className="ha-pill mt-5 w-full rounded-2xl bg-gradient-to-r from-[#2E5B88] to-[#1F3B64] py-3.5 text-base font-heading font-bold text-white shadow-lg shadow-[#1F3B64]/25 transition hover:brightness-110"
             >
               Start my {FREE_REPUTATION_SCAN_LABEL.toLowerCase()}
             </button>
