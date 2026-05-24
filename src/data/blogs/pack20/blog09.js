@@ -74,7 +74,17 @@ export const article = {
     },
     {
       type: "p",
-      text: "At Reputation360, LinkedIn optimization is the first action we take for virtually every individual client across the US, Canada, Australia, and Europe - seven years of experience and more than 1,100 engagements. Here is the complete checklist we use, and why each element matters.",
+      text: "At Reputation360, LinkedIn optimization is the first action we take for virtually every individual client across the US, Canada, Australia, and Europe - seven years of experience and more than 1,100 engagements. For anyone in an active job search, it also aligns with what recruiters search before an interview. Here is the complete checklist we use, and why each element matters.",
+      parts: [
+        {
+          text: "At Reputation360, LinkedIn optimization is the first action we take for virtually every individual client across the US, Canada, Australia, and Europe - seven years of experience and more than 1,100 engagements. For anyone in an active job search, it also aligns with ",
+        },
+        {
+          text: "what recruiters search before an interview",
+          href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
+        },
+        { text: ". Here is the complete checklist we use, and why each element matters." },
+      ],
     },
     {
       type: "lead",
@@ -96,10 +106,40 @@ export const article = {
         {
           type: "p",
           text: "LinkedIn.com has a domain authority of 98 out of 100. Google considers LinkedIn one of the most trustworthy sites on the internet. When a page on LinkedIn is about a specific person, Google has strong signals that it is relevant to searches for that person's name. A fully completed, keyword-optimized LinkedIn profile will rank in the top three positions for a personal name search in the vast majority of cases.",
+          parts: [
+            { text: "LinkedIn.com has a " },
+            {
+              text: "domain authority",
+              href: "https://moz.com/learn/seo/domain-authority",
+              external: true,
+            },
+            {
+              text: " of 98 out of 100. Google considers LinkedIn one of the most trustworthy sites on the internet. When a page on LinkedIn is about a specific person, Google has strong signals that it is relevant to searches for that person's name. A fully completed, keyword-optimized LinkedIn profile will rank in the top three positions for a personal name search in the vast majority of cases.",
+            },
+          ],
         },
         {
           type: "p",
-          text: "This matters for reputation because position 1 or 2 is incredibly valuable search real estate. If your LinkedIn profile is in position 1, the negative result cannot be in position 1. Every spot your positive assets occupy is a spot the negative content cannot have.",
+          text: "This matters for reputation because position 1 or 2 is incredibly valuable search real estate - and understanding the psychology behind that first result shows why. If your LinkedIn profile is in position 1, the negative result cannot be in position 1. Owning your entire first page starts with claiming those top slots with assets you control.",
+          parts: [
+            {
+              text: "This matters for reputation because position 1 or 2 is incredibly valuable search real estate - and understanding ",
+            },
+            {
+              text: "the psychology behind that first result",
+              href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
+            },
+            {
+              text: " shows why. If your LinkedIn profile is in position 1, the negative result cannot be in position 1. ",
+            },
+            {
+              text: "Owning your entire first page",
+              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
+            },
+            {
+              text: " starts with claiming those top slots with assets you control.",
+            },
+          ],
         },
         {
           type: "stats",
@@ -141,6 +181,19 @@ export const article = {
               label: "Custom URL",
               title: "Custom URL",
               body: "Set your LinkedIn URL to your full name (for example linkedin.com/in/johnsmith or linkedin.com/in/john-smith-cpa). This creates an exact-match URL for your name, which is one of the strongest ranking signals Google uses for name-based searches. If your exact name is taken, add a middle initial, credential abbreviation, or location descriptor.",
+              parts: [
+                {
+                  text: "Set your LinkedIn URL to your full name (for example linkedin.com/in/johnsmith or linkedin.com/in/john-smith-cpa). This creates an exact-match URL for your name, which is one of the strongest ranking signals Google uses for name-based searches. LinkedIn's guide to ",
+                },
+                {
+                  text: "edit your public profile settings",
+                  href: "https://www.linkedin.com/help/linkedin/answer/a542685",
+                  external: true,
+                },
+                {
+                  text: " walks through custom URL setup step by step. If your exact name is taken, add a middle initial, credential abbreviation, or location descriptor.",
+                },
+              ],
             },
             {
               id: "about",
@@ -201,7 +254,19 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "LinkedIn is the most powerful single profile platform for reputation management, but it works best as part of an ecosystem. Reputation360 recommends also optimizing profiles on Crunchbase (for executives and entrepreneurs), Twitter/X (for public professionals), company About pages (with your biographical information), and industry-specific directories. Each additional optimized profile is another search position that belongs to positive, professional content about you.",
+          text: "LinkedIn is the most powerful single profile platform for reputation management, but it works best as part of an ecosystem. Reputation360 recommends also optimizing profiles on Crunchbase (for executives and entrepreneurs), Twitter/X (for public professionals), company About pages (with your biographical information), and industry-specific directories. Our profile claiming guide covers how to claim and optimize each of those platforms. Each additional optimized profile is another search position that belongs to positive, professional content about you.",
+          parts: [
+            {
+              text: "LinkedIn is the most powerful single profile platform for reputation management, but it works best as part of an ecosystem. Reputation360 recommends also optimizing profiles on Crunchbase (for executives and entrepreneurs), Twitter/X (for public professionals), company About pages (with your biographical information), and industry-specific directories. Our ",
+            },
+            {
+              text: "profile claiming guide",
+              href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+            },
+            {
+              text: " covers how to claim and optimize each of those platforms. Each additional optimized profile is another search position that belongs to positive, professional content about you.",
+            },
+          ],
         },
         {
           type: "bullets",
@@ -256,7 +321,17 @@ export const article = {
             {
               n: 5,
               title: "Re-check in two weeks",
-              body: "Repeat the name search. Most clients see top-three movement within 2-4 weeks after a full optimization pass.",
+              body: "Repeat the name search and monitor your results weekly so you catch position shifts early. Most clients see top-three movement within 2-4 weeks after a full optimization pass.",
+              parts: [
+                { text: "Repeat the name search and " },
+                {
+                  text: "monitor your results",
+                  href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
+                },
+                {
+                  text: " weekly so you catch position shifts early. Most clients see top-three movement within 2-4 weeks after a full optimization pass.",
+                },
+              ],
             },
           ],
         },
@@ -283,7 +358,17 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "Search your exact name in an incognito window, open your LinkedIn URL, and compare what Google shows versus what your profile delivers. We can audit gaps field by field.",
+      "Search your exact name in an incognito window, open your LinkedIn URL, and compare what Google shows versus what your profile delivers. We can audit gaps field by field through our reputation management services.",
+    leadParts: [
+      {
+        text: "Search your exact name in an incognito window, open your LinkedIn URL, and compare what Google shows versus what your profile delivers. We can audit gaps field by field through ",
+      },
+      {
+        text: "our reputation management services",
+        href: "https://www.thereputation360.com/services",
+      },
+      { text: "." },
+    ],
   },
   relatedReading: [
     {
