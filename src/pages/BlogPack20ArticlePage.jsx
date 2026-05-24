@@ -174,6 +174,7 @@ export default function BlogPack20ArticlePage({ slug }) {
               <Pack20CtaSection
                 title={article.cta.title}
                 lead={article.cta.lead}
+                leadParts={article.cta.leadParts}
                 panelTitle={article.cta.panelTitle}
                 panelLead={article.cta.panelLead}
               />

@@ -21,7 +21,7 @@ import {
   StepPicker,
 } from "../diy/DiyGuideUi.jsx";
 
-function Pack20RichText({ text, parts }) {
+export function Pack20RichText({ text, parts }) {
   if (!parts?.length) {
     return text;
   }
@@ -63,8 +63,9 @@ const PILL_ICONS = {
  * @param {string} pillKey
  * @param {Record<string, string>} pillState
  * @param {(key: string, value: string) => void} setPillState
+ * @param {(item: import('../../../data/blogs/pack20/types.js').Pack20PillItem) => import('react').ReactNode} [renderBody]
  */
-function ContentTypePicker({ items, pillKey, pillState, setPillState }) {
+function ContentTypePicker({ items, pillKey, pillState, setPillState, renderBody }) {
   const activeId = pillState[pillKey] ?? items[0]?.id;
   const active = items.find((item) => item.id === activeId) ?? items[0];
   const ActiveIcon = PILL_ICONS[active?.id ?? ""] ?? UserRound;
@@ -114,7 +115,9 @@ function ContentTypePicker({ items, pillKey, pillState, setPillState }) {
               {active.title}
             </h4>
           ) : null}
-          <p className="mt-3 font-body text-base leading-relaxed text-steel">{active?.body}</p>
+          <p className="mt-3 font-body text-base leading-relaxed text-steel">
+            {renderBody && active ? renderBody(active) : active?.body}
+          </p>
         </div>
       </div>
     </div>
@@ -309,6 +312,7 @@ export function Pack20Blocks({
           pillKey={pillKey}
           pillState={pillState}
           setPillState={setPillState}
+          renderBody={(item) => <Pack20RichText text={item.body} parts={item.parts} />}
         />
       );
     }

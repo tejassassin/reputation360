@@ -66,6 +66,7 @@
  * @property {string} label
  * @property {string} [title]
  * @property {string} body
+ * @property {Pack20RichTextPart[]} [parts]
  */
 
 /**
@@ -178,7 +179,7 @@
  * @property {string[]} scrollSpyOrder
  * @property {Pack20Section[]} sections
  * @property {Pack20Faq[]} [faqs]
- * @property {{ title: string, lead: string, panelTitle?: string, panelLead?: string }} cta
+ * @property {{ title: string, lead: string, leadParts?: Pack20RichTextPart[], panelTitle?: string, panelLead?: string }} cta
  * @property {string[]} relatedSlugs
  */
 

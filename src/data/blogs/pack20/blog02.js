@@ -66,6 +66,20 @@ export const article = {
     {
       type: "p",
       text: "Google's first page is prime real estate. There are ten organic positions available, and right now some of those positions may be occupied by content you did not write, do not agree with, and cannot easily remove. The internet does not forget - but you can change what searchers see first.",
+      parts: [
+        {
+          text: "Google's first page is prime real estate",
+          href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
+        },
+        {
+          text: ". There are ten organic positions available, and right now some of those positions may be occupied by content you did not write, do not agree with, and ",
+        },
+        {
+          text: "cannot easily remove",
+          href: "https://www.thereputation360.com/blog/removal-vs-suppression-which-actually-works-reputation360",
+        },
+        { text: ". The internet does not forget - but you can change what searchers see first." },
+      ],
     },
     {
       type: "p",
@@ -90,7 +104,20 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "To rank positive content above negative results, you need to understand what Google rewards. The search algorithm weighs three primary signals: relevance (does the content match the query?), authority (is the source trustworthy?), and user signals (do people click on it and stay?).",
+          text: "To rank positive content above negative results, you need to understand what Google rewards. The search algorithm weighs three primary signals: relevance, authority, and user signals. Relevance asks whether the content matches the query, authority asks whether the source is trustworthy, and user signals show whether people click on it and stay.",
+          parts: [
+            {
+              text: "To rank positive content above negative results, you need to understand what Google rewards. The search algorithm weighs ",
+            },
+            {
+              text: "three primary signals: relevance, authority, and user signals",
+              href: "https://neilpatel.com/blog/critical-google-ranking-factors/",
+              external: true,
+            },
+            {
+              text: ". Relevance asks whether the content matches the query, authority asks whether the source is trustworthy, and user signals show whether people click on it and stay.",
+            },
+          ],
         },
         {
           type: "p",
@@ -134,6 +161,23 @@ export const article = {
               label: "Profiles",
               title: "LinkedIn and high-authority social profiles",
               body: "LinkedIn is one of the most powerful reputation assets available. Its domain authority is exceptionally high, its pages are indexed quickly, and Google treats LinkedIn profiles as authoritative sources for personal name searches. A fully built profile - complete work history, skills, recommendations, and regular activity - frequently ranks in position 1 or 2 for a person's name. We optimize every client's LinkedIn profile as a foundational asset in every suppression campaign. Beyond LinkedIn, platforms like Crunchbase, AngelList, Medium, and Wikipedia (where eligibility exists) carry the domain authority needed to compete on page one. Claiming and fully optimizing profiles on these platforms gives Google multiple positive sources to display.",
+              parts: [
+                {
+                  text: "LinkedIn is one of the most powerful reputation assets available. Its domain authority is exceptionally high, its pages are indexed quickly, and Google treats LinkedIn profiles as authoritative sources for personal name searches. A fully built profile - complete work history, skills, recommendations, and regular activity - frequently ranks in position 1 or 2 for a person's name. We ",
+                },
+                {
+                  text: "optimize every client's LinkedIn profile",
+                  href: "https://www.thereputation360.com/blog/linkedin-profile-optimization-search-results-reputation360-checklist",
+                },
+                {
+                  text: " as a foundational asset in every suppression campaign. Beyond LinkedIn, platforms like Crunchbase, AngelList, Medium, and Wikipedia (where eligibility exists) carry the domain authority needed to compete on page one. ",
+                },
+                {
+                  text: "Claiming and fully optimizing profiles on these platforms",
+                  href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+                },
+                { text: " gives Google multiple positive sources to display." },
+              ],
             },
             {
               id: "press",
@@ -171,10 +215,31 @@ export const article = {
         {
           type: "p",
           text: "Content does not rank by itself. It ranks because other authoritative pages link to it - the same reason negative URLs often hold position. A new LinkedIn profile, press release, or personal website needs inbound links from trusted sources to build the authority required to rise above a well-linked negative article.",
+          parts: [
+            { text: "Content does not rank by itself. It ranks because " },
+            {
+              text: "other authoritative pages link to it",
+              href: "https://backlinko.com/search-engine-ranking",
+              external: true,
+            },
+            {
+              text: " - the same reason negative URLs often hold position. A new LinkedIn profile, press release, or personal website needs inbound links from trusted sources to build the authority required to rise above a well-linked negative article.",
+            },
+          ],
         },
         {
           type: "p",
           text: "Reputation360 builds legitimate, high-quality links through industry directory listings, media mentions, content partnerships, and cross-linking between a client's own positive assets. We avoid link schemes or black-hat tactics because algorithm updates can wipe out manipulative rankings and undo months of work. Every link we build is real, relevant, and built to last.",
+          parts: [
+            { text: "Reputation360 builds " },
+            {
+              text: "legitimate, high-quality links",
+              href: "https://www.thereputation360.com/blog/online-reputation-management-best-practices-reputation360-methodology",
+            },
+            {
+              text: " through industry directory listings, media mentions, content partnerships, and cross-linking between a client's own positive assets. We avoid link schemes or black-hat tactics because algorithm updates can wipe out manipulative rankings and undo months of work. Every link we build is real, relevant, and built to last.",
+            },
+          ],
         },
         {
           type: "p",
@@ -216,6 +281,16 @@ export const article = {
         {
           type: "p",
           text: "The speed of ranking movement depends on the authority gap between the negative content and your positive assets. A negative result on a local blog with few backlinks can be displaced in 30 to 60 days. A negative result on a national news site with hundreds of inbound links may take 6 to 12 months to push to page two.",
+          parts: [
+            {
+              text: "The speed of ranking movement depends on the authority gap between the negative content and your positive assets. A negative result on a local blog with few backlinks can be displaced in ",
+            },
+            {
+              text: "30 to 60 days. A negative result on a national news site with hundreds of inbound links may take 6 to 12 months",
+              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+            },
+            { text: " to push to page two." },
+          ],
         },
         {
           type: "stats",
@@ -234,6 +309,16 @@ export const article = {
           variant: "warning",
           title: "When negatives keep gaining links",
           text: "High-profile individuals and brands with ongoing media coverage need continuous positive content scaled to match new inbound links on the harmful page. Reputation360 monitors link growth on negative URLs as part of active management so strategy keeps pace with the threat.",
+          parts: [
+            {
+              text: "High-profile individuals and brands with ongoing media coverage need continuous positive content scaled to match new inbound links on the harmful page. ",
+            },
+            {
+              text: "Reputation360 monitors link growth on negative URLs",
+              href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
+            },
+            { text: " as part of active management so strategy keeps pace with the threat." },
+          ],
         },
       ],
     },
@@ -249,6 +334,15 @@ export const article = {
         {
           type: "p",
           text: "Map page one and page two for your name or brand. Note domain authority behind each negative URL, which high-trust platforms you can claim today, and which of the four content types above will displace your highest-priority threat fastest. That audit tells you whether to lead with profiles, press, bylines, owned sites - or a coordinated mix.",
+          parts: [
+            {
+              text: "Map page one and page two for your name or brand",
+              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
+            },
+            {
+              text: ". Note domain authority behind each negative URL, which high-trust platforms you can claim today, and which of the four content types above will displace your highest-priority threat fastest. That audit tells you whether to lead with profiles, press, bylines, owned sites - or a coordinated mix.",
+            },
+          ],
         },
         {
           type: "lead",
@@ -283,7 +377,17 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "Get a clear audit of what ranks today for your name or brand and which content assets will outrank your highest-priority negatives.",
+      "Get a clear audit of what ranks today for your name or brand and which content assets will outrank your highest-priority negatives. If you want support from a team with seven years doing this for more than 1,100 clients, explore our online reputation management services.",
+    leadParts: [
+      {
+        text: "Get a clear audit of what ranks today for your name or brand and which content assets will outrank your highest-priority negatives. If you want support from a team with seven years doing this for more than 1,100 clients, explore ",
+      },
+      {
+        text: "our online reputation management services",
+        href: "https://www.thereputation360.com/services",
+      },
+      { text: "." },
+    ],
   },
   relatedReading: [
     {
