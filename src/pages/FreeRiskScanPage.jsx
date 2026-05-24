@@ -511,7 +511,7 @@ export default function FreeRiskScanPage() {
   const accent = gradeAccent(letter);
 
   return (
-    <main className="relative flex-1 overflow-x-hidden pt-28 md:pt-32">
+    <main className="relative w-full max-w-full flex-1 overflow-x-clip pt-24 md:pt-32">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-slate-100" aria-hidden />
       <div
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_120%_70%_at_50%_-18%,rgba(56,189,248,0.18),transparent_58%)]"
@@ -528,9 +528,9 @@ export default function FreeRiskScanPage() {
       <SeoHead title={seo.title} description={seo.description} canonicalPath={seo.path} />
 
       {phase === "form" ? (
-        <div className="relative z-0 mx-auto max-w-xl px-4 pb-20 pt-8 md:pt-14">
+        <div className="relative z-0 mx-auto w-full max-w-xl px-3 pb-20 pt-6 sm:px-4 md:pt-14">
           <div className="mb-10 text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#2E5B88]/20 bg-white/90 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-[#2E5B88] shadow-sm">
+            <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#2E5B88]/20 bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-[#2E5B88] shadow-sm sm:px-4 sm:text-xs">
               <Shield className="h-3.5 w-3.5" aria-hidden />
               Google Programmable Search
             </span>
@@ -545,7 +545,7 @@ export default function FreeRiskScanPage() {
 
           <form
             onSubmit={onSubmit}
-            className="rounded-3xl border border-slate-200/80 bg-white/95 p-6 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-100/90 backdrop-blur-sm sm:p-9"
+            className="w-full rounded-3xl border border-slate-200/80 bg-white/95 p-4 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-100/90 backdrop-blur-sm sm:p-9"
           >
             <div>
               <label className="mb-2 block text-sm font-bold text-slate-900" htmlFor={`${baseId}-name`}>

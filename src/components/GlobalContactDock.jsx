@@ -4,6 +4,7 @@ import { Mail } from "lucide-react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { CONTACT_EMAIL, contactWhatsAppHref } from "@/constants/contact.js";
+import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { DockEmailComposePanel } from "@/components/DockEmailComposePanel.jsx";
 import R360Chatbot from "./R360Chatbot.jsx";
 
@@ -20,6 +21,13 @@ export default function GlobalContactDock() {
   const emailTitleId = useId();
 
   if (typeof document === "undefined") return null;
+
+  const isMobileFreeScan =
+    window.location.pathname === FREE_RISK_SCAN_PATH &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(max-width: 767px)").matches;
+
+  if (isMobileFreeScan) return null;
 
   return createPortal(
     <nav
