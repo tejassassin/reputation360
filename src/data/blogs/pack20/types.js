@@ -81,6 +81,8 @@
  * @property {string} id
  * @property {string} title
  * @property {string} body
+ * @property {Pack20RichTextPart[]} [titleParts]
+ * @property {Pack20RichTextPart[]} [parts]
  */
 
 /**

@@ -324,11 +324,13 @@ export function Pack20Blocks({
             <DiyAccordion
               key={item.id}
               id={item.id}
-              title={item.title}
+              title={<Pack20RichText text={item.title} parts={item.titleParts} />}
               open={!!accordionState[item.id]}
               onToggle={toggleAccordion}
             >
-              <p>{item.body}</p>
+              <p>
+                <Pack20RichText text={item.body} parts={item.parts} />
+              </p>
             </DiyAccordion>
           ))}
         </div>

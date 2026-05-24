@@ -75,6 +75,18 @@ export const article = {
     {
       type: "p",
       text: "The problem is that removal is far less available than most people assume, and far more complicated than the companies who promise it imply. At Reputation360, we pursue removal when it is genuinely achievable. We also tell clients clearly when it is not and why suppression is the more reliable path. After seven years working with more than 1,100 clients across the US, Canada, Australia, and Europe, we have seen every type of negative content and every approach to dealing with it.",
+      parts: [
+        {
+          text: "The problem is that removal is far less available than most people assume, and ",
+        },
+        {
+          text: "far more complicated than most people expect",
+          href: "https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis",
+        },
+        {
+          text: ". At Reputation360, we pursue removal when it is genuinely achievable. We also tell clients clearly when it is not and why suppression is the more reliable path. After seven years working with more than 1,100 clients across the US, Canada, Australia, and Europe, we have seen every type of negative content and every approach to dealing with it.",
+        },
+      ],
     },
     {
       type: "lead",
@@ -112,7 +124,24 @@ export const article = {
             {
               id: "deindex",
               title: "2. De-indexing by Google",
+              titleParts: [
+                { text: "2. " },
+                {
+                  text: "De-indexing by Google",
+                  href: "https://www.thereputation360.com/blog/can-you-remove-news-articles-from-google-search",
+                },
+              ],
               body: "Google may remove a URL from its search index even if the page still exists on the web, if the content violates Google's policies. This applies to certain categories of content: doxxing, non-consensual intimate images, specific personal financial information, and content that creates significant risk of direct harm. For most negative business or reputation content, this avenue does not apply.",
+              parts: [
+                {
+                  text: "Google may remove a URL from its search index",
+                  href: "https://neilpatel.com/blog/remove-information-google",
+                  external: true,
+                },
+                {
+                  text: " even if the page still exists on the web, if the content violates Google's policies. This applies to certain categories of content: doxxing, non-consensual intimate images, specific personal financial information, and content that creates significant risk of direct harm. For most negative business or reputation content, this avenue does not apply.",
+                },
+              ],
             },
             {
               id: "legal-removal",
@@ -155,6 +184,12 @@ export const article = {
             {
               n: 3,
               title: "Unlawful personal data exposure",
+              titleParts: [
+                {
+                  text: "Unlawful personal data exposure",
+                  href: "https://www.thereputation360.com/blog/remove-court-records-google-reputation360",
+                },
+              ],
               body: "Under GDPR in Europe, and increasingly under state laws in the US, individuals have specific rights around the removal of personal data from online databases. Data broker profiles, people-finder sites, and certain aggregated personal information may be removable through formal data deletion requests. Reputation360 assists clients with this process as part of a broader strategy.",
             },
             {
@@ -185,7 +220,17 @@ export const article = {
         },
         {
           type: "p",
-          text: "The result is that clients who spend months pursuing removal often arrive at suppression anyway - but now they are behind by months. This is why Reputation360 typically begins suppression work in parallel with any removal efforts, so that something is actively happening to improve the search results regardless of what the removal process produces.",
+          text: "The result is that clients who spend months pursuing removal often arrive at suppression anyway - but later, when they are behind by months. This is why Reputation360 typically begins suppression work in parallel with any removal efforts, so that something is actively happening to improve the search results regardless of what the removal process produces.",
+          parts: [
+            { text: "The result is that " },
+            {
+              text: "clients who spend months pursuing removal often arrive at suppression anyway - but later",
+              href: "https://www.thereputation360.com/blog/negative-links-cost-jobs-deals-real-cases-reputation360",
+            },
+            {
+              text: ", when they are behind by months. This is why Reputation360 typically begins suppression work in parallel with any removal efforts, so that something is actively happening to improve the search results regardless of what the removal process produces.",
+            },
+          ],
         },
         {
           type: "keyBox",
@@ -207,10 +252,31 @@ export const article = {
         {
           type: "p",
           text: "This is the fundamental advantage of suppression as a strategy. It is entirely within your control. You do not need the negative site to agree. You do not need Google to act. You build better content, earn more authority, and let the algorithm surface the most authoritative, relevant results.",
+          parts: [
+            { text: "This is the fundamental advantage of suppression as a strategy. It is " },
+            {
+              text: "entirely within your control",
+              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
+            },
+            {
+              text: ". You do not need the negative site to agree. You do not need Google to act. You build better content, earn more authority, and let the algorithm surface the most authoritative, relevant results.",
+            },
+          ],
         },
         {
           type: "p",
-          text: "For the vast majority of Reputation360 clients - professionals and business owners in the US, Canada, Australia, and Europe - suppression is where the results come from. Some clients achieve both removal and suppression in parallel, which is the ideal outcome. Suppression alone consistently produces meaningful page-one improvement within the timelines we commit to.",
+          text: "For the vast majority of Reputation360 clients - professionals and business owners in the US, Canada, Australia, and Europe - suppression is where the results come from. Some clients achieve both removal and suppression in parallel, which is the ideal outcome. Suppression alone consistently produces meaningful page-one improvement within the timelines we commit to because outranking negative content is often more effective than fighting for removal.",
+          parts: [
+            {
+              text: "For the vast majority of Reputation360 clients - professionals and business owners in the US, Canada, Australia, and Europe - suppression is where the results come from. Some clients achieve both removal and suppression in parallel, which is the ideal outcome. Suppression alone consistently produces meaningful page-one improvement within the timelines we commit to because ",
+            },
+            {
+              text: "outranking negative content is often more effective than fighting for removal",
+              href: "https://www.searchenginejournal.com/negative-content-how-to-deal/425048/",
+              external: true,
+            },
+            { text: "." },
+          ],
         },
         {
           type: "lead",
@@ -226,7 +292,19 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "The strongest outcomes combine removal efforts where they are viable with suppression that does not wait for permission. The case below shows how parallel execution changed search results while legal and platform processes ran their course.",
+          text: "The strongest outcomes combine removal efforts where they are viable with suppression that does not wait on publisher or court timelines. The case below shows how parallel execution changed search results while legal and platform processes ran their course.",
+          parts: [
+            {
+              text: "The strongest outcomes combine removal efforts where they are viable with ",
+            },
+            {
+              text: "suppression that does not wait on publisher or court timelines",
+              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+            },
+            {
+              text: ". The case below shows how parallel execution changed search results while legal and platform processes ran their course.",
+            },
+          ],
         },
         {
           type: "compare",
@@ -255,7 +333,19 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Removal is the ideal but is often unavailable. Suppression is available, controllable, and consistently effective. The Reputation360 approach pursues both and never lets the pursuit of one delay the execution of the other.",
+          text: "Removal is the ideal but is often unavailable. Suppression is available, controllable, and consistently effective, which is why our 97% suppression success rate is built on consistent methodology rather than shortcuts. The Reputation360 approach pursues both and never lets the pursuit of one delay the execution of the other.",
+          parts: [
+            {
+              text: "Removal is the ideal but is often unavailable. Suppression is available, controllable, and consistently effective, which is why ",
+            },
+            {
+              text: "our 97% suppression success rate",
+              href: "https://www.thereputation360.com/blog/online-reputation-management-best-practices-reputation360-methodology",
+            },
+            {
+              text: " is built on consistent methodology rather than shortcuts. The Reputation360 approach pursues both and never lets the pursuit of one delay the execution of the other.",
+            },
+          ],
         },
         {
           type: "p",
@@ -294,7 +384,17 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "Tell us what you are dealing with. We will assess your removal options and outline a suppression strategy in the same conversation.",
+      "Tell us what you are dealing with. We will assess your removal options and outline a suppression strategy in the same conversation through our online reputation management services.",
+    leadParts: [
+      {
+        text: "Tell us what you are dealing with. We will assess your removal options and outline a suppression strategy in the same conversation through ",
+      },
+      {
+        text: "our online reputation management services",
+        href: "https://www.thereputation360.com/services",
+      },
+      { text: "." },
+    ],
   },
   relatedReading: [
     {
