@@ -21,10 +21,6 @@ import {
   StepPicker,
 } from "../diy/DiyGuideUi.jsx";
 
-function isExternalHref(href) {
-  return /^https?:\/\//i.test(href) && !/^https?:\/\/(www\.)?thereputation360\.com/i.test(href);
-}
-
 function Pack20RichText({ text, parts }) {
   if (!parts?.length) {
     return text;
@@ -35,13 +31,12 @@ function Pack20RichText({ text, parts }) {
       return <Fragment key={`${part.text}-${index}`}>{part.text}</Fragment>;
     }
 
-    const external = part.external ?? isExternalHref(part.href);
     return (
       <a
         key={`${part.href}-${index}`}
         href={part.href}
-        target={external ? "_blank" : undefined}
-        rel={external ? "noopener noreferrer" : undefined}
+        target="_blank"
+        rel="noopener noreferrer"
         className="font-semibold text-blue-600 underline decoration-blue-600 underline-offset-2 transition-colors hover:text-blue-800 hover:decoration-blue-800"
       >
         {part.text}
