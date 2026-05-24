@@ -425,7 +425,9 @@ export function Pack20FaqSection({ faqs, accordionState, toggleAccordion }) {
             open={!!accordionState[f.id]}
             onToggle={toggleAccordion}
           >
-            <p>{f.a}</p>
+            <p>
+              <Pack20RichText text={f.a} parts={f.aParts} />
+            </p>
           </DiyFaqAccordion>
         ))}
       </div>

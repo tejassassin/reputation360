@@ -173,6 +173,7 @@
  * @property {string} id
  * @property {string} q
  * @property {string} a
+ * @property {Pack20RichTextPart[]} [aParts]
  */
 
 /**

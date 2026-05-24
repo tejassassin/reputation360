@@ -68,11 +68,33 @@ export const article = {
   introBlocks: [
     {
       type: "p",
-      text: "One of the most underutilized tactics in online reputation management is also one of the most effective: simply claiming and properly completing the third-party profiles that Google has already shown it wants to rank for your name. You do not need to build new websites or generate press coverage to begin improving your Google first page. You need to own the digital real estate that already exists.",
+      text: "One of the most underutilized tactics in online reputation management is also one of the most effective: simply claiming and properly completing the third-party profiles that Google has already shown it wants to rank for your name. You do not need to build new websites or generate press coverage to begin improving your Google first page. You need to own the digital real estate that already exists - and understand the cost of leaving these positions unclaimed.",
+      parts: [
+        {
+          text: "One of the most underutilized tactics in online reputation management is also one of the most effective: simply claiming and properly completing the third-party profiles that Google has already shown it wants to rank for your name. You do not need to build new websites or generate press coverage to begin improving your Google first page. You need to own the digital real estate that already exists - and understand ",
+        },
+        {
+          text: "the cost of leaving these positions unclaimed",
+          href: "https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis",
+        },
+        { text: "." },
+      ],
     },
     {
       type: "p",
-      text: "Profile claiming is standard operating procedure for every Reputation360 client across the US, Canada, Australia, and Europe - part of a methodology that has served 1,100+ clients over seven years. Here is the complete guide to the platforms that matter and how to maximize each one.",
+      text: "Profile claiming is standard operating procedure for every Reputation360 client across the US, Canada, Australia, and Europe. See the full methodology profile claiming is part of for where it sits in the seven-principle system that has served 1,100+ clients over seven years. Here is the complete guide to the platforms that matter and how to maximize each one.",
+      parts: [
+        {
+          text: "Profile claiming is standard operating procedure for every Reputation360 client across the US, Canada, Australia, and Europe. See ",
+        },
+        {
+          text: "the full methodology profile claiming is part of",
+          href: "https://www.thereputation360.com/blog/online-reputation-management-best-practices-reputation360-methodology",
+        },
+        {
+          text: " for where it sits in the seven-principle system that has served 1,100+ clients over seven years. Here is the complete guide to the platforms that matter and how to maximize each one.",
+        },
+      ],
     },
     {
       type: "lead",
@@ -94,16 +116,56 @@ export const article = {
         {
           type: "p",
           text: "Third-party profile platforms - LinkedIn, Crunchbase, Twitter/X, Medium, and others - have exceptionally high domain authority. When Google evaluates what to show in response to a name search, a fully completed profile on one of these platforms competes favorably with almost any other type of content. A platform with domain authority of 90+ starts the ranking race at a significant advantage over a new personal website or an obscure blog post.",
+          parts: [
+            {
+              text: "Third-party profile platforms - LinkedIn, Crunchbase, Twitter/X, Medium, and others - have exceptionally high ",
+            },
+            {
+              text: "domain authority - the metric that predicts ranking power",
+              href: "https://moz.com/learn/seo/domain-authority",
+              external: true,
+            },
+            {
+              text: ". When Google evaluates what to show in response to a name search, a fully completed profile on one of these platforms competes favorably with almost any other type of content. A platform with domain authority of 90+ starts the ranking race at a significant advantage over a new personal website or an obscure blog post.",
+            },
+          ],
         },
         {
           type: "p",
-          text: "Claiming and completing profiles on these platforms is essentially borrowing their authority. You write content about yourself; it ranks because the domain it lives on is trusted by Google. This is why profile claiming produces some of the fastest ranking improvements in reputation management - within weeks rather than months.",
+          text: "Claiming and completing profiles on these platforms is essentially borrowing their authority. You write content about yourself; it ranks because the domain it lives on is trusted by Google. That is also how profile claiming fits into a broader suppression strategy - occupying positions and displacing what is already there. This is why profile claiming produces some of the fastest ranking improvements in reputation management - within weeks rather than months.",
+          parts: [
+            {
+              text: "Claiming and completing profiles on these platforms is essentially borrowing their authority. You write content about yourself; it ranks because the domain it lives on is trusted by Google. That is also ",
+            },
+            {
+              text: "how profile claiming fits into a broader suppression strategy",
+              href: "https://www.thereputation360.com/blog/how-to-suppress-negative-search-results-reputation360-framework",
+            },
+            {
+              text: " - occupying positions and displacing what is already there. This is why profile claiming produces some of the fastest ranking improvements in reputation management - within weeks rather than months.",
+            },
+          ],
         },
         {
           type: "keyBox",
           variant: "tip",
           title: "Speed advantage",
-          text: "High-authority platforms like LinkedIn, Crunchbase, and Medium typically index within days to a week of a profile being created or significantly updated. Ranking movement for your name search typically begins within two to four weeks.",
+          text: "High-authority platforms like LinkedIn, Crunchbase, and Medium typically index within days to a week of a profile being created or significantly updated. Ranking movement for your name search typically begins within two to four weeks - which is why owning those top positions carries such outsized influence. See how profile claiming has worked for our clients when you want documented proof.",
+          parts: [
+            {
+              text: "High-authority platforms like LinkedIn, Crunchbase, and Medium typically index within days to a week of a profile being created or significantly updated. Ranking movement for your name search typically begins within two to four weeks - which is ",
+            },
+            {
+              text: "why owning those top positions carries such outsized influence",
+              href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
+            },
+            { text: ". " },
+            {
+              text: "See how profile claiming has worked for our clients",
+              href: "https://www.thereputation360.com/case-studies",
+            },
+            { text: " when you want documented proof." },
+          ],
         },
       ],
     },
@@ -122,12 +184,41 @@ export const article = {
             {
               id: "linkedin",
               title: "1. LinkedIn (DA 98)",
-              body: "Non-negotiable for any professional. Full optimization - custom URL, complete history, keyword-rich About section, and active content - is required to maximize ranking potential. See our LinkedIn checklist in this blog series for the complete playbook.",
+              body: "Non-negotiable for any professional. Full optimization - custom URL, complete history, keyword-rich About section, and active content - is required to maximize ranking potential. Use our full LinkedIn optimization checklist and align the profile with exactly what recruiters look for when they find your profiles.",
+              parts: [
+                {
+                  text: "Non-negotiable for any professional. Full optimization - custom URL, complete history, keyword-rich About section, and active content - is required to maximize ranking potential. Use our ",
+                },
+                {
+                  text: "full LinkedIn optimization checklist",
+                  href: "https://www.thereputation360.com/blog/linkedin-profile-optimization-search-results-reputation360-checklist",
+                },
+                {
+                  text: " and align the profile with ",
+                },
+                {
+                  text: "exactly what recruiters look for when they find your profiles",
+                  href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
+                },
+                { text: "." },
+              ],
             },
             {
               id: "crunchbase",
               title: "2. Crunchbase (DA 91)",
-              body: "Essential for executives, founders, investors, and business leaders. Crunchbase profiles rank highly for name plus business-related searches. Include complete company affiliations, bio, and recent activity. Particularly effective for US and European business searches.",
+              body: "Essential for executives, founders, investors, and business leaders. Crunchbase profiles rank highly for name plus business-related searches and appear early in exactly what recruiters look for when they find your profiles. Include complete company affiliations, bio, and recent activity. Particularly effective for US and European business searches.",
+              parts: [
+                {
+                  text: "Essential for executives, founders, investors, and business leaders. Crunchbase profiles rank highly for name plus business-related searches and appear early in ",
+                },
+                {
+                  text: "exactly what recruiters look for when they find your profiles",
+                  href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
+                },
+                {
+                  text: ". Include complete company affiliations, bio, and recent activity. Particularly effective for US and European business searches.",
+                },
+              ],
             },
             {
               id: "twitter",
@@ -204,7 +295,17 @@ export const article = {
         },
         {
           type: "p",
-          text: "Consistency is also critical. Inconsistencies between profiles - different job titles, conflicting dates, varying name formats - create confusion for both Google and for the people who find your profiles. Google uses consistency signals to assess whether multiple profiles belong to the same person. Inconsistent profiles rank less effectively.",
+          text: "Consistency is also critical. Inconsistencies between profiles - different job titles, conflicting dates, varying name formats - create confusion for both Google and for the people who find your profiles. Google uses consistency signals to assess whether multiple profiles belong to the same person. Inconsistent profiles rank less effectively - which is why monitoring your profiles for consistency over time matters.",
+          parts: [
+            {
+              text: "Consistency is also critical. Inconsistencies between profiles - different job titles, conflicting dates, varying name formats - create confusion for both Google and for the people who find your profiles. Google uses consistency signals to assess whether multiple profiles belong to the same person. Inconsistent profiles rank less effectively - which is why ",
+            },
+            {
+              text: "monitoring your profiles for consistency over time",
+              href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
+            },
+            { text: " matters." },
+          ],
         },
       ],
     },
@@ -213,7 +314,17 @@ export const article = {
     {
       id: "faq-1",
       q: "How long does it take for a newly claimed profile to rank in Google?",
-      a: "High-authority platforms like LinkedIn, Crunchbase, and Medium typically index within days to a week of a profile being created or significantly updated. Ranking movement for your name search typically begins within two to four weeks. Lower-authority platforms may take longer to index.",
+      a: "High-authority platforms like LinkedIn, Crunchbase, and Medium typically index within days to a week of a profile being created or significantly updated. Ranking movement for your name search typically begins within two to four weeks. Lower-authority platforms may take longer to index. For broader timelines for different types of reputation work, see our dedicated timeline guide.",
+      aParts: [
+        {
+          text: "High-authority platforms like LinkedIn, Crunchbase, and Medium typically index within days to a week of a profile being created or significantly updated. Ranking movement for your name search typically begins within two to four weeks. Lower-authority platforms may take longer to index. For ",
+        },
+        {
+          text: "broader timelines for different types of reputation work",
+          href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+        },
+        { text: ", see our dedicated timeline guide." },
+      ],
     },
     {
       id: "faq-2",
@@ -229,7 +340,17 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "We will identify which key profiles are unclaimed for your name and build a prioritized claiming and optimization plan.",
+      "We will identify which key profiles are unclaimed for your name and build a prioritized claiming and optimization plan through our reputation management services.",
+    leadParts: [
+      {
+        text: "We will identify which key profiles are unclaimed for your name and build a prioritized claiming and optimization plan through ",
+      },
+      {
+        text: "our reputation management services",
+        href: "https://www.thereputation360.com/services",
+      },
+      { text: "." },
+    ],
   },
   relatedReading: [
     {
