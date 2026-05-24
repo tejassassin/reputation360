@@ -316,15 +316,8 @@ export default function BlogDiyReputationGuidePage() {
                     </li>
                   ))}
                 </ul>
-                <p className="mb-4 font-body text-base leading-relaxed text-steel">
-                  {AMPLIFY_PLATFORMS_EXPAND.closing}
-                </p>
                 <p className="mb-10 font-body text-base leading-relaxed text-steel">
-                  To understand the mechanics behind this, see{" "}
-                  <DiyInternalLink href={SUPPRESS_NEGATIVE_GUIDE_PATH}>
-                    how negative content suppression actually works
-                  </DiyInternalLink>
-                  .
+                  {AMPLIFY_PLATFORMS_EXPAND.closing}
                 </p>
 
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
