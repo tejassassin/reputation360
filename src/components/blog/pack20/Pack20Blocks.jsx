@@ -379,7 +379,9 @@ export function Pack20Blocks({
       return (
         <ul key={key} className="mb-8 list-disc space-y-2 pl-6 font-body text-lg text-steel">
           {block.items.map((item) => (
-            <li key={item}>{item}</li>
+            <li key={typeof item === "string" ? item : item.text}>
+              {typeof item === "string" ? item : <Pack20RichText text={item.text} parts={item.parts} />}
+            </li>
           ))}
         </ul>
       );

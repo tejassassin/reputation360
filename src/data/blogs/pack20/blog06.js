@@ -99,6 +99,26 @@ export const article = {
         {
           type: "p",
           text: "Decision-makers Google names early in the process. One negative URL in position 2 or 3 can outweigh years of résumé credibility. The content is often factually accurate but context-poor: old news, resolved inquiries, past disputes, or someone else who shares your name.",
+          parts: [
+            {
+              text: "Decision-makers Google names early in the process",
+              href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
+            },
+            { text: ". " },
+            {
+              text: "One negative URL in position 2 or 3 can outweigh years of résumé credibility",
+              href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
+            },
+            { text: ", because " },
+            {
+              text: "brand perception shapes trust before a conversation even begins",
+              href: "https://neilpatel.com/blog/guide-to-online-branding/",
+              external: true,
+            },
+            {
+              text: ". The content is often factually accurate but context-poor: old news, resolved inquiries, past disputes, or someone else who shares your name.",
+            },
+          ],
         },
         {
           type: "stats",
@@ -128,6 +148,25 @@ export const article = {
               label: "Executive inquiry",
               title: "Case Type 1: The executive blocked by an old inquiry",
               body: "A senior operations executive in the US had been through a regulatory inquiry several years prior. The inquiry was resolved without findings or penalties, but the news coverage remained on a major financial news site. When his name was searched, that article appeared in position 2, immediately below his LinkedIn profile. He had been a finalist for a C-suite role at a publicly traded company. The process stalled during due diligence. He suspected the article was the reason. Reputation360 ran a nine-month program: full audit of every indexed asset, two press releases on recent advisory work, expert placements on two finance platforms, an optimized personal website, LinkedIn rebuilt headline-to-skills, Twitter/X and industry forum presence, and professional directory listings - each maintained and monitored, not published once and left static. At 90 days the article dropped to position 8. At five months it was on page two. Six months after we began, he was contacted for a comparable C-suite opportunity and due diligence moved forward without interruption.",
+              parts: [
+                {
+                  text: "A senior operations executive in the US had been through a regulatory inquiry several years prior. The inquiry was resolved without findings or penalties, but the ",
+                },
+                {
+                  text: "news coverage remained on a major financial news site",
+                  href: "https://www.thereputation360.com/blog/can-you-remove-news-articles-from-google-search",
+                },
+                {
+                  text: ". When his name was searched, that article appeared in position 2, immediately below his LinkedIn profile. He had been a finalist for a C-suite role at a publicly traded company. The process stalled during due diligence. He suspected the article was the reason. Reputation360 ran a nine-month program: full audit of every indexed asset, two press releases on recent advisory work, expert placements on two finance platforms, an optimized personal website, ",
+                },
+                {
+                  text: "LinkedIn rebuilt headline-to-skills",
+                  href: "https://www.thereputation360.com/blog/linkedin-profile-optimization-search-results-reputation360-checklist",
+                },
+                {
+                  text: ", Twitter/X and industry forum presence, and professional directory listings - each maintained and monitored, not published once and left static. At 90 days the article dropped to position 8. At five months it was on page two. Six months after we began, he was contacted for a comparable C-suite opportunity and due diligence moved forward without interruption.",
+                },
+              ],
             },
             {
               id: "reviews",
@@ -181,14 +220,43 @@ export const article = {
         {
           type: "p",
           text: "What produced results was a structured, professional suppression strategy executed by people who understand both SEO mechanics and reputation dynamics. The cases above are representative - situations differ across the US, Canada, Australia, and Europe, but the framework that resolves them is consistent.",
+          parts: [
+            { text: "What produced results was a " },
+            {
+              text: "structured, professional suppression strategy",
+              href: "https://www.thereputation360.com/blog/how-to-suppress-negative-content-professionals-guide",
+            },
+            {
+              text: " executed by people who understand both SEO mechanics and reputation dynamics. The cases above are representative - situations differ across the US, Canada, Australia, and Europe, but the framework that resolves them is consistent.",
+            },
+          ],
         },
         {
           type: "bullets",
           items: [
-            "Audit everything indexed for the name before choosing tactics.",
+            {
+              text: "Audit everything indexed for the name before choosing tactics.",
+              parts: [
+                {
+                  text: "Audit everything indexed before choosing tactics",
+                  href: "https://backlinko.com/online-reputation-management-tools",
+                  external: true,
+                },
+                { text: " for the name." },
+              ],
+            },
             "Build multiple authoritative assets in parallel, not one blog post and hope.",
             "Maintain and refresh assets so search engines see ongoing relevance.",
-            "Monitor weekly and adjust when positions shift or new URLs appear.",
+            {
+              text: "Monitor weekly and adjust when positions shift or new URLs appear.",
+              parts: [
+                {
+                  text: "Monitor weekly and adjust when positions shift or new URLs appear",
+                  href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
+                },
+                { text: "." },
+              ],
+            },
           ],
         },
       ],
@@ -212,6 +280,16 @@ export const article = {
           type: "lead",
           label: "Where to start",
           text: "Search your full name in an incognito window, list every negative URL on page one, and note the stakes attached to each (job, deal, partnership, or public role). That map is the baseline for a realistic strategy conversation.",
+          parts: [
+            { text: "Search your full name in an incognito window, " },
+            {
+              text: "list every negative URL on page one",
+              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
+            },
+            {
+              text: ", and note the stakes attached to each (job, deal, partnership, or public role). That map is the baseline for a realistic strategy conversation.",
+            },
+          ],
         },
       ],
     },
@@ -236,7 +314,17 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "Describe the negative link and what it is costing you. We will assess what movement is realistic and on what timeline.",
+      "Describe the negative link and what it is costing you. We will assess what movement is realistic and on what timeline through our online reputation management services.",
+    leadParts: [
+      {
+        text: "Describe the negative link and what it is costing you. We will assess what movement is realistic and on what timeline through ",
+      },
+      {
+        text: "our online reputation management services",
+        href: "https://www.thereputation360.com/services",
+      },
+      { text: "." },
+    ],
   },
   relatedReading: [
     {

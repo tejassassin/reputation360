@@ -132,9 +132,15 @@
  */
 
 /**
+ * @typedef {object} Pack20BulletItem
+ * @property {string} text
+ * @property {Pack20RichTextPart[]} [parts]
+ */
+
+/**
  * @typedef {object} Pack20BlockBullets
  * @property {"bullets"} type
- * @property {string[]} items
+ * @property {(string|Pack20BulletItem)[]} items
  */
 
 /**
