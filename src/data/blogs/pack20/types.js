@@ -107,7 +107,7 @@
 /**
  * @typedef {object} Pack20DoDontColumn
  * @property {string} title
- * @property {string[]} items
+ * @property {(string|Pack20BulletItem)[]} items
  */
 
 /**

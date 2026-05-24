@@ -142,7 +142,7 @@ function DoDontColumn({ column, variant }) {
       <div className="diy-do-dont-column__header">{column.title}</div>
       <ul className="diy-do-dont-column__list">
         {column.items.map((item) => (
-          <li key={item} className="diy-do-dont-column__item">
+          <li key={typeof item === "string" ? item : item.text} className="diy-do-dont-column__item">
             <span
               className={cn(
                 "diy-do-dont-column__icon",
@@ -152,7 +152,9 @@ function DoDontColumn({ column, variant }) {
             >
               <Icon className="h-4 w-4" strokeWidth={2.5} />
             </span>
-            <span className="diy-do-dont-column__text">{item}</span>
+            <span className="diy-do-dont-column__text">
+              {typeof item === "string" ? item : <Pack20RichText text={item.text} parts={item.parts} />}
+            </span>
           </li>
         ))}
       </ul>
