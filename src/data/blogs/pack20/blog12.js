@@ -100,7 +100,27 @@ export const article = {
         },
         {
           type: "p",
-          text: "Positions 1-3 are the highest-visibility slots - the ones most people click. For personal name searches, these positions are most commonly occupied by LinkedIn profiles, personal or company websites, and Wikipedia pages (where applicable). Positions 4-7 often contain a mix of high-authority profiles (Crunchbase, AngelList, Bloomberg), news features, and third-party content. Positions 8-10 typically hold secondary profiles, older content, and lower-authority pages. Your goal is to make every one of these positions a positive asset.",
+          text: "Positions 1-3 are the highest-visibility slots - the ones most people click - and why positions 1-3 carry a disproportionate share of attention comes down to click data: position 1 captures nearly 30% of all clicks while positions 8-10 receive a fraction of that traffic. For personal name searches, these top slots are most commonly occupied by LinkedIn profiles, personal or company websites, and Wikipedia pages (where applicable). Positions 4-7 often contain a mix of high-authority profiles (Crunchbase, AngelList, Bloomberg), news features, and third-party content. Positions 8-10 typically hold secondary profiles, older content, and lower-authority pages. Your goal is to make every one of these positions a positive asset.",
+          parts: [
+            {
+              text: "Positions 1-3 are the highest-visibility slots - the ones most people click - and ",
+            },
+            {
+              text: "why positions 1-3 carry a disproportionate share of attention",
+              href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
+            },
+            {
+              text: " comes down to click data: ",
+            },
+            {
+              text: "position 1 captures nearly 30% of all clicks",
+              href: "https://backlinko.com/google-ctr-stats",
+              external: true,
+            },
+            {
+              text: " while positions 8-10 receive a fraction of that traffic. For personal name searches, these top slots are most commonly occupied by LinkedIn profiles, personal or company websites, and Wikipedia pages (where applicable). Positions 4-7 often contain a mix of high-authority profiles (Crunchbase, AngelList, Bloomberg), news features, and third-party content. Positions 8-10 typically hold secondary profiles, older content, and lower-authority pages. Your goal is to make every one of these positions a positive asset.",
+            },
+          ],
         },
         {
           type: "stats",
@@ -117,6 +137,23 @@ export const article = {
       number: "02",
       title: "The asset categories: what can occupy a first page position",
       blocks: [
+        {
+          type: "p",
+          text: "LinkedIn (domain authority 98), Wikipedia, press coverage, and Crunchbase all rank strongly for name searches because Google rewards experience, expertise, authoritativeness, and trustworthiness. Google's own E-E-A-T guidelines explain why these asset types dominate page one - and why building them deliberately matters.",
+          parts: [
+            {
+              text: "LinkedIn (domain authority 98), Wikipedia, press coverage, and Crunchbase all rank strongly for name searches because Google rewards experience, expertise, authoritativeness, and trustworthiness. ",
+            },
+            {
+              text: "Google's own E-E-A-T guidelines",
+              href: "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+              external: true,
+            },
+            {
+              text: " explain why these asset types dominate page one - and why building them deliberately matters.",
+            },
+          ],
+        },
         {
           type: "p",
           text: "Select an asset type below for why it ranks, what to optimize, and how it fits a first-page ownership plan.",
@@ -147,7 +184,19 @@ export const article = {
               id: "crunchbase",
               label: "Crunchbase",
               title: "Crunchbase profile",
-              body: "Crunchbase is an authoritative business profile platform that ranks exceptionally well for executive name searches. A complete Crunchbase profile - with accurate company affiliations, a clear bio, and updated activity - can occupy positions 3-5 for a name search with minimal ongoing effort after initial setup.",
+              body: "Crunchbase is an authoritative business profile platform that ranks exceptionally well for executive name searches. Start by claiming and optimising the right profiles on platforms like Crunchbase, then keep affiliations, bio, and activity current. A complete profile can occupy positions 3-5 for a name search with minimal ongoing effort after initial setup.",
+              parts: [
+                {
+                  text: "Crunchbase is an authoritative business profile platform that ranks exceptionally well for executive name searches. Start by ",
+                },
+                {
+                  text: "claiming and optimising the right profiles",
+                  href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+                },
+                {
+                  text: " on platforms like Crunchbase, then keep affiliations, bio, and activity current. A complete profile can occupy positions 3-5 for a name search with minimal ongoing effort after initial setup.",
+                },
+              ],
             },
             {
               id: "press",
@@ -159,7 +208,19 @@ export const article = {
               id: "company-bio",
               label: "Company bio",
               title: "Company About and team pages",
-              body: "Your bio on your company's official website - particularly if the company has meaningful domain authority - often ranks well for your name. Ensure your company profile page is comprehensive, keyword-rich, and linked from the company's main navigation. For senior executives, a dedicated bio page with a professional photo and detailed career narrative is standard.",
+              body: "Your bio on your company's official website - particularly if the company has meaningful domain authority - often ranks well for your name. Our profile claiming guide covers claiming and optimising the right profiles on company About and team pages. Ensure your company profile page is comprehensive, keyword-rich, and linked from the company's main navigation. For senior executives, a dedicated bio page with a professional photo and detailed career narrative is standard.",
+              parts: [
+                {
+                  text: "Your bio on your company's official website - particularly if the company has meaningful domain authority - often ranks well for your name. Our profile claiming guide covers ",
+                },
+                {
+                  text: "claiming and optimising the right profiles",
+                  href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+                },
+                {
+                  text: " on company About and team pages. Ensure your company profile page is comprehensive, keyword-rich, and linked from the company's main navigation. For senior executives, a dedicated bio page with a professional photo and detailed career narrative is standard.",
+                },
+              ],
             },
             {
               id: "bylines",
@@ -171,7 +232,26 @@ export const article = {
               id: "social",
               label: "Social profiles",
               title: "Social profiles: Twitter/X, Medium, YouTube",
-              body: "Depending on your activity level and audience, public social profiles can occupy first-page positions. An active, professional Twitter/X account or YouTube channel for public professionals often ranks well. These are lower-investment assets to claim but require active maintenance to sustain rankings.",
+              body: "Depending on your activity level and audience, public social profiles can occupy first-page positions. Before they work in your favour, address managing existing social content that already ranks for your name, then claim and optimise profiles on Twitter/X, Medium, or YouTube. An active, professional presence often ranks well. These are lower-investment assets to claim but require active maintenance to sustain rankings.",
+              parts: [
+                {
+                  text: "Depending on your activity level and audience, public social profiles can occupy first-page positions. Before they work in your favour, address ",
+                },
+                {
+                  text: "managing existing social content that already ranks for your name",
+                  href: "https://www.thereputation360.com/blog/old-social-media-posts-showing-up-google-reputation360-guide",
+                },
+                {
+                  text: ", then ",
+                },
+                {
+                  text: "claiming and optimising the right profiles",
+                  href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+                },
+                {
+                  text: " on Twitter/X, Medium, or YouTube. An active, professional presence often ranks well. These are lower-investment assets to claim but require active maintenance to sustain rankings.",
+                },
+              ],
             },
           ],
         },
@@ -184,7 +264,17 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "First-page ownership is not achieved all at once - it is built in layers, with the highest-authority assets established first and secondary assets added progressively.",
+          text: "First-page ownership is not achieved all at once - it is built in layers, with the highest-authority assets established first and secondary assets added progressively. Executing all three layers in parallel is where our reputation management services add the most leverage.",
+          parts: [
+            {
+              text: "First-page ownership is not achieved all at once - it is built in layers, with the highest-authority assets established first and secondary assets added progressively. Executing all three layers in parallel is where ",
+            },
+            {
+              text: "our reputation management services",
+              href: "https://www.thereputation360.com/services",
+            },
+            { text: " add the most leverage." },
+          ],
         },
         {
           type: "steps",
@@ -220,16 +310,46 @@ export const article = {
         },
         {
           type: "p",
-          text: "When a new negative result appears - a critical review, an unflattering article, a social post - a strong positive presence absorbs it. The negative result has fewer empty positions to occupy, and the authority of your existing positive assets makes it harder for new negative content to climb.",
+          text: "When a new negative result appears - a critical review, an unflattering article, a social post - a strong positive presence absorbs it. The negative result has fewer empty positions to occupy, and the authority of your existing positive assets makes it harder for new negative content to climb. Monitoring for new threats before they take hold is what tells you when that buffer is being tested.",
+          parts: [
+            {
+              text: "When a new negative result appears - a critical review, an unflattering article, a social post - a strong positive presence absorbs it. The negative result has fewer empty positions to occupy, and the authority of your existing positive assets makes it harder for new negative content to climb. ",
+            },
+            {
+              text: "Monitoring for new threats before they take hold",
+              href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
+            },
+            { text: " is what tells you when that buffer is being tested." },
+          ],
         },
         {
           type: "p",
-          text: "We see this clearly with clients who have maintained their first-page ownership over time. When reputation events occur - and for high-profile professionals and businesses, they inevitably do - the damage is contained more quickly and at lower cost than it would have been without the foundation.",
+          text: "We see this clearly with clients who have maintained their first-page ownership over time. When reputation events occur - and for high-profile professionals and businesses, they inevitably do - the damage is contained more quickly and at lower cost than it would have been without the foundation. That is how a strong first page shortens crisis recovery when something does break through.",
+          parts: [
+            {
+              text: "We see this clearly with clients who have maintained their first-page ownership over time. When reputation events occur - and for high-profile professionals and businesses, they inevitably do - the damage is contained more quickly and at lower cost than it would have been without the foundation. That is ",
+            },
+            {
+              text: "how a strong first page shortens crisis recovery",
+              href: "https://www.thereputation360.com/blog/crisis-management-reputation-recovery-reputation360-playbook",
+            },
+            { text: " when something does break through." },
+          ],
         },
         {
           type: "lead",
           label: "Closing thought",
-          text: "Your first page is either working for you or against you. Most reputation problems do not begin with a crisis. They begin with absence - an open first page that gives damaging content nowhere to compete against.",
+          text: "Your first page is either working for you or against you - and the real cost of leaving your first page unmanaged compounds quietly. Most reputation problems do not begin with a crisis. They begin with absence - an open first page that gives damaging content nowhere to compete against.",
+          parts: [
+            { text: "Your first page is either working for you or against you - and " },
+            {
+              text: "the real cost of leaving your first page unmanaged",
+              href: "https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis",
+            },
+            {
+              text: " compounds quietly. Most reputation problems do not begin with a crisis. They begin with absence - an open first page that gives damaging content nowhere to compete against.",
+            },
+          ],
         },
       ],
     },
@@ -262,7 +382,17 @@ export const article = {
         },
         {
           type: "p",
-          text: "The first page now tells the story of a well-regarded, highly active professional - which is the truth. It simply needed to be made visible.",
+          text: "The first page now tells the story of a well-regarded, highly active professional - which is the truth. It simply needed to be made visible. Read more cases where an unowned first page cost clients deals when you want additional proof points.",
+          parts: [
+            {
+              text: "The first page now tells the story of a well-regarded, highly active professional - which is the truth. It simply needed to be made visible. Read ",
+            },
+            {
+              text: "more cases where an unowned first page cost clients deals",
+              href: "https://www.thereputation360.com/blog/negative-links-cost-jobs-deals-real-cases-reputation360",
+            },
+            { text: " when you want additional proof points." },
+          ],
         },
       ],
     },
@@ -292,7 +422,17 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "Book a consultation to map your current first page and build a custom ownership strategy for your name or brand.",
+      "Book a consultation to map your current first page and build a custom ownership strategy for your name or brand. Browse more client outcomes to see what full first-page ownership looks like in practice.",
+    leadParts: [
+      {
+        text: "Book a consultation to map your current first page and build a custom ownership strategy for your name or brand. ",
+      },
+      {
+        text: "Browse more client outcomes",
+        href: "https://www.thereputation360.com/case-studies",
+      },
+      { text: " to see what full first-page ownership looks like in practice." },
+    ],
   },
   relatedReading: [
     {
