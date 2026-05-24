@@ -100,7 +100,19 @@ export const article = {
         },
         {
           type: "p",
-          text: "For a professional earning $250,000 annually, a 15% premium represents $37,500 per year - or $375,000 over a decade.",
+          text: "For a professional earning $250,000 annually, a 15% premium represents $37,500 per year - or $375,000 over a decade. On the investment side, see what investing in your reputation actually returns when you compare suppression cost to recovered compensation.",
+          parts: [
+            {
+              text: "For a professional earning $250,000 annually, a 15% premium represents $37,500 per year - or $375,000 over a decade. On the investment side, see ",
+            },
+            {
+              text: "what investing in your reputation actually returns",
+              href: "https://www.thereputation360.com/blog/roi-reputation-management-what-clients-see-reputation360",
+            },
+            {
+              text: " when you compare suppression cost to recovered compensation.",
+            },
+          ],
         },
         {
           type: "stats",
@@ -112,7 +124,19 @@ export const article = {
         },
         {
           type: "p",
-          text: "Beyond compensation, negative reputation affects role access. Senior positions, board appointments, and high-profile engagements increasingly pass through informal online due diligence before formal processes begin. Reputation360 clients who have repaired their search landscape consistently report that they began receiving interest for better opportunities within months of the first-page transformation.",
+          text: "Beyond compensation, negative reputation affects role access. Senior positions, board appointments, and partnership-track roles increasingly pass through informal online due diligence before formal processes begin - the same filtering described in how decision-makers screen candidates before any conversation begins. Reputation360 clients who have repaired their search landscape consistently report that they began receiving interest for better opportunities within months of the first-page transformation.",
+          parts: [
+            {
+              text: "Beyond compensation, negative reputation affects role access. Senior positions, board appointments, and partnership-track roles increasingly pass through informal online due diligence before formal processes begin - the same filtering described in ",
+            },
+            {
+              text: "how decision-makers screen candidates before any conversation begins",
+              href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
+            },
+            {
+              text: ". Reputation360 clients who have repaired their search landscape consistently report that they began receiving interest for better opportunities within months of the first-page transformation.",
+            },
+          ],
         },
       ],
     },
@@ -123,7 +147,20 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "For businesses, reputation damage translates directly to revenue. A 2023 study by Uberall found that businesses with an average review rating below 3.5 stars see a conversion rate 74% lower than those above 4.0 stars. A 2022 BrightLocal study found that 87% of consumers will not use a business with a rating below three stars.",
+          text: "For businesses, reputation damage translates directly to revenue. A 2023 study by Uberall found that businesses with an average review rating below 3.5 stars see a conversion rate 74% lower than those above 4.0 stars - consistent with research showing conversion rates drop sharply below 3.5 stars. A 2022 BrightLocal study found that 87% of consumers will not use a business with a rating below three stars.",
+          parts: [
+            {
+              text: "For businesses, reputation damage translates directly to revenue. A 2023 study by Uberall found that businesses with an average review rating below 3.5 stars see a conversion rate 74% lower than those above 4.0 stars - consistent with research showing ",
+            },
+            {
+              text: "conversion rates drop sharply below 3.5 stars",
+              href: "https://www.brightlocal.com/research/local-consumer-review-survey/",
+              external: true,
+            },
+            {
+              text: ". A 2022 BrightLocal study found that 87% of consumers will not use a business with a rating below three stars.",
+            },
+          ],
         },
         {
           type: "p",
@@ -133,7 +170,17 @@ export const article = {
           type: "keyBox",
           variant: "warning",
           title: "Trust-heavy categories",
-          text: "In high-trust professional services, search is not a marketing channel - it is a qualification filter. What appears on page one often decides whether the conversation starts at all.",
+          text: "In high-trust professional services, search is not a marketing channel - it is a qualification filter. What appears on page one often decides whether the conversation starts at all. See how we've resolved reputation issues for professional services clients when you want sector-specific proof.",
+          parts: [
+            {
+              text: "In high-trust professional services, search is not a marketing channel - it is a qualification filter. What appears on page one often decides whether the conversation starts at all. ",
+            },
+            {
+              text: "See how we've resolved reputation issues for professional services clients",
+              href: "https://www.thereputation360.com/case-studies",
+            },
+            { text: " when you want sector-specific proof." },
+          ],
         },
       ],
     },
@@ -144,11 +191,33 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Reputation damage compounds over time in search results. A negative article accumulates more inbound links as other sites reference it. A one-star review accumulates more views as it sits at the top of results. Each week of inaction increases the authority gap between the negative content and any positive assets you might build - making future suppression more difficult and more expensive.",
+          text: "Reputation damage compounds over time in search results. A negative article accumulates more inbound links as other sites reference it. A one-star review accumulates more views as it sits at the top of results. Each week of inaction increases the authority gap between the negative content and any positive assets you might build - making future suppression more difficult and more expensive. See how timelines shift the longer you wait before you assume delay is still low-cost.",
+          parts: [
+            {
+              text: "Reputation damage compounds over time in search results. A negative article accumulates more inbound links as other sites reference it. A one-star review accumulates more views as it sits at the top of results. Each week of inaction increases the authority gap between the negative content and any positive assets you might build - making future suppression more difficult and more expensive. See ",
+            },
+            {
+              text: "how timelines shift the longer you wait",
+              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+            },
+            { text: " before you assume delay is still low-cost." },
+          ],
         },
         {
           type: "p",
-          text: "Reputation360 regularly encounters clients who have known about a damaging result for one, two, or three years before taking action. In almost every case, the cost and timeline of suppression at that point are meaningfully higher than they would have been if work had begun when the issue first appeared. The algorithmic advantage compounds against you with every month of delay.",
+          text: "Reputation360 regularly encounters clients who have known about a damaging result for one, two, or three years before taking action. Clients who act within the first few months typically achieve better results at lower cost - the methodology behind early-action reputation management is built for that window. In almost every case, the cost and timeline of suppression at the two- or three-year mark are meaningfully higher than they would have been if work had begun when the issue first appeared. The algorithmic advantage compounds against you with every month of delay.",
+          parts: [
+            {
+              text: "Reputation360 regularly encounters clients who have known about a damaging result for one, two, or three years before taking action. Clients who act within the first few months typically achieve better results at lower cost - ",
+            },
+            {
+              text: "the methodology behind early-action reputation management",
+              href: "https://www.thereputation360.com/blog/online-reputation-management-best-practices-reputation360-methodology",
+            },
+            {
+              text: " is built for that window. In almost every case, the cost and timeline of suppression at the two- or three-year mark are meaningfully higher than they would have been if work had begun when the issue first appeared. The algorithmic advantage compounds against you with every month of delay.",
+            },
+          ],
         },
       ],
     },
@@ -163,7 +232,31 @@ export const article = {
         },
         {
           type: "p",
-          text: "Clients who have hit this threshold still achieve results, but at higher cost and longer timelines than those who act early. The corollary: earlier action is almost always more cost-effective. An initial assessment from Reputation360 costs nothing, and for many clients, a moderate-scale suppression engagement pays for itself within months in recovered opportunities and relationships.",
+          text: "Clients who have hit this threshold still achieve results, but at higher cost and longer timelines than those who act early - see how timelines shift the longer you wait for the full breakdown. If you may already be past that point, start with the recovery playbook for serious reputation events. The corollary: earlier action is almost always more cost-effective. An initial assessment from Reputation360 costs nothing, and our reputation management services can map what professional support looks like when delay has already compounded the problem.",
+          parts: [
+            {
+              text: "Clients who have hit this threshold still achieve results, but at higher cost and longer timelines than those who act early - see ",
+            },
+            {
+              text: "how timelines shift the longer you wait",
+              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+            },
+            { text: " for the full breakdown. If you may already be past that point, start with " },
+            {
+              text: "the recovery playbook for serious reputation events",
+              href: "https://www.thereputation360.com/blog/crisis-management-reputation-recovery-reputation360-playbook",
+            },
+            {
+              text: ". The corollary: earlier action is almost always more cost-effective. An initial assessment from Reputation360 costs nothing, and ",
+            },
+            {
+              text: "our reputation management services",
+              href: "https://www.thereputation360.com/services",
+            },
+            {
+              text: " can map what professional support looks like when delay has already compounded the problem.",
+            },
+          ],
         },
       ],
     },
@@ -179,10 +272,37 @@ export const article = {
         {
           type: "p",
           text: "Research from the Edelman Trust Barometer consistently shows that people interpret the absence of online information as a negative signal - particularly in high-trust contexts like executive hiring, professional partnerships, and major business contracts. A blank search result says this person has something to hide to a meaningful percentage of the people who look.",
+          parts: [
+            {
+              text: "Research from the Edelman Trust Barometer",
+              href: "https://www.edelman.com/trust/trust-barometer",
+              external: true,
+            },
+            {
+              text: " consistently shows that people interpret the absence of online information as a negative signal - particularly in high-trust contexts like executive hiring, professional partnerships, and major business contracts. A blank search result says this person has something to hide to a meaningful percentage of the people who look.",
+            },
+          ],
         },
         {
           type: "p",
-          text: "Building a proactive positive online presence - before any reputation threat exists - is the least expensive and most effective reputation investment a professional or business can make.",
+          text: "If you are starting from scratch, begin by claiming the profiles that establish your baseline presence. Building a proactive positive presence across page one - before any reputation threat exists - is the least expensive and most effective reputation investment a professional or business can make.",
+          parts: [
+            {
+              text: "If you are starting from scratch, begin by ",
+            },
+            {
+              text: "claiming the profiles that establish your baseline presence",
+              href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+            },
+            { text: ". " },
+            {
+              text: "Building a proactive positive presence across page one",
+              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
+            },
+            {
+              text: " - before any reputation threat exists - is the least expensive and most effective reputation investment a professional or business can make.",
+            },
+          ],
         },
       ],
     },
