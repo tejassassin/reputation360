@@ -69,7 +69,25 @@ export const article = {
   introBlocks: [
     {
       type: "p",
-      text: "According to research by CareerBuilder, 70% of employers use social media and online searches to screen candidates before making hiring decisions. For senior roles - executive positions, board appointments, high-trust professional roles - that figure is effectively 100%. Before any offer is extended, someone is typing your name into a search bar.",
+      text: "According to research by CareerBuilder, 70% of employers use social media and online searches to screen candidates before making hiring decisions. That screen shapes a first impression before you speak to anyone - which is why that first result carries so much weight. For senior roles - executive positions, board appointments, high-trust professional roles - that figure is effectively 100%. Before any offer is extended, someone is typing your name into a search bar.",
+      parts: [
+        { text: "According to " },
+        {
+          text: "research by CareerBuilder",
+          href: "https://www.prnewswire.com/news-releases/more-than-half-of-employers-have-found-content-on-social-media-that-caused-them-not-to-hire-a-candidate-according-to-recent-careerbuilder-survey-300694437.html",
+          external: true,
+        },
+        {
+          text: ", 70% of employers use social media and online searches to screen candidates before making hiring decisions. That screen shapes a first impression before you speak to anyone - which is ",
+        },
+        {
+          text: "why that first result carries so much weight",
+          href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
+        },
+        {
+          text: ". For senior roles - executive positions, board appointments, high-trust professional roles - that figure is effectively 100%. Before any offer is extended, someone is typing your name into a search bar.",
+        },
+      ],
     },
     {
       type: "p",
@@ -94,7 +112,20 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Recruiters and hiring managers do not conduct a single search. They conduct a sequence of searches, each designed to answer a specific question about you. Select each step below to see what they look for and what can go wrong.",
+          text: "Recruiters and hiring managers do not conduct a single search. They conduct a sequence of searches, each designed to answer a specific question about you. For director-level roles and above, this sequence is standard practice in HR and talent acquisition - especially at executive search firms. Select each step below to see what they look for and what can go wrong.",
+          parts: [
+            {
+              text: "Recruiters and hiring managers do not conduct a single search. They conduct a sequence of searches, each designed to answer a specific question about you. For director-level roles and above, this sequence is ",
+            },
+            {
+              text: "standard practice in HR and talent acquisition",
+              href: "https://www.shrm.org/topics-tools/tools/how-to-guides/how-to-use-social-media-applicant-screening",
+              external: true,
+            },
+            {
+              text: " - especially at executive search firms. Select each step below to see what they look for and what can go wrong.",
+            },
+          ],
         },
         {
           type: "pills",
@@ -148,14 +179,43 @@ export const article = {
           items: [
             "News coverage of legal proceedings or regulatory inquiries, even when resolved.",
             "Highly visible negative reviews on employer review sites suggesting a pattern of interpersonal problems.",
-            "Public social media posts containing strong political, controversial, or unprofessional content.",
+            {
+              text: "Public social media posts containing strong political, controversial, or unprofessional content - including old social media posts that still appear in Google.",
+              parts: [
+                {
+                  text: "Public social media posts containing strong political, controversial, or unprofessional content - including ",
+                },
+                {
+                  text: "old social media posts that still appear in Google",
+                  href: "https://www.thereputation360.com/blog/old-social-media-posts-showing-up-google-reputation360-guide",
+                },
+                { text: "." },
+              ],
+            },
             "Consumer complaint content about businesses you have run.",
             "Discrepancies between your online presence and your resume.",
           ],
         },
         {
           type: "p",
-          text: "What recruiters do not do is ignore what they find. Even if they like your qualifications, a concerning search result typically results in either a direct question - Can you tell us about this? - or quiet disqualification. Most candidates never know it happened.",
+          text: "What recruiters do not do is ignore what they find. Even if they like your qualifications, a concerning search result can quietly stall a process - which is when suppressing negative search results becomes urgent. Most candidates never know it happened; cases we've resolved show how page one can change when professionals act early.",
+          parts: [
+            {
+              text: "What recruiters do not do is ignore what they find. Even if they like your qualifications, a concerning search result can quietly stall a process - which is when ",
+            },
+            {
+              text: "suppressing negative search results",
+              href: "https://www.thereputation360.com/blog/how-to-suppress-negative-search-results-reputation360-framework",
+            },
+            {
+              text: " becomes urgent. Most candidates never know it happened; ",
+            },
+            {
+              text: "cases we've resolved",
+              href: "https://www.thereputation360.com/case-studies",
+            },
+            { text: " show how page one can change when professionals act early." },
+          ],
         },
       ],
     },
@@ -171,7 +231,19 @@ export const article = {
         {
           type: "bullets",
           items: [
-            "A comprehensive, well-written LinkedIn profile that confirms and expands on your resume.",
+            {
+              text: "A comprehensive, well-written LinkedIn profile that confirms and expands on your resume - start with optimizing your LinkedIn profile for search.",
+              parts: [
+                {
+                  text: "A comprehensive, well-written LinkedIn profile that confirms and expands on your resume - start with ",
+                },
+                {
+                  text: "optimizing your LinkedIn profile for search",
+                  href: "https://www.thereputation360.com/blog/linkedin-profile-optimization-search-results-reputation360-checklist",
+                },
+                { text: "." },
+              ],
+            },
             "Positive news coverage or industry recognition.",
             "Published articles or thought leadership content.",
             "Clean and professional public social presence.",
@@ -222,7 +294,19 @@ export const article = {
             {
               n: 5,
               title: "Engage support early for serious issues",
-              body: "If negative results would affect a senior search, engage a reputation professional before you begin applying - not after a process stalls.",
+              body: "If negative results would affect a senior search, start with fixing your reputation before an interview - or engage a reputation professional before you begin applying, not after a process stalls.",
+              parts: [
+                {
+                  text: "If negative results would affect a senior search, start with ",
+                },
+                {
+                  text: "fixing your reputation before an interview",
+                  href: "https://www.thereputation360.com/blog/fix-reputation-before-job-interview-reputation360-guide",
+                },
+                {
+                  text: " - or engage a reputation professional before you begin applying, not after a process stalls.",
+                },
+              ],
             },
           ],
         },
@@ -232,6 +316,22 @@ export const article = {
             { value: "2-4 weeks", label: "LinkedIn and quick profile wins" },
             { value: "3-6 months", label: "Serious suppression timelines" },
             { value: "6 months", label: "Lead time for executive search" },
+          ],
+        },
+        {
+          type: "p",
+          text: "The ranges above are typical windows, not guarantees. Our guide on realistic suppression timelines explains how asset mix and negative severity shift those clocks.",
+          parts: [
+            {
+              text: "The ranges above are typical windows, not guarantees. Our guide on ",
+            },
+            {
+              text: "realistic suppression timelines",
+              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+            },
+            {
+              text: " explains how asset mix and negative severity shift those clocks.",
+            },
           ],
         },
         {
