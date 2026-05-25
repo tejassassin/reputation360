@@ -287,9 +287,9 @@ function ContactPage() {
                   Book a Call
                 </h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-[#43474e] md:mt-4 md:text-lg">
-                  Every reputation challenge is unique. Book a call and
-                  we&apos;ll listen - understanding your situation, your concerns,
-                  and what you&apos;re hoping to achieve.
+                  Every reputation challenge is different. Book a call with us, and
+                  we&apos;ll take the time to understand your situation, your concerns,
+                  and the outcome you&apos;re hoping to achieve.
                 </p>
                 <a
                   {...calendlyNewTabProps}
