@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { BlogGuideCtaSection } from "@/components/blog/BlogGuideCtaSection.jsx";
 import { DiyInternalLink } from "@/components/blog/diy/DiyGuideUi.jsx";
+import { BLOG_PATHS } from "../data/blogs/blogInternalPaths.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "../data/blogs/diyReputationGuide.js";
 import { SUPPRESS_NEGATIVE_GUIDE_PATH } from "../data/blogs/suppressNegativeContentGuide.js";
 import {
@@ -237,10 +238,11 @@ export default function BlogRemoveNegativeSearchResultsPage() {
                 </div>
                 <DiyKeyBox variant="insight" title="Key insight">
                   Not all negative content can be deleted. But nearly all of it can be strategically
-                  suppressed. The goal of{" "}
-                  <DiyInternalLink href={SERVICES_PATH}>online reputation management</DiyInternalLink> is to
-                  ensure positive, accurate content dominates page one - so harmful content becomes virtually
-                  invisible.
+                  suppressed. The goal of online reputation management is to ensure positive, accurate content
+                  dominates page one - so harmful content becomes virtually invisible. For{" "}
+                  <DiyInternalLink href={BLOG_PATHS.courtRecords}>court records from Google</DiyInternalLink> and{" "}
+                  <DiyInternalLink href={BLOG_PATHS.removeNews}>news article removal</DiyInternalLink>, see our dedicated
+                  guides on those content types.
                 </DiyKeyBox>
               </section>
 
@@ -248,7 +250,11 @@ export default function BlogRemoveNegativeSearchResultsPage() {
                 <DiySectionHeader number="02" title="Can You Actually Remove Content from Google?" />
                 <p className="mb-8 font-body text-lg text-steel">
                   This is the most common question we hear. The honest answer: it depends on where the content
-                  lives and why it exists. Expand each path below:
+                  lives and why it exists. Review{" "}
+                  <DiyInternalLink href="https://support.google.com/websearch/answer/2744329">
+                    Google&apos;s content removal policies
+                  </DiyInternalLink>{" "}
+                  for official criteria before you choose a path. Expand each option below:
                 </p>
                 <div className="space-y-4">
                   {REMOVAL_PATH_ACCORDIONS.map((item) => (
@@ -286,9 +292,8 @@ export default function BlogRemoveNegativeSearchResultsPage() {
                 />
                 <DiyKeyBox variant="warning" title="Important">
                   Avoid third-party services that guarantee removal from complaint sites - many are scams and can
-                  amplify the problem. Work with a{" "}
-                  <DiyInternalLink href={SERVICES_PATH}>reputable online reputation management firm</DiyInternalLink>{" "}
-                  that discloses its methods upfront.
+                  amplify the problem. Work with a reputable online reputation management firm that discloses its
+                  methods upfront.
                 </DiyKeyBox>
                 <p className="mt-6 font-body text-base text-steel">
                   For fake Google reviews, see our{" "}

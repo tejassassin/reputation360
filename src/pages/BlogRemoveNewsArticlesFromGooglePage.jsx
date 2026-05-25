@@ -17,7 +17,7 @@ import {
   MobileGuideNav,
   ReadingProgressRail,
 } from "../components/blog/diy/DiyGuideUi.jsx";
-import { DIY_REPUTATION_GUIDE_PATH } from "../data/blogs/diyReputationGuide.js";
+import { BLOG_PATHS } from "../data/blogs/blogInternalPaths.js";
 import { REMOVE_NEGATIVE_SEARCH_RESULTS_PATH } from "../data/blogs/removeNegativeSearchResultsGuide.js";
 import { REPUTATION_REPAIR_TIMELINE_PATH } from "../data/blogs/reputationRepairTimelineGuide.js";
 import { SUPPRESS_NEGATIVE_GUIDE_PATH } from "../data/blogs/suppressNegativeContentGuide.js";
@@ -153,7 +153,9 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
                 <p>
                   It&apos;s the right question. But the honest answer is more nuanced than most people expect - and the
                   path forward depends on what the article says, where it&apos;s published, how long it&apos;s been
-                  ranking, and what your overall online reputation management strategy looks like. In this guide, we
+                  ranking, and what your{" "}
+                  <DiyInternalLink href={BLOG_PATHS.removalVsSuppression}>removal vs. suppression</DiyInternalLink>{" "}
+                  strategy looks like. In this guide, we
                   walk through exactly when removal is possible, when it isn&apos;t, and what
                   actually works when Google seems like it won&apos;t budge.
                 </p>
@@ -193,7 +195,12 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
                 <DiySectionHeader number="02" title="When Google Will Actually Remove Content" />
                 <p className="mb-6 font-body text-lg text-steel">
                   Google intervenes to remove content from its index directly only in a narrow, defined set of
-                  circumstances - without requiring action from the original publisher. Select a scenario:
+                  circumstances - without requiring action from the original publisher. When a formal request is
+                  required, use{" "}
+                  <DiyInternalLink href="https://support.google.com/legal/answer/3110420">
+                    Google&apos;s official content removal request form
+                  </DiyInternalLink>
+                  . Select a scenario:
                 </p>
                 <div className="mb-4 flex flex-wrap gap-2">
                   {GOOGLE_REMOVAL_PATHS.map((p) => (
@@ -262,7 +269,9 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
                 />
                 <p className="mb-8 font-body text-lg text-steel">
                   When direct publisher engagement doesn&apos;t work, legal mechanisms become the next consideration. A
-                  more complex and slower path - but decisive in the right circumstances. Expand each option:
+                  more complex and slower path - but decisive in the right circumstances. For{" "}
+                  <DiyInternalLink href={BLOG_PATHS.courtRecords}>court records</DiyInternalLink> and similar legal
+                  coverage indexed in search, removal paths differ from standard news outreach. Expand each option:
                 </p>
                 <div className="space-y-4">
                   {LEGAL_ROUTE_ACCORDIONS.map((item) => (
@@ -276,9 +285,8 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
                       <p>{item.body}</p>
                       {item.id === "defamation" ? (
                         <p className="mt-4">
-                          <DiyInternalLink href={AUDIENCE_PATH.lawyers}>Legal professionals</DiyInternalLink> and
-                          others in regulated industries should seek specialist counsel before pursuing this route, as
-                          standards of proof and strategic implications vary by jurisdiction.
+                          Legal professionals and others in regulated industries should seek specialist counsel before
+                          pursuing this route, as standards of proof and strategic implications vary by jurisdiction.
                         </p>
                       ) : null}
                     </LegalAccordion>
@@ -317,9 +325,8 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
                 </p>
                 <p className="mb-6 font-body text-lg text-steel">
                   It&apos;s not about hiding the truth. It&apos;s about ensuring one article from one moment doesn&apos;t
-                  permanently define what people find. Positive, accurate content deserves to be seen too - and a{" "}
-                  <DiyInternalLink href={DIY_REPUTATION_GUIDE_PATH}>well-executed reputation strategy</DiyInternalLink>{" "}
-                  makes that happen.
+                  permanently define what people find. Positive, accurate content deserves to be seen too - and a
+                  well-executed reputation strategy makes that happen.
                 </p>
                 <DiyKeyBox variant="insight" title="How long does suppression take?">
                   For a single article on a mid-authority site, meaningful page-one displacement often begins within

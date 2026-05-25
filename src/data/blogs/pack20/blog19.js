@@ -1,21 +1,12 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 export const SLUG =
   "social-media-reputation-management-multi-platform-strategy-reputation360";
 export const PATH = blogPostPath(SLUG);
 
-const SOCIAL_POSTS_PATH = blogPostPath(
-  "old-social-media-posts-showing-up-google-reputation360-guide",
-);
-
-const LINKEDIN_PATH = blogPostPath(
-  "linkedin-profile-optimization-search-results-reputation360-checklist",
-);
-
-const CRISIS_PATH = blogPostPath(
-  "crisis-management-reputation-recovery-reputation360-playbook",
-);
+const CASE_STUDIES_PATH = "/case-studies";
 
 const TOC = [
   { id: "dual-role", label: "01. Dual role of social" },
@@ -73,16 +64,6 @@ export const article = {
     {
       type: "p",
       text: "Social media now shapes how the vast majority of people form first impressions - and it is simultaneously the most powerful tool for building a reputation and the most dangerous environment for losing one. A single post can reach millions. A single screenshot of something you said years ago can resurface at exactly the wrong moment. A coordinated pile-on can turn a minor misstep into a first-page Google result in 48 hours.",
-      parts: [
-        {
-          text: "Social media now shapes how the vast majority of people form first impressions",
-          href: "https://www.pewresearch.org/internet/fact-sheet/social-media/",
-          external: true,
-        },
-        {
-          text: " - and it is simultaneously the most powerful tool for building a reputation and the most dangerous environment for losing one. A single post can reach millions. A single screenshot of something you said years ago can resurface at exactly the wrong moment. A coordinated pile-on can turn a minor misstep into a first-page Google result in 48 hours.",
-        },
-      ],
     },
     {
       type: "p",
@@ -124,7 +105,7 @@ export const article = {
                 },
                 {
                   text: "how recruiters use social media during their search process",
-                  href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
+                  href: BLOG_PATHS.recruitersReport,
                 },
                 { text: " matters so much." },
               ],
@@ -139,8 +120,8 @@ export const article = {
                   text: "Permanent public record, screenshots that resurface years later, pile-ons that index in Google within 48 hours, informal posts that read badly out of context - which is why ",
                 },
                 {
-                  text: "monitoring social mentions before they reach Google",
-                  href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
+                  text: "monitoring social mentions",
+                  href: BLOG_PATHS.monitoring,
                 },
                 { text: " is essential." },
               ],
@@ -244,7 +225,7 @@ export const article = {
                 },
                 {
                   text: "run suppression in parallel with your social response",
-                  href: "https://www.thereputation360.com/blog/how-to-suppress-negative-search-results-reputation360-framework",
+                  href: BLOG_PATHS.suppressFramework,
                 },
                 {
                   text: " - begin building positive search assets immediately. The crisis may generate new negative content that will rank. Having positive assets in process gives you the best chance of containing the search damage.",
@@ -262,17 +243,24 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "For professionals in public-facing or high-stakes roles, a periodic audit of all historical social media content is essential reputation hygiene - especially old social content that resurfaces in Google searches. This means reviewing every public post, comment, or shared content across all platforms and assessing each item: would this raise concerns if a recruiter, potential client, or business partner found it today?",
+          text: "For professionals in public-facing or high-stakes roles, a periodic audit of all historical social media content is essential reputation hygiene. Use our social media audit checklist in the DIY guide, and read dealing with old social posts when legacy content still ranks in Google. Review every public post, comment, or shared content across all platforms and assess each item: would this raise concerns if a recruiter, potential client, or business partner found it today?",
           parts: [
             {
-              text: "For professionals in public-facing or high-stakes roles, a periodic audit of all historical social media content is essential reputation hygiene - especially ",
+              text: "For professionals in public-facing or high-stakes roles, a periodic audit of all historical social media content is essential reputation hygiene. Use our ",
             },
             {
-              text: "old social content that resurfaces in Google searches",
-              href: "https://www.thereputation360.com/blog/old-social-media-posts-showing-up-google-reputation360-guide",
+              text: "social media audit checklist",
+              href: BLOG_PATHS.diyGuide,
             },
             {
-              text: ". This means reviewing every public post, comment, or shared content across all platforms and assessing each item: would this raise concerns if a recruiter, potential client, or business partner found it today?",
+              text: " in the DIY guide, and read ",
+            },
+            {
+              text: "dealing with old social posts",
+              href: BLOG_PATHS.oldSocialPosts,
+            },
+            {
+              text: " when legacy content still ranks in Google. Review every public post, comment, or shared content across all platforms and assess each item: would this raise concerns if a recruiter, potential client, or business partner found it today?",
             },
           ],
         },
@@ -280,22 +268,18 @@ export const article = {
           type: "keyBox",
           variant: "tip",
           title: "When to run a full audit",
-          text: "Conduct a comprehensive historical social media audit before any major career transition, business deal, public role, or media event - and understand the cost of what surfaces unexpectedly during due diligence. Start before a major career transition or job search when timing is tight. This gives you the opportunity to address issues proactively rather than reactively.",
+          text: "Conduct a comprehensive historical social media audit before any major career transition, business deal, public role, or media event. Tools like Brand24 help you catch mentions before they index. This gives you the opportunity to address issues proactively rather than reactively.",
           parts: [
             {
-              text: "Conduct a comprehensive historical social media audit before any major career transition, business deal, public role, or media event - and understand ",
+              text: "Conduct a comprehensive historical social media audit before any major career transition, business deal, public role, or media event. Tools like ",
             },
             {
-              text: "the cost of what surfaces unexpectedly during due diligence",
-              href: "https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis",
-            },
-            { text: ". Start " },
-            {
-              text: "before a major career transition or job search",
-              href: "https://www.thereputation360.com/blog/fix-reputation-before-job-interview-reputation360-guide",
+              text: "Brand24",
+              href: "https://brand24.com",
+              external: true,
             },
             {
-              text: " when timing is tight. This gives you the opportunity to address issues proactively rather than reactively.",
+              text: " help you catch mentions before they index. This gives you the opportunity to address issues proactively rather than reactively.",
             },
           ],
         },
@@ -323,7 +307,7 @@ export const article = {
             },
             {
               text: "more cases across industries and situations",
-              href: "https://www.thereputation360.com/case-studies",
+              href: CASE_STUDIES_PATH,
             },
             { text: " when you want additional documented outcomes." },
           ],
@@ -357,7 +341,7 @@ export const article = {
     {
       title:
         "Dealing With Old Social Media Posts That Show Up in Google: The Reputation360 Guide",
-      href: SOCIAL_POSTS_PATH,
+      href: BLOG_PATHS.oldSocialPosts,
       category: "Social & Search",
       readTime: "15 min read",
       image: pack20Image("social"),
@@ -366,7 +350,7 @@ export const article = {
     {
       title:
         "LinkedIn Profile Optimization for Search Results: The Reputation360 Checklist",
-      href: LINKEDIN_PATH,
+      href: BLOG_PATHS.linkedinChecklist,
       category: "LinkedIn & Search",
       readTime: "15 min read",
       image: pack20Image("linkedin"),
@@ -374,7 +358,7 @@ export const article = {
     },
     {
       title: "Crisis Management & Reputation Recovery: The Reputation360 Playbook",
-      href: CRISIS_PATH,
+      href: BLOG_PATHS.crisisPlaybook,
       category: "Crisis Management",
       readTime: "18 min read",
       image: pack20Image("crisis"),

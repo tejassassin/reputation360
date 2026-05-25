@@ -1,20 +1,12 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 export const SLUG = "own-your-first-page-control-google-results-reputation360";
 export const PATH = blogPostPath(SLUG);
 
-const LINKEDIN_PATH = blogPostPath(
-  "linkedin-profile-optimization-search-results-reputation360-checklist",
-);
-
-const SUPPRESS_FRAMEWORK_PATH = blogPostPath(
-  "how-to-suppress-negative-search-results-reputation360-framework",
-);
-
-const RANK_POSITIVE_PATH = blogPostPath(
-  "rank-positive-content-above-negative-results-reputation360-strategy",
-);
+const SERVICES_PATH = "/services";
+const CASE_STUDIES_PATH = "/case-studies";
 
 const TOC = [
   { id: "ten-positions", label: "01. The ten positions: what each one means" },
@@ -101,27 +93,7 @@ export const article = {
         },
         {
           type: "p",
-          text: "Positions 1-3 are the highest-visibility slots - the ones most people click - and why positions 1-3 carry a disproportionate share of attention comes down to click data: position 1 captures nearly 30% of all clicks while positions 8-10 receive a fraction of that traffic. For personal name searches, these top slots are most commonly occupied by LinkedIn profiles, personal or company websites, and Wikipedia pages (where applicable). Positions 4-7 often contain a mix of high-authority profiles (Crunchbase, AngelList, Bloomberg), news features, and third-party content. Positions 8-10 typically hold secondary profiles, older content, and lower-authority pages. Your goal is to make every one of these positions a positive asset.",
-          parts: [
-            {
-              text: "Positions 1-3 are the highest-visibility slots - the ones most people click - and ",
-            },
-            {
-              text: "why positions 1-3 carry a disproportionate share of attention",
-              href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
-            },
-            {
-              text: " comes down to click data: ",
-            },
-            {
-              text: "position 1 captures nearly 30% of all clicks",
-              href: "https://backlinko.com/google-ctr-stats",
-              external: true,
-            },
-            {
-              text: " while positions 8-10 receive a fraction of that traffic. For personal name searches, these top slots are most commonly occupied by LinkedIn profiles, personal or company websites, and Wikipedia pages (where applicable). Positions 4-7 often contain a mix of high-authority profiles (Crunchbase, AngelList, Bloomberg), news features, and third-party content. Positions 8-10 typically hold secondary profiles, older content, and lower-authority pages. Your goal is to make every one of these positions a positive asset.",
-            },
-          ],
+          text: "Positions 1-3 are the highest-visibility slots - the ones most people click. Click data shows position 1 captures nearly 30% of all clicks while positions 8-10 receive a fraction of that traffic. For personal name searches, these top slots are most commonly occupied by LinkedIn profiles, personal or company websites, and Wikipedia pages (where applicable). Positions 4-7 often contain a mix of high-authority profiles (Crunchbase, AngelList, Bloomberg), news features, and third-party content. Positions 8-10 typically hold secondary profiles, older content, and lower-authority pages. Your goal is to make every one of these positions a positive asset.",
         },
         {
           type: "stats",
@@ -167,7 +139,19 @@ export const article = {
               id: "linkedin",
               label: "LinkedIn",
               title: "LinkedIn profile",
-              body: "The cornerstone of any first-page ownership strategy. With a domain authority of 98, LinkedIn consistently ranks in the top three for personal name searches. A fully optimized LinkedIn profile is the first asset we build or upgrade for every client across the US, Canada, Australia, and Europe. Ensure your profile has a complete work history, a keyword-rich About section that uses your full name multiple times, a custom URL, strong recommendations, and active recent content.",
+              body: "The cornerstone of any first-page ownership strategy. With a domain authority of 98, LinkedIn consistently ranks in the top three for personal name searches. Start with our LinkedIn profile optimisation checklist - the first asset we build or upgrade for every client across the US, Canada, Australia, and Europe. Ensure your profile has a complete work history, a keyword-rich About section that uses your full name multiple times, a custom URL, strong recommendations, and active recent content.",
+              parts: [
+                {
+                  text: "The cornerstone of any first-page ownership strategy. With a domain authority of 98, LinkedIn consistently ranks in the top three for personal name searches. Start with our ",
+                },
+                {
+                  text: "LinkedIn profile optimisation",
+                  href: BLOG_PATHS.linkedinChecklist,
+                },
+                {
+                  text: " checklist - the first asset we build or upgrade for every client across the US, Canada, Australia, and Europe. Ensure your profile has a complete work history, a keyword-rich About section that uses your full name multiple times, a custom URL, strong recommendations, and active recent content.",
+                },
+              ],
             },
             {
               id: "website",
@@ -188,11 +172,11 @@ export const article = {
               body: "Crunchbase is an authoritative business profile platform that ranks exceptionally well for executive name searches. Start by claiming and optimising the right profiles on platforms like Crunchbase, then keep affiliations, bio, and activity current. A complete profile can occupy positions 3-5 for a name search with minimal ongoing effort after initial setup.",
               parts: [
                 {
-                  text: "Crunchbase is an authoritative business profile platform that ranks exceptionally well for executive name searches. Start by ",
+                  text: "Crunchbase is an authoritative business profile platform that ranks exceptionally well for executive name searches. Start with our ",
                 },
                 {
-                  text: "claiming and optimising the right profiles",
-                  href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+                  text: "profile claiming guide",
+                  href: BLOG_PATHS.profileClaiming,
                 },
                 {
                   text: " on platforms like Crunchbase, then keep affiliations, bio, and activity current. A complete profile can occupy positions 3-5 for a name search with minimal ongoing effort after initial setup.",
@@ -216,7 +200,7 @@ export const article = {
                 },
                 {
                   text: "claiming and optimising the right profiles",
-                  href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+                  href: BLOG_PATHS.profileClaiming,
                 },
                 {
                   text: " on company About and team pages. Ensure your company profile page is comprehensive, keyword-rich, and linked from the company's main navigation. For senior executives, a dedicated bio page with a professional photo and detailed career narrative is standard.",
@@ -240,14 +224,14 @@ export const article = {
                 },
                 {
                   text: "managing existing social content that already ranks for your name",
-                  href: "https://www.thereputation360.com/blog/old-social-media-posts-showing-up-google-reputation360-guide",
+                  href: BLOG_PATHS.oldSocialPosts,
                 },
                 {
-                  text: ", then ",
+                  text: ", then follow the ",
                 },
                 {
-                  text: "claiming and optimising the right profiles",
-                  href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+                  text: "profile claiming guide",
+                  href: BLOG_PATHS.profileClaiming,
                 },
                 {
                   text: " on Twitter/X, Medium, or YouTube. An active, professional presence often ranks well. These are lower-investment assets to claim but require active maintenance to sustain rankings.",
@@ -272,7 +256,7 @@ export const article = {
             },
             {
               text: "our reputation management services",
-              href: "https://www.thereputation360.com/services",
+              href: SERVICES_PATH,
             },
             { text: " add the most leverage." },
           ],
@@ -317,8 +301,8 @@ export const article = {
               text: "When a new negative result appears - a critical review, an unflattering article, a social post - a strong positive presence absorbs it. The negative result has fewer empty positions to occupy, and the authority of your existing positive assets makes it harder for new negative content to climb. ",
             },
             {
-              text: "Monitoring for new threats before they take hold",
-              href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
+              text: "reputation monitoring",
+              href: BLOG_PATHS.monitoring,
             },
             { text: " is what tells you when that buffer is being tested." },
           ],
@@ -332,7 +316,7 @@ export const article = {
             },
             {
               text: "how a strong first page shortens crisis recovery",
-              href: "https://www.thereputation360.com/blog/crisis-management-reputation-recovery-reputation360-playbook",
+              href: BLOG_PATHS.crisisPlaybook,
             },
             { text: " when something does break through." },
           ],
@@ -345,7 +329,7 @@ export const article = {
             { text: "Your first page is either working for you or against you - and " },
             {
               text: "the real cost of leaving your first page unmanaged",
-              href: "https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis",
+              href: BLOG_PATHS.hiddenCost,
             },
             {
               text: " compounds quietly. Most reputation problems do not begin with a crisis. They begin with absence - an open first page that gives damaging content nowhere to compete against.",
@@ -390,7 +374,7 @@ export const article = {
             },
             {
               text: "more cases where an unowned first page cost clients deals",
-              href: "https://www.thereputation360.com/blog/negative-links-cost-jobs-deals-real-cases-reputation360",
+              href: BLOG_PATHS.negativeLinksCases,
             },
             { text: " when you want additional proof points." },
           ],
@@ -430,7 +414,7 @@ export const article = {
       },
       {
         text: "Browse more client outcomes",
-        href: "https://www.thereputation360.com/case-studies",
+        href: CASE_STUDIES_PATH,
       },
       { text: " to see what full first-page ownership looks like in practice." },
     ],
@@ -438,7 +422,7 @@ export const article = {
   relatedReading: [
     {
       title: "How to Rank Positive Content Above Negative Results",
-      href: RANK_POSITIVE_PATH,
+      href: BLOG_PATHS.rankPositive,
       category: "Content Strategy",
       readTime: "18 min read",
       image: pack20Image("rank"),
@@ -446,7 +430,7 @@ export const article = {
     },
     {
       title: "LinkedIn Profile Optimization for Search Results: The Reputation360 Checklist",
-      href: LINKEDIN_PATH,
+      href: BLOG_PATHS.linkedinChecklist,
       category: "LinkedIn & Search",
       readTime: "15 min read",
       image: pack20Image("linkedin"),
@@ -454,7 +438,7 @@ export const article = {
     },
     {
       title: "How to Suppress Negative Search Results: The Reputation360 Framework",
-      href: SUPPRESS_FRAMEWORK_PATH,
+      href: BLOG_PATHS.suppressFramework,
       category: "Suppression Strategy",
       readTime: "18 min read",
       image: pack20Image("suppress"),

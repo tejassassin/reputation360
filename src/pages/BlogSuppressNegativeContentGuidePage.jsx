@@ -20,6 +20,7 @@ import { BlogGuideCtaPanel } from "@/components/blog/BlogGuideCtaSection.jsx";
 import { DiyInternalLink, DiyLeadHighlight } from "@/components/blog/diy/DiyGuideUi.jsx";
 import { BLOG_INDEX_PATH } from "@/constants/blogPaths.js";
 import { AUDIENCE_PATH, WHO_WE_SERVE_HUB_PATH } from "@/constants/whoWeServePaths.js";
+import { BLOG_PATHS } from "../data/blogs/blogInternalPaths.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "../data/blogs/diyReputationGuide.js";
 import {
   SUPPRESS_NEGATIVE_GUIDE_PATH,
@@ -261,6 +262,13 @@ const STEPS = [
     n: 5,
     title: "Step 5: Strategic Scenario Planning",
     body: 'Establish a "Shield" system that detects new mentions instantly, allowing for rapid suppression before content gains traction. Reputation management is not a one-time project; it is an ongoing defensive posture.',
+    extra: (
+      <p className="mt-4 font-body text-sm leading-relaxed text-steel sm:text-base">
+        Track suppression progress with our{" "}
+        <DiyInternalLink href={BLOG_PATHS.monitoring}>reputation monitoring</DiyInternalLink> guide - alerts and
+        cadence keep negative content from reclaiming page one.
+      </p>
+    ),
   },
 ];
 
@@ -572,12 +580,8 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 </div>
                 <div className="mt-10 text-lg text-steel">
                   <p>
-                    At <DiyInternalLink href="/about">Reputation360</DiyInternalLink>, we have helped hundreds of
-                    professionals - from{" "}
-                    <DiyInternalLink href={WHO_WE_SERVE_HUB_PATH}>
-                      neurosurgeons to hedge fund managers
-                    </DiyInternalLink>{" "}
-                    - reclaim their digital identities. Our proven online reputation management and negative link
+                    At Reputation360, we have helped hundreds of professionals - from neurosurgeons to hedge fund
+                    managers - reclaim their digital identities. Our proven online reputation management and negative link
                     suppression strategies work by understanding that the internet doesn&apos;t have a &apos;forget&apos;
                     button, but it does have a hierarchy. Our mission is to ensure your hierarchy reflects your
                     excellence.
@@ -725,7 +729,11 @@ export default function BlogSuppressNegativeContentGuidePage() {
                     Unlike quick fixes that fail, authentic reputation repair requires pushing down negative search
                     results through strategic Google reputation management. By creating a network of high-authority
                     assets that you own, you force Google&apos;s algorithm to prioritize your current, professional
-                    narrative over outdated or unfair mentions.
+                    narrative over outdated or unfair mentions. Align content with{" "}
+                    <DiyInternalLink href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content">
+                      Google&apos;s Search Quality Rater Guidelines
+                    </DiyInternalLink>{" "}
+                    so positive pages earn durable rankings.
                   </p>
                 </div>
               </section>
@@ -904,9 +912,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                   {activeScenario === "chen" ? (
                     <div id="chen">
                       <h4 className="mb-5 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
-                        Case 1:{" "}
-                        <DiyInternalLink href={AUDIENCE_PATH.doctors}>Dr. Sarah Chen</DiyInternalLink> - How to Remove
-                        Negative Articles from Google (#2 Ranking)
+                        Case 1: Dr. Sarah Chen - How to Remove Negative Articles from Google (#2 Ranking)
                       </h4>
                       <p className="font-body leading-relaxed text-steel">
                         Our negative content suppression strategy involved creating a series of high-authority medical
@@ -978,6 +984,13 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-inner md:p-6">
                   <p className="font-heading text-sm font-bold text-navy">{phase.range}</p>
                   <p className="mt-2 font-body text-sm leading-relaxed text-steel">{phase.detail}</p>
+                  {timelinePhase === 3 ? (
+                    <p className="mt-3 font-body text-sm leading-relaxed text-steel">
+                      Set up{" "}
+                      <DiyInternalLink href={BLOG_PATHS.monitoring}>reputation monitoring</DiyInternalLink> so new
+                      threats are caught before they rank.
+                    </p>
+                  ) : null}
                 </div>
                 <p className="mt-4 font-body text-sm italic text-steel">
                   Timeline expectations: Typical results begin appearing within 90 days. Professional-grade suppression
@@ -1018,7 +1031,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                         "I have a reputation monitoring system that alerts me to new negative content within 24 hours.",
                       ].map((label, i) => (
                         <label
-                          key={label}
+                          key={`checklist-${i}`}
                           className={cn(
                             "flex cursor-pointer items-center gap-4 rounded-2xl border border-white/10 p-4 font-body transition-all hover:bg-white/10 md:p-5",
                             checklist[i] && "border-green bg-green/15",
@@ -1047,7 +1060,17 @@ export default function BlogSuppressNegativeContentGuidePage() {
                               <Check className="pointer-events-none absolute inset-0 m-auto h-4 w-4 text-navy" aria-hidden />
                             ) : null}
                           </div>
-                          <span className="text-base font-medium md:text-lg">{label}</span>
+                          <span className="text-base font-medium md:text-lg">
+                            {i === 4 ? (
+                              <>
+                                I have a{" "}
+                                <DiyInternalLink href={BLOG_PATHS.monitoring}>reputation monitoring</DiyInternalLink>{" "}
+                                system that alerts me to new negative content within 24 hours.
+                              </>
+                            ) : (
+                              label
+                            )}
+                          </span>
                         </label>
                       ))}
                     </div>
@@ -1099,7 +1122,9 @@ export default function BlogSuppressNegativeContentGuidePage() {
                     from a position of anxiety to a position of action. Our free consultation reviews your online
                     world, identifies negative links affecting your Google reputation, and outlines your personalized
                     reputation repair strategy. Whether you work with Reputation360 or take these steps yourself, the cost of
-                    inaction - in leads, revenue, and credibility - only grows with time.
+                    inaction - in leads, revenue, and credibility - only grows with time. See what clients typically
+                    gain in our{" "}
+                    <DiyInternalLink href={BLOG_PATHS.roi}>ROI of reputation management</DiyInternalLink> overview.
                   </p>
                 </div>
                 <div className="mx-auto w-full max-w-6xl">

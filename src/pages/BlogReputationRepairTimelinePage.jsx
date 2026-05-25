@@ -13,12 +13,11 @@ import {
 import { SeoHead } from "../components/SeoHead.jsx";
 import { cn } from "@/lib/utils";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
-import { AUDIENCE_PATH } from "@/constants/whoWeServePaths.js";
 import { BlogGuideCtaPanel } from "@/components/blog/BlogGuideCtaSection.jsx";
 import { DiyInternalLink } from "@/components/blog/diy/DiyGuideUi.jsx";
+import { BLOG_PATHS } from "../data/blogs/blogInternalPaths.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "../data/blogs/diyReputationGuide.js";
 import { REMOVE_NEGATIVE_SEARCH_RESULTS_PATH } from "../data/blogs/removeNegativeSearchResultsGuide.js";
-import { SUPPRESS_NEGATIVE_GUIDE_PATH } from "../data/blogs/suppressNegativeContentGuide.js";
 import {
   REPUTATION_REPAIR_TIMELINE_PATH,
   reputationRepairTimelineHero,
@@ -132,9 +131,8 @@ export default function BlogReputationRepairTimelinePage() {
         That includes SEO-optimised articles and thought leadership pieces, profile pages on high-authority platforms
         (LinkedIn, Crunchbase, industry directories), press releases, and in many cases editorial placements in
         relevant publications. The quality and authority of these assets directly determines how quickly they climb in
-        rankings. For{" "}
-        <DiyInternalLink href={AUDIENCE_PATH.executives}>executives and C-suite leaders</DiyInternalLink>, this phase
-        often includes personal brand content that positions them as a named authority in their field.
+        rankings. For executives and C-suite leaders, this phase often includes personal brand content that positions
+        them as a named authority in their field.
       </>
     ),
     phase3: (
@@ -152,8 +150,7 @@ export default function BlogReputationRepairTimelinePage() {
       <>
         By the end of month two, most clients see positive content beginning to move into the top 20 results. By month
         three, some of it has reached page one. This is typically the point at which the narrative visible to someone
-        searching your name or brand begins to change perceptibly. For{" "}
-        <DiyInternalLink href={AUDIENCE_PATH.businesses}>businesses</DiyInternalLink> with review management as part of
+        searching your name or brand begins to change perceptibly. For businesses with review management as part of
         their engagement, improved ratings often become visible at this stage too.
       </>
     ),
@@ -161,9 +158,8 @@ export default function BlogReputationRepairTimelinePage() {
       <>
         The final phase is about pushing damaging content entirely off page one - and keeping it there. This requires
         continued content publication, ongoing link signals, and active monitoring. Google&apos;s algorithm re-evaluates
-        rankings continuously; without sustained effort, initial gains can erode. This is why ongoing{" "}
-        <DiyInternalLink href={DIY_REPUTATION_GUIDE_PATH}>reputation management</DiyInternalLink> rather than a
-        one-time fix produces the most durable results.
+        rankings continuously; without sustained effort, initial gains can erode. This is why ongoing reputation
+        management rather than a one-time fix produces the most durable results.
       </>
     ),
   };
@@ -302,12 +298,11 @@ export default function BlogReputationRepairTimelinePage() {
                   ))}
                 </ul>
                 <p className="mb-6 font-body text-base text-steel">
-                  Of these,{" "}
-                  <DiyInternalLink href={SUPPRESS_NEGATIVE_GUIDE_PATH}>
-                    suppression is almost always the most reliable and fastest path
-                  </DiyInternalLink>{" "}
-                  to visible results. Removal is ideal when achievable, but depends on where content lives and
-                  whether legal leverage exists. Most realistic strategies combine both.
+                  Of these, suppression is almost always the most reliable and fastest path to visible results - see
+                  our{" "}
+                  <DiyInternalLink href={BLOG_PATHS.suppressFramework}>suppression framework</DiyInternalLink> for the
+                  full methodology. Removal is ideal when achievable, but depends on where content lives and whether
+                  legal leverage exists. Most realistic strategies combine both.
                 </p>
                 <DiyKeyBox variant="insight" title="Key point">
                   &quot;Fixed&quot; doesn&apos;t mean negative content disappears from the internet forever. It means what
@@ -354,6 +349,13 @@ export default function BlogReputationRepairTimelinePage() {
                   </p>
                   <p className="mt-2 font-body text-base leading-relaxed text-steel">{factor.detail}</p>
                 </div>
+                <p className="mt-6 font-body text-base text-steel">
+                  High-authority negative sources rank persistently because of domain strength.{" "}
+                  <DiyInternalLink href="https://moz.com/learn/seo/domain-authority">
+                    Moz&apos;s guide to Domain Authority
+                  </DiyInternalLink>{" "}
+                  explains why outlet authority directly affects how long suppression takes.
+                </p>
               </section>
 
               <section className="mb-20 scroll-mt-36" id="timeline-by-scenario">
@@ -400,6 +402,11 @@ export default function BlogReputationRepairTimelinePage() {
                     </ul>
                   </div>
                 </div>
+                <p className="mb-6 font-body text-base text-steel">
+                  Reputation crises with widespread media coverage follow the longest timelines. For that scenario, our{" "}
+                  <DiyInternalLink href={BLOG_PATHS.crisisPlaybook}>crisis recovery playbook</DiyInternalLink> outlines
+                  containment, recovery, and monitoring in sequence.
+                </p>
                 <DiyKeyBox variant="warning" title="Timing is everything">
                   The single biggest lever you have over your timeline is when you start. Negative content that has
                   been ranking for six months is significantly easier to suppress than content that has spent two
@@ -415,9 +422,7 @@ export default function BlogReputationRepairTimelinePage() {
                 <p className="mb-6 font-body text-lg text-steel">
                   Understanding the timeline isn&apos;t just about knowing how many months are involved - it&apos;s
                   about knowing what&apos;s happening during those months, and why some phases take longer than others.
-                  Here&apos;s how a professional{" "}
-                  <DiyInternalLink href={SERVICES_PATH}>online reputation management</DiyInternalLink> engagement
-                  typically unfolds:
+                  Here&apos;s how a professional online reputation management engagement typically unfolds:
                 </p>
                 <StepPicker
                   steps={repairSteps}
@@ -437,9 +442,10 @@ export default function BlogReputationRepairTimelinePage() {
                 <DiySectionHeader number="05" title="DIY vs. Professional: How Your Approach Affects Speed" />
                 <p className="mb-6 font-body text-lg text-steel">
                   You can manage your own online reputation - and for very simple situations (a single
-                  low-authority result, a thin negative review profile) a{" "}
-                  <DiyInternalLink href={DIY_REPUTATION_GUIDE_PATH}>DIY approach can make meaningful progress</DiyInternalLink>
-                  . What it almost never does is match the speed or depth of a professional campaign.
+                  low-authority result, a thin negative review profile) our{" "}
+                  <DiyInternalLink href={BLOG_PATHS.diyGuide}>DIY reputation management guide</DiyInternalLink> can help
+                  you make meaningful progress. What it almost never does is match the speed or depth of a professional
+                  campaign.
                 </p>
                 <ul className="mb-8 space-y-3">
                   {DIY_VS_PRO_POINTS.map((point) => (
@@ -453,13 +459,9 @@ export default function BlogReputationRepairTimelinePage() {
                   ))}
                 </ul>
                 <p className="font-body text-base text-steel">
-                  For{" "}
-                  <DiyInternalLink href={AUDIENCE_PATH.individuals}>individuals</DiyInternalLink>,{" "}
-                  <DiyInternalLink href={AUDIENCE_PATH.doctors}>healthcare professionals</DiyInternalLink>,{" "}
-                  <DiyInternalLink href={AUDIENCE_PATH.lawyers}>lawyers</DiyInternalLink>, and{" "}
-                  <DiyInternalLink href={AUDIENCE_PATH.financialAdvisors}>financial advisors</DiyInternalLink>{" "}
-                  where search results directly affect client decisions, the compounding cost of a slower timeline
-                  is almost always greater than professional assistance.
+                  For individuals, healthcare professionals, lawyers, and financial advisors where search results
+                  directly affect client decisions, the compounding cost of a slower timeline is almost always greater
+                  than professional assistance.
                 </p>
               </section>
 
@@ -495,9 +497,8 @@ export default function BlogReputationRepairTimelinePage() {
                 <span className="diy-section-tag">Next step</span>
                 <h2 className="mb-6 font-heading text-3xl font-bold text-navy">Your next steps</h2>
                 <p className="mb-6 font-body text-lg text-steel">
-                  If you&apos;re dealing with negative search results, a damaged review profile, or a{" "}
-                  <DiyInternalLink href={AUDIENCE_PATH.businesses}>business reputation</DiyInternalLink> that
-                  doesn&apos;t reflect what you deliver, the most important thing right now is understanding exactly
+                  If you&apos;re dealing with negative search results, a damaged review profile, or a business reputation
+                  that doesn&apos;t reflect what you deliver, the most important thing right now is understanding exactly
                   what you&apos;re working with.
                 </p>
                 <p className="mb-6 font-body text-lg text-steel">
@@ -506,10 +507,9 @@ export default function BlogReputationRepairTimelinePage() {
                   ago. Waiting is always the most expensive option.
                 </p>
                 <p className="mb-8 font-body text-lg text-steel">
-                  Whether you&apos;re an individual who Googled yourself, a{" "}
-                  <DiyInternalLink href={AUDIENCE_PATH.executives}>C-suite executive</DiyInternalLink> managing a
-                  personal brand, or a business owner watching leads dry up - the path forward starts with a clear
-                  picture of your current position.
+                  Whether you&apos;re an individual who Googled yourself, a C-suite executive managing a personal brand,
+                  or a business owner watching leads dry up - the path forward starts with a clear picture of your
+                  current position.
                 </p>
                 <BlogGuideCtaPanel />
               </section>

@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { AUDIENCE_PATH } from "@/constants/whoWeServePaths.js";
 import { BlogGuideCtaSection } from "@/components/blog/BlogGuideCtaSection.jsx";
+import { BLOG_PATHS } from "../data/blogs/blogInternalPaths.js";
 import { SUPPRESS_NEGATIVE_GUIDE_PATH } from "../data/blogs/suppressNegativeContentGuide.js";
 import {
   DIY_REPUTATION_GUIDE_PATH,
@@ -426,7 +427,11 @@ export default function BlogDiyReputationGuidePage() {
                 <DiySectionHeader number="06" title="Implement Continuous Reputation Monitoring" />
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {[
-                    { t: "Google Alerts", d: "Free email alerts when your name appears online." },
+                    {
+                      t: "Google Alerts",
+                      d: "Free email alerts when your name appears online.",
+                      href: BLOG_PATHS.monitoring,
+                    },
                     { t: "Search Console", d: "Track queries and rankings for your site." },
                     { t: "Review tools", d: "Mention, Brand24, or Hootsuite for cross-platform mentions." },
                     { t: "Native analytics", d: "LinkedIn, Instagram, and X analytics for engagement." },
@@ -439,7 +444,13 @@ export default function BlogDiyReputationGuidePage() {
                       )}
                       style={{ animationDelay: `${i * 90}ms` }}
                     >
-                      <h3 className="mb-2 font-heading font-bold text-navy">{card.t}</h3>
+                      <h3 className="mb-2 font-heading font-bold text-navy">
+                        {card.href ? (
+                          <DiyInternalLink href={card.href}>{card.t}</DiyInternalLink>
+                        ) : (
+                          card.t
+                        )}
+                      </h3>
                       <p className="font-body text-sm text-steel">{card.d}</p>
                     </div>
                   ))}
@@ -480,7 +491,7 @@ export default function BlogDiyReputationGuidePage() {
                 <p className="mt-6 font-body text-base leading-relaxed text-steel">
                   Every situation is different - what works for a low-tier forum post will fail against coordinated
                   defamation. Browse{" "}
-                  <DiyInternalLink href="/case-studies">our case studies</DiyInternalLink> to see how we&apos;ve
+                  <DiyInternalLink href="/case-studies">see real examples</DiyInternalLink> of how we&apos;ve
                   navigated reputation crises across industries, from executives facing boardroom leaks to doctors
                   dealing with media coverage of patient complaints.
                 </p>
@@ -502,6 +513,13 @@ export default function BlogDiyReputationGuidePage() {
 
               <section className="mb-20 scroll-mt-36" id="advanced">
                 <DiySectionHeader number="08" title="Advanced Suppression & Link Building Tactics" />
+                <p className="mb-6 font-body text-lg text-steel">
+                  When negative URLs will not budge, a structured{" "}
+                  <DiyInternalLink href={BLOG_PATHS.suppressFramework}>
+                    suppress negative results
+                  </DiyInternalLink>{" "}
+                  plan combines content, profiles, and links to push them off page one.
+                </p>
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
                   {DIY_TIMELINE_PHASES.map((p, i) => (
                     <button

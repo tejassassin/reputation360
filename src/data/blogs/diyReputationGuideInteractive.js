@@ -44,6 +44,13 @@ export const AUDIT_STEPS = [
     n: 1,
     title: "Use incognito/private browsing",
     body: "Visit usearchfrom.com in incognito mode and search your name there. This removes personalization bias from your results and shows what unbiased, unpersonalized search results actually look like for you across multiple search engines.",
+    bodyParts: [
+      { text: "Visit " },
+      { text: "usearchfrom.com", href: "https://www.usearchfrom.com" },
+      {
+        text: " in incognito mode and search your name there. This removes personalization bias from your results and shows what unbiased, unpersonalized search results actually look like for you across multiple search engines.",
+      },
+    ],
   },
   {
     n: 2,

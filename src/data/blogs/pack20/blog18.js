@@ -1,20 +1,9 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 export const SLUG = "monitoring-online-reputation-tools-tactics-reputation360";
 export const PATH = blogPostPath(SLUG);
-
-const CRISIS_PATH = blogPostPath(
-  "crisis-management-reputation-recovery-reputation360-playbook",
-);
-
-const METHODOLOGY_PATH = blogPostPath(
-  "online-reputation-management-best-practices-reputation360-methodology",
-);
-
-const SUPPRESS_FRAMEWORK_PATH = blogPostPath(
-  "how-to-suppress-negative-search-results-reputation360-framework",
-);
 
 const TOC = [
   { id: "free-toolkit", label: "01. Free monitoring toolkit" },
@@ -72,16 +61,6 @@ export const article = {
     {
       type: "p",
       text: "Reputation damage is almost always more expensive to fix the later you catch it. A negative article accumulates authority over time. A critical review accumulates more one-star ratings below it. A harmful social post gets shared, screenshotted, and referenced in other content. The sooner you know about a problem, the more options you have - and the less it costs to address.",
-      parts: [
-        { text: "Reputation damage is almost always " },
-        {
-          text: "more expensive to fix the later you catch it",
-          href: "https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis",
-        },
-        {
-          text: ". A negative article accumulates authority over time. A critical review accumulates more one-star ratings below it. A harmful social post gets shared, screenshotted, and referenced in other content. The sooner you know about a problem, the more options you have - and the less it costs to address.",
-        },
-      ],
     },
     {
       type: "p",
@@ -134,8 +113,8 @@ export const article = {
                   text: "Search your name on Twitter/X, LinkedIn, Facebook, Instagram, and Reddit monthly - and audit ",
                 },
                 {
-                  text: "old social posts that surface during a name search",
-                  href: "https://www.thereputation360.com/blog/old-social-media-posts-showing-up-google-reputation360-guide",
+                  text: "old social media posts",
+                  href: BLOG_PATHS.oldSocialPosts,
                 },
                 {
                   text: ". Captures mentions not yet indexed by Google. On Twitter/X, use advanced search to find any mention regardless of whether the account follows you.",
@@ -195,7 +174,7 @@ export const article = {
             },
             {
               text: "building the first page that's worth monitoring",
-              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
+              href: BLOG_PATHS.ownFirstPage,
             },
             { text: "." },
           ],
@@ -214,7 +193,7 @@ export const article = {
           parts: [
             {
               text: "See the outcomes our monitoring has helped protect",
-              href: "https://www.thereputation360.com/case-studies",
+              href: "/case-studies",
             },
             {
               text: " when you want documented examples of what proactive tracking produces for active clients.",
@@ -245,29 +224,15 @@ export const article = {
                   },
                   {
                     text: "how to respond when monitoring flags a serious result",
-                    href: "https://www.thereputation360.com/blog/how-to-suppress-negative-search-results-reputation360-framework",
+                    href: BLOG_PATHS.suppressFramework,
                   },
                 ],
               },
               {
-                text: "False factual claims (potential defamation) - often when monitoring uncovers something that needs a crisis response",
-                parts: [
-                  { text: "False factual claims (potential defamation) - often " },
-                  {
-                    text: "when monitoring uncovers something that needs a crisis response",
-                    href: "https://www.thereputation360.com/blog/crisis-management-reputation-recovery-reputation360-playbook",
-                  },
-                ],
+                text: "False factual claims (potential defamation) - escalate to the crisis management playbook when the situation is severe",
               },
               {
-                text: "Content involving sensitive personal information - also when monitoring uncovers something that needs a crisis response",
-                parts: [
-                  { text: "Content involving sensitive personal information - also " },
-                  {
-                    text: "when monitoring uncovers something that needs a crisis response",
-                    href: "https://www.thereputation360.com/blog/crisis-management-reputation-recovery-reputation360-playbook",
-                  },
-                ],
+                text: "Content involving sensitive personal information - escalate immediately and document before it spreads",
               },
             ],
           },
@@ -283,16 +248,21 @@ export const article = {
         },
         {
           type: "p",
-          text: "Once you have triaged a new finding, map how long it takes to address what monitoring uncovers so you can set expectations before you commit resources.",
+          text: "Once you have triaged a new finding, map how long it takes to address what monitoring uncovers so you can set expectations before you commit resources. When the issue requires displacement rather than removal, follow our suppression strategy guide.",
           parts: [
             { text: "Once you have triaged a new finding, map " },
             {
               text: "how long it takes to address what monitoring uncovers",
-              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+              href: BLOG_PATHS.repairTimeline,
             },
             {
-              text: " so you can set expectations before you commit resources.",
+              text: " so you can set expectations before you commit resources. When the issue requires displacement rather than removal, follow our ",
             },
+            {
+              text: "suppression strategy",
+              href: BLOG_PATHS.suppressFramework,
+            },
+            { text: " guide." },
           ],
         },
       ],
@@ -356,7 +326,7 @@ export const article = {
   relatedReading: [
     {
       title: "Crisis Management & Reputation Recovery: The Reputation360 Playbook",
-      href: CRISIS_PATH,
+      href: BLOG_PATHS.crisisPlaybook,
       category: "Crisis Management",
       readTime: "18 min read",
       image: pack20Image("crisis"),
@@ -364,7 +334,7 @@ export const article = {
     },
     {
       title: "Online Reputation Management Best Practices: The Reputation360 Methodology",
-      href: METHODOLOGY_PATH,
+      href: BLOG_PATHS.bestPractices,
       category: "ORM Methodology",
       readTime: "18 min read",
       image: pack20Image("default"),
@@ -372,7 +342,7 @@ export const article = {
     },
     {
       title: "How to Suppress Negative Search Results: The Reputation360 Framework",
-      href: SUPPRESS_FRAMEWORK_PATH,
+      href: BLOG_PATHS.suppressFramework,
       category: "Suppression Strategy",
       readTime: "18 min read",
       image: pack20Image("suppress"),

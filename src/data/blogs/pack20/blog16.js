@@ -1,20 +1,11 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 export const SLUG = "roi-reputation-management-what-clients-see-reputation360";
 export const PATH = blogPostPath(SLUG);
 
-const HIDDEN_COST_PATH = blogPostPath(
-  "hidden-cost-ignoring-online-reputation-reputation360-analysis",
-);
-
-const METHODOLOGY_PATH = blogPostPath(
-  "online-reputation-management-best-practices-reputation360-methodology",
-);
-
-const SUPPRESS_FRAMEWORK_PATH = blogPostPath(
-  "how-to-suppress-negative-search-results-reputation360-framework",
-);
+const SERVICES_PATH = "/services";
 
 const TOC = [
   { id: "career-roi", label: "01. Career ROI" },
@@ -96,15 +87,15 @@ export const article = {
               text: "For individual professionals, the return on reputation management is most directly visible in compensation and role access. Clients who invest in ",
             },
             {
-              text: "fixing your reputation before a major career move",
-              href: "https://www.thereputation360.com/blog/fix-reputation-before-job-interview-reputation360-guide",
+              text: "reputation prep before a career transition",
+              href: BLOG_PATHS.interviewPrep,
             },
             {
               text: " consistently report better outcomes in the hiring process - fewer stalls at due diligence, stronger final-round performance, and in many cases, compensation above what they had previously achieved. That pattern matches ",
             },
             {
               text: "how hiring teams evaluate your search presence before the offer",
-              href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
+              href: BLOG_PATHS.recruitersReport,
             },
             { text: "." },
           ],
@@ -124,7 +115,7 @@ export const article = {
             },
             {
               text: "documented client outcomes across career and crisis contexts",
-              href: "https://www.thereputation360.com/case-studies",
+              href: "/case-studies",
             },
             { text: " when you want proof before modeling your own return." },
           ],
@@ -138,31 +129,24 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "For businesses, the ROI of reputation management is most visible in conversion rates and lead quality. When negative search results are suppressed through owning the first page with positive content, more prospects who research the business before buying complete their inquiry or purchase - which is why first-page results directly influence purchase decisions. The improvement in conversion rate from a negative-to-positive first page shift is typically 15% to 35%, consistent with research that shows online reputation directly drives conversion rates, depending on industry and severity.",
+          text: "For businesses, the ROI of reputation management is most visible in conversion rates and lead quality. When negative search results are suppressed through owning the first page with positive content, more prospects who research the business before buying complete their inquiry or purchase. The improvement in conversion rate from a negative-to-positive first page shift is typically 15% to 35% - consistent with the Edelman Trust Barometer on how trust shapes purchase behavior, depending on industry and severity.",
           parts: [
             {
               text: "For businesses, the ROI of reputation management is most visible in conversion rates and lead quality. When negative search results are suppressed through ",
             },
             {
               text: "owning the first page with positive content",
-              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
+              href: BLOG_PATHS.ownFirstPage,
             },
             {
-              text: ", more prospects who research the business before buying complete their inquiry or purchase - which is ",
+              text: ", more prospects who research the business before buying complete their inquiry or purchase. The improvement in conversion rate from a negative-to-positive first page shift is typically 15% to 35% - consistent with the ",
             },
             {
-              text: "why first-page results directly influence purchase decisions",
-              href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
-            },
-            {
-              text: ". The improvement in conversion rate from a negative-to-positive first page shift is typically 15% to 35%, consistent with ",
-            },
-            {
-              text: "research consistently shows online reputation directly drives conversion rates",
-              href: "https://spiegel.medill.northwestern.edu/how-online-reviews-influence-sales/",
+              text: "Edelman Trust Barometer",
+              href: "https://www.edelman.com/trust/trust-barometer",
               external: true,
             },
-            { text: ", depending on industry and severity." },
+            { text: " on how trust shapes purchase behavior, depending on industry and severity." },
           ],
         },
         {
@@ -182,7 +166,7 @@ export const article = {
             },
             {
               text: "how long different types of engagements typically take",
-              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+              href: BLOG_PATHS.repairTimeline,
             },
             { text: " before you budget the payback window." },
           ],
@@ -207,7 +191,7 @@ export const article = {
             },
             {
               text: "the crisis management and recovery playbook",
-              href: "https://www.thereputation360.com/blog/crisis-management-reputation-recovery-reputation360-playbook",
+              href: BLOG_PATHS.crisisPlaybook,
             },
             {
               text: ". The cost of no action is measured in revenue attrition, customer churn, and employee retention problems. Reputation360 has worked with clients where inaction during a crisis cost more per month than a full-year reputation management engagement.",
@@ -234,7 +218,7 @@ export const article = {
                   text: "We contained what could have become an existential business problem - the kind of revenue attrition, customer churn, and employee retention damage that ",
                 },
                 {
-                  text: "reputation risk and its financial consequences",
+                  text: "reputation risk",
                   href: "https://hbr.org/2007/02/reputation-and-its-risks",
                   external: true,
                 },
@@ -289,7 +273,7 @@ export const article = {
             { text: "Read " },
             {
               text: "real cases where reputation management changed the outcome",
-              href: "https://www.thereputation360.com/blog/negative-links-cost-jobs-deals-real-cases-reputation360",
+              href: BLOG_PATHS.negativeLinksCases,
             },
             {
               text: " when you want documented proof behind these ranges - not just illustrative math.",
@@ -305,7 +289,7 @@ export const article = {
             },
             {
               text: "Our reputation management services",
-              href: "https://www.thereputation360.com/services",
+              href: SERVICES_PATH,
             },
             {
               text: " map scope, timeline, and realistic return for career, business, and crisis contexts.",
@@ -340,7 +324,7 @@ export const article = {
   relatedReading: [
     {
       title: "The Hidden Cost of Ignoring Your Online Reputation (Reputation360 Analysis)",
-      href: HIDDEN_COST_PATH,
+      href: BLOG_PATHS.hiddenCost,
       category: "Reputation Analysis",
       readTime: "12 min read",
       image: pack20Image("cases"),
@@ -348,7 +332,7 @@ export const article = {
     },
     {
       title: "Online Reputation Management Best Practices: The Reputation360 Methodology",
-      href: METHODOLOGY_PATH,
+      href: BLOG_PATHS.bestPractices,
       category: "ORM Methodology",
       readTime: "18 min read",
       image: pack20Image("default"),
@@ -356,7 +340,7 @@ export const article = {
     },
     {
       title: "How to Suppress Negative Search Results: The Reputation360 Framework",
-      href: SUPPRESS_FRAMEWORK_PATH,
+      href: BLOG_PATHS.suppressFramework,
       category: "Suppression Strategy",
       readTime: "18 min read",
       image: pack20Image("suppress"),

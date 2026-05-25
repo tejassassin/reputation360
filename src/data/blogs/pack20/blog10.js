@@ -1,20 +1,14 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 export const SLUG = "what-recruiters-google-about-you-reputation360-insider-report";
 export const PATH = blogPostPath(SLUG);
 
-const LINKEDIN_CHECKLIST_PATH = blogPostPath(
-  "linkedin-profile-optimization-search-results-reputation360-checklist",
-);
-
-const NEGATIVE_LINKS_CASES_PATH = blogPostPath(
-  "negative-links-cost-jobs-deals-real-cases-reputation360",
-);
-
-const SOCIAL_POSTS_PATH = blogPostPath(
-  "old-social-media-posts-showing-up-google-reputation360-guide",
-);
+const LINKEDIN_CHECKLIST_PATH = BLOG_PATHS.linkedinChecklist;
+const NEGATIVE_LINKS_CASES_PATH = BLOG_PATHS.negativeLinksCases;
+const SOCIAL_POSTS_PATH = BLOG_PATHS.oldSocialPosts;
+const INTERVIEW_PREP_PATH = BLOG_PATHS.interviewPrep;
 
 const TOC = [
   { id: "search-sequence", label: "01. The recruiter search sequence" },
@@ -79,14 +73,7 @@ export const article = {
           external: true,
         },
         {
-          text: ", 70% of employers use social media and online searches to screen candidates before making hiring decisions. That screen shapes a first impression before you speak to anyone - which is ",
-        },
-        {
-          text: "why that first result carries so much weight",
-          href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
-        },
-        {
-          text: ". For senior roles - executive positions, board appointments, high-trust professional roles - that figure is effectively 100%. Before any offer is extended, someone is typing your name into a search bar.",
+          text: ", 70% of employers use social media and online searches to screen candidates before making hiring decisions. That screen shapes a first impression before you speak to anyone. For senior roles - executive positions, board appointments, high-trust professional roles - that figure is effectively 100%. Before any offer is extended, someone is typing your name into a search bar.",
         },
       ],
     },
@@ -114,19 +101,6 @@ export const article = {
         {
           type: "p",
           text: "Recruiters and hiring managers do not conduct a single search. They conduct a sequence of searches, each designed to answer a specific question about you. For director-level roles and above, this sequence is standard practice in HR and talent acquisition - especially at executive search firms. Select each step below to see what they look for and what can go wrong.",
-          parts: [
-            {
-              text: "Recruiters and hiring managers do not conduct a single search. They conduct a sequence of searches, each designed to answer a specific question about you. For director-level roles and above, this sequence is ",
-            },
-            {
-              text: "standard practice in HR and talent acquisition",
-              href: "https://www.shrm.org/topics-tools/tools/how-to-guides/how-to-use-social-media-applicant-screening",
-              external: true,
-            },
-            {
-              text: " - especially at executive search firms. Select each step below to see what they look for and what can go wrong.",
-            },
-          ],
         },
         {
           type: "pills",
@@ -188,7 +162,7 @@ export const article = {
                 },
                 {
                   text: "old social media posts that still appear in Google",
-                  href: "https://www.thereputation360.com/blog/old-social-media-posts-showing-up-google-reputation360-guide",
+                  href: SOCIAL_POSTS_PATH,
                 },
                 { text: "." },
               ],
@@ -206,14 +180,14 @@ export const article = {
             },
             {
               text: "suppressing negative search results",
-              href: "https://www.thereputation360.com/blog/how-to-suppress-negative-search-results-reputation360-framework",
+              href: BLOG_PATHS.suppressFramework,
             },
             {
               text: " becomes urgent. Most candidates never know it happened; ",
             },
             {
               text: "cases we've resolved",
-              href: "https://www.thereputation360.com/case-studies",
+              href: "/case-studies",
             },
             { text: " show how page one can change when professionals act early." },
           ],
@@ -240,7 +214,7 @@ export const article = {
                 },
                 {
                   text: "optimizing your LinkedIn profile for search",
-                  href: "https://www.thereputation360.com/blog/linkedin-profile-optimization-search-results-reputation360-checklist",
+                  href: LINKEDIN_CHECKLIST_PATH,
                 },
                 { text: "." },
               ],
@@ -301,8 +275,8 @@ export const article = {
                   text: "If negative results would affect a senior search, start with ",
                 },
                 {
-                  text: "fixing your reputation before an interview",
-                  href: "https://www.thereputation360.com/blog/fix-reputation-before-job-interview-reputation360-guide",
+                  text: "fix your reputation before an interview",
+                  href: INTERVIEW_PREP_PATH,
                 },
                 {
                   text: " - or engage a reputation professional before you begin applying, not after a process stalls.",
@@ -328,7 +302,7 @@ export const article = {
             },
             {
               text: "realistic suppression timelines",
-              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+              href: BLOG_PATHS.repairTimeline,
             },
             {
               text: " explains how asset mix and negative severity shift those clocks.",

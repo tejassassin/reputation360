@@ -1,20 +1,14 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 export const SLUG = "negative-links-cost-jobs-deals-real-cases-reputation360";
 export const PATH = blogPostPath(SLUG);
 
-const SUPPRESS_FRAMEWORK_PATH = blogPostPath(
-  "how-to-suppress-negative-search-results-reputation360-framework",
-);
-
-const REMOVAL_VS_SUPPRESSION_PATH = blogPostPath(
-  "removal-vs-suppression-which-actually-works-reputation360",
-);
-
-const RANK_POSITIVE_PATH = blogPostPath(
-  "rank-positive-content-above-negative-results-reputation360-strategy",
-);
+const SUPPRESS_FRAMEWORK_PATH = BLOG_PATHS.suppressFramework;
+const REMOVAL_VS_SUPPRESSION_PATH = BLOG_PATHS.removalVsSuppression;
+const RANK_POSITIVE_PATH = BLOG_PATHS.rankPositive;
+const SERVICES_PATH = "/services";
 
 const TOC = [
   { id: "invisible-cost", label: "01. The invisible cost of negative links" },
@@ -74,7 +68,20 @@ export const article = {
     },
     {
       type: "p",
-      text: "After seven years and more than 1,100 clients served across the US, Canada, Australia, and Europe, Reputation360 has seen exactly how this plays out. The situations differ by country and industry; the framework that resolves them stays consistent.",
+      text: "After seven years and more than 1,100 clients served across the US, Canada, Australia, and Europe, Reputation360 has seen exactly how this plays out. The situations differ by country and industry; the framework that resolves them stays consistent. CareerBuilder research documents how widely employers use search screening before offers.",
+      parts: [
+        {
+          text: "After seven years and more than 1,100 clients served across the US, Canada, Australia, and Europe, Reputation360 has seen exactly how this plays out. The situations differ by country and industry; the framework that resolves them stays consistent. ",
+        },
+        {
+          text: "CareerBuilder research",
+          href: "https://www.careerbuilder.com",
+          external: true,
+        },
+        {
+          text: " documents how widely employers use search screening before offers.",
+        },
+      ],
     },
     {
       type: "lead",
@@ -99,26 +106,16 @@ export const article = {
         },
         {
           type: "p",
-          text: "Decision-makers Google names early in the process. One negative URL in position 2 or 3 can outweigh years of résumé credibility. The content is often factually accurate but context-poor: old news, resolved inquiries, past disputes, or someone else who shares your name.",
+          text: "Decision-makers Google names early in the process. One negative URL in position 2 or 3 can outweigh years of résumé credibility. The content is often factually accurate but context-poor: old news, resolved inquiries, past disputes, or someone else who shares your name. For hiring and deal contexts, see what recruiters search for when they run that sequence.",
           parts: [
             {
-              text: "Decision-makers Google names early in the process",
-              href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
-            },
-            { text: ". " },
-            {
-              text: "One negative URL in position 2 or 3 can outweigh years of résumé credibility",
-              href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
-            },
-            { text: ", because " },
-            {
-              text: "brand perception shapes trust before a conversation even begins",
-              href: "https://neilpatel.com/blog/guide-to-online-branding/",
-              external: true,
+              text: "Decision-makers Google names early in the process. One negative URL in position 2 or 3 can outweigh years of résumé credibility. The content is often factually accurate but context-poor: old news, resolved inquiries, past disputes, or someone else who shares your name. For hiring and deal contexts, see ",
             },
             {
-              text: ". The content is often factually accurate but context-poor: old news, resolved inquiries, past disputes, or someone else who shares your name.",
+              text: "what recruiters search for",
+              href: BLOG_PATHS.recruitersReport,
             },
+            { text: " when they run that sequence." },
           ],
         },
         {
@@ -149,25 +146,6 @@ export const article = {
               label: "Executive inquiry",
               title: "Case Type 1: The executive blocked by an old inquiry",
               body: "A senior operations executive in the US had been through a regulatory inquiry several years prior. The inquiry was resolved without findings or penalties, but the news coverage remained on a major financial news site. When his name was searched, that article appeared in position 2, immediately below his LinkedIn profile. He had been a finalist for a C-suite role at a publicly traded company. The process stalled during due diligence. He suspected the article was the reason. Reputation360 ran a nine-month program: full audit of every indexed asset, two press releases on recent advisory work, expert placements on two finance platforms, an optimized personal website, LinkedIn rebuilt headline-to-skills, Twitter/X and industry forum presence, and professional directory listings - each maintained and monitored, not published once and left static. At 90 days the article dropped to position 8. At five months it was on page two. Six months after we began, he was contacted for a comparable C-suite opportunity and due diligence moved forward without interruption.",
-              parts: [
-                {
-                  text: "A senior operations executive in the US had been through a regulatory inquiry several years prior. The inquiry was resolved without findings or penalties, but the ",
-                },
-                {
-                  text: "news coverage remained on a major financial news site",
-                  href: "https://www.thereputation360.com/blog/can-you-remove-news-articles-from-google-search",
-                },
-                {
-                  text: ". When his name was searched, that article appeared in position 2, immediately below his LinkedIn profile. He had been a finalist for a C-suite role at a publicly traded company. The process stalled during due diligence. He suspected the article was the reason. Reputation360 ran a nine-month program: full audit of every indexed asset, two press releases on recent advisory work, expert placements on two finance platforms, an optimized personal website, ",
-                },
-                {
-                  text: "LinkedIn rebuilt headline-to-skills",
-                  href: "https://www.thereputation360.com/blog/linkedin-profile-optimization-search-results-reputation360-checklist",
-                },
-                {
-                  text: ", Twitter/X and industry forum presence, and professional directory listings - each maintained and monitored, not published once and left static. At 90 days the article dropped to position 8. At five months it was on page two. Six months after we began, he was contacted for a comparable C-suite opportunity and due diligence moved forward without interruption.",
-                },
-              ],
             },
             {
               id: "reviews",
@@ -224,8 +202,8 @@ export const article = {
           parts: [
             { text: "What produced results was a " },
             {
-              text: "structured, professional suppression strategy",
-              href: "https://www.thereputation360.com/blog/how-to-suppress-negative-content-professionals-guide",
+              text: "suppression strategy",
+              href: BLOG_PATHS.suppressProfessionals,
             },
             {
               text: " executed by people who understand both SEO mechanics and reputation dynamics. The cases above are representative - situations differ across the US, Canada, Australia, and Europe, but the framework that resolves them is consistent.",
@@ -235,27 +213,20 @@ export const article = {
         {
           type: "bullets",
           items: [
-            {
-              text: "Audit everything indexed for the name before choosing tactics.",
-              parts: [
-                {
-                  text: "Audit everything indexed before choosing tactics",
-                  href: "https://backlinko.com/online-reputation-management-tools",
-                  external: true,
-                },
-                { text: " for the name." },
-              ],
-            },
+            "Audit everything indexed for the name before choosing tactics.",
             "Build multiple authoritative assets in parallel, not one blog post and hope.",
             "Maintain and refresh assets so search engines see ongoing relevance.",
             {
-              text: "Monitor weekly and adjust when positions shift or new URLs appear.",
+              text: "Use reputation monitoring weekly and adjust when positions shift or new URLs appear.",
               parts: [
+                { text: "Use " },
                 {
-                  text: "Monitor weekly and adjust when positions shift or new URLs appear",
-                  href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
+                  text: "reputation monitoring",
+                  href: BLOG_PATHS.monitoring,
                 },
-                { text: "." },
+                {
+                  text: " weekly and adjust when positions shift or new URLs appear.",
+                },
               ],
             },
           ],
@@ -281,16 +252,6 @@ export const article = {
           type: "lead",
           label: "Where to start",
           text: "Search your full name in an incognito window, list every negative URL on page one, and note the stakes attached to each (job, deal, partnership, or public role). That map is the baseline for a realistic strategy conversation.",
-          parts: [
-            { text: "Search your full name in an incognito window, " },
-            {
-              text: "list every negative URL on page one",
-              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
-            },
-            {
-              text: ", and note the stakes attached to each (job, deal, partnership, or public role). That map is the baseline for a realistic strategy conversation.",
-            },
-          ],
         },
       ],
     },
@@ -322,7 +283,7 @@ export const article = {
       },
       {
         text: "our online reputation management services",
-        href: "https://www.thereputation360.com/services",
+        href: SERVICES_PATH,
       },
       { text: "." },
     ],

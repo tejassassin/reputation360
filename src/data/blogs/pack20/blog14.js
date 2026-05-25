@@ -1,20 +1,14 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 export const SLUG = "hidden-cost-ignoring-online-reputation-reputation360-analysis";
 export const PATH = blogPostPath(SLUG);
 
-const PSYCHOLOGY_PATH = blogPostPath(
-  "why-first-google-result-matters-psychology-reputation360",
-);
-
-const NEGATIVE_LINKS_PATH = blogPostPath(
-  "negative-links-cost-jobs-deals-real-cases-reputation360",
-);
-
-const SUPPRESS_FRAMEWORK_PATH = blogPostPath(
-  "how-to-suppress-negative-search-results-reputation360-framework",
-);
+const PSYCHOLOGY_PATH = BLOG_PATHS.firstResultPsychology;
+const NEGATIVE_LINKS_PATH = BLOG_PATHS.negativeLinksCases;
+const SUPPRESS_FRAMEWORK_PATH = BLOG_PATHS.suppressFramework;
+const SERVICES_PATH = "/services";
 
 const TOC = [
   { id: "career-cost", label: "01. The career cost" },
@@ -108,7 +102,7 @@ export const article = {
             },
             {
               text: "what investing in your reputation actually returns",
-              href: "https://www.thereputation360.com/blog/roi-reputation-management-what-clients-see-reputation360",
+              href: BLOG_PATHS.roi,
             },
             {
               text: " when you compare suppression cost to recovered compensation.",
@@ -125,19 +119,7 @@ export const article = {
         },
         {
           type: "p",
-          text: "Beyond compensation, negative reputation affects role access. Senior positions, board appointments, and partnership-track roles increasingly pass through informal online due diligence before formal processes begin - the same filtering described in how decision-makers screen candidates before any conversation begins. Reputation360 clients who have repaired their search landscape consistently report that they began receiving interest for better opportunities within months of the first-page transformation.",
-          parts: [
-            {
-              text: "Beyond compensation, negative reputation affects role access. Senior positions, board appointments, and partnership-track roles increasingly pass through informal online due diligence before formal processes begin - the same filtering described in ",
-            },
-            {
-              text: "how decision-makers screen candidates before any conversation begins",
-              href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
-            },
-            {
-              text: ". Reputation360 clients who have repaired their search landscape consistently report that they began receiving interest for better opportunities within months of the first-page transformation.",
-            },
-          ],
+          text: "Beyond compensation, negative reputation affects role access. Senior positions, board appointments, and partnership-track roles increasingly pass through informal online due diligence before formal processes begin. Reputation360 clients who have repaired their search landscape consistently report that they began receiving interest for better opportunities within months of the first-page transformation.",
         },
       ],
     },
@@ -149,19 +131,6 @@ export const article = {
         {
           type: "p",
           text: "For businesses, reputation damage translates directly to revenue. A 2023 study by Uberall found that businesses with an average review rating below 3.5 stars see a conversion rate 74% lower than those above 4.0 stars - consistent with research showing conversion rates drop sharply below 3.5 stars. A 2022 BrightLocal study found that 87% of consumers will not use a business with a rating below three stars.",
-          parts: [
-            {
-              text: "For businesses, reputation damage translates directly to revenue. A 2023 study by Uberall found that businesses with an average review rating below 3.5 stars see a conversion rate 74% lower than those above 4.0 stars - consistent with research showing ",
-            },
-            {
-              text: "conversion rates drop sharply below 3.5 stars",
-              href: "https://www.brightlocal.com/research/local-consumer-review-survey/",
-              external: true,
-            },
-            {
-              text: ". A 2022 BrightLocal study found that 87% of consumers will not use a business with a rating below three stars.",
-            },
-          ],
         },
         {
           type: "p",
@@ -178,7 +147,7 @@ export const article = {
             },
             {
               text: "See how we've resolved reputation issues for professional services clients",
-              href: "https://www.thereputation360.com/case-studies",
+              href: "/case-studies",
             },
             { text: " when you want sector-specific proof." },
           ],
@@ -199,7 +168,7 @@ export const article = {
             },
             {
               text: "how timelines shift the longer you wait",
-              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+              href: BLOG_PATHS.repairTimeline,
             },
             { text: " before you assume delay is still low-cost." },
           ],
@@ -213,7 +182,7 @@ export const article = {
             },
             {
               text: "the methodology behind early-action reputation management",
-              href: "https://www.thereputation360.com/blog/online-reputation-management-best-practices-reputation360-methodology",
+              href: BLOG_PATHS.bestPractices,
             },
             {
               text: " is built for that window. In almost every case, the cost and timeline of suppression at the two- or three-year mark are meaningfully higher than they would have been if work had begun when the issue first appeared. The algorithmic advantage compounds against you with every month of delay.",
@@ -233,26 +202,21 @@ export const article = {
         },
         {
           type: "p",
-          text: "Clients who have hit this threshold still achieve results, but at higher cost and longer timelines than those who act early - see how timelines shift the longer you wait for the full breakdown. If you may already be past that point, start with the recovery playbook for serious reputation events. The corollary: earlier action is almost always more cost-effective. An initial assessment from Reputation360 costs nothing, and our reputation management services can map what professional support looks like when delay has already compounded the problem.",
+          text: "Clients who have hit this threshold still achieve results, but at higher cost and longer timelines than those who act early. If you may already be past that point, start with the recovery playbook for serious reputation events. The corollary: earlier action is almost always more cost-effective. An initial assessment from Reputation360 costs nothing, and our reputation management services can map what professional support looks like when delay has already compounded the problem.",
           parts: [
             {
-              text: "Clients who have hit this threshold still achieve results, but at higher cost and longer timelines than those who act early - see ",
+              text: "Clients who have hit this threshold still achieve results, but at higher cost and longer timelines than those who act early. If you may already be past that point, start with ",
             },
-            {
-              text: "how timelines shift the longer you wait",
-              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
-            },
-            { text: " for the full breakdown. If you may already be past that point, start with " },
             {
               text: "the recovery playbook for serious reputation events",
-              href: "https://www.thereputation360.com/blog/crisis-management-reputation-recovery-reputation360-playbook",
+              href: BLOG_PATHS.crisisPlaybook,
             },
             {
               text: ". The corollary: earlier action is almost always more cost-effective. An initial assessment from Reputation360 costs nothing, and ",
             },
             {
               text: "our reputation management services",
-              href: "https://www.thereputation360.com/services",
+              href: SERVICES_PATH,
             },
             {
               text: " can map what professional support looks like when delay has already compounded the problem.",
@@ -293,12 +257,12 @@ export const article = {
             },
             {
               text: "claiming the profiles that establish your baseline presence",
-              href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+              href: BLOG_PATHS.profileClaiming,
             },
             { text: ". " },
             {
-              text: "Building a proactive positive presence across page one",
-              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
+              text: "building your positive presence",
+              href: BLOG_PATHS.ownFirstPage,
             },
             {
               text: " - before any reputation threat exists - is the least expensive and most effective reputation investment a professional or business can make.",

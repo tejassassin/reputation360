@@ -17,6 +17,10 @@ const RANK_POSITIVE_PATH = blogPostPath(
   "rank-positive-content-above-negative-results-reputation360-strategy",
 );
 
+const MONITORING_PATH = blogPostPath(
+  "monitoring-online-reputation-tools-tactics-reputation360",
+);
+
 const TOC = [
   { id: "why-posts-appear", label: "01. Why old posts still appear in Google" },
   { id: "platform-cleanup", label: "02. Platform-by-platform cleanup" },
@@ -81,18 +85,6 @@ export const article = {
     {
       type: "p",
       text: "But there is a second, equally damaging scenario that gets far less attention: content posted about you on someone else's account. You did not write it. You cannot delete it. And it is sitting on the first page of your name search. At Reputation360, we work with individuals and professionals across the US, Canada, Australia, and Europe on both problems - seven years of experience, more than 1,100 clients served.",
-      parts: [
-        {
-          text: "But there is a second, equally damaging scenario that gets far less attention: ",
-        },
-        {
-          text: "content posted about you on someone else's account",
-          href: "https://www.thereputation360.com/blog/social-media-reputation-management-multi-platform-strategy-reputation360",
-        },
-        {
-          text: ". You did not write it. You cannot delete it. And it is sitting on the first page of your name search. At Reputation360, we work with individuals and professionals across the US, Canada, Australia, and Europe on both problems - seven years of experience, more than 1,100 clients served.",
-        },
-      ],
     },
     {
       type: "lead",
@@ -114,16 +106,6 @@ export const article = {
         {
           type: "p",
           text: "Google crawls publicly visible web content continuously. When a social media post is published on a public account, Google indexes it, sometimes within hours. Deleting the post from the platform removes it from that platform, but Google's cached version may persist until Google re-crawls and updates its index.",
-          parts: [
-            {
-              text: "Google crawls publicly visible web content",
-              href: "https://neilpatel.com/blog/social-networks-in-search/",
-              external: true,
-            },
-            {
-              text: " continuously. When a social media post is published on a public account, Google indexes it, sometimes within hours. Deleting the post from the platform removes it from that platform, but Google's cached version may persist until Google re-crawls and updates its index.",
-            },
-          ],
         },
         {
           type: "p",
@@ -143,15 +125,6 @@ export const article = {
         {
           type: "p",
           text: "Each platform handles visibility and indexing differently. Select a platform below for the highest-impact cleanup actions on your own accounts.",
-          parts: [
-            {
-              text: "Each platform handles visibility and indexing differently",
-              href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
-            },
-            {
-              text: ". Select a platform below for the highest-impact cleanup actions on your own accounts.",
-            },
-          ],
         },
         {
           type: "pills",
@@ -162,6 +135,15 @@ export const article = {
               label: "X / Twitter",
               title: "X / Twitter",
               body: "X's public posts are indexed by Google when the account is set to public. Deleting tweets removes them from the platform, but Google may cache them for a period. Switching your account to private prevents future indexing but does not immediately remove already-indexed content. For bulk tweet deletion, tools like Semiphemeral or TweetDelete can mass-delete historical tweets. After deletion, submitting the specific URL via Google's URL Removal Tool can accelerate de-indexing.",
+              parts: [
+                {
+                  text: "X's public posts are indexed by Google when the account is set to public. Deleting tweets removes them from the platform, but Google may cache them for a period. Switching your account to private prevents future indexing but does not immediately remove already-indexed content. For bulk tweet deletion, tools like Semiphemeral or ",
+                },
+                { text: "TweetDelete", href: "https://tweetdelete.net" },
+                {
+                  text: " can mass-delete historical tweets. After deletion, submitting the specific URL via Google's URL Removal Tool can accelerate de-indexing.",
+                },
+              ],
             },
             {
               id: "facebook",
@@ -241,7 +223,7 @@ export const article = {
               titleParts: [
                 {
                   text: "Legal channels",
-                  href: "https://www.thereputation360.com/blog/remove-court-records-google-reputation360",
+                  href: blogPostPath("remove-court-records-google-reputation360"),
                 },
               ],
               body: "If the content is demonstrably false and is causing material harm - affecting employment, business relationships, or public standing - defamation law may be relevant. An attorney specializing in online defamation can advise on whether the content meets the legal threshold and whether a formal demand letter is appropriate. In some cases, platforms respond to court orders where informal reporting did not succeed. This is a longer and costlier path, worth pursuing when content is clearly defamatory and prominently ranked.",
@@ -257,7 +239,7 @@ export const article = {
               titleParts: [
                 {
                   text: "When removal is not available",
-                  href: "https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis",
+                  href: blogPostPath("hidden-cost-ignoring-online-reputation-reputation360-analysis"),
                 },
               ],
               body: "Anonymous accounts, offshore platforms, and content that is critical but not technically removable all fall into a category where conventional removal fails. This is where suppression becomes the primary strategy - not because it is a second-best option, but because it directly addresses what matters most: what someone sees when they search your name.",
@@ -279,13 +261,13 @@ export const article = {
           type: "p",
           text: "In all these cases, suppression is the appropriate strategy. Rather than focusing on what you cannot control, you focus on what you can build: positive, authoritative content that occupies the search positions above the problematic content. Reputation360 executes this by creating a combination of professional profiles, authored content, and optimized personal pages that claim the top positions for your name search, pushing the damaging social media content progressively lower.",
           parts: [
-            { text: "In all these cases, " },
+            { text: "In all these cases, a " },
             {
-              text: "suppression is the appropriate strategy",
-              href: "https://www.thereputation360.com/blog/how-to-suppress-negative-content-professionals-guide",
+              text: "suppression strategy",
+              href: SUPPRESS_FRAMEWORK_PATH,
             },
             {
-              text: ". Rather than focusing on what you cannot control, you focus on what you can build: positive, authoritative content that occupies the search positions above the problematic content. Reputation360 executes this by creating a combination of professional profiles, authored content, and optimized personal pages that claim the top positions for your name search, pushing the damaging social media content progressively lower.",
+              text: " is the appropriate approach. Rather than focusing on what you cannot control, you focus on what you can build: positive, authoritative content that occupies the search positions above the problematic content. Reputation360 executes this by creating a combination of professional profiles, authored content, and optimized personal pages that claim the top positions for your name search, pushing the damaging social media content progressively lower.",
             },
           ],
         },
@@ -298,16 +280,6 @@ export const article = {
           variant: "insight",
           title: "Displacement vs. deletion",
           text: "Page one is what decision-makers see. Building six to ten strong positive assets often changes outcomes faster than waiting months for a single stubborn URL to de-index.",
-          parts: [
-            { text: "Page one is what decision-makers see. " },
-            {
-              text: "Building six to ten strong positive assets",
-              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
-            },
-            {
-              text: " often changes outcomes faster than waiting months for a single stubborn URL to de-index.",
-            },
-          ],
         },
       ],
     },
@@ -318,15 +290,14 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "The best time to manage your social media reputation is before a problem appears. Reputation360 recommends quarterly audits of all public social profiles - searching your own name in Google and reviewing what is indexed. A regular habit of managing your social media reputation makes cleanup easier when something changes.",
+          text: "The best time to manage your social media reputation is before a problem appears. Reputation360 recommends quarterly audits of all public social profiles - searching your own name in Google and reviewing what is indexed. A regular habit of monitoring your social media presence makes cleanup easier when something changes.",
           parts: [
             {
               text: "The best time to manage your social media reputation is before a problem appears. Reputation360 recommends quarterly audits of all public social profiles - searching your own name in Google and reviewing what is indexed. A regular habit of ",
             },
             {
-              text: "managing your social media reputation",
-              href: "https://sproutsocial.com/insights/social-media-reputation-management/",
-              external: true,
+              text: "monitoring your social media presence",
+              href: MONITORING_PATH,
             },
             { text: " makes cleanup easier when something changes." },
           ],
@@ -342,30 +313,11 @@ export const article = {
         {
           type: "p",
           text: "For executives and professionals in active job searches, partnership negotiations, or public-facing roles, we also recommend a pre-emptive suppression strategy: build positive search assets before there is a problem, so you are not starting from scratch when one arises.",
-          parts: [
-            { text: "For " },
-            {
-              text: "executives and professionals in active job searches",
-              href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
-            },
-            {
-              text: ", partnership negotiations, or public-facing roles, we also recommend a pre-emptive suppression strategy: build positive search assets before there is a problem, so you are not starting from scratch when one arises.",
-            },
-          ],
         },
         {
           type: "lead",
           label: "Where to start",
           text: "Search your full name in Google today, list every social URL on page one and page two, and assign each URL an action: delete, privatize, report, request removal, or outrank.",
-          parts: [
-            {
-              text: "Search your full name in Google today",
-              href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
-            },
-            {
-              text: ", list every social URL on page one and page two, and assign each URL an action: delete, privatize, report, request removal, or outrank.",
-            },
-          ],
         },
       ],
     },
@@ -397,7 +349,7 @@ export const article = {
       },
       {
         text: "our online reputation management services",
-        href: "https://www.thereputation360.com/services",
+        href: "/services",
       },
       { text: "." },
     ],

@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "../diyReputationGuide.js";
 import { REMOVE_NEGATIVE_SEARCH_RESULTS_PATH } from "../removeNegativeSearchResultsGuide.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
@@ -6,9 +7,8 @@ import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 export const SLUG = "rank-positive-content-above-negative-results-reputation360-strategy";
 export const PATH = blogPostPath(SLUG);
 
-const SUPPRESS_FRAMEWORK_PATH = blogPostPath(
-  "how-to-suppress-negative-search-results-reputation360-framework",
-);
+const SUPPRESS_FRAMEWORK_PATH = BLOG_PATHS.suppressFramework;
+const SERVICES_PATH = "/services";
 
 const TOC = [
   { id: "why-content-ranks", label: "01. Why content ranks on Google" },
@@ -69,17 +69,13 @@ export const article = {
       text: "Google's first page is prime real estate. There are ten organic positions available, and right now some of those positions may be occupied by content you did not write, do not agree with, and cannot easily remove. The internet does not forget - but you can change what searchers see first.",
       parts: [
         {
-          text: "Google's first page is prime real estate",
-          href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
+          text: "Google's first page is prime real estate. There are ten organic positions available, and right now some of those positions may be occupied by content you did not write, do not agree with, and cannot easily remove. The internet does not forget - but you can change what searchers see first. When removal is not realistic, see ",
         },
         {
-          text: ". There are ten organic positions available, and right now some of those positions may be occupied by content you did not write, do not agree with, and ",
+          text: "removal vs. suppression",
+          href: BLOG_PATHS.removalVsSuppression,
         },
-        {
-          text: "cannot easily remove",
-          href: "https://www.thereputation360.com/blog/removal-vs-suppression-which-actually-works-reputation360",
-        },
-        { text: ". The internet does not forget - but you can change what searchers see first." },
+        { text: " for how ranking fits the broader strategy." },
       ],
     },
     {
@@ -106,19 +102,6 @@ export const article = {
         {
           type: "p",
           text: "To rank positive content above negative results, you need to understand what Google rewards. The search algorithm weighs three primary signals: relevance, authority, and user signals. Relevance asks whether the content matches the query, authority asks whether the source is trustworthy, and user signals show whether people click on it and stay.",
-          parts: [
-            {
-              text: "To rank positive content above negative results, you need to understand what Google rewards. The search algorithm weighs ",
-            },
-            {
-              text: "three primary signals: relevance, authority, and user signals",
-              href: "https://neilpatel.com/blog/critical-google-ranking-factors/",
-              external: true,
-            },
-            {
-              text: ". Relevance asks whether the content matches the query, authority asks whether the source is trustworthy, and user signals show whether people click on it and stay.",
-            },
-          ],
         },
         {
           type: "p",
@@ -168,14 +151,14 @@ export const article = {
                 },
                 {
                   text: "optimize every client's LinkedIn profile",
-                  href: "https://www.thereputation360.com/blog/linkedin-profile-optimization-search-results-reputation360-checklist",
+                  href: BLOG_PATHS.linkedinChecklist,
                 },
                 {
                   text: " as a foundational asset in every suppression campaign. Beyond LinkedIn, platforms like Crunchbase, AngelList, Medium, and Wikipedia (where eligibility exists) carry the domain authority needed to compete on page one. ",
                 },
                 {
                   text: "Claiming and fully optimizing profiles on these platforms",
-                  href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+                  href: BLOG_PATHS.profileClaiming,
                 },
                 { text: " gives Google multiple positive sources to display." },
               ],
@@ -215,32 +198,22 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Content does not rank by itself. It ranks because other authoritative pages link to it - the same reason negative URLs often hold position. A new LinkedIn profile, press release, or personal website needs inbound links from trusted sources to build the authority required to rise above a well-linked negative article.",
+          text: "Content does not rank by itself. It ranks because other authoritative pages link to it - the same reason negative URLs often hold position. A new LinkedIn profile, press release, or personal website needs inbound links from trusted sources to build the authority required to rise above a well-linked negative article. Domain authority is one of the metrics that predicts ranking power - see Moz's guide to Domain Authority for how that signal works.",
           parts: [
-            { text: "Content does not rank by itself. It ranks because " },
             {
-              text: "other authoritative pages link to it",
-              href: "https://backlinko.com/search-engine-ranking",
+              text: "Content does not rank by itself. It ranks because other authoritative pages link to it - the same reason negative URLs often hold position. A new LinkedIn profile, press release, or personal website needs inbound links from trusted sources to build the authority required to rise above a well-linked negative article. Domain authority is one of the metrics that predicts ranking power - see ",
+            },
+            {
+              text: "Moz's guide to Domain Authority",
+              href: "https://moz.com/learn/seo/domain-authority",
               external: true,
             },
-            {
-              text: " - the same reason negative URLs often hold position. A new LinkedIn profile, press release, or personal website needs inbound links from trusted sources to build the authority required to rise above a well-linked negative article.",
-            },
+            { text: " for how that signal works." },
           ],
         },
         {
           type: "p",
           text: "Reputation360 builds legitimate, high-quality links through industry directory listings, media mentions, content partnerships, and cross-linking between a client's own positive assets. We avoid link schemes or black-hat tactics because algorithm updates can wipe out manipulative rankings and undo months of work. Every link we build is real, relevant, and built to last.",
-          parts: [
-            { text: "Reputation360 builds " },
-            {
-              text: "legitimate, high-quality links",
-              href: "https://www.thereputation360.com/blog/online-reputation-management-best-practices-reputation360-methodology",
-            },
-            {
-              text: " through industry directory listings, media mentions, content partnerships, and cross-linking between a client's own positive assets. We avoid link schemes or black-hat tactics because algorithm updates can wipe out manipulative rankings and undo months of work. Every link we build is real, relevant, and built to last.",
-            },
-          ],
         },
         {
           type: "p",
@@ -282,15 +255,19 @@ export const article = {
         {
           type: "p",
           text: "The speed of ranking movement depends on the authority gap between the negative content and your positive assets. A negative result on a local blog with few backlinks can be displaced in 30 to 60 days. A negative result on a national news site with hundreds of inbound links may take 6 to 12 months to push to page two.",
+        },
+        {
+          type: "p",
+          text: "Ongoing tracking matters as much as the initial build. Use reputation monitoring to catch position shifts and new URLs before they reset your progress.",
           parts: [
+            { text: "Ongoing tracking matters as much as the initial build. Use " },
             {
-              text: "The speed of ranking movement depends on the authority gap between the negative content and your positive assets. A negative result on a local blog with few backlinks can be displaced in ",
+              text: "reputation monitoring",
+              href: BLOG_PATHS.monitoring,
             },
             {
-              text: "30 to 60 days. A negative result on a national news site with hundreds of inbound links may take 6 to 12 months",
-              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+              text: " to catch position shifts and new URLs before they reset your progress.",
             },
-            { text: " to push to page two." },
           ],
         },
         {
@@ -316,7 +293,7 @@ export const article = {
             },
             {
               text: "Reputation360 monitors link growth on negative URLs",
-              href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
+              href: BLOG_PATHS.monitoring,
             },
             { text: " as part of active management so strategy keeps pace with the threat." },
           ],
@@ -335,15 +312,6 @@ export const article = {
         {
           type: "p",
           text: "Map page one and page two for your name or brand. Note domain authority behind each negative URL, which high-trust platforms you can claim today, and which of the four content types above will displace your highest-priority threat fastest. That audit tells you whether to lead with profiles, press, bylines, owned sites - or a coordinated mix.",
-          parts: [
-            {
-              text: "Map page one and page two for your name or brand",
-              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
-            },
-            {
-              text: ". Note domain authority behind each negative URL, which high-trust platforms you can claim today, and which of the four content types above will displace your highest-priority threat fastest. That audit tells you whether to lead with profiles, press, bylines, owned sites - or a coordinated mix.",
-            },
-          ],
         },
         {
           type: "lead",
@@ -385,7 +353,7 @@ export const article = {
       },
       {
         text: "our online reputation management services",
-        href: "https://www.thereputation360.com/services",
+        href: SERVICES_PATH,
       },
       { text: "." },
     ],

@@ -1,20 +1,14 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 export const SLUG = "crisis-management-reputation-recovery-reputation360-playbook";
 export const PATH = blogPostPath(SLUG);
 
-const SUPPRESS_FRAMEWORK_PATH = blogPostPath(
-  "how-to-suppress-negative-search-results-reputation360-framework",
-);
-
-const NEGATIVE_LINKS_CASES_PATH = blogPostPath(
-  "negative-links-cost-jobs-deals-real-cases-reputation360",
-);
-
-const REMOVAL_VS_SUPPRESSION_PATH = blogPostPath(
-  "removal-vs-suppression-which-actually-works-reputation360",
-);
+const SUPPRESS_FRAMEWORK_PATH = BLOG_PATHS.suppressFramework;
+const NEGATIVE_LINKS_CASES_PATH = BLOG_PATHS.negativeLinksCases;
+const REMOVAL_VS_SUPPRESSION_PATH = BLOG_PATHS.removalVsSuppression;
+const SERVICES_PATH = "/services";
 
 const TOC = [
   { id: "first-48-hours", label: "01. The first 48 hours" },
@@ -100,44 +94,15 @@ export const article = {
         {
           type: "p",
           text: "The decisions made in the first 48 hours of a reputation crisis have an outsized effect on outcomes. The most common mistake is inaction - hoping that the story will not gain traction, or waiting for legal counsel before doing anything. Delay in the digital environment is never neutral. It allows negative content to accumulate links, engagement, and authority while your positive assets remain static.",
-          parts: [
-            {
-              text: "The decisions made in the first 48 hours of a reputation crisis have an outsized effect on outcomes",
-              href: "https://blog.hubspot.com/service/crisis-communication-plan",
-              external: true,
-            },
-            {
-              text: ". The most common mistake is inaction - hoping that the story will not gain traction, or waiting for legal counsel before doing anything. Delay in the digital environment is never neutral. It allows negative content to accumulate links, engagement, and authority while your positive assets remain static.",
-            },
-          ],
         },
         {
           type: "doDont",
           do: {
             title: "Do in the first 48 hours",
             items: [
-              {
-                text: "Conduct a full search audit for your name, brand, and related keywords. Screenshot results with timestamps.",
-                parts: [
-                  {
-                    text: "Conduct a full search audit for your name, brand, and related keywords",
-                    href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
-                  },
-                  { text: ". Screenshot results with timestamps." },
-                ],
-              },
+              "Conduct a full search audit for your name, brand, and related keywords. Screenshot results with timestamps.",
               "Identify the primary source: news article, social post, review, or forum thread.",
-              {
-                text: "Activate existing positive assets - update LinkedIn, publish on owned channels, issue a factual statement when appropriate.",
-                parts: [
-                  { text: "Activate existing positive assets - " },
-                  {
-                    text: "update LinkedIn, publish on owned channels",
-                    href: "https://www.thereputation360.com/blog/linkedin-profile-optimization-search-results-reputation360-checklist",
-                  },
-                  { text: ", issue a factual statement when appropriate." },
-                ],
-              },
+              "Activate existing positive assets - update LinkedIn, publish on owned channels, issue a factual statement when appropriate.",
               "Stay visible. Silence leaves the narrative entirely to negative content.",
               "Contact a reputation specialist immediately so suppression and positive content work can begin.",
             ],
@@ -166,28 +131,24 @@ export const article = {
         {
           type: "bullets",
           items: [
-            "Issue a formal, factual press release through a major wire service to index quickly and claim search real estate.",
             {
-              text: "Activate or update all third-party professional profiles tied to the individual or brand.",
+              text: "Issue a formal, factual press release through a major wire service such as PR Newswire to index quickly and claim search real estate.",
               parts: [
                 {
-                  text: "Activate or update all third-party professional profiles",
-                  href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+                  text: "Issue a formal, factual press release through a major wire service such as ",
                 },
-                { text: " tied to the individual or brand." },
-              ],
-            },
-            {
-              text: "Publish long-form content that establishes your version of the narrative in authoritative detail.",
-              parts: [
-                { text: "Publish " },
                 {
-                  text: "long-form content that establishes your version of the narrative",
-                  href: "https://www.thereputation360.com/blog/rank-positive-content-above-negative-results-reputation360-strategy",
+                  text: "PR Newswire",
+                  href: "https://www.prnewswire.com",
+                  external: true,
                 },
-                { text: " in authoritative detail." },
+                {
+                  text: " to index quickly and claim search real estate.",
+                },
               ],
             },
+            "Activate or update all third-party professional profiles tied to the individual or brand.",
+            "Publish long-form content that establishes your version of the narrative in authoritative detail.",
             "Begin link-building for new assets so authority flows to properties you control.",
           ],
         },
@@ -204,18 +165,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "As initial noise begins to settle, the focus shifts to stabilizing the search landscape and ensuring new negative content is not accumulating. During this phase, Reputation360 monitors search results daily, responds to any new indexed negative content with targeted suppression tactics, and continues building positive assets where the negative content ranks most strongly to repair and recover negative brand mentions in search results.",
-          parts: [
-            {
-              text: "As initial noise begins to settle, the focus shifts to stabilizing the search landscape and ensuring new negative content is not accumulating. During this phase, Reputation360 monitors search results daily, responds to any new indexed negative content with targeted suppression tactics, and continues building positive assets where the negative content ranks most strongly to ",
-            },
-            {
-              text: "repair and recover negative brand mentions in search results",
-              href: "https://www.searchenginejournal.com/ask-an-seo-repair-recover-negative-brand-mentions/538325/",
-              external: true,
-            },
-            { text: "." },
-          ],
+          text: "As initial noise begins to settle, the focus shifts to stabilizing the search landscape and ensuring new negative content is not accumulating. During this phase, Reputation360 monitors search results daily, responds to any new indexed negative content with targeted suppression tactics, and continues building positive assets where the negative content ranks most strongly.",
         },
         {
           type: "p",
@@ -248,16 +198,16 @@ export const article = {
         },
         {
           type: "p",
-          text: "Recovery milestones vary by crisis severity and the authority of negative content. Expect 90-120 days for smaller crises, 8-12 months for national or viral events, with meaningful improvement visible at each stage.",
+          text: "Recovery milestones vary by crisis severity and the authority of negative content. Expect 90-120 days for smaller crises, 8-12 months for national or viral events, with meaningful improvement visible at each stage. For planning, see how long recovery takes before you set stakeholder expectations.",
           parts: [
             {
-              text: "Recovery milestones vary by crisis severity and the authority of negative content. Expect ",
+              text: "Recovery milestones vary by crisis severity and the authority of negative content. Expect 90-120 days for smaller crises, 8-12 months for national or viral events, with meaningful improvement visible at each stage. For planning, see ",
             },
             {
-              text: "90-120 days for smaller crises, 8-12 months for national or viral events",
-              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+              text: "how long recovery takes",
+              href: BLOG_PATHS.repairTimeline,
             },
-            { text: ", with meaningful improvement visible at each stage." },
+            { text: " before you set stakeholder expectations." },
           ],
         },
       ],
@@ -270,31 +220,19 @@ export const article = {
         {
           type: "p",
           text: "The goal of crisis management is not just to survive the immediate event - it is to emerge with a stronger, more resilient digital presence than before. Clients who invest in long-term maintenance after a crisis are significantly less vulnerable to future reputation events because they have built a substantial body of authoritative positive content that is difficult to displace.",
-          parts: [
-            {
-              text: "The goal of crisis management is not just to survive the immediate event - it is to ",
-            },
-            {
-              text: "emerge with a stronger, more resilient digital presence than before",
-              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
-            },
-            {
-              text: ". Clients who invest in long-term maintenance after a crisis are significantly less vulnerable to future reputation events because they have built a substantial body of authoritative positive content that is difficult to displace.",
-            },
-          ],
         },
         {
           type: "p",
-          text: "Reputation360 offers ongoing reputation monitoring and maintenance programs that provide a continuous early-warning system for new negative content, regular positive asset updates and refreshes, quarterly search audits, and instant-response protocols if a new crisis event occurs.",
+          text: "Reputation360 offers ongoing reputation monitoring and maintenance programs that provide a continuous early-warning system for new negative content, regular positive asset updates and refreshes, quarterly search audits, and instant-response protocols if a new crisis event occurs. Our reputation monitoring guide covers the tools and cadence behind those programs.",
           parts: [
-            { text: "Reputation360 offers " },
             {
-              text: "ongoing reputation monitoring and maintenance programs",
-              href: "https://www.thereputation360.com/blog/online-reputation-management-best-practices-reputation360-methodology",
+              text: "Reputation360 offers ongoing reputation monitoring and maintenance programs that provide a continuous early-warning system for new negative content, regular positive asset updates and refreshes, quarterly search audits, and instant-response protocols if a new crisis event occurs. Our ",
             },
             {
-              text: " that provide a continuous early-warning system for new negative content, regular positive asset updates and refreshes, quarterly search audits, and instant-response protocols if a new crisis event occurs.",
+              text: "reputation monitoring",
+              href: BLOG_PATHS.monitoring,
             },
+            { text: " guide covers the tools and cadence behind those programs." },
           ],
         },
         {
@@ -421,7 +359,7 @@ export const article = {
       },
       {
         text: "our online reputation management services",
-        href: "https://www.thereputation360.com/services",
+        href: SERVICES_PATH,
       },
       { text: " - not after legal or PR cycles finish." },
     ],

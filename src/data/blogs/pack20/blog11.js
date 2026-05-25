@@ -1,20 +1,11 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 export const SLUG = "fix-reputation-before-job-interview-reputation360-guide";
 export const PATH = blogPostPath(SLUG);
 
-const RECRUITERS_PATH = blogPostPath(
-  "what-recruiters-google-about-you-reputation360-insider-report",
-);
-
-const LINKEDIN_PATH = blogPostPath(
-  "linkedin-profile-optimization-search-results-reputation360-checklist",
-);
-
-const SUPPRESS_FRAMEWORK_PATH = blogPostPath(
-  "how-to-suppress-negative-search-results-reputation360-framework",
-);
+const CASE_STUDIES_PATH = "/case-studies";
 
 const TOC = [
   { id: "google-yourself", label: "01. Start here: Google yourself right now" },
@@ -72,17 +63,7 @@ export const article = {
   introBlocks: [
     {
       type: "p",
-      text: "You have the resume. You have the experience. The phone screen went well and you have been invited for a formal interview. Between now and that meeting, someone on the hiring team is going to search your name. What they find in the next 30 seconds may determine whether the process continues - which is why that first search result carries so much weight - and most candidates have no idea what that search returns.",
-      parts: [
-        {
-          text: "You have the resume. You have the experience. The phone screen went well and you have been invited for a formal interview. Between now and that meeting, someone on the hiring team is going to search your name. What they find in the next 30 seconds may determine whether the process continues - which is ",
-        },
-        {
-          text: "why that first search result carries so much weight",
-          href: "https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360",
-        },
-        { text: " - and most candidates have no idea what that search returns." },
-      ],
+      text: "You have the resume. You have the experience. The phone screen went well and you have been invited for a formal interview. Between now and that meeting, someone on the hiring team is going to search your name. What they find in the next 30 seconds may determine whether the process continues - and most candidates have no idea what that search returns.",
     },
     {
       type: "p",
@@ -114,7 +95,7 @@ export const article = {
             },
             {
               text: "the exact search sequence recruiters run",
-              href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
+              href: BLOG_PATHS.recruitersReport,
             },
             { text: ". Document everything you find." },
           ],
@@ -175,7 +156,7 @@ export const article = {
                 },
                 {
                   text: "LinkedIn's own profile optimisation guidance",
-                  href: "https://www.linkedin.com/help/linkedin/answer/a554351",
+                  href: "https://www.linkedin.com/help/linkedin/answer/a554737",
                   external: true,
                 },
                 {
@@ -194,7 +175,7 @@ export const article = {
                 },
                 {
                   text: "cleaning up old social media posts that appear in Google",
-                  href: "https://www.thereputation360.com/blog/old-social-media-posts-showing-up-google-reputation360-guide",
+                  href: BLOG_PATHS.oldSocialPosts,
                 },
                 {
                   text: " when posts still surface in search. Set personal accounts (Instagram, Facebook) to private so future posts are not indexed. Note that deleted content may remain in Google's cache for a few weeks - this is normal and resolves with time.",
@@ -212,7 +193,7 @@ export const article = {
                 },
                 {
                   text: "claiming the right profiles",
-                  href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+                  href: BLOG_PATHS.profileClaiming,
                 },
                 {
                   text: " for your situation. Each claimed profile is a new URL indexed by Google, and each one is a positive result that may outrank negative content. Complete profiles with your full name, title, and a professional summary in each About section.",
@@ -230,7 +211,7 @@ export const article = {
                 },
                 {
                   text: "ranking positive content above negative results",
-                  href: "https://www.thereputation360.com/blog/rank-positive-content-above-negative-results-reputation360-strategy",
+                  href: BLOG_PATHS.rankPositive,
                 },
                 {
                   text: " so Google has stronger assets to show. This is an especially strong asset because it gives you complete control over the narrative. Services like Squarespace, Wix, and WordPress make this achievable without technical expertise. The key SEO elements are: your full name in the title tag, H1, and About text; a fast-loading page; and mobile-friendly design.",
@@ -255,7 +236,7 @@ export const article = {
             },
             {
               text: "realistic timelines for reputation repair",
-              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+              href: BLOG_PATHS.repairTimeline,
             },
             { text: " breaks down what to expect by severity and asset mix." },
           ],
@@ -281,7 +262,7 @@ export const article = {
                 },
                 {
                   text: "real cases where negative links stalled job offers",
-                  href: "https://www.thereputation360.com/blog/negative-links-cost-jobs-deals-real-cases-reputation360",
+                  href: BLOG_PATHS.negativeLinksCases,
                 },
                 { text: " show." },
               ],
@@ -327,17 +308,18 @@ export const article = {
             {
               n: 1,
               title: "Week 1",
-              body: "Google audit, LinkedIn full optimization, social media cleanup, submit URL removal requests for deleted content through Google's URL removal tool.",
+              body: "Google audit, LinkedIn full optimization, social media cleanup, and follow our guide on dealing with old social media posts when deleted content still appears in search.",
               parts: [
                 {
-                  text: "Google audit, LinkedIn full optimization, social media cleanup, submit URL removal requests for deleted content through ",
+                  text: "Google audit, LinkedIn full optimization, social media cleanup, and follow our guide on ",
                 },
                 {
-                  text: "Google's URL removal tool",
-                  href: "https://support.google.com/websearch/troubleshooter/9685456",
-                  external: true,
+                  text: "dealing with old social media posts",
+                  href: BLOG_PATHS.oldSocialPosts,
                 },
-                { text: "." },
+                {
+                  text: " when deleted content still appears in search.",
+                },
               ],
             },
             {
@@ -353,7 +335,19 @@ export const article = {
             {
               n: 4,
               title: "Week 4",
-              body: "Re-audit search results in incognito, document improvements, prepare proactive talking points for any remaining issues that cannot be fully addressed in this timeframe.",
+              body: "Re-audit search results in incognito, document improvements, set up reputation monitoring for ongoing alerts, and prepare proactive talking points for any remaining issues that cannot be fully addressed in this timeframe.",
+              parts: [
+                {
+                  text: "Re-audit search results in incognito, document improvements, set up ",
+                },
+                {
+                  text: "reputation monitoring",
+                  href: BLOG_PATHS.monitoring,
+                },
+                {
+                  text: " for ongoing alerts, and prepare proactive talking points for any remaining issues that cannot be fully addressed in this timeframe.",
+                },
+              ],
             },
           ],
         },
@@ -387,7 +381,7 @@ export const article = {
       },
       {
         text: "See how we've handled similar cases",
-        href: "https://www.thereputation360.com/case-studies",
+        href: CASE_STUDIES_PATH,
       },
       { text: " when serious negatives are on page one." },
     ],
@@ -395,7 +389,7 @@ export const article = {
   relatedReading: [
     {
       title: "What Do Recruiters Google About You? Reputation360's Insider Report",
-      href: RECRUITERS_PATH,
+      href: BLOG_PATHS.recruitersReport,
       category: "Job Search & Reputation",
       readTime: "12 min read",
       image: pack20Image("recruiters"),
@@ -403,7 +397,7 @@ export const article = {
     },
     {
       title: "LinkedIn Profile Optimization for Search Results: The Reputation360 Checklist",
-      href: LINKEDIN_PATH,
+      href: BLOG_PATHS.linkedinChecklist,
       category: "LinkedIn & Search",
       readTime: "15 min read",
       image: pack20Image("linkedin"),
@@ -411,7 +405,7 @@ export const article = {
     },
     {
       title: "How to Suppress Negative Search Results: The Reputation360 Framework",
-      href: SUPPRESS_FRAMEWORK_PATH,
+      href: BLOG_PATHS.suppressFramework,
       category: "Suppression Strategy",
       readTime: "18 min read",
       image: pack20Image("suppress"),

@@ -1,20 +1,14 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 export const SLUG = "remove-court-records-google-reputation360";
 export const PATH = blogPostPath(SLUG);
 
-const SUPPRESS_FRAMEWORK_PATH = blogPostPath(
-  "how-to-suppress-negative-search-results-reputation360-framework",
-);
-
-const REMOVAL_VS_SUPPRESSION_PATH = blogPostPath(
-  "removal-vs-suppression-which-actually-works-reputation360",
-);
-
-const NEGATIVE_LINKS_CASES_PATH = blogPostPath(
-  "negative-links-cost-jobs-deals-real-cases-reputation360",
-);
+const SUPPRESS_FRAMEWORK_PATH = BLOG_PATHS.suppressFramework;
+const REMOVAL_VS_SUPPRESSION_PATH = BLOG_PATHS.removalVsSuppression;
+const NEGATIVE_LINKS_CASES_PATH = BLOG_PATHS.negativeLinksCases;
+const SERVICES_PATH = "/services";
 
 const TOC = [
   { id: "why-court-records-rank", label: "01. Why court records rank on Google" },
@@ -73,16 +67,6 @@ export const article = {
     {
       type: "p",
       text: "Court records are one of the most complex and high-stakes categories in online reputation management - and one of the areas where Reputation360 has developed the deepest expertise. An arrest that led to dropped charges. A civil lawsuit settled without findings. A bankruptcy from a decade ago. Divorce proceedings. These are matters of public record, and in the internet era, public record means one thing: it shows up in Google when someone types your name.",
-      parts: [
-        { text: "Court records are one of the " },
-        {
-          text: "most complex and high-stakes categories in online reputation management",
-          href: "https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis",
-        },
-        {
-          text: " - and one of the areas where Reputation360 has developed the deepest expertise. An arrest that led to dropped charges. A civil lawsuit settled without findings. A bankruptcy from a decade ago. Divorce proceedings. These are matters of public record, and in the internet era, public record means one thing: it shows up in Google when someone types your name.",
-        },
-      ],
     },
     {
       type: "p",
@@ -122,16 +106,6 @@ export const article = {
               label: "Government databases",
               title: "Federal and state government databases",
               body: ".gov domains carry some of the highest domain authority on the internet. PACER (the US federal court records system), state court portals, and SEC EDGAR filings are all indexed by Google and rank extremely well because of the inherent authority Google assigns to government domains.",
-              parts: [
-                {
-                  text: ".gov domains carry some of the highest domain authority on the internet",
-                  href: "https://backlinko.com/increase-domain-authority",
-                  external: true,
-                },
-                {
-                  text: ". PACER (the US federal court records system), state court portals, and SEC EDGAR filings are all indexed by Google and rank extremely well because of the inherent authority Google assigns to government domains.",
-                },
-              ],
             },
             {
               id: "sec",
@@ -174,17 +148,7 @@ export const article = {
           type: "bullets",
           items: [
             "What expungement does: removes the record from official government criminal databases, which affects background check services that draw from official sources and may affect employment screening.",
-            {
-              text: "What expungement does not do: require news organizations to remove coverage of the original arrest or proceedings.",
-              parts: [
-                { text: "What expungement " },
-                {
-                  text: "does not require news organizations to remove coverage of the original arrest or proceedings",
-                  href: "https://www.thereputation360.com/blog/can-you-remove-news-articles-from-google-search",
-                },
-                { text: "." },
-              ],
-            },
+            "What expungement does not do: require news organizations to remove coverage of the original arrest or proceedings.",
             "It does not automatically remove legal database entries, court document repositories, or data aggregator listings.",
             "It does not de-index Google search results on its own.",
           ],
@@ -229,7 +193,7 @@ export const article = {
               titleParts: [
                 {
                   text: "Google de-indexing",
-                  href: "https://www.thereputation360.com/blog/remove-negative-search-results-from-google",
+                  href: BLOG_PATHS.removeNegative,
                 },
                 { text: " policies" },
               ],
@@ -265,7 +229,19 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "For the majority of court record cases - particularly those involving .gov sources, major legal databases, or news coverage that predates the current removal landscape - suppression is the primary path. This is not a fallback. It is a strategy that, when executed properly, produces significant and lasting results.",
+          text: "For the majority of court record cases - particularly those involving .gov sources, major legal databases, or news coverage that predates the current removal landscape - suppression is the primary path. This is not a fallback. It is a strategy that, when executed properly, produces significant and lasting results. When removal is rarely possible, removal vs. suppression explains why suppression should run in parallel from day one.",
+          parts: [
+            {
+              text: "For the majority of court record cases - particularly those involving .gov sources, major legal databases, or news coverage that predates the current removal landscape - suppression is the primary path. This is not a fallback. It is a strategy that, when executed properly, produces significant and lasting results. When removal is rarely possible, ",
+            },
+            {
+              text: "removal vs. suppression",
+              href: REMOVAL_VS_SUPPRESSION_PATH,
+            },
+            {
+              text: " explains why suppression should run in parallel from day one.",
+            },
+          ],
         },
         {
           type: "p",
@@ -278,12 +254,12 @@ export const article = {
             { text: "At Reputation360, " },
             {
               text: "court record suppression engagements",
-              href: "https://www.thereputation360.com/blog/how-to-suppress-negative-content-professionals-guide",
+              href: BLOG_PATHS.suppressProfessionals,
             },
             { text: " involve a " },
             {
-              text: "comprehensive, multi-channel build",
-              href: "https://www.thereputation360.com/blog/rank-positive-content-above-negative-results-reputation360-strategy",
+              text: "suppression strategy",
+              href: SUPPRESS_FRAMEWORK_PATH,
             },
             {
               text: ": personal websites optimized for name search, LinkedIn restructuring, social media profiles established and maintained across multiple platforms, press releases distributed through major wire services, expert media placements, professional directory profiles, and Wikipedia-eligible biographies where achievements warrant it. Every asset is cross-linked, maintained, and monitored - not published once and left static, but actively managed throughout the engagement.",
@@ -324,8 +300,8 @@ export const article = {
               parts: [
                 { text: "Start with a " },
                 {
-                  text: "professional audit of everything indexed for your name",
-                  href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
+                  text: "reputation audit",
+                  href: BLOG_PATHS.monitoring,
                 },
                 {
                   text: " - not just the obvious result, but every source and position. Understand what you are dealing with before deciding on approach.",
@@ -350,7 +326,18 @@ export const article = {
             {
               n: 5,
               title: "Request Google de-indexing",
-              body: "If expungement has been granted and certification is available, pursue Google's removal pathways with thorough documentation.",
+              body: "If expungement has been granted and certification is available, pursue Google's URL Removal Tool with thorough documentation.",
+              parts: [
+                {
+                  text: "If expungement has been granted and certification is available, pursue ",
+                },
+                {
+                  text: "Google's URL Removal Tool",
+                  href: "https://search.google.com/search-console/remove-outdated-content",
+                  external: true,
+                },
+                { text: " with thorough documentation." },
+              ],
             },
             {
               n: 6,
@@ -363,15 +350,6 @@ export const article = {
           type: "lead",
           label: "Where to start today",
           text: "Search your full name in an incognito window and label each page-one URL by source type: aggregator, news, .gov, legal database, or social. That map tells you which removal paths are worth effort and where suppression must lead.",
-          parts: [
-            {
-              text: "Search your full name in an incognito window and label each page-one URL",
-              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
-            },
-            {
-              text: " by source type: aggregator, news, .gov, legal database, or social. That map tells you which removal paths are worth effort and where suppression must lead.",
-            },
-          ],
         },
       ],
     },
@@ -403,7 +381,7 @@ export const article = {
       },
       {
         text: "our online reputation management services",
-        href: "https://www.thereputation360.com/services",
+        href: SERVICES_PATH,
       },
       { text: "." },
     ],

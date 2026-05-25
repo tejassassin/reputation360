@@ -1,20 +1,12 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 export const SLUG = "why-first-google-result-matters-psychology-reputation360";
 export const PATH = blogPostPath(SLUG);
 
-const SUPPRESS_FRAMEWORK_PATH = blogPostPath(
-  "how-to-suppress-negative-search-results-reputation360-framework",
-);
-
-const FIRST_PAGE_PATH = blogPostPath(
-  "own-your-first-page-control-google-results-reputation360",
-);
-
-const HIDDEN_COST_PATH = blogPostPath(
-  "hidden-cost-ignoring-online-reputation-reputation360-analysis",
-);
+const SERVICES_PATH = "/services";
+const CASE_STUDIES_PATH = "/case-studies";
 
 const TOC = [
   { id: "anchoring", label: "01. The anchoring effect in search" },
@@ -98,18 +90,15 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Anchoring is one of the most robust and well-documented cognitive biases in psychology research. First described by Amos Tversky and Daniel Kahneman, anchoring shows that people make decisions by starting from an initial value - the anchor - and adjusting from there, but they typically adjust insufficiently.",
+          text: "Anchoring bias is one of the most robust and well-documented cognitive biases in psychology research. First described by Amos Tversky and Daniel Kahneman, it shows that people make decisions by starting from an initial value - the anchor - and adjusting from there, but they typically adjust insufficiently.",
           parts: [
             {
-              text: "Anchoring is ",
-            },
-            {
-              text: "one of the most robust and well-documented cognitive biases in psychology",
-              href: "https://thedecisionlab.com/biases/anchoring-bias",
+              text: "Anchoring bias",
+              href: "https://en.wikipedia.org/wiki/Anchoring_(cognitive_bias)",
               external: true,
             },
             {
-              text: " research. First described by Amos Tversky and Daniel Kahneman, anchoring shows that people make decisions by starting from an initial value - the anchor - and adjusting from there, but they typically adjust insufficiently.",
+              text: " is one of the most robust and well-documented cognitive biases in psychology research. First described by Amos Tversky and Daniel Kahneman, it shows that people make decisions by starting from an initial value - the anchor - and adjusting from there, but they typically adjust insufficiently.",
             },
           ],
         },
@@ -126,7 +115,7 @@ export const article = {
             { text: "If the first result for your name is " },
             {
               text: "a fully optimised LinkedIn profile",
-              href: "https://www.thereputation360.com/blog/linkedin-profile-optimization-search-results-reputation360-checklist",
+              href: BLOG_PATHS.linkedinChecklist,
             },
             {
               text: ", subsequent results are interpreted through the lens of credible professional. If the first result is a critical news article, subsequent positive results are interpreted through the lens of did this happen? - and the positive content feels like the footnotes, not the story.",
@@ -143,19 +132,6 @@ export const article = {
         {
           type: "p",
           text: "Beyond psychology, there is a mathematical reality to first-position results. Research consistently shows position 1 captures 28-31% of all clicks. The second position captures roughly 15%. By position five, the click-through rate has dropped to under 7%. By position ten, it is below 2%.",
-          parts: [
-            {
-              text: "Beyond psychology, there is a mathematical reality to first-position results. ",
-            },
-            {
-              text: "Research consistently shows position 1 captures 28-31% of all clicks",
-              href: "https://backlinko.com/google-ctr-stats",
-              external: true,
-            },
-            {
-              text: ". The second position captures roughly 15%. By position five, the click-through rate has dropped to under 7%. By position ten, it is below 2%.",
-            },
-          ],
         },
         {
           type: "stats",
@@ -174,7 +150,7 @@ export const article = {
             },
             {
               text: "owning all ten positions on your first page",
-              href: "https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360",
+              href: BLOG_PATHS.ownFirstPage,
             },
             { text: " - not just defending a single slot." },
           ],
@@ -195,7 +171,7 @@ export const article = {
             },
             {
               text: "the tangible cost of a negative first impression",
-              href: "https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis",
+              href: BLOG_PATHS.hiddenCost,
             },
             {
               text: " compounds from there. This heuristic, known as algorithm trust, means that even inaccurate or one-sided content carries persuasive weight simply by virtue of appearing prominently in search.",
@@ -211,7 +187,7 @@ export const article = {
             },
             {
               text: "how recruiters process what they find in search",
-              href: "https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report",
+              href: BLOG_PATHS.recruitersReport,
             },
             {
               text: " follows the same rules. A LinkedIn profile in position 1 is not just informative - it is trusted. A press feature in position 3 is not just coverage - it is credible. Building authoritative positive assets into top positions does not just suppress negative content - it actively builds trust in the people who find those results.",
@@ -250,7 +226,7 @@ export const article = {
                 },
                 {
                   text: "real cases where the horns effect cost professionals opportunities",
-                  href: "https://www.thereputation360.com/blog/negative-links-cost-jobs-deals-real-cases-reputation360",
+                  href: BLOG_PATHS.negativeLinksCases,
                 },
                 { text: " demonstrate." },
               ],
@@ -263,7 +239,7 @@ export const article = {
           parts: [
             {
               text: "See how this plays out in real client cases",
-              href: "https://www.thereputation360.com/case-studies",
+              href: CASE_STUDIES_PATH,
             },
             {
               text: " when you want documented before-and-after outcomes across both halo and horns dynamics.",
@@ -289,20 +265,20 @@ export const article = {
               text: "For professionals across the US, Canada, Australia, and Europe engaged in business development, career transitions, investment contexts, and public-facing activities, the first result when someone searches their name may be the single most influential determinant of how they are perceived - before they ever say a word. ",
             },
             {
-              text: "The measurable outcomes of controlling your first result",
-              href: "https://www.thereputation360.com/blog/roi-reputation-management-what-clients-see-reputation360",
+              text: "measurable outcomes",
+              href: BLOG_PATHS.roi,
             },
             {
               text: " show why this is strategy, not vanity; if an interview is approaching, read ",
             },
             {
               text: "what to do before your next interview",
-              href: "https://www.thereputation360.com/blog/fix-reputation-before-job-interview-reputation360-guide",
+              href: BLOG_PATHS.interviewPrep,
             },
             { text: ". When you want professional execution, " },
             {
               text: "our reputation management services",
-              href: "https://www.thereputation360.com/services",
+              href: SERVICES_PATH,
             },
             { text: " build the assets that control position one." },
           ],
@@ -330,7 +306,7 @@ export const article = {
   relatedReading: [
     {
       title: "Own Your First Page: Reputation360's Strategy to Control Google Results",
-      href: FIRST_PAGE_PATH,
+      href: BLOG_PATHS.ownFirstPage,
       category: "First Page Strategy",
       readTime: "18 min read",
       image: pack20Image("rank"),
@@ -338,7 +314,7 @@ export const article = {
     },
     {
       title: "How to Suppress Negative Search Results: The Reputation360 Framework",
-      href: SUPPRESS_FRAMEWORK_PATH,
+      href: BLOG_PATHS.suppressFramework,
       category: "Suppression Strategy",
       readTime: "18 min read",
       image: pack20Image("suppress"),
@@ -346,7 +322,7 @@ export const article = {
     },
     {
       title: "The Hidden Cost of Ignoring Your Online Reputation",
-      href: HIDDEN_COST_PATH,
+      href: BLOG_PATHS.hiddenCost,
       category: "Reputation Analysis",
       readTime: "12 min read",
       image: pack20Image("cases"),

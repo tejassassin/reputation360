@@ -1,4 +1,4 @@
-import { createElement } from "react";
+import { createElement, Fragment } from "react";
 import {
   AlertTriangle,
   ArrowRight,
@@ -26,6 +26,23 @@ export function DiyInternalLink({ href, children, onClick }) {
       {children}
     </a>
   );
+}
+
+/** @param {{ text: string, parts?: { text: string, href?: string }[] }} props */
+export function DiyRichTextParts({ text, parts }) {
+  if (!parts?.length) {
+    return text;
+  }
+  return parts.map((part, index) => {
+    if (!part.href) {
+      return <Fragment key={`${part.text}-${index}`}>{part.text}</Fragment>;
+    }
+    return (
+      <DiyInternalLink key={`${part.href}-${index}`} href={part.href}>
+        {part.text}
+      </DiyInternalLink>
+    );
+  });
 }
 
 export function DiyInteractiveHint() {
@@ -298,7 +315,13 @@ export function StepPicker({
               {renderTitle ? renderTitle(active) : active.title}
             </h4>
             <div className="mt-2 font-body text-sm leading-relaxed text-jet sm:text-base">
-              {renderBody ? renderBody(active) : active.body}
+              {renderBody ? (
+                renderBody(active)
+              ) : active.bodyParts?.length ? (
+                <DiyRichTextParts text={active.body} parts={active.bodyParts} />
+              ) : (
+                active.body
+              )}
             </div>
           </div>
         </div>

@@ -1,20 +1,13 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
 export const SLUG = "online-reputation-management-best-practices-reputation360-methodology";
 export const PATH = blogPostPath(SLUG);
 
-const SUPPRESS_FRAMEWORK_PATH = blogPostPath(
-  "how-to-suppress-negative-search-results-reputation360-framework",
-);
-
-const FIRST_PAGE_PATH = blogPostPath(
-  "own-your-first-page-control-google-results-reputation360",
-);
-
-const REMOVAL_VS_PATH = blogPostPath(
-  "removal-vs-suppression-which-actually-works-reputation360",
-);
+const SUPPRESS_FRAMEWORK_PATH = BLOG_PATHS.suppressFramework;
+const FIRST_PAGE_PATH = BLOG_PATHS.ownFirstPage;
+const REMOVAL_VS_PATH = BLOG_PATHS.removalVsSuppression;
 
 const TOC = [
   { id: "principle-intelligence", label: "01. Start with intelligence, not action" },
@@ -82,18 +75,6 @@ export const article = {
     {
       type: "p",
       text: "Online reputation management is not a single action - it is a system. It is a coordinated, ongoing set of activities that together determine how a person or brand is perceived across the internet, and specifically how they appear in search. After seven years of hands-on reputation work with more than 1,100 clients in the US, Canada, Australia, and Europe, Reputation360 has developed a methodology that produces consistent results across a wide range of situations.",
-      parts: [
-        {
-          text: "Online reputation management is not a single action - it is a system. It is a coordinated, ongoing set of activities that together determine how a person or brand is perceived across the internet, and specifically how they appear in search. After ",
-        },
-        {
-          text: "seven years of hands-on reputation work",
-          href: "https://www.thereputation360.com/about",
-        },
-        {
-          text: " with more than 1,100 clients in the US, Canada, Australia, and Europe, Reputation360 has developed a methodology that produces consistent results across a wide range of situations.",
-        },
-      ],
     },
     {
       type: "p",
@@ -104,7 +85,7 @@ export const article = {
         },
         {
           text: "the cost of leaving reputation management too late",
-          href: "https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis",
+          href: BLOG_PATHS.hiddenCost,
         },
         { text: " so the stakes are clear before the principles begin." },
       ],
@@ -133,18 +114,6 @@ export const article = {
         {
           type: "p",
           text: "The Reputation360 methodology begins with a comprehensive intelligence phase: mapping all current search results for the target name and brand, auditing the domain authority and backlink profile of each negative result, identifying every platform that ranks for the target name (claimed and unclaimed), and flagging old social content that surfaces during a search audit. Benchmark the competitive landscape to understand what it will take to displace the most problematic content.",
-          parts: [
-            {
-              text: "The Reputation360 methodology begins with a comprehensive intelligence phase: mapping all current search results for the target name and brand, auditing the domain authority and backlink profile of each negative result, identifying every platform that ranks for the target name (claimed and unclaimed), and flagging ",
-            },
-            {
-              text: "old social content that surfaces during a search audit",
-              href: "https://www.thereputation360.com/blog/old-social-media-posts-showing-up-google-reputation360-guide",
-            },
-            {
-              text: ". Benchmark the competitive landscape to understand what it will take to displace the most problematic content.",
-            },
-          ],
         },
         {
           type: "p",
@@ -170,7 +139,7 @@ export const article = {
                 { text: "For individuals: " },
                 {
                   text: "a fully optimised LinkedIn profile",
-                  href: "https://www.thereputation360.com/blog/linkedin-profile-optimization-search-results-reputation360-checklist",
+                  href: BLOG_PATHS.linkedinChecklist,
                 },
                 {
                   text: ", a professional personal website on a name-matched domain, and Crunchbase or equivalent professional profiles.",
@@ -189,7 +158,7 @@ export const article = {
             },
             {
               text: "claiming and optimising the right platforms",
-              href: "https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
+              href: BLOG_PATHS.profileClaiming,
             },
             {
               text: " before you invest in press and links. They also provide the anchor points for the link-building that follows - when press releases and media coverage link back to your personal website and LinkedIn, those links benefit your foundation assets directly.",
@@ -223,16 +192,6 @@ export const article = {
         {
           type: "p",
           text: "Reputation360 creates content structured to outrank negative results at every level: our press releases go through major, credible wire services; our authored articles are placed on established industry publications; our profile content is complete, keyword-optimized, and regularly updated. Every piece of content we create is built to earn its ranking through genuine quality, not manipulation.",
-          parts: [
-            { text: "Reputation360 creates " },
-            {
-              text: "content structured to outrank negative results",
-              href: "https://www.thereputation360.com/blog/rank-positive-content-above-negative-results-reputation360-strategy",
-            },
-            {
-              text: " at every level: our press releases go through major, credible wire services; our authored articles are placed on established industry publications; our profile content is complete, keyword-optimized, and regularly updated. Every piece of content we create is built to earn its ranking through genuine quality, not manipulation.",
-            },
-          ],
         },
       ],
     },
@@ -243,20 +202,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Content does not rank on quality alone. Links from other authoritative domains tell Google that a page is trustworthy and relevant - which is why links from authoritative domains signal trust to Google in the first place. Building a legitimate, high-quality link profile to each positive asset is a non-negotiable component of effective reputation management.",
-          parts: [
-            {
-              text: "Content does not rank on quality alone. Links from other authoritative domains tell Google that a page is trustworthy and relevant - which is ",
-            },
-            {
-              text: "why links from authoritative domains signal trust to Google",
-              href: "https://moz.com/learn/seo/link-building",
-              external: true,
-            },
-            {
-              text: " in the first place. Building a legitimate, high-quality link profile to each positive asset is a non-negotiable component of effective reputation management.",
-            },
-          ],
+          text: "Content does not rank on quality alone. Links from other authoritative domains tell Google that a page is trustworthy and relevant. Building a legitimate, high-quality link profile to each positive asset is a non-negotiable component of effective reputation management.",
         },
         {
           type: "p",
@@ -283,7 +229,17 @@ export const article = {
         },
         {
           type: "p",
-          text: "Our standard suppression engagements involve creating and optimizing a minimum of 8 to 12 distinct positive assets: a combination of profiles, articles, press releases, and content pages. For high-authority negative content, the number may be higher. The goal is to occupy the majority of first-page positions with an ecosystem of positive content that collectively outweighs the negative result.",
+          text: "Our standard suppression engagements involve creating and optimizing a minimum of 8 to 12 distinct positive assets: a combination of profiles, articles, press releases, and content pages. For high-authority negative content, the number may be higher. The goal is to occupy the majority of first-page positions with an ecosystem of positive content that collectively outweighs the negative result. See the suppression framework for how those assets connect in sequence.",
+          parts: [
+            {
+              text: "Our standard suppression engagements involve creating and optimizing a minimum of 8 to 12 distinct positive assets: a combination of profiles, articles, press releases, and content pages. For high-authority negative content, the number may be higher. The goal is to occupy the majority of first-page positions with an ecosystem of positive content that collectively outweighs the negative result. See the ",
+            },
+            {
+              text: "suppression framework",
+              href: SUPPRESS_FRAMEWORK_PATH,
+            },
+            { text: " for how those assets connect in sequence." },
+          ],
         },
       ],
     },
@@ -305,7 +261,7 @@ export const article = {
             },
             {
               text: "continuous search monitoring in practice",
-              href: "https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360",
+              href: BLOG_PATHS.monitoring,
             },
             {
               text: ". This ongoing maintenance is what separates durable reputation management from a one-time fix that gradually unwinds.",
@@ -334,7 +290,7 @@ export const article = {
             },
             {
               text: "realistic timelines for different types of reputation work",
-              href: "https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation",
+              href: BLOG_PATHS.repairTimeline,
             },
             {
               text: " for the full breakdown. Our 97% success rate is not the result of overpromising - it is the result of accurate assessment and disciplined execution.",
@@ -387,7 +343,7 @@ export const article = {
             },
             {
               text: "See the methodology applied in real client cases",
-              href: "https://www.thereputation360.com/case-studies",
+              href: "/case-studies",
             },
             { text: " when you want documented before-and-after outcomes." },
           ],
@@ -423,15 +379,15 @@ export const article = {
         },
         {
           type: "p",
-          text: "After year one and year three patterns above, see what the results look like at different stages of engagement - from first page-one movement through long-term maintenance value.",
+          text: "After year one and year three patterns above, see ROI of reputation management for what clients see at different stages of engagement - from first page-one movement through long-term maintenance value.",
           parts: [
             { text: "After year one and year three patterns above, see " },
             {
-              text: "what the results look like at different stages of engagement",
-              href: "https://www.thereputation360.com/blog/roi-reputation-management-what-clients-see-reputation360",
+              text: "ROI of reputation management",
+              href: BLOG_PATHS.roi,
             },
             {
-              text: " - from first page-one movement through long-term maintenance value.",
+              text: " for what clients see at different stages of engagement - from first page-one movement through long-term maintenance value.",
             },
           ],
         },
