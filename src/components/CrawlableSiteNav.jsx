@@ -2,6 +2,7 @@ import { CASE_STUDIES } from "../data/caseStudies/index.js";
 import { reputationServices } from "../data/reputationServices.jsx";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
+import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 const MAIN_PAGES = [
   { href: "/", label: "Home" },
@@ -44,7 +45,9 @@ export function CrawlableSiteNav() {
       <ul className="list-none space-y-1 p-0">
         {MAIN_PAGES.map((item) => (
           <li key={item.href}>
-            <a href={item.href}>{item.label}</a>
+            <a href={item.href} {...internalAnchorProps(item.href)}>
+              {item.label}
+            </a>
           </li>
         ))}
       </ul>
@@ -52,7 +55,9 @@ export function CrawlableSiteNav() {
       <ul className="list-none space-y-1 p-0">
         {AUDIENCE_LINKS.map((item) => (
           <li key={item.href}>
-            <a href={item.href}>{item.label}</a>
+            <a href={item.href} {...internalAnchorProps(item.href)}>
+              {item.label}
+            </a>
           </li>
         ))}
       </ul>
@@ -60,7 +65,9 @@ export function CrawlableSiteNav() {
       <ul className="list-none space-y-1 p-0">
         {reputationServices.map((s) => (
           <li key={s.id}>
-            <a href="/services">{s.title}</a>
+            <a href="/services" {...internalAnchorProps("/services")}>
+              {s.title}
+            </a>
           </li>
         ))}
       </ul>
@@ -68,7 +75,12 @@ export function CrawlableSiteNav() {
       <ul className="list-none space-y-1 p-0">
         {CASE_STUDIES.map((study) => (
           <li key={study.n}>
-            <a href={`/case-studies/${study.slug}`}>{study.listTitle}</a>
+            <a
+              href={`/case-studies/${study.slug}`}
+              {...internalAnchorProps(`/case-studies/${study.slug}`)}
+            >
+              {study.listTitle}
+            </a>
           </li>
         ))}
       </ul>

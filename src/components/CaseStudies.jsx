@@ -4,6 +4,7 @@ import { useReducedMotion } from "motion/react";
 import { CASE_STUDIES, CASE_STUDIES_FOOTER } from "@/data/caseStudies/index.js";
 import { getOutcomeAndKeyPoints } from "@/utils/caseStudyGlimpse.js";
 import { parseEngagementMonths } from "@/utils/parseEngagement.js";
+import { internalAnchorProps } from "@/lib/internalLinkProps.js";
 
 const GLIMPSE_COUNT = 5;
 const SCROLL_PAD = 0.86;
@@ -85,7 +86,12 @@ function CaseStudies() {
           <ul className="m-0 list-none p-0">
             {cards.map((study) => (
               <li key={study.n} className="list-none">
-                <a href={`/case-studies/${study.slug}`}>{study.listTitle}</a>
+                <a
+                  href={`/case-studies/${study.slug}`}
+                  {...internalAnchorProps(`/case-studies/${study.slug}`)}
+                >
+                  {study.listTitle}
+                </a>
               </li>
             ))}
           </ul>
@@ -129,6 +135,7 @@ function CaseStudies() {
                 >
                   <a
                     href={caseStudyHref}
+                    {...internalAnchorProps(caseStudyHref)}
                     className="r360-cs-tile group/card flex h-full min-h-[20rem] flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-gradient-to-b from-white via-white to-slate-50/60 text-left no-underline shadow-[0_4px_28px_-10px_rgba(31,59,100,0.14)] ring-1 ring-slate-200/30 transition duration-300 hover:-translate-y-0.5 hover:border-slate-300/60 hover:shadow-[0_24px_44px_-22px_rgba(31,59,100,0.22)] motion-reduce:transition-shadow motion-reduce:hover:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green sm:min-h-[21rem]"
                   >
                     <div
@@ -236,6 +243,7 @@ function CaseStudies() {
         <div className="mt-10 text-center sm:mt-12">
           <a
             href="/case-studies"
+            {...internalAnchorProps("/case-studies")}
             className="group inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-gradient-to-b from-white to-slate-50/90 px-5 py-2.5 font-heading text-sm font-bold text-slate shadow-md ring-1 ring-slate-200/50 transition hover:-translate-y-0.5 hover:border-[#4CAF50]/45 hover:from-white hover:to-[#f0faf4] hover:shadow-lg hover:ring-[#4CAF50]/20"
           >
             All {total} case studies

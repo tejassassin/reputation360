@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import BrandSectionBackdrop from "./BrandSectionBackdrop";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
+import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 /** Header “Who We Serve?” links to /who-we-serve; each card links to its audience page. */
 const categories = [
@@ -87,7 +88,7 @@ function AudienceCard({ title, description, linkLabel, href, icon, className = "
   const IconComponent = icon;
   return (
     <li className={["list-none", className].filter(Boolean).join(" ")}>
-      <a href={href} className={audienceCardLinkClassName}>
+      <a href={href} {...internalAnchorProps(href)} className={audienceCardLinkClassName}>
         <div
           className="pointer-events-none absolute -right-12 -top-12 h-24 w-24 rounded-bl-full bg-slate/20 transition-transform duration-500 group-hover:scale-150"
           aria-hidden
@@ -147,7 +148,9 @@ export default function WhoWeServeCards() {
           <ul className="m-0 list-none p-0">
             {categories.map((cat) => (
               <li key={cat.href} className="list-none">
-                <a href={cat.href}>{cat.linkLabel}</a>
+                <a href={cat.href} {...internalAnchorProps(cat.href)}>
+                  {cat.linkLabel}
+                </a>
               </li>
             ))}
           </ul>

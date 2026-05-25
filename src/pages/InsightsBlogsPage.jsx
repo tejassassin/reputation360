@@ -18,6 +18,7 @@ import {
 import { article as socialPostsArticle } from "../data/blogs/pack20/blog05.js";
 import { article as crisisPlaybookArticle } from "../data/blogs/pack20/blog08.js";
 import { article as ormMethodologyArticle } from "../data/blogs/pack20/blog15.js";
+import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 const FEATURED_PACK_INSIGHTS = [
   socialPostsArticle.listing,
@@ -112,6 +113,7 @@ function InsightsBlogsPage() {
             </div>
             <a
               href="#latest-articles"
+              {...internalAnchorProps("#latest-articles")}
               className="group ha-nudge flex items-center gap-2 self-start rounded-lg bg-[#02254d] px-4 py-2.5 font-semibold text-white no-underline transition-colors hover:bg-[#35618e] sm:self-auto"
             >
               <span>Browse all articles</span>
@@ -122,6 +124,7 @@ function InsightsBlogsPage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
             <a
               href={DIY_REPUTATION_GUIDE_PATH}
+              {...internalAnchorProps(DIY_REPUTATION_GUIDE_PATH)}
               className="group ha-lift relative flex min-h-[400px] flex-col justify-end overflow-hidden rounded-xl bg-[#02254d] p-8 text-white no-underline outline-none focus-visible:ring-2 focus-visible:ring-[#78dc77] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff] md:col-span-2 md:row-span-2 md:min-h-[500px]"
             >
               <div className="absolute inset-0 z-0">
@@ -155,6 +158,7 @@ function InsightsBlogsPage() {
                   <a
                     key={insight.id}
                     href={href}
+                    {...internalAnchorProps(href)}
                     className="glass-card group ha-lift flex flex-col justify-between rounded-xl border-none p-6 text-left no-underline transition-colors hover:bg-[#e1e8fd] md:col-span-2 outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff]"
                   >
                     <div>
@@ -180,6 +184,7 @@ function InsightsBlogsPage() {
                 <a
                   key={insight.id}
                   href={href}
+                  {...internalAnchorProps(href)}
                   className={`group ha-lift flex flex-col justify-between rounded-xl border-none p-6 text-left no-underline transition-shadow hover:shadow-xl md:col-span-1 outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff] ${
                     isCrisis ? "bg-[#f1f3ff]" : "bg-white"
                   }`}
@@ -282,6 +287,7 @@ function InsightsBlogsPage() {
                 <a
                   key={article.id}
                   href={`/blog/${slug}`}
+                  {...internalAnchorProps(`/blog/${slug}`)}
                   className="group block rounded-xl text-left no-underline outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f9f9ff]"
                 >
                   {cardInner}

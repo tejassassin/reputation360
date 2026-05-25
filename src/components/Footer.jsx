@@ -9,6 +9,7 @@ import {
   contactWhatsAppHref,
   handleMailtoClick,
 } from "../constants/contact.js";
+import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 /** All legal / policy pages shown under the Policies column. Add new documents here only. */
 const POLICY_LINKS = [
@@ -57,6 +58,7 @@ function Footer() {
                 <li key={idx}>
                   <a
                     href={item.link}
+                    {...internalAnchorProps(item.link)}
                     className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
                   >
                     {item.name}
@@ -72,6 +74,7 @@ function Footer() {
                 <li key={idx}>
                   <a
                     href="/services"
+                    {...internalAnchorProps("/services")}
                     title={title}
                     className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
                   >
@@ -88,6 +91,7 @@ function Footer() {
                 <li key={item.href}>
                   <a
                     href={item.href}
+                    {...internalAnchorProps(item.href)}
                     className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
                   >
                     {item.name}

@@ -30,6 +30,7 @@ import { StatNumber } from "../components/StatNumber.jsx";
 import { homeTestimonials } from "../data/homeTestimonials.js";
 import { testimonialPortraitUrl } from "../data/testimonialPortraits.js";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
+import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 const whoWeAreStats = [
   { head: "Global", partA: "Time zones", partB: "covered", Icon: Globe2 },
@@ -1275,6 +1276,7 @@ function AboutPage() {
                 <li key={id} className="shrink-0">
                   <Motion.a
                     href={`#${id}`}
+                    {...internalAnchorProps(`#${id}`)}
                     aria-current={isActive ? "location" : undefined}
                     onClick={() => setActiveSectionId(id)}
                     whileHover={{ scale: 1.02 }}
@@ -1560,6 +1562,7 @@ function AboutPage() {
               >
                 <Motion.a
                   href={href}
+                  {...internalAnchorProps(href)}
                   whileHover={{ y: -6 }}
                   transition={{ type: "spring", stiffness: 400, damping: 28 }}
                   className={`group flex h-full flex-col items-start rounded-2xl border border-slate-200/90 bg-gradient-to-br from-slate-50 to-white p-8 text-left no-underline shadow-sm transition-shadow duration-300 hover:border-green/25 hover:shadow-[0_24px_50px_-28px_rgba(31,59,100,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green/50 focus-visible:ring-offset-2 ${wide ? "lg:flex-row lg:items-center lg:gap-10 lg:p-10" : ""}`}

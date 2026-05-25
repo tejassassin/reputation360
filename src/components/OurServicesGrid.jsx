@@ -4,6 +4,7 @@ import {
   CORE_SERVICE_ID,
   reputationServices,
 } from "../data/reputationServices";
+import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 const coreService =
   reputationServices.find((s) => s.id === CORE_SERVICE_ID) ?? reputationServices[0];
@@ -43,6 +44,7 @@ function ServiceCard({ service, expanded, onToggle, isCore = false }) {
     >
       <a
         href={SERVICES_HREF}
+        {...internalAnchorProps(SERVICES_HREF)}
         className="flex w-full flex-col items-center gap-2.5 rounded-lg text-center no-underline outline-none focus-visible:ring-2 focus-visible:ring-green/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy sm:gap-3"
       >
         <div className={`${serviceIconWrap} ${iconSize}`}>{service.icon}</div>
@@ -137,6 +139,7 @@ export function OurServicesGrid() {
       <p className="r3-our-services-more mt-8 text-center font-body text-sm text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] md:mt-10 md:text-base">
         <a
           href={SERVICES_HREF}
+          {...internalAnchorProps(SERVICES_HREF)}
           className="font-medium text-inherit underline decoration-white/45 underline-offset-4 transition hover:text-white hover:decoration-green/80"
         >
           Explore our Online Reputation Management Services

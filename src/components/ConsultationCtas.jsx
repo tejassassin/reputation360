@@ -4,6 +4,7 @@ import {
   freeScanLinkProps,
 } from "@/constants/freeRiskScan";
 import { cn } from "@/lib/utils";
+import { internalAnchorProps } from "@/lib/internalLinkProps.js";
 
 const VARIANTS = {
   hero: {
@@ -85,7 +86,7 @@ export function ConsultationCtas({
 }) {
   const styles = VARIANTS[variant] ?? VARIANTS.onLight;
   const consultProps = consultHref
-    ? { href: consultHref, ...consultLinkProps }
+    ? { href: consultHref, ...internalAnchorProps(consultHref), ...consultLinkProps }
     : calendlyNewTabProps;
 
   return (

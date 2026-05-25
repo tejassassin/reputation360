@@ -4,46 +4,28 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { CrawlableSiteNav } from "./components/CrawlableSiteNav.jsx";
 import DeferredGlobalContactDock from "./components/DeferredGlobalContactDock.jsx";
+import { applyNewTabToAnchors } from "./lib/internalLinkProps.js";
 
 function App({ children }) {
   useEffect(() => {
-    const onClick = (e) => {
-      if (e.defaultPrevented) return;
-      if (typeof e.button === "number" && e.button !== 0) return;
-      const el = e.target;
-      if (!(el instanceof Element)) return;
-      const a = el.closest("a[href]");
-      if (!a || !(a instanceof HTMLAnchorElement)) return;
-      const rawHref = a.getAttribute("href")?.trim() ?? "";
-      if (
-        rawHref.startsWith("mailto:") ||
-        rawHref.startsWith("tel:") ||
-        rawHref.startsWith("sms:")
-      ) {
-        return;
-      }
-      if (a.target === "_blank" || a.hasAttribute("download")) return;
-      let url;
-      try {
-        url = new URL(a.href);
-      } catch {
-        return;
-      }
-      if (url.protocol !== "http:" && url.protocol !== "https:") return;
-      if (url.origin !== window.location.origin) return;
-      if (
-        url.pathname === window.location.pathname &&
-        url.search === window.location.search
-      ) {
-        return;
-      }
-      const hrefAttr = a.getAttribute("href");
-      if (hrefAttr?.startsWith("#")) return;
-      e.preventDefault();
-      window.location.assign(url.href);
+    let frame = 0;
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => applyNewTabToAnchors());
     };
-    document.addEventListener("click", onClick, true);
-    return () => document.removeEventListener("click", onClick, true);
+
+    schedule();
+
+    const observer = new MutationObserver(schedule);
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
   }, []);
 
   return (

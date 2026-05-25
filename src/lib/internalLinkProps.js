@@ -6,6 +6,8 @@ const SITE_HOSTS = new Set([
   "127.0.0.1",
 ]);
 
+const NEW_TAB_REL = "noopener noreferrer";
+
 /**
  * True for same-site paths and hash links (not mailto/tel/external).
  * @param {string | undefined | null} href
@@ -31,10 +33,37 @@ export function isInternalHref(href) {
 }
 
 /**
- * Anchor props for SEO: internal links stay in-tab; external open in a new tab.
+ * True when the href should not be forced into a new tab (mailto, tel, downloads).
+ * @param {string | undefined | null} href
+ */
+export function shouldOpenInNewTab(href) {
+  if (!href || typeof href !== "string") return false;
+  const trimmed = href.trim();
+  if (!trimmed) return false;
+  if (/^(mailto|tel|sms):/i.test(trimmed)) return false;
+  return true;
+}
+
+/**
+ * Anchor props: site-wide links open in a new tab (except mailto/tel/sms).
  * @param {string | undefined | null} href
  */
 export function internalAnchorProps(href) {
-  if (isInternalHref(href)) return {};
-  return { target: "_blank", rel: "noopener noreferrer" };
+  if (!shouldOpenInNewTab(href)) return {};
+  return { target: "_blank", rel: NEW_TAB_REL };
+}
+
+/**
+ * Apply target="_blank" to all in-document anchors (runtime safety net for static/legacy markup).
+ */
+export function applyNewTabToAnchors(root = document) {
+  root.querySelectorAll("a[href]").forEach((node) => {
+    if (!(node instanceof HTMLAnchorElement)) return;
+    if (node.hasAttribute("download")) return;
+    const href = node.getAttribute("href")?.trim() ?? "";
+    if (!shouldOpenInNewTab(href)) return;
+    if (node.target === "_blank") return;
+    node.target = "_blank";
+    node.rel = NEW_TAB_REL;
+  });
 }

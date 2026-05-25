@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 /**
  * Catches client-side render errors (e.g. a bug on one route) so the whole app
@@ -26,7 +27,11 @@ export class ErrorBoundary extends Component {
             {String(this.state.error?.message || this.state.error)}
           </pre>
           <p className="mt-4">
-            <a href="/" className="font-semibold text-navy underline">
+            <a
+              href="/"
+              {...internalAnchorProps("/")}
+              className="font-semibold text-navy underline"
+            >
               Go to home
             </a>
           </p>

@@ -11,6 +11,7 @@ import {
 } from "@/lib/formatReputationReport.js";
 import { AI_REPUTATION_SCAN_PATH } from "@/constants/reputationAgent.js";
 import { CONTACT_EMAIL } from "@/constants/contact.js";
+import { internalAnchorProps } from "@/lib/internalLinkProps.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const SCAN_START_PROMPT = "Scan a person's reputation";
@@ -34,16 +35,13 @@ function buildWelcomeMessage() {
 
 /**
  * @param {{ href: string; label: string }} cta
- * @param {boolean} isExternal
  */
-function CtaLink({ cta, isExternal }) {
+function CtaLink({ cta }) {
   return (
     <a
       href={cta.href}
       className="mt-2 inline-flex text-sm font-semibold text-[#2E5B88] underline decoration-[#4CAF50]/50 underline-offset-2 hover:decoration-[#4CAF50]"
-      {...(isExternal
-        ? { target: "_blank", rel: "noopener noreferrer" }
-        : {})}
+      {...internalAnchorProps(cta.href)}
     >
       {cta.label}
     </a>
@@ -67,12 +65,7 @@ function ChatBubble({ role, text, cta }) {
         }
       >
         <p className="whitespace-pre-wrap">{text}</p>
-        {cta ? (
-          <CtaLink
-            cta={cta}
-            isExternal={/^https?:\/\//i.test(cta.href)}
-          />
-        ) : null}
+        {cta ? <CtaLink cta={cta} /> : null}
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { motion as Motion } from "motion/react";
 import { ArrowUpRight, Building2, Fingerprint, User } from "lucide-react";
 import { caseStudyListTeaser } from "../utils/caseStudyTeaser.js";
 import { CaseStudyEngagementBlock } from "./CaseStudyEngagementBlock.jsx";
+import { internalAnchorProps } from "../lib/internalLinkProps.js";
 import {
   CASE_STUDY_CARD_BAR,
   CASE_STUDY_CARD_SHELL,
@@ -39,6 +40,7 @@ export function CaseStudyListCard({ study, index }) {
     >
       <a
         href={href}
+        {...internalAnchorProps(href)}
         className={[
           CASE_STUDY_CARD_SHELL,
           "block text-left no-underline transition-shadow duration-300",

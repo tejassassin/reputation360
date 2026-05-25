@@ -117,6 +117,7 @@ export const NavItems = ({
           {parentIsDropdownOnly ? (
             <a
               href={item.link}
+              {...internalAnchorProps(item.link)}
               className="group relative block w-full shrink-0 whitespace-nowrap rounded-full px-2.5 py-1.5 text-left text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
               aria-haspopup="menu"
               aria-expanded={hovered === h}
@@ -138,6 +139,7 @@ export const NavItems = ({
               }}
               className="group relative block shrink-0 whitespace-nowrap rounded-full px-2.5 py-1.5 text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
               href={item.link}
+              {...internalAnchorProps(item.link)}
             >
               <span
                 className="pointer-events-none absolute inset-0 rounded-full bg-white/0 transition-colors duration-200 group-hover:bg-white/10 group-focus-visible:bg-white/10"
@@ -278,6 +280,7 @@ export const NavbarLogo = ({
   return (
     <a
       href="/"
+      {...internalAnchorProps("/")}
       className={cn(
         "relative z-20 flex shrink-0 items-center gap-2.5 py-1 pr-2 text-xl font-bold text-white font-heading transition-transform duration-200 hover:scale-[1.02] sm:gap-3 sm:pr-3",
         "lg:self-center lg:pr-4 2xl:pr-2",
@@ -336,6 +339,8 @@ export const NavbarButton = ({
     gradient: "bg-gradient-to-b from-blue-500 to-blue-700 text-white",
   };
 
+  const newTabProps = href ? internalAnchorProps(href) : {};
+
   return (
     <Tag
       href={href || undefined}
@@ -345,6 +350,7 @@ export const NavbarButton = ({
         "shrink-0",
         className,
       )}
+      {...newTabProps}
       {...props}
     >
       {children}

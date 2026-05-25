@@ -147,6 +147,7 @@ function Header() {
           >
             <NavbarButton
               href={FREE_RISK_SCAN_PATH}
+              {...internalAnchorProps(FREE_RISK_SCAN_PATH)}
               variant="secondary"
               className="!px-4 !py-2 text-sm sm:!px-5 sm:text-sm"
             >
@@ -186,6 +187,7 @@ function Header() {
                 {item.parentNonNavigable && item.children?.length ? (
                   <a
                     href={item.link}
+                    {...internalAnchorProps(item.link)}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="relative block rounded-lg px-2 py-1 font-heading font-medium text-white transition-all hover:bg-white/10 hover:text-green"
                   >
@@ -194,6 +196,7 @@ function Header() {
                 ) : (
                   <a
                     href={item.link}
+                    {...internalAnchorProps(item.link)}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="relative rounded-lg px-2 py-1 text-white font-heading font-medium transition-all hover:scale-[1.02] hover:bg-white/10 hover:text-green"
                   >
@@ -216,6 +219,7 @@ function Header() {
             <div className="flex w-full flex-col gap-4">
               <NavbarButton
                 href={FREE_RISK_SCAN_PATH}
+                {...internalAnchorProps(FREE_RISK_SCAN_PATH)}
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="secondary"
                 className="w-full"

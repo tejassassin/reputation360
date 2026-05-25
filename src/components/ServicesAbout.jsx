@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion as Motion } from "motion/react";
 import { ConsultationCtas } from "./ConsultationCtas";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
+import { internalAnchorProps } from "../lib/internalLinkProps.js";
 import {
   FileText,
   TrendingUp,
@@ -746,9 +747,6 @@ function ServicesAbout() {
           <h3 className="text-center font-heading text-3xl font-bold tracking-tight text-navy md:text-4xl">
             How Long Does It Take?
           </h3>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-sm font-medium text-navy/55">
-            Click any phase to see what it involves.
-          </p>
 
           <div className="mx-auto mt-8 max-w-5xl overflow-hidden rounded-xl border border-navy/12 bg-white shadow-[0_12px_40px_-24px_rgba(31,59,100,0.12)] md:mt-10 md:rounded-2xl">
             <div
@@ -935,10 +933,6 @@ function ServicesAbout() {
           <h3 className="who-we-work-with-heading text-center font-heading font-bold tracking-tight text-navy">
             Who We Work With
           </h3>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-navy/70 md:text-base">
-            The same audiences we support across Reputation360. Open a dedicated page
-            for scope, approach, and examples.
-          </p>
           <div className="mt-8 grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 md:mt-9 md:gap-5 xl:grid-cols-3">
             {whoWeWorkWithCards.map((card) => {
               const Icon = card.Icon;
@@ -946,6 +940,7 @@ function ServicesAbout() {
                 <a
                   key={card.id}
                   href={card.href}
+                  {...internalAnchorProps(card.href)}
                   className={`ha-lift flex h-full flex-col rounded-2xl border border-navy/10 bg-white p-6 text-left no-underline shadow-sm transition-[border-color,box-shadow] duration-200 hover:border-navy/18 hover:shadow-[0_12px_32px_-18px_rgba(31,59,100,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green/50 focus-visible:ring-offset-2 md:p-7 ${
                     card.id === "businesses"
                       ? "sm:col-span-2 sm:max-w-md sm:justify-self-center xl:col-span-1 xl:col-start-2 xl:max-w-none xl:justify-self-stretch"
