@@ -71,14 +71,14 @@ const categories = [
   },
 ];
 
-/** Matches “Why clients…”: frosted card, growth green on icon ring only. Card body is not a link; only the SEO anchor link navigates. */
+/** Matches “Why clients…”: frosted card, growth green on icon ring only. */
 const audienceCardClassName =
-  "ha-lift group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/6 p-6 shadow-[0_8px_32px_-8px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-all duration-300 sm:p-8 hover:-translate-y-0.5 hover:border-green/50 hover:from-white/18 hover:to-white/8 hover:shadow-[0_12px_40px_-10px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.12)]";
+  "ha-lift group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/6 p-6 text-left no-underline shadow-[0_8px_32px_-8px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-all duration-300 sm:p-8 hover:-translate-y-0.5 hover:border-green/50 hover:from-white/18 hover:to-white/8 hover:shadow-[0_12px_40px_-10px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green/70 focus-visible:ring-offset-2 focus-visible:ring-offset-navy";
 
 function AudienceCard(props) {
   const { title, description, linkLabel, href, Icon, className = "" } = props;
   return (
-    <div className={`${audienceCardClassName} ${className}`.trim()}>
+    <a href={href} className={`${audienceCardClassName} ${className}`.trim()}>
       <div
         className="pointer-events-none absolute -right-12 -top-12 h-24 w-24 rounded-bl-full bg-slate/20 transition-transform duration-500 group-hover:scale-150"
         aria-hidden
@@ -92,26 +92,18 @@ function AudienceCard(props) {
       <p className="mb-0 flex-1 text-[15px] font-medium leading-relaxed text-slate-100/95 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-base">
         {description}
       </p>
-      <div className="mt-6 border-t border-white/15 pt-5 sm:mt-7">
-        <a
-          href={href}
-          className="group/cta inline-flex w-full items-center justify-between gap-3 rounded-2xl text-left outline-none transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-green/70 focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+      <div className="mt-6 flex items-center justify-between gap-3 border-t border-white/15 pt-5 sm:mt-7">
+        <span className="min-w-0 flex-1 text-sm font-semibold leading-snug text-white [text-wrap:pretty] sm:text-[0.9375rem] sm:leading-normal">
+          {linkLabel}
+        </span>
+        <span
+          className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/25 bg-white/10 text-white shadow-sm transition duration-300 group-hover:scale-105 group-hover:border-green/50 group-hover:bg-green group-hover:text-navy sm:h-11 sm:w-11"
+          aria-hidden
         >
-          <span
-            className="min-w-0 flex-1 text-sm font-semibold leading-snug text-white [text-wrap:pretty] sm:text-[0.9375rem] sm:leading-normal"
-            title={linkLabel}
-          >
-            {linkLabel}
-          </span>
-          <span
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/25 bg-white/10 text-white shadow-sm transition duration-300 group-hover/cta:scale-105 group-hover/cta:border-green/50 group-hover/cta:bg-green group-hover/cta:text-navy sm:h-11 sm:w-11"
-            aria-hidden
-          >
-            <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2.25} />
-          </span>
-        </a>
+          <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2.25} />
+        </span>
       </div>
-    </div>
+    </a>
   );
 }
 

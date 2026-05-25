@@ -1,7 +1,7 @@
 import { calendlyCtaButtonClass, calendlyNewTabProps } from "@/constants/scheduling";
 import {
   FREE_REPUTATION_SCAN_LABEL,
-  freeScanNewTabProps,
+  freeScanLinkProps,
 } from "@/constants/freeRiskScan";
 import { cn } from "@/lib/utils";
 
@@ -90,7 +90,7 @@ export function ConsultationCtas({
 
   return (
     <div className={cn(styles.wrapper, wrapperClassName, className)}>
-      <a {...freeScanNewTabProps} className={cn(styles.freeScan, freeScanClassName)}>
+      <a {...freeScanLinkProps} className={cn(styles.freeScan, freeScanClassName)}>
         {freeScanLabel}
       </a>
       <a {...consultProps} className={cn(styles.consult, consultClassName)}>

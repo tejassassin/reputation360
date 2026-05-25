@@ -22,6 +22,7 @@ import {
   handleMailtoClick,
 } from "../constants/contact.js";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
+import { internalAnchorProps } from "../lib/internalLinkProps.js";
 import {
   FREE_REPUTATION_SCAN_LABEL,
   FREE_RISK_SCAN_PATH,
@@ -69,7 +70,7 @@ const navItems = [
       { name: "Insights & Blogs", link: "/blog" },
       { name: "Guide", link: "/resources/guide" },
       { name: "FAQs", link: "/resources/faqs" },
-      { name: FREE_REPUTATION_SCAN_LABEL, link: FREE_RISK_SCAN_PATH, newTab: true },
+      { name: FREE_REPUTATION_SCAN_LABEL, link: FREE_RISK_SCAN_PATH },
     ],
   },
 ];
@@ -146,8 +147,6 @@ function Header() {
           >
             <NavbarButton
               href={FREE_RISK_SCAN_PATH}
-              target="_blank"
-              rel="noopener noreferrer"
               variant="secondary"
               className="!px-4 !py-2 text-sm sm:!px-5 sm:text-sm"
             >
@@ -185,9 +184,13 @@ function Header() {
             {navItems.map((item, idx) => (
               <div key={`mobile-link-${idx}`} className="w-full">
                 {item.parentNonNavigable && item.children?.length ? (
-                  <div className="relative rounded-lg px-2 py-1 font-heading text-white">
-                    <span className="block font-medium text-white/95">{item.name}</span>
-                  </div>
+                  <a
+                    href={item.link}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="relative block rounded-lg px-2 py-1 font-heading font-medium text-white transition-all hover:bg-white/10 hover:text-green"
+                  >
+                    {item.name}
+                  </a>
                 ) : (
                   <a
                     href={item.link}
@@ -201,9 +204,7 @@ function Header() {
                   <a
                     key={`mobile-sublink-${item.name}-${subItem.name}`}
                     href={subItem.link}
-                    {...(subItem.newTab
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
+                    {...internalAnchorProps(subItem.link)}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="ha-nudge mt-2 ml-4 block rounded-md py-1 text-sm text-white/85 font-heading transition-colors hover:bg-white/10 hover:text-green"
                   >
@@ -215,8 +216,6 @@ function Header() {
             <div className="flex w-full flex-col gap-4">
               <NavbarButton
                 href={FREE_RISK_SCAN_PATH}
-                target="_blank"
-                rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="secondary"
                 className="w-full"

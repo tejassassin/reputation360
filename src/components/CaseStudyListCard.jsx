@@ -37,11 +37,13 @@ export function CaseStudyListCard({ study, index }) {
       }}
       className="group list-none will-change-transform"
     >
-      <article
+      <a
+        href={href}
         className={[
           CASE_STUDY_CARD_SHELL,
-          "transition-shadow duration-300",
-          "group-hover:shadow-[0_20px_50px_-16px_rgba(31,59,100,0.22),0_0_0_1px_rgba(76,175,80,0.15),inset_0_1px_0_#fff]",
+          "block text-left no-underline transition-shadow duration-300",
+          "hover:shadow-[0_20px_50px_-16px_rgba(31,59,100,0.22),0_0_0_1px_rgba(76,175,80,0.15),inset_0_1px_0_#fff]",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 focus-visible:ring-offset-offwhite",
         ].join(" ")}
       >
         <div className={CASE_STUDY_CARD_BAR} aria-hidden />
@@ -83,25 +85,20 @@ export function CaseStudyListCard({ study, index }) {
               />
             </div>
 
-            <div className="mt-6 border-t border-slate/15 pt-5 sm:mt-7">
-              <a
-                href={href}
-                className="group/cta inline-flex w-full max-w-full items-center justify-between gap-3 rounded-2xl text-left outline-none transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 focus-visible:ring-offset-offwhite"
+            <div className="mt-6 flex items-center justify-between gap-3 border-t border-slate/15 pt-5 sm:mt-7">
+              <span className="text-base font-bold text-navy sm:text-lg">
+                Read the full case
+              </span>
+              <span
+                className="grid h-11 w-11 shrink-0 place-items-center rounded-full border-2 border-slate/15 bg-offwhite text-navy shadow-sm transition duration-300 group-hover:scale-105 group-hover:border-navy/30 group-hover:bg-navy group-hover:text-offwhite group-hover:shadow-md sm:h-12 sm:w-12"
+                aria-hidden
               >
-                <span className="text-base font-bold text-navy sm:text-lg">
-                  Read the full case
-                </span>
-                <span
-                  className="grid h-11 w-11 shrink-0 place-items-center rounded-full border-2 border-slate/15 bg-offwhite text-navy shadow-sm transition duration-300 group-hover:scale-105 group-hover:border-navy/30 group-hover:bg-navy group-hover:text-offwhite group-hover:shadow-md sm:h-12 sm:w-12"
-                  aria-hidden
-                >
-                  <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2.25} />
-                </span>
-              </a>
+                <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2.25} />
+              </span>
             </div>
           </div>
         </div>
-      </article>
+      </a>
     </Motion.li>
   );
 }

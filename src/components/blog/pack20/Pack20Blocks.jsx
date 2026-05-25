@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { internalAnchorProps } from "@/lib/internalLinkProps.js";
 import {
   DiyAccordion,
   DiyFaqAccordion,
@@ -35,8 +36,7 @@ export function Pack20RichText({ text, parts }) {
       <a
         key={`${part.href}-${index}`}
         href={part.href}
-        target="_blank"
-        rel="noopener noreferrer"
+        {...internalAnchorProps(part.href)}
         className="font-semibold text-blue-600 underline decoration-blue-600 underline-offset-2 transition-colors hover:text-blue-800 hover:decoration-blue-800"
       >
         {part.text}

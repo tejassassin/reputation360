@@ -1558,34 +1558,29 @@ function AboutPage() {
                 viewport={aboutView}
                 transition={{ duration: 0.45, delay: i * 0.06 }}
               >
-                <Motion.div
+                <Motion.a
+                  href={href}
                   whileHover={{ y: -6 }}
                   transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                  className={`group flex h-full flex-col items-start rounded-2xl border border-slate-200/90 bg-gradient-to-br from-slate-50 to-white p-8 shadow-sm transition-shadow duration-300 hover:border-[#4CAF50]/25 hover:shadow-[0_24px_50px_-28px_rgba(31,59,100,0.18)] ${wide ? "lg:flex-row lg:items-center lg:gap-10 lg:p-10" : ""}`}
+                  className={`group flex h-full flex-col items-start rounded-2xl border border-slate-200/90 bg-gradient-to-br from-slate-50 to-white p-8 text-left no-underline shadow-sm transition-shadow duration-300 hover:border-green/25 hover:shadow-[0_24px_50px_-28px_rgba(31,59,100,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green/50 focus-visible:ring-offset-2 ${wide ? "lg:flex-row lg:items-center lg:gap-10 lg:p-10" : ""}`}
                 >
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1F3B64]/[0.06] text-[#1F3B64] ring-1 ring-[#1F3B64]/10 transition-all duration-300 group-hover:scale-105 group-hover:bg-[#4CAF50]/12 group-hover:text-[#2d8a3e] group-hover:ring-[#4CAF50]/25">
-                    <Icon className="h-7 w-7" strokeWidth={2} />
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-navy/[0.06] text-navy ring-1 ring-navy/10 transition-all duration-300 group-hover:scale-105 group-hover:bg-green/12 group-hover:text-green group-hover:ring-green/25">
+                    <Icon className="h-7 w-7" strokeWidth={2} aria-hidden />
                   </div>
                   <div className={`min-w-0 flex-1 ${wide ? "lg:text-left" : ""}`}>
                     <h3
-                      className={`${headlineFont} mb-2 text-lg font-extrabold text-[#1F3B64] ${wide ? "lg:text-xl" : ""}`}
+                      className={`${headlineFont} mb-2 text-lg font-extrabold text-navy ${wide ? "lg:text-xl" : ""}`}
                     >
                       {title}
                     </h3>
                     <p className="text-sm leading-relaxed text-slate-600 md:text-[15px]">
                       {text}
                     </p>
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${headlineFont} mt-4 inline-flex text-sm font-bold text-[#4CAF50] underline decoration-[#4CAF50]/35 underline-offset-2 transition-colors hover:text-[#3db846] hover:decoration-[#3db846]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white`}
-                      aria-label={`Read more about ${title} (opens in a new tab)`}
-                    >
-                      Read more
-                    </a>
+                    <span className={`${headlineFont} mt-4 inline-flex text-sm font-bold text-green`}>
+                      Learn about {title}
+                    </span>
                   </div>
-                </Motion.div>
+                </Motion.a>
               </Motion.div>
               );
             })}

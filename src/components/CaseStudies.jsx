@@ -117,9 +117,9 @@ function CaseStudies() {
                   key={study.n}
                   className="w-[min(19.5rem,calc(100vw-2.25rem))] max-w-full shrink-0 snap-start sm:w-80"
                 >
-                  <article
-                    className="r360-cs-tile group/card flex h-full min-h-[20rem] flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-gradient-to-b from-white via-white to-slate-50/60 text-left shadow-[0_4px_28px_-10px_rgba(31,59,100,0.14)] ring-1 ring-slate-200/30 transition duration-300 hover:-translate-y-0.5 hover:border-slate-300/60 hover:shadow-[0_24px_44px_-22px_rgba(31,59,100,0.22)] motion-reduce:transition-shadow motion-reduce:hover:translate-y-0 sm:min-h-[21rem]"
-                    aria-label={`Case study: ${study.listTitle}`}
+                  <a
+                    href={href}
+                    className="r360-cs-tile group/card flex h-full min-h-[20rem] flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-gradient-to-b from-white via-white to-slate-50/60 text-left no-underline shadow-[0_4px_28px_-10px_rgba(31,59,100,0.14)] ring-1 ring-slate-200/30 transition duration-300 hover:-translate-y-0.5 hover:border-slate-300/60 hover:shadow-[0_24px_44px_-22px_rgba(31,59,100,0.22)] motion-reduce:transition-shadow motion-reduce:hover:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green sm:min-h-[21rem]"
                   >
                     <div
                       className="h-1.5 w-full bg-gradient-to-r from-navy via-green to-slate"
@@ -171,29 +171,20 @@ function CaseStudies() {
                         </div>
                       </div>
 
-                      <div className="mt-auto border-t border-slate-200/70 bg-gradient-to-r from-transparent via-slate-50/40 to-transparent pt-4 sm:pt-4">
-                        <a
-                          href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title="Opens in a new tab"
-                          aria-label={`Read the full case study: ${study.listTitle} (opens in new tab)`}
-                          className="group/cta inline-flex w-full max-w-full items-center justify-center gap-1.5 rounded-lg border border-navy/15 bg-gradient-to-b from-white to-slate-50/90 px-3 py-2.5 text-sm font-semibold text-navy shadow-sm transition duration-200 ease-out will-change-transform motion-reduce:transition-transform hover:-translate-y-0.5 hover:scale-[1.01] hover:border-[#4CAF50]/55 hover:bg-gradient-to-b hover:from-white hover:via-white hover:to-[#f0faf4] hover:shadow-md active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] sm:px-3.5 sm:py-2.5"
+                      <div className="mt-auto flex items-center justify-center gap-1.5 border-t border-slate-200/70 bg-gradient-to-r from-transparent via-slate-50/40 to-transparent px-3 py-2.5 pt-4 text-sm font-semibold text-navy sm:px-3.5 sm:pt-4">
+                        <span>Read case study: {study.listTitle}</span>
+                        <span
+                          className="grid h-5 w-5 place-items-center rounded-md bg-navy/5 text-navy transition duration-200 group-hover/card:bg-green/15"
+                          aria-hidden
                         >
-                          Read the case
-                          <span
-                            className="grid h-5 w-5 place-items-center rounded-md bg-navy/5 text-navy transition duration-200 group-hover/cta:bg-[#4CAF50]/15 group-hover/cta:text-navy motion-reduce:group-hover/cta:translate-y-0 motion-reduce:group-hover/cta:translate-x-0"
-                            aria-hidden
-                          >
-                            <ArrowUpRight
-                              className="h-3.5 w-3.5 transition duration-200 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
-                              strokeWidth={2.25}
-                            />
-                          </span>
-                        </a>
+                          <ArrowUpRight
+                            className="h-3.5 w-3.5 transition duration-200 group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5"
+                            strokeWidth={2.25}
+                          />
+                        </span>
                       </div>
                     </div>
-                  </article>
+                  </a>
                 </li>
               );
             })}

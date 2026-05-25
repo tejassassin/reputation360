@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { internalAnchorProps } from "@/lib/internalLinkProps";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 import { Children, cloneElement, isValidElement, useEffect, useState } from "react";
@@ -114,12 +115,11 @@ export const NavItems = ({
           key={`link-${h}`}
         >
           {parentIsDropdownOnly ? (
-            <button
-              type="button"
-              className="group relative block w-full shrink-0 cursor-default whitespace-nowrap rounded-full px-2.5 py-1.5 text-left text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
+            <a
+              href={item.link}
+              className="group relative block w-full shrink-0 whitespace-nowrap rounded-full px-2.5 py-1.5 text-left text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
               aria-haspopup="menu"
               aria-expanded={hovered === h}
-              onClick={(e) => e.preventDefault()}
             >
               <span
                 className={cn(
@@ -129,7 +129,7 @@ export const NavItems = ({
                 aria-hidden
               />
               <span className="relative z-[1] whitespace-nowrap">{item.name}</span>
-            </button>
+            </a>
           ) : (
             <a
               onClick={(e) => {
@@ -159,9 +159,7 @@ export const NavItems = ({
                     key={`${item.name}-${child.name}`}
                     href={child.link}
                     role="menuitem"
-                    {...(child.newTab
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
+                    {...internalAnchorProps(child.link)}
                     onClick={onItemClick}
                     className="ha-nudge block rounded-md px-3 py-2 text-sm text-white transition-colors hover:bg-white/15 hover:text-green hover:shadow-[inset_0_0_0_1px_rgba(120,220,119,0.35)]"
                   >

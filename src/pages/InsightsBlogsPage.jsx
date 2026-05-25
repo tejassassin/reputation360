@@ -5,30 +5,16 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
   DIY_REPUTATION_GUIDE_PATH,
-  DIY_REPUTATION_GUIDE_SLUG,
   diyReputationGuideHero,
   diyReputationGuideListing,
 } from "../data/blogs/diyReputationGuide.js";
-import {
-  SUPPRESS_NEGATIVE_GUIDE_SLUG,
-  suppressNegativeGuideListing,
-} from "../data/blogs/suppressNegativeContentGuide.js";
-import {
-  REMOVE_NEGATIVE_SEARCH_RESULTS_SLUG,
-  removeNegativeSearchResultsListing,
-} from "../data/blogs/removeNegativeSearchResultsGuide.js";
-import {
-  REPUTATION_REPAIR_TIMELINE_SLUG,
-  reputationRepairTimelineListing,
-} from "../data/blogs/reputationRepairTimelineGuide.js";
-import {
-  REMOVE_NEWS_ARTICLES_FROM_GOOGLE_SLUG,
-  removeNewsArticlesFromGoogleListing,
-} from "../data/blogs/removeNewsArticlesFromGoogleGuide.js";
+import { suppressNegativeGuideListing } from "../data/blogs/suppressNegativeContentGuide.js";
+import { removeNegativeSearchResultsListing } from "../data/blogs/removeNegativeSearchResultsGuide.js";
+import { reputationRepairTimelineListing } from "../data/blogs/reputationRepairTimelineGuide.js";
+import { removeNewsArticlesFromGoogleListing } from "../data/blogs/removeNewsArticlesFromGoogleGuide.js";
 import {
   getPack20Listings,
 } from "../data/blogs/pack20/catalog.js";
-import { PACK20_SLUGS } from "../data/blogs/pack20/slugs.js";
 import { article as socialPostsArticle } from "../data/blogs/pack20/blog05.js";
 import { article as crisisPlaybookArticle } from "../data/blogs/pack20/blog08.js";
 import { article as ormMethodologyArticle } from "../data/blogs/pack20/blog15.js";
@@ -124,26 +110,19 @@ function InsightsBlogsPage() {
                 quarter.
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() =>
-                document
-                  .getElementById("latest-articles")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="group ha-nudge flex items-center gap-2 self-start rounded-lg bg-[#02254d] px-4 py-2.5 font-semibold text-white transition-colors hover:bg-[#35618e] sm:self-auto"
+            <a
+              href="#latest-articles"
+              className="group ha-nudge flex items-center gap-2 self-start rounded-lg bg-[#02254d] px-4 py-2.5 font-semibold text-white no-underline transition-colors hover:bg-[#35618e] sm:self-auto"
             >
               <span>Browse all articles</span>
-              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </button>
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden />
+            </a>
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
             <a
               href={DIY_REPUTATION_GUIDE_PATH}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group ha-lift relative flex min-h-[400px] flex-col justify-end overflow-hidden rounded-xl bg-[#02254d] p-8 text-white outline-none focus-visible:ring-2 focus-visible:ring-[#78dc77] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff] md:col-span-2 md:row-span-2 md:min-h-[500px]"
+              className="group ha-lift relative flex min-h-[400px] flex-col justify-end overflow-hidden rounded-xl bg-[#02254d] p-8 text-white no-underline outline-none focus-visible:ring-2 focus-visible:ring-[#78dc77] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff] md:col-span-2 md:row-span-2 md:min-h-[500px]"
             >
               <div className="absolute inset-0 z-0">
                 <img
@@ -176,9 +155,7 @@ function InsightsBlogsPage() {
                   <a
                     key={insight.id}
                     href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="glass-card group ha-lift flex flex-col justify-between rounded-xl border-none p-6 transition-colors hover:bg-[#e1e8fd] md:col-span-2 outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff]"
+                    className="glass-card group ha-lift flex flex-col justify-between rounded-xl border-none p-6 text-left no-underline transition-colors hover:bg-[#e1e8fd] md:col-span-2 outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff]"
                   >
                     <div>
                       <span className="mb-3 block text-xs font-bold tracking-widest text-[#35618e] uppercase">
@@ -203,9 +180,7 @@ function InsightsBlogsPage() {
                 <a
                   key={insight.id}
                   href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group ha-lift flex flex-col justify-between rounded-xl border-none p-6 transition-shadow hover:shadow-xl md:col-span-1 outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff] ${
+                  className={`group ha-lift flex flex-col justify-between rounded-xl border-none p-6 text-left no-underline transition-shadow hover:shadow-xl md:col-span-1 outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff] ${
                     isCrisis ? "bg-[#f1f3ff]" : "bg-white"
                   }`}
                 >
@@ -303,19 +278,11 @@ function InsightsBlogsPage() {
                 </>
               );
               const slug = article.slug;
-              const openBlogInNewTab =
-                PACK20_SLUGS.has(slug) ||
-                slug === SUPPRESS_NEGATIVE_GUIDE_SLUG ||
-                slug === DIY_REPUTATION_GUIDE_SLUG ||
-                slug === REMOVE_NEGATIVE_SEARCH_RESULTS_SLUG ||
-                slug === REPUTATION_REPAIR_TIMELINE_SLUG ||
-                slug === REMOVE_NEWS_ARTICLES_FROM_GOOGLE_SLUG;
               return slug ? (
                 <a
                   key={article.id}
                   href={`/blog/${slug}`}
-                  {...(openBlogInNewTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="group block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f9f9ff]"
+                  className="group block rounded-xl text-left no-underline outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f9f9ff]"
                 >
                   {cardInner}
                 </a>

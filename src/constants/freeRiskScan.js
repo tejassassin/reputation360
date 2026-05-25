@@ -4,9 +4,10 @@ export const FREE_RISK_SCAN_PATH = "/free-reputation-scan";
 /** User-facing label for nav links and CTA buttons site-wide. */
 export const FREE_REPUTATION_SCAN_LABEL = "Free Reputation Scan";
 
-/** Opens the free reputation scan in a new tab (same pattern as Calendly CTAs). */
-export const freeScanNewTabProps = {
+/** Crawlable internal link to the free reputation scan (same-tab navigation). */
+export const freeScanLinkProps = {
   href: FREE_RISK_SCAN_PATH,
-  target: "_blank",
-  rel: "noopener noreferrer",
 };
+
+/** @deprecated Use freeScanLinkProps */
+export const freeScanNewTabProps = freeScanLinkProps;

@@ -943,9 +943,10 @@ function ServicesAbout() {
             {whoWeWorkWithCards.map((card) => {
               const Icon = card.Icon;
               return (
-                <article
+                <a
                   key={card.id}
-                  className={`ha-lift flex h-full flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-sm transition-[border-color,box-shadow] duration-200 hover:border-navy/18 hover:shadow-[0_12px_32px_-18px_rgba(31,59,100,0.12)] md:p-7 ${
+                  href={card.href}
+                  className={`ha-lift flex h-full flex-col rounded-2xl border border-navy/10 bg-white p-6 text-left no-underline shadow-sm transition-[border-color,box-shadow] duration-200 hover:border-navy/18 hover:shadow-[0_12px_32px_-18px_rgba(31,59,100,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green/50 focus-visible:ring-offset-2 md:p-7 ${
                     card.id === "businesses"
                       ? "sm:col-span-2 sm:max-w-md sm:justify-self-center xl:col-span-1 xl:col-start-2 xl:max-w-none xl:justify-self-stretch"
                       : ""
@@ -960,16 +961,11 @@ function ServicesAbout() {
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-navy/75 md:text-[15px] md:leading-relaxed">
                     {card.body}
                   </p>
-                  <a
-                    href={card.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 inline-flex font-heading text-sm font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/35 underline-offset-2 transition-colors hover:text-[#3db846] hover:decoration-[#3db846]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-                    aria-label={`Read more about ${card.title} (opens in a new tab)`}
-                  >
-                    Read more
-                  </a>
-                </article>
+                  <span className="mt-5 inline-flex items-center gap-1.5 font-heading text-sm font-semibold text-green">
+                    Reputation management for {card.title}
+                    <ArrowUpRight className="h-4 w-4 shrink-0" strokeWidth={2.25} aria-hidden />
+                  </span>
+                </a>
               );
             })}
           </div>

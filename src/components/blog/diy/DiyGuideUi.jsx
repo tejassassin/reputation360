@@ -12,14 +12,14 @@ import {
   X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { internalAnchorProps } from "@/lib/internalLinkProps.js";
 
 /** In-article internal link (blue, underlined) for blog guides. */
 export function DiyInternalLink({ href, children, onClick }) {
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      {...internalAnchorProps(href)}
       onClick={onClick}
       className="diy-internal-link font-semibold text-blue-600 underline decoration-blue-600 underline-offset-2 transition-colors hover:text-blue-800 hover:decoration-blue-800"
     >
@@ -534,9 +534,8 @@ export function DiyRelatedReading({ articles, title = "Related reading" }) {
           >
             <a
               href={article.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white no-underline shadow-sm ring-1 ring-slate-100/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-green/30 hover:shadow-md motion-reduce:transform-none"
+              {...internalAnchorProps(article.href)}
+              className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white text-left no-underline shadow-sm ring-1 ring-slate-100/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-green/30 hover:shadow-md motion-reduce:transform-none"
             >
               <div className="diy-related-thumb aspect-[5/3] overflow-hidden bg-slate-100">
                 {article.image ? (
