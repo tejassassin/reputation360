@@ -95,11 +95,12 @@
         media="(min-width: 768px)"
       />
     </noscript>
-  <!-- Schema.org: Organization + LocalBusiness (static - applies to all pages) -->
-  <script type="application/ld+json">
+  <!-- Schema.org: Organization (homepage; keep in sync with src/data/organizationSchema.js) -->
+  <script type="application/ld+json" id="r360-jsonld-organization">
   {
     "@context": "https://schema.org",
-    "@type": ["Organization", "LocalBusiness"],
+    "@type": "Organization",
+    "@id": "https://www.thereputation360.com/#organization",
     "name": "Reputation360",
     "url": "https://www.thereputation360.com",
     "logo": "https://www.thereputation360.com/android-chrome-512x512.png",
@@ -108,23 +109,17 @@
     "email": "hello@thereputation360.com",
     "foundingDate": "2018",
     "areaServed": { "@type": "Country", "name": "United States" },
-    "serviceType": [
+    "knowsAbout": [
       "Online Reputation Management",
+      "Negative Link Suppression",
       "Brand Monitoring",
       "Crisis Management"
     ],
     "sameAs": [
-      "https://www.linkedin.com/company/reputation360"
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Reputation Management Services",
-      "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Online Reputation Management", "url": "https://www.thereputation360.com/services" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Monitoring", "url": "https://www.thereputation360.com/services" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Crisis Management", "url": "https://www.thereputation360.com/services" } }
-      ]
-    }
+      "https://www.linkedin.com/company/reputation360online/",
+      "https://www.instagram.com/reputation360_online",
+      "https://www.facebook.com/profile.php?id=61572090900344"
+    ]
   }
   </script>
     <style>

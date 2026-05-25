@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { SeoHead } from "../components/SeoHead.jsx";
+import { ORGANIZATION_JSON_LD } from "../data/organizationSchema.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { LazyWhenVisible } from "../components/LazyWhenVisible.jsx";
 import Hero from "../components/Hero";
@@ -36,6 +37,7 @@ function HomePage() {
         title={homeSeo.title}
         description={homeSeo.description}
         canonicalPath={homeSeo.path}
+        jsonLd={ORGANIZATION_JSON_LD}
       />
       <Hero />
       <main className="flex w-full flex-col gap-12 pt-8 md:gap-16 md:pt-12 lg:gap-20 lg:pt-16">

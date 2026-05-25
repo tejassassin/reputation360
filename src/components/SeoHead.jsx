@@ -8,7 +8,30 @@ import {
 
 const DESC_ID = "r360-meta-description";
 const CANON_ID = "r360-link-canonical";
+const JSONLD_ORG_ID = "r360-jsonld-organization";
 const DEFAULT_OG_IMAGE = `${METADATA_BASE}/about-hero-search-mockup.png`;
+
+/**
+ * @param {Record<string, unknown> | Record<string, unknown>[] | null | undefined} jsonLd
+ */
+function applyJsonLd(jsonLd) {
+  const head = document.head;
+  if (!head) return;
+
+  let el = document.getElementById(JSONLD_ORG_ID);
+  if (!jsonLd) {
+    el?.remove();
+    return;
+  }
+
+  if (!el) {
+    el = document.createElement("script");
+    el.id = JSONLD_ORG_ID;
+    el.type = "application/ld+json";
+    head.appendChild(el);
+  }
+  el.textContent = JSON.stringify(jsonLd);
+}
 
 /** Create or update a <meta> tag by its identifying attribute. */
 function upsertMeta(attr, attrVal, content) {
@@ -71,8 +94,9 @@ function removeExtraDescriptionMetas(canonical) {
  * @param {string}  props.description    meta description and og:description
  * @param {string}  props.canonicalPath  Fallback pathname when `window` is undefined
  * @param {string}  [props.ogImage]      Full URL to OG image (defaults to site default)
+ * @param {Record<string, unknown> | Record<string, unknown>[]} [props.jsonLd] JSON-LD for <head> (homepage Organization, etc.)
  */
-export function SeoHead({ title, description, canonicalPath, ogImage }) {
+export function SeoHead({ title, description, canonicalPath, ogImage, jsonLd }) {
   useLayoutEffect(() => {
     if (!document.head) return;
 
@@ -127,6 +151,13 @@ export function SeoHead({ title, description, canonicalPath, ogImage }) {
       window.removeEventListener(R360_PATHCHANGE_EVENT, apply);
     };
   }, [title, description, canonicalPath, ogImage]);
+
+  useLayoutEffect(() => {
+    applyJsonLd(jsonLd);
+    return () => {
+      if (jsonLd) applyJsonLd(null);
+    };
+  }, [jsonLd]);
 
   return null;
 }
