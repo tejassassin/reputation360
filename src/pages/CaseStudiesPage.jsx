@@ -5,7 +5,9 @@ import { StatNumber } from "../components/StatNumber.jsx";
 import { CaseStudyListCard } from "../components/CaseStudyListCard.jsx";
 import { CaseStudyPageCta } from "../components/CaseStudyPageCta.jsx";
 import { CASE_STUDIES, INDUSTRY_CATEGORIES } from "../data/caseStudies/index.js";
+import { CrawlableLinkIndex } from "../components/CrawlableLinkIndex.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
+import { CRAWL_CASE_STUDY_PAGES } from "../data/siteCrawlLinks.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 
 const ALL = "All";
@@ -167,6 +169,7 @@ export default function CaseStudiesPage() {
         canonicalPath={seo.path}
       />
     <main className="relative flex-1 overflow-x-hidden bg-[#F5F7FA] pt-28 text-slate-900 selection:bg-[#4CAF50]/30 sm:pt-32">
+      <CrawlableLinkIndex title="All case studies" links={CRAWL_CASE_STUDY_PAGES} />
       <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_15%_-5%,rgba(120,200,100,0.2),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_95%_0%,rgba(46,91,136,0.12),transparent_45%)]" />

@@ -19,8 +19,20 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.thereputation360.com/free-reputation-scan</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/ai-reputation-scan</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://www.thereputation360.com/case-studies</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -122,67 +134,205 @@
   </url>
   <url>
     <loc>https://www.thereputation360.com/services</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.thereputation360.com/who-we-serve</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.thereputation360.com/who-we-serve/individual</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.thereputation360.com/who-we-serve/financial-advisors</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.thereputation360.com/who-we-serve/executives-and-c-suite-leaders</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.thereputation360.com/who-we-serve/doctors-and-healthcare-professionals</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.thereputation360.com/who-we-serve/lawyers-and-attorneys</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.thereputation360.com/who-we-serve/job-seekers</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.thereputation360.com/who-we-serve/businesses-and-companies</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.thereputation360.com/blog</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.thereputation360.com/blog/how-to-suppress-negative-content-professionals-guide</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/diy-online-reputation-management-complete-guide</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/remove-negative-search-results-from-google</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/how-long-does-it-take-to-fix-online-reputation</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/can-you-remove-news-articles-from-google-search</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/ai-search-changes-reputation-chatgpt-beyond-reputation360-guide</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/social-media-reputation-management-multi-platform-strategy-reputation360</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/monitoring-online-reputation-tools-tactics-reputation360</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/building-positive-google-presence-profile-claiming-guide-reputation360</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/roi-reputation-management-what-clients-see-reputation360</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/online-reputation-management-best-practices-reputation360-methodology</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/hidden-cost-ignoring-online-reputation-reputation360-analysis</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/why-first-google-result-matters-psychology-reputation360</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/own-your-first-page-control-google-results-reputation360</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/fix-reputation-before-job-interview-reputation360-guide</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/what-recruiters-google-about-you-reputation360-insider-report</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/linkedin-profile-optimization-search-results-reputation360-checklist</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/crisis-management-reputation-recovery-reputation360-playbook</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/remove-court-records-google-reputation360</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/negative-links-cost-jobs-deals-real-cases-reputation360</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/old-social-media-posts-showing-up-google-reputation360-guide</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/removal-vs-suppression-which-actually-works-reputation360</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/rank-positive-content-above-negative-results-reputation360-strategy</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.thereputation360.com/blog/how-to-suppress-negative-search-results-reputation360-framework</loc>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

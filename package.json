@@ -16,7 +16,7 @@
     "doctor": "node scripts/doctor.mjs",
     "env:init": "node scripts/init-free-scan-env.mjs",
     "build": "node scripts/dev.mjs build && node scripts/postbuild-spa-routes.mjs && node scripts/emit-spa-per-route-html.mjs && node scripts/run-react-snap.mjs && node scripts/patch-dist-canonical-from-fspath.mjs",
-    "sitemap": "node scripts/generate-sitemap.mjs",
+    "sitemap": "node scripts/generate-sitemap.mjs && node scripts/sync-crawl-nav.mjs",
     "lint": "eslint .",
     "preview": "node scripts/dev.mjs preview",
     "local:prod": "node scripts/dev.mjs build && node scripts/dev.mjs preview",

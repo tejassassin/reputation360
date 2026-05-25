@@ -52,7 +52,10 @@ function Footer() {
                 { name: "Home", link: "/" },
                 { name: "About Us", link: "/about" },
                 { name: "Services", link: "/services" },
+                { name: "Who We Serve", link: "/who-we-serve" },
                 { name: "Case Studies", link: "/case-studies" },
+                { name: "Insights and Blogs", link: "/blog" },
+                { name: "Free Reputation Scan", link: "/free-reputation-scan" },
                 { name: "Contact", link: "/contact" },
               ].map((item, idx) => (
                 <li key={idx}>

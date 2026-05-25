@@ -1,34 +1,28 @@
-import { CASE_STUDIES } from "../data/caseStudies/index.js";
 import { reputationServices } from "../data/reputationServices.jsx";
-import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
-import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
+import {
+  CRAWL_AUDIENCE_PAGES,
+  CRAWL_BLOG_PAGES,
+  CRAWL_CASE_STUDY_PAGES,
+  CRAWL_MAIN_PAGES,
+} from "../data/siteCrawlLinks.js";
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
-const MAIN_PAGES = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/services", label: "Online Reputation Management Services" },
-  { href: "/who-we-serve", label: "Who We Serve" },
-  { href: "/case-studies", label: "Case Studies" },
-  { href: "/blog", label: "Insights and Blogs" },
-  { href: "/contact", label: "Contact" },
-  { href: FREE_RISK_SCAN_PATH, label: "Free Reputation Scan" },
-  { href: "/resources/guide", label: "Reputation Guide" },
-  { href: "/resources/faqs", label: "FAQs" },
-];
-
-const AUDIENCE_LINKS = [
-  { href: AUDIENCE_PATH.individuals, label: "Personal Reputation Management Services" },
-  {
-    href: AUDIENCE_PATH.financialAdvisors,
-    label: "Online Reputation Management for Financial Advisors",
-  },
-  { href: AUDIENCE_PATH.executives, label: "Executive Reputation Repair Solutions" },
-  { href: AUDIENCE_PATH.doctors, label: "Healthcare Reputation Management Services" },
-  { href: AUDIENCE_PATH.lawyers, label: "Lawyer Reputation Management Solutions" },
-  { href: AUDIENCE_PATH.jobSeekers, label: "Personal Branding for Job Seekers" },
-  { href: AUDIENCE_PATH.businesses, label: "Business Reputation Management Services" },
-];
+function LinkSection({ title, links }) {
+  return (
+    <>
+      <p className="mt-4 font-heading text-sm font-bold text-navy">{title}</p>
+      <ul className="list-none space-y-1 p-0">
+        {links.map((item) => (
+          <li key={item.href}>
+            <a href={item.href} {...internalAnchorProps(item.href)}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
 
 /**
  * Always-mounted HTML nav so internal links exist in the DOM on first paint
@@ -36,14 +30,10 @@ const AUDIENCE_LINKS = [
  */
 export function CrawlableSiteNav() {
   return (
-    <nav
-      id="r360-crawl-nav"
-      aria-label="Site navigation links"
-      className="sr-only"
-    >
+    <nav aria-label="Site navigation links" className="sr-only">
       <p className="font-heading text-sm font-bold text-navy">Site pages</p>
       <ul className="list-none space-y-1 p-0">
-        {MAIN_PAGES.map((item) => (
+        {CRAWL_MAIN_PAGES.map((item) => (
           <li key={item.href}>
             <a href={item.href} {...internalAnchorProps(item.href)}>
               {item.label}
@@ -51,16 +41,7 @@ export function CrawlableSiteNav() {
           </li>
         ))}
       </ul>
-      <p className="mt-4 font-heading text-sm font-bold text-navy">Who we serve</p>
-      <ul className="list-none space-y-1 p-0">
-        {AUDIENCE_LINKS.map((item) => (
-          <li key={item.href}>
-            <a href={item.href} {...internalAnchorProps(item.href)}>
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <LinkSection title="Who we serve" links={CRAWL_AUDIENCE_PAGES} />
       <p className="mt-4 font-heading text-sm font-bold text-navy">Our services</p>
       <ul className="list-none space-y-1 p-0">
         {reputationServices.map((s) => (
@@ -71,19 +52,8 @@ export function CrawlableSiteNav() {
           </li>
         ))}
       </ul>
-      <p className="mt-4 font-heading text-sm font-bold text-navy">Case studies</p>
-      <ul className="list-none space-y-1 p-0">
-        {CASE_STUDIES.map((study) => (
-          <li key={study.n}>
-            <a
-              href={`/case-studies/${study.slug}`}
-              {...internalAnchorProps(`/case-studies/${study.slug}`)}
-            >
-              {study.listTitle}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <LinkSection title="Case studies" links={CRAWL_CASE_STUDY_PAGES} />
+      <LinkSection title="Insights and blogs" links={CRAWL_BLOG_PAGES} />
     </nav>
   );
 }

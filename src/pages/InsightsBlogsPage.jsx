@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { BadgeCheck, ArrowRight } from "lucide-react";
 import { BlogGuideCtaPanel } from "../components/blog/BlogGuideCtaSection.jsx";
+import { CrawlableLinkIndex } from "../components/CrawlableLinkIndex.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
+import { CRAWL_BLOG_PAGES } from "../data/siteCrawlLinks.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
   DIY_REPUTATION_GUIDE_PATH,
@@ -64,6 +66,7 @@ function InsightsBlogsPage() {
         canonicalPath={seo.path}
       />
     <main className="insights-page flex-1 bg-[#f9f9ff] pt-28 text-[#141b2b] md:pt-32">
+      <CrawlableLinkIndex title="All insights and blog posts" links={CRAWL_BLOG_PAGES} />
       {/* Hero */}
       <header className="relative mx-auto max-w-7xl overflow-hidden px-6 pb-24 pt-12 md:px-8 md:pt-16">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
@@ -301,14 +304,6 @@ function InsightsBlogsPage() {
           </div>
         )}
 
-        <div className="mt-16 flex justify-center">
-          <button
-            type="button"
-            className="ha-pill rounded-xl bg-[#02254d] px-8 py-3 font-bold text-white transition-all duration-300 hover:bg-[#35618e]"
-          >
-            Load More Insights
-          </button>
-        </div>
       </section>
 
       {/* CTA */}

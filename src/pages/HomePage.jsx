@@ -4,6 +4,7 @@ import { ORGANIZATION_JSON_LD } from "../data/organizationSchema.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { LazyWhenVisible } from "../components/LazyWhenVisible.jsx";
 import Hero from "../components/Hero";
+import HomeSiteExplore from "../components/HomeSiteExplore.jsx";
 import WhoWeServeCards from "../components/WhoWeServeCards";
 import OurServices from "../components/OurServices";
 import CaseStudies from "../components/CaseStudies";
@@ -40,6 +41,7 @@ function HomePage() {
         jsonLd={ORGANIZATION_JSON_LD}
       />
       <Hero />
+      <HomeSiteExplore />
       <main className="flex w-full flex-col gap-12 pt-8 md:gap-16 md:pt-12 lg:gap-20 lg:pt-16">
         <SectionShell minHeight="22rem">
           <section>
