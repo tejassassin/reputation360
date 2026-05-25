@@ -51,8 +51,6 @@ export default function PrivacyPolicyPage() {
                 <a
                   href="https://www.thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
                   https://www.thereputation360.com
                 </a>{" "}
@@ -300,8 +298,6 @@ export default function PrivacyPolicyPage() {
                 <a
                   href="https://www.thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
                   https://www.thereputation360.com
                 </a>
@@ -500,8 +496,6 @@ export default function PrivacyPolicyPage() {
                 <a
                   href="https://www.thereputation360.com"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
                   https://www.thereputation360.com
                 </a>

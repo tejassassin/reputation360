@@ -2,7 +2,6 @@ import { useState } from "react";
 import { AnimatePresence, motion as Motion } from "motion/react";
 import { ConsultationCtas } from "./ConsultationCtas";
 import { ServicesWhoWeWorkWith } from "./ServicesWhoWeWorkWith.jsx";
-import { internalAnchorProps } from "../lib/internalLinkProps.js";
 import {
   FileText,
   TrendingUp,

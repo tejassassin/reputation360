@@ -45,25 +45,51 @@ export function shouldOpenInNewTab(href) {
 }
 
 /**
- * Anchor props: site-wide links open in a new tab (except mailto/tel/sms).
+ * Same-tab props for internal links (no target / rel).
+ * @param {string | undefined | null} [_href]
+ */
+export function internalAnchorProps(_href) {
+  return {};
+}
+
+/**
+ * New-tab props for external links only.
  * @param {string | undefined | null} href
  */
-export function internalAnchorProps(href) {
-  if (!shouldOpenInNewTab(href)) return {};
+export function externalAnchorProps(href) {
+  if (!href || isInternalHref(href) || !shouldOpenInNewTab(href)) return {};
   return { target: "_blank", rel: NEW_TAB_REL };
 }
 
 /**
- * Apply target="_blank" to all in-document anchors (runtime safety net for static/legacy markup).
+ * Internal same-tab; external opens in a new tab.
+ * @param {string | undefined | null} href
+ */
+export function anchorTabProps(href) {
+  return { ...internalAnchorProps(href), ...externalAnchorProps(href) };
+}
+
+/**
+ * Normalize in-document anchors: internal links same-tab; external links new tab.
  */
 export function applyNewTabToAnchors(root = document) {
   root.querySelectorAll("a[href]").forEach((node) => {
     if (!(node instanceof HTMLAnchorElement)) return;
     if (node.hasAttribute("download")) return;
     const href = node.getAttribute("href")?.trim() ?? "";
-    if (!shouldOpenInNewTab(href)) return;
-    if (node.target === "_blank") return;
-    node.target = "_blank";
-    node.rel = NEW_TAB_REL;
+    if (!href) return;
+
+    if (isInternalHref(href)) {
+      node.removeAttribute("target");
+      if (node.getAttribute("rel") === NEW_TAB_REL) {
+        node.removeAttribute("rel");
+      }
+      return;
+    }
+
+    if (shouldOpenInNewTab(href)) {
+      node.target = "_blank";
+      node.rel = NEW_TAB_REL;
+    }
   });
 }

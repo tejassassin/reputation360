@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { internalAnchorProps } from "@/lib/internalLinkProps";
+import { anchorTabProps, internalAnchorProps } from "@/lib/internalLinkProps";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 import { Children, cloneElement, isValidElement, useEffect, useState } from "react";
@@ -339,7 +339,7 @@ export const NavbarButton = ({
     gradient: "bg-gradient-to-b from-blue-500 to-blue-700 text-white",
   };
 
-  const newTabProps = href ? internalAnchorProps(href) : {};
+  const newTabProps = href ? anchorTabProps(href) : {};
 
   return (
     <Tag

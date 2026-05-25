@@ -1,6 +1,12 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "thereputation360.com" }],
+      "destination": "https://www.thereputation360.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/free-risk-scan",
       "destination": "/free-reputation-scan",
       "permanent": true
