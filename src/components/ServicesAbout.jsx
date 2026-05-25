@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion as Motion } from "motion/react";
 import { ConsultationCtas } from "./ConsultationCtas";
-import BrandSectionBackdrop from "./BrandSectionBackdrop.jsx";
-import { WhoWeServeAudienceCard } from "./WhoWeServeAudienceCard.jsx";
-import { WHO_WE_SERVE_AUDIENCES } from "../data/whoWeServeAudiences.js";
+import { ServicesWhoWeWorkWith } from "./ServicesWhoWeWorkWith.jsx";
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
 import {
   FileText,
@@ -872,63 +870,7 @@ function ServicesAbout() {
           </div>
         </div>
 
-        <div
-          id="who-we-work-with"
-          className="relative scroll-mt-28 overflow-hidden rounded-3xl border border-white/[0.06] text-white shadow-[0_24px_60px_-28px_rgba(15,35,60,0.35)]"
-        >
-          <BrandSectionBackdrop />
-
-          <div className="relative px-5 py-10 md:px-10 md:py-12 lg:px-12 lg:py-14">
-            <div className="mx-auto max-w-3xl text-center">
-              <h3 className="who-we-work-with-heading font-heading font-bold tracking-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
-                Who We Work With
-              </h3>
-              <div
-                className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-green to-slate"
-                aria-hidden
-              />
-              <p className="mt-4 font-body text-sm leading-relaxed text-white/85 sm:text-base">
-                Tailored reputation support for the audiences we know best - from
-                individuals and leaders to regulated professionals and brands.
-              </p>
-            </div>
-
-            <nav aria-label="Who we work with page links" className="sr-only">
-              <ul className="m-0 list-none p-0">
-                {WHO_WE_SERVE_AUDIENCES.map((cat) => (
-                  <li key={cat.href} className="list-none">
-                    <a href={cat.href} {...internalAnchorProps(cat.href)}>
-                      {cat.linkLabel}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            <ul className="mx-auto mt-8 grid max-w-7xl list-none grid-cols-1 items-stretch gap-5 p-0 sm:mt-10 sm:grid-cols-2 lg:hidden">
-              {WHO_WE_SERVE_AUDIENCES.map((cat) => (
-                <WhoWeServeAudienceCard key={cat.href} {...cat} />
-              ))}
-            </ul>
-
-            <div className="mx-auto mt-8 hidden max-w-7xl flex-col gap-6 lg:mt-10 lg:flex lg:gap-7">
-              <ul className="m-0 grid list-none grid-cols-4 items-stretch gap-6 p-0 lg:gap-7">
-                {WHO_WE_SERVE_AUDIENCES.slice(0, 4).map((cat) => (
-                  <WhoWeServeAudienceCard key={cat.href} {...cat} />
-                ))}
-              </ul>
-              <ul className="m-0 flex w-full list-none items-stretch justify-center gap-6 p-0 lg:gap-7">
-                {WHO_WE_SERVE_AUDIENCES.slice(4).map((cat) => (
-                  <WhoWeServeAudienceCard
-                    key={cat.href}
-                    {...cat}
-                    className="w-full min-w-0 shrink-0 lg:w-[calc((100%-3*1.75rem)/4)]"
-                  />
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
+        <ServicesWhoWeWorkWith />
 
         <div className="rounded-3xl bg-[linear-gradient(120deg,#08284f,#0f3f73)] px-6 py-10 md:px-12 md:py-12 text-white shadow-lg">
           <h3 className="text-center font-heading text-3xl md:text-4xl font-bold">
