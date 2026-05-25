@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { AnimatePresence, motion as Motion } from "motion/react";
 import { ConsultationCtas } from "./ConsultationCtas";
-import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
+import BrandSectionBackdrop from "./BrandSectionBackdrop.jsx";
+import { WhoWeServeAudienceCard } from "./WhoWeServeAudienceCard.jsx";
+import { WHO_WE_SERVE_AUDIENCES } from "../data/whoWeServeAudiences.js";
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
 import {
   FileText,
@@ -24,13 +26,6 @@ import {
   Share2,
   FileWarning,
   LineChart,
-  User,
-  Landmark,
-  UserSearch,
-  Stethoscope,
-  Gavel,
-  Briefcase,
-  Building,
 } from "lucide-react";
 
 /** Hero intro under Services - single source so UI always matches intended copy. */
@@ -230,58 +225,6 @@ const serviceTimelinePhases = [
     label: "Full transformation",
     detail:
       "Substantial transformation holds: unwanted content stays deep in results while what competes for page one reflects your priorities. Cadence moves to protection and selective publishing so positions stay stable.",
-  },
-];
-
-const whoWeWorkWithCards = [
-  {
-    id: "individuals",
-    title: "Individuals",
-    body: "Take control of what people find when they search your name online.",
-    href: AUDIENCE_PATH.individuals,
-    Icon: User,
-  },
-  {
-    id: "financial-advisors",
-    title: "Financial Advisors",
-    body: "Strengthen trust and credibility when clients and regulators look you up.",
-    href: AUDIENCE_PATH.financialAdvisors,
-    Icon: Landmark,
-  },
-  {
-    id: "executives",
-    title: "Executives & C-Suite Leaders",
-    body: "Protect your leadership reputation and ensure your vision and impact come through clearly.",
-    href: AUDIENCE_PATH.executives,
-    Icon: Briefcase,
-  },
-  {
-    id: "doctors",
-    title: "Doctors & Healthcare Professionals",
-    body: "Protect your practice where patient reviews, listings, and search results meet.",
-    href: AUDIENCE_PATH.doctors,
-    Icon: Stethoscope,
-  },
-  {
-    id: "lawyers",
-    title: "Lawyers & Attorneys",
-    body: "Keep your professional standing clear when legal press and records surface in search.",
-    href: AUDIENCE_PATH.lawyers,
-    Icon: Gavel,
-  },
-  {
-    id: "job-seekers",
-    title: "Job Seekers",
-    body: "Put your best foot forward when employers and recruiters search your background.",
-    href: AUDIENCE_PATH.jobSeekers,
-    Icon: UserSearch,
-  },
-  {
-    id: "businesses",
-    title: "Businesses & Companies",
-    body: "Own your industry online through powerful branding and a strong search presence.",
-    href: AUDIENCE_PATH.businesses,
-    Icon: Building,
   },
 ];
 
@@ -929,40 +872,61 @@ function ServicesAbout() {
           </div>
         </div>
 
-        <div id="who-we-work-with" className="scroll-mt-28">
-          <h3 className="who-we-work-with-heading text-center font-heading font-bold tracking-tight text-navy">
-            Who We Work With
-          </h3>
-          <div className="mt-8 grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 md:mt-9 md:gap-5 xl:grid-cols-3">
-            {whoWeWorkWithCards.map((card) => {
-              const Icon = card.Icon;
-              return (
-                <a
-                  key={card.id}
-                  href={card.href}
-                  {...internalAnchorProps(card.href)}
-                  className={`ha-lift flex h-full flex-col rounded-2xl border border-navy/10 bg-white p-6 text-left no-underline shadow-sm transition-[border-color,box-shadow] duration-200 hover:border-navy/18 hover:shadow-[0_12px_32px_-18px_rgba(31,59,100,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green/50 focus-visible:ring-offset-2 md:p-7 ${
-                    card.id === "businesses"
-                      ? "sm:col-span-2 sm:max-w-md sm:justify-self-center xl:col-span-1 xl:col-start-2 xl:max-w-none xl:justify-self-stretch"
-                      : ""
-                  }`}
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy/[0.06] text-navy ring-1 ring-navy/10">
-                    <Icon className="h-6 w-6" strokeWidth={2} aria-hidden />
-                  </div>
-                  <h4 className="who-we-work-with-trigger mt-4 min-w-0 font-heading font-bold text-navy">
-                    {card.title}
-                  </h4>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-navy/75 md:text-[15px] md:leading-relaxed">
-                    {card.body}
-                  </p>
-                  <span className="mt-5 inline-flex items-center gap-1.5 font-heading text-sm font-semibold text-green">
-                    Reputation management for {card.title}
-                    <ArrowUpRight className="h-4 w-4 shrink-0" strokeWidth={2.25} aria-hidden />
-                  </span>
-                </a>
-              );
-            })}
+        <div
+          id="who-we-work-with"
+          className="relative scroll-mt-28 overflow-hidden rounded-3xl border border-white/[0.06] text-white shadow-[0_24px_60px_-28px_rgba(15,35,60,0.35)]"
+        >
+          <BrandSectionBackdrop />
+
+          <div className="relative px-5 py-10 md:px-10 md:py-12 lg:px-12 lg:py-14">
+            <div className="mx-auto max-w-3xl text-center">
+              <h3 className="who-we-work-with-heading font-heading font-bold tracking-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
+                Who We Work With
+              </h3>
+              <div
+                className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-green to-slate"
+                aria-hidden
+              />
+              <p className="mt-4 font-body text-sm leading-relaxed text-white/85 sm:text-base">
+                Tailored reputation support for the audiences we know best - from
+                individuals and leaders to regulated professionals and brands.
+              </p>
+            </div>
+
+            <nav aria-label="Who we work with page links" className="sr-only">
+              <ul className="m-0 list-none p-0">
+                {WHO_WE_SERVE_AUDIENCES.map((cat) => (
+                  <li key={cat.href} className="list-none">
+                    <a href={cat.href} {...internalAnchorProps(cat.href)}>
+                      {cat.linkLabel}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <ul className="mx-auto mt-8 grid max-w-7xl list-none grid-cols-1 items-stretch gap-5 p-0 sm:mt-10 sm:grid-cols-2 lg:hidden">
+              {WHO_WE_SERVE_AUDIENCES.map((cat) => (
+                <WhoWeServeAudienceCard key={cat.href} {...cat} />
+              ))}
+            </ul>
+
+            <div className="mx-auto mt-8 hidden max-w-7xl flex-col gap-6 lg:mt-10 lg:flex lg:gap-7">
+              <ul className="m-0 grid list-none grid-cols-4 items-stretch gap-6 p-0 lg:gap-7">
+                {WHO_WE_SERVE_AUDIENCES.slice(0, 4).map((cat) => (
+                  <WhoWeServeAudienceCard key={cat.href} {...cat} />
+                ))}
+              </ul>
+              <ul className="m-0 flex w-full list-none items-stretch justify-center gap-6 p-0 lg:gap-7">
+                {WHO_WE_SERVE_AUDIENCES.slice(4).map((cat) => (
+                  <WhoWeServeAudienceCard
+                    key={cat.href}
+                    {...cat}
+                    className="w-full min-w-0 shrink-0 lg:w-[calc((100%-3*1.75rem)/4)]"
+                  />
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
