@@ -67,9 +67,23 @@ function patchRouteDocumentMeta(html, pathname) {
   return next;
 }
 
+async function injectCrawlNav(html) {
+  if (html.includes('id="r360-crawl-nav"')) return html;
+  const snippetPath = path.join(__dirname, "..", "public", "crawl-nav-snippet.html");
+  const snippet = await readFile(snippetPath, "utf8");
+  const style =
+    '<style>.r360-crawl-nav{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>';
+  const block = `${style}${snippet}`;
+  if (html.includes('<div id="root">')) {
+    return html.replace("<div id=\"root\">", `${block}<div id="root">`);
+  }
+  return html;
+}
+
 async function main() {
   const indexPath = path.join(dist, "index.html");
-  const baseRaw = await readFile(indexPath, "utf8");
+  let baseRaw = await readFile(indexPath, "utf8");
+  baseRaw = await injectCrawlNav(baseRaw);
   const routes = [...new Set(SITEMAP_URL_ENTRIES.map((e) => e.path))];
 
   await writeFile(indexPath, patchRouteDocumentMeta(baseRaw, "/"), "utf8");

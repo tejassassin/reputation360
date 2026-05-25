@@ -3,22 +3,23 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { LazyWhenVisible } from "../components/LazyWhenVisible.jsx";
 import Hero from "../components/Hero";
+import WhoWeServeCards from "../components/WhoWeServeCards";
+import OurServices from "../components/OurServices";
+import CaseStudies from "../components/CaseStudies";
 
 const WhatWeBelieve = lazy(() => import("../components/WhatWeBelieve"));
 const WhatWeDo = lazy(() => import("../components/WhatWeDo"));
-const OurServices = lazy(() => import("../components/OurServices"));
-const WhoWeServeCards = lazy(() => import("../components/WhoWeServeCards"));
 const HowReputation360Works = lazy(() => import("../components/HowReputation360Works"));
 const WhyClientsChoose = lazy(() => import("../components/WhyClientsChoose"));
-const CaseStudies = lazy(() => import("../components/CaseStudies"));
 const Contact = lazy(() => import("../components/Contact"));
 const HomeTestimonials = lazy(() => import("../components/HomeTestimonials.jsx"));
 
-function SectionShell({ minHeight, children }) {
+function SectionShell({ minHeight, eager = false, children }) {
   return (
     <LazyWhenVisible
       minHeight={minHeight}
-      rootMargin="320px 0px"
+      eager={eager}
+      rootMargin={eager ? "0px 0px" : "320px 0px"}
       fallback={<div style={{ minHeight }} aria-hidden />}
     >
       <Suspense fallback={<div style={{ minHeight }} aria-hidden />}>{children}</Suspense>
@@ -48,7 +49,7 @@ function HomePage() {
             <WhatWeDo />
           </section>
         </SectionShell>
-        <SectionShell minHeight="18rem">
+        <SectionShell minHeight="18rem" eager>
           <OurServices />
         </SectionShell>
         <SectionShell minHeight="24rem">
@@ -56,7 +57,7 @@ function HomePage() {
             <HomeTestimonials />
           </section>
         </SectionShell>
-        <SectionShell minHeight="16rem">
+        <SectionShell minHeight="16rem" eager>
           <WhoWeServeCards />
         </SectionShell>
         <SectionShell minHeight="20rem">
@@ -67,7 +68,7 @@ function HomePage() {
         <SectionShell minHeight="18rem">
           <WhyClientsChoose />
         </SectionShell>
-        <SectionShell minHeight="22rem">
+        <SectionShell minHeight="22rem" eager>
           <CaseStudies />
         </SectionShell>
         <SectionShell minHeight="14rem">

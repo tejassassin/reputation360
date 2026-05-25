@@ -72,6 +72,7 @@ function Footer() {
                 <li key={idx}>
                   <a
                     href="/services"
+                    title={title}
                     className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
                   >
                     {title}

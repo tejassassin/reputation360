@@ -127,8 +127,41 @@
     }
   }
   </script>
+    <style>
+      .r360-crawl-nav {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
   </head>
   <body>
+    <!-- Crawlable internal links in initial HTML (View Source / non-JS crawlers) -->
+    <nav id="r360-crawl-nav" aria-label="Site navigation links" class="r360-crawl-nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/services">Online Reputation Management Services</a></li>
+        <li><a href="/who-we-serve">Who We Serve</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/blog">Insights and Blogs</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/free-reputation-scan">Free Reputation Scan</a></li>
+        <li><a href="/who-we-serve/individual">Personal Reputation Management Services</a></li>
+        <li><a href="/who-we-serve/financial-advisors">Online Reputation Management for Financial Advisors</a></li>
+        <li><a href="/who-we-serve/executives-and-c-suite-leaders">Executive Reputation Repair Solutions</a></li>
+        <li><a href="/who-we-serve/doctors-and-healthcare-professionals">Healthcare Reputation Management Services</a></li>
+        <li><a href="/who-we-serve/lawyers-and-attorneys">Lawyer Reputation Management Solutions</a></li>
+        <li><a href="/who-we-serve/job-seekers">Personal Branding for Job Seekers</a></li>
+        <li><a href="/who-we-serve/businesses-and-companies">Business Reputation Management Services</a></li>
+      </ul>
+    </nav>
     <div id="root"></div>
     <noscript>
       <p

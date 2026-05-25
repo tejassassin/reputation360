@@ -10,18 +10,18 @@ export function LazyWhenVisible({
   rootMargin = "280px 0px",
   minHeight,
   className = "",
+  /** When true, render children immediately (for SEO-critical link sections). */
+  eager = false,
 }) {
   const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(
+    () => eager || typeof IntersectionObserver === "undefined",
+  );
 
   useEffect(() => {
+    if (eager) return;
     const el = ref.current;
     if (!el || visible) return;
-
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -35,7 +35,7 @@ export function LazyWhenVisible({
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [rootMargin, visible]);
+  }, [eager, rootMargin, visible]);
 
   const style = minHeight ? { minHeight } : undefined;
 

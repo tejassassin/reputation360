@@ -9,15 +9,90 @@ const coreService =
   reputationServices.find((s) => s.id === CORE_SERVICE_ID) ?? reputationServices[0];
 const supportingServices = reputationServices.filter((s) => s.id !== CORE_SERVICE_ID);
 
+const SERVICES_HREF = "/services";
+
 /** Same glass card shell as “Who we work with” (home). */
 const serviceCardShell =
   "r3-supporting-service-card ha-lift group relative flex flex-col overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/6 p-4 text-center shadow-[0_8px_32px_-8px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-all duration-300 sm:p-5 md:p-5 hover:-translate-y-0.5 hover:border-white/25 hover:shadow-[0_12px_40px_-10px_rgba(31,59,100,0.4)]";
 
 const serviceIconWrap =
-  "r3-supporting-service-icon flex shrink-0 items-center justify-center rounded-2xl border border-[#4CAF50]/30 bg-[#0f1c2c]/80 text-[#4CAF50] shadow-sm shadow-[#0d1825]/40 transition group-hover:border-[#4CAF50]/50";
+  "r3-supporting-service-icon flex shrink-0 items-center justify-center rounded-2xl border border-green/30 bg-navy/80 text-green shadow-sm shadow-navy/40 transition group-hover:border-green/55";
 
 /**
- * Core ORM + supporting accordions - same visual language as “Who we work with”.
+ * @param {object} props
+ * @param {{ id: string; title: string; description: string; icon: import('react').ReactNode }} props.service
+ * @param {boolean} props.expanded
+ * @param {() => void} props.onToggle
+ * @param {boolean} [props.isCore]
+ */
+function ServiceCard({ service, expanded, onToggle, isCore = false }) {
+  const titleClass = isCore
+    ? "r3-supporting-service-title w-full max-w-4xl px-1 font-heading text-lg font-bold leading-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-xl md:text-2xl"
+    : "r3-supporting-service-title w-full px-0.5 font-heading text-[15px] font-bold leading-snug text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-base md:text-lg";
+
+  const iconSize = isCore
+    ? "h-12 w-12 sm:h-[52px] sm:w-[52px] sm:[&_svg]:h-[22px] sm:[&_svg]:w-[22px] md:[&_svg]:h-6 md:[&_svg]:w-6"
+    : "h-10 w-10 sm:h-11 sm:w-11 sm:[&_svg]:h-5 sm:[&_svg]:w-5 md:[&_svg]:h-6 md:[&_svg]:w-6";
+
+  const panelId = isCore ? "core-service-details-panel" : `service-expand-${service.id}`;
+  const triggerId = isCore ? "core-service-details-trigger" : `service-trigger-${service.id}`;
+
+  return (
+    <div
+      className={`${serviceCardShell} h-full ${expanded ? "is-expanded border-green/50 from-white/18 to-white/8" : ""}`}
+    >
+      <a
+        href={SERVICES_HREF}
+        className="flex w-full flex-col items-center gap-2.5 rounded-lg text-center no-underline outline-none focus-visible:ring-2 focus-visible:ring-green/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy sm:gap-3"
+      >
+        <div className={`${serviceIconWrap} ${iconSize}`}>{service.icon}</div>
+        <h3 id={isCore ? "core-service-heading" : undefined} className={titleClass}>
+          {service.title}
+        </h3>
+      </a>
+
+      <div className="flex justify-center pb-1">
+        <button
+          type="button"
+          id={triggerId}
+          className="inline-flex shrink-0 items-center justify-center rounded-lg p-1 text-white/50 outline-none transition hover:text-green focus-visible:ring-2 focus-visible:ring-green/50"
+          onClick={onToggle}
+          aria-expanded={expanded}
+          aria-controls={panelId}
+          aria-label={expanded ? `Hide details for ${service.title}` : `Show details for ${service.title}`}
+        >
+          <ChevronDown
+            className={`h-5 w-5 transition-transform duration-200 motion-reduce:transition-none ${
+              expanded ? "rotate-180 text-green" : ""
+            }`}
+            aria-hidden
+          />
+        </button>
+      </div>
+
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={triggerId}
+        aria-hidden={!expanded}
+        className={`grid transition-[grid-template-rows] duration-200 motion-reduce:transition-none ${
+          expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className={isCore ? "pt-1 pb-3" : "px-1 pb-2.5 pt-0"}>
+            <p className="text-center font-body text-[15px] font-medium leading-relaxed text-slate-100 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-base sm:leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Core ORM + supporting cards with crawlable links to /services.
  */
 export function OurServicesGrid() {
   const [openId, setOpenId] = useState(null);
@@ -33,60 +108,12 @@ export function OurServicesGrid() {
           <p className="r3-our-services-core-label mb-2.5 text-center font-heading text-xs font-bold uppercase tracking-[0.22em] text-white/50 sm:text-[13px]">
             Core service
           </p>
-          <div
-            className={`${serviceCardShell} w-full ${
-              coreDetailsOpen
-                ? "is-expanded border-[#4CAF50]/50 from-white/18 to-white/8"
-                : ""
-            } `}
-          >
-            <button
-              type="button"
-              id="core-service-details-trigger"
-              className="flex w-full flex-col items-center gap-3 rounded-lg text-center outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A3354]"
-              onClick={() => setCoreDetailsOpen((v) => !v)}
-              aria-expanded={coreDetailsOpen}
-              aria-controls="core-service-details-panel"
-            >
-              <div
-                className={`${serviceIconWrap} h-12 w-12 sm:h-[52px] sm:w-[52px] sm:[&_svg]:h-[22px] sm:[&_svg]:w-[22px] md:[&_svg]:h-6 md:[&_svg]:w-6`}
-              >
-                {coreService.icon}
-              </div>
-              <span
-                id="core-service-heading"
-                role="heading"
-                aria-level={3}
-                className="r3-supporting-service-title w-full max-w-4xl px-1 font-heading text-lg font-bold leading-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-xl md:text-2xl"
-              >
-                {coreService.title}
-              </span>
-              <ChevronDown
-                className={`h-5 w-5 shrink-0 text-white/50 transition-transform duration-200 motion-reduce:transition-none sm:h-5 sm:w-5 ${
-                  coreDetailsOpen ? "rotate-180 text-[#4CAF50]" : ""
-                }`}
-                aria-hidden
-              />
-            </button>
-
-            <div
-              id="core-service-details-panel"
-              role="region"
-              aria-labelledby="core-service-details-trigger"
-              aria-hidden={!coreDetailsOpen}
-              className={`grid transition-[grid-template-rows] duration-200 motion-reduce:transition-none ${
-                coreDetailsOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-              }`}
-            >
-              <div className="min-h-0 overflow-hidden">
-                <div className="pt-3">
-                  <p className="text-center font-body text-[15px] font-medium leading-relaxed text-slate-100 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-base sm:leading-relaxed">
-                    {coreService.description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ServiceCard
+            service={coreService}
+            expanded={coreDetailsOpen}
+            onToggle={() => setCoreDetailsOpen((v) => !v)}
+            isCore
+          />
         </div>
       </article>
 
@@ -97,53 +124,11 @@ export function OurServicesGrid() {
             cardIdx === 4 ? "xl:col-start-2" : cardIdx === 5 ? "xl:col-start-3" : "";
           return (
             <li key={s.id} className={`min-w-0 max-w-full list-none ${lastRow2}`}>
-              <div
-                className={`${serviceCardShell} h-full ${
-                  expanded ? "is-expanded border-[#4CAF50]/50 from-white/18 to-white/8" : ""
-                } `}
-              >
-                <button
-                  type="button"
-                  className="flex w-full flex-col items-center gap-2.5 rounded-lg text-center outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A3354]"
-                  onClick={() => setOpenId((prev) => (prev === s.id ? null : s.id))}
-                  aria-expanded={expanded}
-                  aria-controls={`service-expand-${s.id}`}
-                  id={`service-trigger-${s.id}`}
-                >
-                  <div
-                    className={`${serviceIconWrap} h-10 w-10 sm:h-11 sm:w-11 sm:[&_svg]:h-5 sm:[&_svg]:w-5 md:[&_svg]:h-6 md:[&_svg]:w-6`}
-                  >
-                    {s.icon}
-                  </div>
-                  <span className="r3-supporting-service-title w-full px-0.5 font-heading text-[15px] font-bold leading-snug text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-base md:text-lg">
-                    {s.title}
-                  </span>
-                  <ChevronDown
-                    className={`h-[18px] w-[18px] shrink-0 text-white/50 transition-transform duration-200 motion-reduce:transition-none sm:h-5 sm:w-5 ${
-                      expanded ? "rotate-180 text-[#4CAF50]" : ""
-                    }`}
-                    aria-hidden
-                  />
-                </button>
-
-                <div
-                  id={`service-expand-${s.id}`}
-                  role="region"
-                  aria-labelledby={`service-trigger-${s.id}`}
-                  aria-hidden={!expanded}
-                  className={`grid transition-[grid-template-rows] duration-200 motion-reduce:transition-none ${
-                    expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                  }`}
-                >
-                  <div className="min-h-0 overflow-hidden">
-                    <div className="pt-2.5">
-                      <p className="text-center font-body text-[15px] font-medium leading-relaxed text-slate-100 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-base sm:leading-relaxed">
-                        {s.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ServiceCard
+                service={s}
+                expanded={expanded}
+                onToggle={() => setOpenId((prev) => (prev === s.id ? null : s.id))}
+              />
             </li>
           );
         })}
@@ -151,8 +136,8 @@ export function OurServicesGrid() {
 
       <p className="r3-our-services-more mt-8 text-center font-body text-sm text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] md:mt-10 md:text-base">
         <a
-          href="/services"
-          className="font-medium text-inherit underline decoration-white/45 underline-offset-4 transition hover:text-white hover:decoration-[#4CAF50]/80"
+          href={SERVICES_HREF}
+          className="font-medium text-inherit underline decoration-white/45 underline-offset-4 transition hover:text-white hover:decoration-green/80"
         >
           Explore our Online Reputation Management Services
         </a>
