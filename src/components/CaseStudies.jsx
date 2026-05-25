@@ -81,6 +81,16 @@ function CaseStudies() {
           />
         </div>
 
+        <nav aria-label="Featured case study links" className="sr-only">
+          <ul className="m-0 list-none p-0">
+            {cards.map((study) => (
+              <li key={study.n} className="list-none">
+                <a href={`/case-studies/${study.slug}`}>{study.listTitle}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
         <div className="mt-0 flex min-w-0 items-stretch justify-center gap-1 sm:mt-10 sm:gap-2 md:mt-12 md:gap-3">
           <button
             type="button"
@@ -107,10 +117,10 @@ function CaseStudies() {
               const eng = parseEngagementMonths(study.duration);
               const engText = engagementLabel(eng);
               const hasDuration = Boolean(engText && engText !== "-");
-              const href = `/case-studies/${study.slug}`;
-
               const fieldLabelClass =
                 "m-0 font-heading text-[0.65rem] font-bold uppercase tracking-[0.14em] text-[#2E5B88]/90";
+
+              const caseStudyHref = `/case-studies/${study.slug}`;
 
               return (
                 <li
@@ -118,7 +128,7 @@ function CaseStudies() {
                   className="w-[min(19.5rem,calc(100vw-2.25rem))] max-w-full shrink-0 snap-start sm:w-80"
                 >
                   <a
-                    href={href}
+                    href={caseStudyHref}
                     className="r360-cs-tile group/card flex h-full min-h-[20rem] flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-gradient-to-b from-white via-white to-slate-50/60 text-left no-underline shadow-[0_4px_28px_-10px_rgba(31,59,100,0.14)] ring-1 ring-slate-200/30 transition duration-300 hover:-translate-y-0.5 hover:border-slate-300/60 hover:shadow-[0_24px_44px_-22px_rgba(31,59,100,0.22)] motion-reduce:transition-shadow motion-reduce:hover:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green sm:min-h-[21rem]"
                   >
                     <div
@@ -127,7 +137,7 @@ function CaseStudies() {
                     />
                     <div className="flex min-h-0 flex-1 flex-col p-5 sm:p-6">
                       <h3 className="line-clamp-2 font-heading text-base font-bold leading-snug text-navy [text-wrap:balance] sm:text-[1.05rem]">
-                        {study.listTitle}
+                        <span className="text-inherit">{study.listTitle}</span>
                       </h3>
                       <p className="mt-2 inline-flex max-w-full [text-wrap:balance]">
                         <span className="rounded-full bg-gradient-to-r from-[#1f3b64]/[0.07] to-slate-100/80 px-2.5 py-0.5 text-left text-[0.7rem] font-semibold leading-tight text-slate-600 ring-1 ring-slate-200/60 sm:px-3 sm:text-xs">

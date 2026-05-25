@@ -57,9 +57,7 @@ function HomePage() {
             <HomeTestimonials />
           </section>
         </SectionShell>
-        <SectionShell minHeight="16rem" eager>
-          <WhoWeServeCards />
-        </SectionShell>
+        <WhoWeServeCards />
         <SectionShell minHeight="20rem">
           <section className="bg-white">
             <HowReputation360Works />
@@ -68,9 +66,7 @@ function HomePage() {
         <SectionShell minHeight="18rem">
           <WhyClientsChoose />
         </SectionShell>
-        <SectionShell minHeight="22rem" eager>
-          <CaseStudies />
-        </SectionShell>
+        <CaseStudies />
         <SectionShell minHeight="14rem">
           <Contact />
         </SectionShell>
