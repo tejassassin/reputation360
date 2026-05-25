@@ -73,37 +73,44 @@ const categories = [
 
 /** Matches “Why clients…”: frosted card, growth green on icon ring only. Card body is not a link; only the SEO anchor link navigates. */
 const audienceCardClassName =
-  "ha-lift group relative block overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/6 p-6 shadow-[0_8px_32px_-8px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-all duration-300 sm:p-8 hover:-translate-y-0.5 hover:border-[#4CAF50]/50 hover:from-white/18 hover:to-white/8 hover:shadow-[0_12px_40px_-10px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.12)]";
+  "ha-lift group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/6 p-6 shadow-[0_8px_32px_-8px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-all duration-300 sm:p-8 hover:-translate-y-0.5 hover:border-green/50 hover:from-white/18 hover:to-white/8 hover:shadow-[0_12px_40px_-10px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.12)]";
 
 function AudienceCard(props) {
   const { title, description, linkLabel, href, Icon, className = "" } = props;
   return (
     <div className={`${audienceCardClassName} ${className}`.trim()}>
-      <div className="absolute -right-12 -top-12 h-24 w-24 rounded-bl-full bg-[#2E5B88]/[0.15] transition-transform group-hover:scale-150" />
-      <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-[#4CAF50]/30 bg-[#0f1c2c]/80 text-[#4CAF50] shadow-sm shadow-[#0d1825]/40 transition group-hover:border-[#4CAF50]/55 group-hover:shadow-[0_0_24px_-6px_rgba(76,175,80,0.3)]">
+      <div
+        className="pointer-events-none absolute -right-12 -top-12 h-24 w-24 rounded-bl-full bg-slate/20 transition-transform duration-500 group-hover:scale-150"
+        aria-hidden
+      />
+      <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-green/30 bg-navy/80 text-green shadow-sm shadow-navy/40 transition group-hover:border-green/55 group-hover:shadow-[0_0_24px_-6px_rgba(76,175,80,0.3)]">
         <Icon className="h-7 w-7 stroke-[1.75]" aria-hidden />
       </div>
-      <h3 className="font-heading mb-4 text-xl leading-snug font-bold text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
+      <h3 className="font-heading mb-3 text-xl leading-snug font-bold text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)]">
         {title}
       </h3>
-      <p className="text-[15px] font-medium leading-relaxed text-slate-100 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-base">
+      <p className="mb-0 flex-1 text-[15px] font-medium leading-relaxed text-slate-100/95 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-base">
         {description}
       </p>
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="ha-pill group/btn mt-6 flex w-full min-h-[3rem] items-center justify-between gap-3 rounded-xl border border-white/20 bg-[#2E5B88] px-4 py-3 text-left font-heading text-sm font-semibold leading-snug text-white shadow-[0_4px_14px_-4px_rgba(0,0,0,0.45)] transition hover:border-white/35 hover:bg-[#356a9a] hover:shadow-[0_6px_18px_-4px_rgba(0,0,0,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A3354] sm:min-h-[3.25rem] sm:px-5 sm:py-3.5"
-        aria-label={`${linkLabel} (opens in a new tab)`}
-      >
-        <span className="min-w-0 flex-1 text-pretty">{linkLabel}</span>
-        <span
-          className="grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-white/15 bg-white/10 transition group-hover/btn:border-white/25 group-hover/btn:bg-white/15"
-          aria-hidden
+      <div className="mt-6 border-t border-white/15 pt-5 sm:mt-7">
+        <a
+          href={href}
+          className="group/cta inline-flex w-full items-center justify-between gap-3 rounded-2xl text-left outline-none transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-green/70 focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
         >
-          <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-0.5" />
-        </span>
-      </a>
+          <span
+            className="min-w-0 flex-1 text-sm font-semibold leading-snug text-white [text-wrap:pretty] sm:text-[0.9375rem] sm:leading-normal"
+            title={linkLabel}
+          >
+            {linkLabel}
+          </span>
+          <span
+            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/25 bg-white/10 text-white shadow-sm transition duration-300 group-hover/cta:scale-105 group-hover/cta:border-green/50 group-hover/cta:bg-green group-hover/cta:text-navy sm:h-11 sm:w-11"
+            aria-hidden
+          >
+            <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2.25} />
+          </span>
+        </a>
+      </div>
     </div>
   );
 }
@@ -130,13 +137,13 @@ export default function WhoWeServeCards() {
             Who we work with
           </h2>
           <div
-            className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"
+            className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-green to-slate"
             aria-hidden
           />
         </div>
 
       {/* sm-md: 2 cols; &lt;lg: stacked flow */}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:hidden">
+      <div className="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:hidden">
         {categories.map((props) => (
           <AudienceCard key={props.title} {...props} />
         ))}
@@ -144,12 +151,12 @@ export default function WhoWeServeCards() {
 
       {/* lg+: 4 + 3 with last row centered */}
       <div className="hidden flex-col gap-7 lg:flex">
-        <div className="grid grid-cols-4 gap-7">
+        <div className="grid grid-cols-4 items-stretch gap-7">
           {categories.slice(0, 4).map((props) => (
             <AudienceCard key={props.title} {...props} />
           ))}
         </div>
-        <div className="flex w-full justify-center gap-7">
+        <div className="flex w-full items-stretch justify-center gap-7">
           {row2.map((props) => (
             <AudienceCard key={props.title} {...props} className={lgColWidthClass} />
           ))}
