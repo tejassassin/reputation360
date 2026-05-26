@@ -12,6 +12,7 @@ import {
   canonicalHrefForNormalizedPath,
   normalizeCanonicalPath,
 } from "../src/lib/canonicalHrefFromPath.js";
+import { SERVICES_PAGE_JSON_LD } from "../src/data/serviceSchema.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.join(__dirname, "..", "dist");
@@ -67,6 +68,21 @@ function patchRouteDocumentMeta(html, pathname) {
   return next;
 }
 
+/** @type {Record<string, object>} */
+const ROUTE_JSON_LD = {
+  "/services": SERVICES_PAGE_JSON_LD,
+};
+
+function patchRouteJsonLd(html, pathname) {
+  const jsonLd = ROUTE_JSON_LD[pathname];
+  if (!jsonLd) return html;
+  const json = JSON.stringify(jsonLd, null, 2);
+  const re =
+    /(<script\b[^>]*\bid\s*=\s*["']r360-jsonld-organization["'][^>]*>)\s*[\s\S]*?(\s*<\/script>)/i;
+  if (!re.test(html)) return html;
+  return html.replace(re, `$1\n  ${json}\n  $2`);
+}
+
 async function injectCrawlNav(html) {
   if (html.includes('id="r360-crawl-nav"')) return html;
   const snippetPath = path.join(__dirname, "..", "public", "crawl-nav-snippet.html");
@@ -93,7 +109,9 @@ async function main() {
     const segments = pathname.split("/").filter(Boolean);
     const outFile = path.join(dist, ...segments, "index.html");
     await mkdir(path.dirname(outFile), { recursive: true });
-    await writeFile(outFile, patchRouteDocumentMeta(baseRaw, pathname), "utf8");
+    let html = patchRouteDocumentMeta(baseRaw, pathname);
+    html = patchRouteJsonLd(html, pathname);
+    await writeFile(outFile, html, "utf8");
   }
 
   console.log(
