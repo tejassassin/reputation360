@@ -54,13 +54,6 @@ export const PROFESSIONAL_SERVICE_ENTITY = {
     addressCountry: "IN",
   },
   areaServed: AREA_SERVED_COUNTRIES,
-  serviceType: [
-    "Online Reputation Management",
-    "Negative Search Result Suppression",
-    "Reputation Repair",
-    "Brand Monitoring",
-    "Crisis Reputation Management",
-  ],
   knowsAbout: KNOWS_ABOUT,
   hasMap: "https://g.page/r/CRYmeiA2xgQBEBM/review",
   contactPoint: [
