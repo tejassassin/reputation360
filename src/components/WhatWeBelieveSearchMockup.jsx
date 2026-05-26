@@ -5,6 +5,9 @@ import { Search, TrendingDown, TrendingUp } from "lucide-react";
 const DEMO_NAME = "Jordan Mercer";
 const DEMO_SLUG = "jordan-mercer";
 
+export const WHAT_WE_BELIEVE_SERP_MOCKUP_ALT =
+  "SERP transformation showing improved search rankings and suppressed negative content after 11 months of online reputation management";
+
 /** Muted “breadcrumb” style so path text does not read as hyperlinks (no link color). */
 const urlMetaClass =
   "cursor-default truncate font-mono text-[11px] leading-snug tracking-tight text-slate-500 sm:text-xs";
@@ -76,6 +79,7 @@ export default function WhatWeBelieveSearchMockup() {
     <div
       className="relative flex h-full min-h-full flex-col overflow-hidden rounded-2xl border border-[#1e3a5f]/80 bg-[#0a1220] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.45)]"
       data-r360-serp-mockup=""
+      aria-label={WHAT_WE_BELIEVE_SERP_MOCKUP_ALT}
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
