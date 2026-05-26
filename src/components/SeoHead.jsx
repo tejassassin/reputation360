@@ -1,10 +1,8 @@
 import { useLayoutEffect } from "react";
 import { METADATA_BASE } from "../constants/siteUrl.js";
-import { breadcrumbJsonLdForPath, JSONLD_BREADCRUMB_ID } from "../lib/breadcrumbJsonLd.js";
 import {
   canonicalHrefFromCurrentLocation,
   canonicalHrefFromPath,
-  normalizeCanonicalPath,
   R360_PATHCHANGE_EVENT,
 } from "../lib/canonicalHrefFromPath.js";
 
@@ -53,12 +51,6 @@ function applyJsonLd(jsonLd, additionalJsonLd = []) {
   if (!activeExtraIds.has(JSONLD_SERVICES_ID)) {
     upsertJsonLdScript(JSONLD_SERVICES_ID, null);
   }
-}
-
-function clearManagedJsonLdScripts() {
-  upsertJsonLdScript(JSONLD_ORG_ID, null);
-  upsertJsonLdScript(JSONLD_SERVICES_ID, null);
-  upsertJsonLdScript(JSONLD_BREADCRUMB_ID, null);
 }
 
 /** Create or update a <meta> tag by its identifying attribute. */
@@ -124,17 +116,8 @@ function removeExtraDescriptionMetas(canonical) {
  * @param {string}  [props.ogImage]      Full URL to OG image (defaults to site default)
  * @param {Record<string, unknown> | Record<string, unknown>[]} [props.jsonLd] JSON-LD for <head> (homepage Organization, etc.)
  * @param {{ id: string; data: Record<string, unknown> }[]} [props.additionalJsonLd] Extra JSON-LD script blocks (e.g. Service on /services)
- * @param {boolean} [props.enableBreadcrumbs=true] Set false to skip BreadcrumbList JSON-LD (homepage uses path `/` auto-skip)
  */
-export function SeoHead({
-  title,
-  description,
-  canonicalPath,
-  ogImage,
-  jsonLd,
-  additionalJsonLd,
-  enableBreadcrumbs = true,
-}) {
+export function SeoHead({ title, description, canonicalPath, ogImage, jsonLd, additionalJsonLd }) {
   useLayoutEffect(() => {
     if (!document.head) return;
 
@@ -192,33 +175,11 @@ export function SeoHead({
 
   useLayoutEffect(() => {
     applyJsonLd(jsonLd, additionalJsonLd ?? []);
-
-    const applyBreadcrumbs = () => {
-      if (!enableBreadcrumbs) {
-        upsertJsonLdScript(JSONLD_BREADCRUMB_ID, null);
-        return;
-      }
-      const path =
-        typeof window !== "undefined"
-          ? normalizeCanonicalPath(window.location.pathname)
-          : normalizeCanonicalPath(canonicalPath ?? "/");
-      upsertJsonLdScript(JSONLD_BREADCRUMB_ID, breadcrumbJsonLdForPath(path));
-    };
-
-    applyBreadcrumbs();
-
-    if (typeof window === "undefined") {
-      return () => clearManagedJsonLdScripts();
-    }
-
-    window.addEventListener("popstate", applyBreadcrumbs);
-    window.addEventListener(R360_PATHCHANGE_EVENT, applyBreadcrumbs);
     return () => {
-      window.removeEventListener("popstate", applyBreadcrumbs);
-      window.removeEventListener(R360_PATHCHANGE_EVENT, applyBreadcrumbs);
-      clearManagedJsonLdScripts();
+      upsertJsonLdScript(JSONLD_ORG_ID, null);
+      upsertJsonLdScript(JSONLD_SERVICES_ID, null);
     };
-  }, [jsonLd, additionalJsonLd, canonicalPath, enableBreadcrumbs]);
+  }, [jsonLd, additionalJsonLd]);
 
   return null;
 }
