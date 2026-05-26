@@ -32,9 +32,9 @@ export function withServiceOfferCatalog(professionalServiceEntity) {
       name: "Reputation360 Services",
       url: SERVICES_PAGE_URL,
       itemListElement: SERVICE_ENTITIES.map((service, index) => ({
-        "@type": "Offer",
+        "@type": "ListItem",
         position: index + 1,
-        itemOffered: { "@id": service["@id"] },
+        item: { "@id": service["@id"] },
       })),
     },
   };
