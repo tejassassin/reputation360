@@ -95,97 +95,420 @@
         media="(min-width: 768px)"
       />
     </noscript>
-  <!-- Schema.org: homepage @graph (keep in sync with src/data/organizationSchema.js + localBusinessSchema.js) -->
+  <!-- Schema.org: homepage @graph (run npm run sitemap to sync from src/data/organizationSchema.js) -->
+  <!-- R360_JSONLD_START -->
   <script type="application/ld+json" id="r360-jsonld-organization">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://www.thereputation360.com/#organization",
-        "name": "Reputation360",
-        "url": "https://www.thereputation360.com",
-        "logo": "https://www.thereputation360.com/android-chrome-512x512.png",
-        "image": "https://www.thereputation360.com/about-hero-search-mockup.png",
-        "description": "Reputation360 is a trusted online reputation management agency with 7+ years of experience. We help individuals and brands suppress negative search results and build credible, resilient digital reputations.",
-        "email": "hello@thereputation360.com",
-        "foundingDate": "2018",
-        "areaServed": { "@type": "Country", "name": "United States" },
-        "knowsAbout": [
-          "Online Reputation Management",
-          "Negative Link Suppression",
-          "Brand Monitoring",
-          "Crisis Management"
-        ],
-        "sameAs": [
-          "https://www.linkedin.com/company/thereputation360",
-          "https://x.com/Reputation360_",
-          "https://www.instagram.com/thereputation360/",
-          "https://www.youtube.com/@Reputation360",
-          "https://g.page/r/CRYmeiA2xgQBEBM/review",
-          "https://in.pinterest.com/reputation360/",
-          "https://medium.com/@Reputation360",
-          "https://reputation360online.blogspot.com/",
-          "https://reputation360.wordpress.com",
-          "https://www.behance.net/thereputation360",
-          "https://reputation360.mystrikingly.com"
-        ]
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.thereputation360.com/#organization",
+      "name": "Reputation360",
+      "url": "https://www.thereputation360.com",
+      "logo": "https://www.thereputation360.com/android-chrome-512x512.png",
+      "image": "https://www.thereputation360.com/about-hero-search-mockup.png",
+      "description": "Reputation360 is a trusted online reputation management agency with 7+ years of experience. We help individuals and brands suppress negative search results and build credible, resilient digital reputations.",
+      "email": "hello@thereputation360.com",
+      "foundingDate": "2018",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
       },
-      {
-        "@type": ["ProfessionalService", "LocalBusiness"],
-        "@id": "https://www.thereputation360.com/#professional-service",
-        "name": "Reputation360",
-        "url": "https://www.thereputation360.com",
-        "logo": "https://www.thereputation360.com/android-chrome-512x512.png",
-        "image": "https://www.thereputation360.com/about-hero-search-mockup.png",
-        "description": "Reputation360 provides online reputation management for individuals and brands: negative search suppression, positive presence building, monitoring, and crisis recovery.",
-        "email": "hello@thereputation360.com",
-        "telephone": "+919910000000",
-        "foundingDate": "2018",
-        "parentOrganization": { "@id": "https://www.thereputation360.com/#organization" },
-        "address": { "@type": "PostalAddress", "addressCountry": "IN" },
-        "areaServed": [
-          { "@type": "Country", "name": "United States" },
-          { "@type": "Country", "name": "Canada" },
-          { "@type": "Country", "name": "Australia" },
-          { "@type": "Country", "name": "United Kingdom" },
-          { "@type": "Country", "name": "India" }
-        ],
-        "serviceType": [
-          "Online Reputation Management",
-          "Negative Search Result Suppression",
-          "Reputation Repair",
-          "Brand Monitoring",
-          "Crisis Reputation Management"
-        ],
-        "knowsAbout": [
-          "Online Reputation Management",
-          "Negative Link Suppression",
-          "Brand Monitoring",
-          "Crisis Management"
-        ],
-        "hasMap": "https://g.page/r/CRYmeiA2xgQBEBM/review",
-        "contactPoint": [
+      "knowsAbout": [
+        "Online Reputation Management",
+        "Negative Link Suppression",
+        "Brand Monitoring",
+        "Crisis Management"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/thereputation360",
+        "https://x.com/Reputation360_",
+        "https://www.instagram.com/thereputation360/",
+        "https://www.youtube.com/@Reputation360",
+        "https://g.page/r/CRYmeiA2xgQBEBM/review",
+        "https://in.pinterest.com/reputation360/",
+        "https://medium.com/@Reputation360",
+        "https://reputation360online.blogspot.com/",
+        "https://reputation360.wordpress.com",
+        "https://www.behance.net/thereputation360",
+        "https://reputation360.mystrikingly.com"
+      ]
+    },
+    {
+      "@type": [
+        "ProfessionalService",
+        "LocalBusiness"
+      ],
+      "@id": "https://www.thereputation360.com/#professional-service",
+      "name": "Reputation360",
+      "url": "https://www.thereputation360.com",
+      "logo": "https://www.thereputation360.com/android-chrome-512x512.png",
+      "image": "https://www.thereputation360.com/about-hero-search-mockup.png",
+      "description": "Reputation360 provides online reputation management for individuals and brands: negative search suppression, positive presence building, monitoring, and crisis recovery.",
+      "email": "hello@thereputation360.com",
+      "telephone": "+919910000000",
+      "foundingDate": "2018",
+      "parentOrganization": {
+        "@id": "https://www.thereputation360.com/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Country",
+          "name": "Canada"
+        },
+        {
+          "@type": "Country",
+          "name": "Australia"
+        },
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "serviceType": [
+        "Online Reputation Management",
+        "Negative Search Result Suppression",
+        "Reputation Repair",
+        "Brand Monitoring",
+        "Crisis Reputation Management"
+      ],
+      "knowsAbout": [
+        "Online Reputation Management",
+        "Negative Link Suppression",
+        "Brand Monitoring",
+        "Crisis Management"
+      ],
+      "hasMap": "https://g.page/r/CRYmeiA2xgQBEBM/review",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "hello@thereputation360.com",
+          "telephone": "+919910000000",
+          "availableLanguage": [
+            "English"
+          ],
+          "areaServed": [
+            "US",
+            "CA",
+            "AU",
+            "GB",
+            "IN"
+          ]
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/thereputation360",
+        "https://x.com/Reputation360_",
+        "https://www.instagram.com/thereputation360/",
+        "https://www.youtube.com/@Reputation360",
+        "https://g.page/r/CRYmeiA2xgQBEBM/review"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Reputation360 Services",
+        "url": "https://www.thereputation360.com/services",
+        "itemListElement": [
           {
-            "@type": "ContactPoint",
-            "contactType": "customer service",
-            "email": "hello@thereputation360.com",
-            "telephone": "+919910000000",
-            "availableLanguage": ["English"],
-            "areaServed": ["US", "CA", "AU", "GB", "IN"]
+            "@type": "Offer",
+            "position": 1,
+            "itemOffered": {
+              "@id": "https://www.thereputation360.com/#service-orm-suppression"
+            }
+          },
+          {
+            "@type": "Offer",
+            "position": 2,
+            "itemOffered": {
+              "@id": "https://www.thereputation360.com/#service-employer-branding"
+            }
+          },
+          {
+            "@type": "Offer",
+            "position": 3,
+            "itemOffered": {
+              "@id": "https://www.thereputation360.com/#service-content-leadership"
+            }
+          },
+          {
+            "@type": "Offer",
+            "position": 4,
+            "itemOffered": {
+              "@id": "https://www.thereputation360.com/#service-linkedin-branding"
+            }
+          },
+          {
+            "@type": "Offer",
+            "position": 5,
+            "itemOffered": {
+              "@id": "https://www.thereputation360.com/#service-performance-marketing"
+            }
+          },
+          {
+            "@type": "Offer",
+            "position": 6,
+            "itemOffered": {
+              "@id": "https://www.thereputation360.com/#service-consultation"
+            }
+          },
+          {
+            "@type": "Offer",
+            "position": 7,
+            "itemOffered": {
+              "@id": "https://www.thereputation360.com/#service-branding"
+            }
           }
-        ],
-        "sameAs": [
-          "https://www.linkedin.com/company/thereputation360",
-          "https://x.com/Reputation360_",
-          "https://www.instagram.com/thereputation360/",
-          "https://www.youtube.com/@Reputation360",
-          "https://g.page/r/CRYmeiA2xgQBEBM/review"
         ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.thereputation360.com/#service-orm-suppression",
+      "name": "Online Reputation Management",
+      "description": "We strengthen positive search results and reduce the visibility of harmful, misleading, or outdated content through compliant ORM and outranking strategies",
+      "serviceType": "Online Reputation Management",
+      "provider": {
+        "@id": "https://www.thereputation360.com/#professional-service"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Country",
+          "name": "Canada"
+        },
+        {
+          "@type": "Country",
+          "name": "Australia"
+        },
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "url": "https://www.thereputation360.com/services"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.thereputation360.com/#service-employer-branding",
+      "name": "Employer Branding & Talent Reputation",
+      "description": "We build an authentic employer narrative that reflects your culture, values, and leadership so people trust what they see before they ever speak to you.",
+      "serviceType": "Employer Branding & Talent Reputation",
+      "provider": {
+        "@id": "https://www.thereputation360.com/#professional-service"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Country",
+          "name": "Canada"
+        },
+        {
+          "@type": "Country",
+          "name": "Australia"
+        },
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "url": "https://www.thereputation360.com/services"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.thereputation360.com/#service-content-leadership",
+      "name": "Content & Thought Leadership",
+      "description": "Strategic content that builds authority, educates your audience, and positions you as a credible voice in your industry.",
+      "serviceType": "Content & Thought Leadership",
+      "provider": {
+        "@id": "https://www.thereputation360.com/#professional-service"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Country",
+          "name": "Canada"
+        },
+        {
+          "@type": "Country",
+          "name": "Australia"
+        },
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "url": "https://www.thereputation360.com/services"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.thereputation360.com/#service-linkedin-branding",
+      "name": "LinkedIn Personal Branding",
+      "description": "Building authority and visibility through strategic storytelling, consistent high-quality content, and thought leadership that resonates with the right audience.",
+      "serviceType": "LinkedIn Personal Branding",
+      "provider": {
+        "@id": "https://www.thereputation360.com/#professional-service"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Country",
+          "name": "Canada"
+        },
+        {
+          "@type": "Country",
+          "name": "Australia"
+        },
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "url": "https://www.thereputation360.com/services"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.thereputation360.com/#service-performance-marketing",
+      "name": "Performance Marketing",
+      "description": "Paid campaigns designed to increase qualified leads, drive conversions, and accelerate business growth.",
+      "serviceType": "Performance Marketing",
+      "provider": {
+        "@id": "https://www.thereputation360.com/#professional-service"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Country",
+          "name": "Canada"
+        },
+        {
+          "@type": "Country",
+          "name": "Australia"
+        },
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "url": "https://www.thereputation360.com/services"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.thereputation360.com/#service-consultation",
+      "name": "Consultation",
+      "description": "Strategic marketing consultation built on experience, not theory - offering clarity, course correction, and measurable impact.",
+      "serviceType": "Consultation",
+      "provider": {
+        "@id": "https://www.thereputation360.com/#professional-service"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Country",
+          "name": "Canada"
+        },
+        {
+          "@type": "Country",
+          "name": "Australia"
+        },
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "url": "https://www.thereputation360.com/services"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.thereputation360.com/#service-branding",
+      "name": "Branding",
+      "description": "We help your audience recognize your brand the way you intend - building connection, trust, and momentum for growth.",
+      "serviceType": "Branding",
+      "provider": {
+        "@id": "https://www.thereputation360.com/#professional-service"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Country",
+          "name": "Canada"
+        },
+        {
+          "@type": "Country",
+          "name": "Australia"
+        },
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "url": "https://www.thereputation360.com/services"
+    }
+  ]
+}
   </script>
+  <!-- R360_JSONLD_END -->
     <style>
       .r360-crawl-nav {
         position: absolute;

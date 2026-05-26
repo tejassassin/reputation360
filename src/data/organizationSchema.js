@@ -4,6 +4,7 @@ import {
   ORGANIZATION_ID,
   PROFESSIONAL_SERVICE_ENTITY,
 } from "./localBusinessSchema.js";
+import { SERVICE_ENTITIES, withServiceOfferCatalog } from "./serviceSchema.js";
 
 /** Organization entity (use inside homepage @graph or standalone with @context). */
 export const ORGANIZATION_ENTITY = {
@@ -42,10 +43,18 @@ export const ORGANIZATION_ENTITY = {
   ],
 };
 
-/** Homepage JSON-LD: Organization + ProfessionalService / LocalBusiness. */
+export const PROFESSIONAL_SERVICE_WITH_CATALOG = withServiceOfferCatalog(
+  PROFESSIONAL_SERVICE_ENTITY,
+);
+
+/** Homepage JSON-LD: Organization, business, and Service offerings. */
 export const HOME_PAGE_JSON_LD = {
   "@context": "https://schema.org",
-  "@graph": [ORGANIZATION_ENTITY, PROFESSIONAL_SERVICE_ENTITY],
+  "@graph": [
+    ORGANIZATION_ENTITY,
+    PROFESSIONAL_SERVICE_WITH_CATALOG,
+    ...SERVICE_ENTITIES,
+  ],
 };
 
 /** @deprecated Prefer HOME_PAGE_JSON_LD on the homepage. */

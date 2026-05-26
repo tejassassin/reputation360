@@ -4,6 +4,14 @@ import { CONTACT_EMAIL, WHATSAPP_PHONE } from "../constants/contact.js";
 export const ORGANIZATION_ID = `${METADATA_BASE}/#organization`;
 export const PROFESSIONAL_SERVICE_ID = `${METADATA_BASE}/#professional-service`;
 
+export const AREA_SERVED_COUNTRIES = [
+  { "@type": "Country", name: "United States" },
+  { "@type": "Country", name: "Canada" },
+  { "@type": "Country", name: "Australia" },
+  { "@type": "Country", name: "United Kingdom" },
+  { "@type": "Country", name: "India" },
+];
+
 const BUSINESS_DESCRIPTION =
   "Reputation360 provides online reputation management for individuals and brands: negative search suppression, positive presence building, monitoring, and crisis recovery.";
 
@@ -45,13 +53,7 @@ export const PROFESSIONAL_SERVICE_ENTITY = {
     "@type": "PostalAddress",
     addressCountry: "IN",
   },
-  areaServed: [
-    { "@type": "Country", name: "United States" },
-    { "@type": "Country", name: "Canada" },
-    { "@type": "Country", name: "Australia" },
-    { "@type": "Country", name: "United Kingdom" },
-    { "@type": "Country", name: "India" },
-  ],
+  areaServed: AREA_SERVED_COUNTRIES,
   serviceType: [
     "Online Reputation Management",
     "Negative Search Result Suppression",
