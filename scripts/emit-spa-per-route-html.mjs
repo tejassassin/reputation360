@@ -13,6 +13,10 @@ import {
   normalizeCanonicalPath,
 } from "../src/lib/canonicalHrefFromPath.js";
 import { SERVICES_PAGE_JSON_LD } from "../src/data/servicesPageSchema.js";
+import {
+  breadcrumbJsonLdForPath,
+  JSONLD_BREADCRUMB_ID,
+} from "../src/lib/breadcrumbJsonLd.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.join(__dirname, "..", "dist");
@@ -84,6 +88,19 @@ function patchRouteJsonLd(html, pathname) {
   return html;
 }
 
+function patchBreadcrumbJsonLd(html, pathname) {
+  const removeRe = new RegExp(
+    `<script\\b[^>]*\\bid\\s*=\\s*["']${JSONLD_BREADCRUMB_ID}["'][^>]*>[\\s\\S]*?</script>\\s*`,
+    "i",
+  );
+  let next = html.replace(removeRe, "");
+  const data = breadcrumbJsonLdForPath(pathname);
+  if (!data) return next;
+  const json = JSON.stringify(data, null, 2);
+  const script = `  <script type="application/ld+json" id="${JSONLD_BREADCRUMB_ID}">\n  ${json}\n  </script>\n`;
+  return next.replace("</head>", `${script}</head>`);
+}
+
 async function injectCrawlNav(html) {
   if (html.includes('id="r360-crawl-nav"')) return html;
   const snippetPath = path.join(__dirname, "..", "public", "crawl-nav-snippet.html");
@@ -103,7 +120,11 @@ async function main() {
   baseRaw = await injectCrawlNav(baseRaw);
   const routes = [...new Set(SITEMAP_URL_ENTRIES.map((e) => e.path))];
 
-  await writeFile(indexPath, patchRouteDocumentMeta(baseRaw, "/"), "utf8");
+  await writeFile(
+    indexPath,
+    patchBreadcrumbJsonLd(patchRouteDocumentMeta(baseRaw, "/"), "/"),
+    "utf8",
+  );
 
   for (const pathname of routes) {
     if (pathname === "/") continue;
@@ -112,11 +133,12 @@ async function main() {
     await mkdir(path.dirname(outFile), { recursive: true });
     let html = patchRouteDocumentMeta(baseRaw, pathname);
     html = patchRouteJsonLd(html, pathname);
+    html = patchBreadcrumbJsonLd(html, pathname);
     await writeFile(outFile, html, "utf8");
   }
 
   console.log(
-    `emit-spa-per-route-html: patched canonical, title, and description for ${routes.length} routes`,
+    `emit-spa-per-route-html: patched canonical, meta, JSON-LD, and breadcrumbs for ${routes.length} routes`,
   );
 }
 
