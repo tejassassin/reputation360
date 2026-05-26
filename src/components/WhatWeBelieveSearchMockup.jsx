@@ -79,7 +79,6 @@ export default function WhatWeBelieveSearchMockup() {
     <div
       className="relative flex h-full min-h-full flex-col overflow-hidden rounded-2xl border border-[#1e3a5f]/80 bg-[#0a1220] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.45)]"
       data-r360-serp-mockup=""
-      aria-label={WHAT_WE_BELIEVE_SERP_MOCKUP_ALT}
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.35]"

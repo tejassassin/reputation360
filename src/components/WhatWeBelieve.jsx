@@ -1,5 +1,7 @@
 import { CircleUserRound, Layers, Timer } from "lucide-react";
-import WhatWeBelieveSearchMockup from "./WhatWeBelieveSearchMockup";
+import WhatWeBelieveSearchMockup, {
+  WHAT_WE_BELIEVE_SERP_MOCKUP_ALT,
+} from "./WhatWeBelieveSearchMockup";
 
 const insights = [
   {
@@ -115,8 +117,19 @@ function WhatWeBelieve() {
                     className="pointer-events-none absolute -bottom-12 -left-12 h-32 w-32 rounded-full bg-[#1F3B64]/10 blur-3xl"
                     aria-hidden
                   />
+                  <img
+                    id="what-we-believe-serp-alt"
+                    src="/what-we-believe-serp-mockup.png"
+                    alt={WHAT_WE_BELIEVE_SERP_MOCKUP_ALT}
+                    width={720}
+                    height={640}
+                    decoding="async"
+                    className="sr-only"
+                  />
                   <div
                     className="relative flex min-h-0 flex-1 flex-col"
+                    role="group"
+                    aria-labelledby="what-we-believe-serp-alt"
                     onClickCapture={(e) => {
                       const t = e.target;
                       if (t instanceof Element && t.closest("a[href]")) {
