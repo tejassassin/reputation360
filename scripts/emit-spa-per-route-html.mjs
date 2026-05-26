@@ -12,10 +12,7 @@ import {
   canonicalHrefForNormalizedPath,
   normalizeCanonicalPath,
 } from "../src/lib/canonicalHrefFromPath.js";
-import {
-  SERVICES_PAGE_BUSINESS_JSON_LD,
-  SERVICES_PAGE_SERVICES_JSON_LD,
-} from "../src/data/servicesPageSchema.js";
+import { SERVICES_PAGE_JSON_LD } from "../src/data/servicesPageSchema.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.join(__dirname, "..", "dist");
@@ -72,13 +69,9 @@ function patchRouteDocumentMeta(html, pathname) {
 }
 
 function patchServicesRouteJsonLd(html) {
-  const businessJson = JSON.stringify(SERVICES_PAGE_BUSINESS_JSON_LD, null, 2);
-  const servicesJson = JSON.stringify(SERVICES_PAGE_SERVICES_JSON_LD, null, 2);
+  const json = JSON.stringify(SERVICES_PAGE_JSON_LD, null, 2);
   const block = `  <script type="application/ld+json" id="r360-jsonld-organization">
-  ${businessJson}
-  </script>
-  <script type="application/ld+json" id="r360-jsonld-services">
-  ${servicesJson}
+  ${json}
   </script>`;
   const re =
     /<script\b[^>]*\bid\s*=\s*["']r360-jsonld-organization["'][^>]*>[\s\S]*?<\/script>\s*(?:<script\b[^>]*\bid\s*=\s*["']r360-jsonld-services["'][^>]*>[\s\S]*?<\/script>\s*)?/i;

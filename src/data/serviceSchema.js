@@ -1,5 +1,4 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
-import { CONTACT_EMAIL } from "../constants/contact.js";
 import { reputationServicesCatalog } from "./reputationServicesCatalog.js";
 import { PRIMARY_SERVICES_CATALOG } from "./primaryServicesCatalog.js";
 import {
@@ -10,13 +9,8 @@ import {
 
 export const SERVICES_PAGE_URL = `${METADATA_BASE}/services`;
 
-export const INLINE_ORGANIZATION_PROVIDER = {
-  "@type": "Organization",
-  "@id": ORGANIZATION_ID,
-  name: "Reputation360",
-  url: METADATA_BASE,
-  email: CONTACT_EMAIL,
-};
+/** Reference only - avoids duplicate Organization nodes in validators. */
+export const ORGANIZATION_PROVIDER_REF = { "@id": ORGANIZATION_ID };
 
 /** @param {string} serviceId */
 export function serviceSchemaId(serviceId) {
@@ -37,7 +31,7 @@ function buildCatalogServiceEntities({ pageScopedId = false } = {}) {
     "@id": pageScopedId ? servicesPageServiceId(service.id) : serviceSchemaId(service.id),
     name: service.title,
     description: service.description,
-    provider: INLINE_ORGANIZATION_PROVIDER,
+    provider: ORGANIZATION_PROVIDER_REF,
     areaServed: AREA_SERVED_COUNTRIES,
     url: SERVICES_PAGE_URL,
   }));
@@ -46,13 +40,13 @@ function buildCatalogServiceEntities({ pageScopedId = false } = {}) {
 /** schema.org Service nodes (homepage makesOffer targets). */
 export const SERVICE_ENTITIES = buildCatalogServiceEntities();
 
-/** Five primary services for /services (explicit Service types for validators). */
+/** Five primary services for /services (linked from Organization hasOfferCatalog). */
 export const PRIMARY_SERVICE_ENTITIES = PRIMARY_SERVICES_CATALOG.map((service) => ({
   "@type": "Service",
   "@id": servicesPageServiceId(service.id),
   name: service.name,
   description: service.description,
-  provider: INLINE_ORGANIZATION_PROVIDER,
+  provider: ORGANIZATION_PROVIDER_REF,
   areaServed: AREA_SERVED_COUNTRIES,
   url: SERVICES_PAGE_URL,
 }));
