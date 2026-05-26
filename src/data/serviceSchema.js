@@ -22,20 +22,20 @@ export const SERVICE_ENTITIES = reputationServicesCatalog.map((service) => ({
 }));
 
 /**
+ * Link catalog Service nodes to the business via makesOffer (no OfferCatalog
+ * itemListElement, which strict validators reject when using position/ListItem).
+ *
  * @param {Record<string, unknown>} professionalServiceEntity
  */
-export function withServiceOfferCatalog(professionalServiceEntity) {
+export function withServiceOffers(professionalServiceEntity) {
   return {
     ...professionalServiceEntity,
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Reputation360 Services",
-      url: SERVICES_PAGE_URL,
-      itemListElement: SERVICE_ENTITIES.map((service, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        item: { "@id": service["@id"] },
-      })),
-    },
+    makesOffer: SERVICE_ENTITIES.map((service) => ({
+      "@type": "Offer",
+      itemOffered: { "@id": service["@id"] },
+    })),
   };
 }
+
+/** @deprecated Use withServiceOffers */
+export const withServiceOfferCatalog = withServiceOffers;

@@ -38,7 +38,8 @@ export const BUSINESS_TELEPHONE = `+${WHATSAPP_PHONE}`;
  * Linked to Organization via parentOrganization and shared @id graph on the homepage.
  */
 export const PROFESSIONAL_SERVICE_ENTITY = {
-  "@type": ["ProfessionalService", "LocalBusiness"],
+  "@type": "ProfessionalService",
+  additionalType: "https://schema.org/LocalBusiness",
   "@id": PROFESSIONAL_SERVICE_ID,
   name: "Reputation360",
   url: METADATA_BASE,
