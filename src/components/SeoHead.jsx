@@ -9,28 +9,48 @@ import {
 const DESC_ID = "r360-meta-description";
 const CANON_ID = "r360-link-canonical";
 const JSONLD_ORG_ID = "r360-jsonld-organization";
+export const JSONLD_SERVICES_ID = "r360-jsonld-services";
 const DEFAULT_OG_IMAGE = `${METADATA_BASE}/about-hero-search-mockup.png`;
 
 /**
- * @param {Record<string, unknown> | Record<string, unknown>[] | null | undefined} jsonLd
+ * @param {string} id
+ * @param {Record<string, unknown> | null | undefined} data
  */
-function applyJsonLd(jsonLd) {
+function upsertJsonLdScript(id, data) {
   const head = document.head;
   if (!head) return;
 
-  let el = document.getElementById(JSONLD_ORG_ID);
-  if (!jsonLd) {
-    el?.remove();
+  const existing = document.getElementById(id);
+  if (!data) {
+    existing?.remove();
     return;
   }
 
+  let el = existing;
   if (!el) {
     el = document.createElement("script");
-    el.id = JSONLD_ORG_ID;
+    el.id = id;
     el.type = "application/ld+json";
     head.appendChild(el);
   }
-  el.textContent = JSON.stringify(jsonLd);
+  el.textContent = JSON.stringify(data);
+}
+
+/**
+ * @param {Record<string, unknown> | Record<string, unknown>[] | null | undefined} jsonLd
+ * @param {{ id: string; data: Record<string, unknown> }[]} [additionalJsonLd]
+ */
+function applyJsonLd(jsonLd, additionalJsonLd = []) {
+  upsertJsonLdScript(JSONLD_ORG_ID, jsonLd ?? null);
+
+  const activeExtraIds = new Set(additionalJsonLd.map((block) => block.id));
+  for (const block of additionalJsonLd) {
+    upsertJsonLdScript(block.id, block.data);
+  }
+
+  if (!activeExtraIds.has(JSONLD_SERVICES_ID)) {
+    upsertJsonLdScript(JSONLD_SERVICES_ID, null);
+  }
 }
 
 /** Create or update a <meta> tag by its identifying attribute. */
@@ -95,8 +115,9 @@ function removeExtraDescriptionMetas(canonical) {
  * @param {string}  props.canonicalPath  Fallback pathname when `window` is undefined
  * @param {string}  [props.ogImage]      Full URL to OG image (defaults to site default)
  * @param {Record<string, unknown> | Record<string, unknown>[]} [props.jsonLd] JSON-LD for <head> (homepage Organization, etc.)
+ * @param {{ id: string; data: Record<string, unknown> }[]} [props.additionalJsonLd] Extra JSON-LD script blocks (e.g. Service on /services)
  */
-export function SeoHead({ title, description, canonicalPath, ogImage, jsonLd }) {
+export function SeoHead({ title, description, canonicalPath, ogImage, jsonLd, additionalJsonLd }) {
   useLayoutEffect(() => {
     if (!document.head) return;
 
@@ -153,11 +174,12 @@ export function SeoHead({ title, description, canonicalPath, ogImage, jsonLd }) 
   }, [title, description, canonicalPath, ogImage]);
 
   useLayoutEffect(() => {
-    applyJsonLd(jsonLd);
+    applyJsonLd(jsonLd, additionalJsonLd ?? []);
     return () => {
-      if (jsonLd) applyJsonLd(null);
+      upsertJsonLdScript(JSONLD_ORG_ID, null);
+      upsertJsonLdScript(JSONLD_SERVICES_ID, null);
     };
-  }, [jsonLd]);
+  }, [jsonLd, additionalJsonLd]);
 
   return null;
 }

@@ -12,7 +12,10 @@ import {
   canonicalHrefForNormalizedPath,
   normalizeCanonicalPath,
 } from "../src/lib/canonicalHrefFromPath.js";
-import { SERVICES_PAGE_JSON_LD } from "../src/data/serviceSchema.js";
+import {
+  SERVICES_PAGE_BUSINESS_JSON_LD,
+  SERVICES_PAGE_SERVICES_JSON_LD,
+} from "../src/data/servicesPageSchema.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.join(__dirname, "..", "dist");
@@ -68,19 +71,24 @@ function patchRouteDocumentMeta(html, pathname) {
   return next;
 }
 
-/** @type {Record<string, object>} */
-const ROUTE_JSON_LD = {
-  "/services": SERVICES_PAGE_JSON_LD,
-};
+function patchServicesRouteJsonLd(html) {
+  const businessJson = JSON.stringify(SERVICES_PAGE_BUSINESS_JSON_LD, null, 2);
+  const servicesJson = JSON.stringify(SERVICES_PAGE_SERVICES_JSON_LD, null, 2);
+  const block = `  <script type="application/ld+json" id="r360-jsonld-organization">
+  ${businessJson}
+  </script>
+  <script type="application/ld+json" id="r360-jsonld-services">
+  ${servicesJson}
+  </script>`;
+  const re =
+    /<script\b[^>]*\bid\s*=\s*["']r360-jsonld-organization["'][^>]*>[\s\S]*?<\/script>\s*(?:<script\b[^>]*\bid\s*=\s*["']r360-jsonld-services["'][^>]*>[\s\S]*?<\/script>\s*)?/i;
+  if (!re.test(html)) return html;
+  return html.replace(re, block);
+}
 
 function patchRouteJsonLd(html, pathname) {
-  const jsonLd = ROUTE_JSON_LD[pathname];
-  if (!jsonLd) return html;
-  const json = JSON.stringify(jsonLd, null, 2);
-  const re =
-    /(<script\b[^>]*\bid\s*=\s*["']r360-jsonld-organization["'][^>]*>)\s*[\s\S]*?(\s*<\/script>)/i;
-  if (!re.test(html)) return html;
-  return html.replace(re, `$1\n  ${json}\n  $2`);
+  if (pathname === "/services") return patchServicesRouteJsonLd(html);
+  return html;
 }
 
 async function injectCrawlNav(html) {
