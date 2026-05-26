@@ -95,38 +95,94 @@
         media="(min-width: 768px)"
       />
     </noscript>
-  <!-- Schema.org: Organization (homepage; keep in sync with src/data/organizationSchema.js) -->
+  <!-- Schema.org: homepage @graph (keep in sync with src/data/organizationSchema.js + localBusinessSchema.js) -->
   <script type="application/ld+json" id="r360-jsonld-organization">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://www.thereputation360.com/#organization",
-    "name": "Reputation360",
-    "url": "https://www.thereputation360.com",
-    "logo": "https://www.thereputation360.com/android-chrome-512x512.png",
-    "image": "https://www.thereputation360.com/about-hero-search-mockup.png",
-    "description": "Reputation360 is a trusted online reputation management agency with 7+ years of experience. We help individuals and brands suppress negative search results and build credible, resilient digital reputations.",
-    "email": "hello@thereputation360.com",
-    "foundingDate": "2018",
-    "areaServed": { "@type": "Country", "name": "United States" },
-    "knowsAbout": [
-      "Online Reputation Management",
-      "Negative Link Suppression",
-      "Brand Monitoring",
-      "Crisis Management"
-    ],
-    "sameAs": [
-      "https://www.linkedin.com/company/thereputation360",
-      "https://x.com/Reputation360_",
-      "https://www.instagram.com/thereputation360/",
-      "https://www.youtube.com/@Reputation360",
-      "https://g.page/r/CRYmeiA2xgQBEBM/review",
-      "https://in.pinterest.com/reputation360/",
-      "https://medium.com/@Reputation360",
-      "https://reputation360online.blogspot.com/",
-      "https://reputation360.wordpress.com",
-      "https://www.behance.net/thereputation360",
-      "https://reputation360.mystrikingly.com"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.thereputation360.com/#organization",
+        "name": "Reputation360",
+        "url": "https://www.thereputation360.com",
+        "logo": "https://www.thereputation360.com/android-chrome-512x512.png",
+        "image": "https://www.thereputation360.com/about-hero-search-mockup.png",
+        "description": "Reputation360 is a trusted online reputation management agency with 7+ years of experience. We help individuals and brands suppress negative search results and build credible, resilient digital reputations.",
+        "email": "hello@thereputation360.com",
+        "foundingDate": "2018",
+        "areaServed": { "@type": "Country", "name": "United States" },
+        "knowsAbout": [
+          "Online Reputation Management",
+          "Negative Link Suppression",
+          "Brand Monitoring",
+          "Crisis Management"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/company/thereputation360",
+          "https://x.com/Reputation360_",
+          "https://www.instagram.com/thereputation360/",
+          "https://www.youtube.com/@Reputation360",
+          "https://g.page/r/CRYmeiA2xgQBEBM/review",
+          "https://in.pinterest.com/reputation360/",
+          "https://medium.com/@Reputation360",
+          "https://reputation360online.blogspot.com/",
+          "https://reputation360.wordpress.com",
+          "https://www.behance.net/thereputation360",
+          "https://reputation360.mystrikingly.com"
+        ]
+      },
+      {
+        "@type": ["ProfessionalService", "LocalBusiness"],
+        "@id": "https://www.thereputation360.com/#professional-service",
+        "name": "Reputation360",
+        "url": "https://www.thereputation360.com",
+        "logo": "https://www.thereputation360.com/android-chrome-512x512.png",
+        "image": "https://www.thereputation360.com/about-hero-search-mockup.png",
+        "description": "Reputation360 provides online reputation management for individuals and brands: negative search suppression, positive presence building, monitoring, and crisis recovery.",
+        "email": "hello@thereputation360.com",
+        "telephone": "+919910000000",
+        "foundingDate": "2018",
+        "parentOrganization": { "@id": "https://www.thereputation360.com/#organization" },
+        "address": { "@type": "PostalAddress", "addressCountry": "IN" },
+        "areaServed": [
+          { "@type": "Country", "name": "United States" },
+          { "@type": "Country", "name": "Canada" },
+          { "@type": "Country", "name": "Australia" },
+          { "@type": "Country", "name": "United Kingdom" },
+          { "@type": "Country", "name": "India" }
+        ],
+        "serviceType": [
+          "Online Reputation Management",
+          "Negative Search Result Suppression",
+          "Reputation Repair",
+          "Brand Monitoring",
+          "Crisis Reputation Management"
+        ],
+        "knowsAbout": [
+          "Online Reputation Management",
+          "Negative Link Suppression",
+          "Brand Monitoring",
+          "Crisis Management"
+        ],
+        "hasMap": "https://g.page/r/CRYmeiA2xgQBEBM/review",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "hello@thereputation360.com",
+            "telephone": "+919910000000",
+            "availableLanguage": ["English"],
+            "areaServed": ["US", "CA", "AU", "GB", "IN"]
+          }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/company/thereputation360",
+          "https://x.com/Reputation360_",
+          "https://www.instagram.com/thereputation360/",
+          "https://www.youtube.com/@Reputation360",
+          "https://g.page/r/CRYmeiA2xgQBEBM/review"
+        ]
+      }
     ]
   }
   </script>

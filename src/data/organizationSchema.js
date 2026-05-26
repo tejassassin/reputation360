@@ -1,17 +1,21 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
+import { CONTACT_EMAIL } from "../constants/contact.js";
+import {
+  ORGANIZATION_ID,
+  PROFESSIONAL_SERVICE_ENTITY,
+} from "./localBusinessSchema.js";
 
-/** Keep in sync with Organization JSON-LD in index.html (homepage initial HTML). */
-export const ORGANIZATION_JSON_LD = {
-  "@context": "https://schema.org",
+/** Organization entity (use inside homepage @graph or standalone with @context). */
+export const ORGANIZATION_ENTITY = {
   "@type": "Organization",
-  "@id": `${METADATA_BASE}/#organization`,
+  "@id": ORGANIZATION_ID,
   name: "Reputation360",
   url: METADATA_BASE,
   logo: `${METADATA_BASE}/android-chrome-512x512.png`,
   image: `${METADATA_BASE}/about-hero-search-mockup.png`,
   description:
     "Reputation360 is a trusted online reputation management agency with 7+ years of experience. We help individuals and brands suppress negative search results and build credible, resilient digital reputations.",
-  email: "hello@thereputation360.com",
+  email: CONTACT_EMAIL,
   foundingDate: "2018",
   areaServed: {
     "@type": "Country",
@@ -36,4 +40,16 @@ export const ORGANIZATION_JSON_LD = {
     "https://www.behance.net/thereputation360",
     "https://reputation360.mystrikingly.com",
   ],
+};
+
+/** Homepage JSON-LD: Organization + ProfessionalService / LocalBusiness. */
+export const HOME_PAGE_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [ORGANIZATION_ENTITY, PROFESSIONAL_SERVICE_ENTITY],
+};
+
+/** @deprecated Prefer HOME_PAGE_JSON_LD on the homepage. */
+export const ORGANIZATION_JSON_LD = {
+  "@context": "https://schema.org",
+  ...ORGANIZATION_ENTITY,
 };
