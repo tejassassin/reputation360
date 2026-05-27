@@ -1,16 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { FaqRichAnswer } from "../components/FaqRichAnswer.jsx";
-import { ConsultationCtas } from "../components/ConsultationCtas";
+import { BlogGuideCtaPanel } from "../components/blog/BlogGuideCtaSection.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { StatNumber } from "../components/StatNumber.jsx";
 import { RESOURCES_FAQ_SECTIONS } from "../data/resourcesFaqs/index.js";
 import { cn } from "@/lib/utils";
-
-const CTA_BG_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBbAPklAKn9fFP2nNIPWazVHI3ZwR5Yz1EHjtS59wpqZaZsgbvsTNnn2DY2Z2ZFVsKpsDYYxaRRDxxADi_bhK7JtnubjYTxyKAy79ytFJBnE-Ut3T5hmToXxlsN6GXzKBRpB6Zc4YG-hWln8NC9ZPRDndtm08dWYUo5CThtOE9yfBsmV6F7T-JijeQtJDN61rY3B08b8OrtjubvsRJRVLEEkZJWpNYHajsEylcxi2x9QBrKL0EmGJg1BBlZ9Y2pvvqDdUKcJx8v2mM";
 
 function FaqSection({ id, title, children }) {
   return (
@@ -212,40 +208,12 @@ function FaqsPage() {
             </div>
           </section>
 
-          {/* Final CTA */}
+          {/* Final CTA - same centered panel pattern as Services and blog guides */}
           <section className="mb-24">
-            <div className="group relative ha-lift overflow-hidden rounded-[2rem] bg-[#1F3B64] p-12 md:p-20">
-              <div className="pointer-events-none absolute inset-0 opacity-10">
-                <img
-                  src={CTA_BG_IMAGE}
-                  alt=""
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className="relative z-10 flex flex-col items-center justify-between gap-12 md:flex-row">
-                <div className="max-w-xl">
-                  <h2 className="font-headline-faq mb-6 text-3xl leading-tight font-bold text-white md:text-5xl">
-                    Still have questions? Your situation is specific. So is our
-                    answer.
-                  </h2>
-                  <p className="mb-8 text-lg text-white/80">
-                    Every reputation challenge requires a unique architecture.
-                    Let&apos;s discuss your path forward in a private,
-                    expert-led 30-minute consultation.
-                  </p>
-                </div>
-                <ConsultationCtas
-                  variant="onDark"
-                  consultLabel="Book a Free Consultation"
-                  consultSuffix={
-                    <ArrowRight className="h-6 w-6 shrink-0" aria-hidden />
-                  }
-                  wrapperClassName="shrink-0 flex-col md:flex-row"
-                  freeScanClassName="inline-flex items-center justify-center rounded-xl border-2 border-white/35 bg-white/10 px-10 py-5 text-lg font-bold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 [font-family:Manrope,sans-serif]"
-                  consultClassName="inline-flex items-center gap-3 rounded-xl bg-cta-consult px-10 py-5 text-lg font-bold text-white shadow-xl shadow-cta-consult/30 transition-all hover:brightness-95 active:scale-95 md:hover:-translate-y-1 [font-family:Manrope,sans-serif]"
-                />
-              </div>
-            </div>
+            <BlogGuideCtaPanel
+              title="Still have questions?"
+              lead="Your situation is specific. So is our answer. Every reputation challenge requires a unique architecture. Let's discuss your path forward in a private, expert-led 30-minute consultation."
+            />
           </section>
         </div>
       </main>
