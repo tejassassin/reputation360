@@ -6,3 +6,6 @@ export const METADATA_BASE = "https://www.thereputation360.com";
 
 /** Alias kept for call sites that name the origin this way. */
 export const SITE_CANONICAL_ORIGIN = METADATA_BASE;
+
+/** Primary document language (US English). Hreflang not used until separate market content exists. */
+export const SITE_HTML_LANG = "en-US";

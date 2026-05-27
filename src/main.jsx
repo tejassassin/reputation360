@@ -4,6 +4,9 @@ import "./index.css";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 import App from "./App.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import { SITE_HTML_LANG } from "./constants/siteUrl.js";
+
+document.documentElement.lang = SITE_HTML_LANG;
 
 const NonHomeRoutes = lazy(() =>
   import("./app/nonHomeRoutes.jsx").then((mod) => ({
