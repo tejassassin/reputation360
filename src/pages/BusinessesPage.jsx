@@ -9,6 +9,7 @@ import {
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
+import { faqAdditionalJsonLdFromItems, mapQuestionAnswerFaqs } from "../data/faqPageSchema.js";
 import { BUSINESS_FAQ_ITEMS } from "../data/whoWeServeAudienceFaqs.js";
 import {
   ShieldCheck,
@@ -534,6 +535,9 @@ function BusinessesPage() {
         title={seo.title}
         description={seo.description}
         canonicalPath={seo.path}
+        additionalJsonLd={faqAdditionalJsonLdFromItems(
+          mapQuestionAnswerFaqs(BUSINESS_FAQ_ITEMS),
+        )}
       />
     <main className="flex-1 bg-offwhite pt-28 md:pt-32">
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 md:px-6 md:py-14">

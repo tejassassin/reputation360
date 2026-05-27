@@ -10,6 +10,11 @@ const DESC_ID = "r360-meta-description";
 const CANON_ID = "r360-link-canonical";
 const JSONLD_ORG_ID = "r360-jsonld-organization";
 export const JSONLD_SERVICES_ID = "r360-jsonld-services";
+import { JSONLD_FAQ_ID } from "../data/faqPageSchema.js";
+
+export { JSONLD_FAQ_ID };
+
+const MANAGED_EXTRA_JSONLD_IDS = [JSONLD_SERVICES_ID, JSONLD_FAQ_ID];
 const DEFAULT_OG_IMAGE = `${METADATA_BASE}/about-hero-search-mockup.png`;
 
 /**
@@ -48,8 +53,10 @@ function applyJsonLd(jsonLd, additionalJsonLd = []) {
     upsertJsonLdScript(block.id, block.data);
   }
 
-  if (!activeExtraIds.has(JSONLD_SERVICES_ID)) {
-    upsertJsonLdScript(JSONLD_SERVICES_ID, null);
+  for (const id of MANAGED_EXTRA_JSONLD_IDS) {
+    if (!activeExtraIds.has(id)) {
+      upsertJsonLdScript(id, null);
+    }
   }
 }
 
@@ -177,7 +184,9 @@ export function SeoHead({ title, description, canonicalPath, ogImage, jsonLd, ad
     applyJsonLd(jsonLd, additionalJsonLd ?? []);
     return () => {
       upsertJsonLdScript(JSONLD_ORG_ID, null);
-      upsertJsonLdScript(JSONLD_SERVICES_ID, null);
+      for (const id of MANAGED_EXTRA_JSONLD_IDS) {
+        upsertJsonLdScript(id, null);
+      }
     };
   }, [jsonLd, additionalJsonLd]);
 

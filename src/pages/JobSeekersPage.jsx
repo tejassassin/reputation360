@@ -9,6 +9,7 @@ import {
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
+import { faqAdditionalJsonLdFromItems, mapQuestionAnswerFaqs } from "../data/faqPageSchema.js";
 import { JOB_SEEKER_FAQ_ITEMS } from "../data/whoWeServeAudienceFaqs.js";
 import {
   ShieldCheck,
@@ -552,6 +553,9 @@ function JobSeekersPage() {
         title={seo.title}
         description={seo.description}
         canonicalPath={seo.path}
+        additionalJsonLd={faqAdditionalJsonLdFromItems(
+          mapQuestionAnswerFaqs(JOB_SEEKER_FAQ_ITEMS),
+        )}
       />
     <main className="flex-1 pt-28 md:pt-32 bg-offwhite">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 space-y-10">

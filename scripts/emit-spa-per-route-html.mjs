@@ -13,6 +13,8 @@ import {
   normalizeCanonicalPath,
 } from "../src/lib/canonicalHrefFromPath.js";
 import { SERVICES_PAGE_JSON_LD } from "../src/data/servicesPageSchema.js";
+import { getFaqPageSchemaForPath } from "../src/data/routeFaqSchemaByPath.js";
+import { JSONLD_FAQ_ID } from "../src/data/faqPageSchema.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.join(__dirname, "..", "dist");
@@ -79,9 +81,36 @@ function patchServicesRouteJsonLd(html) {
   return html.replace(re, block);
 }
 
+/**
+ * @param {string} html
+ * @param {Record<string, unknown> | null} faqSchema
+ */
+function upsertFaqJsonLd(html, faqSchema) {
+  const re = new RegExp(
+    `<script\\b[^>]*\\bid\\s*=\\s*["']${JSONLD_FAQ_ID}["'][^>]*>[\\s\\S]*?<\\/script>\\s*`,
+    "i",
+  );
+  if (!faqSchema) {
+    return re.test(html) ? html.replace(re, "") : html;
+  }
+  const block = `  <script type="application/ld+json" id="${JSONLD_FAQ_ID}">
+  ${JSON.stringify(faqSchema, null, 2)}
+  </script>
+`;
+  if (re.test(html)) {
+    return html.replace(re, block);
+  }
+  return html.replace(/<\/head>/i, `${block}</head>`);
+}
+
 function patchRouteJsonLd(html, pathname) {
-  if (pathname === "/services") return patchServicesRouteJsonLd(html);
-  return html;
+  const normalized = normalizeCanonicalPath(pathname);
+  let next = html;
+  if (normalized === "/services") {
+    next = patchServicesRouteJsonLd(next);
+  }
+  next = upsertFaqJsonLd(next, getFaqPageSchemaForPath(normalized));
+  return next;
 }
 
 async function injectCrawlNav(html) {
@@ -103,7 +132,11 @@ async function main() {
   baseRaw = await injectCrawlNav(baseRaw);
   const routes = [...new Set(SITEMAP_URL_ENTRIES.map((e) => e.path))];
 
-  await writeFile(indexPath, patchRouteDocumentMeta(baseRaw, "/"), "utf8");
+  await writeFile(
+    indexPath,
+    patchRouteJsonLd(patchRouteDocumentMeta(baseRaw, "/"), "/"),
+    "utf8",
+  );
 
   for (const pathname of routes) {
     if (pathname === "/") continue;

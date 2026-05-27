@@ -29,6 +29,7 @@ import {
   Users,
   MapPin,
 } from "lucide-react";
+import { faqAdditionalJsonLdFromItems, mapQuestionAnswerFaqs } from "../data/faqPageSchema.js";
 import { LAWYER_FAQ_ITEMS } from "../data/whoWeServeAudienceFaqs.js";
 
 const LAWYER_PROBLEM_TILES = [
@@ -557,6 +558,7 @@ function LawyersPage() {
         title={seo.title}
         description={seo.description}
         canonicalPath={seo.path}
+        additionalJsonLd={faqAdditionalJsonLdFromItems(mapQuestionAnswerFaqs(LAWYER_FAQ_ITEMS))}
       />
     <main className="flex-1 bg-offwhite pb-16 pt-28 md:pb-20 md:pt-32">
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 md:px-6 md:py-14">

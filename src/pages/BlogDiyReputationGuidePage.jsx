@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Check, Clock, Search } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
+import { faqAdditionalJsonLdFromItems, mapQaFaqs } from "../data/faqPageSchema.js";
 import { cn } from "@/lib/utils";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { AUDIENCE_PATH } from "@/constants/whoWeServePaths.js";
@@ -107,6 +108,7 @@ export default function BlogDiyReputationGuidePage() {
         description={diyReputationGuideMetaDescription}
         canonicalPath={DIY_REPUTATION_GUIDE_PATH}
         ogImage={diyReputationGuideListing.image}
+        additionalJsonLd={faqAdditionalJsonLdFromItems(mapQaFaqs(DIY_FAQS))}
       />
 
       <div className="r360-diy-interactive scroll-smooth pb-1 font-body text-jet antialiased">

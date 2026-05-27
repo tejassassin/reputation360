@@ -5,6 +5,10 @@ import { BlogGuideCtaPanel } from "../components/blog/BlogGuideCtaSection.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { StatNumber } from "../components/StatNumber.jsx";
+import {
+  faqAdditionalJsonLdFromItems,
+  RESOURCES_FAQ_SCHEMA_ITEMS,
+} from "../data/faqPageSchema.js";
 import { RESOURCES_FAQ_SECTIONS } from "../data/resourcesFaqs/index.js";
 import { cn } from "@/lib/utils";
 
@@ -116,6 +120,7 @@ function FaqsPage() {
         title={seo.title}
         description={seo.description}
         canonicalPath={seo.path}
+        additionalJsonLd={faqAdditionalJsonLdFromItems(RESOURCES_FAQ_SCHEMA_ITEMS)}
       />
       <main className="faq-page flex-1 bg-[#F5F7FA] pt-28 text-[#1F3B64] selection:bg-[#4CAF50]/30 md:pt-32">
         <div className="mx-auto max-w-7xl px-6">

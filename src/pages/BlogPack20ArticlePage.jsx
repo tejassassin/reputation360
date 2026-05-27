@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Clock } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
+import { faqAdditionalJsonLdFromItems, mapQaFaqs } from "../data/faqPageSchema.js";
 import { cn } from "@/lib/utils";
 import {
   DiyGuideToc,
@@ -120,6 +121,9 @@ export default function BlogPack20ArticlePage({ slug }) {
         description={article.metaDescription}
         canonicalPath={article.path}
         ogImage={article.listing.image}
+        additionalJsonLd={faqAdditionalJsonLdFromItems(
+          mapQaFaqs(article.faqs ?? []),
+        )}
       />
 
       <div className="r360-diy-interactive scroll-smooth pb-1 font-body text-jet antialiased">
