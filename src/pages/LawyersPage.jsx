@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FaqAccordion } from "../components/FaqAccordion";
+import { FaqAnswerParagraphs } from "../components/FaqAnswerParagraphs.jsx";
 import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
@@ -28,39 +29,7 @@ import {
   Users,
   MapPin,
 } from "lucide-react";
-
-const LAWYER_FAQ_ITEMS = [
-  {
-    id: "legal-ethical",
-    question: "Is reputation suppression legal and ethical?",
-    answer:
-      "Entirely. We do not alter, hack, or tamper with any existing content. We build new, legitimate, high-quality content that earns its ranking through genuine authority.",
-  },
-  {
-    id: "state-bar-records",
-    question: "Can state bar records be suppressed?",
-    answer:
-      "The records on bar association systems cannot be altered. What we address is the search ranking of those pages - through content strategy and SEO, it is achievable to move bar records beyond the visible search results that prospective clients actually review.",
-  },
-  {
-    id: "visibility-to-opposing-parties",
-    question: "Will opposing parties or former clients be able to tell I am doing this?",
-    answer:
-      "No. The content we build appears as a natural part of your professional digital presence. There is no visible signal that it has been created to address a reputation issue.",
-  },
-  {
-    id: "practice-areas",
-    question: "What practice areas benefit most?",
-    answer:
-      "We work with legal professionals across all practice areas, but see particular demand from litigation, family law, criminal defense, and corporate law practitioners - areas where public records and adversarial proceedings most frequently generate searchable content.",
-  },
-  {
-    id: "timeline",
-    question: "How long does this take?",
-    answer:
-      "Meaningful displacement of primary negative results typically takes eight to twelve months. We will give you a case-specific estimate in your consultation.",
-  },
-];
+import { LAWYER_FAQ_ITEMS } from "../data/whoWeServeAudienceFaqs.js";
 
 const LAWYER_PROBLEM_TILES = [
   {
@@ -572,7 +541,7 @@ function LawyersFaqSection() {
             question={item.question}
             defaultOpen={index === 0}
           >
-            <p className="text-[15px] leading-relaxed">{item.answer}</p>
+            <FaqAnswerParagraphs answer={item.answer} />
           </FaqAccordion>
         ))}
       </div>

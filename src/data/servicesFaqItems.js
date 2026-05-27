@@ -28,7 +28,7 @@ export const SERVICES_FAQ_ITEMS = [
     id: "industries",
     question: "What industries do you specialise in?",
     answer:
-      "We have deep experience with financial professionals, legal professionals, healthcare practitioners, executives, founders, job seekers, and businesses - particularly across the US, Canada, and Australia. Strategies are adapted to the regulatory and reputational context of each field.",
+      "We have deep experience with financial professionals, legal professionals, healthcare practitioners, executives, founders, job seekers, and businesses - particularly across the US, Europe, Canada and Australia. Strategies are adapted to the regulatory and reputational context of each field.",
   },
   {
     id: "ongoing-monitoring",

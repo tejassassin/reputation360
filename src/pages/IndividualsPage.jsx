@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FaqAccordion } from "../components/FaqAccordion";
+import { FaqAnswerParagraphs } from "../components/FaqAnswerParagraphs.jsx";
 import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
@@ -8,6 +9,7 @@ import {
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
+import { PERSONAL_REPUTATION_FAQ_ITEMS as INDIVIDUAL_FAQ_ITEMS } from "../data/whoWeServeAudienceFaqs.js";
 import {
   ShieldCheck,
   Search,
@@ -166,41 +168,6 @@ const INDIVIDUAL_WHY_PILLARS = [
     hook: "Your situation is not a template.",
     body: "We approach individual cases with a level of discretion and sensitivity that reflects this. Your situation is not a template. It requires a conversation, a careful audit, and a strategy built specifically around what you are dealing with.",
     Icon: Lock,
-  },
-];
-
-const INDIVIDUAL_FAQ_ITEMS = [
-  {
-    id: "false",
-    question: "What if the content about me is completely false?",
-    answer:
-      "False, defamatory content has additional removal options beyond standard platform policy requests. Depending on the severity and the platform, legal mechanisms may be applicable. We assess this in your initial consultation and recommend the most appropriate approach.",
-  },
-  {
-    id: "google-remove",
-    question: "Can Google actually remove content from search results?",
-    answer:
-      "Google can de-index specific URLs - meaning they no longer appear in search results even if the underlying content still exists on the original site. De-indexing achieves the same practical outcome as removal for most purposes. We manage the request process and know which categories of content are most likely to be accepted.",
-  },
-  {
-    id: "right-forgotten",
-    question: "What about the Right to be Forgotten under US law?",
-    answer:
-      "While the US does not have a comprehensive federal right-to-erasure law equivalent to the EU's GDPR, certain state privacy laws - including the California Consumer Privacy Act - provide some basis for de-indexing requests involving private individuals. This is an evolving area of law, and we assess the applicable options for your specific situation.",
-  },
-  {
-    id: "confidential",
-    question:
-      "I am worried about someone finding out I am looking into this. Is this confidential?",
-    answer:
-      "Completely. Your consultation, your audit, and everything we do is entirely confidential. We do not create any visible signal that you are managing your reputation.",
-  },
-  {
-    id: "third-party",
-    question:
-      "What if the content involves someone else - for example, a former partner who created content about me?",
-    answer:
-      "Content created by a third party specifically targeting you may have additional removal options depending on its nature. Harassment, defamation, and non-consensual intimate imagery all have specific platform mechanisms and, in some cases, legal avenues. We assess all of these in your consultation.",
   },
 ];
 
@@ -761,7 +728,7 @@ function IndividualsFaqSection() {
             question={item.question}
             defaultOpen={index === 0}
           >
-            <p className="text-[15px] leading-relaxed">{item.answer}</p>
+            <FaqAnswerParagraphs answer={item.answer} />
           </FaqAccordion>
         ))}
       </div>

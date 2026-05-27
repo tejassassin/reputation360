@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FaqAccordion } from "../components/FaqAccordion";
+import { FaqAnswerParagraphs } from "../components/FaqAnswerParagraphs.jsx";
 import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
@@ -8,6 +9,7 @@ import {
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
+import { EXECUTIVE_FAQ_ITEMS } from "../data/whoWeServeAudienceFaqs.js";
 import {
   ShieldCheck,
   Search,
@@ -135,40 +137,6 @@ const EXECUTIVE_WHY_STAKES_PILLARS = [
     hook: "Presence is a function of your position.",
     body: "Building a protective, authoritative digital presence is not something you do reactively. It is something you maintain proactively, as a function of your position.",
     Icon: TrendingUp,
-  },
-];
-
-const EXECUTIVE_FAQ_ITEMS = [
-  {
-    id: "legal-ethical",
-    question: "Is reputation suppression legal and ethical?",
-    answer:
-      "Entirely. We do not alter, hack, or tamper with any existing content. We build new, legitimate, high-quality content that earns its ranking through genuine authority.",
-  },
-  {
-    id: "proactive",
-    question:
-      "Can you manage reputation proactively, before there is a specific problem?",
-    answer:
-      "Yes, and this is the most effective approach. Building a strong, authoritative executive presence before a negative result emerges makes it significantly harder for any negative content to gain ranking traction.",
-  },
-  {
-    id: "confidential",
-    question: "Is this service confidential?",
-    answer:
-      "Completely. We do not discuss client engagements publicly. Discretion is foundational to how we operate.",
-  },
-  {
-    id: "comms-legal",
-    question: "Do you work with communications or legal teams?",
-    answer:
-      "Yes. For executives at large organizations, we frequently coordinate with in-house communications, legal, or investor relations teams to ensure alignment.",
-  },
-  {
-    id: "how-long",
-    question: "How long does this take?",
-    answer:
-      "Meaningful displacement of primary negative results typically takes eight to twelve months. We will give you a case-specific estimate in your consultation.",
   },
 ];
 
@@ -561,7 +529,7 @@ function ExecutivesFaqSection() {
             question={item.question}
             defaultOpen={index === 0}
           >
-            <p className="text-[15px] leading-relaxed">{item.answer}</p>
+            <FaqAnswerParagraphs answer={item.answer} />
           </FaqAccordion>
         ))}
       </div>

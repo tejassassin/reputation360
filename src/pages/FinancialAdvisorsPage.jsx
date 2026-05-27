@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FaqAccordion } from "../components/FaqAccordion";
+import { FaqAnswerParagraphs } from "../components/FaqAnswerParagraphs.jsx";
 import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
@@ -8,6 +9,7 @@ import {
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
+import { FINANCIAL_ADVISOR_FAQ_ITEMS } from "../data/whoWeServeAudienceFaqs.js";
 import {
   ShieldCheck,
   FileWarning,
@@ -95,39 +97,6 @@ const FINANCIAL_ADVISOR_PROBLEM_TILES = [
     description:
       "Old news coverage of market events where your name or firm was mentioned critically",
     Icon: History,
-  },
-];
-
-const FINANCIAL_ADVISOR_FAQ_ITEMS = [
-  {
-    id: "legal-ethical",
-    question: "Is reputation suppression legal and ethical?",
-    answer:
-      "Entirely. We do not alter, hack, or tamper with any existing content. We build new, legitimate, high-quality content that earns its ranking through genuine authority.",
-  },
-  {
-    id: "finra-brokercheck",
-    question: "Can FINRA BrokerCheck records actually be suppressed?",
-    answer:
-      "The records remain on FINRA's database. What changes is whether those pages appear prominently when someone searches your name on Google. Through content strategy and SEO, it is entirely possible to move those results to page two or beyond.",
-  },
-  {
-    id: "discretion",
-    question: "Will my clients or colleagues know I am doing this?",
-    answer:
-      "No. Everything we do is outward-facing content building. The content we create - articles, profiles, website - simply appears as a natural part of your professional digital presence.",
-  },
-  {
-    id: "timeline-results",
-    question: "How long before I see results?",
-    answer:
-      "Meaningful displacement of primary negative results typically takes eight to twelve months, depending on the strength of what we are working against. We will give you a case-specific estimate in your initial consultation.",
-  },
-  {
-    id: "removal-vs-suppression",
-    question: "What if removal is possible?",
-    answer:
-      "Where genuine removal is possible - through privacy law requests, platform policy, or direct publisher outreach - we pursue it. Removal is always the preferred outcome. Suppression is the strategy we deploy when removal is not achievable.",
   },
 ];
 
@@ -525,7 +494,7 @@ function FinancialAdvisorsFaqSection() {
             question={item.question}
             defaultOpen={index === 0}
           >
-            <p className="text-[15px] leading-relaxed">{item.answer}</p>
+            <FaqAnswerParagraphs answer={item.answer} />
           </FaqAccordion>
         ))}
       </div>

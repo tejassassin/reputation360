@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FaqAccordion } from "../components/FaqAccordion";
+import { FaqAnswerParagraphs } from "../components/FaqAnswerParagraphs.jsx";
 import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
@@ -8,6 +9,7 @@ import {
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
+import { BUSINESS_FAQ_ITEMS } from "../data/whoWeServeAudienceFaqs.js";
 import {
   ShieldCheck,
   Search,
@@ -124,41 +126,6 @@ const BUSINESS_WHY_STAKES_PILLARS = [
     hook: "Customers, talent, investors, partners, and press all search.",
     body: "Because you serve multiple stakeholders simultaneously - customers, talent, investors, partners, press - a negative result that affects one group often affects all of them.",
     Icon: Users,
-  },
-];
-
-const BUSINESS_FAQ_ITEMS = [
-  {
-    id: "remove-reviews",
-    question: "Can we remove negative reviews from Google Business or Yelp?",
-    answer:
-      "Reviews that violate platform policies - fake reviews, reviews from non-customers, defamatory content - can often be reported and removed. Reviews that do not violate policy are addressed through suppression.",
-  },
-  {
-    id: "competitor-targeting",
-    question:
-      "What if a competitor is specifically targeting our brand name in search?",
-    answer:
-      "This is more common than most businesses realize. We identify competitor content campaigns targeting your brand and deploy a counter-content strategy that outranks their efforts.",
-  },
-  {
-    id: "audit-scope",
-    question:
-      "We have multiple products and multiple founders. Do you audit all of them?",
-    answer:
-      "Yes. A comprehensive audit covers your company name, all founder names, key product names, and relevant brand search terms.",
-  },
-  {
-    id: "ongoing",
-    question: "Is this a one-time project or an ongoing engagement?",
-    answer:
-      "It depends on your situation. Some businesses engage us for a defined suppression project. Others with ongoing reputation risk work with us on a retained basis. We will recommend the appropriate structure after the audit.",
-  },
-  {
-    id: "success",
-    question: "How do you measure success?",
-    answer:
-      "We track search rankings for your target terms weekly throughout the engagement. Success is defined by displacement - negative content moving beyond the pages where your customers actually search.",
   },
 ];
 
@@ -551,7 +518,7 @@ function BusinessesFaqSection() {
             question={item.question}
             defaultOpen={index === 0}
           >
-            <p className="text-[15px] leading-relaxed">{item.answer}</p>
+            <FaqAnswerParagraphs answer={item.answer} />
           </FaqAccordion>
         ))}
       </div>

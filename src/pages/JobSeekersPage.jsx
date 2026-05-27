@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FaqAccordion } from "../components/FaqAccordion";
+import { FaqAnswerParagraphs } from "../components/FaqAnswerParagraphs.jsx";
 import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
@@ -8,6 +9,7 @@ import {
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
+import { JOB_SEEKER_FAQ_ITEMS } from "../data/whoWeServeAudienceFaqs.js";
 import {
   ShieldCheck,
   Search,
@@ -119,40 +121,6 @@ const JOB_SEEKER_SCALE_METRICS = [
     description:
       "Only 6% of candidates ever think to search their own name before applying.",
     Icon: Eye,
-  },
-];
-
-const JOB_SEEKER_FAQ_ITEMS = [
-  {
-    id: "legal-ethical",
-    question: "Is reputation suppression legal and ethical?",
-    answer:
-      "Entirely. We do not alter, hack, or tamper with any existing content. We build new, legitimate, high-quality content that earns its ranking through genuine authority.",
-  },
-  {
-    id: "removal-google",
-    question: "Can old content really be removed from Google?",
-    answer:
-      "Sometimes, yes. Depending on the platform, the nature of the content, and applicable privacy laws, direct removal is possible. We pursue removal wherever it is achievable. Where it is not, suppression achieves the same practical outcome.",
-  },
-  {
-    id: "vs-linkedin",
-    question: "How is this different from just improving my LinkedIn?",
-    answer:
-      "LinkedIn optimization is one part of what we do, but on its own it rarely displaces content that has built significant ranking authority. A strategic, multi-property approach is required to reliably move negative results down.",
-  },
-  {
-    id: "where-to-start",
-    question:
-      "I'm not sure if anything bad appears for my name. Where do I start?",
-    answer:
-      "Start with a free consultation. We will run the search and show you exactly what we find.",
-  },
-  {
-    id: "timeline-results",
-    question: "How long does it take to see results?",
-    answer:
-      "For most job seekers, meaningful displacement of the primary damaging result happens within two to four months. More complex situations may take up to eight to twelve months. We will give you an honest estimate upfront.",
   },
 ];
 
@@ -405,7 +373,7 @@ function JobSeekersFaqSection() {
             question={item.question}
             defaultOpen={index === 0}
           >
-            <p className="text-[15px] leading-relaxed">{item.answer}</p>
+            <FaqAnswerParagraphs answer={item.answer} />
           </FaqAccordion>
         ))}
       </div>

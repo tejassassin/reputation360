@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FaqAccordion } from "../components/FaqAccordion";
+import { FaqAnswerParagraphs } from "../components/FaqAnswerParagraphs.jsx";
 import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
@@ -8,6 +9,7 @@ import {
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
+import { DOCTOR_FAQ_ITEMS } from "../data/whoWeServeAudienceFaqs.js";
 import {
   AlertTriangle,
   Building2,
@@ -368,41 +370,6 @@ const DOCTOR_WHY_HARDER_PILLARS = [
   },
 ];
 
-const DOCTOR_FAQ_ITEMS = [
-  {
-    id: "legal-ethical",
-    question: "Is reputation suppression legal and ethical?",
-    answer:
-      "Entirely. We do not alter, hack, or tamper with any existing content. We build new, legitimate, high-quality content that earns its ranking through genuine authority.",
-  },
-  {
-    id: "google-reviews-hipaa",
-    question:
-      "Can I respond to Google reviews as a doctor without risking a HIPAA violation?",
-    answer:
-      "General, non-specific responses - acknowledging a concern without confirming or denying patient details - are typically acceptable. However, the more effective long-term strategy is ensuring negative reviews do not rank prominently enough to influence decisions in the first place.",
-  },
-  {
-    id: "state-board-records",
-    question: "Can state medical board records be suppressed?",
-    answer:
-      "The records on the board's own database cannot be removed. What changes is whether those pages rank prominently when someone searches your name. Through strategic content building, it is possible to displace board pages from visible search results in most cases.",
-  },
-  {
-    id: "healthgrades-zocdoc",
-    question:
-      "What about Healthgrades or Zocdoc - can negative reviews be removed?",
-    answer:
-      "Reviews that violate the platform's own policies - fake reviews, reviews by non-patients, reviews containing factual inaccuracies - can often be reported and removed. Reviews that do not violate policy are addressed through suppression.",
-  },
-  {
-    id: "timeline-results",
-    question: "How long before results improve?",
-    answer:
-      "Meaningful displacement of primary negative content typically takes three to six months. Review platform improvements can be visible sooner. Full transformation generally takes eight to twelve months. We will give you a case-specific timeline in your consultation.",
-  },
-];
-
 function DoctorsWhyHarderSection() {
   const [active, setActive] = useState(0);
   const pillar = DOCTOR_WHY_HARDER_PILLARS[active];
@@ -559,7 +526,7 @@ function DoctorsFaqSection() {
             question={item.question}
             defaultOpen={index === 0}
           >
-            <p className="text-[15px] leading-relaxed">{item.answer}</p>
+            <FaqAnswerParagraphs answer={item.answer} />
           </FaqAccordion>
         ))}
       </div>
