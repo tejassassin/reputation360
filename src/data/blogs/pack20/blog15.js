@@ -64,7 +64,7 @@ export const article = {
     title:
       "Online Reputation Management Best Practices: The Reputation360 Methodology",
     lead:
-      "Online reputation management is not a single action - it is a system. A coordinated, ongoing set of activities that together determine how you appear in search and how you are perceived across the internet.",
+      "Online Reputation Management is not a single action - it is a system. A coordinated, ongoing set of activities that together determine how you appear in search and how you are perceived across the internet.",
     meta: [
       { value: "97%", label: "Suppression success rate" },
       { value: "7", label: "Core principles" },
@@ -74,7 +74,7 @@ export const article = {
   introBlocks: [
     {
       type: "p",
-      text: "Online reputation management is not a single action - it is a system. It is a coordinated, ongoing set of activities that together determine how a person or brand is perceived across the internet, and specifically how they appear in search. After seven years of hands-on reputation work with more than 1,100 clients in the US, Canada, Australia, and Europe, Reputation360 has developed a methodology that produces consistent results across a wide range of situations.",
+      text: "Online Reputation Management is not a single action - it is a system. It is a coordinated, ongoing set of activities that together determine how a person or brand is perceived across the internet, and specifically how they appear in search. After seven years of hands-on reputation work with more than 1,100 clients in the US, Canada, Australia, and Europe, Reputation360 has developed a methodology that produces consistent results across a wide range of situations.",
     },
     {
       type: "p",

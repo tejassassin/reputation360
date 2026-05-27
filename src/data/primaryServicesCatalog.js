@@ -10,7 +10,7 @@ export const PRIMARY_SERVICES_CATALOG = [
     id: "online-reputation-management",
     name: "Online Reputation Management",
     description:
-      "Comprehensive online reputation management that strengthens positive search results, builds credible digital presence, and reduces the visibility of harmful or outdated content through compliant ORM strategy.",
+      "Comprehensive Online Reputation Management that strengthens positive search results, builds credible digital presence, and reduces the visibility of harmful or outdated content through compliant ORM strategy.",
   },
   {
     id: "negative-link-suppression",

@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
                 >
                   https://www.thereputation360.com
                 </a>{" "}
-                (the &quot;Site&quot;) and use our online reputation management services (our &quot;Services&quot;).
+                (the &quot;Site&quot;) and use our Online Reputation Management services (our &quot;Services&quot;).
               </p>
             </Prose>
           </section>
@@ -81,7 +81,7 @@ export default function PrivacyPolicyPage() {
           <Section id="about" n={1} title="About Reputation360">
             <Prose>
               <p>
-                Reputation360 is an online reputation management company headquartered in India and operating across the
+                Reputation360 is an Online Reputation Management company headquartered in India and operating across the
                 United States, Canada, and Australia. With over seven years of hands-on experience, we specialize in:
               </p>
             </Prose>
@@ -113,7 +113,7 @@ export default function PrivacyPolicyPage() {
                 "Service inquiries: details about your reputation concerns, content you want managed or suppressed, business objectives, and target markets",
                 "Contact forms and surveys: information submitted through website contact forms, consultation requests, feedback forms, or surveys",
                 "Payment information: billing address, payment method details, and invoice information (processed securely through third-party payment processors - we do not store full credit card numbers)",
-                "Service content: URLs, social media profiles, review platforms, search keywords, and other details related to your online reputation management needs",
+                "Service content: URLs, social media profiles, review platforms, search keywords, and other details related to your Online Reputation Management needs",
               ]}
             />
 

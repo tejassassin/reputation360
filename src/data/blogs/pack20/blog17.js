@@ -51,7 +51,7 @@ export const article = {
     title:
       "Building a Positive Google Presence: Reputation360's Profile Claiming Guide",
     lead:
-      "One of the most underutilized tactics in online reputation management is also one of the most effective: claiming and completing the third-party profiles Google already wants to rank for your name.",
+      "One of the most underutilized tactics in Online Reputation Management is also one of the most effective: claiming and completing the third-party profiles Google already wants to rank for your name.",
     meta: [
       { value: "12", label: "Platforms to claim now" },
       { value: "2-4 weeks", label: "Typical ranking movement" },
@@ -61,7 +61,7 @@ export const article = {
   introBlocks: [
     {
       type: "p",
-      text: "One of the most underutilized tactics in online reputation management is also one of the most effective: simply claiming and properly completing the third-party profiles that Google has already shown it wants to rank for your name. You do not need to build new websites or generate press coverage to begin improving your Google first page. You need to own the digital real estate that already exists.",
+      text: "One of the most underutilized tactics in Online Reputation Management is also one of the most effective: simply claiming and properly completing the third-party profiles that Google has already shown it wants to rank for your name. You do not need to build new websites or generate press coverage to begin improving your Google first page. You need to own the digital real estate that already exists.",
     },
     {
       type: "p",

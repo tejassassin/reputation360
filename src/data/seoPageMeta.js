@@ -22,7 +22,7 @@ export const SEO = {
     title: "Who We Serve | Reputation360",
     path: "/who-we-serve",
     description:
-      "Audiences Reputation360 works with: individuals, financial advisors, executives, doctors, lawyers, job seekers, and businesses. See how we tailor online reputation management for each.",
+      "Audiences Reputation360 works with: individuals, financial advisors, executives, doctors, lawyers, job seekers, and businesses. See how we tailor Online Reputation Management for each.",
   },
   caseStudies: {
     title: "Reputation Management Case Studies & Results | Reputation360",
@@ -40,7 +40,7 @@ export const SEO = {
     title: "FAQs | Online Reputation Management Questions Answered",
     path: "/resources/faqs",
     description:
-      "Online reputation management FAQs: How long does reputation repair take? What's the cost? Get answers to common reputation questions from Reputation360's global experts serving US, Europe & worldwide. Expert guidance around the world.",
+      "Online Reputation Management FAQs: How long does reputation repair take? What's the cost? Get answers to common reputation questions from Reputation360's global experts serving US, Europe & worldwide. Expert guidance around the world.",
   },
   legal: {
     privacy: {

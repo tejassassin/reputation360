@@ -16,7 +16,7 @@ function WhatWeDo() {
           <p className="mb-4 font-body text-lg leading-relaxed text-steel">
             Reputation360 helps individuals and brands take control of how they
             are perceived online. With seven years of hands-on experience in
-            online reputation management, SEO, branding, content strategy, and
+            Online Reputation Management, SEO, branding, content strategy, and
             digital marketing, we build reputations that are credible,
             resilient, and built to last.
           </p>

@@ -13,7 +13,7 @@ export const AREA_SERVED_COUNTRIES = [
 ];
 
 const BUSINESS_DESCRIPTION =
-  "Reputation360 provides online reputation management for individuals and brands: negative search suppression, positive presence building, monitoring, and crisis recovery.";
+  "Reputation360 provides Online Reputation Management for individuals and brands: negative search suppression, positive presence building, monitoring, and crisis recovery.";
 
 const KNOWS_ABOUT = [
   "Online Reputation Management",

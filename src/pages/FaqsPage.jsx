@@ -201,12 +201,12 @@ function FaqsPage() {
               title="Understanding Reputation Management"
             >
               <FaqAccordion
-                question="What exactly is online reputation management?"
+                question="What exactly is Online Reputation Management?"
                 defaultOpen
               >
                 <div className="space-y-4">
                   <p>
-                    Online reputation management is the process of controlling
+                    Online Reputation Management is the process of controlling
                     what appears when someone searches your name or company on
                     Google and other search engines.
                   </p>
@@ -347,7 +347,7 @@ function FaqsPage() {
                 </div>
               </FaqAccordion>
 
-              <FaqAccordion question="Is online reputation management the same as PR?">
+              <FaqAccordion question="Is Online Reputation Management the same as PR?">
                 <div className="space-y-4">
                   <p>They are related but serve different purposes.</p>
                   <ul className="ml-5 list-disc space-y-2">

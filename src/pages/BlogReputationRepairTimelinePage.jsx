@@ -422,7 +422,7 @@ export default function BlogReputationRepairTimelinePage() {
                 <p className="mb-6 font-body text-lg text-steel">
                   Understanding the timeline isn&apos;t just about knowing how many months are involved - it&apos;s
                   about knowing what&apos;s happening during those months, and why some phases take longer than others.
-                  Here&apos;s how a professional online reputation management engagement typically unfolds:
+                  Here&apos;s how a professional Online Reputation Management engagement typically unfolds:
                 </p>
                 <StepPicker
                   steps={repairSteps}

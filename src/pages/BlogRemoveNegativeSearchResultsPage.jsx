@@ -238,7 +238,7 @@ export default function BlogRemoveNegativeSearchResultsPage() {
                 </div>
                 <DiyKeyBox variant="insight" title="Key insight">
                   Not all negative content can be deleted. But nearly all of it can be strategically
-                  suppressed. The goal of online reputation management is to ensure positive, accurate content
+                  suppressed. The goal of Online Reputation Management is to ensure positive, accurate content
                   dominates page one - so harmful content becomes virtually invisible. For{" "}
                   <DiyInternalLink href={BLOG_PATHS.courtRecords}>court records from Google</DiyInternalLink> and{" "}
                   <DiyInternalLink href={BLOG_PATHS.removeNews}>news article removal</DiyInternalLink>, see our dedicated
@@ -292,7 +292,7 @@ export default function BlogRemoveNegativeSearchResultsPage() {
                 />
                 <DiyKeyBox variant="warning" title="Important">
                   Avoid third-party services that guarantee removal from complaint sites - many are scams and can
-                  amplify the problem. Work with a reputable online reputation management firm that discloses its
+                  amplify the problem. Work with a reputable Online Reputation Management firm that discloses its
                   methods upfront.
                 </DiyKeyBox>
                 <p className="mt-6 font-body text-base text-steel">

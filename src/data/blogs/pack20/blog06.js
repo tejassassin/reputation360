@@ -276,13 +276,13 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "Describe the negative link and what it is costing you. We will assess what movement is realistic and on what timeline through our online reputation management services.",
+      "Describe the negative link and what it is costing you. We will assess what movement is realistic and on what timeline through our Online Reputation Management services.",
     leadParts: [
       {
         text: "Describe the negative link and what it is costing you. We will assess what movement is realistic and on what timeline through ",
       },
       {
-        text: "our online reputation management services",
+        text: "our Online Reputation Management services",
         href: SERVICES_PATH,
       },
       { text: "." },

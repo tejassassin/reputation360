@@ -192,8 +192,8 @@ const FAQS = [
   },
   {
     id: "faq-7",
-    q: "Is this service different from traditional online reputation management agencies?",
-    a: "Most generic online reputation management companies use black-hat tactics or build low-quality content. At Reputation360, our reputation repair services focus on authentic authority - we help executives, doctors, lawyers, and founders build genuine professional narratives that naturally overshadow outdated or unfair content.",
+    q: "Is this service different from traditional Online Reputation Management agencies?",
+    a: "Most generic Online Reputation Management companies use black-hat tactics or build low-quality content. At Reputation360, our reputation repair services focus on authentic authority - we help executives, doctors, lawyers, and founders build genuine professional narratives that naturally overshadow outdated or unfair content.",
   },
 ];
 
@@ -581,7 +581,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 <div className="mt-10 text-lg text-steel">
                   <p>
                     At Reputation360, we have helped hundreds of professionals - from neurosurgeons to hedge fund
-                    managers - reclaim their digital identities. Our proven online reputation management and negative link
+                    managers - reclaim their digital identities. Our proven Online Reputation Management and negative link
                     suppression strategies work by understanding that the internet doesn&apos;t have a &apos;forget&apos;
                     button, but it does have a hierarchy. Our mission is to ensure your hierarchy reflects your
                     excellence.

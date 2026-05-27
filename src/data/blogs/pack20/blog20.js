@@ -62,7 +62,7 @@ export const article = {
     title:
       "How AI Search Changes Reputation: Reputation360's Guide to ChatGPT & Beyond",
     lead:
-      "For most of the last two decades, online reputation management was synonymous with Google search management. That is still largely true - but it is no longer the complete picture.",
+      "For most of the last two decades, Online Reputation Management was synonymous with Google search management. That is still largely true - but it is no longer the complete picture.",
     meta: [
       { value: "4", label: "Core AI principles" },
       { value: "Quarterly", label: "Recommended check cadence" },
@@ -72,7 +72,7 @@ export const article = {
   introBlocks: [
     {
       type: "p",
-      text: "For most of the last two decades, online reputation management was synonymous with Google search management. If your first page looked good, your reputation was in reasonable shape. That is still largely true - but it is no longer the complete picture. The emergence of AI-powered search tools - ChatGPT, Google's AI Overviews, Perplexity, Microsoft Copilot, and others - has introduced a fundamentally new channel through which people research names, brands, and companies.",
+      text: "For most of the last two decades, Online Reputation Management was synonymous with Google search management. If your first page looked good, your reputation was in reasonable shape. That is still largely true - but it is no longer the complete picture. The emergence of AI-powered search tools - ChatGPT, Google's AI Overviews, Perplexity, Microsoft Copilot, and others - has introduced a fundamentally new channel through which people research names, brands, and companies.",
     },
     {
       type: "p",

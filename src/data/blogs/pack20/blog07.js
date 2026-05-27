@@ -66,7 +66,7 @@ export const article = {
   introBlocks: [
     {
       type: "p",
-      text: "Court records are one of the most complex and high-stakes categories in online reputation management - and one of the areas where Reputation360 has developed the deepest expertise. An arrest that led to dropped charges. A civil lawsuit settled without findings. A bankruptcy from a decade ago. Divorce proceedings. These are matters of public record, and in the internet era, public record means one thing: it shows up in Google when someone types your name.",
+      text: "Court records are one of the most complex and high-stakes categories in Online Reputation Management - and one of the areas where Reputation360 has developed the deepest expertise. An arrest that led to dropped charges. A civil lawsuit settled without findings. A bankruptcy from a decade ago. Divorce proceedings. These are matters of public record, and in the internet era, public record means one thing: it shows up in Google when someone types your name.",
     },
     {
       type: "p",
@@ -374,13 +374,13 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "Tell us what is ranking for your name. We will map each source, outline which removal paths apply, and recommend a suppression plan for what cannot come down through our online reputation management services.",
+      "Tell us what is ranking for your name. We will map each source, outline which removal paths apply, and recommend a suppression plan for what cannot come down through our Online Reputation Management services.",
     leadParts: [
       {
         text: "Tell us what is ranking for your name. We will map each source, outline which removal paths apply, and recommend a suppression plan for what cannot come down through ",
       },
       {
-        text: "our online reputation management services",
+        text: "our Online Reputation Management services",
         href: SERVICES_PATH,
       },
       { text: "." },

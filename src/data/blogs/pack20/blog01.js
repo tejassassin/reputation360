@@ -94,7 +94,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Suppression is not deletion. It is important to be clear about that upfront. In online reputation management, negative link suppression is the process of reducing the search visibility of harmful content by outranking it with positive, authoritative, and relevant material. The damaging page does not disappear from the internet - it slides from page one to page two, three, or further.",
+          text: "Suppression is not deletion. It is important to be clear about that upfront. In Online Reputation Management, negative link suppression is the process of reducing the search visibility of harmful content by outranking it with positive, authoritative, and relevant material. The damaging page does not disappear from the internet - it slides from page one to page two, three, or further.",
         },
         {
           type: "p",
@@ -289,13 +289,13 @@ export const article = {
         },
         {
           type: "p",
-          text: "Reputation360 has a 97% success rate because we treat every engagement as a long-term investment in your digital standing. Readers ready to enquire can explore our online reputation management services before choosing the right next step. We do not sell quick fixes. We build durable results - the kind that still protect you when something new surfaces six months from now.",
+          text: "Reputation360 has a 97% success rate because we treat every engagement as a long-term investment in your digital standing. Readers ready to enquire can explore our Online Reputation Management services before choosing the right next step. We do not sell quick fixes. We build durable results - the kind that still protect you when something new surfaces six months from now.",
           parts: [
             {
               text: "Reputation360 has a 97% success rate because we treat every engagement as a long-term investment in your digital standing. Readers ready to enquire can explore ",
             },
             {
-              text: "our online reputation management services",
+              text: "our Online Reputation Management services",
               href: SERVICES_PATH,
             },
             {

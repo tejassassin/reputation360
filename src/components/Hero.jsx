@@ -40,7 +40,7 @@ function HeroStats({ statsInView, mobile }) {
             Years of Experience
           </p>
           <p className="font-body text-xs text-white/60 hidden sm:block">
-            in online reputation management
+            in Online Reputation Management
           </p>
         </div>
       </div>

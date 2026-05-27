@@ -77,7 +77,7 @@ export default function RefundPolicyPage() {
             <Subheading>1.1 General policy</Subheading>
             <Prose>
               <p>
-                Reputation360 provides online reputation management services that are delivered continuously over the agreed
+                Reputation360 provides Online Reputation Management services that are delivered continuously over the agreed
                 service period. Because our services are:
               </p>
             </Prose>
@@ -106,7 +106,7 @@ export default function RefundPolicyPage() {
                 "Irreversible work: our reputation management work (content creation, publishing, search optimization, suppression efforts) cannot be undone or returned. Published content and optimization efforts are permanent.",
                 "Customization: services are highly customized to your specific reputation, brand, and goals. They cannot be resold or offered to other clients.",
                 "Continuous delivery: many services are delivered continuously over weeks and months. You cannot request a refund for work already completed.",
-                "No guarantee of results: per our Terms of Service, Reputation360 does not guarantee specific search ranking improvements or content removal. Our non-refundable policy reflects the inherent uncertainty of online reputation management.",
+                "No guarantee of results: per our Terms of Service, Reputation360 does not guarantee specific search ranking improvements or content removal. Our non-refundable policy reflects the inherent uncertainty of Online Reputation Management.",
               ]}
             />
             <Prose>

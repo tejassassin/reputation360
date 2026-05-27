@@ -349,13 +349,13 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "Tell us what you are dealing with. We will assess your removal options and outline a suppression strategy in the same conversation through our online reputation management services.",
+      "Tell us what you are dealing with. We will assess your removal options and outline a suppression strategy in the same conversation through our Online Reputation Management services.",
     leadParts: [
       {
         text: "Tell us what you are dealing with. We will assess your removal options and outline a suppression strategy in the same conversation through ",
       },
       {
-        text: "our online reputation management services",
+        text: "our Online Reputation Management services",
         href: SERVICES_PATH,
       },
       { text: "." },

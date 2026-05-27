@@ -346,13 +346,13 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "Get a clear audit of what ranks today for your name or brand and which content assets will outrank your highest-priority negatives. If you want support from a team with seven years doing this for more than 1,100 clients, explore our online reputation management services.",
+      "Get a clear audit of what ranks today for your name or brand and which content assets will outrank your highest-priority negatives. If you want support from a team with seven years doing this for more than 1,100 clients, explore our Online Reputation Management services.",
     leadParts: [
       {
         text: "Get a clear audit of what ranks today for your name or brand and which content assets will outrank your highest-priority negatives. If you want support from a team with seven years doing this for more than 1,100 clients, explore ",
       },
       {
-        text: "our online reputation management services",
+        text: "our Online Reputation Management services",
         href: SERVICES_PATH,
       },
       { text: "." },

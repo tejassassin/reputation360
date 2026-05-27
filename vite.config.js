@@ -239,14 +239,11 @@ export default defineConfig(({ mode }) => ({
       "@scan": path.resolve(__dirname, "./scan-shared"),
     },
   },
-  // Bind to the hostname "localhost" (not only 127.0.0.1). On many macOS setups, "localhost"
-  // resolves to ::1 (IPv6) first; listening only on 127.0.0.1 makes http://localhost:5173/
-  // fail in the browser while http://127.0.0.1:5173/ still works.
-  // Avoid 0.0.0.0 unless you need LAN access: wildcard mode can make Vite call
-  // os.networkInterfaces() for "Network" URLs, which fails in some sandboxes/VPNs.
-  // For LAN access: npm run dev -- --host 0.0.0.0
+  // Listen on all local interfaces so both http://127.0.0.1:5173/ and http://localhost:5173/
+  // work regardless of whether the OS resolves "localhost" to IPv4 or IPv6.
+  // For LAN access only: npm run dev -- --host 0.0.0.0
   server: {
-    host: "localhost",
+    host: true,
     port: 5173,
     // Fail loudly if 5173 is taken so an old Vite process cannot serve stale UI on another port.
     strictPort: true,
@@ -267,7 +264,7 @@ export default defineConfig(({ mode }) => ({
       : {}),
   },
   preview: {
-    host: "localhost",
+    host: true,
     port: 4173,
     strictPort: false,
     open: false,

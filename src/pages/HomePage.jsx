@@ -13,13 +13,15 @@ const WhatWeDo = lazy(() => import("../components/WhatWeDo"));
 const HowReputation360Works = lazy(() => import("../components/HowReputation360Works"));
 const WhyClientsChoose = lazy(() => import("../components/WhyClientsChoose"));
 const Contact = lazy(() => import("../components/Contact"));
+const HomeFaq = lazy(() => import("../components/HomeFaq"));
 const HomeTestimonials = lazy(() => import("../components/HomeTestimonials.jsx"));
 
-function SectionShell({ minHeight, eager = false, children }) {
+function SectionShell({ minHeight, eager = false, className = "", children }) {
   return (
     <LazyWhenVisible
       minHeight={minHeight}
       eager={eager}
+      className={className}
       rootMargin={eager ? "0px 0px" : "320px 0px"}
       fallback={<div style={{ minHeight }} aria-hidden />}
     >
@@ -69,6 +71,11 @@ function HomePage() {
           <WhyClientsChoose />
         </SectionShell>
         <CaseStudies />
+        <SectionShell minHeight="22rem" className="-mt-4 md:-mt-6 lg:-mt-8">
+          <section>
+            <HomeFaq />
+          </section>
+        </SectionShell>
         <SectionShell minHeight="14rem">
           <Contact />
         </SectionShell>

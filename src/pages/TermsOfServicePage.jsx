@@ -89,7 +89,7 @@ export default function TermsOfServicePage() {
             </Prose>
             <BulletList
               items={[
-                "Your purchase and use of our online reputation management services",
+                "Your purchase and use of our Online Reputation Management services",
                 "Your access to our website at https://www.thereputation360.com and related platforms",
                 "Any associated client portals, tools, reports, and communications",
                 "Your relationship with Reputation360",
@@ -113,7 +113,7 @@ export default function TermsOfServicePage() {
           <Section id="services-scope" n={2} title="Services and Scope">
             <Subheading>2.1 Description of Services</Subheading>
             <Prose>
-              <p>Reputation360 provides online reputation management services, including but not limited to:</p>
+              <p>Reputation360 provides Online Reputation Management services, including but not limited to:</p>
             </Prose>
             <BulletList
               items={[

@@ -15,7 +15,7 @@ export const ORGANIZATION_ENTITY = {
   logo: `${METADATA_BASE}/android-chrome-512x512.png`,
   image: `${METADATA_BASE}/about-hero-search-mockup.png`,
   description:
-    "Reputation360 is a trusted online reputation management agency with 7+ years of experience. We help individuals and brands suppress negative search results and build credible, resilient digital reputations.",
+    "Reputation360 is a trusted Online Reputation Management agency with 7+ years of experience. We help individuals and brands suppress negative search results and build credible, resilient digital reputations.",
   email: CONTACT_EMAIL,
   foundingDate: "2018",
   areaServed: {

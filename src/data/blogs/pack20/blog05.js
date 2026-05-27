@@ -342,13 +342,13 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "Find out exactly what social media content is currently indexed under your name. We will identify every indexing issue and outline a practical cleanup or suppression plan through our online reputation management services.",
+      "Find out exactly what social media content is currently indexed under your name. We will identify every indexing issue and outline a practical cleanup or suppression plan through our Online Reputation Management services.",
     leadParts: [
       {
         text: "Find out exactly what social media content is currently indexed under your name. We will identify every indexing issue and outline a practical cleanup or suppression plan through ",
       },
       {
-        text: "our online reputation management services",
+        text: "our Online Reputation Management services",
         href: "/services",
       },
       { text: "." },

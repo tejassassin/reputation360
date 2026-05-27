@@ -19,7 +19,7 @@ export const R360_CHATBOT_ENTRIES = [
     ],
     keywords: ["founded", "years", "experience", "leading", "agency"],
     reply:
-      "Reputation360 is a leading online reputation management firm. We help individuals and brands control how they are perceived online. With 7+ years of hands-on experience, we build credible, resilient visibility in search - making positive results easier to find and harmful or misleading links far less visible. US is our primary market; we also serve Canada and Australia.",
+      "Reputation360 is a leading Online Reputation Management firm. We help individuals and brands control how they are perceived online. With 7+ years of hands-on experience, we build credible, resilient visibility in search - making positive results easier to find and harmful or misleading links far less visible. US is our primary market; we also serve Canada and Australia.",
     cta: { href: "/about", label: "About Reputation360" },
   },
   {
@@ -41,7 +41,7 @@ export const R360_CHATBOT_ENTRIES = [
       "perception",
     ],
     reply:
-      "Think of what people see when they Google you or your business. Online reputation management is how we shape that picture: we monitor what shows up, promote accurate positive content (profiles, articles, reviews, social proof) so it ranks well, and address harmful or outdated material - usually by suppression when direct removal is not realistic. The goal is that prospects see a fair, current version of your story.",
+      "Think of what people see when they Google you or your business. Online Reputation Management is how we shape that picture: we monitor what shows up, promote accurate positive content (profiles, articles, reviews, social proof) so it ranks well, and address harmful or outdated material - usually by suppression when direct removal is not realistic. The goal is that prospects see a fair, current version of your story.",
     cta: { href: "/resources/faqs", label: "Read FAQs" },
   },
   {

@@ -65,7 +65,7 @@ function CaseStudies() {
         aria-hidden
       />
 
-      <div className="relative mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+      <div className="relative mx-auto w-full max-w-6xl px-4 pt-12 pb-5 sm:px-6 sm:pt-16 sm:pb-6">
         <div className="mb-8 text-center sm:mb-10">
           <h2
             id="home-glimpse-cases-heading"

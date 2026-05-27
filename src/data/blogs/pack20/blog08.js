@@ -352,13 +352,13 @@ export const article = {
   cta: {
     title: "Take the next step",
     lead:
-      "If active crisis content is indexing today, parallel search and communications planning should start now through our online reputation management services - not after legal or PR cycles finish.",
+      "If active crisis content is indexing today, parallel search and communications planning should start now through our Online Reputation Management services - not after legal or PR cycles finish.",
     leadParts: [
       {
         text: "If active crisis content is indexing today, parallel search and communications planning should start now through ",
       },
       {
-        text: "our online reputation management services",
+        text: "our Online Reputation Management services",
         href: SERVICES_PATH,
       },
       { text: " - not after legal or PR cycles finish." },
