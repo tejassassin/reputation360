@@ -7,6 +7,12 @@
       "permanent": true
     },
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "reputation360.vercel.app" }],
+      "destination": "https://www.thereputation360.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/free-risk-scan",
       "destination": "/free-reputation-scan",
       "permanent": true
