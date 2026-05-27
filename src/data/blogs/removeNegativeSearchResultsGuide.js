@@ -30,7 +30,7 @@ export const removeNegativeSearchResultsSeoTitle =
   "Remove Negative Search Results from Google | Reputation360";
 
 export const removeNegativeSearchResultsMetaDescription =
-  "Proven steps to remove or suppress negative Google results. Publisher outreach, Google removal tools, legal routes & professional suppression - all covered.";
+  "Proven steps to remove or suppress negative Google results: publisher outreach, Google tools, legal routes, and professional suppression - all explained.";
 
 export const removeNegativeSearchResultsHero = {
   badge: "Google Reputation Management",

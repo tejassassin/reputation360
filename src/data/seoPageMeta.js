@@ -7,17 +7,16 @@ import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
 
 export const SEO = {
   home: {
-    title: "Reputation360 | Online Reputation Management in the US",
+    title: "Online Reputation Management Services | Reputation360",
     path: "/",
     description:
-      "Suppress negative search results & control your online reputation globally. Trusted by founders & brands in the US, Europe & worldwide. Build credible digital reputations worldwide. Get your free audit today.",
+      "Negative results damaging your reputation? Reputation360 suppresses harmful links and builds a credible search presence for professionals. Get a free scan.",
   },
   services: {
-    title:
-      "Our Services | Online Reputation Management, Negative Link Suppression & More",
+    title: "ORM & Negative Link Suppression Services | Reputation360",
     path: "/services",
     description:
-      "Online reputation management & negative link suppression services around the world. Employer branding & content trusted across US, Europe & worldwide. Expert solutions for founders & businesses globally.",
+      "From negative link suppression to review management, Reputation360 builds a custom plan matched to your exact situation. See how we can help.",
   },
   whoWeServe: {
     title: "Who We Serve | Reputation360",
@@ -26,18 +25,16 @@ export const SEO = {
       "Audiences Reputation360 works with: individuals, financial advisors, executives, doctors, lawyers, job seekers, and businesses. See how we tailor online reputation management for each.",
   },
   caseStudies: {
-    title:
-      "Case Studies | Real Online Reputation Management Results by Reputation360",
+    title: "Reputation Management Case Studies & Results | Reputation360",
     path: "/case-studies",
     description:
-      "See how Reputation360 fixed damaged reputations worldwide. Real case studies from US, Europe & worldwide clients showing negative removal & ranking growth. Proven online reputation management solutions across industries around the world.",
+      "Real results for real clients. See how Reputation360 suppressed harmful content and rebuilt search presence for executives, lawyers, doctors, and businesses.",
   },
   blogs: {
-    title:
-      "Online Reputation Management Blog | Strategy & Industry Insights",
+    title: "ORM Insights & Reputation Management Advice | Reputation360",
     path: "/blog",
     description:
-      "Online reputation management insights from 7 years of global reputation work. Expert blog posts on suppressing negatives, managing crises & building credible brands around the world. Industry trends serving US, Europe & worldwide.",
+      "Expert articles on negative link suppression, crisis management, and long-term reputation strategy - written by ORM practitioners with 7+ years of experience.",
   },
   faqs: {
     title: "FAQs | Online Reputation Management Questions Answered",
@@ -90,17 +87,16 @@ export const SEO = {
     },
   },
   contact: {
-    title:
-      "Contact Reputation360 | Get a Free Online Reputation Management Consultation",
+    title: "Contact Reputation360 | Free Reputation Consultation",
     path: "/contact",
     description:
-      "Schedule your free online reputation management consultation with Reputation360. Get expert guidance from our global team serving US, Europe & worldwide. Custom strategies to suppress negatives & strengthen your brand.",
+      "Schedule a free, confidential consultation with Reputation360. We assess your situation honestly and recommend the right strategy. No pressure.",
   },
   freeRiskScan: {
-    title: "Free Reputation Scan | Reputation360",
+    title: "Free Reputation Scan | See What Google Shows About You",
     path: FREE_RISK_SCAN_PATH,
     description:
-      "Free Google reputation scan: full name, country (USA, UK, Canada, Australia, or other), and email. We use Google Programmable Search to analyze the first 3 pages of results (up to 30 links), classify positive, neutral, and negative URLs, assign an A-D grade, and email your report when delivery is configured.",
+      "Find out what appears when people Google your name or business. Reputation360's free scan identifies harmful results and shows what's possible to fix.",
   },
   freeScanAdmin: {
     title: "Free Reputation Scan Admin | Reputation360",
@@ -109,11 +105,10 @@ export const SEO = {
       "Protected admin view for free reputation scan submissions and exports.",
   },
   about: {
-    title:
-      "About Reputation360 | 7+ Years in Online Reputation Management & Digital Reputation",
+    title: "About Reputation360 | 7+ Years in Reputation Management",
     path: "/about",
     description:
-      "Meet Reputation360: 7+ years protecting reputations globally across the US. Expert online reputation management through negative suppression & positive amplification. Industry-leading success rates. Trusted worldwide.",
+      "7+ years solving real reputation problems for professionals and businesses. Honest strategies, no false guarantees. Learn how Reputation360 works.",
   },
   guide: {
     title: "Reputation Management Guides | Reputation360 Resources",
@@ -125,47 +120,42 @@ export const SEO = {
     title: "Reputation Management for Financial Advisors | Reputation360",
     path: AUDIENCE_PATH.financialAdvisors,
     description:
-      "Online reputation management for financial advisors globally. Build trust with clients across US, Europe & worldwide by suppressing negative content & strengthening your credible online presence. Expert solutions for your practice.",
+      "Negative content damaging client trust? Reputation360 helps financial advisors suppress harmful results and build credible online presence. Free scan.",
   },
   jobSeekers: {
     title: "Reputation Management for Job Seekers | Reputation360",
     path: AUDIENCE_PATH.jobSeekers,
     description:
-      "Personal reputation management for job seekers globally. Remove negative search results & improve your online profile to impress employers across US, Europe & worldwide. Expert career reputation solutions.",
+      "Old incidents showing up before interviews? Reputation360 suppresses harmful content and strengthens your profile for recruiters and employers. Free scan.",
   },
   doctors: {
-    title:
-      "Reputation Management for Doctors & Healthcare Professionals | Reputation360",
+    title: "Doctor & Healthcare Reputation Management | Reputation360",
     path: AUDIENCE_PATH.doctors,
     description:
-      "Healthcare professional reputation management for doctors & medical practices globally. Suppress negative reviews, build patient trust across US, Europe & worldwide. HIPAA-compliant online reputation management solutions. Expert support for practitioners.",
+      "Negative patient reviews damaging your practice? Reputation360 suppresses harmful content and helps doctors rebuild patient trust. Free reputation scan.",
   },
   lawyers: {
-    title:
-      "Online Reputation Management for Lawyers & Attorneys | Reputation360",
+    title: "Lawyer & Attorney Reputation Management | Reputation360",
     path: AUDIENCE_PATH.lawyers,
     description:
-      "Attorney reputation management & online presence solutions worldwide. Reputation360 suppresses negative search results & builds credibility for legal professionals across US, Canada & Australia. Ethical online reputation management for lawyers.",
+      "One negative result costs clients before they call. Reputation360 helps lawyers suppress harmful content and reclaim their search presence. Free scan.",
   },
   executives: {
-    title:
-      "Online Reputation Management for Executives & C-Suite Leaders | Reputation360",
+    title: "Executive Reputation Management | Reputation360",
     path: AUDIENCE_PATH.executives,
     description:
-      "Executive reputation management for C-suite leaders worldwide. Reputation360 protects & enhances your professional brand across US, Europe & worldwide. Control your digital narrative. Expert online reputation management for leadership.",
+      "One negative result can cost you a board seat or deal. Reputation360 protects C-suite leaders with discreet, strategic ORM. Free confidential scan.",
   },
   businesses: {
-    title:
-      "Online Reputation Management for Businesses & Companies | Reputation360",
+    title: "Business Reputation Management Services | Reputation360",
     path: AUDIENCE_PATH.businesses,
     description:
-      "Business reputation management & negative link suppression globally. Reputation360 helps companies across US, Europe & worldwide control their online presence, remove harmful content & strengthen brand credibility. Expert online reputation management.",
+      "Negative reviews or damaging news harming your business? Reputation360 suppresses harmful content and rebuilds brand credibility for all sizes. Free scan.",
   },
   individuals: {
-    title:
-      "Online Reputation Management for Individuals | Protect Your Personal Reputation Online",
+    title: "Personal Reputation Management Services | Reputation360",
     path: AUDIENCE_PATH.individuals,
     description:
-      "Protect your personal reputation online. Reputation360 helps individuals in the US, Europe & worldwide to suppress negative search results & build credible digital identities. Start your free reputation audit today.",
+      "Something harmful appearing when people Google your name? Reputation360 suppresses negative results and builds a stronger personal search presence. Free scan.",
   },
 };

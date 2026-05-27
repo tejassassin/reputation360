@@ -54,9 +54,9 @@ export const article = {
     image: pack20Image("aiSearch"),
     imageAlt: "AI search interface representing reputation in the AI era",
   },
-  seoTitle: "AI Search and Online Reputation | Reputation360",
+  seoTitle: "How AI Search Affects Your Online Reputation | Reputation360",
   metaDescription:
-    "AI search changes how people research names and brands. Reputation360 explains how ChatGPT, Perplexity, and AI Overviews affect your reputation.",
+    "ChatGPT, Perplexity, and AI Overviews are changing how people research names and brands. Reputation360 explains what this means for your reputation right now.",
   hero: {
     badge: "AI & Search",
     title:

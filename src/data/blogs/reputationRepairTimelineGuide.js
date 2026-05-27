@@ -24,7 +24,7 @@ export const reputationRepairTimelineSeoTitle =
   "How Long Does Online Reputation Repair Take? | Reputation360";
 
 export const reputationRepairTimelineMetaDescription =
-  "Most clients see visible page-one improvements in 60-90 days. Full transformation takes 3-12 months. See the 6 key factors that drive your timeline.";
+  "Most clients see page-one improvements within 60–90 days. Full transformation takes 3–12 months. See the 6 key factors that shape your timeline.";
 
 export const reputationRepairTimelineHero = {
   badge: "Reputation Repair",

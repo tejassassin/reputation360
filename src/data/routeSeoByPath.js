@@ -38,12 +38,12 @@ Object.assign(ROUTE_SEO, {
   [blogPostPath("how-long-does-it-take-to-fix-online-reputation")]: {
     title: "How Long Does Online Reputation Repair Take? | Reputation360",
     description:
-      "Most clients see visible page-one improvements in 60-90 days. Full transformation takes 3-12 months. See the 6 key factors that drive your timeline.",
+      "Most clients see page-one improvements within 60–90 days. Full transformation takes 3–12 months. See the 6 key factors that shape your timeline.",
   },
   [blogPostPath("remove-negative-search-results-from-google")]: {
     title: "Remove Negative Search Results from Google | Reputation360",
     description:
-      "Proven steps to remove or suppress negative Google results. Publisher outreach, Google removal tools, legal routes & professional suppression - all covered.",
+      "Proven steps to remove or suppress negative Google results: publisher outreach, Google tools, legal routes, and professional suppression - all explained.",
   },
   [blogPostPath("diy-online-reputation-management-complete-guide")]: {
     title: "DIY Online Reputation Management Guide (2026) | Reputation360",

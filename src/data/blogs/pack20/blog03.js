@@ -52,7 +52,7 @@ export const article = {
   seoTitle:
     "Removal vs. Suppression: Which Actually Works? | Reputation360",
   metaDescription:
-    "Removal or suppression? Reputation360 breaks down which actually works for negative search results - and why most people choose the wrong option first.",
+    "Should you remove or suppress a negative Google result? Reputation360 breaks down what actually works - and why most people choose the wrong option first.",
   hero: {
     badge: "Strategy Guide",
     title:

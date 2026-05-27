@@ -4,16 +4,14 @@
  */
 export const CASE_STUDY_SEO_BY_N = {
   1: {
-    seoTitle:
-      "Executive Reputation Recovery: From Crisis to Credibility | Reputation360",
+    seoTitle: "From Reputation Crisis to Credibility | Reputation360",
     metaDescription:
-      "See how Reputation360 recovered an executive's reputation after damaging negative search results. Strategic ORM for C-suite leaders & founders across the US, Europe and worldwide.",
+      "How Reputation360 helped an executive suppress damaging search results and rebuild professional credibility after a reputation crisis. Read the case study.",
   },
   2: {
-    seoTitle:
-      "Financial Advisor Reputation Repair: Trust Restored | Reputation360",
+    seoTitle: "Financial Advisor Reputation Repair | Reputation360",
     metaDescription:
-      "Financial professional's reputation recovered after negative reviews impacted client trust. Reputation360's ORM solutions rebuild credibility for financial advisors across the US, Europe and across the world.",
+      "How Reputation360 suppressed negative reviews damaging a financial professional's client trust and rebuilt their online presence. Read the case study.",
   },
   3: {
     seoTitle:
@@ -51,10 +49,9 @@ export const CASE_STUDY_SEO_BY_N = {
       "Online retailer's brand recovered from counterfeit product allegations that damaged reputation. Reputation360 removed false claims for e-commerce brands across the US, Europe and across the world.",
   },
   9: {
-    seoTitle:
-      "Surgeon's Career Saved: From Negative Review to Success | Reputation360",
+    seoTitle: "Surgeon's Reputation Saved: One Review | Reputation360",
     metaDescription:
-      "Surgeon's career threatened by devastating negative review that reduced patient referrals 35%. Reputation360's suppression strategy restored patient confidence for doctors across the US, Europe and worldwide.",
+      "One review reduced this surgeon's referrals by 35%. Reputation360's suppression strategy restored patient confidence. Read the full case study.",
   },
   10: {
     seoTitle: "GP's Reputation: Misattributed Article Removed | Reputation360",
@@ -62,9 +59,9 @@ export const CASE_STUDY_SEO_BY_N = {
       "GP's reputation damaged by misattributed article online. Reputation360 identified & removed false attribution for healthcare professionals across the US, Europe and across the world.",
   },
   11: {
-    seoTitle: "Lawyer's Reputation: Losing Verdict Suppressed | Reputation360",
+    seoTitle: "Lawyer's Reputation: Verdict Suppressed | Reputation360",
     metaDescription:
-      "Litigation partner's reputation damaged after high-profile losing verdict. Reputation360 suppressed negative case coverage for attorneys across the US, Europe and worldwide.",
+      "A litigation partner's losing verdict dominated Google results. Reputation360 suppressed the coverage and restored professional credibility. Full case study.",
   },
   12: {
     seoTitle:
