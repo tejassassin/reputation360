@@ -27,6 +27,7 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import AboutHeroSearchMockup from "../components/AboutHeroSearchMockup.jsx";
 import { StatNumber } from "../components/StatNumber.jsx";
+import { testimonialPortraitAlt } from "../constants/imageAlt.js";
 import { homeTestimonials } from "../data/homeTestimonials.js";
 import { testimonialPortraitUrl } from "../data/testimonialPortraits.js";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
@@ -996,7 +997,7 @@ function AboutTestimonialAvatar({ id, name, portraitUrl }) {
     <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-slate-200/90 bg-slate-100 sm:h-11 sm:w-11">
       <img
         src={src}
-        alt=""
+        alt={testimonialPortraitAlt(name)}
         className="h-full w-full object-cover object-top"
         loading="lazy"
         decoding="async"

@@ -5,8 +5,7 @@ import { Search, TrendingDown, TrendingUp } from "lucide-react";
 const DEMO_NAME = "Jordan Mercer";
 const DEMO_SLUG = "jordan-mercer";
 
-export const WHAT_WE_BELIEVE_SERP_MOCKUP_ALT =
-  "SERP transformation showing improved search rankings and suppressed negative content after 11 months of Online Reputation Management";
+export { WHAT_WE_BELIEVE_SERP_MOCKUP_ALT } from "../constants/imageAlt.js";
 
 /** Muted “breadcrumb” style so path text does not read as hyperlinks (no link color). */
 const urlMetaClass =

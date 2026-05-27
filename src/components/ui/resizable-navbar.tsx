@@ -268,15 +268,19 @@ export const MobileNavToggle = ({
 export const NavbarLogo = ({
   logoSrc,
   brandName = "Reputation360",
+  logoAlt,
   className,
   logoFetchPriority = "high",
 }: {
   logoSrc?: string;
   brandName?: string;
+  /** Accessible name for the logo image (defaults to brandName). */
+  logoAlt?: string;
   className?: string;
   /** Keep "high" on desktop; use "low" on mobile home to protect LCP. */
   logoFetchPriority?: "high" | "low" | "auto";
 } = {}) => {
+  const imgAlt = logoAlt ?? brandName;
   return (
     <a
       href="/"
@@ -291,7 +295,7 @@ export const NavbarLogo = ({
         <div className="flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center rounded-full bg-white pl-0.5">
           <img
             src={logoSrc}
-            alt={brandName}
+            alt={imgAlt}
             width={36}
             height={36}
             decoding="async"

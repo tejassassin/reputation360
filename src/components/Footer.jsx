@@ -9,6 +9,7 @@ import {
   contactWhatsAppHref,
   handleMailtoClick,
 } from "../constants/contact.js";
+import { LOGO_ALT_FOOTER } from "../constants/imageAlt.js";
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 /** All legal / policy pages shown under the Policies column. Add new documents here only. */
@@ -32,7 +33,7 @@ function Footer() {
               <div className="w-13 h-13 rounded-full bg-white flex items-center justify-center pl-1">
                 <img
                   src={logo}
-                  alt="Reputation360 logo"
+                  alt={LOGO_ALT_FOOTER}
                   className="w-10 h-10 object-contain"
                 />
               </div>

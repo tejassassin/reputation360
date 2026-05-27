@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { testimonialPortraitAlt } from "../constants/imageAlt.js";
 import { homeTestimonials } from "../data/homeTestimonials.js";
 import { testimonialPortraitUrl } from "../data/testimonialPortraits.js";
 
@@ -57,7 +58,7 @@ function TestimonialAvatar({ id, name, portraitUrl }) {
     <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-full border border-slate-200/90 bg-slate-100 sm:h-11 sm:w-11">
       <img
         src={src}
-        alt=""
+        alt={testimonialPortraitAlt(name)}
         className="h-full w-full object-cover object-top"
         loading="lazy"
         decoding="async"

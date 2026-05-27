@@ -27,6 +27,7 @@ import {
   FREE_REPUTATION_SCAN_LABEL,
   FREE_RISK_SCAN_PATH,
 } from "../constants/freeRiskScan.js";
+import { LOGO_ALT_NAV } from "../constants/imageAlt.js";
 
 const navItems = [
   { name: "Home", link: "/" },
@@ -136,6 +137,7 @@ function Header() {
           <NavbarLogo
             logoSrc={logo}
             brandName="Reputation360"
+            logoAlt={LOGO_ALT_NAV}
             logoFetchPriority={logoFetchPriority}
           />
           <NavItems items={navItems} />
@@ -168,10 +170,11 @@ function Header() {
         <MobileNav>
           <MobileNavHeader>
             <NavbarLogo
-            logoSrc={logo}
-            brandName="Reputation360"
-            logoFetchPriority={logoFetchPriority}
-          />
+              logoSrc={logo}
+              brandName="Reputation360"
+              logoAlt={LOGO_ALT_NAV}
+              logoFetchPriority={logoFetchPriority}
+            />
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
