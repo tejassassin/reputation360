@@ -427,8 +427,7 @@ function LawyersWhyHarderSection() {
         Why This Is Harder for You Than Most
       </h2>
       <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
-        Three realities attorneys hit in search - tap each to read the full
-        context.
+        Three realities attorneys hit in search.
       </p>
 
       <div className="mt-8 grid max-w-5xl gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
@@ -566,9 +565,6 @@ function LawyersFaqSection() {
         FAQs
       </h2>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
-      <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px]">
-        Tap a question to expand or collapse the answer.
-      </p>
       <div className="mt-8 max-w-4xl space-y-4">
         {LAWYER_FAQ_ITEMS.map((item, index) => (
           <FaqAccordion

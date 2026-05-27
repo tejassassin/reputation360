@@ -217,10 +217,6 @@ function IndividualsWhoForSection() {
       <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
         Who This Page Is For
       </h2>
-      <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-[#3f4f66] md:text-[15px] md:leading-relaxed">
-        Tap a category to see the full description. If this sounds like your
-        situation, you are in the right place.
-      </p>
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e8f0] pb-4">
         <p className="text-xs font-medium text-[#5d6c80] md:text-[13px]">
@@ -430,8 +426,7 @@ function IndividualsWhySection() {
         Why Personal Reputation Cases Require a Different Approach
       </h2>
       <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
-        Three realities personal cases carry in search - tap each to read the full
-        context.
+        Three realities personal cases carry in search.
       </p>
 
       <div className="mt-8 grid max-w-5xl gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
@@ -759,9 +754,6 @@ function IndividualsFaqSection() {
         FAQs
       </h2>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
-      <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px]">
-        Tap a question to expand or collapse the answer.
-      </p>
       <div className="mt-8 max-w-4xl space-y-4">
         {INDIVIDUAL_FAQ_ITEMS.map((item, index) => (
           <FaqAccordion

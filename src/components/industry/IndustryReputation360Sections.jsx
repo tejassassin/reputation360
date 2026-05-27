@@ -339,9 +339,6 @@ export function IndustryWhatReputation360Section({
         What Reputation360 Does
       </h3>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
-      <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
-        Tap a step to read the full headline and description in the panel.
-      </p>
 
       <div className="mt-8 grid max-w-5xl gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-stretch lg:gap-8">
         <div>
@@ -454,13 +451,6 @@ export function IndustryRealisticTimelineSection({
         Realistic Timeline
       </h3>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
-      <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
-        Tap a phase, use{" "}
-        <span className="whitespace-nowrap font-medium text-[#3f4f66]">
-          Previous / Next
-        </span>
-        , or focus the timeline below and press arrow keys, Home, or End.
-      </p>
 
       <div
         role="group"
