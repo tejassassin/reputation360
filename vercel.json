@@ -1,15 +1,27 @@
 {
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/",
       "has": [{ "type": "host", "value": "thereputation360.com" }],
-      "destination": "https://www.thereputation360.com/:path*",
+      "destination": "https://www.thereputation360.com/",
       "permanent": true
     },
     {
-      "source": "/:path*",
+      "source": "/:path+",
+      "has": [{ "type": "host", "value": "thereputation360.com" }],
+      "destination": "https://www.thereputation360.com/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
       "has": [{ "type": "host", "value": "reputation360.vercel.app" }],
-      "destination": "https://www.thereputation360.com/:path*",
+      "destination": "https://www.thereputation360.com/",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [{ "type": "host", "value": "reputation360.vercel.app" }],
+      "destination": "https://www.thereputation360.com/:path+",
       "permanent": true
     },
     {
