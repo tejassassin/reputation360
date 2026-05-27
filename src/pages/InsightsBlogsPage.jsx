@@ -3,6 +3,7 @@ import { BadgeCheck, ArrowRight } from "lucide-react";
 import { BlogGuideCtaPanel } from "../components/blog/BlogGuideCtaSection.jsx";
 import { CrawlableLinkIndex } from "../components/CrawlableLinkIndex.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
+import { BLOG_INDEX_HERO_IMAGE_ALT } from "../constants/imageAlt.js";
 import { CRAWL_BLOG_PAGES } from "../data/siteCrawlLinks.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
@@ -92,7 +93,7 @@ function InsightsBlogsPage() {
               <div className="relative z-10 ha-lift overflow-hidden rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
                 <img
                   src={HERO_IMG}
-                  alt="Professional consultants working"
+                  alt={BLOG_INDEX_HERO_IMAGE_ALT}
                   className="w-full border-none grayscale-[0.2]"
                 />
               </div>

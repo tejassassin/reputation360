@@ -11,6 +11,7 @@ import {
   handleMailtoClick,
 } from "../constants/contact.js";
 import { SeoHead } from "../components/SeoHead.jsx";
+import { CONTACT_CALENDAR_IMAGE_ALT } from "../constants/imageAlt.js";
 import { SITE_CANONICAL_ORIGIN } from "../constants/siteUrl.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 
@@ -300,7 +301,7 @@ function ContactPage() {
               </div>
               <div className="mx-auto h-52 w-full max-w-xs overflow-hidden rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)] md:mx-0 md:h-64 md:w-64 md:max-w-none md:shrink-0">
                 <img
-                  alt="Calendar on tablet"
+                  alt={CONTACT_CALENDAR_IMAGE_ALT}
                   className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
                   src={calendarTabletImage}
                 />
