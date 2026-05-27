@@ -307,6 +307,11 @@
     animation: none;
     background-size: 100% 100%;
   }
+
+  [data-r360-lazy="pending"] {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 22rem;
+  }
 }
 
 /* -------------------------------------------------------------------------- */

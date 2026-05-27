@@ -186,8 +186,26 @@ export function SeoHead({ title, description, canonicalPath, ogImage, jsonLd, ad
   }, [title, description, canonicalPath, ogImage]);
 
   useLayoutEffect(() => {
-    applyJsonLd(jsonLd, additionalJsonLd ?? []);
+    let cancelled = false;
+    const run = () => {
+      if (!cancelled) applyJsonLd(jsonLd, additionalJsonLd ?? []);
+    };
+
+    if (typeof window.requestIdleCallback === "function") {
+      const idleId = window.requestIdleCallback(run, { timeout: 2000 });
+      return () => {
+        cancelled = true;
+        window.cancelIdleCallback(idleId);
+        upsertJsonLdScript(JSONLD_ORG_ID, null);
+        for (const id of MANAGED_EXTRA_JSONLD_IDS) {
+          upsertJsonLdScript(id, null);
+        }
+      };
+    }
+
+    run();
     return () => {
+      cancelled = true;
       upsertJsonLdScript(JSONLD_ORG_ID, null);
       for (const id of MANAGED_EXTRA_JSONLD_IDS) {
         upsertJsonLdScript(id, null);

@@ -1,6 +1,6 @@
 import { useMemo, useRef } from "react";
 import { ArrowUpRight, ChevronLeft, ChevronRight, Clock3 } from "lucide-react";
-import { useReducedMotion } from "motion/react";
+import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion.js";
 import { CASE_STUDIES, CASE_STUDIES_FOOTER } from "@/data/caseStudies/index.js";
 import { getOutcomeAndKeyPoints } from "@/utils/caseStudyGlimpse.js";
 import { parseEngagementMonths } from "@/utils/parseEngagement.js";
@@ -36,7 +36,7 @@ function sortedByN(studies) {
 }
 
 function CaseStudies() {
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   const scrollerRef = useRef(null);
   const cards = useMemo(
     () => sortedByN(CASE_STUDIES).slice(0, GLIMPSE_COUNT),

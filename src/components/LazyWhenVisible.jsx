@@ -40,7 +40,12 @@ export function LazyWhenVisible({
   const style = minHeight ? { minHeight } : undefined;
 
   return (
-    <div ref={ref} className={className} style={style}>
+    <div
+      ref={ref}
+      className={className}
+      style={style}
+      data-r360-lazy={visible ? "loaded" : "pending"}
+    >
       {visible ? children : fallback}
     </div>
   );

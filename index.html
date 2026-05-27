@@ -634,11 +634,9 @@
           if (path !== "/") return;
           if (!window.matchMedia("(max-width: 767px)").matches) return;
           var tpl =
-            '<main id="r360-static-hero" class="r360-static-hero">' +
+            '<main id="r360-static-hero" class="r360-static-hero" aria-label="Reputation360">' +
             '<div class="r360-static-hero__inner">' +
-            '<p class="r360-static-hero__badge"><span class="r360-static-hero__dot" aria-hidden="true"></span>Trusted by <strong>1,100+</strong> clients globally</p>' +
             '<h1><span>Take control of your</span><span>online reputation</span><span><mark class="r360-static-hero__hl">on your terms</mark><span class="r360-static-hero__muted">, not Google&#39;s</span></span></h1>' +
-            '<p class="r360-static-hero__sub">Because one negative result can quietly undermine years of credibility.</p>' +
             "</div></main>";
           document.currentScript.insertAdjacentHTML("beforebegin", tpl);
         })();

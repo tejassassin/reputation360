@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { ConsultationCtas } from "@/components/ConsultationCtas";
 import { Highlight } from "@/components/ui/hero-highlight-mark";
 import { HeroHighlightLite } from "@/components/ui/hero-highlight-lite";
@@ -89,6 +89,10 @@ function Hero() {
   const sectionRef = useRef(null);
   const [statsInView, setStatsInView] = useState(false);
   const { desktop, StatNumber } = useDesktopStats();
+
+  useLayoutEffect(() => {
+    document.getElementById("r360-static-hero")?.remove();
+  }, []);
 
   useEffect(() => {
     const el = sectionRef.current;
