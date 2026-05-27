@@ -103,7 +103,20 @@ function upsertExtraJsonLd(html, scriptId, schema) {
   if (re.test(html)) {
     return html.replace(re, block);
   }
-  return html.replace(/<\/head>/i, `${block}</head>`);
+  if (html.includes("<!-- R360_JSONLD_END -->")) {
+    return html.replace("<!-- R360_JSONLD_END -->", `${block}  <!-- R360_JSONLD_END -->`);
+  }
+  return html.replace(/<\/body>/i, `${block}\n  </body>`);
+}
+
+/** Drop render-blocking assets that only non-home routes need (homepage LCP). */
+function stripHomeEntryAssets(html) {
+  let next = html.replace(/<link rel="modulepreload"[^>]*[/]page-[^>]+>\s*/gi, "");
+  next = next.replace(
+    /<link rel="stylesheet"[^>]*(?:vendor-carousel|page-blog)[^>]*>\s*/gi,
+    "",
+  );
+  return next;
 }
 
 function patchRouteJsonLd(html, pathname) {
@@ -138,7 +151,9 @@ async function main() {
 
   await writeFile(
     indexPath,
-    patchRouteJsonLd(patchRouteDocumentMeta(baseRaw, "/"), "/"),
+    stripHomeEntryAssets(
+      patchRouteJsonLd(patchRouteDocumentMeta(baseRaw, "/"), "/"),
+    ),
     "utf8",
   );
 

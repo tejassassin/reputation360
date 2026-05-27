@@ -203,6 +203,19 @@ export default defineConfig(({ mode }) => ({
       },
     },
     {
+      name: "r360-strip-home-entry-assets",
+      apply: "build",
+      enforce: "post",
+      transformIndexHtml(html) {
+        let next = html.replace(/<link rel="modulepreload"[^>]*[/]page-[^>]+>\s*/gi, "");
+        next = next.replace(
+          /<link rel="stylesheet"[^>]*(?:vendor-carousel|page-blog)[^>]*>\s*/gi,
+          "",
+        );
+        return next;
+      },
+    },
+    {
       name: "spa-defer-app-module",
       apply: "build",
       transformIndexHtml: {
@@ -287,7 +300,7 @@ export default defineConfig(({ mode }) => ({
       resolveDependencies: (_filename, deps) =>
         deps.filter(
           (dep) =>
-            !/page-casestudiespage|page-aboutpage|nonHomeRoutes|vendor-motion|vendor-jspdf|vendor-carousel|html2canvas|index\.es-/i.test(
+            !/[/]page-|nonHomeRoutes|vendor-motion|vendor-jspdf|vendor-carousel|html2canvas|index\.es-/i.test(
               dep,
             ),
         ),
@@ -296,6 +309,7 @@ export default defineConfig(({ mode }) => ({
       output: {
         manualChunks(id) {
           if (id.includes("/src/pages/")) {
+            if (id.includes("/src/pages/HomePage.jsx")) return undefined;
             const match = id.match(/\/pages\/([^/]+)\./);
             if (match) return `page-${match[1].toLowerCase()}`;
           }

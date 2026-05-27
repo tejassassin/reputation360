@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+import DeferredFooter from "./components/DeferredFooter.jsx";
 import { CrawlableSiteNav } from "./components/CrawlableSiteNav.jsx";
 import DeferredGlobalContactDock from "./components/DeferredGlobalContactDock.jsx";
 import { applyNewTabToAnchors } from "./lib/internalLinkProps.js";
@@ -34,7 +34,7 @@ function App({ children }) {
         <CrawlableSiteNav />
         <Header />
         {children}
-        <Footer />
+        <DeferredFooter />
       </div>
       <DeferredGlobalContactDock />
     </>
