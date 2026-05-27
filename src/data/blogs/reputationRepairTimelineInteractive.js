@@ -1,7 +1,7 @@
 import { AUDIENCE_PATH } from "../../constants/whoWeServePaths.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "./diyReputationGuide.js";
 import { REMOVE_NEGATIVE_SEARCH_RESULTS_PATH } from "./removeNegativeSearchResultsGuide.js";
-import { SUPPRESS_NEGATIVE_GUIDE_PATH } from "./suppressNegativeContentGuide.js";
+import { SUPPRESS_NEGATIVE_GUIDE_PATH } from "./suppressNegativeGuideMeta.js";
 
 export const GUIDE_NAV = [
   { id: "intro", label: "Introduction" },

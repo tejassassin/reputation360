@@ -8,6 +8,8 @@ import { SITE_HTML_LANG } from "./constants/siteUrl.js";
 
 document.documentElement.lang = SITE_HTML_LANG;
 
+document.getElementById("r360-prerender")?.remove();
+
 const NonHomeRoutes = lazy(() =>
   import("./app/nonHomeRoutes.jsx").then((mod) => ({
     default: function NonHomeRoutes({ path }) {

@@ -17,6 +17,7 @@ import { getArticleSchemaForPath } from "../src/data/routeArticleSchemaByPath.js
 import { getFaqPageSchemaForPath } from "../src/data/routeFaqSchemaByPath.js";
 import { JSONLD_ARTICLE_ID } from "../src/data/articleSchema.js";
 import { JSONLD_FAQ_ID } from "../src/data/faqPageSchema.js";
+import { getPrerenderHtmlForPath } from "../src/lib/prerender/getPrerenderHtmlForPath.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.join(__dirname, "..", "dist");
@@ -130,6 +131,23 @@ function patchRouteJsonLd(html, pathname) {
   return next;
 }
 
+/**
+ * @param {string} html
+ * @param {string} pathname
+ */
+function injectRoutePrerender(html, pathname) {
+  const inner = getPrerenderHtmlForPath(pathname);
+  if (!inner) return html;
+
+  const block = `  <article id="r360-prerender" data-route="${escapeHtmlAttr(pathname)}">\n${inner}\n  </article>\n`;
+
+  if (html.includes('id="r360-static-footer"')) {
+    return html.replace(/<\/footer>\s*\n(\s*<script>)/, `</footer>\n${block}$1`);
+  }
+
+  return html.replace(/<\/body>/i, `${block}  </body>`);
+}
+
 async function injectCrawlNav(html) {
   if (html.includes('id="r360-crawl-nav"')) return html;
   const snippetPath = path.join(__dirname, "..", "public", "crawl-nav-snippet.html");
@@ -151,11 +169,16 @@ async function main() {
 
   await writeFile(
     indexPath,
-    stripHomeEntryAssets(
-      patchRouteJsonLd(patchRouteDocumentMeta(baseRaw, "/"), "/"),
+    injectRoutePrerender(
+      stripHomeEntryAssets(
+        patchRouteJsonLd(patchRouteDocumentMeta(baseRaw, "/"), "/"),
+      ),
+      "/",
     ),
     "utf8",
   );
+
+  let prerenderCount = 0;
 
   for (const pathname of routes) {
     if (pathname === "/") continue;
@@ -164,11 +187,13 @@ async function main() {
     await mkdir(path.dirname(outFile), { recursive: true });
     let html = patchRouteDocumentMeta(baseRaw, pathname);
     html = patchRouteJsonLd(html, pathname);
+    html = injectRoutePrerender(html, pathname);
+    if (html.includes('id="r360-prerender"')) prerenderCount += 1;
     await writeFile(outFile, html, "utf8");
   }
 
   console.log(
-    `emit-spa-per-route-html: patched canonical, title, and description for ${routes.length} routes`,
+    `emit-spa-per-route-html: patched canonical, title, and description for ${routes.length} routes (${prerenderCount} with static article HTML)`,
   );
 }
 
