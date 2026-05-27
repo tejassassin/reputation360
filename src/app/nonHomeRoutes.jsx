@@ -1,6 +1,4 @@
 import { lazy } from "react";
-
-const HomePage = lazy(() => import("../pages/HomePage.jsx"));
 import { AUDIENCE_PATH, LEGACY_SERVICE_AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import { BLOG_INDEX_PATH } from "../constants/blogPaths.js";
 import { DIY_REPUTATION_GUIDE_SLUG } from "../data/blogs/diyReputationGuide.js";
@@ -76,8 +74,8 @@ function audiencePageForPath(path) {
   return null;
 }
 
-export function pageForPath(path) {
-  if (path === "/") return <HomePage />;
+/** Non-home routes only. Imported from a separate chunk so "/" does not preload every page. */
+export function pageForNonHomePath(path) {
   if (path === "/about") return <AboutPage />;
   if (path === "/services") return <ServicesPage />;
   if (path === "/who-we-serve") return <WhoWeServePage />;
@@ -124,5 +122,5 @@ export function pageForPath(path) {
   if (path === "/refund-policy") return <RefundPolicyPage />;
   if (path === "/acceptable-use-policy") return <AcceptableUsePolicyPage />;
   if (path === "/dmca-copyright-policy") return <DmcaCopyrightPolicyPage />;
-  return <HomePage />;
+  return null;
 }

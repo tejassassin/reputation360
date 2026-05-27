@@ -46,70 +46,6 @@
         min-height: 100dvh;
         background: linear-gradient(135deg, #1f3b64 0%, #2e5b88 50%, #1f3b64 100%);
       }
-      /* Homepage-only shell (injected by boot script) for fast mobile LCP before React */
-      .r360-static-hero {
-        margin: 0;
-        padding: calc(env(safe-area-inset-top) + 5.25rem) 1rem 1.5rem;
-        text-align: center;
-        color: #fff;
-        background: linear-gradient(135deg, #1f3b64 0%, #2e5b88 50%, #1f3b64 100%);
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-      }
-      .r360-static-hero__inner {
-        max-width: 22rem;
-        margin: 0 auto;
-      }
-      .r360-static-hero__badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin: 1.5rem 0 0.75rem;
-        padding: 0.375rem 0.75rem;
-        border-radius: 9999px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.1);
-        font-size: 0.75rem;
-        color: rgba(255, 255, 255, 0.9);
-      }
-      .r360-static-hero__dot {
-        width: 0.5rem;
-        height: 0.5rem;
-        border-radius: 9999px;
-        background: #4caf50;
-        flex-shrink: 0;
-      }
-      .r360-static-hero h1 {
-        margin: 0;
-        font-size: 1.375rem;
-        line-height: 1.25;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-      }
-      .r360-static-hero h1 > span {
-        display: block;
-      }
-      .r360-static-hero__hl {
-        display: inline;
-        padding: 0 0.15rem 0.1rem;
-        border-radius: 0.5rem;
-        background: linear-gradient(to right, #6366f1, #a855f7);
-        color: #fff;
-      }
-      .r360-static-hero__muted {
-        color: rgba(255, 255, 255, 0.9);
-      }
-      .r360-static-hero__sub {
-        margin: 1rem 0 0;
-        font-size: 0.875rem;
-        line-height: 1.5;
-        color: rgba(255, 255, 255, 0.9);
-      }
-      @media (min-width: 768px) {
-        .r360-static-hero {
-          display: none;
-        }
-      }
     </style>
     <link rel="icon" type="image/png" sizes="512x512" href="__R360_METADATA_BASE__/android-chrome-512x512.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="__R360_METADATA_BASE__/android-chrome-192x192.png" />
@@ -625,22 +561,7 @@
       </ul>
     </nav>
     <!-- R360_CRAWL_NAV_END -->
-    <div id="root">
-      <script id="r360-static-hero-boot">
-        (function () {
-          var path = String(location.pathname || "/").replace(/\/+$/, "") || "/";
-          if (path !== "/") return;
-          var tpl =
-            '<main id="r360-static-hero" class="r360-static-hero">' +
-            '<div class="r360-static-hero__inner">' +
-            '<p class="r360-static-hero__badge"><span class="r360-static-hero__dot" aria-hidden="true"></span>Trusted by <strong>1,100+</strong> clients globally</p>' +
-            '<h1><span>Take control of your</span><span>online reputation</span><span><mark class="r360-static-hero__hl">on your terms</mark><span class="r360-static-hero__muted">, not Google&#39;s</span></span></h1>' +
-            '<p class="r360-static-hero__sub">Because one negative result can quietly undermine years of credibility.</p>' +
-            "</div></main>";
-          document.currentScript.insertAdjacentHTML("beforebegin", tpl);
-        })();
-      </script>
-    </div>
+    <div id="root"></div>
     <img
       id="r360-what-we-believe-serp"
       class="r360-crawl-nav"

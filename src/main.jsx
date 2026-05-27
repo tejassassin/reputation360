@@ -1,9 +1,17 @@
-import { Fragment, StrictMode, Suspense } from "react";
+import { Fragment, StrictMode, Suspense, lazy } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 import App from "./App.jsx";
-import { pageForPath } from "./app/lazyPages.jsx";
+import HomePage from "./pages/HomePage.jsx";
+
+const NonHomeRoutes = lazy(() =>
+  import("./app/nonHomeRoutes.jsx").then((mod) => ({
+    default: function NonHomeRoutes({ path }) {
+      return mod.pageForNonHomePath(path) ?? <HomePage />;
+    },
+  })),
+);
 
 if (import.meta.env.DEV) {
   console.info(
@@ -25,7 +33,13 @@ function normalizePath(pathname) {
 const routeFallback = <div className="min-h-[40vh] flex-1 bg-offwhite" aria-hidden />;
 
 const normalizedPath = normalizePath(window.location.pathname);
-const page = pageForPath(normalizedPath);
+const isHome = normalizedPath === "/";
+
+const page = isHome ? (
+  <HomePage />
+) : (
+  <NonHomeRoutes path={normalizedPath} />
+);
 
 const rootEl = document.getElementById("root");
 if (!rootEl) {
@@ -38,7 +52,7 @@ const app = (
   <Root>
     <ErrorBoundary>
       <App>
-        <Suspense fallback={routeFallback}>{page}</Suspense>
+        {isHome ? page : <Suspense fallback={routeFallback}>{page}</Suspense>}
       </App>
     </ErrorBoundary>
   </Root>

@@ -283,8 +283,15 @@ export default defineConfig(({ mode }) => ({
     open: false,
   },
   build: {
-    // Avoid preloading every lazy route chunk on the homepage (hurts mobile LCP).
-    modulePreload: false,
+    modulePreload: {
+      resolveDependencies: (_filename, deps) =>
+        deps.filter(
+          (dep) =>
+            !/page-casestudiespage|page-aboutpage|nonHomeRoutes|vendor-motion|vendor-jspdf|vendor-carousel|html2canvas|index\.es-/i.test(
+              dep,
+            ),
+        ),
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {

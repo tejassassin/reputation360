@@ -9,40 +9,22 @@ import { applyNewTabToAnchors } from "./lib/internalLinkProps.js";
 function App({ children }) {
   useEffect(() => {
     let frame = 0;
-    let observer = null;
-    let cancelled = false;
-
     const schedule = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => applyNewTabToAnchors());
     };
 
-    const start = () => {
-      if (cancelled) return;
-      schedule();
-      observer = new MutationObserver(schedule);
-      observer.observe(document.documentElement, {
-        childList: true,
-        subtree: true,
-      });
-    };
+    schedule();
 
-    if (typeof window.requestIdleCallback === "function") {
-      const idleId = window.requestIdleCallback(start, { timeout: 2500 });
-      return () => {
-        cancelled = true;
-        window.cancelIdleCallback(idleId);
-        cancelAnimationFrame(frame);
-        observer?.disconnect();
-      };
-    }
+    const observer = new MutationObserver(schedule);
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+    });
 
-    const timeoutId = window.setTimeout(start, 1200);
     return () => {
-      cancelled = true;
-      window.clearTimeout(timeoutId);
       cancelAnimationFrame(frame);
-      observer?.disconnect();
+      observer.disconnect();
     };
   }, []);
 
