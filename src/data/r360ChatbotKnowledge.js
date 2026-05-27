@@ -148,7 +148,7 @@ export const R360_CHATBOT_ENTRIES = [
     keywords: ["technique", "method", "algorithm"],
     reply:
       "Think of it as helping the right pages win a fair popularity contest. We publish and optimize legitimate content - articles, bios, press, listings - using white-hat SEO so search engines reward quality and relevance. Negative URLs lose visibility because better pages outrank them, not because of shady tricks.",
-    cta: { href: "/resources/faqs#section-4", label: "Ethics and compliance" },
+    cta: { href: "/resources/faqs#section-2", label: "Ethics and compliance" },
   },
   {
     id: "negative-come-back",
@@ -207,7 +207,7 @@ export const R360_CHATBOT_ENTRIES = [
     keywords: ["discreet", "private", "hide that"],
     reply:
       "The work itself looks like a strong, normal professional presence online - not a stunt. Engagements are handled confidentially (NDAs when needed). We do not discuss client situations publicly. If you want detail on how we communicate with you, ask on your consultation call.",
-    cta: { href: "/resources/faqs#section-4", label: "Confidentiality FAQs" },
+    cta: { href: "/resources/faqs#section-7", label: "Confidentiality FAQs" },
   },
   {
     id: "competitor-attacks",
