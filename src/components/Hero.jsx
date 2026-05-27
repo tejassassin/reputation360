@@ -2,35 +2,44 @@ import React, { useState, useEffect, useRef } from "react";
 import { ConsultationCtas } from "@/components/ConsultationCtas";
 import { Highlight } from "@/components/ui/hero-highlight-mark";
 import { HeroHighlightLite } from "@/components/ui/hero-highlight-lite";
-import { StatNumber } from "@/components/StatNumber.jsx";
 
-function useIsMobile() {
-  const [mobile, setMobile] = useState(
-    () =>
-      typeof window !== "undefined" &&
-      window.matchMedia("(max-width: 767px)").matches,
-  );
+function useDesktopStats() {
+  const [desktop, setDesktop] = useState(false);
+  const [StatNumber, setStatNumber] = useState(null);
+
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 767px)");
-    const sync = () => setMobile(mq.matches);
+    const mq = window.matchMedia("(min-width: 768px)");
+    const sync = () => setDesktop(mq.matches);
     sync();
     mq.addEventListener("change", sync);
     return () => mq.removeEventListener("change", sync);
   }, []);
-  return mobile;
+
+  useEffect(() => {
+    if (!desktop) return undefined;
+    let cancelled = false;
+    import("./StatNumber.jsx").then((mod) => {
+      if (!cancelled) setStatNumber(() => mod.StatNumber);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [desktop]);
+
+  return { desktop, StatNumber };
 }
 
-function HeroStats({ statsInView, mobile }) {
-  const statValue = (node) =>
-    mobile ? (
-      node.static
-    ) : (
-      <StatNumber end={node.end} suffix={node.suffix} start={statsInView} />
-    );
+function HeroStats({ statsInView, desktop, StatNumber }) {
+  const statValue = (node) => {
+    if (!desktop || !StatNumber) {
+      return node.static;
+    }
+    return <StatNumber end={node.end} suffix={node.suffix} start={statsInView} />;
+  };
 
   return (
     <div className="mx-auto grid w-full max-w-4xl shrink-0 grid-cols-3 gap-1.5 max-md:mt-6 md:mt-0 sm:gap-4 lg:gap-6">
-      <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
+      <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 max-md:backdrop-blur-none backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
         <div className="absolute inset-0 rounded-lg bg-linear-to-br from-green/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100 sm:rounded-2xl" />
         <div className="relative">
           <p className="mb-0.5 font-heading text-lg font-bold text-green sm:mb-0.5 sm:text-3xl lg:mb-1 lg:text-5xl">
@@ -44,7 +53,7 @@ function HeroStats({ statsInView, mobile }) {
           </p>
         </div>
       </div>
-      <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
+      <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 max-md:backdrop-blur-none backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
         <div className="absolute inset-0 rounded-lg bg-linear-to-br from-green/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100 sm:rounded-2xl" />
         <div className="relative">
           <p className="mb-0.5 font-heading text-lg font-bold text-green sm:mb-0.5 sm:text-3xl lg:mb-1 lg:text-5xl">
@@ -58,7 +67,7 @@ function HeroStats({ statsInView, mobile }) {
           </p>
         </div>
       </div>
-      <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
+      <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 max-md:backdrop-blur-none backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
         <div className="absolute inset-0 rounded-lg bg-linear-to-br from-green/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100 sm:rounded-2xl" />
         <div className="relative">
           <p className="mb-0.5 font-heading text-lg font-bold text-green sm:mb-0.5 sm:text-3xl lg:mb-1 lg:text-5xl">
@@ -79,8 +88,7 @@ function HeroStats({ statsInView, mobile }) {
 function Hero() {
   const sectionRef = useRef(null);
   const [statsInView, setStatsInView] = useState(false);
-  const [showStats, setShowStats] = useState(false);
-  const mobile = useIsMobile();
+  const { desktop, StatNumber } = useDesktopStats();
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -97,16 +105,17 @@ function Hero() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    let id = 0;
-    const run = () => setShowStats(true);
-    id = mobile
-      ? window.requestAnimationFrame(() => {
-          id = window.requestAnimationFrame(run);
-        })
-      : window.requestAnimationFrame(run);
-    return () => window.cancelAnimationFrame(id);
-  }, [mobile]);
+  const badgeCount =
+    desktop && StatNumber ? (
+      <StatNumber
+        className="inline font-semibold tabular-nums text-white"
+        end={1100}
+        suffix="+"
+        start={statsInView}
+      />
+    ) : (
+      <span className="inline font-semibold tabular-nums text-white">1,100+</span>
+    );
 
   return (
     <section
@@ -115,24 +124,13 @@ function Hero() {
     >
       <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 pb-2 pt-0 text-center max-md:gap-3 md:min-h-0 md:flex-1 md:justify-evenly md:gap-0 md:px-6 md:py-[2vh] lg:px-8">
         <div className="flex shrink-0 flex-col items-center justify-center gap-3 md:gap-[1.8vh]">
-          <div className="inline-flex w-fit items-center gap-2 self-center rounded-full border border-white/20 bg-white/10 px-3 py-1.5 backdrop-blur-sm max-md:mb-2 max-md:mt-6 sm:px-4 sm:py-2 md:mb-0 md:mt-0">
+          <div className="inline-flex w-fit items-center gap-2 self-center rounded-full border border-white/20 bg-white/10 px-3 py-1.5 max-md:mb-2 max-md:mt-6 max-md:backdrop-blur-none backdrop-blur-sm sm:px-4 sm:py-2 md:mb-0 md:mt-0">
             <span className="flex h-2 w-2 relative max-md:static">
               <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-75 max-md:hidden animate-ping" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green" />
             </span>
             <span className="font-body text-xs sm:text-sm text-white/90">
-              Trusted by{" "}
-              {mobile ? (
-                <span className="inline font-semibold tabular-nums text-white">1,100+</span>
-              ) : (
-                <StatNumber
-                  className="inline font-semibold tabular-nums text-white"
-                  end={1100}
-                  suffix="+"
-                  start={statsInView}
-                />
-              )}{" "}
-              clients globally
+              Trusted by {badgeCount} clients globally
             </span>
           </div>
 
@@ -168,15 +166,11 @@ function Hero() {
           </div>
         </div>
 
-        {showStats ? (
-          <HeroStats statsInView={statsInView} mobile={mobile} />
-        ) : (
-          <div className="mx-auto mt-6 grid w-full max-w-4xl grid-cols-3 gap-1.5 md:mt-0" aria-hidden>
-            <div className="min-h-[4.5rem] rounded-lg border border-white/10 bg-white/5" />
-            <div className="min-h-[4.5rem] rounded-lg border border-white/10 bg-white/5" />
-            <div className="min-h-[4.5rem] rounded-lg border border-white/10 bg-white/5" />
-          </div>
-        )}
+        <HeroStats
+          statsInView={statsInView}
+          desktop={desktop}
+          StatNumber={StatNumber}
+        />
       </div>
     </section>
   );

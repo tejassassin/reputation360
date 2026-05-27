@@ -11,6 +11,10 @@ import {
   Zap,
 } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
+import {
+  articleAdditionalJsonLdFromInput,
+  guideListingToSchemaInput,
+} from "../data/articleSchema.js";
 import { cn } from "@/lib/utils";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { BlogGuideCtaPanel } from "@/components/blog/BlogGuideCtaSection.jsx";
@@ -178,6 +182,13 @@ export default function BlogReputationRepairTimelinePage() {
         description={reputationRepairTimelineMetaDescription}
         canonicalPath={REPUTATION_REPAIR_TIMELINE_PATH}
         ogImage={reputationRepairTimelineListing.image}
+        additionalJsonLd={articleAdditionalJsonLdFromInput(
+          guideListingToSchemaInput(
+            REPUTATION_REPAIR_TIMELINE_PATH,
+            reputationRepairTimelineListing,
+            reputationRepairTimelineMetaDescription,
+          ),
+        )}
       />
 
       <div className="r360-diy-interactive scroll-smooth pb-1 font-body text-jet antialiased">

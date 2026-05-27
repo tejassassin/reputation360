@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { Check, Clock, ShieldAlert, TrendingUp } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
+import {
+  articleAdditionalJsonLdFromInput,
+  guideListingToSchemaInput,
+} from "../data/articleSchema.js";
 import { cn } from "@/lib/utils";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { BlogGuideCtaSection } from "@/components/blog/BlogGuideCtaSection.jsx";
@@ -105,6 +109,13 @@ export default function BlogRemoveNegativeSearchResultsPage() {
         description={removeNegativeSearchResultsMetaDescription}
         canonicalPath={REMOVE_NEGATIVE_SEARCH_RESULTS_PATH}
         ogImage={removeNegativeSearchResultsListing.image}
+        additionalJsonLd={articleAdditionalJsonLdFromInput(
+          guideListingToSchemaInput(
+            REMOVE_NEGATIVE_SEARCH_RESULTS_PATH,
+            removeNegativeSearchResultsListing,
+            removeNegativeSearchResultsMetaDescription,
+          ),
+        )}
       />
 
       <div className="r360-diy-interactive scroll-smooth pb-1 font-body text-jet antialiased">

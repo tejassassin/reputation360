@@ -1,5 +1,6 @@
 import { lazy } from "react";
-import HomePage from "../pages/HomePage.jsx";
+
+const HomePage = lazy(() => import("../pages/HomePage.jsx"));
 import { AUDIENCE_PATH, LEGACY_SERVICE_AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import { BLOG_INDEX_PATH } from "../constants/blogPaths.js";
 import { DIY_REPUTATION_GUIDE_SLUG } from "../data/blogs/diyReputationGuide.js";

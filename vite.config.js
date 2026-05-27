@@ -190,6 +190,19 @@ export default defineConfig(({ mode }) => ({
       },
     },
     {
+      name: "r360-defer-jsonld",
+      transformIndexHtml(html) {
+        const start = "<!-- R360_JSONLD_START -->";
+        const end = "<!-- R360_JSONLD_END -->";
+        const si = html.indexOf(start);
+        const ei = html.indexOf(end);
+        if (si === -1 || ei === -1) return html;
+        const block = html.slice(si, ei + end.length);
+        const without = html.slice(0, si) + html.slice(ei + end.length);
+        return without.replace(/\s*<\/body>/, `\n    ${block}\n  </body>`);
+      },
+    },
+    {
       name: "spa-defer-app-module",
       apply: "build",
       transformIndexHtml: {
@@ -270,6 +283,8 @@ export default defineConfig(({ mode }) => ({
     open: false,
   },
   build: {
+    // Avoid preloading every lazy route chunk on the homepage (hurts mobile LCP).
+    modulePreload: false,
     rollupOptions: {
       output: {
         manualChunks(id) {

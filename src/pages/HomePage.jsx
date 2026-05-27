@@ -6,10 +6,10 @@ import { HOME_PAGE_JSON_LD } from "../data/organizationSchema.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { LazyWhenVisible } from "../components/LazyWhenVisible.jsx";
 import Hero from "../components/Hero";
-import WhoWeServeCards from "../components/WhoWeServeCards";
-import OurServices from "../components/OurServices";
-import CaseStudies from "../components/CaseStudies";
 
+const WhoWeServeCards = lazy(() => import("../components/WhoWeServeCards"));
+const OurServices = lazy(() => import("../components/OurServices"));
+const CaseStudies = lazy(() => import("../components/CaseStudies"));
 const WhatWeBelieve = lazy(() => import("../components/WhatWeBelieve"));
 const WhatWeDo = lazy(() => import("../components/WhatWeDo"));
 const HowReputation360Works = lazy(() => import("../components/HowReputation360Works"));
@@ -56,7 +56,7 @@ function HomePage() {
             <WhatWeDo />
           </section>
         </SectionShell>
-        <SectionShell minHeight="18rem" eager>
+        <SectionShell minHeight="18rem">
           <OurServices />
         </SectionShell>
         <SectionShell minHeight="24rem">
@@ -64,7 +64,9 @@ function HomePage() {
             <HomeTestimonials />
           </section>
         </SectionShell>
-        <WhoWeServeCards />
+        <SectionShell minHeight="22rem">
+          <WhoWeServeCards />
+        </SectionShell>
         <SectionShell minHeight="20rem">
           <section className="bg-white">
             <HowReputation360Works />
@@ -73,7 +75,9 @@ function HomePage() {
         <SectionShell minHeight="18rem">
           <WhyClientsChoose />
         </SectionShell>
-        <CaseStudies />
+        <SectionShell minHeight="20rem">
+          <CaseStudies />
+        </SectionShell>
         <SectionShell minHeight="22rem" className="-mt-4 md:-mt-6 lg:-mt-8">
           <section>
             <HomeFaq />

@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { Clock, Newspaper } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
+import {
+  articleAdditionalJsonLdFromInput,
+  guideListingToSchemaInput,
+} from "../data/articleSchema.js";
 import { cn } from "@/lib/utils";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { AUDIENCE_PATH } from "@/constants/whoWeServePaths.js";
@@ -92,6 +96,13 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
         description={removeNewsArticlesFromGoogleMetaDescription}
         canonicalPath={REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH}
         ogImage={removeNewsArticlesFromGoogleListing.image}
+        additionalJsonLd={articleAdditionalJsonLdFromInput(
+          guideListingToSchemaInput(
+            REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH,
+            removeNewsArticlesFromGoogleListing,
+            removeNewsArticlesFromGoogleMetaDescription,
+          ),
+        )}
       />
 
       <div className="r360-diy-interactive scroll-smooth pb-1 font-body text-jet antialiased">

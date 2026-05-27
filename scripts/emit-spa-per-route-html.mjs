@@ -13,7 +13,9 @@ import {
   normalizeCanonicalPath,
 } from "../src/lib/canonicalHrefFromPath.js";
 import { SERVICES_PAGE_JSON_LD } from "../src/data/servicesPageSchema.js";
+import { getArticleSchemaForPath } from "../src/data/routeArticleSchemaByPath.js";
 import { getFaqPageSchemaForPath } from "../src/data/routeFaqSchemaByPath.js";
+import { JSONLD_ARTICLE_ID } from "../src/data/articleSchema.js";
 import { JSONLD_FAQ_ID } from "../src/data/faqPageSchema.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -83,18 +85,19 @@ function patchServicesRouteJsonLd(html) {
 
 /**
  * @param {string} html
- * @param {Record<string, unknown> | null} faqSchema
+ * @param {string} scriptId
+ * @param {Record<string, unknown> | null} schema
  */
-function upsertFaqJsonLd(html, faqSchema) {
+function upsertExtraJsonLd(html, scriptId, schema) {
   const re = new RegExp(
-    `<script\\b[^>]*\\bid\\s*=\\s*["']${JSONLD_FAQ_ID}["'][^>]*>[\\s\\S]*?<\\/script>\\s*`,
+    `<script\\b[^>]*\\bid\\s*=\\s*["']${scriptId}["'][^>]*>[\\s\\S]*?<\\/script>\\s*`,
     "i",
   );
-  if (!faqSchema) {
+  if (!schema) {
     return re.test(html) ? html.replace(re, "") : html;
   }
-  const block = `  <script type="application/ld+json" id="${JSONLD_FAQ_ID}">
-  ${JSON.stringify(faqSchema, null, 2)}
+  const block = `  <script type="application/ld+json" id="${scriptId}">
+  ${JSON.stringify(schema, null, 2)}
   </script>
 `;
   if (re.test(html)) {
@@ -109,7 +112,8 @@ function patchRouteJsonLd(html, pathname) {
   if (normalized === "/services") {
     next = patchServicesRouteJsonLd(next);
   }
-  next = upsertFaqJsonLd(next, getFaqPageSchemaForPath(normalized));
+  next = upsertExtraJsonLd(next, JSONLD_FAQ_ID, getFaqPageSchemaForPath(normalized));
+  next = upsertExtraJsonLd(next, JSONLD_ARTICLE_ID, getArticleSchemaForPath(normalized));
   return next;
 }
 

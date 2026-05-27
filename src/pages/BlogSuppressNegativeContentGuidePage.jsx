@@ -15,6 +15,11 @@ import {
   TrendingDown,
 } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
+import {
+  articleAdditionalJsonLdFromInput,
+  guideListingToSchemaInput,
+  mergeAdditionalJsonLd,
+} from "../data/articleSchema.js";
 import { faqAdditionalJsonLdFromItems, mapQaFaqs } from "../data/faqPageSchema.js";
 import { SUPPRESS_NEGATIVE_GUIDE_FAQS } from "../data/blogs/suppressNegativeGuideFaqs.js";
 import { cn } from "@/lib/utils";
@@ -437,8 +442,15 @@ export default function BlogSuppressNegativeContentGuidePage() {
         description={suppressNegativeGuideMetaDescription}
         canonicalPath={SUPPRESS_NEGATIVE_GUIDE_PATH}
         ogImage={suppressNegativeGuideListing.image}
-        additionalJsonLd={faqAdditionalJsonLdFromItems(
-          mapQaFaqs(SUPPRESS_NEGATIVE_GUIDE_FAQS),
+        additionalJsonLd={mergeAdditionalJsonLd(
+          faqAdditionalJsonLdFromItems(mapQaFaqs(SUPPRESS_NEGATIVE_GUIDE_FAQS)),
+          articleAdditionalJsonLdFromInput(
+            guideListingToSchemaInput(
+              SUPPRESS_NEGATIVE_GUIDE_PATH,
+              suppressNegativeGuideListing,
+              suppressNegativeGuideMetaDescription,
+            ),
+          ),
         )}
       />
 

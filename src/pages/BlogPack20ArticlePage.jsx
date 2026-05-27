@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { Clock } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
+import {
+  articleAdditionalJsonLdFromInput,
+  mergeAdditionalJsonLd,
+  pack20ArticleToSchemaInput,
+} from "../data/articleSchema.js";
 import { faqAdditionalJsonLdFromItems, mapQaFaqs } from "../data/faqPageSchema.js";
 import { cn } from "@/lib/utils";
 import {
@@ -121,8 +126,9 @@ export default function BlogPack20ArticlePage({ slug }) {
         description={article.metaDescription}
         canonicalPath={article.path}
         ogImage={article.listing.image}
-        additionalJsonLd={faqAdditionalJsonLdFromItems(
-          mapQaFaqs(article.faqs ?? []),
+        additionalJsonLd={mergeAdditionalJsonLd(
+          faqAdditionalJsonLdFromItems(mapQaFaqs(article.faqs ?? [])),
+          articleAdditionalJsonLdFromInput(pack20ArticleToSchemaInput(article)),
         )}
       />
 
