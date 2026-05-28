@@ -562,7 +562,7 @@ function LawyersPage() {
         canonicalPath={seo.path}
         additionalJsonLd={faqAdditionalJsonLdFromItems(mapQuestionAnswerFaqs(LAWYER_FAQ_ITEMS))}
       />
-    <main className="flex-1 bg-offwhite pb-16 pt-28 md:pb-20 md:pt-32">
+    <main className="flex-1 bg-offwhite pb-16 md:pb-20">
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 md:px-6 md:py-14">
         <section className="relative grid items-start gap-5 overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:grid-cols-[1.03fr_0.97fr] md:px-4 md:py-7">
           <div className="max-w-[570px]">

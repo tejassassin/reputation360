@@ -39,6 +39,16 @@
   display: none;
 }
 
+html.r360-has-breadcrumb .r360-diy-interactive .diy-hero-band {
+  padding-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  html.r360-has-breadcrumb .r360-diy-interactive .diy-hero-band {
+    padding-top: 3.5rem;
+  }
+}
+
 .r360-diy-interactive .diy-hero-band {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);

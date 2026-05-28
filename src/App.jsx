@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
+import { BreadcrumbBar } from "./components/BreadcrumbBar.jsx";
 import DeferredFooter from "./components/DeferredFooter.jsx";
 import { CrawlableSiteNav } from "./components/CrawlableSiteNav.jsx";
 import DeferredGlobalContactDock from "./components/DeferredGlobalContactDock.jsx";
@@ -33,6 +34,7 @@ function App({ children }) {
       <div className="relative flex min-h-screen min-h-[100dvh] flex-col overflow-x-clip bg-offwhite">
         <CrawlableSiteNav />
         <Header />
+        <BreadcrumbBar />
         {children}
         <DeferredFooter />
       </div>

@@ -198,7 +198,7 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
           description={caseStudiesSeo.description}
           canonicalPath="/case-studies"
         />
-      <main className="relative min-h-0 flex-1 overflow-x-hidden bg-slate-50 pt-28 text-center text-slate-900 md:pt-32">
+      <main className="relative min-h-0 flex-1 overflow-x-hidden bg-slate-50 text-center text-slate-900">
         <p className="font-heading text-lg font-bold">This case study was not found.</p>
         <a
           href="/case-studies"
@@ -222,7 +222,7 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
         }
         canonicalPath={`/case-studies/${study.slug}`}
       />
-    <main className="relative min-h-0 flex-1 bg-slate-50 pt-24 text-slate-900 md:pt-28">
+    <main className="relative min-h-0 flex-1 bg-slate-50 pt-6 text-slate-900 md:pt-8">
       <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_15%_-5%,rgba(120,200,100,0.2),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_95%_0%,rgba(46,91,136,0.12),transparent_45%)]" />
