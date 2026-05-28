@@ -9,7 +9,10 @@ import {
   fetchReputationAgentReport,
   formatReputationReportForChat,
 } from "@/lib/formatReputationReport.js";
-import { AI_REPUTATION_SCAN_PATH } from "@/constants/reputationAgent.js";
+import {
+  FREE_REPUTATION_SCAN_LABEL,
+  FREE_RISK_SCAN_PATH,
+} from "@/constants/freeRiskScan.js";
 import { CONTACT_EMAIL } from "@/constants/contact.js";
 import { internalAnchorProps } from "@/lib/internalLinkProps.js";
 
@@ -159,8 +162,8 @@ export default function R360Chatbot() {
         });
         const text = formatReputationReportForChat(data.report, data.subject);
         pushAssistant(text, {
-          href: AI_REPUTATION_SCAN_PATH,
-          label: "Open full report page",
+          href: FREE_RISK_SCAN_PATH,
+          label: FREE_REPUTATION_SCAN_LABEL,
         });
       } catch (e) {
         pushAssistant(

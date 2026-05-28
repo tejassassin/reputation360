@@ -16,7 +16,6 @@ export const SITEMAP_URL_ENTRIES = [
   { path: "/about", lastmod: "2026-04-26", changefreq: "monthly", priority: "0.8" },
   { path: "/contact", lastmod: "2026-04-26", changefreq: "monthly", priority: "0.7" },
   { path: "/free-reputation-scan", lastmod: "2026-05-15", changefreq: "monthly", priority: "0.85" },
-  { path: "/ai-reputation-scan", lastmod: "2026-05-19", changefreq: "monthly", priority: "0.85" },
   { path: "/case-studies", lastmod: "2026-05-25", changefreq: "monthly", priority: "0.8" },
   {
     path: "/case-studies/executive-and-founder-reputation-management",

@@ -27,7 +27,6 @@ export const CRAWL_MAIN_PAGES = [
   ...PRIORITY_COMMERCIAL_LINKS,
   { href: "/resources/guide", label: "Reputation Guide" },
   { href: "/resources/faqs", label: "FAQs" },
-  { href: "/ai-reputation-scan", label: "AI Reputation Scan" },
 ];
 
 /** @type {CrawlLink[]} */

@@ -8,7 +8,6 @@ import { REPUTATION_REPAIR_TIMELINE_SLUG } from "../data/blogs/reputationRepairT
 import { REMOVE_NEWS_ARTICLES_FROM_GOOGLE_SLUG } from "../data/blogs/removeNewsArticlesFromGoogleGuide.js";
 import { PACK20_SLUGS } from "../data/blogs/pack20/slugs.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
-import { AI_REPUTATION_SCAN_PATH } from "../constants/reputationAgent.js";
 
 const AboutPage = lazy(() => import("../pages/AboutPage.jsx"));
 const ServicesPage = lazy(() => import("../pages/ServicesPage.jsx"));
@@ -50,7 +49,6 @@ const TermsOfServicePage = lazy(() => import("../pages/TermsOfServicePage.jsx"))
 const TermsOfUsePage = lazy(() => import("../pages/TermsOfUsePage.jsx"));
 const DmcaCopyrightPolicyPage = lazy(() => import("../pages/DmcaCopyrightPolicyPage.jsx"));
 const FreeRiskScanPage = lazy(() => import("../pages/FreeRiskScanPage.jsx"));
-const AIReputationScanPage = lazy(() => import("../pages/AIReputationScanPage.jsx"));
 const FreeScanAdminPage = lazy(() => import("../pages/FreeScanAdminPage.jsx"));
 
 const audienceRouteRows = [
@@ -88,7 +86,10 @@ export function pageForNonHomePath(path) {
   }
   if (path === "/contact") return <ContactPage />;
   if (path === FREE_RISK_SCAN_PATH) return <FreeRiskScanPage />;
-  if (path === AI_REPUTATION_SCAN_PATH) return <AIReputationScanPage />;
+  if (path === "/ai-reputation-scan") {
+    window.location.replace(FREE_RISK_SCAN_PATH);
+    return null;
+  }
   if (path === "/free-scan-admin") return <FreeScanAdminPage />;
   if (path === BLOG_INDEX_PATH) return <InsightsBlogsPage />;
   const blogPost = path.match(/^\/blog\/([^/]+)$/);

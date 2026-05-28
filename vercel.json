@@ -36,6 +36,11 @@
       "permanent": true
     },
     {
+      "source": "/ai-reputation-scan",
+      "destination": "/free-reputation-scan",
+      "permanent": true
+    },
+    {
       "source": "/blog/how-to-remove-or-suppress-negative-search-results-from-google",
       "destination": "/blog/remove-negative-search-results-from-google",
       "permanent": true
