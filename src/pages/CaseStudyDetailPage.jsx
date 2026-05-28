@@ -8,6 +8,7 @@ import {
 } from "../data/caseStudies/index.js";
 import { caseStudySectionSlug } from "../lib/caseStudySectionSlug.js";
 import { CaseStudyPageCta } from "../components/CaseStudyPageCta.jsx";
+import { MoreCaseStudiesSection } from "../components/caseStudies/MoreCaseStudiesSection.jsx";
 import { CaseStudySectionBlock } from "../components/CaseStudySectionBlock.jsx";
 import { CaseStudyEngagementBlock } from "../components/CaseStudyEngagementBlock.jsx";
 import {
@@ -363,6 +364,11 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
               />
             );
           })}
+
+          <MoreCaseStudiesSection
+            caseStudyPath={`/case-studies/${study.slug}`}
+            className="mt-8 md:mt-10"
+          />
 
           <div className="mt-5 w-full overflow-x-auto text-center [scrollbar-width:thin] md:mt-6">
             <p className="m-0 inline-block whitespace-nowrap text-sm text-steel">

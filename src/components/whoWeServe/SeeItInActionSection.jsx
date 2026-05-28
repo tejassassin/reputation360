@@ -13,7 +13,7 @@ function slugFromCaseStudyHref(href) {
 /**
  * @param {{ href: string; label: string }} props
  */
-function SeeItInActionStoryCard({ href, label }) {
+export function SeeItInActionStoryCard({ href, label }) {
   const slug = slugFromCaseStudyHref(href);
   const study = slug ? getCaseStudyBySlug(slug) : null;
   const teaser =
