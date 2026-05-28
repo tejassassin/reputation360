@@ -1,7 +1,8 @@
+import { METADATA_BASE } from "../constants/siteUrl.js";
 import { normalizeCanonicalPath } from "./canonicalHrefFromPath.js";
 
-/** Schema.org BreadcrumbList base URL (per SEO spec). */
-export const BREADCRUMB_SCHEMA_BASE = "https://www.thereputation360.in";
+/** Schema.org BreadcrumbList base URL (matches site canonical origin). */
+export const BREADCRUMB_SCHEMA_BASE = METADATA_BASE;
 
 const SEGMENT_LABELS = {
   "who-we-serve": "Who We Serve",
