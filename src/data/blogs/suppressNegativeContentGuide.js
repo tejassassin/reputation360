@@ -8,11 +8,17 @@ export {
   suppressNegativeGuideMetaLine,
   suppressNegativeGuideSeoTitle,
 } from "./suppressNegativeGuideMeta.js";
-export {
+import {
   stripSuppressNegativeGuidePreamble,
   slugifyHeadingText,
   extractSuppressNegativeGuideTocFromBody,
 } from "./suppressNegativeGuideStrip.js";
+
+export {
+  stripSuppressNegativeGuidePreamble,
+  slugifyHeadingText,
+  extractSuppressNegativeGuideTocFromBody,
+};
 
 export const suppressNegativeGuideBodyMarkdown = stripSuppressNegativeGuidePreamble(
   suppressNegativeContentGuideSource,
