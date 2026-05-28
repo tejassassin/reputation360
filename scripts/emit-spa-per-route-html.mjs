@@ -17,8 +17,11 @@ import { getArticleSchemaForPath } from "../src/data/routeArticleSchemaByPath.js
 import { getFaqPageSchemaForPath } from "../src/data/routeFaqSchemaByPath.js";
 import { JSONLD_ARTICLE_ID } from "../src/data/articleSchema.js";
 import { JSONLD_FAQ_ID } from "../src/data/faqPageSchema.js";
+import { getArticleBreadcrumbJsonLdForPath } from "../src/lib/prerender/articleBreadcrumb.js";
 import { getPrerenderHtmlForPath, prerenderPaths } from "../src/lib/prerender/getPrerenderHtmlForPath.js";
 import { sanitizeDocumentInlineHtml } from "../src/lib/prerender/html.js";
+
+const JSONLD_BREADCRUMB_ID = "r360-jsonld-breadcrumb";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.join(__dirname, "..", "dist");
@@ -129,6 +132,11 @@ function patchRouteJsonLd(html, pathname) {
   }
   next = upsertExtraJsonLd(next, JSONLD_FAQ_ID, getFaqPageSchemaForPath(normalized));
   next = upsertExtraJsonLd(next, JSONLD_ARTICLE_ID, getArticleSchemaForPath(normalized));
+  next = upsertExtraJsonLd(
+    next,
+    JSONLD_BREADCRUMB_ID,
+    getArticleBreadcrumbJsonLdForPath(normalized),
+  );
   return next;
 }
 

@@ -380,6 +380,50 @@
   color: #9ca3af;
 }
 
+.r360-prerender-breadcrumb {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0 0 1rem;
+  color: #6b7280;
+}
+
+.r360-prerender-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.r360-prerender-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+}
+
+.r360-prerender-breadcrumb li + li::before {
+  content: "/";
+  color: #9ca3af;
+  margin: 0 0.35rem;
+  pointer-events: none;
+}
+
+.r360-prerender-breadcrumb a {
+  color: #2e5b88;
+  text-decoration: none;
+}
+
+.r360-prerender-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.r360-prerender-breadcrumb [aria-current="page"] {
+  color: #6b7280;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ha-lift:hover,
   .ha-pill:hover,

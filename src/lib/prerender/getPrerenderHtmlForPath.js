@@ -26,6 +26,7 @@ import { interactiveGuideToHtml } from "./interactiveGuideToHtml.js";
 import { blogIndexToHtml, caseStudiesIndexToHtml } from "./listingPagesToHtml.js";
 import { markdownGuideToHtml } from "./markdownToHtml.js";
 import { pack20ArticleToHtml } from "./pack20ArticleToHtml.js";
+import { prependArticleBreadcrumbHtml } from "./articleBreadcrumb.js";
 import {
   whoWeServeAudiencePageToHtml,
   WHO_WE_SERVE_AUDIENCE_PATHS,
@@ -62,46 +63,61 @@ export function getPrerenderHtmlForPath(pathname) {
 
     const packArticle = PACK20_BY_SLUG.get(slug);
     if (packArticle) {
-      return pack20ArticleToHtml(packArticle);
+      return prependArticleBreadcrumbHtml(path, pack20ArticleToHtml(packArticle));
     }
 
     if (path === SUPPRESS_NEGATIVE_GUIDE_PATH) {
-      return markdownGuideToHtml(
-        suppressNegativeGuideHero,
-        loadSuppressNegativeGuideMarkdown(),
-      ).concat(
-        SUPPRESS_NEGATIVE_GUIDE_FAQS.length
-          ? `<section id="faq"><h2>FAQ</h2>${SUPPRESS_NEGATIVE_GUIDE_FAQS.map((faq) => `<h3>${escapeHtml(faq.q)}</h3><p>${escapeHtml(faq.a)}</p>`).join("")}</section>`
-          : "",
+      return prependArticleBreadcrumbHtml(
+        path,
+        markdownGuideToHtml(
+          suppressNegativeGuideHero,
+          loadSuppressNegativeGuideMarkdown(),
+        ).concat(
+          SUPPRESS_NEGATIVE_GUIDE_FAQS.length
+            ? `<section id="faq"><h2>FAQ</h2>${SUPPRESS_NEGATIVE_GUIDE_FAQS.map((faq) => `<h3>${escapeHtml(faq.q)}</h3><p>${escapeHtml(faq.a)}</p>`).join("")}</section>`
+            : "",
+        ),
       );
     }
 
     if (path === DIY_REPUTATION_GUIDE_PATH) {
-      return interactiveGuideToHtml(
-        diyReputationGuideHero,
-        diyInteractive,
-        diyInteractive.DIY_FAQS,
+      return prependArticleBreadcrumbHtml(
+        path,
+        interactiveGuideToHtml(
+          diyReputationGuideHero,
+          diyInteractive,
+          diyInteractive.DIY_FAQS,
+        ),
       );
     }
 
     if (path === REMOVE_NEGATIVE_SEARCH_RESULTS_PATH) {
-      return interactiveGuideToHtml(
-        removeNegativeSearchResultsHero,
-        removeNegativeInteractive,
+      return prependArticleBreadcrumbHtml(
+        path,
+        interactiveGuideToHtml(
+          removeNegativeSearchResultsHero,
+          removeNegativeInteractive,
+        ),
       );
     }
 
     if (path === REPUTATION_REPAIR_TIMELINE_PATH) {
-      return interactiveGuideToHtml(
-        reputationRepairTimelineHero,
-        reputationTimelineInteractive,
+      return prependArticleBreadcrumbHtml(
+        path,
+        interactiveGuideToHtml(
+          reputationRepairTimelineHero,
+          reputationTimelineInteractive,
+        ),
       );
     }
 
     if (path === REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH) {
-      return interactiveGuideToHtml(
-        removeNewsArticlesFromGoogleHero,
-        removeNewsInteractive,
+      return prependArticleBreadcrumbHtml(
+        path,
+        interactiveGuideToHtml(
+          removeNewsArticlesFromGoogleHero,
+          removeNewsInteractive,
+        ),
       );
     }
   }
@@ -110,7 +126,7 @@ export function getPrerenderHtmlForPath(pathname) {
   if (caseMatch) {
     const study = getCaseStudyBySlug(caseMatch[1]);
     if (study) {
-      return caseStudyToHtml(study);
+      return prependArticleBreadcrumbHtml(path, caseStudyToHtml(study));
     }
   }
 

@@ -3,6 +3,7 @@ import {
   buildBreadcrumbTrail,
   breadcrumbListJsonLd,
 } from "../lib/breadcrumbs.js";
+import { getArticleBreadcrumbJsonLdForPath } from "../lib/prerender/articleBreadcrumb.js";
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 const JSONLD_BREADCRUMB_ID = "r360-jsonld-breadcrumb";
@@ -49,7 +50,9 @@ export function Breadcrumb({ pathname }) {
       return undefined;
     }
 
-    upsertJsonLdScript(JSONLD_BREADCRUMB_ID, breadcrumbListJsonLd(trail));
+    const jsonLd =
+      getArticleBreadcrumbJsonLdForPath(path) ?? breadcrumbListJsonLd(trail);
+    upsertJsonLdScript(JSONLD_BREADCRUMB_ID, jsonLd);
     document.documentElement.classList.add("r360-has-breadcrumb");
 
     return () => {

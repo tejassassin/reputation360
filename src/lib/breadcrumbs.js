@@ -1,5 +1,6 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
 import { normalizeCanonicalPath } from "./canonicalHrefFromPath.js";
+import { resolveArticleBreadcrumb } from "./prerender/articleBreadcrumb.js";
 
 /** Schema.org BreadcrumbList base URL (matches site canonical origin). */
 export const BREADCRUMB_SCHEMA_BASE = METADATA_BASE;
@@ -57,6 +58,15 @@ export function shouldShowBreadcrumb(pathname) {
 export function buildBreadcrumbTrail(pathname) {
   const path = normalizeCanonicalPath(pathname);
   if (!shouldShowBreadcrumb(path)) return null;
+
+  const article = resolveArticleBreadcrumb(path);
+  if (article) {
+    return [
+      { href: "/", label: "Home" },
+      { href: article.sectionHref, label: article.sectionLabel },
+      { href: article.pagePath, label: article.pageTitle },
+    ];
+  }
 
   const segments = path.split("/").filter(Boolean);
   /** @type {BreadcrumbCrumb[]} */
