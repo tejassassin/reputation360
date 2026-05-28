@@ -93,9 +93,24 @@ for (const pathname of prerenderPaths()) {
     failed = true;
   }
 
-  if (!/<article[^>]*id="r360-prerender"[\s\S]*<h1[\s>]/i.test(html)) {
-    console.error(`verify-prerender-content: ${rel} prerender block missing <h1>`);
+  const hasPrerenderHeading =
+    /<article[^>]*id="r360-prerender"[\s\S]*<h1[\s>]/i.test(html) ||
+    (pathname === "/" && html.includes("From Our Blog"));
+  if (!hasPrerenderHeading) {
+    console.error(`verify-prerender-content: ${rel} prerender block missing expected heading`);
     failed = true;
+  }
+
+  if (pathname === "/") {
+    if (!html.includes("From Our Blog")) {
+      console.error(`verify-prerender-content: ${rel} missing From Our Blog section`);
+      failed = true;
+    } else if (!html.includes("remove-negative-search-results-from-google")) {
+      console.error(
+        `verify-prerender-content: ${rel} missing featured blog slug remove-negative-search-results-from-google`,
+      );
+      failed = true;
+    }
   }
 
   if (/^\/blog\/[^/]+$/.test(pathname)) {

@@ -23,6 +23,7 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { stripSuppressNegativeGuidePreamble } from "../../data/blogs/suppressNegativeGuideStrip.js";
+import { HOME_FROM_OUR_BLOG_SUBHEADING } from "../../data/homeFromOurBlog.js";
 import { isWhoWeServeAudiencePath } from "./whoWeServeAudienceLinksToHtml.js";
 
 const prerenderRoot = join(dirname(fileURLToPath(import.meta.url)), "../..");
@@ -61,6 +62,10 @@ function loadSuppressNegativeFirstParagraph() {
  */
 export function getPrerenderProbeSentence(pathname) {
   const path = normalizeCanonicalPath(pathname);
+
+  if (path === "/") {
+    return HOME_FROM_OUR_BLOG_SUBHEADING;
+  }
 
   if (path === BLOG_INDEX_PATH) {
     return "Expert articles on negative link suppression, crisis management, and long-term reputation strategy.";

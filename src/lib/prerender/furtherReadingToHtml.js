@@ -1,4 +1,3 @@
-import { BLOG_INDEX_PATH } from "../../constants/blogPaths.js";
 import { PACK20_BY_SLUG } from "../../data/blogs/pack20/catalog.js";
 import { diyReputationGuideListing } from "../../data/blogs/diyReputationGuide.js";
 import { FURTHER_READING_BY_BLOG_PATH } from "../../data/blogs/furtherReadingByBlogPath.js";
@@ -7,6 +6,7 @@ import { removeNewsArticlesFromGoogleListing } from "../../data/blogs/removeNews
 import { suppressNegativeGuideListing } from "../../data/blogs/suppressNegativeGuideMeta.js";
 import { normalizeCanonicalPath } from "../canonicalHrefFromPath.js";
 import { escapeHtml, escapeHtmlAttr } from "./html.js";
+import { blogCardsSectionHtml } from "./blogCardsSectionToHtml.js";
 
 /** @type {Record<string, { excerpt: string; readTime?: string; category?: string }>} */
 const GUIDE_LISTING_BY_SLUG = {
@@ -52,7 +52,7 @@ const CARD_LINK_CLASS =
  * @param {string} href
  * @param {string} label
  */
-function furtherReadingCardHtml(href, label) {
+export function furtherReadingCardHtml(href, label) {
   const meta = getBlogCardMeta(href);
   const category = escapeHtml(meta?.category ?? "Article");
   const excerpt = meta?.excerpt
@@ -81,15 +81,10 @@ export function furtherReadingSectionHtml(pathname) {
   const links = FURTHER_READING_BY_BLOG_PATH[path];
   if (!links?.length) return "";
 
-  const cards = links.map((link) => furtherReadingCardHtml(link.href, link.label)).join("\n");
-
-  return `<section class="further-reading mt-10 border-t border-[#dce3ec] pt-10 md:pt-12" aria-labelledby="further-reading-prerender-heading">
-  <div>
-    <h2 id="further-reading-prerender-heading" class="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]">Further Reading</h2>
-    <p class="mt-4"><a href="${escapeHtmlAttr(BLOG_INDEX_PATH)}" class="text-[15px] font-semibold text-[#0f2e58] no-underline hover:text-[#163d6e]">All articles →</a></p>
-  </div>
-  <ul class="mt-8 grid list-none grid-cols-1 gap-5 p-0 sm:grid-cols-2 lg:grid-cols-3">
-${cards}
-  </ul>
-</section>`;
+  return blogCardsSectionHtml({
+    sectionClass: "further-reading",
+    headingId: "further-reading-prerender-heading",
+    heading: "Further Reading",
+    links,
+  });
 }

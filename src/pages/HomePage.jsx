@@ -7,6 +7,7 @@ import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { useMobileLazyRootMargin } from "../hooks/useMobileLazyRootMargin.js";
 import { LazyWhenVisible } from "../components/LazyWhenVisible.jsx";
 import Hero from "../components/Hero";
+import { HomeFromOurBlogSection } from "../components/home/HomeFromOurBlogSection.jsx";
 
 const WhoWeServeCards = lazy(() => import("../components/WhoWeServeCards"));
 const OurServices = lazy(() => import("../components/OurServices"));
@@ -80,6 +81,7 @@ function HomePage() {
         <SectionShell minHeight="20rem" rootMargin={lazyRootMargin}>
           <CaseStudies />
         </SectionShell>
+        <HomeFromOurBlogSection />
         <SectionShell minHeight="22rem" className="-mt-4 md:-mt-6 lg:-mt-8" rootMargin={lazyRootMargin}>
           <section>
             <HomeFaq />
