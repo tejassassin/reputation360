@@ -17,7 +17,7 @@ import { getArticleSchemaForPath } from "../src/data/routeArticleSchemaByPath.js
 import { getFaqPageSchemaForPath } from "../src/data/routeFaqSchemaByPath.js";
 import { JSONLD_ARTICLE_ID } from "../src/data/articleSchema.js";
 import { JSONLD_FAQ_ID } from "../src/data/faqPageSchema.js";
-import { getArticleBreadcrumbJsonLdForPath } from "../src/lib/prerender/articleBreadcrumb.js";
+import { getBreadcrumbJsonLdForPath } from "../src/lib/breadcrumbs.js";
 import { getPrerenderHtmlForPath, prerenderPaths } from "../src/lib/prerender/getPrerenderHtmlForPath.js";
 import { sanitizeDocumentInlineHtml } from "../src/lib/prerender/html.js";
 
@@ -135,7 +135,7 @@ function patchRouteJsonLd(html, pathname) {
   next = upsertExtraJsonLd(
     next,
     JSONLD_BREADCRUMB_ID,
-    getArticleBreadcrumbJsonLdForPath(normalized),
+    getBreadcrumbJsonLdForPath(normalized),
   );
   return next;
 }

@@ -1,9 +1,8 @@
 import { useLayoutEffect } from "react";
 import {
   buildBreadcrumbTrail,
-  breadcrumbListJsonLd,
+  getBreadcrumbJsonLdForPath,
 } from "../lib/breadcrumbs.js";
-import { getArticleBreadcrumbJsonLdForPath } from "../lib/prerender/articleBreadcrumb.js";
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 const JSONLD_BREADCRUMB_ID = "r360-jsonld-breadcrumb";
@@ -50,9 +49,7 @@ export function Breadcrumb({ pathname }) {
       return undefined;
     }
 
-    const jsonLd =
-      getArticleBreadcrumbJsonLdForPath(path) ?? breadcrumbListJsonLd(trail);
-    upsertJsonLdScript(JSONLD_BREADCRUMB_ID, jsonLd);
+    upsertJsonLdScript(JSONLD_BREADCRUMB_ID, getBreadcrumbJsonLdForPath(path));
     document.documentElement.classList.add("r360-has-breadcrumb");
 
     return () => {

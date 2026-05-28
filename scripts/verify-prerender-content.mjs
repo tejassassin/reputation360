@@ -103,6 +103,16 @@ for (const pathname of prerenderPaths()) {
     failed = true;
   }
 
+  if (pathname === "/who-we-serve/individual") {
+    if (!html.includes('"@type": "BreadcrumbList"') && !html.includes('"@type":"BreadcrumbList"')) {
+      console.error(`verify-prerender-content: ${rel} missing BreadcrumbList JSON-LD`);
+      failed = true;
+    } else if (!html.includes('id="r360-jsonld-breadcrumb"')) {
+      console.error(`verify-prerender-content: ${rel} missing r360-jsonld-breadcrumb script`);
+      failed = true;
+    }
+  }
+
   if (pathname === "/about") {
     if (!html.includes("Our Work in Action")) {
       console.error(`verify-prerender-content: ${rel} missing Our Work in Action section`);

@@ -1,7 +1,13 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
 import { getRouteSeoMeta } from "../data/routeSeoByPath.js";
-import { normalizeCanonicalPath } from "./canonicalHrefFromPath.js";
-import { resolveArticleBreadcrumb } from "./prerender/articleBreadcrumb.js";
+import {
+  canonicalHrefForNormalizedPath,
+  normalizeCanonicalPath,
+} from "./canonicalHrefFromPath.js";
+import {
+  getArticleBreadcrumbJsonLdForPath,
+  resolveArticleBreadcrumb,
+} from "./prerender/articleBreadcrumb.js";
 
 /** Schema.org BreadcrumbList base URL (matches site canonical origin). */
 export const BREADCRUMB_SCHEMA_BASE = METADATA_BASE;
@@ -109,18 +115,26 @@ export function breadcrumbListJsonLd(crumbs) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: crumbs.map((crumb, index) => {
-      const isLast = index === crumbs.length - 1;
-      const entry = {
-        "@type": "ListItem",
-        position: index + 1,
-        name: crumb.label,
-      };
-      if (!isLast) {
-        const itemPath = crumb.href === "/" ? "/" : crumb.href;
-        entry.item = `${BREADCRUMB_SCHEMA_BASE}${itemPath}`;
-      }
-      return entry;
-    }),
+    itemListElement: crumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: crumb.label,
+      item: canonicalHrefForNormalizedPath(normalizeCanonicalPath(crumb.href)),
+    })),
   };
+}
+
+/**
+ * BreadcrumbList JSON-LD for the current route (articles + Who We Serve audience pages).
+ * @param {string} pathname
+ * @returns {Record<string, unknown> | null}
+ */
+export function getBreadcrumbJsonLdForPath(pathname) {
+  const articleLd = getArticleBreadcrumbJsonLdForPath(pathname);
+  if (articleLd) return articleLd;
+
+  const trail = buildBreadcrumbTrail(pathname);
+  if (!trail?.length) return null;
+
+  return breadcrumbListJsonLd(trail);
 }
