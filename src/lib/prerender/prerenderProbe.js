@@ -71,6 +71,10 @@ export function getPrerenderProbeSentence(pathname) {
     return "Real results from our reputation management work";
   }
 
+  if (path === "/about") {
+    return "A sample of results we've delivered for our clients";
+  }
+
   if (path === BLOG_INDEX_PATH) {
     return "Expert articles on negative link suppression, crisis management, and long-term reputation strategy.";
   }

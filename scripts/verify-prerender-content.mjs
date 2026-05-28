@@ -96,10 +96,26 @@ for (const pathname of prerenderPaths()) {
   const hasPrerenderHeading =
     /<article[^>]*id="r360-prerender"[\s\S]*<h1[\s>]/i.test(html) ||
     (pathname === "/" && html.includes("From Our Blog")) ||
-    (pathname === "/services" && html.includes("See It In Action"));
+    (pathname === "/services" && html.includes("See It In Action")) ||
+    (pathname === "/about" && html.includes("Our Work in Action"));
   if (!hasPrerenderHeading) {
     console.error(`verify-prerender-content: ${rel} prerender block missing expected heading`);
     failed = true;
+  }
+
+  if (pathname === "/about") {
+    if (!html.includes("Our Work in Action")) {
+      console.error(`verify-prerender-content: ${rel} missing Our Work in Action section`);
+      failed = true;
+    } else if (!html.includes("Further Reading")) {
+      console.error(`verify-prerender-content: ${rel} missing Further Reading section`);
+      failed = true;
+    } else if (!html.includes("the-review-that-almost-ended-the-surgeons-career")) {
+      console.error(
+        `verify-prerender-content: ${rel} missing case study slug the-review-that-almost-ended-the-surgeons-career`,
+      );
+      failed = true;
+    }
   }
 
   if (pathname === "/services") {

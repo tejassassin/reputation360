@@ -22,6 +22,7 @@ import {
   Globe2,
   MapPinned,
 } from "lucide-react";
+import { AboutRelatedContentBlock } from "../components/about/AboutRelatedContentBlock.jsx";
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
@@ -1739,6 +1740,8 @@ function AboutPage() {
       </section>
 
       <ClientStoriesSection />
+
+      <AboutRelatedContentBlock />
 
       {/* Final CTA - tight top padding so the navy block sits close to testimonials (avoids a tall strip of #f4f6fb). */}
       <section className="relative overflow-hidden bg-[#f4f6fb] py-20 md:py-24">

@@ -29,6 +29,7 @@ import { pack20ArticleToHtml } from "./pack20ArticleToHtml.js";
 import { prependArticleBreadcrumbHtml } from "./articleBreadcrumb.js";
 import { furtherReadingSectionHtml } from "./furtherReadingToHtml.js";
 import { homeFromOurBlogSectionHtml } from "./homeFromOurBlogToHtml.js";
+import { aboutPageToHtml } from "./aboutPageToHtml.js";
 import { servicesPageToHtml } from "./servicesPageToHtml.js";
 import {
   whoWeServeAudiencePageToHtml,
@@ -69,6 +70,10 @@ export function getPrerenderHtmlForPath(pathname) {
 
   if (path === "/services") {
     return servicesPageToHtml();
+  }
+
+  if (path === "/about") {
+    return aboutPageToHtml();
   }
 
   if (path === BLOG_INDEX_PATH) {
@@ -160,7 +165,7 @@ export function getPrerenderHtmlForPath(pathname) {
 
 /** Routes that receive static article HTML during emit-spa-per-route-html. */
 export function prerenderPaths() {
-  const paths = new Set(["/", "/services", BLOG_INDEX_PATH, "/case-studies"]);
+  const paths = new Set(["/", "/about", "/services", BLOG_INDEX_PATH, "/case-studies"]);
   for (const article of PACK20_ARTICLES) {
     paths.add(article.path);
   }
