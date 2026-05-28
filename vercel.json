@@ -1,4 +1,10 @@
 {
+  "build": {
+    "env": {
+      "SKIP_PUPPETEER_INSTALL": "1",
+      "SKIP_PUPPETEER_SMOKE": "1"
+    }
+  },
   "redirects": [
     {
       "source": "/",

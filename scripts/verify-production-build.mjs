@@ -12,6 +12,18 @@ import { SUPPRESS_NEGATIVE_GUIDE_PATH } from "../src/data/blogs/suppressNegative
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = join(root, "dist");
 
+/** Vercel/CI: skip headless Chrome (install may succeed but launch fails in build VMs). */
+function shouldSkipPuppeteerSmoke() {
+  if (process.env.SKIP_PUPPETEER_SMOKE === "1") return true;
+  if (process.env.REQUIRE_PUPPETEER_SMOKE === "1") return false;
+  return (
+    process.env.VERCEL === "1" ||
+    process.env.VERCEL === "true" ||
+    process.env.CI === "true" ||
+    process.env.CI === "1"
+  );
+}
+
 const ROUTES_TO_SMOKE = [
   "/",
   "/blog",
@@ -167,7 +179,16 @@ async function runPuppeteerSmoke() {
 }
 
 try {
-  await runPuppeteerSmoke();
+  if (shouldSkipPuppeteerSmoke()) {
+    console.warn(
+      "verify-production-build: skipping Puppeteer smoke on CI/Vercel (static HTML checks passed).",
+    );
+    console.warn(
+      "verify-production-build: run `npm run verify:build` locally for full headless smoke.",
+    );
+  } else {
+    await runPuppeteerSmoke();
+  }
 } catch (err) {
   const message = err instanceof Error ? err.message : String(err);
   const chromeMissing = /Could not find Chrome/i.test(message);
