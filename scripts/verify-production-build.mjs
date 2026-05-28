@@ -81,6 +81,14 @@ function verifyHtmlFile(htmlPath) {
   if (/renderToStaticMarkup|react-dom\/server/.test(bundle)) {
     throw new Error(`${bundlePath}: server-only React code in client bundle`);
   }
+
+  const breadcrumbIdx = html.indexOf('id="r360-jsonld-breadcrumb"');
+  const headEnd = html.search(/<\/head>/i);
+  if (breadcrumbIdx >= 0 && headEnd >= 0 && breadcrumbIdx > headEnd) {
+    throw new Error(
+      `${htmlPath}: BreadcrumbList JSON-LD must be inside <head> (found after </head>)`,
+    );
+  }
 }
 
 verifyHtmlFile(join(dist, "index.html"));

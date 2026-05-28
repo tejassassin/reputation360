@@ -31,6 +31,7 @@ import { furtherReadingSectionHtml } from "./furtherReadingToHtml.js";
 import { homeFromOurBlogSectionHtml } from "./homeFromOurBlogToHtml.js";
 import { aboutPageToHtml } from "./aboutPageToHtml.js";
 import { servicesPageToHtml } from "./servicesPageToHtml.js";
+import { prependBreadcrumbPrerenderHtml } from "../breadcrumbs.js";
 import {
   whoWeServeAudiencePageToHtml,
   WHO_WE_SERVE_AUDIENCE_PATHS,
@@ -158,7 +159,7 @@ export function getPrerenderHtmlForPath(pathname) {
   }
 
   const audienceHtml = whoWeServeAudiencePageToHtml(path);
-  if (audienceHtml) return audienceHtml;
+  if (audienceHtml) return prependBreadcrumbPrerenderHtml(path, audienceHtml);
 
   return null;
 }

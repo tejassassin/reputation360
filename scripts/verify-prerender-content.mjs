@@ -110,6 +110,9 @@ for (const pathname of prerenderPaths()) {
     } else if (!html.includes('id="r360-jsonld-breadcrumb"')) {
       console.error(`verify-prerender-content: ${rel} missing r360-jsonld-breadcrumb script`);
       failed = true;
+    } else if (!html.includes('class="r360-prerender-breadcrumb"')) {
+      console.error(`verify-prerender-content: ${rel} missing visible prerender breadcrumb nav`);
+      failed = true;
     }
   }
 

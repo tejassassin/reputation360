@@ -108,10 +108,17 @@ function upsertExtraJsonLd(html, scriptId, schema) {
   if (re.test(html)) {
     return html.replace(re, block);
   }
-  if (html.includes("<!-- R360_JSONLD_END -->")) {
+
+  const headEnd = html.search(/<\/head>/i);
+  const markerIdx = html.indexOf("<!-- R360_JSONLD_END -->");
+  // Vite can move R360_JSONLD_END below </head>; always inject route JSON-LD in <head>.
+  if (headEnd >= 0 && (markerIdx < 0 || markerIdx > headEnd)) {
+    return html.replace(/<\/head>/i, `${block}</head>`);
+  }
+  if (markerIdx >= 0) {
     return html.replace("<!-- R360_JSONLD_END -->", `${block}  <!-- R360_JSONLD_END -->`);
   }
-  return html.replace(/<\/body>/i, `${block}\n  </body>`);
+  return html.replace(/<\/head>/i, `${block}</head>`);
 }
 
 /** Drop render-blocking assets that only non-home routes need (homepage LCP). */

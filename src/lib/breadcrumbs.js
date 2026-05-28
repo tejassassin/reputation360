@@ -8,6 +8,7 @@ import {
   getArticleBreadcrumbJsonLdForPath,
   resolveArticleBreadcrumb,
 } from "./prerender/articleBreadcrumb.js";
+import { escapeHtml, escapeHtmlAttr } from "./prerender/html.js";
 
 /** Schema.org BreadcrumbList base URL (matches site canonical origin). */
 export const BREADCRUMB_SCHEMA_BASE = METADATA_BASE;
@@ -137,4 +138,49 @@ export function getBreadcrumbJsonLdForPath(pathname) {
   if (!trail?.length) return null;
 
   return breadcrumbListJsonLd(trail);
+}
+
+/**
+ * Visible breadcrumb nav for static prerender HTML (microdata + links).
+ * @param {BreadcrumbCrumb[]} crumbs
+ */
+export function prerenderBreadcrumbNavHtml(crumbs) {
+  if (!crumbs?.length) return "";
+
+  const items = crumbs
+    .map((crumb, index) => {
+      const position = index + 1;
+      const name = escapeHtml(crumb.label);
+      const isLast = index === crumbs.length - 1;
+      if (isLast) {
+        return `    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+      <span itemprop="name">${name}</span>
+      <meta itemprop="position" content="${position}" />
+    </li>`;
+      }
+      const href = escapeHtmlAttr(crumb.href);
+      return `    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="${href}"><span itemprop="name">${name}</span></a>
+      <meta itemprop="position" content="${position}" />
+    </li>`;
+    })
+    .join("\n");
+
+  return `<nav aria-label="Breadcrumb" class="r360-prerender-breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+${items}
+  </ol>
+</nav>
+`;
+}
+
+/**
+ * @param {string} pathname
+ * @param {string} html
+ */
+export function prependBreadcrumbPrerenderHtml(pathname, html) {
+  const trail = buildBreadcrumbTrail(pathname);
+  if (!trail?.length) return html;
+  const nav = prerenderBreadcrumbNavHtml(trail);
+  return nav ? `${nav}${html}` : html;
 }
