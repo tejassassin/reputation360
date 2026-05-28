@@ -67,6 +67,10 @@ export function getPrerenderProbeSentence(pathname) {
     return HOME_FROM_OUR_BLOG_SUBHEADING;
   }
 
+  if (path === "/services") {
+    return "Real results from our reputation management work";
+  }
+
   if (path === BLOG_INDEX_PATH) {
     return "Expert articles on negative link suppression, crisis management, and long-term reputation strategy.";
   }

@@ -12,7 +12,7 @@ const CARD_LINK_CLASS =
  * @param {string} href
  * @param {string} label
  */
-function caseStudyCardHtml(href, label) {
+export function caseStudyCardHtml(href, label) {
   const slug = href.replace(/^\/case-studies\//, "");
   const study = getCaseStudyBySlug(slug);
   const teaser =

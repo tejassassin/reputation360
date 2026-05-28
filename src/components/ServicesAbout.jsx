@@ -2,6 +2,8 @@ import { useState } from "react";
 import { AnimatePresence, motion as Motion } from "motion/react";
 import { ConsultationCtas } from "./ConsultationCtas";
 import { ServicesWhoWeWorkWith } from "./ServicesWhoWeWorkWith.jsx";
+import { ServicesFurtherReadingSection } from "./services/ServicesFurtherReadingSection.jsx";
+import { ServicesSeeItInActionSection } from "./services/ServicesSeeItInActionSection.jsx";
 import ServicesFaq from "./ServicesFaq.jsx";
 import {
   FileText,
@@ -873,6 +875,9 @@ function ServicesAbout() {
         <ServicesWhoWeWorkWith />
 
         <ServicesFaq />
+
+        <ServicesSeeItInActionSection className="mt-4" />
+        <ServicesFurtherReadingSection />
 
         <div className="rounded-3xl bg-[linear-gradient(120deg,#08284f,#0f3f73)] px-6 py-10 md:px-12 md:py-12 text-white shadow-lg">
           <h3 className="text-center font-heading text-3xl md:text-4xl font-bold">
