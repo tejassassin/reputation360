@@ -1,8 +1,27 @@
 import { cn } from "@/lib/utils";
+import { WHO_WE_SERVE_HUB_PATH } from "@/constants/whoWeServePaths.js";
 import { anchorTabProps, internalAnchorProps } from "@/lib/internalLinkProps";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 import { Children, cloneElement, isValidElement, useEffect, useState } from "react";
+
+type NavItemConfig = {
+  name: string;
+  link?: string;
+  /** When true (with children), the parent label is not a link; only submenu items navigate. */
+  parentNonNavigable?: boolean;
+  children?: { name: string; link: string; newTab?: boolean }[];
+};
+
+/** @param {NavItemConfig} item */
+function isDropdownOnlyParent(item) {
+  if (!item.children?.length) return false;
+  return Boolean(
+    item.parentNonNavigable ||
+      item.link === "#" ||
+      item.link === WHO_WE_SERVE_HUB_PATH,
+  );
+}
 
 /* Sticky pill: scroll>100 adds opaque shell + shadow. Below 2xl, desktop uses 2 rows (links then CTAs) so links never share a row with buttons. */
 
@@ -76,26 +95,27 @@ export const NavItems = ({
   className,
   onItemClick,
 }: {
-  items: {
-    name: string;
-    link: string;
-    /** When true (with children), the parent label is not a link; only submenu items navigate. */
-    parentNonNavigable?: boolean;
-    children?: { name: string; link: string; newTab?: boolean }[];
-  }[];
+  items: NavItemConfig[];
   className?: string;
   onItemClick?: () => void;
 }) => {
   const [hovered, setHovered] = useState<number | null>(null);
+  const [openMenu, setOpenMenu] = useState<number | null>(null);
+
+  const isMenuOpen = (index: number) => hovered === index || openMenu === index;
 
   return (
     <div
       role="navigation"
       aria-label="Main"
-      onMouseLeave={() => setHovered(null)}
+      onMouseLeave={() => {
+        setHovered(null);
+        setOpenMenu(null);
+      }}
       onBlurCapture={(e) => {
         if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
           setHovered(null);
+          setOpenMenu(null);
         }
       }}
       className={cn(
@@ -104,9 +124,8 @@ export const NavItems = ({
       )}
     >
       {items.map((item, h) => {
-        const parentIsDropdownOnly = Boolean(
-          item.parentNonNavigable && item.children && item.children.length > 0,
-        );
+        const parentIsDropdownOnly = isDropdownOnlyParent(item);
+        const menuOpen = isMenuOpen(h);
         return (
         <div
           onMouseEnter={() => setHovered(h)}
@@ -115,30 +134,49 @@ export const NavItems = ({
           key={`link-${h}`}
         >
           {parentIsDropdownOnly ? (
-            <button
-              type="button"
-              className="group relative block w-full shrink-0 cursor-default whitespace-nowrap rounded-full border-0 bg-transparent px-2.5 py-1.5 text-left font-inherit text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
+            <span
+              role="button"
+              tabIndex={0}
+              className="group relative block w-full shrink-0 cursor-default select-none whitespace-nowrap rounded-full px-2.5 py-1.5 text-left text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
               aria-haspopup="menu"
-              aria-expanded={hovered === h}
+              aria-expanded={menuOpen}
+              onMouseDown={(e) => {
+                e.preventDefault();
+              }}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setOpenMenu((prev) => (prev === h ? null : h));
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setOpenMenu((prev) => (prev === h ? null : h));
+                }
+                if (e.key === "Escape") {
+                  setOpenMenu(null);
+                  setHovered(null);
+                }
+              }}
             >
               <span
                 className={cn(
                   "pointer-events-none absolute inset-0 rounded-full bg-white/0 transition-colors duration-200 group-hover:bg-white/10 group-focus-visible:bg-white/10",
-                  hovered === h && "bg-white/10",
+                  menuOpen && "bg-white/10",
                 )}
                 aria-hidden
               />
               <span className="relative z-[1] whitespace-nowrap">{item.name}</span>
-            </button>
+            </span>
           ) : (
             <a
               onClick={(e) => {
-                if (item.link === "#") e.preventDefault();
+                if (!item.link || item.link === "#") e.preventDefault();
                 onItemClick?.();
               }}
               className="group relative block shrink-0 whitespace-nowrap rounded-full px-2.5 py-1.5 text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
-              href={item.link}
-              {...internalAnchorProps(item.link)}
+              href={item.link ?? "#"}
+              {...internalAnchorProps(item.link ?? "#")}
             >
               <span
                 className="pointer-events-none absolute inset-0 rounded-full bg-white/0 transition-colors duration-200 group-hover:bg-white/10 group-focus-visible:bg-white/10"
@@ -147,7 +185,7 @@ export const NavItems = ({
               <span className="relative z-[1] whitespace-nowrap">{item.name}</span>
             </a>
           )}
-          {item.children && item.children.length > 0 && hovered === h && (
+          {item.children && item.children.length > 0 && menuOpen && (
             /* pt-2 bridge: fills the gap under the trigger so the menu stays open while moving the cursor down */
             <div
               className="absolute left-0 top-full z-[70] min-w-44 pt-2"

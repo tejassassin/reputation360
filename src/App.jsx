@@ -9,6 +9,13 @@ import { applyNewTabToAnchors } from "./lib/internalLinkProps.js";
 
 function App({ children }) {
   useEffect(() => {
+    const crawlNav = document.getElementById("r360-crawl-nav");
+    crawlNav?.querySelectorAll("a[href]").forEach((node) => {
+      if (node instanceof HTMLAnchorElement) {
+        node.tabIndex = -1;
+      }
+    });
+
     let frame = 0;
     const schedule = () => {
       cancelAnimationFrame(frame);

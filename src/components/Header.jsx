@@ -42,7 +42,6 @@ const navItems = [
   { name: "Services", link: "/services" },
   {
     name: "Who We Serve?",
-    link: "#",
     parentNonNavigable: true,
     children: [
       { name: "Individuals", link: AUDIENCE_PATH.individuals },
@@ -188,13 +187,16 @@ function Header() {
             {navItems.map((item, idx) => (
               <div key={`mobile-link-${idx}`} className="w-full">
                 {item.parentNonNavigable && item.children?.length ? (
-                  <span className="relative block rounded-lg px-2 py-1 font-heading font-medium text-white/90">
+                  <span
+                    role="presentation"
+                    className="relative block cursor-default select-none rounded-lg px-2 py-1 font-heading font-medium text-white/90"
+                  >
                     {item.name}
                   </span>
                 ) : (
                   <a
-                    href={item.link}
-                    {...internalAnchorProps(item.link)}
+                    href={item.link ?? "#"}
+                    {...internalAnchorProps(item.link ?? "#")}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="relative rounded-lg px-2 py-1 text-white font-heading font-medium transition-all hover:scale-[1.02] hover:bg-white/10 hover:text-green"
                   >
