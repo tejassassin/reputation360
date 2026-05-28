@@ -81,8 +81,8 @@ function HomePage() {
         <SectionShell minHeight="20rem" rootMargin={lazyRootMargin}>
           <CaseStudies />
         </SectionShell>
-        <HomeFromOurBlogSection />
-        <SectionShell minHeight="22rem" className="-mt-4 md:-mt-6 lg:-mt-8" rootMargin={lazyRootMargin}>
+        <HomeFromOurBlogSection id="from-our-blog" />
+        <SectionShell minHeight="22rem" rootMargin={lazyRootMargin}>
           <section>
             <HomeFaq />
           </section>
