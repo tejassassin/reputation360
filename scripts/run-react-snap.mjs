@@ -9,9 +9,9 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
-if (process.env.VERCEL === "1") {
+if (process.env.ENABLE_REACT_SNAP !== "1") {
   console.log(
-    "run-react-snap: skipping on Vercel (react-snap/Puppeteer is unreliable in CI; per-route HTML already emitted).",
+    "run-react-snap: skipped by default (emit-spa-per-route-html.mjs handles SEO HTML; react-snap strips #root and breaks the SPA). Set ENABLE_REACT_SNAP=1 to opt in.",
   );
   process.exit(0);
 }

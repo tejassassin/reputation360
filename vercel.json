@@ -192,7 +192,11 @@
   },
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/:path((?!api/|assets/|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]

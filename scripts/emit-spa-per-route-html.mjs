@@ -17,7 +17,7 @@ import { getArticleSchemaForPath } from "../src/data/routeArticleSchemaByPath.js
 import { getFaqPageSchemaForPath } from "../src/data/routeFaqSchemaByPath.js";
 import { JSONLD_ARTICLE_ID } from "../src/data/articleSchema.js";
 import { JSONLD_FAQ_ID } from "../src/data/faqPageSchema.js";
-import { getPrerenderHtmlForPath } from "../src/lib/prerender/getPrerenderHtmlForPath.js";
+import { getPrerenderHtmlForPath, prerenderPaths } from "../src/lib/prerender/getPrerenderHtmlForPath.js";
 import { sanitizeDocumentInlineHtml } from "../src/lib/prerender/html.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -136,19 +136,33 @@ function patchRouteJsonLd(html, pathname) {
  * @param {string} html
  * @param {string} pathname
  */
+/** @param {string} html */
+function removeMisleadingNoscript(html) {
+  return html.replace(
+    /<noscript>\s*<p[\s\S]*?JavaScript is required to view this site[\s\S]*?<\/noscript>\s*/i,
+    "",
+  );
+}
+
 function injectRoutePrerender(html, pathname) {
   const inner = getPrerenderHtmlForPath(pathname);
   if (!inner) return html;
 
   const block = `  <article id="r360-prerender" data-route="${escapeHtmlAttr(pathname)}">\n${sanitizeDocumentInlineHtml(inner)}\n  </article>\n`;
 
-  // After the app module so prerender HTML cannot terminate an earlier inline <script>.
-  const moduleRe = /(\s*<script type="module" src="\/assets\/index-[^"]+\.js"><\/script>)/i;
-  if (moduleRe.test(html)) {
-    return html.replace(moduleRe, `$1\n${block}`);
+  let next = removeMisleadingNoscript(html);
+
+  // Place static article HTML before #root so view-source/curl show body text early.
+  if (next.includes('<div id="root">')) {
+    return next.replace('<div id="root">', `${block}<div id="root">`);
   }
 
-  return html.replace(/<\/body>/i, `${block}  </body>`);
+  const moduleRe = /(\s*<script type="module" src="\/assets\/index-[^"]+\.js"><\/script>)/i;
+  if (moduleRe.test(next)) {
+    return next.replace(moduleRe, `${block}$1`);
+  }
+
+  return next.replace(/<\/body>/i, `${block}  </body>`);
 }
 
 async function injectCrawlNav(html) {
@@ -195,8 +209,18 @@ async function main() {
     await writeFile(outFile, html, "utf8");
   }
 
+  const expectedPrerender = prerenderPaths();
+  const missingPrerender = expectedPrerender.filter(
+    (pathname) => !routes.includes(pathname),
+  );
+  if (missingPrerender.length) {
+    console.warn(
+      `emit-spa-per-route-html: prerender routes missing from sitemap: ${missingPrerender.join(", ")}`,
+    );
+  }
+
   console.log(
-    `emit-spa-per-route-html: patched canonical, title, and description for ${routes.length} routes (${prerenderCount} with static article HTML)`,
+    `emit-spa-per-route-html: patched canonical, title, and description for ${routes.length} routes (${prerenderCount} with static article HTML, ${expectedPrerender.length} expected)`,
   );
 }
 

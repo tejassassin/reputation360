@@ -18,7 +18,7 @@ import {
 } from "../../data/blogs/suppressNegativeGuideMeta.js";
 import { stripSuppressNegativeGuidePreamble } from "../../data/blogs/suppressNegativeGuideStrip.js";
 import { SUPPRESS_NEGATIVE_GUIDE_FAQS } from "../../data/blogs/suppressNegativeGuideFaqs.js";
-import { getCaseStudyBySlug } from "../../data/caseStudies/index.js";
+import { CASE_STUDIES, getCaseStudyBySlug } from "../../data/caseStudies/index.js";
 import { normalizeCanonicalPath } from "../canonicalHrefFromPath.js";
 import { escapeHtml } from "./html.js";
 import { caseStudyToHtml } from "./caseStudyToHtml.js";
@@ -118,6 +118,9 @@ export function prerenderPaths() {
   const paths = new Set([BLOG_INDEX_PATH, "/case-studies"]);
   for (const article of PACK20_ARTICLES) {
     paths.add(article.path);
+  }
+  for (const study of CASE_STUDIES) {
+    paths.add(`/case-studies/${study.slug}`);
   }
   paths.add(SUPPRESS_NEGATIVE_GUIDE_PATH);
   paths.add(DIY_REPUTATION_GUIDE_PATH);
