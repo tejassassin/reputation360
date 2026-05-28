@@ -27,12 +27,24 @@ import { blogIndexToHtml, caseStudiesIndexToHtml } from "./listingPagesToHtml.js
 import { markdownGuideToHtml } from "./markdownToHtml.js";
 import { pack20ArticleToHtml } from "./pack20ArticleToHtml.js";
 import { prependArticleBreadcrumbHtml } from "./articleBreadcrumb.js";
+import { furtherReadingSectionHtml } from "./furtherReadingToHtml.js";
 import {
   whoWeServeAudiencePageToHtml,
   WHO_WE_SERVE_AUDIENCE_PATHS,
 } from "./whoWeServeAudienceLinksToHtml.js";
 
 const prerenderRoot = join(dirname(fileURLToPath(import.meta.url)), "../..");
+
+/**
+ * @param {string} path
+ * @param {string} bodyHtml
+ */
+function wrapBlogPrerender(path, bodyHtml) {
+  return prependArticleBreadcrumbHtml(
+    path,
+    `${bodyHtml}${furtherReadingSectionHtml(path)}`,
+  );
+}
 
 function loadSuppressNegativeGuideMarkdown() {
   const mdPath = join(
@@ -63,11 +75,11 @@ export function getPrerenderHtmlForPath(pathname) {
 
     const packArticle = PACK20_BY_SLUG.get(slug);
     if (packArticle) {
-      return prependArticleBreadcrumbHtml(path, pack20ArticleToHtml(packArticle));
+      return wrapBlogPrerender(path, pack20ArticleToHtml(packArticle));
     }
 
     if (path === SUPPRESS_NEGATIVE_GUIDE_PATH) {
-      return prependArticleBreadcrumbHtml(
+      return wrapBlogPrerender(
         path,
         markdownGuideToHtml(
           suppressNegativeGuideHero,
@@ -81,7 +93,7 @@ export function getPrerenderHtmlForPath(pathname) {
     }
 
     if (path === DIY_REPUTATION_GUIDE_PATH) {
-      return prependArticleBreadcrumbHtml(
+      return wrapBlogPrerender(
         path,
         interactiveGuideToHtml(
           diyReputationGuideHero,
@@ -92,7 +104,7 @@ export function getPrerenderHtmlForPath(pathname) {
     }
 
     if (path === REMOVE_NEGATIVE_SEARCH_RESULTS_PATH) {
-      return prependArticleBreadcrumbHtml(
+      return wrapBlogPrerender(
         path,
         interactiveGuideToHtml(
           removeNegativeSearchResultsHero,
@@ -102,7 +114,7 @@ export function getPrerenderHtmlForPath(pathname) {
     }
 
     if (path === REPUTATION_REPAIR_TIMELINE_PATH) {
-      return prependArticleBreadcrumbHtml(
+      return wrapBlogPrerender(
         path,
         interactiveGuideToHtml(
           reputationRepairTimelineHero,
@@ -112,7 +124,7 @@ export function getPrerenderHtmlForPath(pathname) {
     }
 
     if (path === REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH) {
-      return prependArticleBreadcrumbHtml(
+      return wrapBlogPrerender(
         path,
         interactiveGuideToHtml(
           removeNewsArticlesFromGoogleHero,

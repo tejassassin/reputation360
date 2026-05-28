@@ -18,6 +18,7 @@ import {
 import { cn } from "@/lib/utils";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { BlogGuideCtaPanel } from "@/components/blog/BlogGuideCtaSection.jsx";
+import { BlogFurtherReadingSection } from "../components/blog/BlogFurtherReadingSection.jsx";
 import { DiyInternalLink } from "@/components/blog/diy/DiyGuideUi.jsx";
 import { BLOG_PATHS } from "../data/blogs/blogInternalPaths.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "../data/blogs/diyReputationGuide.js";
@@ -524,6 +525,11 @@ export default function BlogReputationRepairTimelinePage() {
                 </p>
                 <BlogGuideCtaPanel />
               </section>
+
+              <BlogFurtherReadingSection
+                blogPath={REPUTATION_REPAIR_TIMELINE_PATH}
+                className="mb-10"
+              />
 
               <div className="mb-16 mt-10 border-t border-slate-200/80 pt-10" id="related">
                 <DiyRelatedReading articles={RELATED_ARTICLES} />

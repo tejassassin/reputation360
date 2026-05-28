@@ -53,7 +53,7 @@ function getBlogCardMeta(href) {
 /**
  * @param {{ href: string; label: string }} props
  */
-function FurtherReadingCard({ href, label }) {
+export function FurtherReadingCard({ href, label }) {
   const meta = getBlogCardMeta(href);
 
   return (

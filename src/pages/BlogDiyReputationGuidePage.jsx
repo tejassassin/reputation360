@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Check, Clock, Search } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
+import { BlogFurtherReadingSection } from "../components/blog/BlogFurtherReadingSection.jsx";
 import {
   articleAdditionalJsonLdFromInput,
   guideListingToSchemaInput,
@@ -646,6 +647,8 @@ export default function BlogDiyReputationGuidePage() {
                   ))}
                 </div>
               </section>
+
+              <BlogFurtherReadingSection blogPath={DIY_REPUTATION_GUIDE_PATH} className="mb-10" />
             </main>
 
             <aside className="hidden w-56 shrink-0 lg:sticky lg:top-28 lg:flex lg:h-[calc(100dvh-8rem)] lg:max-h-[calc(100dvh-8rem)] lg:min-h-0 lg:flex-col lg:overflow-hidden lg:border-l lg:border-slate-200/80 lg:pl-6 lg:pt-2">

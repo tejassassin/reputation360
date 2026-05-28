@@ -14,6 +14,7 @@ import {
   ReadingProgressRail,
   DiyRelatedReading,
 } from "../components/blog/diy/DiyGuideUi.jsx";
+import { BlogFurtherReadingSection } from "../components/blog/BlogFurtherReadingSection.jsx";
 import { Pack20CtaSection } from "../components/blog/pack20/Pack20CtaSection.jsx";
 import {
   Pack20Blocks,
@@ -225,6 +226,8 @@ export default function BlogPack20ArticlePage({ slug }) {
                 accordionState={accordionState}
                 toggleAccordion={toggleAccordion}
               />
+
+              <BlogFurtherReadingSection blogPath={article.path} className="mb-10" />
 
               <div className="mb-16 mt-10 border-t border-slate-200/80 pt-10" id="related">
                 <DiyRelatedReading articles={related} />

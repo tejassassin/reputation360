@@ -6,6 +6,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { prerenderPaths } from "../src/lib/prerender/getPrerenderHtmlForPath.js";
+import { FURTHER_READING_BY_BLOG_PATH } from "../src/data/blogs/furtherReadingByBlogPath.js";
 import { MORE_CASE_STUDIES_BY_PATH } from "../src/data/caseStudies/moreCaseStudiesByPath.js";
 import { getPrerenderProbeSentence } from "../src/lib/prerender/prerenderProbe.js";
 import { getRouteSeoMeta } from "../src/data/routeSeoByPath.js";
@@ -95,6 +96,23 @@ for (const pathname of prerenderPaths()) {
   if (!/<article[^>]*id="r360-prerender"[\s\S]*<h1[\s>]/i.test(html)) {
     console.error(`verify-prerender-content: ${rel} prerender block missing <h1>`);
     failed = true;
+  }
+
+  if (/^\/blog\/[^/]+$/.test(pathname)) {
+    const related = FURTHER_READING_BY_BLOG_PATH[pathname];
+    if (!related?.length) {
+      console.error(`verify-prerender-content: ${rel} missing Further Reading mapping`);
+      failed = true;
+    } else if (!html.includes("Further Reading")) {
+      console.error(`verify-prerender-content: ${rel} missing Further Reading section`);
+      failed = true;
+    } else {
+      const slug = related[0].href.replace(/^\/blog\//, "");
+      if (!html.includes(slug)) {
+        console.error(`verify-prerender-content: ${rel} missing related slug ${slug}`);
+        failed = true;
+      }
+    }
   }
 
   if (/^\/case-studies\/[^/]+$/.test(pathname)) {

@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { AUDIENCE_PATH } from "@/constants/whoWeServePaths.js";
 import { BlogGuideCtaPanel } from "@/components/blog/BlogGuideCtaSection.jsx";
+import { BlogFurtherReadingSection } from "../components/blog/BlogFurtherReadingSection.jsx";
 import {
   DiyAccordion,
   DiyAnswerBox,
@@ -412,6 +413,11 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
                 </p>
                 <BlogGuideCtaPanel />
               </section>
+
+              <BlogFurtherReadingSection
+                blogPath={REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH}
+                className="mb-10"
+              />
 
               <div className="mb-16 mt-10 border-t border-slate-200/80 pt-10" id="related">
                 <DiyRelatedReading articles={RELATED_ARTICLES} />

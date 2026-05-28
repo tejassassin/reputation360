@@ -24,6 +24,7 @@ import { faqAdditionalJsonLdFromItems, mapQaFaqs } from "../data/faqPageSchema.j
 import { SUPPRESS_NEGATIVE_GUIDE_FAQS } from "../data/blogs/suppressNegativeGuideFaqs.js";
 import { cn } from "@/lib/utils";
 import { BlogGuideCtaPanel } from "@/components/blog/BlogGuideCtaSection.jsx";
+import { BlogFurtherReadingSection } from "../components/blog/BlogFurtherReadingSection.jsx";
 import { DiyInternalLink, DiyLeadHighlight } from "@/components/blog/diy/DiyGuideUi.jsx";
 import { BLOG_INDEX_PATH } from "@/constants/blogPaths.js";
 import { AUDIENCE_PATH, WHO_WE_SERVE_HUB_PATH } from "@/constants/whoWeServePaths.js";
@@ -1112,6 +1113,11 @@ export default function BlogSuppressNegativeContentGuidePage() {
                   <BlogGuideCtaPanel />
                 </div>
               </section>
+
+              <BlogFurtherReadingSection
+                blogPath={SUPPRESS_NEGATIVE_GUIDE_PATH}
+                className="mb-10"
+              />
             </main>
 
             {/* Right: reading progress fills this sticky column */}
