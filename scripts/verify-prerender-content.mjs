@@ -6,6 +6,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { prerenderPaths } from "../src/lib/prerender/getPrerenderHtmlForPath.js";
+import { MORE_CASE_STUDIES_BY_PATH } from "../src/data/caseStudies/moreCaseStudiesByPath.js";
 import { getPrerenderProbeSentence } from "../src/lib/prerender/prerenderProbe.js";
 import { getRouteSeoMeta } from "../src/data/routeSeoByPath.js";
 import { canonicalHrefForNormalizedPath, normalizeCanonicalPath } from "../src/lib/canonicalHrefFromPath.js";
@@ -94,6 +95,22 @@ for (const pathname of prerenderPaths()) {
   if (!/<article[^>]*id="r360-prerender"[\s\S]*<h1[\s>]/i.test(html)) {
     console.error(`verify-prerender-content: ${rel} prerender block missing <h1>`);
     failed = true;
+  }
+
+  if (/^\/case-studies\/[^/]+$/.test(pathname)) {
+    const related = MORE_CASE_STUDIES_BY_PATH[pathname];
+    if (!related?.length) {
+      console.error(`verify-prerender-content: ${rel} missing More Case Studies mapping`);
+      failed = true;
+    } else if (!html.includes("More Case Studies")) {
+      console.error(`verify-prerender-content: ${rel} missing More Case Studies section`);
+      failed = true;
+    } else if (!html.includes(related[0].href)) {
+      console.error(
+        `verify-prerender-content: ${rel} missing related link ${related[0].href}`,
+      );
+      failed = true;
+    }
   }
 
   if (probe) {

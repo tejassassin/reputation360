@@ -1,4 +1,5 @@
-import { bodyParagraphsToHtml, escapeHtml, linkListToHtml } from "./html.js";
+import { bodyParagraphsToHtml, escapeHtml } from "./html.js";
+import { moreCaseStudiesSectionHtml } from "./moreCaseStudiesToHtml.js";
 
 /**
  * @param {import("../../data/caseStudies/types.js").CaseStudy} study
@@ -11,6 +12,9 @@ export function caseStudyToHtml(study) {
     )
     .join("\n");
 
+  const pagePath = `/case-studies/${study.slug}`;
+  const moreCaseStudies = moreCaseStudiesSectionHtml(pagePath);
+
   return `<header>
   <h1>${escapeHtml(study.listTitle)}</h1>
   <p>${escapeHtml(study.industry)}</p>
@@ -19,5 +23,6 @@ export function caseStudyToHtml(study) {
   <p>${escapeHtml(study.duration)}</p>
   <p>${escapeHtml(study.summary)}</p>
 </header>
-${sections}`;
+${sections}
+${moreCaseStudies}`;
 }
