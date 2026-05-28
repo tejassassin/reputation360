@@ -23,6 +23,7 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { stripSuppressNegativeGuidePreamble } from "../../data/blogs/suppressNegativeGuideStrip.js";
+import { isWhoWeServeAudiencePath } from "./whoWeServeAudienceLinksToHtml.js";
 
 const prerenderRoot = join(dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -100,6 +101,10 @@ export function getPrerenderProbeSentence(pathname) {
   if (caseMatch) {
     const study = getCaseStudyBySlug(caseMatch[1]);
     return study?.summary ?? study?.listTitle ?? null;
+  }
+
+  if (isWhoWeServeAudiencePath(path)) {
+    return "See It In Action";
   }
 
   return null;

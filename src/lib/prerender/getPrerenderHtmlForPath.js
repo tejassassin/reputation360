@@ -26,6 +26,10 @@ import { interactiveGuideToHtml } from "./interactiveGuideToHtml.js";
 import { blogIndexToHtml, caseStudiesIndexToHtml } from "./listingPagesToHtml.js";
 import { markdownGuideToHtml } from "./markdownToHtml.js";
 import { pack20ArticleToHtml } from "./pack20ArticleToHtml.js";
+import {
+  whoWeServeAudiencePageToHtml,
+  WHO_WE_SERVE_AUDIENCE_PATHS,
+} from "./whoWeServeAudienceLinksToHtml.js";
 
 const prerenderRoot = join(dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -110,6 +114,9 @@ export function getPrerenderHtmlForPath(pathname) {
     }
   }
 
+  const audienceHtml = whoWeServeAudiencePageToHtml(path);
+  if (audienceHtml) return audienceHtml;
+
   return null;
 }
 
@@ -127,5 +134,8 @@ export function prerenderPaths() {
   paths.add(REMOVE_NEGATIVE_SEARCH_RESULTS_PATH);
   paths.add(REPUTATION_REPAIR_TIMELINE_PATH);
   paths.add(REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH);
+  for (const audiencePath of WHO_WE_SERVE_AUDIENCE_PATHS) {
+    paths.add(audiencePath);
+  }
   return [...paths];
 }
