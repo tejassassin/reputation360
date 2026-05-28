@@ -15,7 +15,7 @@ export function FurtherReadingCard({ href, label }) {
       <a
         href={href}
         {...internalAnchorProps(href)}
-        className="group flex h-full w-[min(100%,21rem)] flex-col rounded-[20px] border border-[#0f2e58]/10 bg-white p-6 text-left no-underline shadow-[0_12px_40px_-18px_rgba(15,46,88,0.22)] transition-all duration-300 hover:-translate-y-1 hover:border-[#2e5b88]/35 hover:shadow-[0_22px_50px_-20px_rgba(15,46,88,0.28)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2e5b88] focus-visible:ring-offset-2 sm:w-[21rem] md:p-7 lg:w-full"
+        className="group flex h-full w-[min(100%,21rem)] flex-col rounded-2xl border border-[#0f2e58]/10 bg-white p-6 text-left no-underline shadow-[0_16px_48px_-24px_rgba(15,46,88,0.28)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#2e5b88]/35 hover:shadow-[0_28px_60px_-22px_rgba(15,46,88,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2e5b88] focus-visible:ring-offset-2 sm:w-[21rem] md:p-7 lg:w-full"
       >
         <div className="flex items-center justify-between gap-3">
           <span className="rounded-full bg-[#0f2e58]/8 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[#2e5b88] md:text-xs">
