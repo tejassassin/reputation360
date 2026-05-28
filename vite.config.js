@@ -216,6 +216,7 @@ export default defineConfig(({ mode }) => ({
           /<link rel="stylesheet"([^>]*href="\/assets\/index-[^"]+\.css"[^>]*)>/gi,
           (_, attrs) =>
             `<link rel="preload"${attrs} as="style" onload="this.onload=null;this.rel='stylesheet'">` +
+            `<link rel="stylesheet"${attrs} media="print" onload="this.media='all'">` +
             `<noscript><link rel="stylesheet"${attrs}></noscript>`,
         );
         return next;

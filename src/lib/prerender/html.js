@@ -12,6 +12,13 @@ export function escapeHtmlAttr(value) {
   return escapeHtml(value);
 }
 
+/** Prevent inline `</script>` / `<!--` sequences from breaking the HTML parser. */
+export function sanitizeDocumentInlineHtml(html) {
+  return String(html)
+    .replace(/<\/script/gi, "<\\/script")
+    .replace(/<!--/g, "<\\!--");
+}
+
 /**
  * @param {import("../../data/blogs/pack20/types.js").Pack20RichTextPart[]} [parts]
  * @param {string} text

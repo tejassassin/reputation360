@@ -18,6 +18,7 @@ import { getFaqPageSchemaForPath } from "../src/data/routeFaqSchemaByPath.js";
 import { JSONLD_ARTICLE_ID } from "../src/data/articleSchema.js";
 import { JSONLD_FAQ_ID } from "../src/data/faqPageSchema.js";
 import { getPrerenderHtmlForPath } from "../src/lib/prerender/getPrerenderHtmlForPath.js";
+import { sanitizeDocumentInlineHtml } from "../src/lib/prerender/html.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.join(__dirname, "..", "dist");
@@ -139,10 +140,12 @@ function injectRoutePrerender(html, pathname) {
   const inner = getPrerenderHtmlForPath(pathname);
   if (!inner) return html;
 
-  const block = `  <article id="r360-prerender" data-route="${escapeHtmlAttr(pathname)}">\n${inner}\n  </article>\n`;
+  const block = `  <article id="r360-prerender" data-route="${escapeHtmlAttr(pathname)}">\n${sanitizeDocumentInlineHtml(inner)}\n  </article>\n`;
 
-  if (html.includes('id="r360-static-footer"')) {
-    return html.replace(/<\/footer>\s*\n(\s*<script>)/, `</footer>\n${block}$1`);
+  // After the app module so prerender HTML cannot terminate an earlier inline <script>.
+  const moduleRe = /(\s*<script type="module" src="\/assets\/index-[^"]+\.js"><\/script>)/i;
+  if (moduleRe.test(html)) {
+    return html.replace(moduleRe, `$1\n${block}`);
   }
 
   return html.replace(/<\/body>/i, `${block}  </body>`);
