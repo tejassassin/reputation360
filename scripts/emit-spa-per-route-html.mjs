@@ -18,6 +18,7 @@ import { getFaqPageSchemaForPath } from "../src/data/routeFaqSchemaByPath.js";
 import { JSONLD_ARTICLE_ID } from "../src/data/articleSchema.js";
 import { JSONLD_FAQ_ID } from "../src/data/faqPageSchema.js";
 import { getBreadcrumbJsonLdForPath } from "../src/lib/breadcrumbs.js";
+import { getWebSiteJsonLd, JSONLD_WEBSITE_ID } from "../src/data/websiteSchema.js";
 import { getPrerenderHtmlForPath, prerenderPaths } from "../src/lib/prerender/getPrerenderHtmlForPath.js";
 import { sanitizeDocumentInlineHtml } from "../src/lib/prerender/html.js";
 
@@ -144,6 +145,7 @@ function patchRouteJsonLd(html, pathname) {
     JSONLD_BREADCRUMB_ID,
     getBreadcrumbJsonLdForPath(normalized),
   );
+  next = upsertExtraJsonLd(next, JSONLD_WEBSITE_ID, getWebSiteJsonLd());
   return next;
 }
 

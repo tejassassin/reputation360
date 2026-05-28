@@ -147,6 +147,16 @@ for (const pathname of prerenderPaths()) {
   }
 
   if (pathname === "/") {
+    if (!html.includes('"@type": "WebSite"') && !html.includes('"@type":"WebSite"')) {
+      console.error(`verify-prerender-content: ${rel} missing WebSite JSON-LD`);
+      failed = true;
+    } else if (!html.includes("SearchAction")) {
+      console.error(`verify-prerender-content: ${rel} missing SearchAction in JSON-LD`);
+      failed = true;
+    }
+  }
+
+  if (pathname === "/") {
     if (!html.includes("From Our Blog")) {
       console.error(`verify-prerender-content: ${rel} missing From Our Blog section`);
       failed = true;

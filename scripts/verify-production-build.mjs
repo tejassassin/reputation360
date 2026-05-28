@@ -82,12 +82,12 @@ function verifyHtmlFile(htmlPath) {
     throw new Error(`${bundlePath}: server-only React code in client bundle`);
   }
 
-  const breadcrumbIdx = html.indexOf('id="r360-jsonld-breadcrumb"');
   const headEnd = html.search(/<\/head>/i);
-  if (breadcrumbIdx >= 0 && headEnd >= 0 && breadcrumbIdx > headEnd) {
-    throw new Error(
-      `${htmlPath}: BreadcrumbList JSON-LD must be inside <head> (found after </head>)`,
-    );
+  for (const scriptId of ["r360-jsonld-breadcrumb", "r360-jsonld-website"]) {
+    const idx = html.indexOf(`id="${scriptId}"`);
+    if (idx >= 0 && headEnd >= 0 && idx > headEnd) {
+      throw new Error(`${htmlPath}: ${scriptId} must be inside <head> (found after </head>)`);
+    }
   }
 }
 

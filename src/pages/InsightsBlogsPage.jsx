@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { BadgeCheck, ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { BadgeCheck, ArrowRight, Search } from "lucide-react";
 import { BlogGuideCtaPanel } from "../components/blog/BlogGuideCtaSection.jsx";
 import { CrawlableLinkIndex } from "../components/CrawlableLinkIndex.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
@@ -21,6 +21,11 @@ import {
 import { article as socialPostsArticle } from "../data/blogs/pack20/blog05.js";
 import { article as crisisPlaybookArticle } from "../data/blogs/pack20/blog08.js";
 import { article as ormMethodologyArticle } from "../data/blogs/pack20/blog15.js";
+import {
+  articleMatchesBlogSearch,
+  blogSearchResultsPath,
+  normalizeBlogSearchQuery,
+} from "../lib/blogArticleSearch.js";
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 const FEATURED_PACK_INSIGHTS = [
@@ -50,14 +55,32 @@ const latestArticles = [
   suppressNegativeGuideListing,
 ];
 
+function readSearchQueryFromLocation() {
+  if (typeof window === "undefined") return "";
+  return normalizeBlogSearchQuery(new URLSearchParams(window.location.search).get("q"));
+}
+
 function InsightsBlogsPage() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [searchQuery, setSearchQuery] = useState(readSearchQueryFromLocation);
+  const [searchInput, setSearchInput] = useState(readSearchQueryFromLocation);
   const seo = useLocalizedSeo("blogs");
 
-  const filteredArticles =
-    activeFilter === "All"
-      ? latestArticles
-      : latestArticles.filter((a) => a.filter === activeFilter);
+  useEffect(() => {
+    const syncFromUrl = () => {
+      const q = readSearchQueryFromLocation();
+      setSearchQuery(q);
+      setSearchInput(q);
+    };
+    syncFromUrl();
+    window.addEventListener("popstate", syncFromUrl);
+    return () => window.removeEventListener("popstate", syncFromUrl);
+  }, []);
+
+  const filteredArticles = latestArticles.filter((article) => {
+    if (activeFilter !== "All" && article.filter !== activeFilter) return false;
+    return articleMatchesBlogSearch(article, searchQuery);
+  });
 
   return (
     <>
@@ -233,9 +256,46 @@ function InsightsBlogsPage() {
         className="mx-auto max-w-7xl px-6 py-24 md:px-8"
       >
         <div className="mb-16 flex flex-col gap-8">
-          <h2 className="font-insights-headline text-4xl font-extrabold tracking-tight text-[#02254d]">
-            Latest Articles
-          </h2>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="font-insights-headline text-4xl font-extrabold tracking-tight text-[#02254d]">
+              {searchQuery ? `Results for “${searchQuery}”` : "Latest Articles"}
+            </h2>
+            <form
+              action="/blog"
+              method="get"
+              role="search"
+              className="flex w-full max-w-md gap-2"
+              onSubmit={(event) => {
+                event.preventDefault();
+                const q = normalizeBlogSearchQuery(searchInput);
+                const path = blogSearchResultsPath(q);
+                if (typeof window !== "undefined") {
+                  window.history.pushState({}, "", path);
+                  setSearchQuery(q);
+                }
+              }}
+            >
+              <label htmlFor="insights-blog-search" className="sr-only">
+                Search articles
+              </label>
+              <input
+                id="insights-blog-search"
+                type="search"
+                name="q"
+                value={searchInput}
+                onChange={(event) => setSearchInput(event.target.value)}
+                placeholder="Search insights…"
+                className="min-w-0 flex-1 rounded-full border border-[#d7e2ef] bg-white px-4 py-2.5 text-sm text-[#02254d] outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]"
+              />
+              <button
+                type="submit"
+                className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#02254d] px-4 py-2.5 text-sm font-semibold text-white"
+              >
+                <Search className="h-4 w-4" aria-hidden />
+                Search
+              </button>
+            </form>
+          </div>
           <div className="flex flex-nowrap justify-start gap-1.5">
             {FILTER_LABELS.map((label) => (
               <button
@@ -256,7 +316,9 @@ function InsightsBlogsPage() {
 
         {filteredArticles.length === 0 ? (
           <p className="text-center text-[#43474e]">
-            More insights in this category are coming soon.
+            {searchQuery
+              ? `No articles matched “${searchQuery}”. Try another term or browse all insights.`
+              : "More insights in this category are coming soon."}
           </p>
         ) : (
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">

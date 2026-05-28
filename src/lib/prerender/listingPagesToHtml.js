@@ -28,6 +28,11 @@ export function blogIndexToHtml() {
   return `<header>
   <h1>Insights From Seven Years of Online Reputation Management</h1>
   <p>Expert articles on negative link suppression, crisis management, and long-term reputation strategy.</p>
+  <form action="/blog" method="get" role="search" class="mt-6">
+    <label for="blog-search-q">Search articles</label>
+    <input id="blog-search-q" type="search" name="q" placeholder="Search insights…" />
+    <button type="submit">Search</button>
+  </form>
 </header>
 ${crawlNav}
 <section aria-label="Blog articles">${articles}</section>`;
