@@ -4,7 +4,7 @@
  */
 import { CASE_STUDIES } from "./caseStudies/index.js";
 import { PACK20_ARTICLES } from "./blogs/pack20/catalog.js";
-import { AUDIENCE_PATH, WHO_WE_SERVE_HUB_PATH } from "../constants/whoWeServePaths.js";
+import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "./blogs/diyReputationGuide.js";
 
@@ -14,7 +14,6 @@ import { DIY_REPUTATION_GUIDE_PATH } from "./blogs/diyReputationGuide.js";
 export const PRIORITY_COMMERCIAL_LINKS = [
   { href: "/services", label: "Services" },
   { href: "/blog", label: "Insights and Blogs" },
-  { href: WHO_WE_SERVE_HUB_PATH, label: "Who We Serve" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/contact", label: "Contact" },
   { href: FREE_RISK_SCAN_PATH, label: "Free Reputation Scan" },

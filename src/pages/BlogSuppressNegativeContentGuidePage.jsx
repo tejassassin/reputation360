@@ -27,7 +27,7 @@ import { BlogGuideCtaPanel } from "@/components/blog/BlogGuideCtaSection.jsx";
 import { BlogFurtherReadingSection } from "../components/blog/BlogFurtherReadingSection.jsx";
 import { DiyInternalLink, DiyLeadHighlight } from "@/components/blog/diy/DiyGuideUi.jsx";
 import { BLOG_INDEX_PATH } from "@/constants/blogPaths.js";
-import { AUDIENCE_PATH, WHO_WE_SERVE_HUB_PATH } from "@/constants/whoWeServePaths.js";
+import { AUDIENCE_PATH } from "@/constants/whoWeServePaths.js";
 import { BLOG_PATHS } from "../data/blogs/blogInternalPaths.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "../data/blogs/diyReputationGuide.js";
 import {
@@ -1085,7 +1085,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
                           Reputation management is ongoing - monitoring your online presence, building positive assets,
                           and maintaining your professional reputation long-term. Both are part of what we do at
                           Reputation360. Learn more about{" "}
-                          <DiyInternalLink href={WHO_WE_SERVE_HUB_PATH}>who we work with</DiyInternalLink> and how we
+                          <DiyInternalLink href={AUDIENCE_PATH.individuals}>who we work with</DiyInternalLink> and how we
                           approach each situation.
                         </p>
                       ) : (

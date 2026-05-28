@@ -62,6 +62,7 @@
     { "source": "/services/lawyers", "destination": "/who-we-serve/lawyers-and-attorneys", "permanent": true },
     { "source": "/services/job-seekers", "destination": "/who-we-serve/job-seekers", "permanent": true },
     { "source": "/services/businesses", "destination": "/who-we-serve/businesses-and-companies", "permanent": true },
+    { "source": "/who-we-serve", "destination": "/who-we-serve/individual", "permanent": true },
     { "source": "/case-studies/1", "destination": "/case-studies/executive-and-founder-reputation-management", "permanent": true },
     { "source": "/case-studies/2", "destination": "/case-studies/financial-professional-reputation-recovery", "permanent": true },
     { "source": "/case-studies/3", "destination": "/case-studies/medical-and-healthcare-reputation-management", "permanent": true },

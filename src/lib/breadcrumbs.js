@@ -1,4 +1,5 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
+import { getRouteSeoMeta } from "../data/routeSeoByPath.js";
 import { normalizeCanonicalPath } from "./canonicalHrefFromPath.js";
 import { resolveArticleBreadcrumb } from "./prerender/articleBreadcrumb.js";
 
@@ -25,6 +26,13 @@ function titleCaseSlug(slug) {
     .filter(Boolean)
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(" ");
+}
+
+/**
+ * @param {string} title
+ */
+function pageTitleToBreadcrumbLabel(title) {
+  return title.replace(/\s*\|\s*Reputation360\s*$/i, "").trim();
 }
 
 /**
@@ -65,6 +73,18 @@ export function buildBreadcrumbTrail(pathname) {
       { href: "/", label: "Home" },
       { href: article.sectionHref, label: article.sectionLabel },
       { href: article.pagePath, label: article.pageTitle },
+    ];
+  }
+
+  const audienceMatch = path.match(/^\/who-we-serve\/([^/]+)$/);
+  if (audienceMatch) {
+    const seo = getRouteSeoMeta(path);
+    const label = seo?.title
+      ? pageTitleToBreadcrumbLabel(seo.title)
+      : breadcrumbLabelForSegment(audienceMatch[1]);
+    return [
+      { href: "/", label: "Home" },
+      { href: path, label },
     ];
   }
 

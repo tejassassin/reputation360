@@ -25,8 +25,7 @@ export function ServicesWhoWeWorkWith() {
           />
         </div>
         <a
-          href="/who-we-serve"
-          {...internalAnchorProps("/who-we-serve")}
+          href="#who-we-work-with"
           className="inline-flex shrink-0 items-center gap-2 self-center rounded-lg border border-[#2a8c3e]/50 bg-transparent px-4 py-2.5 font-heading text-sm font-semibold text-[#2a6b3a] transition hover:border-[#4CAF50] hover:bg-[#4CAF50]/[0.08] sm:self-auto"
         >
           All audiences

@@ -114,7 +114,6 @@ export const SITEMAP_URL_ENTRIES = [
     priority: "0.75",
   },
   { path: "/services", lastmod: "2026-05-25", changefreq: "monthly", priority: "0.9" },
-  { path: "/who-we-serve", lastmod: "2026-05-25", changefreq: "monthly", priority: "0.85" },
   {
     path: "/who-we-serve/individual",
     lastmod: "2026-05-25",

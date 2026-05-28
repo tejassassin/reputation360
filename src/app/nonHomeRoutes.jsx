@@ -1,5 +1,9 @@
 import { lazy } from "react";
-import { AUDIENCE_PATH, LEGACY_SERVICE_AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
+import {
+  AUDIENCE_PATH,
+  LEGACY_SERVICE_AUDIENCE_PATH,
+  WHO_WE_SERVE_HUB_PATH,
+} from "../constants/whoWeServePaths.js";
 import { BLOG_INDEX_PATH } from "../constants/blogPaths.js";
 import { DIY_REPUTATION_GUIDE_SLUG } from "../data/blogs/diyReputationGuide.js";
 import { SUPPRESS_NEGATIVE_GUIDE_SLUG } from "../data/blogs/suppressNegativeContentGuide.js";
@@ -19,7 +23,6 @@ const ExecutivesPage = lazy(() => import("../pages/ExecutivesPage.jsx"));
 const BusinessesPage = lazy(() => import("../pages/BusinessesPage.jsx"));
 const IndividualsPage = lazy(() => import("../pages/IndividualsPage.jsx"));
 const CaseStudiesPage = lazy(() => import("../pages/CaseStudiesPage.jsx"));
-const WhoWeServePage = lazy(() => import("../pages/WhoWeServePage.jsx"));
 const CaseStudyDetailPage = lazy(() => import("../pages/CaseStudyDetailPage.jsx"));
 const ContactPage = lazy(() => import("../pages/ContactPage.jsx"));
 const FaqsPage = lazy(() => import("../pages/FaqsPage.jsx"));
@@ -76,7 +79,10 @@ function audiencePageForPath(path) {
 export function pageForNonHomePath(path) {
   if (path === "/about") return <AboutPage />;
   if (path === "/services") return <ServicesPage />;
-  if (path === "/who-we-serve") return <WhoWeServePage />;
+  if (path === WHO_WE_SERVE_HUB_PATH) {
+    window.location.replace(AUDIENCE_PATH.individuals);
+    return null;
+  }
   const audiencePage = audiencePageForPath(path);
   if (audiencePage) return audiencePage;
   if (path === "/case-studies") return <CaseStudiesPage />;

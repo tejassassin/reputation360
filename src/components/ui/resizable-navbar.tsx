@@ -115,10 +115,9 @@ export const NavItems = ({
           key={`link-${h}`}
         >
           {parentIsDropdownOnly ? (
-            <a
-              href={item.link}
-              {...internalAnchorProps(item.link)}
-              className="group relative block w-full shrink-0 whitespace-nowrap rounded-full px-2.5 py-1.5 text-left text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
+            <button
+              type="button"
+              className="group relative block w-full shrink-0 cursor-default whitespace-nowrap rounded-full border-0 bg-transparent px-2.5 py-1.5 text-left font-inherit text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
               aria-haspopup="menu"
               aria-expanded={hovered === h}
             >
@@ -130,7 +129,7 @@ export const NavItems = ({
                 aria-hidden
               />
               <span className="relative z-[1] whitespace-nowrap">{item.name}</span>
-            </a>
+            </button>
           ) : (
             <a
               onClick={(e) => {
