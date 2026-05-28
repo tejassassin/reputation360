@@ -8,6 +8,7 @@ import {
 } from "../components/industry/IndustryReputation360Sections";
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeeItInActionSection } from "../components/whoWeServe/SeeItInActionSection.jsx";
+import { FurtherReadingSection } from "../components/whoWeServe/FurtherReadingSection.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { faqAdditionalJsonLdFromItems, mapQuestionAnswerFaqs } from "../data/faqPageSchema.js";
@@ -712,6 +713,8 @@ function FinancialAdvisorsPage() {
         <IndustryRealisticTimelineSection />
 
         <SeeItInActionSection audiencePath={seo.path} />
+
+        <FurtherReadingSection audiencePath={seo.path} />
 
         <section className="rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
           <p className="mx-auto max-w-3xl font-heading text-[19px] font-semibold leading-snug text-white md:text-[23px] md:leading-snug">
