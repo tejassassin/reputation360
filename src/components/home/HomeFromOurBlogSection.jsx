@@ -28,8 +28,8 @@ export function HomeFromOurBlogSection({ id = "from-our-blog", className = "" })
       />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-xl">
+        <div className="flex w-full flex-col items-center gap-4">
+          <div className="mx-auto max-w-2xl text-center">
             <p className="mb-2 text-[12px] font-bold uppercase tracking-[0.14em] text-[#2e5b88]">
               Insights
             </p>
@@ -46,7 +46,7 @@ export function HomeFromOurBlogSection({ id = "from-our-blog", className = "" })
           <a
             href={BLOG_INDEX_PATH}
             {...internalAnchorProps(BLOG_INDEX_PATH)}
-            className="inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-[#0f2e58]/15 bg-white px-5 py-2.5 text-sm font-semibold text-[#0f2e58] shadow-[0_8px_24px_-12px_rgba(15,46,88,0.2)] transition hover:border-[#2e5b88]/40 hover:bg-[#f4f8fc] hover:text-[#163d6e] md:self-auto md:text-[15px]"
+            className="inline-flex shrink-0 items-center gap-2 self-end rounded-full border border-[#0f2e58]/15 bg-white px-5 py-2.5 text-sm font-semibold text-[#0f2e58] shadow-[0_8px_24px_-12px_rgba(15,46,88,0.2)] transition hover:border-[#2e5b88]/40 hover:bg-[#f4f8fc] hover:text-[#163d6e] md:text-[15px]"
           >
             All articles
             <ArrowRight className="h-4 w-4 stroke-[2.25]" aria-hidden />
