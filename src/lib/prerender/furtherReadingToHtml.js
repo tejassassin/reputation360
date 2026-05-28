@@ -1,49 +1,8 @@
-import { PACK20_BY_SLUG } from "../../data/blogs/pack20/catalog.js";
-import { diyReputationGuideListing } from "../../data/blogs/diyReputationGuide.js";
 import { FURTHER_READING_BY_BLOG_PATH } from "../../data/blogs/furtherReadingByBlogPath.js";
-import { removeNegativeSearchResultsListing } from "../../data/blogs/removeNegativeSearchResultsGuide.js";
-import { removeNewsArticlesFromGoogleListing } from "../../data/blogs/removeNewsArticlesFromGoogleGuide.js";
-import { suppressNegativeGuideListing } from "../../data/blogs/suppressNegativeGuideMeta.js";
+import { getBlogCardMeta } from "../blogCardMeta.js";
 import { normalizeCanonicalPath } from "../canonicalHrefFromPath.js";
 import { escapeHtml, escapeHtmlAttr } from "./html.js";
 import { blogCardsSectionHtml } from "./blogCardsSectionToHtml.js";
-
-/** @type {Record<string, { excerpt: string; readTime?: string; category?: string }>} */
-const GUIDE_LISTING_BY_SLUG = {
-  [suppressNegativeGuideListing.slug]: suppressNegativeGuideListing,
-  [diyReputationGuideListing.slug]: diyReputationGuideListing,
-  [removeNegativeSearchResultsListing.slug]: removeNegativeSearchResultsListing,
-  [removeNewsArticlesFromGoogleListing.slug]: removeNewsArticlesFromGoogleListing,
-};
-
-/**
- * @param {string} href
- */
-function getBlogCardMeta(href) {
-  const match = href.match(/^\/blog\/([^/]+)$/);
-  const slug = match ? decodeURIComponent(match[1]) : null;
-  if (!slug) return null;
-
-  const packArticle = PACK20_BY_SLUG.get(slug);
-  if (packArticle?.listing) {
-    return {
-      excerpt: packArticle.listing.excerpt,
-      readTime: packArticle.listing.readTime,
-      category: packArticle.listing.category,
-    };
-  }
-
-  const guide = GUIDE_LISTING_BY_SLUG[slug];
-  if (guide) {
-    return {
-      excerpt: guide.excerpt,
-      readTime: guide.readTime,
-      category: guide.category,
-    };
-  }
-
-  return null;
-}
 
 const CARD_LINK_CLASS =
   "group flex h-full w-full flex-col rounded-[20px] border border-[#0f2e58]/10 bg-white p-6 text-left no-underline shadow-[0_12px_40px_-18px_rgba(15,46,88,0.22)]";

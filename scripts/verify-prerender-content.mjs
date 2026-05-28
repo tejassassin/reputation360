@@ -110,6 +110,13 @@ for (const pathname of prerenderPaths()) {
         `verify-prerender-content: ${rel} missing featured blog slug remove-negative-search-results-from-google`,
       );
       failed = true;
+    } else if (
+      !html.includes("Wondering how long reputation repair takes?")
+    ) {
+      console.error(
+        `verify-prerender-content: ${rel} missing timeline article excerpt in From Our Blog`,
+      );
+      failed = true;
     }
   }
 
