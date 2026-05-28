@@ -125,7 +125,7 @@ const base = `http://127.0.0.1:${port}`;
 /** @type {import('puppeteer').Browser | null} */
 let browser = null;
 
-try {
+async function runPuppeteerSmoke() {
   const puppeteer = await import("puppeteer");
   browser = await puppeteer.default.launch({
     headless: true,
@@ -163,6 +163,23 @@ try {
 
     console.log(`verify-production-build: smoke OK ${route}`);
     await page.close();
+  }
+}
+
+try {
+  await runPuppeteerSmoke();
+} catch (err) {
+  const message = err instanceof Error ? err.message : String(err);
+  const chromeMissing = /Could not find Chrome/i.test(message);
+  if (chromeMissing && process.env.REQUIRE_PUPPETEER_SMOKE !== "1") {
+    console.warn(
+      "verify-production-build: skipping Puppeteer smoke (Chrome not installed). Static HTML checks passed.",
+    );
+    console.warn(
+      "verify-production-build: run `npx puppeteer browsers install chrome` locally, or rely on postinstall on Vercel.",
+    );
+  } else {
+    throw err;
   }
 } finally {
   if (browser) await browser.close();
