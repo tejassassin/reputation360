@@ -8,6 +8,7 @@ import { SITE_HTML_LANG } from "./constants/siteUrl.js";
 
 document.documentElement.lang = SITE_HTML_LANG;
 
+/** Removed after mount; kept out of layout via #r360-prerender CSS until then (no flash). */
 document.getElementById("r360-prerender")?.remove();
 
 const NonHomeRoutes = lazy(() =>

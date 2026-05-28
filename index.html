@@ -46,6 +46,19 @@
         min-height: 100dvh;
         background: linear-gradient(135deg, #1f3b64 0%, #2e5b88 50%, #1f3b64 100%);
       }
+      /* SEO prerender sits before #root for curl/crawlers; hide until React removes it (prevents blog/section flash). */
+      #r360-prerender {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+      }
       /* Mobile-only: paint hero headline before React (improves LCP on slow 4G) */
       @media (max-width: 767px) {
         .r360-static-hero {
