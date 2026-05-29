@@ -16,9 +16,9 @@ export function ServicesWhoWeWorkWith() {
     <div id="who-we-work-with" className="scroll-mt-28">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div className="text-center sm:text-left">
-          <h3 className="who-we-work-with-heading font-heading font-bold tracking-tight text-navy">
+          <h2 className="who-we-work-with-heading font-heading font-bold tracking-tight text-navy">
             Who We Work With
-          </h3>
+          </h2>
           <div
             className="mx-auto mt-3 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] sm:mx-0"
             aria-hidden
@@ -74,13 +74,13 @@ export function ServicesWhoWeWorkWith() {
                 >
                   <Icon className="h-5 w-5" strokeWidth={2} aria-hidden />
                 </div>
-                <h4
+                <h3
                   className={`who-we-work-with-trigger mt-4 font-heading font-semibold [text-wrap:balance] ${
                     isBusinesses ? "text-[#2a6b3a]" : "text-navy"
                   }`}
                 >
                   {cat.title}
-                </h4>
+                </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-navy/70 [text-wrap:pretty]">
                   {cat.description}
                 </p>
