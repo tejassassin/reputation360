@@ -24,7 +24,6 @@ const NAV = [
   { id: "thirty-day-plan", label: "30-day plan" },
   { id: "start", label: "Next step" },
   { id: "faq", label: "FAQ" },
-  { id: "related", label: "Related reading" },
 ];
 
 export const article = {

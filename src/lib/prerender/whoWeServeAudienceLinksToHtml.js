@@ -83,7 +83,6 @@ function furtherReadingSectionHtml(audiencePath) {
   const cards = config.links
     .map((link) => {
       const meta = getBlogCardMeta(link.href);
-      const category = meta?.category ?? "Article";
       const excerpt = meta?.excerpt
         ? `<p>${escapeHtml(meta.excerpt)}</p>`
         : "";
@@ -92,7 +91,6 @@ function furtherReadingSectionHtml(audiencePath) {
         : "";
       return `<li>
   <article>
-    <p><span>${escapeHtml(category)}</span></p>
     <h3><a href="${escapeHtmlAttr(link.href)}">${escapeHtml(link.label)}</a></h3>
     ${excerpt}
     ${readTime}
@@ -103,7 +101,7 @@ function furtherReadingSectionHtml(audiencePath) {
     .join("\n");
 
   return `<section class="further-reading" aria-labelledby="further-reading-heading">
-  <h2 id="further-reading-heading">Further Reading</h2>
+  <h2 id="further-reading-heading">Related Readings</h2>
   <p>${escapeHtml(config.intro)}</p>
   <p><a href="${escapeHtmlAttr(BLOG_INDEX_PATH)}">All articles</a></p>
   <ul>

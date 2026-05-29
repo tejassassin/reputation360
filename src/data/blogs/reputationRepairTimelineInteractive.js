@@ -12,7 +12,6 @@ export const GUIDE_NAV = [
   { id: "diy-vs-professional", label: "DIY vs. Pro" },
   { id: "red-flags", label: "Red Flags" },
   { id: "start", label: "Next Step" },
-  { id: "related", label: "Related Reading" },
 ];
 
 export const SCROLL_SPY_ORDER = [
@@ -24,7 +23,6 @@ export const SCROLL_SPY_ORDER = [
   "diy-vs-professional",
   "red-flags",
   "start",
-  "related",
 ];
 
 export const HERO_STATS = [

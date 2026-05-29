@@ -25,6 +25,7 @@ import { SUPPRESS_NEGATIVE_GUIDE_FAQS } from "../data/blogs/suppressNegativeGuid
 import { cn } from "@/lib/utils";
 import { BlogGuideCtaPanel } from "@/components/blog/BlogGuideCtaSection.jsx";
 import { BlogFurtherReadingSection } from "../components/blog/BlogFurtherReadingSection.jsx";
+import { BlogShareSection } from "../components/blog/BlogShareSection.jsx";
 import { DiyInternalLink, DiyLeadHighlight } from "@/components/blog/diy/DiyGuideUi.jsx";
 import { BLOG_INDEX_PATH } from "@/constants/blogPaths.js";
 import { AUDIENCE_PATH } from "@/constants/whoWeServePaths.js";
@@ -1113,6 +1114,12 @@ export default function BlogSuppressNegativeContentGuidePage() {
                   <BlogGuideCtaPanel />
                 </div>
               </section>
+
+              <BlogShareSection
+                title={suppressNegativeGuideListing.title}
+                canonicalPath={SUPPRESS_NEGATIVE_GUIDE_PATH}
+                className="mb-10"
+              />
 
               <BlogFurtherReadingSection
                 blogPath={SUPPRESS_NEGATIVE_GUIDE_PATH}

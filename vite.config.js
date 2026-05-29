@@ -272,11 +272,10 @@ export default defineConfig(({ mode }) => ({
       "@scan": path.resolve(__dirname, "./scan-shared"),
     },
   },
-  // Listen on all local interfaces so both http://127.0.0.1:5173/ and http://localhost:5173/
-  // work regardless of whether the OS resolves "localhost" to IPv4 or IPv6.
-  // For LAN access only: npm run dev -- --host 0.0.0.0
+  // Bind to loopback by default (reliable on macOS; avoids Vite calling os.networkInterfaces()).
+  // LAN / phone testing: npm run dev -- --host
   server: {
-    host: true,
+    host: "127.0.0.1",
     port: 5173,
     // Fail loudly if 5173 is taken so an old Vite process cannot serve stale UI on another port.
     strictPort: true,
@@ -297,7 +296,7 @@ export default defineConfig(({ mode }) => ({
       : {}),
   },
   preview: {
-    host: true,
+    host: "127.0.0.1",
     port: 4173,
     strictPort: false,
     open: false,

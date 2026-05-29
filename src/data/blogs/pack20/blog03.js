@@ -29,7 +29,6 @@ const NAV = [
   { id: "bottom-line", label: "The bottom line" },
   { id: "start", label: "Next step" },
   { id: "faq", label: "FAQ" },
-  { id: "related", label: "Related reading" },
 ];
 
 export const article = {

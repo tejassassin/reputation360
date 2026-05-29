@@ -8,7 +8,6 @@ import { internalAnchorProps } from "../../lib/internalLinkProps.js";
  */
 export function HomeFromOurBlogCard({ href, label }) {
   const meta = getBlogCardMeta(href);
-  const category = meta?.category ?? "Article";
 
   return (
     <li className="list-none">
@@ -28,32 +27,16 @@ export function HomeFromOurBlogCard({ href, label }) {
               decoding="async"
               className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
             />
-            <div
-              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0f2e58]/80 via-[#0f2e58]/30 to-transparent"
-              aria-hidden
-            />
-            <span className="absolute left-4 top-4 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[#2e5b88] shadow-sm">
-              {category}
-            </span>
           </div>
         ) : (
-          <div className="relative bg-gradient-to-br from-[#0f2e58] via-[#1a4a7a] to-[#2e5b88] px-6 py-8">
-            <span className="inline-block rounded-full bg-white/15 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-white">
-              {category}
-            </span>
-          </div>
+          <div
+            className="relative aspect-[16/10] w-full bg-gradient-to-br from-[#0f2e58] via-[#1a4a7a] to-[#2e5b88]"
+            aria-hidden
+          />
         )}
 
         <div className="flex flex-1 flex-col p-6 md:p-7">
-          {!meta?.image ? (
-            <span className="inline-block w-fit rounded-full bg-[#0f2e58]/8 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[#2e5b88]">
-              {category}
-            </span>
-          ) : null}
-
-          <h3
-            className={`font-heading text-[19px] font-bold leading-snug text-[#0f2e58] transition-colors group-hover:text-[#163d6e] md:text-[21px] md:leading-[1.25] ${meta?.image ? "" : "mt-4"}`}
-          >
+          <h3 className="font-heading text-[19px] font-bold leading-snug text-[#0f2e58] transition-colors group-hover:text-[#163d6e] md:text-[21px] md:leading-[1.25]">
             {label}
           </h3>
 

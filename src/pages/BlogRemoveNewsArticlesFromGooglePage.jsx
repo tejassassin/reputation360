@@ -10,13 +10,13 @@ import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { AUDIENCE_PATH } from "@/constants/whoWeServePaths.js";
 import { BlogGuideCtaPanel } from "@/components/blog/BlogGuideCtaSection.jsx";
 import { BlogFurtherReadingSection } from "../components/blog/BlogFurtherReadingSection.jsx";
+import { BlogShareSection } from "../components/blog/BlogShareSection.jsx";
 import {
   DiyAccordion,
   DiyAnswerBox,
   DiyInternalLink,
   DiyLeadHighlight,
   DiyKeyBox,
-  DiyRelatedReading,
   DiySectionHeader,
   DiyGuideToc,
   MobileGuideNav,
@@ -38,7 +38,6 @@ import {
   GOOGLE_REMOVAL_PATHS,
   GUIDE_NAV,
   LEGAL_ROUTE_ACCORDIONS,
-  RELATED_ARTICLES,
   SCROLL_SPY_ORDER,
 } from "../data/blogs/removeNewsArticlesFromGoogleInteractive.js";
 import "../styles/r360-diy-interactive.css";
@@ -414,14 +413,16 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
                 <BlogGuideCtaPanel />
               </section>
 
+              <BlogShareSection
+                title={removeNewsArticlesFromGoogleListing.title}
+                canonicalPath={REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH}
+                className="mb-10"
+              />
+
               <BlogFurtherReadingSection
                 blogPath={REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH}
                 className="mb-10"
               />
-
-              <div className="mb-16 mt-10 border-t border-slate-200/80 pt-10" id="related">
-                <DiyRelatedReading articles={RELATED_ARTICLES} />
-              </div>
             </main>
 
             <aside className="hidden w-56 shrink-0 lg:sticky lg:top-28 lg:flex lg:h-[calc(100dvh-8rem)] lg:max-h-[calc(100dvh-8rem)] lg:min-h-0 lg:flex-col lg:overflow-hidden lg:border-l lg:border-slate-200/80 lg:pl-6 lg:pt-2">

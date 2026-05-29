@@ -27,7 +27,6 @@ const NAV = [
   { id: "first-steps", label: "First steps" },
   { id: "start", label: "Next step" },
   { id: "faq", label: "FAQ" },
-  { id: "related", label: "Related reading" },
 ];
 
 export const article = {

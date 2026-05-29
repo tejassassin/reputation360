@@ -20,7 +20,7 @@ const BLOG_LISTINGS = [
 export function blogIndexToHtml() {
   const articles = BLOG_LISTINGS.map((article) => {
     const href = `/blog/${article.slug}`;
-    return `<article><h2><a href="${href}">${escapeHtml(article.title)}</a></h2><p>${escapeHtml(article.excerpt)}</p><p>${escapeHtml(article.category)} · ${escapeHtml(article.readTime)}</p></article>`;
+    return `<article><h2><a href="${href}">${escapeHtml(article.title)}</a></h2><p>${escapeHtml(article.excerpt)}</p><p>${escapeHtml(article.readTime)}</p></article>`;
   }).join("\n");
 
   const crawlNav = linkListToHtml("All insights and blog posts", CRAWL_BLOG_PAGES);

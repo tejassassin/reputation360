@@ -539,64 +539,6 @@ export function DiyGuideToc({
   );
 }
 
-/** Mini card row for related guides (compact, matches Insights-style tiles). */
-export function DiyRelatedReading({ articles, title = "Related reading" }) {
-  return (
-    <section className="diy-related-reading scroll-mt-36" aria-labelledby="diy-related-reading-heading">
-      <h2
-        id="diy-related-reading-heading"
-        className="mb-4 font-heading text-xl font-bold text-navy"
-      >
-        {title}
-      </h2>
-      <ul className="diy-related-scroll -mx-1 flex list-none gap-3 overflow-x-auto px-1 pb-1 snap-x snap-mandatory sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0">
-        {articles.map((article) => (
-          <li
-            key={article.href}
-            className="w-[min(82vw,240px)] shrink-0 snap-start sm:w-auto sm:min-w-0"
-          >
-            <a
-              href={article.href}
-              {...internalAnchorProps(article.href)}
-              className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white text-left no-underline shadow-sm ring-1 ring-slate-100/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-green/30 hover:shadow-md motion-reduce:transform-none"
-            >
-              <div className="diy-related-thumb aspect-[5/3] overflow-hidden bg-slate-100">
-                {article.image ? (
-                  <img
-                    src={article.image}
-                    alt={article.imageAlt ?? ""}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="h-full w-full bg-gradient-to-br from-navy to-slate" aria-hidden />
-                )}
-              </div>
-              <div className="flex flex-1 flex-col p-3.5 sm:p-4">
-                {article.category ? (
-                  <span className="font-heading text-[10px] font-bold tracking-widest text-green uppercase">
-                    {article.category}
-                  </span>
-                ) : null}
-                <p className="mt-1.5 flex-1 font-heading text-[13px] font-bold leading-snug text-navy transition-colors group-hover:text-slate sm:text-sm">
-                  {article.title}
-                </p>
-                <p className="mt-2 flex items-center justify-between gap-2 font-body text-[11px] font-medium text-steel">
-                  <span>{article.readTime}</span>
-                  <ArrowRight
-                    className="h-3.5 w-3.5 shrink-0 text-blue-600 transition-transform group-hover:translate-x-0.5"
-                    aria-hidden
-                  />
-                </p>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
-
 export function MobileGuideNav({ nav, activeNavId, readingPct }) {
   return (
     <div className="diy-mobile-nav lg:hidden">

@@ -22,7 +22,6 @@ const NAV = [
   { id: "optimization-principles", label: "Optimization" },
   { id: "start", label: "Next step" },
   { id: "faq", label: "FAQ" },
-  { id: "related", label: "Related reading" },
 ];
 
 export const article = {

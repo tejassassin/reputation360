@@ -34,7 +34,6 @@ const NAV = [
   { id: "year-one-three", label: "Year 1 vs. 3" },
   { id: "start", label: "Next step" },
   { id: "faq", label: "FAQ" },
-  { id: "related", label: "Related reading" },
 ];
 
 export const article = {

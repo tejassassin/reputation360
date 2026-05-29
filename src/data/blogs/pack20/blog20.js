@@ -33,7 +33,6 @@ const NAV = [
   { id: "ai-era-now", label: "AI era now" },
   { id: "start", label: "Next step" },
   { id: "faq", label: "FAQ" },
-  { id: "related", label: "Related reading" },
 ];
 
 export const article = {

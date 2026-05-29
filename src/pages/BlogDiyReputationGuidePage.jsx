@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Check, Clock, Search } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { BlogFurtherReadingSection } from "../components/blog/BlogFurtherReadingSection.jsx";
+import { BlogShareSection } from "../components/blog/BlogShareSection.jsx";
 import {
   articleAdditionalJsonLdFromInput,
   guideListingToSchemaInput,
@@ -647,6 +648,12 @@ export default function BlogDiyReputationGuidePage() {
                   ))}
                 </div>
               </section>
+
+              <BlogShareSection
+                title={diyReputationGuideListing.title}
+                canonicalPath={DIY_REPUTATION_GUIDE_PATH}
+                className="mb-10"
+              />
 
               <BlogFurtherReadingSection blogPath={DIY_REPUTATION_GUIDE_PATH} className="mb-10" />
             </main>

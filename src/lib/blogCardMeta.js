@@ -23,7 +23,7 @@ function slugFromBlogHref(href) {
 }
 
 /**
- * Listing metadata for blog link cards (Further Reading, homepage, prerender).
+ * Listing metadata for blog link cards (Related Readings, homepage, prerender).
  * @param {string} href
  * @returns {BlogCardMeta | null}
  */

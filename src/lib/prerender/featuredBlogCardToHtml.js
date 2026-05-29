@@ -8,38 +8,36 @@ const CARD_CLASS =
  * Homepage-style blog card with image header (SSR).
  * @param {string} href
  * @param {string} label
+ * @param {{ compact?: boolean }} [options]
  */
-export function featuredBlogCardHtml(href, label) {
+export function featuredBlogCardHtml(href, label, options = {}) {
+  const { compact = false } = options;
   const meta = getBlogCardMeta(href);
-  const category = escapeHtml(meta?.category ?? "Article");
+  const excerptClamp = compact ? "line-clamp-2" : "line-clamp-3";
   const excerpt = meta?.excerpt
-    ? `<p class="mt-3 line-clamp-3 flex-1 text-[15px] leading-[1.65] text-[#4a5d75]">${escapeHtml(meta.excerpt)}</p>`
+    ? `<p class="mt-3 ${excerptClamp} flex-1 text-[15px] leading-[1.65] text-[#4a5d75]">${escapeHtml(meta.excerpt)}</p>`
     : "";
   const readTime = meta?.readTime
     ? `<span class="text-[12px] font-semibold uppercase tracking-[0.12em] text-[#7a8ca3]">${escapeHtml(meta.readTime)} read</span>`
     : "";
+  const imageAspect = compact ? "aspect-[16/9]" : "aspect-[5/3] sm:aspect-[16/9]";
   const imageBlock =
     meta?.image ?
-      `<div class="relative aspect-[16/10] w-full overflow-hidden bg-[#e8edf3]">
+      `<div class="relative ${imageAspect} w-full overflow-hidden bg-[#e8edf3]">
     <img src="${escapeHtmlAttr(meta.image)}" alt="${escapeHtmlAttr(meta.imageAlt ?? label)}" width="640" height="400" loading="lazy" decoding="async" class="h-full w-full object-cover" />
-    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0f2e58]/75 via-[#0f2e58]/25 to-[#0f2e58]/5]" aria-hidden="true"></div>
-    <span class="absolute left-4 top-4 inline-block rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[#2e5b88] shadow-sm">${category}</span>
   </div>`
-    : `<div class="relative bg-gradient-to-br from-[#0f2e58] to-[#2e5b88] px-6 py-8">
-    <span class="inline-block rounded-full bg-white/15 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-white">${category}</span>
-  </div>`;
+    : `<div class="relative ${imageAspect} w-full bg-gradient-to-br from-[#0f2e58] via-[#1a4a7a] to-[#2e5b88]" aria-hidden="true"></div>`;
 
-  const categoryInBody =
-    meta?.image ?
-      ""
-    : `<span class="inline-block rounded-full bg-[#0f2e58]/8 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[#2e5b88]">${category}</span>`;
+  const bodyPad = compact ? "p-5 md:p-6" : "p-6 md:p-7";
+  const titleClass = compact ?
+    "font-heading text-[17px] font-bold leading-snug text-[#0f2e58] md:text-[19px]"
+  : "font-heading text-[19px] font-bold leading-snug text-[#0f2e58] md:text-[21px]";
 
   return `<li class="list-none">
   <a href="${escapeHtmlAttr(href)}" class="${CARD_CLASS}">
     ${imageBlock}
-    <div class="flex flex-1 flex-col p-6 md:p-7">
-      ${categoryInBody}
-      <h3 class="${meta?.image ? "mt-0" : "mt-4"} font-heading text-[19px] font-bold leading-snug text-[#0f2e58] md:text-[21px]">${escapeHtml(label)}</h3>
+    <div class="flex flex-1 flex-col ${bodyPad}">
+      <h3 class="${titleClass}">${escapeHtml(label)}</h3>
       ${excerpt}
       <div class="mt-5 flex items-center justify-between gap-3 border-t border-[#e8edf3] pt-4">
         ${readTime}

@@ -25,7 +25,7 @@ export function BlogFurtherReadingSection({ blogPath, className = "" }) {
             id="further-reading-heading"
             className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
           >
-            Further Reading
+            Related Readings
           </h2>
         </div>
         <a
@@ -38,9 +38,14 @@ export function BlogFurtherReadingSection({ blogPath, className = "" }) {
         </a>
       </div>
 
-      <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-8 grid w-full grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-6">
         {links.map((link) => (
-          <FurtherReadingCard key={link.href} href={link.href} label={link.label} />
+          <FurtherReadingCard
+            key={link.href}
+            href={link.href}
+            label={link.label}
+            layout="grid"
+          />
         ))}
       </ul>
     </section>

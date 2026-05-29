@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { BlogGuideCtaSection } from "@/components/blog/BlogGuideCtaSection.jsx";
 import { BlogFurtherReadingSection } from "../components/blog/BlogFurtherReadingSection.jsx";
+import { BlogShareSection } from "../components/blog/BlogShareSection.jsx";
 import { DiyInternalLink } from "@/components/blog/diy/DiyGuideUi.jsx";
 import { BLOG_PATHS } from "../data/blogs/blogInternalPaths.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "../data/blogs/diyReputationGuide.js";
@@ -27,7 +28,6 @@ import {
   HERO_STATS,
   MONITORING_CHECKLIST,
   NEGATIVE_CONTENT_TYPES,
-  RELATED_ARTICLES,
   REMOVAL_PATH_ACCORDIONS,
   REMOVAL_STEPS,
   SCROLL_SPY_ORDER,
@@ -38,7 +38,6 @@ import {
   DiyAccordion,
   DiyKeyBox,
   DiyLeadHighlight,
-  DiyRelatedReading,
   DiySectionHeader,
   DiyGuideToc,
   MobileGuideNav,
@@ -423,14 +422,16 @@ export default function BlogRemoveNegativeSearchResultsPage() {
                 sectionLead="Get a free, no-obligation view of your current search presence. We&apos;ll identify what&apos;s working against you - and practical next steps to fix it."
               />
 
+              <BlogShareSection
+                title={removeNegativeSearchResultsListing.title}
+                canonicalPath={REMOVE_NEGATIVE_SEARCH_RESULTS_PATH}
+                className="mb-10"
+              />
+
               <BlogFurtherReadingSection
                 blogPath={REMOVE_NEGATIVE_SEARCH_RESULTS_PATH}
                 className="mb-10"
               />
-
-              <div className="mb-16 mt-10 border-t border-slate-200/80 pt-10" id="related">
-                <DiyRelatedReading articles={RELATED_ARTICLES} />
-              </div>
             </main>
 
             <aside className="hidden w-56 shrink-0 lg:sticky lg:top-28 lg:flex lg:h-[calc(100dvh-8rem)] lg:max-h-[calc(100dvh-8rem)] lg:min-h-0 lg:flex-col lg:overflow-hidden lg:border-l lg:border-slate-200/80 lg:pl-6 lg:pt-2">

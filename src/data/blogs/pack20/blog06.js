@@ -25,7 +25,6 @@ const NAV = [
   { id: "what-works", label: "What works" },
   { id: "start", label: "Next step" },
   { id: "faq", label: "FAQ" },
-  { id: "related", label: "Related reading" },
 ];
 
 export const article = {

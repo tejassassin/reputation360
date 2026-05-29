@@ -27,7 +27,6 @@ const NAV = [
   { id: "start-with-audit", label: "Start with an audit" },
   { id: "start", label: "Next step" },
   { id: "faq", label: "FAQ" },
-  { id: "related", label: "Related reading" },
 ];
 
 export const article = {

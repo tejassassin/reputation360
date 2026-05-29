@@ -120,8 +120,8 @@ for (const pathname of prerenderPaths()) {
     if (!html.includes("Our Work in Action")) {
       console.error(`verify-prerender-content: ${rel} missing Our Work in Action section`);
       failed = true;
-    } else if (!html.includes("Further Reading")) {
-      console.error(`verify-prerender-content: ${rel} missing Further Reading section`);
+    } else if (!html.includes("Related Readings")) {
+      console.error(`verify-prerender-content: ${rel} missing Related Readings section`);
       failed = true;
     } else if (!html.includes("the-review-that-almost-ended-the-surgeons-career")) {
       console.error(
@@ -135,8 +135,8 @@ for (const pathname of prerenderPaths()) {
     if (!html.includes("See It In Action")) {
       console.error(`verify-prerender-content: ${rel} missing See It In Action section`);
       failed = true;
-    } else if (!html.includes("Further Reading")) {
-      console.error(`verify-prerender-content: ${rel} missing Further Reading section`);
+    } else if (!html.includes("Related Readings")) {
+      console.error(`verify-prerender-content: ${rel} missing Related Readings section`);
       failed = true;
     } else if (!html.includes("the-litigation-partner-and-the-losing-verdict")) {
       console.error(
@@ -178,10 +178,10 @@ for (const pathname of prerenderPaths()) {
   if (/^\/blog\/[^/]+$/.test(pathname)) {
     const related = FURTHER_READING_BY_BLOG_PATH[pathname];
     if (!related?.length) {
-      console.error(`verify-prerender-content: ${rel} missing Further Reading mapping`);
+      console.error(`verify-prerender-content: ${rel} missing Related Readings mapping`);
       failed = true;
-    } else if (!html.includes("Further Reading")) {
-      console.error(`verify-prerender-content: ${rel} missing Further Reading section`);
+    } else if (!html.includes("Related Readings")) {
+      console.error(`verify-prerender-content: ${rel} missing Related Readings section`);
       failed = true;
     } else {
       const slug = related[0].href.replace(/^\/blog\//, "");

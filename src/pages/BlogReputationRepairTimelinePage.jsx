@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { BlogGuideCtaPanel } from "@/components/blog/BlogGuideCtaSection.jsx";
 import { BlogFurtherReadingSection } from "../components/blog/BlogFurtherReadingSection.jsx";
+import { BlogShareSection } from "../components/blog/BlogShareSection.jsx";
 import { DiyInternalLink } from "@/components/blog/diy/DiyGuideUi.jsx";
 import { BLOG_PATHS } from "../data/blogs/blogInternalPaths.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "../data/blogs/diyReputationGuide.js";
@@ -37,7 +38,6 @@ import {
   GUIDE_NAV,
   HERO_STATS,
   RED_FLAGS,
-  RELATED_ARTICLES,
   REPAIR_PHASES,
   SCROLL_SPY_ORDER,
   TIMELINE_FACTORS,
@@ -47,7 +47,6 @@ import {
   DiyAccordion,
   DiyKeyBox,
   DiyLeadHighlight,
-  DiyRelatedReading,
   DiySectionHeader,
   DiyGuideToc,
   MobileGuideNav,
@@ -526,14 +525,16 @@ export default function BlogReputationRepairTimelinePage() {
                 <BlogGuideCtaPanel />
               </section>
 
+              <BlogShareSection
+                title={reputationRepairTimelineListing.title}
+                canonicalPath={REPUTATION_REPAIR_TIMELINE_PATH}
+                className="mb-10"
+              />
+
               <BlogFurtherReadingSection
                 blogPath={REPUTATION_REPAIR_TIMELINE_PATH}
                 className="mb-10"
               />
-
-              <div className="mb-16 mt-10 border-t border-slate-200/80 pt-10" id="related">
-                <DiyRelatedReading articles={RELATED_ARTICLES} />
-              </div>
             </main>
 
             <aside className="hidden w-56 shrink-0 lg:sticky lg:top-28 lg:flex lg:h-[calc(100dvh-8rem)] lg:max-h-[calc(100dvh-8rem)] lg:min-h-0 lg:flex-col lg:overflow-hidden lg:border-l lg:border-slate-200/80 lg:pl-6 lg:pt-2">

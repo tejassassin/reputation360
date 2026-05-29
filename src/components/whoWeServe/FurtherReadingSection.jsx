@@ -5,52 +5,89 @@ import { internalAnchorProps } from "../../lib/internalLinkProps.js";
 import { BLOG_INDEX_PATH } from "../../constants/blogPaths.js";
 
 /**
- * @param {{ href: string; label: string }} props
+ * @param {{ href: string; label: string; layout?: "carousel" | "grid"; className?: string }} props
  */
-export function FurtherReadingCard({ href, label }) {
+export function FurtherReadingCard({ href, label, layout = "carousel", className = "" }) {
   const meta = getBlogCardMeta(href);
+  const isGrid = layout === "grid";
 
   return (
-    <li className="list-none snap-start">
+    <li
+      className={[
+        "list-none",
+        isGrid ? "min-w-0" : "snap-start",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <a
         href={href}
         {...internalAnchorProps(href)}
-        className="group flex h-full w-[min(100%,21rem)] flex-col rounded-2xl border border-[#0f2e58]/10 bg-white p-6 text-left no-underline shadow-[0_16px_48px_-24px_rgba(15,46,88,0.28)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#2e5b88]/35 hover:shadow-[0_28px_60px_-22px_rgba(15,46,88,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2e5b88] focus-visible:ring-offset-2 sm:w-[21rem] md:p-7 lg:w-full"
+        className={[
+          "group flex h-full flex-col overflow-hidden rounded-2xl border border-[#0f2e58]/10 bg-white text-left no-underline shadow-[0_16px_48px_-24px_rgba(15,46,88,0.28)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#2e5b88]/35 hover:shadow-[0_28px_60px_-22px_rgba(15,46,88,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2e5b88] focus-visible:ring-offset-2",
+          isGrid ?
+            "w-full"
+          : "w-[min(100%,26rem)] sm:w-[26rem] lg:w-full",
+        ].join(" ")}
       >
-        <div className="flex items-center justify-between gap-3">
-          <span className="rounded-full bg-[#0f2e58]/8 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[#2e5b88] md:text-xs">
-            {meta?.category ?? "Article"}
-          </span>
-          <span
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0f2e58]/5 text-[#0f2e58]/50 transition group-hover:bg-[#0f2e58] group-hover:text-white"
-            aria-hidden
+        {meta?.image ? (
+          <div
+            className={`relative w-full overflow-hidden bg-[#e8edf3] ${isGrid ? "aspect-[16/9]" : "aspect-[5/3] sm:aspect-[16/9]"}`}
           >
-            <ArrowRight className="h-4 w-4 stroke-[2.25] transition-transform group-hover:translate-x-0.5" />
-          </span>
+            <img
+              src={meta.image}
+              alt={meta.imageAlt ?? label}
+              width={640}
+              height={400}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+            />
+          </div>
+        ) : (
+          <div
+            className={`relative w-full bg-gradient-to-br from-[#0f2e58] via-[#1a4a7a] to-[#2e5b88] ${isGrid ? "aspect-[16/9]" : "aspect-[5/3] sm:aspect-[16/9]"}`}
+            aria-hidden
+          />
+        )}
+
+        <div
+          className={`flex flex-1 flex-col ${isGrid ? "p-5 md:p-6" : "p-6 md:p-7"}`}
+        >
+          <h4
+            className={`font-heading font-bold leading-snug text-[#0f2e58] transition-colors group-hover:text-[#163d6e] ${isGrid ? "text-[17px] md:text-[19px] md:leading-[1.3]" : "text-[19px] md:text-[21px] md:leading-[1.25]"}`}
+          >
+            {label}
+          </h4>
+
+          {meta?.excerpt ? (
+            <p
+              className={`mt-3 flex-1 text-[15px] leading-[1.65] text-[#4a5d75] md:text-base md:leading-[1.7] ${isGrid ? "line-clamp-2" : "line-clamp-3"}`}
+            >
+              {meta.excerpt}
+            </p>
+          ) : null}
+
+          <div className="mt-5 flex items-center justify-between gap-3 border-t border-[#e8edf3] pt-4">
+            {meta?.readTime ? (
+              <span className="text-[12px] font-semibold uppercase tracking-[0.12em] text-[#7a8ca3]">
+                {meta.readTime} read
+              </span>
+            ) : (
+              <span className="text-[12px] text-[#7a8ca3]" aria-hidden>
+                &nbsp;
+              </span>
+            )}
+            <span className="inline-flex items-center gap-1 text-[14px] font-semibold text-[#2e5b88] md:text-[15px]">
+              Read article
+              <ArrowRight
+                className="h-4 w-4 stroke-[2.25] transition-transform group-hover:translate-x-0.5"
+                aria-hidden
+              />
+            </span>
+          </div>
         </div>
-
-        <h4 className="mt-5 font-heading text-[19px] font-bold leading-snug text-[#0f2e58] group-hover:text-[#163d6e] md:text-[21px] md:leading-[1.25]">
-          {label}
-        </h4>
-
-        {meta?.excerpt ? (
-          <p className="mt-3 line-clamp-4 flex-1 text-[15px] leading-[1.65] text-[#4a5d75] md:text-base md:leading-[1.7]">
-            {meta.excerpt}
-          </p>
-        ) : null}
-
-        {meta?.readTime ? (
-          <p className="mt-3 text-[12px] font-semibold uppercase tracking-[0.12em] text-[#7a8ca3]">
-            {meta.readTime} read
-          </p>
-        ) : null}
-
-        <span className="mt-5 border-t border-[#e8edf3] pt-4 text-[14px] font-semibold text-[#0f2e58] md:text-[15px]">
-          Read article
-          <span className="ml-1 inline-block text-[#2e5b88] transition-transform group-hover:translate-x-1">
-            →
-          </span>
-        </span>
       </a>
     </li>
   );
@@ -80,7 +117,7 @@ export function FurtherReadingSection({ audiencePath, className = "" }) {
             id="further-reading-heading"
             className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
           >
-            Further Reading
+            Related Readings
           </h3>
           <p className="mt-3 text-base leading-[1.65] text-[#4f5f75] md:text-[17px] md:leading-[1.7]">
             {config.intro}

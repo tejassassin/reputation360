@@ -37,15 +37,6 @@ const FEATURED_PACK_INSIGHTS = [
 const HERO_IMG =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuB9RkcKxX1nZCRrBRIu6rOONYqsNVBW7ImSuvITVmOpUNdh9vHBQk72dRRSVg466yzV7FRLVAR74vtVn6mQM0qSQN7nwSKV5FRcqM2cRWLPZgV0I9AcJ4dx6eKagNgJmw90lkVLTGDucXhp4xEv1BziO3gnOT71pR9W2Me9zrfnNhsuERyYBIMHr21Picl79YYv-_eICE0qZQ-fU8O-bUpr5Nvt-K4QLuuTjb8c1GJuhLQBP1XrKDHjlV0QvXkwWydskHpIgIc5xa8";
 
-const FILTER_LABELS = [
-  "All",
-  "ORM Strategy & Education",
-  "Suppression & Removal",
-  "Building Your Positive Presence",
-  "Social Media, AI & Monitoring",
-  "Career, Crisis & Case Studies",
-];
-
 const latestArticles = [
   ...getPack20Listings(),
   removeNewsArticlesFromGoogleListing,
@@ -61,7 +52,6 @@ function readSearchQueryFromLocation() {
 }
 
 function InsightsBlogsPage() {
-  const [activeFilter, setActiveFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState(readSearchQueryFromLocation);
   const [searchInput, setSearchInput] = useState(readSearchQueryFromLocation);
   const seo = useLocalizedSeo("blogs");
@@ -77,10 +67,9 @@ function InsightsBlogsPage() {
     return () => window.removeEventListener("popstate", syncFromUrl);
   }, []);
 
-  const filteredArticles = latestArticles.filter((article) => {
-    if (activeFilter !== "All" && article.filter !== activeFilter) return false;
-    return articleMatchesBlogSearch(article, searchQuery);
-  });
+  const filteredArticles = latestArticles.filter((article) =>
+    articleMatchesBlogSearch(article, searchQuery),
+  );
 
   return (
     <>
@@ -189,9 +178,6 @@ function InsightsBlogsPage() {
                     className="glass-card group ha-lift flex flex-col justify-between rounded-xl border-none p-6 text-left no-underline transition-colors hover:bg-[#e1e8fd] md:col-span-2 outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff]"
                   >
                     <div>
-                      <span className="mb-3 block text-xs font-bold tracking-widest text-[#35618e] uppercase">
-                        {insight.category}
-                      </span>
                       <h3 className="font-insights-headline mb-3 text-xl font-bold text-[#02254d] transition-colors group-hover:text-[#35618e]">
                         {insight.title}
                       </h3>
@@ -217,15 +203,6 @@ function InsightsBlogsPage() {
                   }`}
                 >
                   <div>
-                    <span
-                      className={`mb-3 block text-xs font-bold tracking-widest uppercase ${
-                        isCrisis
-                          ? "text-[#35618e]"
-                          : "inline-block rounded bg-[#00450e] px-2 py-0.5 text-[10px] text-[#78dc77]"
-                      }`}
-                    >
-                      {insight.category}
-                    </span>
                     <h3 className="font-insights-headline mb-3 text-lg font-bold text-[#02254d] transition-colors group-hover:text-[#35618e]">
                       {insight.title}
                     </h3>
@@ -296,29 +273,13 @@ function InsightsBlogsPage() {
               </button>
             </form>
           </div>
-          <div className="flex flex-nowrap justify-start gap-1.5">
-            {FILTER_LABELS.map((label) => (
-              <button
-                key={label}
-                type="button"
-                onClick={() => setActiveFilter(label)}
-                className={`ha-pill rounded-full px-2.5 py-2 text-[10px] font-semibold whitespace-nowrap transition-colors lg:px-3 lg:text-[11px] xl:px-4 xl:text-xs ${
-                  activeFilter === label
-                    ? "bg-[#02254d] text-white shadow-sm"
-                    : "border border-[#d7e2ef] bg-white text-[#35618e] hover:border-[#35618e] hover:bg-[#eef4fb] hover:text-[#02254d]"
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
         </div>
 
         {filteredArticles.length === 0 ? (
           <p className="text-center text-[#43474e]">
             {searchQuery
               ? `No articles matched “${searchQuery}”. Try another term or browse all insights.`
-              : "More insights in this category are coming soon."}
+              : "More insights are coming soon."}
           </p>
         ) : (
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
@@ -332,9 +293,6 @@ function InsightsBlogsPage() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <span className="mb-3 block text-xs font-bold tracking-widest text-[#35618e] uppercase">
-                  {article.category}
-                </span>
                 <h3 className="font-insights-headline mb-4 text-xl font-bold text-[#02254d] transition-colors group-hover:text-[#35618e]">
                   {article.title}
                 </h3>

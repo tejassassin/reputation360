@@ -7,7 +7,6 @@ export const GUIDE_NAV = [
   { id: "monitoring", label: "Monitoring" },
   { id: "professional", label: "Expert Help" },
   { id: "start", label: "Next Step" },
-  { id: "related", label: "Related Reading" },
 ];
 
 export const SCROLL_SPY_ORDER = [
@@ -19,7 +18,6 @@ export const SCROLL_SPY_ORDER = [
   "monitoring",
   "professional",
   "start",
-  "related",
 ];
 
 export const HERO_STATS = [

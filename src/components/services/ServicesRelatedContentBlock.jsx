@@ -87,7 +87,7 @@ export function ServicesRelatedContentBlock() {
                 id="services-further-reading-heading"
                 className="mt-2 font-heading text-[28px] font-bold leading-[1.1] text-[#0f2e58] md:text-[34px]"
               >
-                Further Reading
+                Related Readings
               </h2>
               <p className="mt-3 text-[16px] leading-[1.65] text-[#4a5d75] md:text-[17px] md:leading-[1.7]">
                 {SERVICES_FURTHER_READING_SUBHEADING}

@@ -30,7 +30,6 @@ const NAV = [
   { id: "take-back-first-page", label: "Take back your first page" },
   { id: "start", label: "Next step" },
   { id: "faq", label: "FAQ" },
-  { id: "related", label: "Related reading" },
 ];
 
 export const article = {

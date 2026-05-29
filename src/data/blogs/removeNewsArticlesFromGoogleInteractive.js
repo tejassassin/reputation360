@@ -12,7 +12,6 @@ export const GUIDE_NAV = [
   { id: "when-removal-fails", label: "Suppression" },
   { id: "who-this-affects", label: "Who It Affects" },
   { id: "start", label: "Next Step" },
-  { id: "related", label: "Related Reading" },
 ];
 
 export const SCROLL_SPY_ORDER = [
@@ -24,7 +23,6 @@ export const SCROLL_SPY_ORDER = [
   "when-removal-fails",
   "who-this-affects",
   "start",
-  "related",
 ];
 
 export const GOOGLE_REMOVAL_PATHS = [

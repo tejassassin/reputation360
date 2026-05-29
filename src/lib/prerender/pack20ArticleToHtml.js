@@ -115,17 +115,6 @@ export function pack20ArticleToHtml(article) {
     .map((faq) => `<h3>${escapeHtml(faq.q)}</h3><p>${richTextToHtml(faq.a, faq.aParts)}</p>`)
     .join("\n");
 
-  const relatedNav =
-    article.relatedReading?.length
-      ? linkListToHtml(
-          "Related reading",
-          article.relatedReading.map((item) => ({
-            href: item.href,
-            label: item.title,
-          })),
-        )
-      : "";
-
   const tocNav = linkListToHtml(
     article.tocTitle ?? "Table of contents",
     (article.toc ?? []).map((item) => ({
@@ -149,6 +138,5 @@ ${tocNav}
 ${intro}
 ${sections}
 ${cta}
-${faqs ? `<section id="faq"><h2>FAQ</h2>${faqs}</section>` : ""}
-${relatedNav}`;
+${faqs ? `<section id="faq"><h2>FAQ</h2>${faqs}</section>` : ""}`;
 }
