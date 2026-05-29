@@ -679,18 +679,24 @@ function IndividualsMarketInsightBanner() {
           <p className="inline-flex rounded-full bg-[#24403b] px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[#66bb6a] md:px-3 md:py-1 md:text-[10px]">
             Market Insight
           </p>
-          <p className="mt-3 font-heading text-[19px] font-bold leading-[1.24] md:mt-4 md:text-[24px] lg:text-[27px]">
-            <span className="text-[#4eab66]">85%</span>
-            <span className="text-white">
-              {" "}
-              of people search your name before meeting you.{" "}
-            </span>
-            <span className="text-[#4eab66]">70%</span>
-            <span className="text-white">
-              {" "}
-              will reconsider based on what they find.
-            </span>
-          </p>
+          <div
+            className="mt-3 text-[19px] font-semibold leading-[1.24] md:mt-4 md:text-[24px] lg:text-[27px]"
+            role="group"
+            aria-label="Search behavior statistics"
+          >
+            <p className="m-0">
+              <span className="font-heading text-[#4eab66]">85%</span>
+              <span className="text-white">
+                {" "}
+                of people search your name before meeting you.{" "}
+              </span>
+              <span className="font-heading text-[#4eab66]">70%</span>
+              <span className="text-white">
+                {" "}
+                will reconsider based on what they find.
+              </span>
+            </p>
+          </div>
           <p className="mt-2 text-[10px] leading-relaxed text-white md:mt-2.5 md:text-[11px]">
             (Sources: Pew Research Center; Harris Poll Online Reputation Survey)
           </p>
