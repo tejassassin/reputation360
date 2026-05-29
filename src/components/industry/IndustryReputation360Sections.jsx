@@ -320,26 +320,29 @@ export const REALISTIC_TIMELINE_DISCLAIMER =
 export const REALISTIC_TIMELINE_INDIVIDUAL_PHASES = [
   {
     id: "personal-audit",
-    window: "Personal Reputation Audit",
-    phaseDetailTitleTag: "p",
+    window: "Step 1 - Personal Reputation Audit",
+    timing: "Week 1",
     body: "We conduct a careful audit of what appears for your name across Google and other search engines - the positive, the neutral, and the damaging. We identify every removal candidate and every suppression priority before recommending a path forward.",
     Icon: Map,
   },
   {
     id: "removal-review",
     window: "Step 2 - Removal & Deindexing Review",
+    timing: "Week 2",
     body: "We pursue removal through every applicable channel - platform policy, legal mechanism, right-to-erasure request, de-indexing request, or publisher outreach. We manage the process and keep you informed of progress at every stage.",
     Icon: Target,
   },
   {
     id: "suppression-strategy",
     window: "Step 3 - Suppression Asset Strategy",
+    timing: "Weeks 3-6",
     body: "For cases where suppression is required, we build an appropriate positive presence around your name - content that reflects who you are today, not who you were or what happened to you. This is done with care for your privacy and your comfort throughout.",
     Icon: Layers,
   },
   {
     id: "monitoring-control",
     window: "Step 4 - Monitoring & Reputation Control",
+    timing: "Ongoing",
     body: "As your positive presence gains ranking strength, damaging content is displaced from visible search pages. We monitor progress and adjust until the result you need is achieved - and we maintain the presence we have built so it continues protecting you long after the engagement ends.",
     Icon: RefreshCw,
   },
@@ -351,21 +354,52 @@ function faWhatWeDoStepLabel(headline) {
   return m ? m[1].trim() : headline;
 }
 
+const phaseTimingBadgeClassName =
+  "inline-block rounded-full bg-[#eef2f7] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#1f3b64]/70";
+
 /** @param {{ headline: string; timing?: string }} step */
 function WhatWeDoStepDetailTitle({ step, titleTag }) {
   const TitleTag = titleTag === "h3" ? "h3" : "h4";
   const titleClassName =
-    "mt-1 font-heading text-[15px] font-bold leading-snug text-[#0f2e58] md:text-base";
+    "font-heading text-[15px] font-bold leading-snug text-[#0f2e58] md:text-base";
 
   return (
-    <TitleTag className={titleClassName}>
-      {step.headline}
+    <div className="mt-1 flex flex-wrap items-center gap-2">
+      <TitleTag className={titleClassName}>{step.headline}</TitleTag>
       {step.timing ? (
-        <span className="ml-2 inline-block rounded-full bg-[#eef2f7] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#1f3b64]/70">
-          {step.timing}
-        </span>
+        <span className={phaseTimingBadgeClassName}>{step.timing}</span>
       ) : null}
-    </TitleTag>
+    </div>
+  );
+}
+
+/** @param {{ phase: { window: string; timing?: string }; headingId: string; selected: boolean; asHeading: boolean }} props */
+function RealisticTimelinePhaseLabel({
+  phase,
+  headingId,
+  selected,
+  asHeading,
+}) {
+  const titleClassName = [
+    "max-w-[7.5rem] text-center font-heading text-[10px] font-bold leading-tight tracking-wide md:max-w-none md:text-[11px]",
+    selected ? "text-[#0f2e58]" : "text-[#5d6c80]",
+  ].join(" ");
+
+  if (!asHeading) {
+    return (
+      <span className={`mt-2 block ${titleClassName}`}>{phase.window}</span>
+    );
+  }
+
+  return (
+    <div className="mt-2 flex max-w-[7.5rem] flex-col items-center gap-1 md:max-w-none">
+      <h3 id={headingId} className={`m-0 ${titleClassName}`}>
+        {phase.window}
+      </h3>
+      {phase.timing ? (
+        <span className={phaseTimingBadgeClassName}>{phase.timing}</span>
+      ) : null}
+    </div>
   );
 }
 
@@ -490,12 +524,16 @@ export function IndustryRealisticTimelineSection({
   phases = REALISTIC_TIMELINE_PHASES,
   sectionTitleTag = "h3",
   phaseDetailTitleTag = "p",
+  phaseHeadingsInRail = false,
 }) {
   const [active, setActive] = useState(0);
   const n = phases.length;
   const phase = phases[active];
   const ActiveIcon = phase.Icon;
   const activePhaseDetailTitleTag = phase.phaseDetailTitleTag ?? phaseDetailTitleTag;
+  const railPhaseHeadings =
+    phaseHeadingsInRail && activePhaseDetailTitleTag === "h3";
+  const activePhaseHeadingId = `${sectionId}-phase-${active}-heading`;
 
   return (
     <section
@@ -548,39 +586,60 @@ export function IndustryRealisticTimelineSection({
             {phases.flatMap((p, i) => {
               const Icon = p.Icon;
               const selected = active === i;
+              const phaseHeadingId = `${sectionId}-phase-${i}-heading`;
+              const phaseTimingLabel = p.timing ? `, ${p.timing}` : "";
               const btn = (
-                <button
+                <div
                   key={`${sectionId}-rt-node-${p.id}`}
-                  type="button"
-                  aria-pressed={selected}
-                  aria-label={`${p.window}: ${p.body}`}
-                  onClick={() => setActive(i)}
-                  className={`group flex shrink-0 flex-col items-center rounded-2xl px-2 py-2 outline-none transition-opacity focus-visible:ring-2 focus-visible:ring-[#1f3b64]/35 focus-visible:ring-offset-2 md:px-3 md:py-2 ${
-                    selected ? "" : "opacity-[0.88] hover:opacity-100"
+                  className={`flex shrink-0 flex-col items-center rounded-2xl px-2 py-2 md:px-3 md:py-2 ${
+                    selected ? "" : "opacity-[0.88]"
                   }`}
                 >
-                  <span
-                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-[color,box-shadow,background-color] duration-200 md:h-11 md:w-11 ${
-                      selected
-                        ? "bg-[#e8eef9] text-[#0f2e58] shadow-[inset_0_0_0_2px_#0f2e58]"
-                        : "bg-[#f0f2f7] text-[#1f3b64]/75 group-hover:text-[#1f3b64]"
-                    }`}
+                  <button
+                    type="button"
+                    aria-pressed={selected}
+                    aria-labelledby={railPhaseHeadings ? phaseHeadingId : undefined}
+                    aria-label={
+                      railPhaseHeadings
+                        ? undefined
+                        : `${p.window}${phaseTimingLabel}: ${p.body}`
+                    }
+                    onClick={() => setActive(i)}
+                    className="group flex flex-col items-center outline-none transition-opacity focus-visible:ring-2 focus-visible:ring-[#1f3b64]/35 focus-visible:ring-offset-2 hover:opacity-100"
                   >
-                    <Icon
-                      className="h-6 w-6 md:h-5 md:w-5"
-                      aria-hidden
-                      strokeWidth={selected ? 2.25 : 1.75}
-                      absoluteStrokeWidth
+                    <span
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-[color,box-shadow,background-color] duration-200 md:h-11 md:w-11 ${
+                        selected
+                          ? "bg-[#e8eef9] text-[#0f2e58] shadow-[inset_0_0_0_2px_#0f2e58]"
+                          : "bg-[#f0f2f7] text-[#1f3b64]/75 group-hover:text-[#1f3b64]"
+                      }`}
+                    >
+                      <Icon
+                        className="h-6 w-6 md:h-5 md:w-5"
+                        aria-hidden
+                        strokeWidth={selected ? 2.25 : 1.75}
+                        absoluteStrokeWidth
+                      />
+                    </span>
+                    {!railPhaseHeadings ? (
+                      <span
+                        className={`mt-2 max-w-[7.5rem] text-center font-heading text-[10px] font-bold leading-tight tracking-wide md:max-w-none md:text-[11px] ${
+                          selected ? "text-[#0f2e58]" : "text-[#5d6c80]"
+                        }`}
+                      >
+                        {p.window}
+                      </span>
+                    ) : null}
+                  </button>
+                  {railPhaseHeadings ? (
+                    <RealisticTimelinePhaseLabel
+                      phase={p}
+                      headingId={phaseHeadingId}
+                      selected={selected}
+                      asHeading
                     />
-                  </span>
-                  <span
-                    className={`mt-2 max-w-[7.5rem] text-center font-heading text-[10px] font-bold leading-tight tracking-wide md:max-w-none md:text-[11px] ${
-                      selected ? "text-[#0f2e58]" : "text-[#5d6c80]"
-                    }`}
-                  >
-                    {p.window}
-                  </span>
-                </button>
+                  ) : null}
+                </div>
               );
               if (i >= n - 1) {
                 return [btn];
@@ -604,7 +663,7 @@ export function IndustryRealisticTimelineSection({
 
         <aside
           aria-live="polite"
-          aria-labelledby={headingId}
+          aria-labelledby={railPhaseHeadings ? activePhaseHeadingId : headingId}
           className="mt-5 rounded-2xl border border-[#1f3b64]/10 bg-[#f8f9fc] p-5 shadow-sm md:mt-8 md:p-7"
         >
           <div className="flex flex-wrap items-center gap-3 border-b border-[#dfe6ee] pb-4 md:gap-4">
@@ -620,7 +679,7 @@ export function IndustryRealisticTimelineSection({
               <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#1f3b64]/45">
                 Selected phase
               </p>
-              {activePhaseDetailTitleTag === "h3" ? (
+              {railPhaseHeadings ? null : activePhaseDetailTitleTag === "h3" ? (
                 <h3 className="mt-1 font-heading text-[18px] font-bold leading-snug text-[#0f2e58] md:text-xl">
                   {phase.window}
                 </h3>

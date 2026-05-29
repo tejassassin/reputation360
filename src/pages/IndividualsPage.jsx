@@ -934,6 +934,7 @@ function IndividualsPage() {
           phases={REALISTIC_TIMELINE_INDIVIDUAL_PHASES}
           sectionTitleTag="h2"
           phaseDetailTitleTag="h3"
+          phaseHeadingsInRail
         />
 
         <SeeItInActionSection
