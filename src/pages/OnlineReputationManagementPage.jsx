@@ -1,4 +1,5 @@
 import { SeoHead } from "../components/SeoHead.jsx";
+import { ServicesSubnav } from "../components/services/ServicesSubnav.jsx";
 import {
   OrmBeforeOutreachSection,
   OrmBenefitsSection,
@@ -46,6 +47,7 @@ export default function OnlineReputationManagementPage() {
         additionalJsonLd={faqAdditionalJsonLdFromItems(mapQaFaqs(ORM_FAQS))}
       />
 
+      <ServicesSubnav />
       <main className="relative flex-1 bg-[#f4f6fb] text-slate-800">
         <OrmServiceHero />
         {ORM_SCROLL_SPY_ORDER.map((sectionId) => {

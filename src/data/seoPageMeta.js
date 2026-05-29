@@ -24,6 +24,12 @@ export const SEO = {
     description:
       "Take control of what people find when they search your name. Reputation360 delivers proven online reputation management for executives, founders, and brands across the US, Canada, and Australia. Book a free consultation.",
   },
+  negativeLinkSuppression: {
+    title: "Negative Link Suppression Services | Reputation360",
+    path: "/services/negative-link-suppression",
+    description:
+      "One harmful search result is enough to cost you clients, deals, and opportunities. Reputation360 pushes damaging content off page one - ethically, precisely, and permanently. Get a free search analysis.",
+  },
   whoWeServe: {
     title: "Who We Serve | Reputation360",
     path: "/who-we-serve",

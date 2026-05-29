@@ -1,6 +1,7 @@
 /**
  * Plain service copy for UI and JSON-LD (icons live in reputationServices.jsx).
  */
+import { NEGATIVE_LINK_SUPPRESSION_PATH } from "../constants/servicePaths.js";
 
 /** @typedef {{ id: string; navLabel: string; title: string; description: string }} ReputationServiceCatalogItem */
 
@@ -13,6 +14,14 @@ export const reputationServicesCatalog = [
     href: "/services/online-reputation-management",
     description:
       "We strengthen positive search results and reduce the visibility of harmful, misleading, or outdated content through compliant ORM and outranking strategies",
+  },
+  {
+    id: "negative-link-suppression",
+    navLabel: "Negative link suppression",
+    title: "Negative Link Suppression",
+    href: NEGATIVE_LINK_SUPPRESSION_PATH,
+    description:
+      "We systematically displace damaging, misleading, and outdated links from page one of Google and replace them with an accurate, authoritative search presence",
   },
   {
     id: "employer-branding",

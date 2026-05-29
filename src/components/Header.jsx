@@ -28,7 +28,10 @@ import {
   FREE_RISK_SCAN_PATH,
 } from "../constants/freeRiskScan.js";
 import { LOGO_ALT_NAV } from "../constants/imageAlt.js";
-import { ONLINE_REPUTATION_MANAGEMENT_PATH } from "../constants/servicePaths.js";
+import {
+  NEGATIVE_LINK_SUPPRESSION_PATH,
+  ONLINE_REPUTATION_MANAGEMENT_PATH,
+} from "../constants/servicePaths.js";
 
 const navItems = [
   { name: "Home", link: "/" },
@@ -49,6 +52,10 @@ const navItems = [
       {
         name: "Online Reputation Management",
         link: ONLINE_REPUTATION_MANAGEMENT_PATH,
+      },
+      {
+        name: "Negative Link Suppression",
+        link: NEGATIVE_LINK_SUPPRESSION_PATH,
       },
     ],
   },

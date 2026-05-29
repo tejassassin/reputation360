@@ -7,7 +7,10 @@ import { PACK20_ARTICLES } from "./blogs/pack20/catalog.js";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "./blogs/diyReputationGuide.js";
-import { ONLINE_REPUTATION_MANAGEMENT_PATH } from "../constants/servicePaths.js";
+import {
+  NEGATIVE_LINK_SUPPRESSION_PATH,
+  ONLINE_REPUTATION_MANAGEMENT_PATH,
+} from "../constants/servicePaths.js";
 
 /** @typedef {{ href: string; label: string }} CrawlLink */
 
@@ -17,6 +20,10 @@ export const PRIORITY_COMMERCIAL_LINKS = [
   {
     href: ONLINE_REPUTATION_MANAGEMENT_PATH,
     label: "Online Reputation Management Service Guide",
+  },
+  {
+    href: NEGATIVE_LINK_SUPPRESSION_PATH,
+    label: "Negative Link Suppression Service Guide",
   },
   { href: "/blog", label: "Insights and Blogs" },
   { href: "/case-studies", label: "Case Studies" },

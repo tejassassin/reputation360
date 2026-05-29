@@ -121,6 +121,12 @@ export const SITEMAP_URL_ENTRIES = [
     priority: "0.88",
   },
   {
+    path: "/services/negative-link-suppression",
+    lastmod: "2026-05-25",
+    changefreq: "monthly",
+    priority: "0.88",
+  },
+  {
     path: "/who-we-serve/individual",
     lastmod: "2026-05-25",
     changefreq: "monthly",
