@@ -391,15 +391,15 @@ function ServicesAbout() {
   return (
     <section className="bg-offwhite">
       <div className="mx-auto max-w-6xl space-y-20 px-5 pb-20 pt-12 md:space-y-24 md:px-8 md:pb-24 md:pt-16 lg:space-y-28 lg:pb-28">
-        <h1 className="font-heading text-4xl font-bold leading-tight text-navy md:text-5xl lg:text-6xl">
-          Online Reputation Management Services
-        </h1>
-        <div className="rounded-3xl bg-[#f2f5ff] px-6 py-8 md:px-12 md:py-11">
-          <h2 className="max-w-3xl font-heading text-4xl font-bold leading-tight text-navy md:text-5xl">
+        <div className="overflow-hidden rounded-3xl border border-navy/[0.08] bg-gradient-to-br from-[#f2f5ff] via-[#f8faff] to-[#eef2fa] px-6 py-8 shadow-[0_20px_60px_-28px_rgba(15,35,60,0.12)] md:px-12 md:py-11 lg:py-14">
+          <h1 className="max-w-4xl text-balance font-heading text-[1.85rem] font-bold leading-[1.08] tracking-tight text-navy sm:text-4xl md:text-[2.65rem] lg:text-5xl">
+            Online Reputation Management Services
+          </h1>
+          <h2 className="mt-5 max-w-3xl text-pretty font-heading text-lg font-bold leading-snug text-navy sm:mt-6 sm:text-xl md:mt-7 md:text-2xl md:leading-snug lg:text-[1.75rem]">
             You Worked Hard to Build Your Reputation. We Make Sure Google
             Reflects It.
           </h2>
-          <p className="mt-5 max-w-3xl text-navy/75 text-base leading-relaxed md:text-lg">
+          <p className="mt-5 max-w-3xl text-navy/75 text-base leading-relaxed md:mt-6 md:text-lg">
             {SERVICES_HERO_INTRO}
           </p>
           <aside
