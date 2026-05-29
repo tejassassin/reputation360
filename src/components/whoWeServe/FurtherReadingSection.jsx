@@ -7,7 +7,13 @@ import { BLOG_INDEX_PATH } from "../../constants/blogPaths.js";
 /**
  * @param {{ href: string; label: string; layout?: "carousel" | "grid"; className?: string }} props
  */
-export function FurtherReadingCard({ href, label, layout = "carousel", className = "" }) {
+export function FurtherReadingCard({
+  href,
+  label,
+  layout = "carousel",
+  className = "",
+  titleTag = "h4",
+}) {
   const meta = getBlogCardMeta(href);
   const isGrid = layout === "grid";
 
@@ -55,11 +61,19 @@ export function FurtherReadingCard({ href, label, layout = "carousel", className
         <div
           className={`flex flex-1 flex-col ${isGrid ? "p-5 md:p-6" : "p-6 md:p-7"}`}
         >
-          <h4
-            className={`font-heading font-bold leading-snug text-[#0f2e58] transition-colors group-hover:text-[#163d6e] ${isGrid ? "text-[17px] md:text-[19px] md:leading-[1.3]" : "text-[19px] md:text-[21px] md:leading-[1.25]"}`}
-          >
-            {label}
-          </h4>
+          {titleTag === "h3" ? (
+            <h3
+              className={`font-heading font-bold leading-snug text-[#0f2e58] transition-colors group-hover:text-[#163d6e] ${isGrid ? "text-[17px] md:text-[19px] md:leading-[1.3]" : "text-[19px] md:text-[21px] md:leading-[1.25]"}`}
+            >
+              {label}
+            </h3>
+          ) : (
+            <h4
+              className={`font-heading font-bold leading-snug text-[#0f2e58] transition-colors group-hover:text-[#163d6e] ${isGrid ? "text-[17px] md:text-[19px] md:leading-[1.3]" : "text-[19px] md:text-[21px] md:leading-[1.25]"}`}
+            >
+              {label}
+            </h4>
+          )}
 
           {meta?.excerpt ? (
             <p
@@ -97,7 +111,12 @@ export function FurtherReadingCard({ href, label, layout = "carousel", className
  * Blog links placed below See It In Action on audience pages.
  * @param {{ audiencePath: string; className?: string }} props
  */
-export function FurtherReadingSection({ audiencePath, className = "" }) {
+export function FurtherReadingSection({
+  audiencePath,
+  className = "",
+  sectionTitleTag = "h3",
+  cardTitleTag = "h4",
+}) {
   const config = WHO_WE_SERVE_FURTHER_READING[audiencePath];
   if (!config) return null;
 
@@ -113,12 +132,21 @@ export function FurtherReadingSection({ audiencePath, className = "" }) {
     >
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div className="max-w-xl">
-          <h3
-            id="further-reading-heading"
-            className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
-          >
-            Related Readings
-          </h3>
+          {sectionTitleTag === "h2" ? (
+            <h2
+              id="further-reading-heading"
+              className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
+            >
+              Related Readings
+            </h2>
+          ) : (
+            <h3
+              id="further-reading-heading"
+              className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
+            >
+              Related Readings
+            </h3>
+          )}
           <p className="mt-3 text-base leading-[1.65] text-[#4f5f75] md:text-[17px] md:leading-[1.7]">
             {config.intro}
           </p>
@@ -149,7 +177,12 @@ export function FurtherReadingSection({ audiencePath, className = "" }) {
           }
         >
           {config.links.map((link) => (
-            <FurtherReadingCard key={link.href} href={link.href} label={link.label} />
+            <FurtherReadingCard
+              key={link.href}
+              href={link.href}
+              label={link.label}
+              titleTag={cardTitleTag}
+            />
           ))}
         </ul>
       </div>

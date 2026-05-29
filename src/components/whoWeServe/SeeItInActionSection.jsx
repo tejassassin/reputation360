@@ -81,7 +81,12 @@ export function SeeItInActionStoryCard({
  * Case study links shown above the bottom consultation CTA on audience pages.
  * @param {{ audiencePath: string; className?: string }} props
  */
-export function SeeItInActionSection({ audiencePath, className = "" }) {
+export function SeeItInActionSection({
+  audiencePath,
+  className = "",
+  sectionTitleTag = "h3",
+  cardTitleTag = "h4",
+}) {
   const config = WHO_WE_SERVE_SEE_IT_IN_ACTION[audiencePath];
   if (!config) return null;
 
@@ -97,12 +102,21 @@ export function SeeItInActionSection({ audiencePath, className = "" }) {
     >
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div className="max-w-xl">
-          <h3
-            id="see-it-in-action-heading"
-            className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
-          >
-            See It In Action
-          </h3>
+          {sectionTitleTag === "h2" ? (
+            <h2
+              id="see-it-in-action-heading"
+              className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
+            >
+              See It In Action
+            </h2>
+          ) : (
+            <h3
+              id="see-it-in-action-heading"
+              className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
+            >
+              See It In Action
+            </h3>
+          )}
           <p className="mt-3 text-base leading-[1.65] text-[#4f5f75] md:text-[17px] md:leading-[1.7]">
             {config.intro}
           </p>
@@ -133,7 +147,12 @@ export function SeeItInActionSection({ audiencePath, className = "" }) {
           }
         >
           {config.links.map((link) => (
-            <SeeItInActionStoryCard key={link.href} href={link.href} label={link.label} />
+            <SeeItInActionStoryCard
+              key={link.href}
+              href={link.href}
+              label={link.label}
+              titleTag={cardTitleTag}
+            />
           ))}
         </ul>
       </div>

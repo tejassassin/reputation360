@@ -5,6 +5,7 @@ import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
   REPUTATION360_INDIVIDUAL_STEPS,
+  REALISTIC_TIMELINE_INDIVIDUAL_PHASES,
 } from "../components/industry/IndustryReputation360Sections";
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeeItInActionSection } from "../components/whoWeServe/SeeItInActionSection.jsx";
@@ -152,25 +153,25 @@ const INDIVIDUAL_SCALE_METRICS = [
 
 const INDIVIDUAL_WHY_PILLARS = [
   {
-    id: "emotional",
-    label: "Emotional weight",
-    hook: "Not only a career file - it is you.",
-    body: "Personal reputation problems carry a dimension that professional ones do not - emotional weight. When content is about your professional conduct, it is uncomfortable. When it is about you as a person, the stakes feel different.",
-    Icon: Heart,
-  },
-  {
-    id: "perception",
-    label: "How you are seen",
-    hook: "Family, friends, relationships, your community.",
-    body: "When it is about you as a person, it touches how you are perceived by people who matter to you: family, friends, new relationships, your community.",
-    Icon: Users,
-  },
-  {
-    id: "approach",
-    label: "Discretion & care",
-    hook: "Your situation is not a template.",
-    body: "We approach individual cases with a level of discretion and sensitivity that reflects this. Your situation is not a template. It requires a conversation, a careful audit, and a strategy built specifically around what you are dealing with.",
+    id: "private",
+    label: "Private & Confidential",
+    hook: "Your consultation stays between you and us.",
+    body: "Consultation, audit, and strategy stay between you and us - no visible signal that you are managing your reputation.",
     Icon: Lock,
+  },
+  {
+    id: "removal-first",
+    label: "Removal First, Suppression When Needed",
+    hook: "Ethical removal paths come before displacement.",
+    body: "We pursue every ethical removal path before building the positive presence that displaces what cannot come down.",
+    Icon: ShieldCheck,
+  },
+  {
+    id: "your-story",
+    label: "Built Around Your Story",
+    hook: "Not a template - a plan for what you face.",
+    body: "Not a template - a careful audit and a plan for what you are actually dealing with, at a pace you are comfortable with.",
+    Icon: Heart,
   },
 ];
 
@@ -405,39 +406,43 @@ function IndividualsWhySection() {
             const Icon = p.Icon;
             const isSelected = active === i;
             return (
-              <button
+              <article
                 key={p.id}
-                type="button"
-                aria-pressed={isSelected}
-                aria-label={`${p.label}: ${p.body}`}
-                onClick={() => setActive(i)}
-                className={`flex flex-col items-center rounded-2xl border px-3 py-4 text-center outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#1f3b64]/30 focus-visible:ring-offset-2 sm:py-5 ${
+                className={`flex flex-col items-center rounded-2xl border px-3 py-4 text-center outline-none transition-all duration-200 sm:py-5 ${
                   isSelected
                     ? "border-[#1f3b64] bg-white shadow-[0_12px_28px_-14px_rgba(31,59,100,0.22)] ring-1 ring-[#1f3b64]/15"
-                    : "border-[#dfe6ee] bg-white/70 hover:border-[#1f3b64]/25 hover:bg-white"
+                    : "border-[#dfe6ee] bg-white/70"
                 }`}
               >
-                <span
-                  className={`flex h-11 w-11 items-center justify-center rounded-xl shadow-sm transition-[background-color,color,box-shadow] duration-200 ${
-                    isSelected
-                      ? "bg-[#1f3b64] text-white shadow-[0_6px_16px_-4px_rgba(31,59,100,0.45)]"
-                      : "bg-[#f0f2f7] text-[#1f3b64]/80"
-                  }`}
-                >
-                  <Icon
-                    className="h-5 w-5"
-                    aria-hidden
-                    strokeWidth={isSelected ? 2.25 : 1.75}
-                    absoluteStrokeWidth
-                  />
-                </span>
-                <span className="mt-3 font-heading text-[13px] font-semibold leading-tight text-[#0f2e58] md:text-sm">
+                <h3 className="font-heading text-[13px] font-semibold leading-tight text-[#0f2e58] md:text-sm">
                   {p.label}
-                </span>
-                <span className="mt-2 text-[11px] leading-snug text-[#5d6c80] md:text-[12px]">
-                  {p.hook}
-                </span>
-              </button>
+                </h3>
+                <button
+                  type="button"
+                  aria-pressed={isSelected}
+                  aria-label={`${p.label}: ${p.body}`}
+                  onClick={() => setActive(i)}
+                  className="mt-3 flex w-full flex-col items-center rounded-xl outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#1f3b64]/30 focus-visible:ring-offset-2"
+                >
+                  <span
+                    className={`flex h-11 w-11 items-center justify-center rounded-xl shadow-sm transition-[background-color,color,box-shadow] duration-200 ${
+                      isSelected
+                        ? "bg-[#1f3b64] text-white shadow-[0_6px_16px_-4px_rgba(31,59,100,0.45)]"
+                        : "bg-[#f0f2f7] text-[#1f3b64]/80"
+                    }`}
+                  >
+                    <Icon
+                      className="h-5 w-5"
+                      aria-hidden
+                      strokeWidth={isSelected ? 2.25 : 1.75}
+                      absoluteStrokeWidth
+                    />
+                  </span>
+                  <span className="mt-2 text-[11px] leading-snug text-[#5d6c80] md:text-[12px]">
+                    {p.hook}
+                  </span>
+                </button>
+              </article>
             );
           })}
         </div>
@@ -492,9 +497,9 @@ function IndividualsWhatCanBeDoneSection() {
 
   return (
     <section id="what-can-be-done-individuals" className="mt-12 scroll-mt-28 md:mt-16">
-      <h3 className="text-center font-heading text-3xl font-bold tracking-tight text-navy md:text-4xl">
+      <h2 className="text-center font-heading text-3xl font-bold tracking-tight text-navy md:text-4xl">
         Removal or suppression?
-      </h3>
+      </h2>
       <p className="mx-auto mt-4 max-w-3xl text-center text-base leading-relaxed text-navy/70 md:text-lg">
         Not every negative result can be permanently deleted. Here is an honest
         breakdown of both routes - most clients benefit from a combination.
@@ -530,13 +535,13 @@ function IndividualsWhatCanBeDoneSection() {
             </div>
             <div className="min-w-0 w-full flex-1 basis-0">
               <div className="flex flex-wrap items-start justify-between gap-2 gap-y-2">
-                <h4
+                <h3
                   className={`min-w-0 flex-1 font-heading text-lg font-bold leading-tight sm:text-xl ${
                     removalFocus === "direct" ? "text-navy" : "text-navy/75"
                   }`}
                 >
                   Direct removal
-                </h4>
+                </h3>
                 {removalFocus === "direct" ? (
                   <span className="shrink-0 rounded-full bg-navy px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white shadow-sm">
                     Selected
@@ -613,7 +618,7 @@ function IndividualsWhatCanBeDoneSection() {
             </div>
             <div className="min-w-0 w-full flex-1 basis-0">
               <div className="flex flex-wrap items-start justify-between gap-2 gap-y-2">
-                <h4
+                <h3
                   className={`min-w-0 flex-1 font-heading text-lg font-bold leading-tight text-white sm:text-xl ${
                     removalFocus === "suppression"
                       ? "text-white"
@@ -621,7 +626,7 @@ function IndividualsWhatCanBeDoneSection() {
                   }`}
                 >
                   Suppression strategy
-                </h4>
+                </h3>
                 {removalFocus === "suppression" ? (
                   <span className="shrink-0 rounded-full border border-emerald-300/40 bg-emerald-400/15 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-emerald-50 shadow-sm backdrop-blur-sm">
                     Selected
@@ -674,7 +679,7 @@ function IndividualsMarketInsightBanner() {
           <p className="inline-flex rounded-full bg-[#24403b] px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[#66bb6a] md:px-3 md:py-1 md:text-[10px]">
             Market Insight
           </p>
-          <h2 className="mt-3 font-heading text-[19px] font-bold leading-[1.24] md:mt-4 md:text-[24px] lg:text-[27px]">
+          <p className="mt-3 font-heading text-[19px] font-bold leading-[1.24] md:mt-4 md:text-[24px] lg:text-[27px]">
             <span className="text-[#4eab66]">85%</span>
             <span className="text-white">
               {" "}
@@ -685,7 +690,7 @@ function IndividualsMarketInsightBanner() {
               {" "}
               will reconsider based on what they find.
             </span>
-          </h2>
+          </p>
           <p className="mt-2 text-[10px] leading-relaxed text-white md:mt-2.5 md:text-[11px]">
             (Sources: Pew Research Center; Harris Poll Online Reputation Survey)
           </p>
@@ -795,9 +800,9 @@ function IndividualsPage() {
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 shrink-0">{item.icon}</div>
                   <div>
-                    <h3 className="text-[15px] font-semibold leading-tight text-[#1f3b64] md:text-[16px]">
+                    <p className="text-[15px] font-semibold leading-tight text-[#1f3b64] md:text-[16px]">
                       {item.title}
-                    </h3>
+                    </p>
                     <p className="mt-1.5 text-[12px] leading-[1.5] text-[#5d6c80] md:text-[13px]">
                       {item.text}
                     </p>
@@ -911,6 +916,8 @@ function IndividualsPage() {
         <IndustryWhatReputation360Section
           sectionId="what-reputation360-does-individuals"
           steps={REPUTATION360_INDIVIDUAL_STEPS}
+          sectionTitleTag="h2"
+          stepDetailTitleTag="h3"
         />
 
         <IndividualsMarketInsightBanner />
@@ -918,11 +925,22 @@ function IndividualsPage() {
         <IndustryRealisticTimelineSection
           sectionId="individuals-realistic-timeline"
           headingId="individuals-realistic-timeline-heading"
+          phases={REALISTIC_TIMELINE_INDIVIDUAL_PHASES}
+          sectionTitleTag="h2"
+          phaseDetailTitleTag="h3"
         />
 
-        <SeeItInActionSection audiencePath={seo.path} />
+        <SeeItInActionSection
+          audiencePath={seo.path}
+          sectionTitleTag="h2"
+          cardTitleTag="h3"
+        />
 
-        <FurtherReadingSection audiencePath={seo.path} />
+        <FurtherReadingSection
+          audiencePath={seo.path}
+          sectionTitleTag="h2"
+          cardTitleTag="h3"
+        />
 
         <section className="rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
           <p className="mx-auto max-w-3xl font-heading leading-snug text-white md:leading-snug">

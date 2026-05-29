@@ -315,6 +315,34 @@ export const REALISTIC_TIMELINE_PHASES = [
 export const REALISTIC_TIMELINE_DISCLAIMER =
   "Results vary based on the authority of the negative content and the number of negative results; we will give you an honest assessment in your first consultation.";
 
+/** Individuals page only; four-step process shown in Realistic Timeline. */
+export const REALISTIC_TIMELINE_INDIVIDUAL_PHASES = [
+  {
+    id: "personal-audit",
+    window: "Step 1 - Personal Reputation Audit",
+    body: "We conduct a careful audit of what appears for your name across Google and other search engines - the positive, the neutral, and the damaging. We identify every removal candidate and every suppression priority before recommending a path forward.",
+    Icon: Map,
+  },
+  {
+    id: "removal-review",
+    window: "Step 2 - Removal & Deindexing Review",
+    body: "We pursue removal through every applicable channel - platform policy, legal mechanism, right-to-erasure request, de-indexing request, or publisher outreach. We manage the process and keep you informed of progress at every stage.",
+    Icon: Target,
+  },
+  {
+    id: "suppression-strategy",
+    window: "Step 3 - Suppression Asset Strategy",
+    body: "For cases where suppression is required, we build an appropriate positive presence around your name - content that reflects who you are today, not who you were or what happened to you. This is done with care for your privacy and your comfort throughout.",
+    Icon: Layers,
+  },
+  {
+    id: "monitoring-control",
+    window: "Step 4 - Monitoring & Reputation Control",
+    body: "As your positive presence gains ranking strength, damaging content is displaced from visible search pages. We monitor progress and adjust until the result you need is achieved - and we maintain the presence we have built so it continues protecting you long after the engagement ends.",
+    Icon: RefreshCw,
+  },
+];
+
 /** Title after "Step N -" for compact step tiles; falls back to full headline. */
 function faWhatWeDoStepLabel(headline) {
   const m = headline.match(/^Step\s+\d+\s+-\s*(.+)$/);
@@ -325,6 +353,8 @@ export function IndustryWhatReputation360Section({
   sectionId = "what-reputation360-does",
   steps = REPUTATION360_FA_STEPS,
   footer = null,
+  sectionTitleTag = "h3",
+  stepDetailTitleTag = "h4",
 }) {
   const [active, setActive] = useState(0);
   const item = steps[active];
@@ -335,9 +365,15 @@ export function IndustryWhatReputation360Section({
       id={sectionId}
       className="mt-16 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 md:mt-20 md:px-9 md:py-11"
     >
-      <h3 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        What Reputation360 Does
-      </h3>
+      {sectionTitleTag === "h2" ? (
+        <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
+          What Reputation360 Does
+        </h2>
+      ) : (
+        <h3 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
+          What Reputation360 Does
+        </h3>
+      )}
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
 
       <div className="mt-8 grid max-w-5xl gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-stretch lg:gap-8">
@@ -412,9 +448,15 @@ export function IndustryWhatReputation360Section({
               <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#1f3b64]/45">
                 This step
               </p>
-              <h4 className="mt-1 font-heading text-[15px] font-bold leading-snug text-[#0f2e58] md:text-base">
-                {item.headline}
-              </h4>
+              {stepDetailTitleTag === "h3" ? (
+                <h3 className="mt-1 font-heading text-[15px] font-bold leading-snug text-[#0f2e58] md:text-base">
+                  {item.headline}
+                </h3>
+              ) : (
+                <h4 className="mt-1 font-heading text-[15px] font-bold leading-snug text-[#0f2e58] md:text-base">
+                  {item.headline}
+                </h4>
+              )}
             </div>
           </div>
           <p className="mt-4 text-[14px] leading-relaxed text-[#3f4f66] md:mt-5 md:text-[15px] md:leading-relaxed">
@@ -433,10 +475,13 @@ export function IndustryWhatReputation360Section({
 export function IndustryRealisticTimelineSection({
   sectionId = "realistic-timeline",
   headingId = "realistic-timeline-heading",
+  phases = REALISTIC_TIMELINE_PHASES,
+  sectionTitleTag = "h3",
+  phaseDetailTitleTag = "p",
 }) {
   const [active, setActive] = useState(0);
-  const n = REALISTIC_TIMELINE_PHASES.length;
-  const phase = REALISTIC_TIMELINE_PHASES[active];
+  const n = phases.length;
+  const phase = phases[active];
   const ActiveIcon = phase.Icon;
 
   return (
@@ -444,12 +489,21 @@ export function IndustryRealisticTimelineSection({
       id={sectionId}
       className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-white px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
     >
-      <h3
-        id={headingId}
-        className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]"
-      >
-        Realistic Timeline
-      </h3>
+      {sectionTitleTag === "h2" ? (
+        <h2
+          id={headingId}
+          className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]"
+        >
+          Realistic Timeline
+        </h2>
+      ) : (
+        <h3
+          id={headingId}
+          className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]"
+        >
+          Realistic Timeline
+        </h3>
+      )}
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
 
       <div
@@ -478,7 +532,7 @@ export function IndustryRealisticTimelineSection({
       >
         <div className="relative -mx-1 overflow-x-auto pb-2 pl-1 [-ms-overflow-style:none] [scrollbar-width:none] md:mx-0 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden">
           <div className="flex min-w-[min(100%,560px)] flex-row flex-nowrap items-center px-1 md:min-w-0 md:px-0">
-            {REALISTIC_TIMELINE_PHASES.flatMap((p, i) => {
+            {phases.flatMap((p, i) => {
               const Icon = p.Icon;
               const selected = active === i;
               const btn = (
@@ -553,9 +607,15 @@ export function IndustryRealisticTimelineSection({
               <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#1f3b64]/45">
                 Selected phase
               </p>
-              <p className="mt-1 font-heading text-[18px] font-bold leading-snug text-[#0f2e58] md:text-xl">
-                {phase.window}
-              </p>
+              {phaseDetailTitleTag === "h3" ? (
+                <h3 className="mt-1 font-heading text-[18px] font-bold leading-snug text-[#0f2e58] md:text-xl">
+                  {phase.window}
+                </h3>
+              ) : (
+                <p className="mt-1 font-heading text-[18px] font-bold leading-snug text-[#0f2e58] md:text-xl">
+                  {phase.window}
+                </p>
+              )}
             </div>
             <span className="rounded-full bg-white px-3 py-1 font-heading text-xs font-bold text-[#1f3b64] ring-1 ring-[#dfe6ee] tabular-nums md:ml-auto">
               {active + 1} / {n}
