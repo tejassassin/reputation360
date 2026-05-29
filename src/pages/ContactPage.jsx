@@ -263,6 +263,9 @@ function ContactPage() {
               Reach out through whichever channel feels most convenient to you.
             </p>
           </div>
+          <h2 className="font-heading text-[28px] font-bold tracking-tight text-[#02254d] md:text-[40px]">
+            Get in Touch
+          </h2>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-6">
             {/* Book a Call */}
             <div className="group ha-lift flex flex-col items-stretch gap-8 rounded-[1.75rem] bg-white p-6 shadow-sm md:col-span-8 md:flex-row md:items-center md:justify-between md:rounded-[2rem] md:p-10">
