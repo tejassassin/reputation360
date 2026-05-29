@@ -4,10 +4,6 @@ import { internalAnchorProps } from "../lib/internalLinkProps.js";
 import { WhoWeServeAudienceCard } from "./WhoWeServeAudienceCard.jsx";
 
 export default function WhoWeServeCards() {
-  const row2 = WHO_WE_SERVE_AUDIENCES.slice(4);
-  const lgColWidthClass =
-    "w-full min-w-0 shrink-0 lg:w-[calc((100%-3*1.75rem)/4)]";
-
   return (
     <section
       className="relative overflow-hidden border-y border-white/[0.06] py-14 text-white md:py-20 lg:py-24"
@@ -41,24 +37,11 @@ export default function WhoWeServeCards() {
           </ul>
         </nav>
 
-        <ul className="m-0 grid list-none grid-cols-1 items-stretch gap-5 p-0 sm:grid-cols-2 lg:hidden">
+        <ul className="m-0 grid list-none grid-cols-1 items-stretch gap-5 p-0 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
           {WHO_WE_SERVE_AUDIENCES.map((cat) => (
             <WhoWeServeAudienceCard key={cat.href} {...cat} />
           ))}
         </ul>
-
-        <div className="hidden flex-col gap-6 lg:flex lg:gap-7">
-          <ul className="m-0 grid list-none grid-cols-4 items-stretch gap-6 p-0 lg:gap-7">
-            {WHO_WE_SERVE_AUDIENCES.slice(0, 4).map((cat) => (
-              <WhoWeServeAudienceCard key={cat.href} {...cat} />
-            ))}
-          </ul>
-          <ul className="m-0 flex w-full list-none items-stretch justify-center gap-6 p-0 lg:gap-7">
-            {row2.map((cat) => (
-              <WhoWeServeAudienceCard key={cat.href} {...cat} className={lgColWidthClass} />
-            ))}
-          </ul>
-        </div>
       </div>
     </section>
   );

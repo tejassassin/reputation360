@@ -118,9 +118,9 @@ export default function HowReputation360Works() {
                     <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#64748b]">
                       Phase {step.num}
                     </p>
-                    <h3 className="font-heading mt-2 text-2xl font-bold text-[#02254d] md:text-3xl lg:text-4xl">
+                    <p className="font-heading mt-2 text-2xl font-bold text-[#02254d] md:text-3xl lg:text-4xl">
                       {step.label}
-                    </h3>
+                    </p>
                     <p className="font-body mt-4 text-base font-semibold leading-relaxed text-[#43474e] md:text-lg">
                       {step.text}
                     </p>
@@ -165,16 +165,21 @@ export default function HowReputation360Works() {
             {STEPS.map((s, i) => {
               const selected = active === i;
               return (
-                <button
+                <div
                   key={s.num}
-                  type="button"
                   role="tab"
                   id={`how-step-tab-${i}`}
                   aria-selected={selected}
                   aria-controls="how-step-panel"
-                  tabIndex={0}
+                  tabIndex={selected ? 0 : -1}
                   onClick={() => setActive(i)}
-                  className={`flex items-center justify-center gap-2 rounded-2xl border px-2 py-2.5 text-left transition-all duration-200 sm:px-3 md:py-3 ${
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setActive(i);
+                    }
+                  }}
+                  className={`flex cursor-pointer items-center justify-center gap-2 rounded-2xl border px-2 py-2.5 text-left transition-all duration-200 sm:px-3 md:py-3 ${
                     selected
                       ? `border-transparent bg-white shadow-[0_12px_28px_-12px_rgba(15,35,60,0.2)] ring-2 ${s.ring} scale-[1.02]`
                       : "border-[#e5e7eb] bg-white/50 hover:border-navy/15 hover:bg-white/90"
@@ -182,17 +187,18 @@ export default function HowReputation360Works() {
                 >
                   <span
                     className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-heading text-sm font-bold text-white shadow-inner sm:h-11 sm:w-11 sm:text-base ${s.square}`}
+                    aria-hidden
                   >
                     {s.num}
                   </span>
-                  <span
-                    className={`font-heading text-sm font-bold sm:text-[15px] ${
+                  <h3
+                    className={`font-heading m-0 text-sm font-bold sm:text-[15px] ${
                       selected ? "text-[#02254d]" : "text-navy/80"
                     }`}
                   >
                     {s.label}
-                  </span>
-                </button>
+                  </h3>
+                </div>
               );
             })}
           </div>
