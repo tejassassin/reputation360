@@ -223,6 +223,8 @@ export const REPUTATION360_INDIVIDUAL_STEPS = [
     step: 1,
     headline: "Step 1 - Personal Reputation Audit",
     timing: "Week 1",
+    /** Same title is H3 in Realistic Timeline rail; keep detail panel visual-only here. */
+    detailTitleTag: "p",
     body: "We conduct a careful audit of what appears for your name across Google and other search engines - the positive, the neutral, and the damaging. We identify every removal candidate and every suppression priority before recommending a path forward.",
     Icon: Map,
   },
@@ -357,9 +359,11 @@ function faWhatWeDoStepLabel(headline) {
 const phaseTimingBadgeClassName =
   "inline-block rounded-full bg-[#eef2f7] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#1f3b64]/70";
 
-/** @param {{ headline: string; timing?: string }} step */
+/** @param {{ headline: string; timing?: string; detailTitleTag?: "h3" | "h4" | "p" }} step */
 function WhatWeDoStepDetailTitle({ step, titleTag }) {
-  const TitleTag = titleTag === "h3" ? "h3" : "h4";
+  const effectiveTag = step.detailTitleTag ?? titleTag;
+  const TitleTag =
+    effectiveTag === "h3" ? "h3" : effectiveTag === "h4" ? "h4" : "p";
   const titleClassName =
     "font-heading text-[15px] font-bold leading-snug text-[#0f2e58] md:text-base";
 
