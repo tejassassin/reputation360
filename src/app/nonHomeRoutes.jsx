@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import ServicesPage from "../pages/ServicesPage.jsx";
 import {
   AUDIENCE_PATH,
   LEGACY_SERVICE_AUDIENCE_PATH,
@@ -14,7 +15,9 @@ import { PACK20_SLUGS } from "../data/blogs/pack20/slugs.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
 
 const AboutPage = lazy(() => import("../pages/AboutPage.jsx"));
-const ServicesPage = lazy(() => import("../pages/ServicesPage.jsx"));
+const OnlineReputationManagementPage = lazy(
+  () => import("../pages/OnlineReputationManagementPage.jsx"),
+);
 const FinancialAdvisorsPage = lazy(() => import("../pages/FinancialAdvisorsPage.jsx"));
 const JobSeekersPage = lazy(() => import("../pages/JobSeekersPage.jsx"));
 const DoctorsPage = lazy(() => import("../pages/DoctorsPage.jsx"));
@@ -79,6 +82,9 @@ function audiencePageForPath(path) {
 export function pageForNonHomePath(path) {
   if (path === "/about") return <AboutPage />;
   if (path === "/services") return <ServicesPage />;
+  if (path === "/services/online-reputation-management") {
+    return <OnlineReputationManagementPage />;
+  }
   if (path === WHO_WE_SERVE_HUB_PATH) {
     window.location.replace(AUDIENCE_PATH.individuals);
     return null;

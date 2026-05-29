@@ -3,7 +3,8 @@ import { faqAdditionalJsonLdFromItems, mapQuestionAnswerFaqs } from "../data/faq
 import { SERVICES_FAQ_ITEMS } from "../data/servicesFaqItems.js";
 import { SERVICES_PAGE_JSON_LD } from "../data/servicesPageSchema.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
-import ServicesAbout from "../components/ServicesAbout";
+import ServicesAbout from "../components/ServicesAbout.jsx";
+import { ServicesSubnav } from "../components/services/ServicesSubnav.jsx";
 
 function ServicesPage() {
   const seo = useLocalizedSeo("services");
@@ -17,6 +18,7 @@ function ServicesPage() {
         additionalJsonLd={faqAdditionalJsonLdFromItems(mapQuestionAnswerFaqs(SERVICES_FAQ_ITEMS))}
       />
     <main className="flex-1 bg-offwhite pt-24 md:pt-28">
+      <ServicesSubnav />
       <section className="bg-offwhite">
         <ServicesAbout />
       </section>

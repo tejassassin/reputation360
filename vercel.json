@@ -52,7 +52,6 @@
       "permanent": true
     },
     { "source": "/services/negative-link-suppression", "destination": "/services", "permanent": true },
-    { "source": "/services/online-reputation-management", "destination": "/services", "permanent": true },
     { "source": "/services/brand-monitoring", "destination": "/services", "permanent": true },
     { "source": "/services/crisis-management", "destination": "/services", "permanent": true },
     { "source": "/services/individuals", "destination": "/who-we-serve/individual", "permanent": true },

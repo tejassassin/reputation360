@@ -4,6 +4,7 @@ import "./index.css";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 import App from "./App.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import { RouteLoadingFallback } from "./components/RouteLoadingFallback.jsx";
 import { SITE_HTML_LANG } from "./constants/siteUrl.js";
 
 document.documentElement.lang = SITE_HTML_LANG;
@@ -36,7 +37,7 @@ function normalizePath(pathname) {
   return pathname.replace(/\/+$/, "") || "/";
 }
 
-const routeFallback = <div className="min-h-[40vh] flex-1 bg-offwhite" aria-hidden />;
+const routeFallback = <RouteLoadingFallback />;
 
 const normalizedPath = normalizePath(window.location.pathname);
 const isHome = normalizedPath === "/";

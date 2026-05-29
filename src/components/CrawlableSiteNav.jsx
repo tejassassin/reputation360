@@ -46,7 +46,10 @@ export function CrawlableSiteNav() {
       <ul className="list-none space-y-1 p-0">
         {reputationServices.map((s) => (
           <li key={s.id}>
-            <a href="/services" {...internalAnchorProps("/services")}>
+            <a
+              href={s.href ?? "/services"}
+              {...internalAnchorProps(s.href ?? "/services")}
+            >
               {s.title}
             </a>
           </li>

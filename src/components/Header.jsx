@@ -28,6 +28,7 @@ import {
   FREE_RISK_SCAN_PATH,
 } from "../constants/freeRiskScan.js";
 import { LOGO_ALT_NAV } from "../constants/imageAlt.js";
+import { ONLINE_REPUTATION_MANAGEMENT_PATH } from "../constants/servicePaths.js";
 
 const navItems = [
   { name: "Home", link: "/" },
@@ -39,7 +40,18 @@ const navItems = [
       { name: "Contact", link: "/contact" },
     ],
   },
-  { name: "Services", link: "/services" },
+  {
+    name: "Services",
+    link: "/services",
+    parentNonNavigable: true,
+    children: [
+      { name: "All Services", link: "/services" },
+      {
+        name: "Online Reputation Management",
+        link: ONLINE_REPUTATION_MANAGEMENT_PATH,
+      },
+    ],
+  },
   {
     name: "Who We Serve?",
     parentNonNavigable: true,
@@ -186,7 +198,8 @@ function Header() {
           >
             {navItems.map((item, idx) => (
               <div key={`mobile-link-${idx}`} className="w-full">
-                {item.parentNonNavigable && item.children?.length ? (
+                {(item.parentNonNavigable || item.children?.length) &&
+                item.children?.length ? (
                   <span
                     role="presentation"
                     className="relative block cursor-default select-none rounded-lg px-2 py-1 font-heading font-medium text-white/90"

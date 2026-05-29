@@ -3,6 +3,9 @@ import { AnimatePresence, motion as Motion } from "motion/react";
 import { ConsultationCtas } from "./ConsultationCtas";
 import { ServicesWhoWeWorkWith } from "./ServicesWhoWeWorkWith.jsx";
 import { ServicesRelatedContentBlock } from "./services/ServicesRelatedContentBlock.jsx";
+import { ServicesHubLinksSection } from "./services/ServicesHubLinksSection.jsx";
+import { ONLINE_REPUTATION_MANAGEMENT_PATH } from "../constants/servicePaths.js";
+import { internalAnchorProps } from "../lib/internalLinkProps.js";
 import ServicesFaq from "./ServicesFaq.jsx";
 import {
   FileText,
@@ -255,6 +258,16 @@ function FlagshipSuppressionSection() {
         build a content strategy that outranks harmful results, and systematically
         push negative links beyond page one - where virtually no one will find them.
       </p>
+      <p className="mt-6">
+        <a
+          href={ONLINE_REPUTATION_MANAGEMENT_PATH}
+          {...internalAnchorProps(ONLINE_REPUTATION_MANAGEMENT_PATH)}
+          className="inline-flex items-center gap-2 rounded-full border border-navy/15 bg-[#f4f7fb] px-5 py-2.5 text-sm font-semibold text-navy transition hover:border-[#79df86]/50 hover:bg-[#f0faf3] md:text-[15px]"
+        >
+          Read the full Online Reputation Management guide
+          <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
+        </a>
+      </p>
 
       <div className="mt-8 flex flex-col gap-4 border-t border-navy/10 pt-8 lg:flex-row lg:items-end lg:justify-between">
         <p className="max-w-xl text-sm font-medium leading-snug text-navy/70 md:text-[15px]">
@@ -401,6 +414,16 @@ function ServicesAbout() {
           <p className="mt-5 w-full text-navy/75 text-base leading-relaxed md:mt-6 md:text-lg">
             {SERVICES_HERO_INTRO}
           </p>
+          <p className="mt-5 w-full">
+            <a
+              href={ONLINE_REPUTATION_MANAGEMENT_PATH}
+              {...internalAnchorProps(ONLINE_REPUTATION_MANAGEMENT_PATH)}
+              className="inline-flex items-center gap-2 font-heading text-base font-semibold text-navy underline decoration-navy/30 underline-offset-4 transition hover:text-[#1a4a7a] hover:decoration-navy md:text-lg"
+            >
+              Explore our full Online Reputation Management service guide
+              <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
+            </a>
+          </p>
           <aside
             className="mt-8 max-w-4xl rounded-2xl border border-[#b85c5c]/80 bg-[#fdf4f4] px-5 py-6 shadow-[0_2px_0_rgba(160,64,64,0.06),0_12px_32px_rgba(127,45,45,0.08)] md:rounded-[1.125rem] md:px-8 md:py-7"
             role="note"
@@ -429,6 +452,8 @@ function ServicesAbout() {
             freeScanClassName="ha-pill inline-flex rounded-md border-2 border-cta-consult/50 bg-white px-5 py-3 text-sm font-semibold text-[#02254d] shadow-sm transition hover:bg-cta-consult/10"
           />
         </div>
+
+        <ServicesHubLinksSection />
 
         <div>
           <div className="flex items-start justify-between gap-6 flex-wrap">
@@ -735,14 +760,6 @@ function ServicesAbout() {
                         : "bg-white hover:bg-[#f8fafc] hover:shadow-[inset_0_0_0_1px_rgba(31,59,100,0.04)] motion-safe:active:scale-[0.99]"
                     }`}
                   >
-                    <span
-                      className={`absolute left-3 right-3 top-0 h-[3px] rounded-b-full transition-colors duration-200 md:left-4 md:right-4 ${
-                        selected
-                          ? "bg-gradient-to-r from-[#1f3b64] via-[#2e5b88] to-[#2a8c3e]"
-                          : "bg-transparent group-hover:bg-navy/12"
-                      }`}
-                      aria-hidden
-                    />
                     <span
                       className={`inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] transition-colors duration-200 ${
                         selected

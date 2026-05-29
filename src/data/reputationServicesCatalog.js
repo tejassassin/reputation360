@@ -10,6 +10,7 @@ export const reputationServicesCatalog = [
     id: "orm-suppression",
     navLabel: "ORM & search recovery",
     title: "Online Reputation Management",
+    href: "/services/online-reputation-management",
     description:
       "We strengthen positive search results and reduce the visibility of harmful, misleading, or outdated content through compliant ORM and outranking strategies",
   },

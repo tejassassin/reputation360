@@ -7,12 +7,17 @@ import { PACK20_ARTICLES } from "./blogs/pack20/catalog.js";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "./blogs/diyReputationGuide.js";
+import { ONLINE_REPUTATION_MANAGEMENT_PATH } from "../constants/servicePaths.js";
 
 /** @typedef {{ href: string; label: string }} CrawlLink */
 
 /** Primary commercial pages (homepage hub + GSC priority). */
 export const PRIORITY_COMMERCIAL_LINKS = [
   { href: "/services", label: "Services" },
+  {
+    href: ONLINE_REPUTATION_MANAGEMENT_PATH,
+    label: "Online Reputation Management Service Guide",
+  },
   { href: "/blog", label: "Insights and Blogs" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/contact", label: "Contact" },

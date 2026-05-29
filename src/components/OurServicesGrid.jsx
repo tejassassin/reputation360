@@ -10,6 +10,9 @@ const coreService =
   reputationServices.find((s) => s.id === CORE_SERVICE_ID) ?? reputationServices[0];
 const supportingServices = reputationServices.filter((s) => s.id !== CORE_SERVICE_ID);
 
+import { ONLINE_REPUTATION_MANAGEMENT_PATH } from "../constants/servicePaths.js";
+
+const CORE_SERVICE_HREF = ONLINE_REPUTATION_MANAGEMENT_PATH;
 const SERVICES_HREF = "/services";
 
 /** Same glass card shell as “Who we work with” (home). */
@@ -43,8 +46,8 @@ function ServiceCard({ service, expanded, onToggle, isCore = false }) {
       className={`${serviceCardShell} h-full ${expanded ? "is-expanded border-green/50 from-white/18 to-white/8" : ""}`}
     >
       <a
-        href={SERVICES_HREF}
-        {...internalAnchorProps(SERVICES_HREF)}
+        href={isCore ? CORE_SERVICE_HREF : SERVICES_HREF}
+        {...internalAnchorProps(isCore ? CORE_SERVICE_HREF : SERVICES_HREF)}
         className="flex w-full flex-col items-center gap-2.5 rounded-lg text-center no-underline outline-none focus-visible:ring-2 focus-visible:ring-green/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy sm:gap-3"
       >
         <div className={`${serviceIconWrap} ${iconSize}`}>{service.icon}</div>

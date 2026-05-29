@@ -2,7 +2,7 @@ import React from "react";
 import { Mail } from "lucide-react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import logo from "../assets/Logo_360.png";
-import { serviceTitles } from "../data/reputationServices";
+import { reputationServices } from "../data/reputationServices";
 import {
   CONTACT_EMAIL,
   contactMailtoHref,
@@ -73,15 +73,15 @@ function Footer() {
           <div className="min-w-0">
             <p className="font-heading font-semibold mb-4">Services</p>
             <ul className="space-y-2">
-              {serviceTitles.map((title, idx) => (
-                <li key={idx}>
+              {reputationServices.map((service) => (
+                <li key={service.id}>
                   <a
-                    href="/services"
-                    {...internalAnchorProps("/services")}
-                    title={title}
+                    href={service.href ?? "/services"}
+                    {...internalAnchorProps(service.href ?? "/services")}
+                    title={service.title}
                     className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
                   >
-                    {title}
+                    {service.title}
                   </a>
                 </li>
               ))}

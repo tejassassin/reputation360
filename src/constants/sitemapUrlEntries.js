@@ -115,6 +115,12 @@ export const SITEMAP_URL_ENTRIES = [
   },
   { path: "/services", lastmod: "2026-05-25", changefreq: "monthly", priority: "0.9" },
   {
+    path: "/services/online-reputation-management",
+    lastmod: "2026-05-25",
+    changefreq: "monthly",
+    priority: "0.88",
+  },
+  {
     path: "/who-we-serve/individual",
     lastmod: "2026-05-25",
     changefreq: "monthly",

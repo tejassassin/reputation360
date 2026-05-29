@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { WHO_WE_SERVE_HUB_PATH } from "@/constants/whoWeServePaths.js";
 import { anchorTabProps, internalAnchorProps } from "@/lib/internalLinkProps";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { IconChevronDown, IconMenu2, IconX } from "@tabler/icons-react";
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 import { Children, cloneElement, isValidElement, useEffect, useState } from "react";
 
@@ -166,7 +166,60 @@ export const NavItems = ({
                 )}
                 aria-hidden
               />
-              <span className="relative z-[1] whitespace-nowrap">{item.name}</span>
+              <span className="relative z-[1] inline-flex items-center gap-1 whitespace-nowrap">
+                {item.name}
+                <IconChevronDown
+                  className={cn(
+                    "h-3.5 w-3.5 shrink-0 opacity-70 transition-transform duration-200",
+                    menuOpen && "rotate-180",
+                  )}
+                  aria-hidden
+                />
+              </span>
+            </span>
+          ) : item.children?.length ? (
+            <span
+              role="button"
+              tabIndex={0}
+              className="group relative block w-full shrink-0 cursor-default select-none whitespace-nowrap rounded-full px-2.5 py-1.5 text-left text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
+              aria-haspopup="menu"
+              aria-expanded={menuOpen}
+              onMouseDown={(e) => {
+                e.preventDefault();
+              }}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setOpenMenu((prev) => (prev === h ? null : h));
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setOpenMenu((prev) => (prev === h ? null : h));
+                }
+                if (e.key === "Escape") {
+                  setOpenMenu(null);
+                  setHovered(null);
+                }
+              }}
+            >
+              <span
+                className={cn(
+                  "pointer-events-none absolute inset-0 rounded-full bg-white/0 transition-colors duration-200 group-hover:bg-white/10 group-focus-visible:bg-white/10",
+                  menuOpen && "bg-white/10",
+                )}
+                aria-hidden
+              />
+              <span className="relative z-[1] inline-flex items-center gap-1 whitespace-nowrap">
+                {item.name}
+                <IconChevronDown
+                  className={cn(
+                    "h-3.5 w-3.5 shrink-0 opacity-70 transition-transform duration-200",
+                    menuOpen && "rotate-180",
+                  )}
+                  aria-hidden
+                />
+              </span>
             </span>
           ) : (
             <a
@@ -188,7 +241,7 @@ export const NavItems = ({
           {item.children && item.children.length > 0 && menuOpen && (
             /* pt-2 bridge: fills the gap under the trigger so the menu stays open while moving the cursor down */
             <div
-              className="absolute left-0 top-full z-[70] min-w-44 pt-2"
+              className="absolute left-0 top-full z-[200] min-w-52 pt-2"
               role="menu"
               aria-label={`${item.name} submenu`}
             >

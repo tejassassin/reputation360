@@ -18,6 +18,12 @@ export const SEO = {
     description:
       "From negative link suppression to review management, Reputation360 builds a custom plan matched to your exact situation. See how we can help.",
   },
+  onlineReputationManagement: {
+    title: "Online Reputation Management Services | Reputation360",
+    path: "/services/online-reputation-management",
+    description:
+      "Take control of what people find when they search your name. Reputation360 delivers proven online reputation management for executives, founders, and brands across the US, Canada, and Australia. Book a free consultation.",
+  },
   whoWeServe: {
     title: "Who We Serve | Reputation360",
     path: "/who-we-serve",
