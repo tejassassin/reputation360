@@ -564,6 +564,11 @@ export function OrmWhyMattersSection() {
 }
 
 export function OrmRankingFactorsSection() {
+  const [activeId, setActiveId] = useState(RANKING_FACTORS[0].id);
+  const factor = RANKING_FACTORS.find((f) => f.id === activeId) ?? RANKING_FACTORS[0];
+  const ActiveIcon = FACTOR_ICONS[factor.id] ?? Target;
+  const panelId = "orm-ranking-factor-panel";
+
   return (
     <DocSection
       id="ranking-factors"
@@ -571,44 +576,78 @@ export function OrmRankingFactorsSection() {
       lead={RANKING_FACTORS_INTRO}
       tone="navy"
     >
-      <ul className="grid list-none items-stretch gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4 xl:gap-5">
+      <div
+        className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:gap-3"
+        role="tablist"
+        aria-label="Ranking factors"
+      >
         {RANKING_FACTORS.map((f) => {
           const Icon = FACTOR_ICONS[f.id] ?? Target;
+          const selected = f.id === activeId;
           return (
-            <li
+            <button
               key={f.id}
-              className="ha-lift flex h-full flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_12px_40px_-24px_rgba(31,59,100,0.12)]"
+              type="button"
+              role="tab"
+              id={`orm-ranking-factor-tab-${f.id}`}
+              aria-selected={selected}
+              aria-controls={panelId}
+              onClick={() => setActiveId(f.id)}
+              className={`flex flex-col items-center gap-2 rounded-xl border px-3 py-3.5 text-center outline-none transition focus-visible:ring-2 focus-visible:ring-[#7df5b9]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f3b64] sm:px-4 sm:py-4 ${
+                selected
+                  ? "border-white/25 bg-white text-navy shadow-lg shadow-black/15"
+                  : "border-white/15 bg-white/8 text-white/85 hover:border-white/25 hover:bg-white/12"
+              }`}
             >
-              <div className="flex min-h-0 flex-1 flex-col p-5 md:p-6">
-                <div className="flex items-center gap-3 border-b border-navy/8 pb-4">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white shadow-sm">
-                    <Icon className="h-5 w-5" aria-hidden strokeWidth={2} />
-                  </span>
-                  <h3 className="font-heading text-lg font-bold text-navy">{f.label}</h3>
-                </div>
-                <div className="mt-4 flex flex-1 flex-col">
-                  <p className="text-xs font-bold uppercase tracking-wide text-navy/45">
-                    What it means
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-navy/75 md:text-[15px]">
-                    {f.means}
-                  </p>
-                </div>
-              </div>
-
-              <div className="shrink-0 bg-gradient-to-br from-[#1f3b64] via-[#183456] to-[#0f2344] px-5 py-4 md:px-6 md:py-5">
-                <p className="font-heading text-[11px] font-bold uppercase tracking-[0.12em] text-[#7df5b9] md:text-xs">
-                  Why it matters for suppression
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-slate-100/92 md:text-[15px]">
-                  {f.suppression}
-                </p>
-              </div>
-            </li>
+              <span
+                className={`flex h-10 w-10 items-center justify-center rounded-lg ${
+                  selected ? "bg-[#1f3b64] text-white" : "bg-white/12 text-[#7df5b9]"
+                }`}
+              >
+                <Icon className="h-5 w-5" aria-hidden strokeWidth={2} />
+              </span>
+              <span className="font-heading text-sm font-bold leading-snug">{f.label}</span>
+            </button>
           );
         })}
-      </ul>
-      <p className="mt-8 w-full max-w-none text-base leading-relaxed text-slate-100/90 md:text-lg">
+      </div>
+
+      <AnimatePresence mode="wait" initial={false}>
+        <Motion.div
+          key={factor.id}
+          id={panelId}
+          role="tabpanel"
+          aria-labelledby={`orm-ranking-factor-tab-${factor.id}`}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -6 }}
+          transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-5 rounded-2xl border border-white/12 bg-white p-5 shadow-[0_20px_50px_-28px_rgba(0,0,0,0.35)] md:mt-6 md:p-7"
+        >
+          <div className="flex items-center gap-3 border-b border-navy/8 pb-4">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white shadow-sm">
+              <ActiveIcon className="h-5 w-5" aria-hidden strokeWidth={2} />
+            </span>
+            <h3 className="font-heading text-xl font-bold text-navy">{factor.label}</h3>
+          </div>
+          <div className="mt-5 grid gap-5 md:grid-cols-2 md:gap-6">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-navy/45">
+                Why it ranks
+              </p>
+              <p className="mt-2 text-base leading-relaxed text-navy/80">{factor.means}</p>
+            </div>
+            <div className="rounded-xl border border-[#79df86]/30 bg-[#f4fbf6] px-4 py-4 md:px-5 md:py-5">
+              <p className="text-xs font-bold uppercase tracking-wide text-[#1a5c38]">
+                How we respond
+              </p>
+              <p className="mt-2 text-base leading-relaxed text-navy/85">{factor.suppression}</p>
+            </div>
+          </div>
+        </Motion.div>
+      </AnimatePresence>
+
+      <p className="mt-6 w-full max-w-none text-center text-sm leading-relaxed text-slate-100/88 md:mt-8 md:text-base">
         {RANKING_FACTORS_CLOSING}
       </p>
     </DocSection>
@@ -1119,7 +1158,7 @@ export function OrmWhyR360Section() {
                   className="group h-full rounded-2xl border border-white/18 bg-gradient-to-b from-white/[0.1] to-white/[0.04] p-8 text-center shadow-[0_8px_40px_-12px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-colors duration-300 hover:border-[#4CAF50]/40 hover:from-white/[0.14] hover:to-white/[0.06] hover:shadow-[0_16px_50px_-14px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.1)] md:p-9"
                 >
                   <div className="mb-5 flex flex-col items-center gap-3">
-                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/20 bg-[#0f1c2c]/85 text-rose-200/95 shadow-inner shadow-black/20 ring-1 ring-[#2E5B88]/40">
+                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/20 bg-[#0f1c2c]/85 text-[#7df5b9] shadow-inner shadow-black/20 ring-1 ring-[#4CAF50]/35">
                       <Icon className="h-6 w-6" strokeWidth={2} aria-hidden />
                     </div>
                     <h4 className="font-heading text-base font-extrabold leading-snug text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] md:text-lg">

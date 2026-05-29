@@ -9,7 +9,7 @@ export const ORM_WHAT_IS_CALLOUT =
   "Think of it as reputation insurance combined with active brand building - working together, continuously.";
 
 export const RANKING_FACTORS_CLOSING =
-  "Every negative result that ranks for your name has these signals behind it. Our job is to build content with stronger signals, across more platforms, so that your positive presence consistently wins.";
+  "We build stronger signals across more platforms so your positive presence consistently wins.";
 
 export const ORM_INCLUDES_INTRO =
   "Reputation360's ORM service is a comprehensive, tailored strategy. Every campaign is custom-built around your specific situation, goals, and timeline.";
@@ -18,7 +18,7 @@ export const ORM_WHY_R360_INTRO =
   "We are not a generalist digital marketing agency that offers ORM as a checkbox service. It is the only thing we do, and we have been doing it for 7 years.";
 
 export const RANKING_FACTORS_INTRO =
-  "Understanding why harmful content ranks is what makes it possible to displace it. The same four factors that put a damaging article at the top of your search results are the exact factors we use to build content that pushes it down.";
+  "Harmful content ranks for four reasons. We use the same four to build content that pushes it down.";
 
 export const ORM_PROCESS_NOTE =
   "Complex cases involving very high-authority negative content may extend beyond this timeline. We provide an honest, situation-specific estimate during your free audit.";
@@ -65,33 +65,30 @@ export const RANKING_FACTORS = [
   {
     id: "relevance",
     label: "Relevance",
-    means: "The content closely matches the search query - your name, associated keywords, and search intent.",
+    means: "The page matches your name, keywords, and search intent.",
     suppression:
-      "We create new content that is equally or more relevant, giving Google a better answer to the same query.",
+      "We publish content that answers the same query with equal or stronger relevance.",
   },
   {
     id: "authority",
     label: "Authority",
-    means:
-      "The page has strong backlinks, brand mentions, and citations from credible sources.",
+    means: "Strong backlinks, mentions, and citations from trusted sources.",
     suppression:
-      "We build and amplify content on high-authority platforms that carry more weight than the harmful source.",
+      "We amplify your story on platforms that outweigh the harmful source.",
   },
   {
     id: "experience",
     label: "Experience",
-    means:
-      "The content demonstrates firsthand knowledge or expertise that search engines reward with higher trust.",
+    means: "Signals firsthand expertise that search engines trust.",
     suppression:
-      "Our editorial content is built to signal genuine expertise, not just keyword optimization.",
+      "Editorial depth that proves expertise, not keyword filler.",
   },
   {
     id: "timeliness",
     label: "Timeliness",
-    means:
-      "Recently published or regularly updated content signals freshness and current relevance to Google.",
+    means: "Fresh or updated content reads as current to Google.",
     suppression:
-      "Fresh content naturally outcompetes old articles - a recent, well-optimized page can displace years-old coverage.",
+      "New, optimized pages can displace years-old negative coverage.",
   },
 ];
 
