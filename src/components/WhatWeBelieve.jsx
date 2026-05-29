@@ -27,17 +27,21 @@ const insights = [
  */
 function WhatWeBelieve() {
   return (
-    <div
+    <section
       className="border-t border-slate-200/80 bg-gradient-to-b from-offwhite to-white"
       data-r360-section="what-we-believe"
       data-r360-visual="serp-mockup"
+      aria-labelledby="what-we-believe-heading"
     >
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12 lg:px-8 lg:py-16">
         <div className="mb-8 lg:mb-10">
-          <p className="font-heading mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#4CAF50]">
+          <span className="font-heading mb-3 block text-xs font-bold uppercase tracking-[0.2em] text-[#4CAF50]">
             Our philosophy
-          </p>
-          <h2 className="font-heading text-3xl font-bold leading-tight text-navy md:text-4xl">
+          </span>
+          <h2
+            id="what-we-believe-heading"
+            className="font-heading text-3xl font-bold leading-tight text-navy md:text-4xl"
+          >
             What we believe
           </h2>
         </div>
@@ -75,9 +79,9 @@ function WhatWeBelieve() {
                           />
                         </div>
                         <div className="min-w-0 pt-0.5">
-                          <p className="font-heading text-lg font-bold leading-snug text-navy transition-colors duration-300 group-hover:text-[#152f52]">
+                          <h3 className="font-heading text-lg font-bold leading-snug text-navy transition-colors duration-300 group-hover:text-[#152f52]">
                             {item.title}
-                          </p>
+                          </h3>
                           <p className="font-body mt-2 text-lg leading-relaxed text-steel transition-colors duration-300 group-hover:text-slate-600">
                             {item.text}
                           </p>
@@ -150,7 +154,7 @@ function WhatWeBelieve() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

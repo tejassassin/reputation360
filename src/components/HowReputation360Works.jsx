@@ -84,10 +84,14 @@ export default function HowReputation360Works() {
       id="how-r360-process-stepper"
       data-r360-component="process-stepper"
       className="py-10 md:py-16"
+      aria-labelledby="how-r360-works-heading"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center md:mb-10">
-          <h2 className="font-heading text-3xl font-bold tracking-tight text-[#02254d] sm:text-4xl md:text-[2.35rem]">
+          <h2
+            id="how-r360-works-heading"
+            className="font-heading text-3xl font-bold tracking-tight text-[#02254d] sm:text-4xl md:text-[2.35rem]"
+          >
             How Reputation360 works
           </h2>
         </div>
@@ -149,9 +153,9 @@ export default function HowReputation360Works() {
             </AnimatePresence>
           </div>
 
-          <p className="mb-3 mt-10 text-center font-heading text-xs font-bold uppercase tracking-[0.18em] text-[#64748b]">
+          <span className="mb-3 mt-10 block text-center font-heading text-xs font-bold uppercase tracking-[0.18em] text-[#64748b]">
             Switch phase
-          </p>
+          </span>
 
           <div
             className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3"

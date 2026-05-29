@@ -11,9 +11,9 @@ function HomeFaq() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center md:mb-10">
-          <p className="font-heading mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#4CAF50]">
+          <span className="font-heading mb-3 block text-xs font-bold uppercase tracking-[0.2em] text-[#4CAF50]">
             Common questions
-          </p>
+          </span>
           <h2
             id="home-faqs-heading"
             className="font-heading text-3xl font-bold leading-tight text-navy md:text-4xl"

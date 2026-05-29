@@ -30,9 +30,9 @@ export function HomeFromOurBlogSection({ id = "from-our-blog", className = "" })
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex w-full flex-col items-center gap-4">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="mb-2 text-[12px] font-bold uppercase tracking-[0.14em] text-[#2e5b88]">
+            <span className="mb-2 block text-[12px] font-bold uppercase tracking-[0.14em] text-[#2e5b88]">
               Insights
-            </p>
+            </span>
             <h2
               id="from-our-blog-heading"
               className="font-heading text-[28px] font-bold leading-[1.1] text-[#0f2e58] md:text-[36px]"

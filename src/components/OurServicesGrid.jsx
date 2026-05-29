@@ -107,9 +107,9 @@ export function OurServicesGrid() {
         aria-labelledby="core-service-heading"
       >
         <div className="relative mx-auto w-full max-w-3xl">
-          <p className="r3-our-services-core-label mb-2.5 text-center font-heading text-xs font-bold uppercase tracking-[0.22em] text-white/50 sm:text-[13px]">
+          <span className="r3-our-services-core-label mb-2.5 block text-center font-heading text-xs font-bold uppercase tracking-[0.22em] text-white/50 sm:text-[13px]">
             Core service
-          </p>
+          </span>
           <ServiceCard
             service={coreService}
             expanded={coreDetailsOpen}
