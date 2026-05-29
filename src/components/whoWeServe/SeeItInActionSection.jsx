@@ -17,7 +17,7 @@ export function SeeItInActionStoryCard({
   href,
   label,
   layout = "carousel",
-  titleTag = "h4",
+  titleTag = layout === "grid" ? "h3" : "h4",
 }) {
   const slug = slugFromCaseStudyHref(href);
   const study = slug ? getCaseStudyBySlug(slug) : null;
@@ -28,7 +28,8 @@ export function SeeItInActionStoryCard({
     layout === "grid"
       ? "w-full"
       : "w-[min(100%,21rem)] sm:w-[21rem] lg:w-full";
-  const Title = titleTag;
+  const titleClassName =
+    "mt-5 font-heading text-[19px] font-bold leading-snug text-[#0f2e58] group-hover:text-[#163d6e] md:text-[21px] md:leading-[1.25]";
 
   return (
     <li className={`list-none ${layout === "carousel" ? "snap-start" : ""}`.trim()}>
@@ -49,9 +50,11 @@ export function SeeItInActionStoryCard({
           </span>
         </div>
 
-        <Title className="mt-5 font-heading text-[19px] font-bold leading-snug text-[#0f2e58] group-hover:text-[#163d6e] md:text-[21px] md:leading-[1.25]">
-          {label}
-        </Title>
+        {titleTag === "h3" ? (
+          <h3 className={titleClassName}>{label}</h3>
+        ) : (
+          <h4 className={titleClassName}>{label}</h4>
+        )}
 
         {teaser ? (
           <p className="mt-3 line-clamp-4 flex-1 text-[15px] leading-[1.65] text-[#4a5d75] md:text-base md:leading-[1.7]">

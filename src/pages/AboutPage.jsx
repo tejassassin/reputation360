@@ -1357,12 +1357,13 @@ function AboutPage() {
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#4CAF50]" />
                 Since 2019 · Global
               </Motion.p>
-              <Motion.h1
-                variants={heroItem}
-                className={`${headlineFont} text-[1.6rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[2.5rem] lg:leading-[1.08]`}
-              >
-                About Reputation360 - Online Reputation Management Experts
-              </Motion.h1>
+              <Motion.div variants={heroItem}>
+                <h1
+                  className={`${headlineFont} text-[1.6rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[2.5rem] lg:leading-[1.08]`}
+                >
+                  About Reputation360 - Online Reputation Management Experts
+                </h1>
+              </Motion.div>
               <Motion.p
                 variants={heroItem}
                 className="mt-4 max-w-2xl text-lg font-semibold leading-snug text-white/95 sm:text-xl md:text-2xl"
