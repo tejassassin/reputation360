@@ -147,16 +147,14 @@ function Hero() {
               <HeroHighlightLite containerClassName="h-auto bg-transparent dark:bg-transparent">
                 <h1 className="mx-auto flex w-full flex-col items-center gap-1 text-center font-heading font-bold tracking-tight md:mx-4 md:my-3 md:max-w-none md:gap-0 md:text-balance md:text-4xl md:leading-[1.3] lg:text-5xl">
                   <span className="block max-w-[20rem] text-[1.375rem] leading-tight text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
-                    Take control of your
-                  </span>
-                  <span className="block max-w-[20rem] text-[1.375rem] leading-tight text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
-                    online reputation
+                    Online Reputation Management
                   </span>
                   <span className="block max-w-[21rem] text-[1.375rem] leading-snug text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
+                    <span className="text-white/90">- </span>
                     <Highlight className="max-md:!px-1 max-md:!pb-0">
-                      on your terms
+                      On Your Terms
                     </Highlight>
-                    <span className="text-white/90">,</span> not Google&apos;s
+                    <span className="text-white/90">, Not Google&apos;s</span>
                   </span>
                 </h1>
 

@@ -47,7 +47,7 @@ function Footer() {
             </p>
           </div>
           <div>
-            <h4 className="font-heading font-semibold mb-4">Company</h4>
+            <p className="font-heading font-semibold mb-4">Company</p>
             <ul className="space-y-2">
               {[
                 { name: "Home", link: "/" },
@@ -71,7 +71,7 @@ function Footer() {
             </ul>
           </div>
           <div className="min-w-0">
-            <h4 className="font-heading font-semibold mb-4">Services</h4>
+            <p className="font-heading font-semibold mb-4">Services</p>
             <ul className="space-y-2">
               {serviceTitles.map((title, idx) => (
                 <li key={idx}>
@@ -88,7 +88,7 @@ function Footer() {
             </ul>
           </div>
           <div className="min-w-0">
-            <h4 className="font-heading font-semibold mb-4">Policies</h4>
+            <p className="font-heading font-semibold mb-4">Policies</p>
             <ul className="space-y-2">
               {POLICY_LINKS.map((item) => (
                 <li key={item.href}>
@@ -104,7 +104,7 @@ function Footer() {
             </ul>
           </div>
           <div className="min-w-0">
-            <h4 className="font-heading font-semibold mb-4">Contact</h4>
+            <p className="font-heading font-semibold mb-4">Contact</p>
             <ul className="space-y-3 font-body text-white/60 text-sm">
               <li>
                 <span className="block text-white/80 mb-1">Get in touch:</span>
