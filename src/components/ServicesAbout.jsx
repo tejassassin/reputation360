@@ -827,9 +827,7 @@ function ServicesAbout() {
               <BrainCog className="ml-auto h-20 w-20 text-white/20" />
               <div className="mt-auto">
                 <h3 className="font-heading text-[24px] md:text-[18px] leading-[1.1] font-semibold">
-                  Thought
-                  <br />
-                  Leadership
+                  Thought Leadership
                 </h3>
                 <p className="mt-4 text-[14px] leading-relaxed text-white/88 md:text-[15px] md:leading-relaxed">
                   Your expertise deserves an audience. We secure editorial placements
@@ -842,9 +840,7 @@ function ServicesAbout() {
             <article className="ha-lift rounded-[26px] border border-[#b8dfc0] bg-[#d7f0db] p-6 hover:border-[#d9f1d2] hover:bg-[#f6fdf3]">
               <ArrowUpRight className="h-6 w-6 text-[#123d1e]" />
               <h3 className="mt-6 font-heading text-[22px] md:text-[18px] leading-[1.18] font-semibold text-[#13273f] md:mt-8">
-                Performance
-                <br />
-                Marketing
+                Performance Marketing
               </h3>
               <p className="mt-5 text-[14px] leading-relaxed text-[#1a2c48]/85 md:text-[15px] md:leading-relaxed">
                 Visibility without strategy is noise. We run targeted campaigns that put
