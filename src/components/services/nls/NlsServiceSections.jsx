@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { AnimatePresence, motion as Motion } from "motion/react";
 import {
+  AlertTriangle,
   ArrowRight,
   Briefcase,
   Building2,
   Check,
+  CheckCircle2,
+  Minus,
   Scale,
   ShieldCheck,
   Stethoscope,
@@ -44,6 +47,41 @@ const CONTACT_PATH = "/contact";
 
 const NLS_SECTION_SPACING = "pt-16 pb-20 md:pt-20 md:pb-24";
 const NLS_FIRST_SECTION_SPACING = "pt-16 pb-20 md:pt-20 md:pb-24";
+
+const nlsInView = { once: true, amount: 0.12 };
+const nlsEase = [0.22, 1, 0.36, 1];
+
+function NlsReveal({ children, className = "", delay = 0, y = 18 }) {
+  return (
+    <Motion.div
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={nlsInView}
+      transition={{ duration: 0.48, delay, ease: nlsEase }}
+      className={className}
+    >
+      {children}
+    </Motion.div>
+  );
+}
+
+function NlsHoverLift({
+  children,
+  className = "",
+  lift = -5,
+  scale = 1.015,
+  as: Component = Motion.div,
+}) {
+  return (
+    <Component
+      whileHover={{ y: lift, scale }}
+      transition={{ type: "spring", stiffness: 380, damping: 26 }}
+      className={`motion-reduce:transform-none ${className}`}
+    >
+      {children}
+    </Component>
+  );
+}
 
 function NlsWhatWeDontBackground() {
   return (
@@ -173,22 +211,13 @@ function DocSection({ id, title, lead, children, tone = "page", first = false, c
   const headingVariant = tone === "navy" ? "onDark" : "default";
   return (
     <NlsSectionShell id={id} tone={tone} first={first}>
-      <NlsSectionHeading title={title} lead={lead} variant={headingVariant} />
-      {contentClassName ? <div className={contentClassName}>{children}</div> : children}
+      <NlsReveal>
+        <NlsSectionHeading title={title} lead={lead} variant={headingVariant} />
+      </NlsReveal>
+      <NlsReveal delay={0.07} className={contentClassName}>
+        {children}
+      </NlsReveal>
     </NlsSectionShell>
-  );
-}
-
-function NlsScrollTable({ children, caption }) {
-  return (
-    <div className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_12px_40px_-24px_rgba(31,59,100,0.12)]">
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
-          {caption ? <caption className="sr-only">{caption}</caption> : null}
-          {children}
-        </table>
-      </div>
-    </div>
   );
 }
 
@@ -220,27 +249,54 @@ export function NlsServiceHero() {
         aria-hidden
       />
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 text-center lg:px-8 lg:text-left">
-        <h1
+        <Motion.h1
           id="nls-hero-heading"
-          className="font-heading text-[1.65rem] font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl md:text-[2.65rem] lg:text-5xl"
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: nlsEase }}
+          className="w-full max-w-none font-heading text-[1.65rem] font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl md:text-[2.65rem] lg:text-5xl xl:text-[3.25rem] xl:leading-[1.08]"
         >
           <NlsHeroHeadline title={nlsPageHero.title} highlight={nlsPageHero.titleHighlight} />
-        </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-300/90 md:mt-6 md:text-lg lg:mx-0 lg:max-w-3xl">
-          {nlsPageHero.lead}
-        </p>
-        <ConsultationCtas
-          variant="onDark"
-          freeScanLabel={nlsPageHero.freeScanLabel}
-          consultLabel={nlsPageHero.consultLabel}
-          consultHref={CONTACT_PATH}
-          consultLinkProps={externalAnchorProps(CONTACT_PATH)}
-          consultSuffix={
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
-          }
-          wrapperClassName="mt-8 justify-center lg:justify-start"
-        />
-        <p className="mx-auto mt-5 text-sm text-slate-400/90 lg:mx-0">{nlsPageHero.trustLine}</p>
+        </Motion.h1>
+        <div className="mt-5 w-full max-w-none space-y-4 md:mt-7 md:space-y-5">
+          {nlsPageHero.leadParagraphs.map((paragraph, index) => (
+            <Motion.p
+              key={paragraph.slice(0, 48)}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.12 + index * 0.1, ease: nlsEase }}
+              className="w-full max-w-none text-base leading-relaxed text-slate-300/90 md:text-lg md:leading-relaxed lg:text-xl lg:leading-relaxed"
+            >
+              {paragraph}
+            </Motion.p>
+          ))}
+        </div>
+        <Motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.32, ease: nlsEase }}
+          className="mt-8"
+        >
+          <ConsultationCtas
+            variant="onDark"
+            freeScanLabel={nlsPageHero.freeScanLabel}
+            consultLabel={nlsPageHero.consultLabel}
+            consultHref={CONTACT_PATH}
+            consultLinkProps={externalAnchorProps(CONTACT_PATH)}
+            consultSuffix={
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+            }
+            wrapperClassName="justify-center lg:justify-start"
+          />
+        </Motion.div>
+        <Motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.42 }}
+          className="mt-5 w-full max-w-none text-sm text-slate-400/90 md:text-[15px] lg:mx-0"
+        >
+          {nlsPageHero.trustLine}
+        </Motion.p>
       </div>
     </header>
   );
@@ -250,10 +306,17 @@ export function NlsWhatIsSection() {
   return (
     <DocSection id="what-is" title="What Is Negative Link Suppression?" tone="sage" first>
       <div className="space-y-5">
-        {NLS_WHAT_IS_PARAGRAPHS.map((p) => (
-          <p key={p.slice(0, 48)} className="text-base leading-relaxed text-slate-600 md:text-lg">
+        {NLS_WHAT_IS_PARAGRAPHS.map((p, index) => (
+          <Motion.p
+            key={p.slice(0, 48)}
+            initial={{ opacity: 0, x: -12 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={nlsInView}
+            transition={{ duration: 0.45, delay: index * 0.08, ease: nlsEase }}
+            className="text-base leading-relaxed text-slate-600 md:text-lg"
+          >
             {p}
-          </p>
+          </Motion.p>
         ))}
       </div>
     </DocSection>
@@ -271,21 +334,27 @@ export function NlsWhyCostsSection() {
       tone="gradient"
     >
       <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-        {NLS_WHY_COSTS_ROWS.map((r) => {
+        {NLS_WHY_COSTS_ROWS.map((r, index) => {
           const selected = r.id === activeId;
           return (
-            <button
+            <Motion.button
               key={r.id}
               type="button"
               onClick={() => setActiveId(r.id)}
-              className={`rounded-xl border px-4 py-3 text-left transition focus-visible:ring-2 focus-visible:ring-navy/30 ${
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={nlsInView}
+              transition={{ duration: 0.4, delay: index * 0.06, ease: nlsEase }}
+              whileHover={{ y: -3, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className={`rounded-xl border px-4 py-3 text-left transition-colors focus-visible:ring-2 focus-visible:ring-navy/30 ${
                 selected
                   ? "border-navy bg-navy text-white shadow-md"
-                  : "border-navy/12 bg-white text-navy hover:border-[#79df86]/40"
+                  : "border-navy/12 bg-white text-navy hover:border-[#79df86]/40 hover:shadow-md"
               }`}
             >
               <span className="font-heading text-sm font-bold">{r.perspective}</span>
-            </button>
+            </Motion.button>
           );
         })}
       </div>
@@ -295,24 +364,149 @@ export function NlsWhyCostsSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -6 }}
-          className="mt-5 rounded-2xl border border-navy/10 bg-white p-6 shadow-[0_16px_48px_-28px_rgba(15,35,60,0.1)] md:p-8"
+          transition={{ duration: 0.28, ease: nlsEase }}
+          className="mt-5 rounded-2xl border border-navy/10 bg-white p-6 shadow-[0_16px_48px_-28px_rgba(15,35,60,0.1)] transition-shadow duration-300 hover:shadow-[0_20px_52px_-24px_rgba(15,35,60,0.16)] md:p-8"
         >
           <p className="text-xs font-bold uppercase tracking-wide text-navy/45">The real impact</p>
           <p className="mt-3 text-base leading-relaxed text-navy/80 md:text-lg">{row.impact}</p>
         </Motion.div>
       </AnimatePresence>
-      <p className="mt-6 rounded-xl border border-amber-200/80 bg-amber-50/80 px-5 py-4 text-base leading-relaxed text-amber-950/90 md:px-6">
+      <Motion.p
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={nlsInView}
+        transition={{ duration: 0.45, delay: 0.1, ease: nlsEase }}
+        whileHover={{ y: -2 }}
+        className="mt-6 rounded-xl border border-amber-200/80 bg-amber-50/80 px-5 py-4 text-base leading-relaxed text-amber-950/90 transition-[border-color,box-shadow] duration-300 hover:border-amber-300 hover:shadow-[0_12px_32px_-20px_rgba(180,83,9,0.2)] md:px-6"
+      >
         {NLS_WHY_COSTS_CLOSING}
-      </p>
+      </Motion.p>
     </DocSection>
   );
 }
 
-const CATEGORY_STYLES = {
-  risk: "border-rose-200/80 bg-gradient-to-br from-rose-50/90 to-white ring-rose-100/80",
-  neutral: "border-slate-200/90 bg-gradient-to-br from-slate-50 to-white",
-  positive: "border-[#79df86]/40 bg-gradient-to-br from-[#f0faf3] to-white ring-[#4CAF50]/10",
+const SEARCH_RESULT_CATEGORY_CONFIG = {
+  risk: {
+    Icon: AlertTriangle,
+    shell:
+      "border-rose-200/90 bg-white shadow-[0_16px_48px_-28px_rgba(190,18,60,0.12)] ring-rose-100/60",
+    shellHover:
+      "hover:border-rose-300 hover:shadow-[0_28px_60px_-22px_rgba(190,18,60,0.28)] hover:ring-rose-200/80",
+    bar: "from-rose-500 via-rose-400 to-amber-400",
+    iconWrap: "bg-rose-100 text-rose-700 ring-rose-200/80",
+    iconWrapHover: "group-hover/card:scale-110 group-hover/card:bg-rose-200 group-hover/card:shadow-md",
+    listIcon: "text-rose-500",
+    listItemHover: "hover:bg-rose-50/90",
+    actionPanel: "border-rose-200/80 bg-gradient-to-r from-rose-50 to-rose-50/40",
+    actionPanelHover: "group-hover/card:border-rose-300 group-hover/card:from-rose-100/90 group-hover/card:to-rose-50",
+    actionText: "text-rose-950/90",
+  },
+  neutral: {
+    Icon: Minus,
+    shell:
+      "border-slate-200/90 bg-white shadow-[0_16px_48px_-28px_rgba(31,59,100,0.1)]",
+    shellHover:
+      "hover:border-slate-300 hover:shadow-[0_28px_60px_-22px_rgba(31,59,100,0.18)]",
+    bar: "from-slate-400 via-slate-300 to-slate-200",
+    iconWrap: "bg-slate-100 text-slate-600 ring-slate-200/80",
+    iconWrapHover: "group-hover/card:scale-110 group-hover/card:bg-slate-200/90 group-hover/card:shadow-md",
+    listIcon: "text-slate-400",
+    listItemHover: "hover:bg-slate-100/90",
+    actionPanel: "border-slate-200/90 bg-gradient-to-r from-slate-50 to-white",
+    actionPanelHover:
+      "group-hover/card:border-slate-300 group-hover/card:from-slate-100 group-hover/card:to-white",
+    actionText: "text-[#1F3B64]",
+  },
+  positive: {
+    Icon: CheckCircle2,
+    shell:
+      "border-[#79df86]/45 bg-white shadow-[0_16px_48px_-28px_rgba(42,140,62,0.12)] ring-[#4CAF50]/15",
+    shellHover:
+      "hover:border-[#79df86]/70 hover:shadow-[0_28px_60px_-22px_rgba(42,140,62,0.22)] hover:ring-[#4CAF50]/25",
+    bar: "from-[#4CAF50] via-emerald-400 to-[#7df5b9]",
+    iconWrap: "bg-[#e8f7ec] text-[#1a5c38] ring-[#79df86]/40",
+    iconWrapHover:
+      "group-hover/card:scale-110 group-hover/card:bg-[#d4f0dc] group-hover/card:shadow-md",
+    listIcon: "text-[#2a8c3e]",
+    listItemHover: "hover:bg-[#f0faf3]",
+    actionPanel: "border-[#79df86]/35 bg-gradient-to-r from-[#f0faf3] to-[#f4fbf6]",
+    actionPanelHover:
+      "group-hover/card:border-[#79df86]/55 group-hover/card:from-[#e8f7ec] group-hover/card:to-[#f4fbf6]",
+    actionText: "text-[#1a5c38]",
+  },
 };
+
+function splitSearchResultExamples(examples) {
+  return examples.split("; ").map((item) => item.trim()).filter(Boolean);
+}
+
+function capitalizeExampleItem(text) {
+  if (!text) return text;
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+function NlsSearchResultCategoryCard({ category, index }) {
+  const config = SEARCH_RESULT_CATEGORY_CONFIG[category.tone];
+  const Icon = config.Icon;
+  const items = splitSearchResultExamples(category.examples);
+
+  return (
+    <Motion.li
+      className={`group/card flex h-full flex-col overflow-hidden rounded-2xl border transition-[box-shadow,border-color,transform] duration-300 motion-reduce:transition-none motion-reduce:hover:transform-none ${config.shell} ${config.shellHover}`}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.45, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -8, scale: 1.02 }}
+    >
+      <div
+        className={`h-1.5 w-full bg-gradient-to-r transition-all duration-300 group-hover/card:h-2 ${config.bar}`}
+        aria-hidden
+      />
+      <div className="flex flex-1 flex-col p-5 md:p-6">
+        <div className="flex items-center gap-3">
+          <span
+            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ring-1 transition-all duration-300 ${config.iconWrap} ${config.iconWrapHover}`}
+          >
+            <Icon className="h-5 w-5" strokeWidth={2.25} aria-hidden />
+          </span>
+          <div>
+            <h3 className="font-heading text-xl font-bold text-navy transition-colors duration-300 group-hover/card:text-[#0f2e58]">
+              {category.label}
+            </h3>
+            <p className="text-xs font-bold uppercase tracking-wide text-navy/45">Examples</p>
+          </div>
+        </div>
+        <ul className="mt-5 flex-1 space-y-1.5" role="list">
+          {items.map((item) => {
+            const label = capitalizeExampleItem(item);
+            return (
+              <li
+                key={item}
+                className={`flex gap-2.5 rounded-lg px-2 py-2 text-sm leading-snug text-navy/78 transition-colors duration-200 md:text-[15px] md:leading-relaxed ${config.listItemHover}`}
+              >
+                <Icon
+                  className={`mt-0.5 h-4 w-4 shrink-0 transition-transform duration-200 group-hover/card:scale-105 ${config.listIcon}`}
+                  strokeWidth={2.25}
+                  aria-hidden
+                />
+                <span>{label}</span>
+              </li>
+            );
+          })}
+        </ul>
+        <div
+          className={`mt-5 rounded-xl border px-4 py-3.5 transition-all duration-300 ${config.actionPanel} ${config.actionPanelHover}`}
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.1em] text-navy/45">What to do</p>
+          <p className={`mt-1.5 text-sm font-semibold leading-snug md:text-[15px] ${config.actionText}`}>
+            {category.action}
+          </p>
+        </div>
+      </div>
+    </Motion.li>
+  );
+}
 
 export function NlsSearchResultsSection() {
   return (
@@ -322,23 +516,109 @@ export function NlsSearchResultsSection() {
       lead={NLS_SEARCH_RESULTS_INTRO}
       tone="canvas"
     >
-      <ul className="grid list-none gap-4 p-0 lg:grid-cols-3">
-        {NLS_SEARCH_RESULT_CATEGORIES.map((cat) => (
-          <li
-            key={cat.id}
-            className={`flex flex-col rounded-2xl border p-5 shadow-sm md:p-6 ${CATEGORY_STYLES[cat.tone]}`}
-          >
-            <h3 className="font-heading text-lg font-bold text-navy">{cat.label}</h3>
-            <p className="mt-3 text-xs font-bold uppercase tracking-wide text-navy/45">Examples</p>
-            <p className="mt-2 flex-1 text-sm leading-relaxed text-navy/75">{cat.examples}</p>
-            <p className="mt-4 border-t border-navy/8 pt-4 text-sm font-semibold text-[#1a5c38]">
-              {cat.action}
-            </p>
-          </li>
+      <ul className="grid list-none items-stretch gap-5 p-0 md:gap-6 lg:grid-cols-3">
+        {NLS_SEARCH_RESULT_CATEGORIES.map((cat, index) => (
+          <NlsSearchResultCategoryCard key={cat.id} category={cat} index={index} />
         ))}
       </ul>
-      <p className="mt-8 text-base leading-relaxed text-slate-600 md:text-lg">{NLS_SEARCH_RESULTS_CLOSING}</p>
+      <Motion.p
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={nlsInView}
+        transition={{ duration: 0.45, ease: nlsEase }}
+        className="mt-8 text-base leading-relaxed text-slate-600 md:text-lg"
+      >
+        {NLS_SEARCH_RESULTS_CLOSING}
+      </Motion.p>
     </DocSection>
+  );
+}
+
+function NlsRemovalComparisonTable() {
+  const [hoveredRow, setHoveredRow] = useState(null);
+
+  return (
+    <Motion.div
+      className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_12px_40px_-24px_rgba(31,59,100,0.12)] transition-[box-shadow,border-color] duration-300 hover:border-navy/20 hover:shadow-[0_24px_56px_-24px_rgba(31,59,100,0.2)]"
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -3 }}
+    >
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
+          <caption className="sr-only">
+            Comparison of content removal and negative link suppression
+          </caption>
+          <thead>
+            <tr className="border-b border-navy/10 bg-[#f4f7fb]">
+              <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-navy/55 md:px-5" />
+              <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-navy transition-colors duration-200 md:px-5">
+                Content Removal
+              </th>
+              <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-[#1a5c38] transition-colors duration-200 md:px-5">
+                Negative Link Suppression
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {NLS_REMOVAL_VS_SUPPRESSION_ROWS.map((row, i) => {
+              const isHovered = hoveredRow === i;
+              const baseBg = i % 2 === 1 ? "bg-[#fafbfd]/80" : "bg-white";
+              return (
+                <Motion.tr
+                  key={row.aspect}
+                  onMouseEnter={() => setHoveredRow(i)}
+                  onMouseLeave={() => setHoveredRow(null)}
+                  className={`group/row transition-colors duration-300 motion-reduce:transition-none ${
+                    isHovered
+                      ? "bg-gradient-to-r from-[#eef4ff] via-white to-[#f0faf3] shadow-[inset_4px_0_0_0_#1f3b64,inset_-4px_0_0_0_#4CAF50]"
+                      : baseBg
+                  }`}
+                >
+                  <th
+                    className={`px-4 py-3.5 align-top font-heading text-sm font-bold transition-colors duration-300 md:px-5 ${
+                      isHovered ? "text-[#0f2e58]" : "text-navy"
+                    }`}
+                  >
+                    <span className="inline-flex items-center gap-2">
+                      <span
+                        className={`h-2 w-2 shrink-0 rounded-full transition-all duration-300 ${
+                          isHovered
+                            ? "scale-100 bg-[#4CAF50] opacity-100"
+                            : "scale-75 bg-navy/20 opacity-0 group-hover/row:opacity-100"
+                        }`}
+                        aria-hidden
+                      />
+                      {row.aspect}
+                    </span>
+                  </th>
+                  <td
+                    className={`px-4 py-3.5 align-top text-sm leading-relaxed transition-all duration-300 md:px-5 ${
+                      isHovered
+                        ? "bg-[#eef4ff]/90 text-navy/90"
+                        : "text-navy/75 hover:bg-[#f4f7fb]/80"
+                    }`}
+                  >
+                    {row.removal}
+                  </td>
+                  <td
+                    className={`px-4 py-3.5 align-top text-sm leading-relaxed transition-all duration-300 md:px-5 ${
+                      isHovered
+                        ? "bg-[#f0faf3]/95 text-navy/90"
+                        : "text-navy/75 hover:bg-[#f4fbf6]/80"
+                    }`}
+                  >
+                    {row.suppression}
+                  </td>
+                </Motion.tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </Motion.div>
   );
 }
 
@@ -349,40 +629,17 @@ export function NlsRemovalVsSuppressionSection() {
       title="Content Removal vs. Negative Link Suppression: What Is the Difference?"
       tone="blue"
     >
-      <NlsScrollTable caption="Comparison of content removal and negative link suppression">
-        <thead>
-          <tr className="border-b border-navy/10 bg-[#f4f7fb]">
-            <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-navy/55 md:px-5" />
-            <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-navy md:px-5">
-              Content Removal
-            </th>
-            <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-[#1a5c38] md:px-5">
-              Negative Link Suppression
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {NLS_REMOVAL_VS_SUPPRESSION_ROWS.map((row, i) => (
-            <tr
-              key={row.aspect}
-              className={i % 2 === 1 ? "bg-[#fafbfd]/80" : "bg-white"}
-            >
-              <th className="px-4 py-3.5 align-top font-heading text-sm font-bold text-navy md:px-5">
-                {row.aspect}
-              </th>
-              <td className="px-4 py-3.5 align-top text-sm leading-relaxed text-navy/75 md:px-5">
-                {row.removal}
-              </td>
-              <td className="px-4 py-3.5 align-top text-sm leading-relaxed text-navy/75 md:px-5">
-                {row.suppression}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </NlsScrollTable>
-      <blockquote className="mt-8 rounded-2xl border border-amber-200/70 bg-amber-50/90 px-5 py-4 text-base leading-relaxed text-amber-950/90 md:px-6 md:py-5">
+      <NlsRemovalComparisonTable />
+      <Motion.blockquote
+        className="mt-8 rounded-2xl border border-amber-200/70 bg-amber-50/90 px-5 py-4 text-base leading-relaxed text-amber-950/90 transition-[border-color,box-shadow,transform] duration-300 hover:border-amber-300 hover:shadow-[0_12px_32px_-20px_rgba(180,83,9,0.25)] md:px-6 md:py-5"
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.35 }}
+        transition={{ duration: 0.4, delay: 0.08 }}
+        whileHover={{ y: -2 }}
+      >
         {NLS_PUBLISHER_NOTE}
-      </blockquote>
+      </Motion.blockquote>
     </DocSection>
   );
 }
@@ -391,17 +648,99 @@ export function NlsWhenSuppressionSection() {
   return (
     <DocSection id="when-suppression" title="When Is Suppression the Right Approach?" tone="white">
       <ul className="space-y-4">
-        {NLS_WHEN_SUPPRESSION_ROWS.map((row) => (
-          <li
+        {NLS_WHEN_SUPPRESSION_ROWS.map((row, index) => (
+          <Motion.li
             key={row.scenario}
-            className="rounded-2xl border border-navy/10 bg-[#f8fafc] p-5 md:p-6"
+            initial={{ opacity: 0, x: index % 2 === 0 ? -14 : 14 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={nlsInView}
+            transition={{ duration: 0.42, delay: index * 0.07, ease: nlsEase }}
           >
-            <h3 className="font-heading text-base font-bold text-navy md:text-lg">{row.scenario}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-navy/75 md:text-[15px]">{row.why}</p>
-          </li>
+            <NlsHoverLift
+              as={Motion.div}
+              className="rounded-2xl border border-navy/10 bg-[#f8fafc] p-5 transition-[border-color,box-shadow] duration-300 hover:border-[#79df86]/35 hover:bg-white hover:shadow-[0_16px_40px_-24px_rgba(31,59,100,0.12)] md:p-6"
+            >
+              <h3 className="font-heading text-base font-bold text-navy md:text-lg">{row.scenario}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-navy/75 md:text-[15px]">{row.why}</p>
+            </NlsHoverLift>
+          </Motion.li>
         ))}
       </ul>
     </DocSection>
+  );
+}
+
+function NlsFeasibilityTable() {
+  const [hoveredRow, setHoveredRow] = useState(null);
+
+  return (
+    <Motion.div
+      className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_12px_40px_-24px_rgba(31,59,100,0.12)] transition-[box-shadow,border-color] duration-300 hover:border-navy/20 hover:shadow-[0_24px_56px_-24px_rgba(31,59,100,0.2)]"
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={nlsInView}
+      transition={{ duration: 0.45, ease: nlsEase }}
+      whileHover={{ y: -3 }}
+    >
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
+          <caption className="sr-only">Removal and suppression feasibility by content type</caption>
+          <thead>
+            <tr className="border-b border-navy/10 bg-[#f4f7fb]">
+              <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-navy md:px-5">
+                Content Type
+              </th>
+              <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-navy/55 md:px-5">
+                Removal Feasibility
+              </th>
+              <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-[#1a5c38] md:px-5">
+                Suppression Feasibility
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {NLS_FEASIBILITY_ROWS.map((row, i) => {
+              const isHovered = hoveredRow === i;
+              const baseBg = i % 2 === 1 ? "bg-[#fafbfd]/80" : "bg-white";
+              return (
+                <Motion.tr
+                  key={row.contentType}
+                  onMouseEnter={() => setHoveredRow(i)}
+                  onMouseLeave={() => setHoveredRow(null)}
+                  className={`group/row transition-colors duration-300 ${
+                    isHovered
+                      ? "bg-gradient-to-r from-[#eef4ff] via-white to-[#f0faf3] shadow-[inset_4px_0_0_0_#1f3b64,inset_-4px_0_0_0_#4CAF50]"
+                      : baseBg
+                  }`}
+                >
+                  <th
+                    className={`px-4 py-3.5 align-top font-heading text-sm font-bold transition-colors duration-300 md:px-5 ${
+                      isHovered ? "text-[#0f2e58]" : "text-navy"
+                    }`}
+                  >
+                    {row.contentType}
+                  </th>
+                  <td
+                    className={`px-4 py-3.5 align-top text-sm leading-relaxed transition-all duration-300 md:px-5 ${
+                      isHovered ? "bg-[#eef4ff]/90 text-navy/90" : "text-navy/75 hover:bg-[#f4f7fb]/80"
+                    }`}
+                  >
+                    {row.removal}
+                  </td>
+                  <td
+                    className={`px-4 py-3.5 align-top text-sm leading-relaxed transition-all duration-300 md:px-5 ${
+                      isHovered ? "bg-[#f0faf3]/95 text-navy/90" : "text-navy/75 hover:bg-[#f4fbf6]/80"
+                    }`}
+                  >
+                    {row.suppression}
+                  </td>
+                </Motion.tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </Motion.div>
   );
 }
 
@@ -413,37 +752,16 @@ export function NlsFeasibilitySection() {
       lead={NLS_FEASIBILITY_INTRO}
       tone="gradient"
     >
-      <NlsScrollTable caption="Removal and suppression feasibility by content type">
-        <thead>
-          <tr className="border-b border-navy/10 bg-[#f4f7fb]">
-            <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-navy md:px-5">
-              Content Type
-            </th>
-            <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-navy/55 md:px-5">
-              Removal Feasibility
-            </th>
-            <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-[#1a5c38] md:px-5">
-              Suppression Feasibility
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {NLS_FEASIBILITY_ROWS.map((row, i) => (
-            <tr key={row.contentType} className={i % 2 === 1 ? "bg-[#fafbfd]/80" : "bg-white"}>
-              <th className="px-4 py-3.5 align-top font-heading text-sm font-bold text-navy md:px-5">
-                {row.contentType}
-              </th>
-              <td className="px-4 py-3.5 align-top text-sm leading-relaxed text-navy/75 md:px-5">
-                {row.removal}
-              </td>
-              <td className="px-4 py-3.5 align-top text-sm leading-relaxed text-navy/75 md:px-5">
-                {row.suppression}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </NlsScrollTable>
-      <p className="mt-8 text-base leading-relaxed text-slate-600 md:text-lg">{NLS_FEASIBILITY_CLOSING}</p>
+      <NlsFeasibilityTable />
+      <Motion.p
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={nlsInView}
+        transition={{ duration: 0.45, ease: nlsEase }}
+        className="mt-8 text-base leading-relaxed text-slate-600 md:text-lg"
+      >
+        {NLS_FEASIBILITY_CLOSING}
+      </Motion.p>
     </DocSection>
   );
 }
@@ -455,18 +773,36 @@ export function NlsContentTypesSection() {
       title="What Types of Harmful Content Can Be Suppressed?"
       tone="canvas"
     >
-      <p className="mb-6 text-base text-slate-600 md:text-lg">
+      <Motion.p
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={nlsInView}
+        transition={{ duration: 0.4, ease: nlsEase }}
+        className="mb-6 text-base text-slate-600 md:text-lg"
+      >
         Reputation360&apos;s suppression methodology is effective across a broad range of content types:
-      </p>
+      </Motion.p>
       <ul className="grid list-none gap-3 p-0 md:grid-cols-2">
-        {NLS_HARMFUL_CONTENT_TYPES.map((item) => (
-          <li
+        {NLS_HARMFUL_CONTENT_TYPES.map((item, index) => (
+          <Motion.li
             key={item.slice(0, 40)}
-            className="flex gap-3 rounded-xl border border-navy/10 bg-white p-4 shadow-sm"
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={nlsInView}
+            transition={{ duration: 0.4, delay: (index % 4) * 0.05, ease: nlsEase }}
           >
-            <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#2a8c3e]" strokeWidth={2.25} aria-hidden />
-            <span className="text-sm leading-relaxed text-navy/80 md:text-[15px]">{item}</span>
-          </li>
+            <NlsHoverLift
+              as={Motion.div}
+              className="flex h-full gap-3 rounded-xl border border-navy/10 bg-white p-4 shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-[#79df86]/40 hover:shadow-[0_14px_36px_-20px_rgba(31,59,100,0.14)]"
+            >
+              <Check
+                className="mt-0.5 h-5 w-5 shrink-0 text-[#2a8c3e] transition-transform duration-200 group-hover:scale-110"
+                strokeWidth={2.25}
+                aria-hidden
+              />
+              <span className="text-sm leading-relaxed text-navy/80 md:text-[15px]">{item}</span>
+            </NlsHoverLift>
+          </Motion.li>
         ))}
       </ul>
     </DocSection>
@@ -478,21 +814,35 @@ export function NlsProcessSection() {
     <DocSection id="process" title="How Our Suppression Process Works" tone="blue">
       <ol className="relative list-none space-y-0 p-0">
         {NLS_PROCESS_STEPS.map((step, index) => (
-          <li key={step.step} className="relative flex gap-4 pb-8 last:pb-0 md:gap-5">
+          <Motion.li
+            key={step.step}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={nlsInView}
+            transition={{ duration: 0.42, delay: index * 0.06, ease: nlsEase }}
+            className="relative flex gap-4 pb-8 last:pb-0 md:gap-5"
+          >
             {index < NLS_PROCESS_STEPS.length - 1 ? (
               <span
                 className="absolute left-5 top-12 bottom-0 w-px bg-gradient-to-b from-[#4CAF50]/50 to-[#2E5B88]/20"
                 aria-hidden
               />
             ) : null}
-            <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1f3b64] font-heading text-sm font-bold text-white shadow-md">
+            <Motion.span
+              className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1f3b64] font-heading text-sm font-bold text-white shadow-md"
+              whileHover={{ scale: 1.08 }}
+              transition={{ type: "spring", stiffness: 400, damping: 22 }}
+            >
               {step.step}
-            </span>
-            <div className="min-w-0 flex-1 rounded-2xl border border-navy/10 bg-white p-4 shadow-sm md:p-5">
+            </Motion.span>
+            <NlsHoverLift
+              as={Motion.div}
+              className="min-w-0 flex-1 rounded-2xl border border-navy/10 bg-white p-4 shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-[#79df86]/35 hover:shadow-[0_16px_40px_-22px_rgba(31,59,100,0.14)] md:p-5"
+            >
               <h3 className="font-heading text-base font-bold text-navy md:text-lg">{step.phase}</h3>
               <p className="mt-2 text-sm leading-relaxed text-navy/75 md:text-[15px]">{step.body}</p>
-            </div>
-          </li>
+            </NlsHoverLift>
+          </Motion.li>
         ))}
       </ol>
     </DocSection>
@@ -506,16 +856,26 @@ export function NlsTimelineSection() {
 
   return (
     <DocSection id="timeline" title="How Long Does It Take?" tone="gradient" contentClassName="mt-2">
-      <div className="overflow-hidden rounded-2xl border border-navy/12 bg-white shadow-[0_16px_48px_-28px_rgba(31,59,100,0.12)]">
+      <Motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={nlsInView}
+        transition={{ duration: 0.45, ease: nlsEase }}
+        whileHover={{ y: -4 }}
+        className="overflow-hidden rounded-2xl border border-navy/12 bg-white shadow-[0_16px_48px_-28px_rgba(31,59,100,0.12)] transition-[box-shadow,border-color] duration-300 hover:border-navy/20 hover:shadow-[0_24px_56px_-24px_rgba(31,59,100,0.18)]"
+      >
         <div className="grid grid-cols-2 divide-x divide-navy/[0.08] border-b border-navy/10 md:grid-cols-4">
           {NLS_TIMELINE_PHASES.map((p, index) => {
             const selected = active === index;
             return (
-              <button
+              <Motion.button
                 key={p.n}
                 type="button"
                 onClick={() => setActive(index)}
-                className={`px-3 py-4 text-left transition md:px-5 md:py-5 ${
+                onMouseEnter={() => setActive(index)}
+                whileHover={{ backgroundColor: selected ? undefined : "rgba(248,250,252,0.9)" }}
+                whileTap={{ scale: 0.98 }}
+                className={`px-3 py-4 text-left transition-colors duration-200 md:px-5 md:py-5 ${
                   selected ? "bg-[#f2f5ff]" : "bg-white hover:bg-[#f8fafc]"
                 }`}
               >
@@ -530,7 +890,7 @@ export function NlsTimelineSection() {
                   {p.timespan}
                 </span>
                 <span className="mt-1 block text-xs text-navy/60">{p.title}</span>
-              </button>
+              </Motion.button>
             );
           })}
         </div>
@@ -540,6 +900,7 @@ export function NlsTimelineSection() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.28, ease: nlsEase }}
             className="p-6 md:p-8"
           >
             <h3 className="font-heading text-xl font-bold text-navy">
@@ -548,8 +909,16 @@ export function NlsTimelineSection() {
             <p className="mt-3 w-full max-w-none text-base leading-relaxed text-navy/75">{phase.body}</p>
           </Motion.div>
         </AnimatePresence>
-      </div>
-      <p className="mt-6 text-sm leading-relaxed text-navy/70 md:text-base">{NLS_TIMELINE_NOTE}</p>
+      </Motion.div>
+      <Motion.p
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={nlsInView}
+        transition={{ duration: 0.4, ease: nlsEase }}
+        className="mt-6 text-sm leading-relaxed text-navy/70 md:text-base"
+      >
+        {NLS_TIMELINE_NOTE}
+      </Motion.p>
     </DocSection>
   );
 }
@@ -572,18 +941,24 @@ export function NlsWhoWeHelpSection() {
   return (
     <DocSection id="who-we-help" title="Who We Help" tone="navy">
       <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-        {NLS_WHO_WE_HELP.map((w) => {
+        {NLS_WHO_WE_HELP.map((w, index) => {
           const WIcon = WHO_ICONS[w.id] ?? Users;
           const selected = w.id === activeId;
           return (
-            <button
+            <Motion.button
               key={w.id}
               type="button"
               onClick={() => setActiveId(w.id)}
-              className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition ${
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={nlsInView}
+              transition={{ duration: 0.38, delay: index * 0.05, ease: nlsEase }}
+              whileHover={{ y: -3, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-colors duration-200 ${
                 selected
                   ? "border-white/25 bg-white text-navy shadow-lg"
-                  : "border-white/15 bg-white/8 text-white hover:bg-white/12"
+                  : "border-white/15 bg-white/8 text-white hover:border-white/25 hover:bg-white/12"
               }`}
             >
               <span
@@ -594,7 +969,7 @@ export function NlsWhoWeHelpSection() {
                 <WIcon className="h-4 w-4" aria-hidden strokeWidth={2} />
               </span>
               <span className="font-heading text-sm font-bold leading-snug">{w.who}</span>
-            </button>
+            </Motion.button>
           );
         })}
       </div>
@@ -604,7 +979,8 @@ export function NlsWhoWeHelpSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -6 }}
-          className="mt-6 rounded-2xl border border-white/12 bg-white/10 p-6 backdrop-blur-sm md:p-8"
+          transition={{ duration: 0.28, ease: nlsEase }}
+          className="mt-6 rounded-2xl border border-white/12 bg-white/10 p-6 backdrop-blur-sm transition-[border-color,box-shadow] duration-300 hover:border-white/20 hover:bg-white/14 hover:shadow-[0_20px_50px_-24px_rgba(0,0,0,0.35)] md:p-8"
         >
           <div className="flex items-start gap-4">
             <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white">
@@ -634,12 +1010,23 @@ export function NlsWhoWeHelpSection() {
 export function NlsFaqSection() {
   return (
     <NlsSectionShell id="faq" tone="canvas">
-      <NlsSectionHeading title="Frequently Asked Questions" />
+      <NlsReveal>
+        <NlsSectionHeading title="Frequently Asked Questions" />
+      </NlsReveal>
       <div className="space-y-4">
         {NLS_FAQS.map((item, index) => (
-          <FaqAccordion key={item.q} question={item.q} defaultOpen={index === 0}>
-            <p className="text-[15px] leading-relaxed">{item.a}</p>
-          </FaqAccordion>
+          <Motion.div
+            key={item.q}
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={nlsInView}
+            transition={{ duration: 0.4, delay: index * 0.05, ease: nlsEase }}
+            className="transition-transform duration-200 hover:-translate-y-0.5"
+          >
+            <FaqAccordion question={item.q} defaultOpen={index === 0}>
+              <p className="text-[15px] leading-relaxed">{item.a}</p>
+            </FaqAccordion>
+          </Motion.div>
         ))}
       </div>
     </NlsSectionShell>
@@ -649,23 +1036,66 @@ export function NlsFaqSection() {
 export function NlsCtaSection() {
   return (
     <NlsSectionShell id="start" tone="page" className="pb-20 md:pb-24">
-      <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-[#0f2344] via-[#1F3B64] to-[#0a1628] px-6 py-10 text-center text-white shadow-[0_32px_80px_-24px_rgba(7,20,40,0.55)] md:rounded-[3rem] md:px-12 md:py-14">
-        <h2 className="font-heading text-3xl font-extrabold md:text-4xl">{NLS_CTA.title}</h2>
-        <div className="mx-auto mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-white/85 md:text-lg">
-          {NLS_CTA.paragraphs.map((p) => (
-            <p key={p.slice(0, 40)}>{p}</p>
-          ))}
-        </div>
-        <ConsultationCtas
-          variant="onDark"
-          freeScanLabel={NLS_CTA.freeScanLabel}
-          consultLabel={NLS_CTA.consultLabel}
-          consultHref={CONTACT_PATH}
-          consultLinkProps={externalAnchorProps(CONTACT_PATH)}
-          wrapperClassName="mt-8 justify-center"
-        />
-        <p className="mt-5 text-sm text-white/70">{NLS_CTA.trustLine}</p>
-      </div>
+      <Motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={nlsInView}
+        transition={{ duration: 0.55, ease: nlsEase }}
+      >
+        <NlsHoverLift
+          as={Motion.div}
+          lift={-6}
+          scale={1.01}
+          className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-[#0f2344] via-[#1F3B64] to-[#0a1628] px-6 py-10 text-center text-white shadow-[0_32px_80px_-24px_rgba(7,20,40,0.55)] transition-[border-color,box-shadow] duration-300 hover:border-white/20 hover:shadow-[0_40px_96px_-28px_rgba(7,20,40,0.65)] md:rounded-[3rem] md:px-12 md:py-14"
+        >
+          <Motion.h2
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={nlsInView}
+            transition={{ duration: 0.45, delay: 0.08, ease: nlsEase }}
+            className="font-heading text-3xl font-extrabold md:text-4xl"
+          >
+            {NLS_CTA.title}
+          </Motion.h2>
+          <div className="mx-auto mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-white/85 md:text-lg">
+            {NLS_CTA.paragraphs.map((p, index) => (
+              <Motion.p
+                key={p.slice(0, 40)}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={nlsInView}
+                transition={{ duration: 0.4, delay: 0.12 + index * 0.08, ease: nlsEase }}
+              >
+                {p}
+              </Motion.p>
+            ))}
+          </div>
+          <Motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={nlsInView}
+            transition={{ duration: 0.45, delay: 0.28, ease: nlsEase }}
+          >
+            <ConsultationCtas
+              variant="onDark"
+              freeScanLabel={NLS_CTA.freeScanLabel}
+              consultLabel={NLS_CTA.consultLabel}
+              consultHref={CONTACT_PATH}
+              consultLinkProps={externalAnchorProps(CONTACT_PATH)}
+              wrapperClassName="mt-8 justify-center"
+            />
+          </Motion.div>
+          <Motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={nlsInView}
+            transition={{ duration: 0.45, delay: 0.36 }}
+            className="mt-5 text-sm text-white/70"
+          >
+            {NLS_CTA.trustLine}
+          </Motion.p>
+        </NlsHoverLift>
+      </Motion.div>
     </NlsSectionShell>
   );
 }

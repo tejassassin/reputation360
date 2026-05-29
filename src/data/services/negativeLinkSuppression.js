@@ -10,8 +10,10 @@ export const nlsPageMetaDescription =
 export const nlsPageHero = {
   title: "One Damaging Link on Google Should Not Get to Write Your Story.",
   titleHighlight: "Your Story.",
-  lead:
-    "Harmful search results do not fix themselves - but they can be made to effectively disappear. Reputation360's negative link suppression service systematically displaces damaging, misleading, and outdated content from page one of Google, replacing it with a search presence that is accurate, authoritative, and fully under your control.",
+  leadParagraphs: [
+    "Harmful search results do not fix themselves - but they can be made to effectively disappear.",
+    "Reputation360's negative link suppression service systematically displaces damaging, misleading, and outdated content from page one of Google, replacing it with a search presence that is accurate, authoritative, and fully under your control.",
+  ],
   trustLine:
     "Confidential. No obligation. Results across the US, Canada, and Australia.",
   freeScanLabel: "Get Your Free Search Analysis",
