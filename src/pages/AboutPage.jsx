@@ -1361,7 +1361,7 @@ function AboutPage() {
                 variants={heroItem}
                 className={`${headlineFont} text-[1.6rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[2.5rem] lg:leading-[1.08]`}
               >
-                About Reputation360
+                About Reputation360 - Online Reputation Management Experts
               </Motion.h1>
               <Motion.p
                 variants={heroItem}

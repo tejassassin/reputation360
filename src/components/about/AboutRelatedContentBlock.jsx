@@ -69,6 +69,7 @@ export function AboutRelatedContentBlock() {
                 href={link.href}
                 label={link.label}
                 layout="grid"
+                titleTag="h3"
               />
             ))}
           </ul>

@@ -11,9 +11,14 @@ function slugFromCaseStudyHref(href) {
 }
 
 /**
- * @param {{ href: string; label: string; layout?: "carousel" | "grid" }} props
+ * @param {{ href: string; label: string; layout?: "carousel" | "grid"; titleTag?: "h3" | "h4" }} props
  */
-export function SeeItInActionStoryCard({ href, label, layout = "carousel" }) {
+export function SeeItInActionStoryCard({
+  href,
+  label,
+  layout = "carousel",
+  titleTag = "h4",
+}) {
   const slug = slugFromCaseStudyHref(href);
   const study = slug ? getCaseStudyBySlug(slug) : null;
   const teaser =
@@ -23,6 +28,7 @@ export function SeeItInActionStoryCard({ href, label, layout = "carousel" }) {
     layout === "grid"
       ? "w-full"
       : "w-[min(100%,21rem)] sm:w-[21rem] lg:w-full";
+  const Title = titleTag;
 
   return (
     <li className={`list-none ${layout === "carousel" ? "snap-start" : ""}`.trim()}>
@@ -43,9 +49,9 @@ export function SeeItInActionStoryCard({ href, label, layout = "carousel" }) {
           </span>
         </div>
 
-        <h4 className="mt-5 font-heading text-[19px] font-bold leading-snug text-[#0f2e58] group-hover:text-[#163d6e] md:text-[21px] md:leading-[1.25]">
+        <Title className="mt-5 font-heading text-[19px] font-bold leading-snug text-[#0f2e58] group-hover:text-[#163d6e] md:text-[21px] md:leading-[1.25]">
           {label}
-        </h4>
+        </Title>
 
         {teaser ? (
           <p className="mt-3 line-clamp-4 flex-1 text-[15px] leading-[1.65] text-[#4a5d75] md:text-base md:leading-[1.7]">
