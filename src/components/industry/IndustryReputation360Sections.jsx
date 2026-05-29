@@ -221,7 +221,8 @@ export const REPUTATION360_BUSINESS_STEPS = [
 export const REPUTATION360_INDIVIDUAL_STEPS = [
   {
     step: 1,
-    headline: "Step 1 - Personal Reputation Audit (Week 1)",
+    headline: "Step 1 - Personal Reputation Audit",
+    timing: "Week 1",
     body: "We conduct a careful audit of what appears for your name across Google and other search engines - the positive, the neutral, and the damaging. We identify every removal candidate and every suppression priority before recommending a path forward.",
     Icon: Map,
   },
@@ -319,7 +320,8 @@ export const REALISTIC_TIMELINE_DISCLAIMER =
 export const REALISTIC_TIMELINE_INDIVIDUAL_PHASES = [
   {
     id: "personal-audit",
-    window: "Step 1 - Personal Reputation Audit",
+    window: "Personal Reputation Audit",
+    phaseDetailTitleTag: "p",
     body: "We conduct a careful audit of what appears for your name across Google and other search engines - the positive, the neutral, and the damaging. We identify every removal candidate and every suppression priority before recommending a path forward.",
     Icon: Map,
   },
@@ -347,6 +349,24 @@ export const REALISTIC_TIMELINE_INDIVIDUAL_PHASES = [
 function faWhatWeDoStepLabel(headline) {
   const m = headline.match(/^Step\s+\d+\s+-\s*(.+)$/);
   return m ? m[1].trim() : headline;
+}
+
+/** @param {{ headline: string; timing?: string }} step */
+function WhatWeDoStepDetailTitle({ step, titleTag }) {
+  const TitleTag = titleTag === "h3" ? "h3" : "h4";
+  const titleClassName =
+    "mt-1 font-heading text-[15px] font-bold leading-snug text-[#0f2e58] md:text-base";
+
+  return (
+    <TitleTag className={titleClassName}>
+      {step.headline}
+      {step.timing ? (
+        <span className="ml-2 inline-block rounded-full bg-[#eef2f7] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#1f3b64]/70">
+          {step.timing}
+        </span>
+      ) : null}
+    </TitleTag>
+  );
 }
 
 export function IndustryWhatReputation360Section({
@@ -448,15 +468,7 @@ export function IndustryWhatReputation360Section({
               <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#1f3b64]/45">
                 This step
               </p>
-              {stepDetailTitleTag === "h3" ? (
-                <h3 className="mt-1 font-heading text-[15px] font-bold leading-snug text-[#0f2e58] md:text-base">
-                  {item.headline}
-                </h3>
-              ) : (
-                <h4 className="mt-1 font-heading text-[15px] font-bold leading-snug text-[#0f2e58] md:text-base">
-                  {item.headline}
-                </h4>
-              )}
+              <WhatWeDoStepDetailTitle step={item} titleTag={stepDetailTitleTag} />
             </div>
           </div>
           <p className="mt-4 text-[14px] leading-relaxed text-[#3f4f66] md:mt-5 md:text-[15px] md:leading-relaxed">
@@ -483,6 +495,7 @@ export function IndustryRealisticTimelineSection({
   const n = phases.length;
   const phase = phases[active];
   const ActiveIcon = phase.Icon;
+  const activePhaseDetailTitleTag = phase.phaseDetailTitleTag ?? phaseDetailTitleTag;
 
   return (
     <section
@@ -607,7 +620,7 @@ export function IndustryRealisticTimelineSection({
               <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#1f3b64]/45">
                 Selected phase
               </p>
-              {phaseDetailTitleTag === "h3" ? (
+              {activePhaseDetailTitleTag === "h3" ? (
                 <h3 className="mt-1 font-heading text-[18px] font-bold leading-snug text-[#0f2e58] md:text-xl">
                   {phase.window}
                 </h3>
