@@ -15,8 +15,9 @@ export const R360_HOME_BOOT_HTML = `
       <div class="r360-boot-dots" aria-hidden="true"></div>
       <div class="r360-boot-copy-inner">
         <h1>
+          <span>Take control of your</span>
           <span>Online Reputation Management</span>
-          <span>- <span class="r360-boot-accent">On Your Terms</span>, Not Google's</span>
+          <span><span class="r360-boot-accent">on your terms</span>, not Google's</span>
         </h1>
         <p class="r360-boot-sub">Because one negative result can quietly undermine years of credibility.</p>
         <div class="r360-boot-ctas">
