@@ -47,17 +47,6 @@ const NAVY = "#1F3B64";
 const AUTHORITY_ROADMAP_MILESTONES = [
   {
     n: 1,
-    title: "Book a Call",
-    text: "You take the first step by scheduling a free 30-minute consultation at a time that works for you.",
-    green: true,
-    line: { x1: 201, y1: 400, x2: 201, y2: 280 },
-    anchor: { cx: 201, cy: 400 },
-    ring: { cx: 201, cy: 240 },
-    num: { x: 201, y: 252 },
-    fo: { x: 18, y: -10, w: 366, h: 188 },
-  },
-  {
-    n: 2,
     title: "Discovery & Assessment",
     text: "We get on a confidential call to understand your situation - the reputation damage, your goals, and everything we need to know.",
     green: false,
@@ -68,7 +57,7 @@ const AUTHORITY_ROADMAP_MILESTONES = [
     fo: { x: 284, y: 582, w: 386, h: 200 },
   },
   {
-    n: 3,
+    n: 2,
     title: "Digital Audit",
     text: "We conduct a thorough audit of your digital footprint, identifying exactly what needs to be addressed.",
     green: true,
@@ -79,7 +68,7 @@ const AUTHORITY_ROADMAP_MILESTONES = [
     fo: { x: 526, y: 0, w: 386, h: 188 },
   },
   {
-    n: 4,
+    n: 3,
     title: "Tailored Strategy & Proposal",
     text: "We present a clear, personalised plan built around your needs and send a formal proposal for your review.",
     green: false,
@@ -90,7 +79,7 @@ const AUTHORITY_ROADMAP_MILESTONES = [
     fo: { x: 768, y: 652, w: 386, h: 220 },
   },
   {
-    n: 5,
+    n: 4,
     title: "Contract & Onboarding",
     text: "Once you're happy, we sign the contract, gather everything we need, and set the foundation for your campaign.",
     green: true,
@@ -101,7 +90,7 @@ const AUTHORITY_ROADMAP_MILESTONES = [
     fo: { x: 1027, y: -50, w: 386, h: 188 },
   },
   {
-    n: 6,
+    n: 5,
     title: "Ecosystem Build",
     text: "We build or rebuild your digital presence - social media profiles, websites, and your full online ecosystem.",
     green: false,
@@ -112,7 +101,7 @@ const AUTHORITY_ROADMAP_MILESTONES = [
     fo: { x: 1286, y: 482, w: 386, h: 200 },
   },
   {
-    n: 7,
+    n: 6,
     title: "Active Execution & Reporting",
     text: "Your strategy goes live. We execute across all channels, manage your content, and keep you updated with regular progress reports.",
     green: true,
@@ -123,7 +112,7 @@ const AUTHORITY_ROADMAP_MILESTONES = [
     fo: { x: 1509, y: -204, w: 386, h: 192 },
   },
   {
-    n: 8,
+    n: 7,
     title: "Reputation Restored",
     text: "A stronger, cleaner, and more authoritative digital presence - and a client who moves forward with confidence.",
     green: false,
@@ -144,7 +133,7 @@ function ContactAuthorityRoadmap() {
           viewBox="0 -210 2100 1120"
           preserveAspectRatio="xMidYMid meet"
           role="img"
-          aria-label="Eight-step journey roadmap"
+          aria-label="Seven-step journey roadmap"
         >
           <path
             d={AUTHORITY_ROADMAP_PATH_D}
@@ -212,9 +201,9 @@ function ContactAuthorityRoadmap() {
                       m.green ? "justify-end" : "justify-start"
                     }`}
                   >
-                    <h4 className="font-heading text-[17px] font-bold leading-snug text-[#02254d] md:text-[19px]">
+                    <h3 className="font-heading text-[17px] font-bold leading-snug text-[#02254d] md:text-[19px]">
                       {m.title}
-                    </h4>
+                    </h3>
                     <p className="font-heading text-[15px] font-normal leading-relaxed tracking-normal text-[#43474e] md:text-[17px]">
                       {m.text}
                     </p>
