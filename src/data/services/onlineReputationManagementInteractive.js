@@ -15,7 +15,7 @@ export const ORM_INCLUDES_INTRO =
   "Reputation360's ORM service is a comprehensive, tailored strategy. Every campaign is custom-built around your specific situation, goals, and timeline.";
 
 export const ORM_WHY_R360_INTRO =
-  "We are not a generalist digital marketing agency that offers ORM as a checkbox service. It is the only thing we do, and we have been doing it for seven years.";
+  "We are not a generalist digital marketing agency that offers ORM as a checkbox service. It is the only thing we do, and we have been doing it for 7 years.";
 
 export const RANKING_FACTORS_INTRO =
   "Understanding why harmful content ranks is what makes it possible to displace it. The same four factors that put a damaging article at the top of your search results are the exact factors we use to build content that pushes it down.";
@@ -299,7 +299,7 @@ export const WHY_R360_DIFFERENTIATORS = [
   },
   {
     id: "expertise",
-    label: "Seven years of specialized expertise",
+    label: "7 years of specialized expertise",
     body: "ORM requires different skills than standard digital marketing. Our depth of experience in this specific discipline translates to faster, more durable results",
   },
   {

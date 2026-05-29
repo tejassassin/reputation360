@@ -1030,69 +1030,88 @@ const ormInView = { once: true, amount: 0.18 };
 
 export function OrmWhyR360Section() {
   return (
-    <>
-      <OrmSectionShell tone="canvas" className="pb-10 md:pb-12">
-        <OrmSectionHeading title="Why Reputation360?" lead={ORM_WHY_R360_INTRO} />
-      </OrmSectionShell>
+    <section
+      id="why-r360"
+      className={`${ORM_SCROLL_TARGET_CLASS} relative overflow-hidden ${ORM_SECTION_SPACING} text-white`}
+    >
+      <OrmWhatWeDontBackground />
+      <div className="relative mx-auto max-w-7xl px-6">
+        <Motion.div
+          className="mb-12 text-center md:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={ormInView}
+          transition={{ duration: 0.55 }}
+        >
+          <h2 className="font-heading text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.25)] md:text-[2.1rem]">
+            Why Reputation360?
+          </h2>
+          <div
+            className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] shadow-[0_0_24px_rgba(76,175,80,0.2)]"
+            aria-hidden
+          />
+          <p className="mx-auto mt-5 w-full max-w-7xl text-center text-sm leading-relaxed text-slate-100/85 md:mt-6 md:whitespace-nowrap md:text-[15px] lg:text-base">
+            {ORM_WHY_R360_INTRO}
+          </p>
+        </Motion.div>
 
-      <section
-        id="why-r360"
-        className={`${ORM_SCROLL_TARGET_CLASS} relative overflow-hidden ${ORM_SECTION_SPACING} text-white`}
-      >
-        <OrmWhatWeDontBackground />
-        <div className="relative mx-auto max-w-7xl px-6">
+        <div className="border-t border-white/12 pt-12 md:pt-14">
           <Motion.div
-            className="mb-12 text-center md:mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="mb-8 md:mb-10"
+            initial={{ opacity: 0, x: -12 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={ormInView}
-            transition={{ duration: 0.55 }}
+            transition={{ duration: 0.5, delay: 0.04 }}
           >
-            <h3 className="font-heading text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.25)] md:text-[2.1rem]">
-              What Sets Us Apart
-            </h3>
-            <div
-              className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] shadow-[0_0_24px_rgba(76,175,80,0.2)]"
-              aria-hidden
-            />
+            <div className="flex items-stretch gap-4 md:gap-5">
+              <div
+                className="w-1 shrink-0 rounded-full bg-gradient-to-b from-[#4CAF50] via-emerald-300 to-[#2E5B88] shadow-[0_0_16px_rgba(76,175,80,0.35)]"
+                aria-hidden
+              />
+              <h3 className="font-heading text-2xl font-extrabold leading-tight text-white md:text-[1.85rem] lg:text-3xl">
+                What Sets Us Apart
+              </h3>
+            </div>
           </Motion.div>
 
-          <div className="flex flex-wrap justify-center gap-5 md:gap-6">
-            {WHY_R360_DIFFERENTIATORS.map((d, i) => {
+          <div className="rounded-[1.75rem] border border-white/10 bg-[#0a1628]/40 p-4 shadow-inner shadow-black/20 backdrop-blur-sm md:p-6 lg:p-8">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-5">
+          {WHY_R360_DIFFERENTIATORS.map((d, i) => {
               const Icon = WHY_R360_ICON_BY_ID[d.id] ?? Zap;
-              return (
+            return (
+              <Motion.div
+                key={d.id}
+                className="w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] lg:max-w-sm"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={ormInView}
+                transition={{ duration: 0.45, delay: i * 0.05 }}
+              >
                 <Motion.div
-                  key={d.id}
-                  className="w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] lg:max-w-sm"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={ormInView}
-                  transition={{ duration: 0.45, delay: i * 0.05 }}
+                  whileHover={{ y: -4, scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 380, damping: 26 }}
+                  className="group h-full rounded-2xl border border-white/18 bg-gradient-to-b from-white/[0.1] to-white/[0.04] p-8 text-center shadow-[0_8px_40px_-12px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-colors duration-300 hover:border-[#4CAF50]/40 hover:from-white/[0.14] hover:to-white/[0.06] hover:shadow-[0_16px_50px_-14px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.1)] md:p-9"
                 >
-                  <Motion.div
-                    whileHover={{ y: -4, scale: 1.01 }}
-                    transition={{ type: "spring", stiffness: 380, damping: 26 }}
-                    className="group h-full rounded-2xl border border-white/18 bg-gradient-to-b from-white/[0.1] to-white/[0.04] p-8 text-center shadow-[0_8px_40px_-12px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-colors duration-300 hover:border-[#4CAF50]/40 hover:from-white/[0.14] hover:to-white/[0.06] hover:shadow-[0_16px_50px_-14px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.1)] md:p-9"
-                  >
-                    <div className="mb-5 flex flex-col items-center gap-3">
-                      <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/20 bg-[#0f1c2c]/85 text-[#86efac] shadow-inner shadow-black/20 ring-1 ring-[#2E5B88]/40 transition-colors duration-300 group-hover:border-[#4CAF50]/35 group-hover:text-emerald-200">
-                        <Icon className="h-6 w-6" strokeWidth={2} aria-hidden />
-                      </div>
-                      <h4 className="font-heading text-base font-extrabold leading-snug text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] md:text-lg">
-                        {d.label}
-                      </h4>
+                  <div className="mb-5 flex flex-col items-center gap-3">
+                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/20 bg-[#0f1c2c]/85 text-[#86efac] shadow-inner shadow-black/20 ring-1 ring-[#2E5B88]/40 transition-colors duration-300 group-hover:border-[#4CAF50]/35 group-hover:text-emerald-200">
+                      <Icon className="h-6 w-6" strokeWidth={2} aria-hidden />
                     </div>
-                    <p className="text-sm leading-relaxed text-slate-100/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.15)] md:text-[15px]">
-                      {d.body}
-                    </p>
-                  </Motion.div>
+                    <h4 className="font-heading text-base font-extrabold leading-snug text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] md:text-lg">
+                      {d.label}
+                    </h4>
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-100/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.15)] md:text-[15px]">
+                    {d.body}
+                  </p>
                 </Motion.div>
-              );
-            })}
+              </Motion.div>
+            );
+          })}
+            </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 
