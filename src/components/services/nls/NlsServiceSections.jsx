@@ -5,12 +5,19 @@ import {
   ArrowRight,
   Briefcase,
   Building2,
-  Check,
+  Camera,
   CheckCircle2,
+  Clock,
+  Database,
+  MessageSquareWarning,
   Minus,
+  Newspaper,
   Scale,
+  Share2,
   ShieldCheck,
+  Star,
   Stethoscope,
+  Target,
   User,
   Users,
 } from "lucide-react";
@@ -610,7 +617,7 @@ function NlsRemovalComparisonTable() {
       <div className="overflow-x-auto">
         <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
           <caption className="sr-only">
-            Comparison of content removal and negative link suppression
+            Comparison of content removal and Negative Link Suppression
           </caption>
           <thead>
             <tr className="border-b border-navy/10 bg-[#f4f7fb]">
@@ -705,28 +712,107 @@ export function NlsRemovalVsSuppressionSection() {
   );
 }
 
+function nlsWhenSuppressionShortLabel(scenario) {
+  if (scenario.startsWith("The content is accurate")) return "Outdated but accurate";
+  if (scenario.startsWith("Removal")) return "Removal failed";
+  if (scenario.startsWith("You are facing")) return "Ongoing attacks";
+  if (scenario.startsWith("The content is old")) return "Stale content";
+  if (scenario.startsWith("You are anticipating")) return "Proactive defense";
+  return scenario.split(" ").slice(0, 3).join(" ");
+}
+
 export function NlsWhenSuppressionSection() {
+  const [active, setActive] = useState(0);
+  const row = NLS_WHEN_SUPPRESSION_ROWS[active] ?? NLS_WHEN_SUPPRESSION_ROWS[0];
+  const panelId = "nls-when-suppression-panel";
+
+  const onTabListKeyDown = (event) => {
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      event.preventDefault();
+      setActive((i) => Math.min(i + 1, NLS_WHEN_SUPPRESSION_ROWS.length - 1));
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      event.preventDefault();
+      setActive((i) => Math.max(i - 1, 0));
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      setActive(0);
+    } else if (event.key === "End") {
+      event.preventDefault();
+      setActive(NLS_WHEN_SUPPRESSION_ROWS.length - 1);
+    }
+  };
+
   return (
-    <DocSection id="when-suppression" title="When Is Suppression the Right Approach?" tone="sage">
-      <ul className="space-y-4">
-        {NLS_WHEN_SUPPRESSION_ROWS.map((row, index) => (
-          <Motion.li
-            key={row.scenario}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -14 : 14 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={nlsInView}
-            transition={{ duration: 0.42, delay: index * 0.07, ease: nlsEase }}
-          >
-            <NlsHoverLift
-              as={Motion.div}
-              className="rounded-2xl border border-navy/10 bg-white p-5 shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-[#79df86]/35 hover:shadow-[0_16px_40px_-24px_rgba(31,59,100,0.12)] md:p-6"
+    <DocSection id="when-suppression" title="When Is Negative Link Suppression the Right Approach?" tone="sage">
+      <Motion.div
+        initial={{ opacity: 0, y: 14 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={nlsInView}
+        transition={{ duration: 0.45, ease: nlsEase }}
+        className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_16px_48px_-28px_rgba(31,59,100,0.12)]"
+      >
+        <div
+          className="border-b border-navy/10 p-3 md:p-4"
+          role="tablist"
+          aria-label="When suppression is the right approach"
+          onKeyDown={onTabListKeyDown}
+        >
+          <ul className="m-0 flex list-none gap-2 overflow-x-auto p-0 [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-wrap sm:overflow-visible [&::-webkit-scrollbar]:hidden">
+            {NLS_WHEN_SUPPRESSION_ROWS.map((item, index) => {
+              const selected = active === index;
+              const shortLabel = nlsWhenSuppressionShortLabel(item.scenario);
+              return (
+                <li key={item.scenario} className="shrink-0 sm:shrink">
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={selected}
+                    id={`nls-when-tab-${index}`}
+                    aria-controls={panelId}
+                    tabIndex={selected ? 0 : -1}
+                    onClick={() => setActive(index)}
+                    onMouseEnter={() => setActive(index)}
+                    className={`rounded-xl border px-3.5 py-2.5 text-left outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-navy/30 sm:px-4 sm:py-3 ${
+                      selected
+                        ? "border-navy bg-navy text-white shadow-md"
+                        : "border-navy/12 bg-[#f8fafc] text-navy hover:border-[#79df86]/40 hover:bg-white hover:shadow-sm"
+                    }`}
+                  >
+                    <span className="block font-heading text-xs font-bold leading-snug sm:text-sm">
+                      {shortLabel}
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        <div
+          id={panelId}
+          role="tabpanel"
+          aria-labelledby={`nls-when-tab-${active}`}
+          className="p-5 md:p-7"
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            <Motion.div
+              key={row.scenario}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.24, ease: nlsEase }}
             >
-              <h3 className="font-heading text-base font-bold text-navy md:text-lg">{row.scenario}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy/75 md:text-[15px]">{row.why}</p>
-            </NlsHoverLift>
-          </Motion.li>
-        ))}
-      </ul>
+              <p className="text-xs font-bold uppercase tracking-wide text-navy/45">
+                Scenario {String(active + 1).padStart(2, "0")} of {String(NLS_WHEN_SUPPRESSION_ROWS.length).padStart(2, "0")}
+              </p>
+              <h3 className="mt-2 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
+                {row.scenario}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-navy/75 md:text-base">{row.why}</p>
+            </Motion.div>
+          </AnimatePresence>
+        </div>
+      </Motion.div>
     </DocSection>
   );
 }
@@ -755,7 +841,7 @@ function NlsFeasibilityTable() {
                 Removal Feasibility
               </th>
               <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-[#1a5c38] md:px-5">
-                Suppression Feasibility
+                Negative Link Suppression Feasibility
               </th>
             </tr>
           </thead>
@@ -809,7 +895,7 @@ export function NlsFeasibilitySection() {
   return (
     <DocSection
       id="feasibility"
-      title="Not All Negative Content Is the Same: Removal and Suppression Feasibility"
+      title="Not All Negative Content Is the Same: Removal and Negative Link Suppression Feasibility"
       lead={NLS_FEASIBILITY_INTRO}
       tone="gradient"
       titleOneLine
@@ -828,7 +914,51 @@ export function NlsFeasibilitySection() {
   );
 }
 
+const HARMFUL_CONTENT_ICONS = [
+  Newspaper,
+  MessageSquareWarning,
+  Star,
+  Camera,
+  Clock,
+  Share2,
+  Target,
+  Database,
+  Scale,
+];
+
+function parseHarmfulContentType(item) {
+  const dash = item.indexOf(" - ");
+  if (dash === -1) return { title: item, description: "" };
+  return {
+    title: item.slice(0, dash),
+    description: item.slice(dash + 3),
+  };
+}
+
+const NLS_HARMFUL_CONTENT_PARSED = NLS_HARMFUL_CONTENT_TYPES.map(parseHarmfulContentType);
+
 export function NlsContentTypesSection() {
+  const [active, setActive] = useState(0);
+  const entry = NLS_HARMFUL_CONTENT_PARSED[active] ?? NLS_HARMFUL_CONTENT_PARSED[0];
+  const Icon = HARMFUL_CONTENT_ICONS[active] ?? Newspaper;
+  const panelId = "nls-content-types-panel";
+
+  const onTabListKeyDown = (event) => {
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      event.preventDefault();
+      setActive((i) => Math.min(i + 1, NLS_HARMFUL_CONTENT_PARSED.length - 1));
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      event.preventDefault();
+      setActive((i) => Math.max(i - 1, 0));
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      setActive(0);
+    } else if (event.key === "End") {
+      event.preventDefault();
+      setActive(NLS_HARMFUL_CONTENT_PARSED.length - 1);
+    }
+  };
+
   return (
     <DocSection
       id="content-types"
@@ -840,33 +970,98 @@ export function NlsContentTypesSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={nlsInView}
         transition={{ duration: 0.4, ease: nlsEase }}
-        className="mb-6 text-base text-slate-600 md:text-lg"
+        className="mb-5 text-base text-slate-600 md:mb-6 md:text-lg"
       >
-        Reputation360&apos;s suppression methodology is effective across a broad range of content types:
+        Reputation360&apos;s Negative Link Suppression methodology is effective across a broad range of content types:
       </Motion.p>
-      <ul className="grid list-none gap-3 p-0 md:grid-cols-2">
-        {NLS_HARMFUL_CONTENT_TYPES.map((item, index) => (
-          <Motion.li
-            key={item.slice(0, 40)}
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={nlsInView}
-            transition={{ duration: 0.4, delay: (index % 4) * 0.05, ease: nlsEase }}
-          >
-            <NlsHoverLift
-              as={Motion.div}
-              className="flex h-full gap-3 rounded-xl border border-navy/10 bg-white p-4 shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-[#79df86]/40 hover:shadow-[0_14px_36px_-20px_rgba(31,59,100,0.14)]"
+
+      <Motion.div
+        initial={{ opacity: 0, y: 14 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={nlsInView}
+        transition={{ duration: 0.45, ease: nlsEase }}
+        className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_16px_48px_-28px_rgba(31,59,100,0.12)]"
+      >
+        <div
+          className="border-b border-navy/10 p-3 md:p-4"
+          role="tablist"
+          aria-label="Harmful content types we suppress"
+          onKeyDown={onTabListKeyDown}
+        >
+          <ul className="m-0 grid list-none grid-cols-2 gap-2.5 p-0 sm:grid-cols-3 sm:gap-3">
+            {NLS_HARMFUL_CONTENT_PARSED.map((item, index) => {
+              const selected = active === index;
+              const TabIcon = HARMFUL_CONTENT_ICONS[index] ?? Newspaper;
+              return (
+                <li key={item.title}>
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={selected}
+                    id={`nls-content-tab-${index}`}
+                    aria-controls={panelId}
+                    tabIndex={selected ? 0 : -1}
+                    onClick={() => setActive(index)}
+                    onMouseEnter={() => setActive(index)}
+                    className={`flex min-h-[4.75rem] w-full items-center gap-3 rounded-xl border px-3.5 py-3.5 text-left outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-navy/30 sm:min-h-[5.25rem] sm:gap-3.5 sm:px-4 sm:py-4 ${
+                      selected
+                        ? "border-navy bg-navy text-white shadow-md"
+                        : "border-navy/10 bg-[#f8fafc] text-navy hover:border-[#79df86]/40 hover:bg-white hover:shadow-sm"
+                    }`}
+                  >
+                    <span
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors sm:h-12 sm:w-12 ${
+                        selected ? "bg-white/15 text-[#7df5b9]" : "bg-[#e8f7ec] text-[#1a5c38]"
+                      }`}
+                    >
+                      <TabIcon className="h-5 w-5 sm:h-[1.375rem] sm:w-[1.375rem]" aria-hidden strokeWidth={2.25} />
+                    </span>
+                    <span
+                      className={`line-clamp-2 min-w-0 flex-1 font-heading text-sm font-bold leading-snug sm:text-[15px] md:text-base ${
+                        selected ? "text-white" : "text-navy"
+                      }`}
+                    >
+                      {item.title}
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        <div
+          id={panelId}
+          role="tabpanel"
+          aria-labelledby={`nls-content-tab-${active}`}
+          className="p-5 md:p-7"
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            <Motion.div
+              key={entry.title}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.24, ease: nlsEase }}
+              className="flex gap-4 sm:gap-5"
             >
-              <Check
-                className="mt-0.5 h-5 w-5 shrink-0 text-[#2a8c3e] transition-transform duration-200 group-hover:scale-110"
-                strokeWidth={2.25}
-                aria-hidden
-              />
-              <span className="text-sm leading-relaxed text-navy/80 md:text-[15px]">{item}</span>
-            </NlsHoverLift>
-          </Motion.li>
-        ))}
-      </ul>
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e8f7ec] text-[#1a5c38] ring-1 ring-[#79df86]/30 sm:h-14 sm:w-14">
+                <Icon className="h-6 w-6 sm:h-7 sm:w-7" aria-hidden strokeWidth={2} />
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="text-xs font-bold uppercase tracking-wide text-navy/45">
+                  Content type {String(active + 1).padStart(2, "0")} of{" "}
+                  {String(NLS_HARMFUL_CONTENT_PARSED.length).padStart(2, "0")}
+                </p>
+                <h3 className="mt-2 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
+                  {entry.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-navy/75 md:text-base">{entry.description}</p>
+              </div>
+            </Motion.div>
+          </AnimatePresence>
+        </div>
+      </Motion.div>
     </DocSection>
   );
 }
@@ -875,7 +1070,7 @@ export function NlsProcessSection() {
   const { active, itemRefs } = useScrollActiveStep(NLS_PROCESS_STEPS.length);
 
   return (
-    <DocSection id="process" title="How Our Suppression Process Works" tone="blue">
+    <DocSection id="process" title="How Our Negative Link Suppression Process Works" tone="blue">
       <ol className="relative list-none space-y-0 p-0">
         {NLS_PROCESS_STEPS.map((step, index) => {
           const isActive = index === active;
@@ -1067,74 +1262,144 @@ const WHO_ICONS = {
 
 export function NlsWhoWeHelpSection() {
   const [activeId, setActiveId] = useState(NLS_WHO_WE_HELP[0].id);
-  const entry = NLS_WHO_WE_HELP.find((w) => w.id === activeId) ?? NLS_WHO_WE_HELP[0];
+  const activeIndex = NLS_WHO_WE_HELP.findIndex((w) => w.id === activeId);
+  const entry = NLS_WHO_WE_HELP[activeIndex] ?? NLS_WHO_WE_HELP[0];
   const Icon = WHO_ICONS[entry.id] ?? Users;
+  const panelId = `nls-who-panel-${entry.id}`;
+
+  const onTabListKeyDown = (event) => {
+    const index = activeIndex < 0 ? 0 : activeIndex;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      event.preventDefault();
+      const next = NLS_WHO_WE_HELP[Math.min(index + 1, NLS_WHO_WE_HELP.length - 1)];
+      if (next) setActiveId(next.id);
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      event.preventDefault();
+      const prev = NLS_WHO_WE_HELP[Math.max(index - 1, 0)];
+      if (prev) setActiveId(prev.id);
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      setActiveId(NLS_WHO_WE_HELP[0].id);
+    } else if (event.key === "End") {
+      event.preventDefault();
+      setActiveId(NLS_WHO_WE_HELP[NLS_WHO_WE_HELP.length - 1].id);
+    }
+  };
 
   return (
     <DocSection id="who-we-help" title="Who We Help" tone="navy">
-      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-        {NLS_WHO_WE_HELP.map((w, index) => {
-          const WIcon = WHO_ICONS[w.id] ?? Users;
-          const selected = w.id === activeId;
-          return (
-            <Motion.button
-              key={w.id}
-              type="button"
-              onClick={() => setActiveId(w.id)}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={nlsInView}
-              transition={{ duration: 0.38, delay: index * 0.05, ease: nlsEase }}
-              whileHover={{ y: -3, scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left transition-colors duration-200 ${
-                selected
-                  ? "border-white/25 bg-white text-navy shadow-lg"
-                  : "border-white/15 bg-white/8 text-white hover:border-white/25 hover:bg-white/12"
-              }`}
-            >
-              <span
-                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${
-                  selected ? "bg-[#1f3b64] text-white" : "bg-white/12 text-[#7df5b9]"
-                }`}
-              >
-                <WIcon className="h-4 w-4" aria-hidden strokeWidth={2} />
+      <div
+        id={panelId}
+        role="tabpanel"
+        aria-labelledby={`nls-who-tab-${entry.id}`}
+        className="relative overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-br from-white/14 via-white/8 to-white/4 p-6 shadow-[0_24px_60px_-28px_rgba(0,0,0,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md md:p-8 lg:p-10"
+      >
+        <div
+          className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#4CAF50]/15 blur-3xl"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute bottom-0 left-1/4 h-40 w-40 rounded-full bg-[#2E5B88]/30 blur-3xl"
+          aria-hidden
+        />
+        <AnimatePresence mode="wait" initial={false}>
+          <Motion.div
+            key={entry.id}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: nlsEase }}
+            className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10"
+          >
+            <div className="flex shrink-0 flex-col items-center gap-4 lg:w-[11.5rem]">
+              <span className="flex h-20 w-20 items-center justify-center rounded-[1.35rem] bg-[#1f3b64] text-[#7df5b9] shadow-[0_16px_40px_-12px_rgba(0,0,0,0.45)] ring-2 ring-white/15 lg:h-24 lg:w-24">
+                <Icon className="h-9 w-9 lg:h-10 lg:w-10" aria-hidden strokeWidth={2} />
               </span>
-              <span className="font-heading text-sm font-bold leading-snug">{w.who}</span>
-            </Motion.button>
-          );
-        })}
-      </div>
-      <AnimatePresence mode="wait" initial={false}>
-        <Motion.div
-          key={entry.id}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -6 }}
-          transition={{ duration: 0.28, ease: nlsEase }}
-          className="mt-6 rounded-2xl border border-white/12 bg-white/10 p-6 backdrop-blur-sm transition-[border-color,box-shadow] duration-300 hover:border-white/20 hover:bg-white/14 hover:shadow-[0_20px_50px_-24px_rgba(0,0,0,0.35)] md:p-8"
-        >
-          <div className="flex items-start gap-4">
-            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white">
-              <Icon className="h-6 w-6" aria-hidden strokeWidth={2} />
-            </span>
-            <div>
-              <h3 className="font-heading text-xl font-bold text-white">{entry.who}</h3>
-              <p className="mt-3 text-base leading-relaxed text-slate-100/90">{entry.why}</p>
+              <div className="flex gap-1.5" aria-hidden>
+                {NLS_WHO_WE_HELP.map((w) => (
+                  <span
+                    key={w.id}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      w.id === activeId ? "w-6 bg-[#7df5b9]" : "w-1.5 bg-white/25"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="min-w-0 flex-1 text-center lg:text-left">
+              <h3 className="font-heading text-2xl font-bold leading-tight text-white md:text-3xl">
+                {entry.who}
+              </h3>
+              <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-100/90 md:text-lg lg:mx-0">
+                {entry.why}
+              </p>
               {entry.href ? (
                 <a
                   href={entry.href}
                   {...externalAnchorProps(entry.href)}
-                  className="mt-4 inline-flex items-center gap-1.5 font-heading text-sm font-bold text-[#7df5b9] hover:underline"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#7df5b9] px-6 py-3 font-heading text-sm font-bold text-[#0f2344] shadow-[0_8px_24px_-8px_rgba(125,245,185,0.55)] transition hover:bg-[#9ef9c9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7df5b9]"
                 >
                   Learn more
                   <ArrowRight className="h-4 w-4" aria-hidden />
                 </a>
               ) : null}
             </div>
-          </div>
-        </Motion.div>
-      </AnimatePresence>
+          </Motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div
+        className="mt-5"
+        role="tablist"
+        aria-label="Who we help"
+        onKeyDown={onTabListKeyDown}
+      >
+        <ul className="m-0 flex list-none flex-wrap justify-center gap-3 p-0 lg:gap-4">
+          {NLS_WHO_WE_HELP.map((w) => {
+            const WIcon = WHO_ICONS[w.id] ?? Users;
+            const selected = w.id === activeId;
+            return (
+              <li
+                key={w.id}
+                className="w-[calc(50%-0.375rem)] min-w-[9.5rem] max-w-[14.5rem] sm:w-[calc(33.333%-0.5rem)] sm:max-w-[15rem] lg:w-[calc(25%-0.75rem)] lg:max-w-[16rem]"
+              >
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={selected}
+                  id={`nls-who-tab-${w.id}`}
+                  aria-controls={panelId}
+                  tabIndex={selected ? 0 : -1}
+                  onClick={() => setActiveId(w.id)}
+                  onMouseEnter={() => setActiveId(w.id)}
+                  className={`group flex h-full w-full flex-col items-center gap-3 rounded-2xl border px-3 py-4 text-center outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#7df5b9]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2f4d] sm:px-4 sm:py-5 ${
+                    selected
+                      ? "border-[#7df5b9]/50 bg-white text-navy shadow-[0_16px_40px_-20px_rgba(0,0,0,0.4)]"
+                      : "border-white/15 bg-white/[0.07] text-white hover:border-white/28 hover:bg-white/12"
+                  }`}
+                >
+                  <span
+                    className={`flex h-12 w-12 items-center justify-center rounded-xl transition-colors ${
+                      selected
+                        ? "bg-[#1f3b64] text-[#7df5b9]"
+                        : "bg-white/10 text-[#7df5b9] group-hover:bg-white/14"
+                    }`}
+                  >
+                    <WIcon className="h-5 w-5" aria-hidden strokeWidth={2.25} />
+                  </span>
+                  <span
+                    className={`line-clamp-3 font-heading text-sm font-bold leading-snug sm:text-[15px] ${
+                      selected ? "text-navy" : "text-white"
+                    }`}
+                  >
+                    {w.who}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </DocSection>
   );
 }

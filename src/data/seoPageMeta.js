@@ -16,13 +16,13 @@ export const SEO = {
     title: "ORM & Negative Link Suppression Services | Reputation360",
     path: "/services",
     description:
-      "From negative link suppression to review management, Reputation360 builds a custom plan matched to your exact situation. See how we can help.",
+      "From Negative Link Suppression to review management, Reputation360 builds a custom plan matched to your exact situation. See how we can help.",
   },
   onlineReputationManagement: {
     title: "Online Reputation Management Services | Reputation360",
     path: "/services/online-reputation-management",
     description:
-      "Take control of what people find when they search your name. Reputation360 delivers proven online reputation management for executives, founders, and brands across the US, Canada, and Australia. Book a free consultation.",
+      "Take control of what people find when they search your name. Reputation360 delivers proven Online Reputation Management for executives, founders, and brands across the US, Canada, and Australia. Book a free consultation.",
   },
   negativeLinkSuppression: {
     title: "Negative Link Suppression Services | Reputation360",
@@ -46,7 +46,7 @@ export const SEO = {
     title: "ORM Insights & Reputation Management Advice | Reputation360",
     path: "/blog",
     description:
-      "Expert articles on negative link suppression, crisis management, and long-term reputation strategy - written by ORM practitioners with 7+ years of experience.",
+      "Expert articles on Negative Link Suppression, crisis management, and long-term reputation strategy - written by ORM practitioners with 7+ years of experience.",
   },
   faqs: {
     title: "FAQs | Online Reputation Management Questions Answered",

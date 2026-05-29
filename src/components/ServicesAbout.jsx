@@ -251,7 +251,7 @@ function FlagshipSuppressionSection() {
       </div>
 
       <h2 className="mt-6 max-w-4xl font-heading text-3xl font-bold leading-[1.12] tracking-tight text-navy md:text-4xl lg:text-[2.35rem]">
-        Negative Online Reputation Management & link suppression
+        Online Reputation Management & Negative Link Suppression
       </h2>
       <p className="mt-5 max-w-3xl text-base leading-relaxed text-navy/75 md:text-lg">
         Our primary service. We audit everything search engines surface about you,

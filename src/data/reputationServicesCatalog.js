@@ -17,7 +17,7 @@ export const reputationServicesCatalog = [
   },
   {
     id: "negative-link-suppression",
-    navLabel: "Negative link suppression",
+    navLabel: "Negative Link Suppression",
     title: "Negative Link Suppression",
     href: NEGATIVE_LINK_SUPPRESSION_PATH,
     description:

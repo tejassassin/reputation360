@@ -295,7 +295,7 @@ function OrmHeroHeadline({ title, subline }) {
   return (
     <>
       {title.slice(0, idx)}
-      <span className="text-[#7df5b9]">{pageOne}</span>
+      <span className="text-[#3d9a52]">{pageOne}</span>
       {title.slice(idx + pageOne.length)}
       {subline ? (
         <>
@@ -311,41 +311,32 @@ export function OrmServiceHero() {
   return (
     <header
       id="orm-hero"
-      className="relative flex min-h-[min(520px,calc(100vh-10.5rem))] flex-col overflow-hidden bg-[#050a18] pb-10 pt-28 text-white md:min-h-[min(580px,calc(100vh-11rem))] md:pb-14 md:pt-32"
+      className="relative overflow-hidden border-b border-slate-200/70 bg-white pb-12 pt-28 md:pb-16 md:pt-32"
       aria-labelledby="orm-hero-heading"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_20%_-10%,rgba(76,175,80,0.18),transparent_50%),radial-gradient(ellipse_70%_50%_at_100%_0%,rgba(31,59,100,0.45),transparent_48%),linear-gradient(165deg,#050a18_0%,#1F3B64_38%,#0a1628_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_-15%,rgba(76,175,80,0.07),transparent_52%),linear-gradient(180deg,#f8fafc_0%,#ffffff_55%)]"
         aria-hidden
       />
-      <Motion.div
-        className="pointer-events-none absolute -left-24 top-32 h-80 w-80 rounded-full bg-[#4CAF50]/22 blur-[100px]"
-        aria-hidden
-        animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
-        transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-      />
-      <Motion.div
-        className="pointer-events-none absolute -right-20 bottom-32 h-72 w-72 rounded-full bg-[#2E5B88]/28 blur-[90px]"
-        aria-hidden
-        animate={{ x: [0, -24, 0], y: [0, -16, 0] }}
-        transition={{ duration: 16, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:48px_48px]"
-        aria-hidden
-      />
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 text-center lg:px-8 lg:text-left">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 text-center lg:px-8 lg:text-left">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#4CAF50]">
+          Online Reputation Management
+        </p>
         <h1
           id="orm-hero-heading"
-          className="font-heading text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-[2.75rem] lg:text-5xl xl:text-[3.25rem] xl:leading-[1.08]"
+          className="font-heading text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-[#1F3B64] sm:text-4xl md:text-[2.75rem] lg:text-5xl xl:text-[3.25rem] xl:leading-[1.08]"
         >
           <OrmHeroHeadline title={ormPageHero.title} subline={ormPageHero.titleSubline} />
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-300/90 md:mt-6 md:text-lg lg:mx-0 lg:max-w-none lg:mt-7">
+        <div
+          className="mx-auto mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] lg:mx-0"
+          aria-hidden
+        />
+        <p className="mt-5 w-full max-w-none text-pretty text-base leading-relaxed text-slate-600 md:mt-6 md:text-lg md:leading-relaxed lg:text-xl lg:leading-relaxed">
           {ormPageHero.lead}
         </p>
         <ConsultationCtas
-          variant="onDark"
+          variant="onLight"
           freeScanLabel="Book Your Free Reputation Audit"
           consultLabel="Speak to an Expert"
           consultHref={CONTACT_PATH}
@@ -389,7 +380,7 @@ export function OrmWhatIsSection() {
             {ORM_WHAT_IS_CALLOUT}
           </blockquote>
         </div>
-        <div className="relative mx-auto w-full min-w-0 max-w-xl lg:mx-0 lg:max-w-none lg:justify-self-end">
+        <div className="relative mx-auto w-full min-w-0 max-w-xl lg:mx-0 lg:max-w-none lg:justify-self-end lg:left-10 xl:left-14 2xl:left-16">
           <OrmHeroVisual />
         </div>
       </div>
@@ -961,7 +952,6 @@ const BEFORE_OUTREACH_COLUMN = {
       "border border-transparent bg-white/40 text-navy/72 transition-[background-color,border-color,color] duration-300 ease-out hover:border-[#79df86]/30 hover:bg-white/95 hover:text-navy/88 focus-visible:border-[#79df86]/35 focus-visible:bg-white focus-visible:text-navy",
     accentClass: "bg-[#2a8c3e]",
     counterClass: "text-[#1a5c38]/70",
-    hint: "Hover or use arrow keys to move through each tip.",
   },
   avoid: {
     title: "What Not to Do",
@@ -977,13 +967,12 @@ const BEFORE_OUTREACH_COLUMN = {
       "border border-transparent bg-white/50 text-[#6b2a2a]/75 transition-[background-color,border-color,color] duration-300 ease-out hover:border-[#b85c5c]/30 hover:bg-white/95 hover:text-[#6b2a2a]/92 focus-visible:border-[#b85c5c]/35 focus-visible:bg-white focus-visible:text-[#5c2828]",
     accentClass: "bg-[#8b3a3a]",
     counterClass: "text-[#6b2a2a]/70",
-    hint: "Hover or use arrow keys to move through each warning.",
   },
 };
 
 function BeforeOutreachTipColumn({ variant }) {
   const config = BEFORE_OUTREACH_COLUMN[variant];
-  const { title, items, Icon, hint } = config;
+  const { title, items, Icon } = config;
   const [activeIndex, setActiveIndex] = useState(0);
   const listId = `orm-before-outreach-${variant}`;
 
@@ -1019,7 +1008,6 @@ function BeforeOutreachTipColumn({ variant }) {
           {activeIndex + 1} of {items.length}
         </p>
       </div>
-      <p className="mt-2 text-xs text-navy/50">{hint}</p>
       <ul
         id={listId}
         role="listbox"
@@ -1118,28 +1106,6 @@ export function OrmWhyR360Section() {
         </Motion.div>
 
         <div className="border-t border-white/12 pt-10 md:pt-12">
-          <Motion.div
-            className="mb-8 md:mb-10"
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={ormInView}
-            transition={{ duration: 0.45, delay: 0.04 }}
-          >
-            <div className="relative pl-5 md:pl-6">
-              <div
-                className="absolute inset-y-0 left-0 w-1 rounded-full bg-gradient-to-b from-[#4CAF50] via-emerald-300 to-[#2E5B88] shadow-[0_0_14px_rgba(76,175,80,0.35)]"
-                aria-hidden
-              />
-              <h3 className="font-heading text-2xl font-extrabold leading-tight tracking-tight text-white md:text-[1.75rem] lg:text-[2rem]">
-                What Sets Us Apart
-              </h3>
-              <div
-                className="mt-3 h-px max-w-xs bg-gradient-to-r from-[#4CAF50]/90 via-[#2E5B88]/70 to-transparent md:max-w-sm lg:max-w-md"
-                aria-hidden
-              />
-            </div>
-          </Motion.div>
-
           <div className="flex flex-wrap justify-center gap-5 md:gap-6">
           {WHY_R360_DIFFERENTIATORS.map((d, i) => {
             const Icon = WHY_R360_ICON_BY_ID[d.id] ?? Zap;

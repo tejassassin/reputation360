@@ -1,7 +1,7 @@
 import { AUDIENCE_PATH } from "../../constants/whoWeServePaths.js";
 
 export const NLS_WHAT_IS_PARAGRAPHS = [
-  "Negative link suppression is a precision SEO and content strategy designed to reduce the ranking of harmful, misleading, or outdated search results - and replace them with authoritative, positive content that accurately represents who you are.",
+  "Negative Link Suppression is a precision SEO and content strategy designed to reduce the ranking of harmful, misleading, or outdated search results - and replace them with authoritative, positive content that accurately represents who you are.",
   "It works because Google's search results are not fixed. They are a constantly shifting ecosystem driven by authority signals, content quality, and relevance. When those signals are engineered strategically, positive content rises while harmful links lose ground and slip into the pages where over 90% of searchers will never go.",
   "The damaging content may still exist somewhere on the internet. But when it cannot be found in a normal search, it cannot do damage.",
 ];
@@ -37,11 +37,11 @@ export const NLS_WHY_COSTS_ROWS = [
 ];
 
 export const NLS_SEARCH_RESULTS_INTRO = [
-  "Not everything that appears in your search results carries the same risk - or the same opportunity. Every result falls into one of three categories, and knowing the difference is the foundation of any effective suppression strategy.",
+  "Not everything that appears in your search results carries the same risk - or the same opportunity. Every result falls into one of three categories, and knowing the difference is the foundation of any effective Negative Link Suppression strategy.",
 ];
 
 export const NLS_SEARCH_RESULTS_CLOSING =
-  "The goal of suppression is to build enough high-quality positive content that it consistently occupies page one, pushing negative results beyond reach and converting neutral content into active credibility signals.";
+  "The goal of Negative Link Suppression is to build enough high-quality positive content that it consistently occupies page one, pushing negative results beyond reach and converting neutral content into active credibility signals.";
 
 export const NLS_SEARCH_RESULT_CATEGORIES = [
   {
@@ -50,7 +50,7 @@ export const NLS_SEARCH_RESULT_CATEGORIES = [
     tone: "risk",
     examples:
       "Critical news article or investigative report; one-star review on Google, Yelp, or Glassdoor; Reddit thread or forum post criticizing you; mugshot or arrest record site; outdated article misrepresenting your current role; social media post from a disgruntled customer or former employee; RipoffReport or similar complaint site listing",
-    action: "Primary target for removal and suppression",
+    action: "Primary target for removal and Negative Link Suppression",
   },
   {
     id: "neutral",
@@ -110,7 +110,7 @@ export const NLS_REMOVAL_VS_SUPPRESSION_ROWS = [
     aspect: "Used together?",
     removal: "Yes - in most campaigns, both run in parallel.",
     suppression:
-      "Removal is pursued wherever possible while suppression delivers results in the meantime",
+      "Removal is pursued wherever possible while Negative Link Suppression delivers results in the meantime",
   },
 ];
 
@@ -120,11 +120,11 @@ export const NLS_PUBLISHER_NOTE =
 export const NLS_WHEN_SUPPRESSION_ROWS = [
   {
     scenario: "The content is accurate but outdated or damaging",
-    why: "Google does not remove accurate information. But suppression ensures your current achievements are what people find first, not something from years ago",
+    why: "Google does not remove accurate information. But Negative Link Suppression ensures your current achievements are what people find first, not something from years ago",
   },
   {
     scenario: "Removal attempts have failed",
-    why: "If outreach, DMCA claims, or legal steps have not worked, suppression is the logical and effective next step",
+    why: "If outreach, DMCA claims, or legal steps have not worked, Negative Link Suppression is the logical and effective next step",
   },
   {
     scenario: "You are facing ongoing attacks",
@@ -171,7 +171,7 @@ export const NLS_FEASIBILITY_ROWS = [
   {
     contentType: "Negative Opinions and Commentary",
     removal: "Low: Often protected speech; rarely eligible for removal",
-    suppression: "Very High: The primary target of content-based suppression",
+    suppression: "Very High: The primary target of content-based Negative Link Suppression",
   },
   {
     contentType: "Low-Quality Reviews and Aggregations",
@@ -213,7 +213,7 @@ export const NLS_PROCESS_STEPS = [
   {
     step: 2,
     phase: "Removal Opportunity Assessment",
-    body: "Before suppression begins, we pursue every viable removal avenue - because permanent removal is always the stronger outcome",
+    body: "Before Negative Link Suppression begins, we pursue every viable removal avenue - because permanent removal is always the stronger outcome",
   },
   {
     step: 3,
@@ -285,7 +285,7 @@ export const NLS_TIMELINE_NOTE =
 export const NLS_WHO_WE_HELP = [
   {
     id: "individuals",
-    who: "Individuals and Private Citizens",
+    who: "Individuals",
     why: "Mugshot sites, defamatory posts, data broker exposure - private individuals deserve control over their own name in search results",
     href: AUDIENCE_PATH.individuals,
   },
@@ -298,13 +298,13 @@ export const NLS_WHO_WE_HELP = [
   {
     id: "founders",
     who: "Business Owners and Founders",
-    why: "Negative press, coordinated review attacks, and competitor misinformation require a suppression strategy that matches the threat",
+    why: "Negative press, coordinated review attacks, and competitor misinformation require a Negative Link Suppression strategy that matches the threat",
     href: AUDIENCE_PATH.businesses,
   },
   {
     id: "financial",
     who: "Financial Advisors",
-    why: "One harmful result can destroy the trust a client relationship is built on - suppression protects what years of work have earned",
+    why: "One harmful result can destroy the trust a client relationship is built on - Negative Link Suppression protects what years of work have earned",
     href: AUDIENCE_PATH.financialAdvisors,
   },
   {
@@ -321,43 +321,43 @@ export const NLS_WHO_WE_HELP = [
   },
   {
     id: "businesses-attack",
-    who: "Businesses Under Attack",
-    why: "Crisis situations, organized negative review campaigns, and harmful media coverage require both suppression and broader reputation strategy",
+    who: "Businesses & Companies",
+    why: "Crisis situations, organized negative review campaigns, and harmful media coverage require both Negative Link Suppression and broader Reputation Management strategy",
     href: AUDIENCE_PATH.businesses,
   },
 ];
 
 export const NLS_FAQS = [
   {
-    q: "What is negative link suppression?",
-    a: "Negative link suppression is an SEO and content strategy that reduces the ranking of harmful, misleading, or outdated search results by systematically building and amplifying authoritative positive content that outranks them. The damaging link is pushed off page one - into pages that fewer than 10% of searchers ever visit - where it effectively becomes invisible.",
+    q: "What is Negative Link Suppression?",
+    a: "Negative Link Suppression is an SEO and content strategy that reduces the ranking of harmful, misleading, or outdated search results by systematically building and amplifying authoritative positive content that outranks them. The damaging link is pushed off page one - into pages that fewer than 10% of searchers ever visit - where it effectively becomes invisible.",
   },
   {
-    q: "How does search engine suppression work?",
-    a: "Suppression works by building the authority signals that determine what Google ranks for your name or brand. This involves creating optimized content on high-authority platforms, developing social media profiles, building targeted backlinks to positive assets, and amplifying through digital PR. As positive content accumulates authority, it rises in rankings while harmful content, receiving no fresh signals, loses position and slips further down.",
+    q: "How does Negative Link Suppression work?",
+    a: "Negative Link Suppression works by building the authority signals that determine what Google ranks for your name or brand. This involves creating optimized content on high-authority platforms, developing social media profiles, building targeted backlinks to positive assets, and amplifying through digital PR. As positive content accumulates authority, it rises in rankings while harmful content, receiving no fresh signals, loses position and slips further down.",
   },
   {
     q: "Is it possible to suppress one or two negative search results?",
-    a: "Yes. Targeted suppression campaigns focused on one or two specific harmful links are often more straightforward than addressing a larger volume. The key variables are the domain authority of the harmful link and how competitive your name as a keyword is. Many isolated results can be displaced within a few months with a focused, well-executed campaign.",
+    a: "Yes. Targeted Negative Link Suppression campaigns focused on one or two specific harmful links are often more straightforward than addressing a larger volume. The key variables are the domain authority of the harmful link and how competitive your name as a keyword is. Many isolated results can be displaced within a few months with a focused, well-executed campaign.",
   },
   {
     q: "How long does it take to suppress negative search results?",
     a: "Most clients see harmful links begin to drop in position within 60 to 90 days. Significant displacement from page one typically occurs within three to six months for most scenarios. High-authority links from major publications may take longer. We provide a realistic, situation-specific estimate before any campaign begins - no overpromising.",
   },
   {
-    q: "What is the difference between content removal and link suppression?",
-    a: "Content removal permanently deletes harmful content at the source through legal avenues, DMCA claims, or direct publisher negotiations. Suppression pushes content down in rankings by building positive content that outranks it. Removal is always the stronger outcome where it is possible. When it is not, suppression is what delivers results. In most campaigns, both run simultaneously.",
+    q: "What is the difference between content removal and Negative Link Suppression?",
+    a: "Content removal permanently deletes harmful content at the source through legal avenues, DMCA claims, or direct publisher negotiations. Negative Link Suppression pushes content down in rankings by building positive content that outranks it. Removal is always the stronger outcome where it is possible. When it is not, Negative Link Suppression is what delivers results. In most campaigns, both run simultaneously.",
   },
   {
     q: "What types of negative content can be suppressed in Google?",
-    a: "Suppression is effective across negative news articles, defamatory blog posts, damaging reviews, mugshot and arrest record sites, outdated professional information, social media content, competitor misinformation, court records, and personal data listings. Feasibility and timeline vary by content type and the authority of the hosting site.",
+    a: "Negative Link Suppression is effective across negative news articles, defamatory blog posts, damaging reviews, mugshot and arrest record sites, outdated professional information, social media content, competitor misinformation, court records, and personal data listings. Feasibility and timeline vary by content type and the authority of the hosting site.",
   },
   {
     q: "Will suppressed content ever come back?",
-    a: "With ongoing monitoring and reinforcement, suppressed content stays buried. Our approach builds genuine, lasting authority around your positive results, making it progressively harder for harmful content to resurface. Unlike campaigns built on shortcuts, white-hat suppression results compound rather than fade.",
+    a: "With ongoing monitoring and reinforcement, suppressed content stays buried. Our approach builds genuine, lasting authority around your positive results, making it progressively harder for harmful content to resurface. Unlike campaigns built on shortcuts, white-hat Negative Link Suppression results compound rather than fade.",
   },
   {
-    q: "Is negative link suppression legal and ethical?",
+    q: "Is Negative Link Suppression legal and ethical?",
     a: "Completely. Our methodology is based on legitimate SEO and content strategy that complies fully with Google's guidelines. We never use deceptive, spammy, or manipulative tactics. White-hat methods only - every time.",
   },
 ];
@@ -366,8 +366,6 @@ export const NLS_CTA = {
   title: "One Conversation Changes What People Find First",
   paragraphs: [
     "Harmful search results do not fix themselves. But they can be systematically displaced - replaced by a search presence that reflects your achievements, your character, and where you stand today.",
-    "Reputation360 has spent seven years building the expertise, publishing networks, and methodology to make that happen for executives, founders, professionals, businesses, and individuals across the US, Canada, and Australia.",
-    "Your free search analysis starts with one conversation. We will review what is showing up, assess your options honestly, and give you a clear picture of what can be done and how long it will take.",
   ],
   freeScanLabel: "Request Your Free Search Analysis",
   consultLabel: "Speak to a Specialist Today",

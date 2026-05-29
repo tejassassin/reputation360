@@ -1,7 +1,7 @@
 import { AUDIENCE_PATH } from "../../constants/whoWeServePaths.js";
 
 export const ORM_WHAT_IS_PARAGRAPHS = [
-  "Online reputation management (ORM) is the ongoing practice of monitoring, shaping, and protecting how a person or business appears across search engines, social platforms, review sites, and digital media.",
+  "Online Reputation Management (ORM) is the ongoing practice of monitoring, shaping, and protecting how a person or business appears across search engines, social platforms, review sites, and digital media.",
   "When someone searches your name or brand, what they find forms an opinion about you instantly, before you have had a single conversation. ORM ensures that what they find is accurate, credible, and representative of who you actually are. It addresses the full picture: promoting content that reflects you well, reducing the visibility of content that is harmful or outdated, and monitoring your digital presence so threats are caught early.",
 ];
 
@@ -24,7 +24,7 @@ export const ORM_PROCESS_NOTE =
   "Complex cases involving very high-authority negative content may extend beyond this timeline. We provide an honest, situation-specific estimate during your free audit.";
 
 export const ORM_BEFORE_OUTREACH_INTRO =
-  "Before contacting a reputation management company, there are practical steps worth taking - and a few critical mistakes to avoid.";
+  "Before contacting a Reputation Management company, there are practical steps worth taking - and a few critical mistakes to avoid.";
 
 export const ORM_CTA = {
   title: "Take Control of Your Online Reputation Today",
@@ -112,12 +112,6 @@ export const ORM_BENEFITS = [
     body: "Positive search results lower friction for potential customers and clients who would otherwise hesitate.",
   },
   {
-    id: "advantage",
-    label: "Competitive advantage",
-    title: "Competitive advantage",
-    body: "Most competitors are not actively managing their ORM - a strong digital presence gives you a measurable edge.",
-  },
-  {
     id: "investor",
     label: "Investor and partner confidence",
     title: "Investor and partner confidence",
@@ -128,12 +122,6 @@ export const ORM_BENEFITS = [
     label: "Protection against future threats",
     title: "Protection against future threats",
     body: "A well-established digital footprint is far harder to damage. One negative result cannot define someone with 10 strong ones beside it.",
-  },
-  {
-    id: "talent",
-    label: "Better talent acquisition",
-    title: "Better talent acquisition",
-    body: "Top candidates research employers. A strong brand presence attracts better applicants and improves offer acceptance rates.",
   },
   {
     id: "peace",
@@ -312,15 +300,15 @@ export const WHY_R360_DIFFERENTIATORS = [
 
 export const ORM_FAQS = [
   {
-    q: "What is online reputation management?",
-    a: "Online reputation management (ORM) is the process of monitoring, shaping, and protecting how a person or business appears across search engines, review platforms, and social media. It involves creating and promoting positive, accurate content while reducing the visibility of anything harmful, misleading, or outdated. It is used by professionals, executives, businesses, and individuals who want control over what people find when they search for them.",
+    q: "What is Online Reputation Management?",
+    a: "Online Reputation Management (ORM) is the process of monitoring, shaping, and protecting how a person or business appears across search engines, review platforms, and social media. It involves creating and promoting positive, accurate content while reducing the visibility of anything harmful, misleading, or outdated. It is used by professionals, executives, businesses, and individuals who want control over what people find when they search for them.",
   },
   {
-    q: "How does online reputation management work?",
+    q: "How does Online Reputation Management work?",
     a: "A campaign begins with a full audit of your current search results and digital presence. From there, a custom strategy is developed covering content creation, search optimization, digital property development, and review management. Content is published across high-authority platforms and optimized to rank, gradually building a search presence where accurate, positive content dominates and negative results lose visibility over time.",
   },
   {
-    q: "Do I need online reputation management?",
+    q: "Do I need Online Reputation Management?",
     a: "If negative, misleading, or outdated content appears when people search for you, the answer is yes. But ORM is not only reactive. Many professionals, executives, and businesses use it proactively to build an authoritative digital presence before problems arise. If your search results do not accurately reflect who you are or what you have built, ORM is what closes that gap.",
   },
   {
@@ -328,19 +316,19 @@ export const ORM_FAQS = [
     a: "Most clients see measurable movement within 60 to 90 days. Significant, lasting page-one changes typically develop over three to six months depending on the strength of existing negative content. Complex cases can take up to 11 months for full transformation. We set honest expectations from the start and provide regular progress reports throughout.",
   },
   {
-    q: "What should I look for when hiring a reputation management company?",
+    q: "What should I look for when hiring a Reputation Management company?",
     a: "Look for a company that specializes in ORM rather than offering it as a side service. Ask whether they use white-hat, algorithm-compliant methods. Look for evidence of results in situations similar to yours. Ensure their reporting is transparent and their timelines are realistic. Be cautious of any company promising guaranteed rankings or overnight results - these claims almost always involve shortcuts that create bigger problems down the line.",
   },
   {
-    q: "What are the benefits of online reputation management?",
+    q: "What are the benefits of Online Reputation Management?",
     a: "A strong online reputation directly impacts how much trust people place in you and whether they hire you, buy from you, or partner with you. For individuals, it protects career opportunities and professional credibility. For businesses, it supports customer acquisition, investor confidence, and competitive positioning. For executives, it protects the personal brand that underpins every business relationship.",
   },
   {
-    q: "How much does online reputation management cost?",
+    q: "How much does Online Reputation Management cost?",
     a: "Pricing depends on the complexity and scope of your situation: the number of search terms being targeted, the strength of existing negative content, and the timeline required. We offer a free reputation audit that gives you an accurate picture of what your situation involves and what a campaign would look like. No generic packages, no surprises.",
   },
   {
-    q: "Can reputation management help even if the negative content is true?",
+    q: "Can Reputation Management help even if the negative content is true?",
     a: "Yes. Accurate but outdated or contextually misleading content is one of the most common situations we work with. ORM does not erase the past, but it ensures that your current achievements, expertise, and character are what people find first - rather than something from years ago that no longer represents who you are.",
   },
 ];

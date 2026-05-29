@@ -12,7 +12,7 @@ export const nlsPageHero = {
   titleHighlight: "Your Story.",
   leadParagraphs: [
     "Harmful search results do not fix themselves - but they can be made to effectively disappear.",
-    "Reputation360's negative link suppression service systematically displaces damaging, misleading, and outdated content from page one of Google, replacing it with a search presence that is accurate, authoritative, and fully under your control.",
+    "Reputation360's Negative Link Suppression service systematically displaces damaging, misleading, and outdated content from page one of Google, replacing it with a search presence that is accurate, authoritative, and fully under your control.",
   ],
   trustLine:
     "Confidential. No obligation. Results across the US, Canada, and Australia.",
@@ -25,10 +25,10 @@ export const NLS_GUIDE_NAV = [
   { id: "why-costs", label: "Why Harmful Search Results Cost You More Than You Realize" },
   { id: "search-results", label: "Understanding What Is in Your Search Results" },
   { id: "removal-vs-suppression", label: "Content Removal vs. Negative Link Suppression" },
-  { id: "when-suppression", label: "When Is Suppression the Right Approach?" },
+  { id: "when-suppression", label: "When Is Negative Link Suppression the Right Approach?" },
   { id: "feasibility", label: "Not All Negative Content Is the Same" },
   { id: "content-types", label: "What Types of Harmful Content Can Be Suppressed?" },
-  { id: "process", label: "How Our Suppression Process Works" },
+  { id: "process", label: "How Our Negative Link Suppression Process Works" },
   { id: "timeline", label: "How Long Does It Take?" },
   { id: "who-we-help", label: "Who We Help" },
   { id: "faq", label: "Frequently Asked Questions" },
