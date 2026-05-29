@@ -30,7 +30,6 @@ export const ORM_CTA = {
   title: "Take Control of Your Online Reputation Today",
   paragraphs: [
     "Your reputation is being shaped right now, by what shows up on page one of Google. Every day without a strategy is another day someone else is writing that story.",
-    "Reputation360 offers a free, confidential reputation audit. We will analyze your current online presence, identify your biggest risks and opportunities, and give you a clear, honest picture of what can be done and how long it will take.",
   ],
   servingLine:
     "Serving executives, founders, professionals, and businesses across the United States, Canada, and Australia.",
