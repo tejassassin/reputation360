@@ -1099,7 +1099,7 @@ export function OrmWhyR360Section() {
       <OrmWhatWeDontBackground />
       <div className="relative mx-auto max-w-7xl px-6">
         <Motion.div
-          className="mb-12 text-center md:mb-16"
+          className="mb-12 text-left md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={ormInView}
@@ -1109,10 +1109,10 @@ export function OrmWhyR360Section() {
             Why Reputation360?
           </h2>
           <div
-            className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] shadow-[0_0_24px_rgba(76,175,80,0.2)]"
+            className="mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] shadow-[0_0_24px_rgba(76,175,80,0.2)]"
             aria-hidden
           />
-          <p className="mx-auto mt-5 w-full max-w-7xl text-center text-sm leading-relaxed text-slate-100/85 md:mt-6 md:whitespace-nowrap md:text-[15px] lg:text-base">
+          <p className="mt-5 text-sm leading-relaxed text-slate-100/85 md:mt-6 md:whitespace-nowrap md:text-[15px] lg:text-base">
             {ORM_WHY_R360_INTRO}
           </p>
         </Motion.div>
