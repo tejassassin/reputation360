@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion as Motion } from "motion/react";
 import {
   AlertTriangle,
@@ -81,6 +81,53 @@ function NlsHoverLift({
       {children}
     </Component>
   );
+}
+
+function useScrollActiveStep(stepCount) {
+  const [active, setActive] = useState(0);
+  const itemRefs = useRef([]);
+
+  useEffect(() => {
+    const update = () => {
+      const trigger = window.innerHeight * 0.38;
+      let next = 0;
+      itemRefs.current.forEach((el, index) => {
+        if (!el) return;
+        if (el.getBoundingClientRect().top <= trigger) next = index;
+      });
+      setActive((prev) => (prev === next ? prev : next));
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [stepCount]);
+
+  return { active, itemRefs };
+}
+
+function nlsProcessStepBadgeClass(index, active) {
+  if (index < active) {
+    return "bg-[#4CAF50] text-white shadow-md";
+  }
+  if (index === active) {
+    return "bg-[#1f3b64] text-white shadow-[0_0_0_4px_rgba(76,175,80,0.35)] ring-2 ring-[#4CAF50]/50";
+  }
+  return "bg-slate-200 text-navy/45 shadow-sm";
+}
+
+function nlsProcessConnectorClass(index, active) {
+  if (index < active) {
+    return "bg-[#4CAF50]";
+  }
+  if (index === active) {
+    return "bg-gradient-to-b from-[#4CAF50] via-[#4CAF50]/60 to-slate-200";
+  }
+  return "bg-slate-200";
 }
 
 function NlsWhatWeDontBackground() {
@@ -171,14 +218,14 @@ function NlsSectionShell({
   );
 }
 
-function NlsSectionHeading({ title, lead, variant = "default" }) {
+function NlsSectionHeading({ title, lead, variant = "default", titleOneLine = false }) {
   const onDark = variant === "onDark";
   return (
     <div className="mb-10 md:mb-14">
       <h2
-        className={`max-w-4xl font-heading text-3xl font-extrabold leading-[1.12] tracking-tight md:text-[2.1rem] ${
-          onDark ? "text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.25)]" : "text-[#1F3B64]"
-        }`}
+        className={`font-heading text-3xl font-extrabold leading-[1.12] tracking-tight md:text-[2.1rem] ${
+          titleOneLine ? "max-w-none md:whitespace-nowrap md:text-[1.65rem] lg:text-[2.1rem]" : "max-w-4xl"
+        } ${onDark ? "text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.25)]" : "text-[#1F3B64]"}`}
       >
         {title}
       </h2>
@@ -207,12 +254,26 @@ function NlsSectionHeading({ title, lead, variant = "default" }) {
   );
 }
 
-function DocSection({ id, title, lead, children, tone = "page", first = false, contentClassName = "" }) {
+function DocSection({
+  id,
+  title,
+  lead,
+  children,
+  tone = "page",
+  first = false,
+  contentClassName = "",
+  titleOneLine = false,
+}) {
   const headingVariant = tone === "navy" ? "onDark" : "default";
   return (
     <NlsSectionShell id={id} tone={tone} first={first}>
       <NlsReveal>
-        <NlsSectionHeading title={title} lead={lead} variant={headingVariant} />
+        <NlsSectionHeading
+          title={title}
+          lead={lead}
+          variant={headingVariant}
+          titleOneLine={titleOneLine}
+        />
       </NlsReveal>
       <NlsReveal delay={0.07} className={contentClassName}>
         {children}
@@ -646,7 +707,7 @@ export function NlsRemovalVsSuppressionSection() {
 
 export function NlsWhenSuppressionSection() {
   return (
-    <DocSection id="when-suppression" title="When Is Suppression the Right Approach?" tone="white">
+    <DocSection id="when-suppression" title="When Is Suppression the Right Approach?" tone="sage">
       <ul className="space-y-4">
         {NLS_WHEN_SUPPRESSION_ROWS.map((row, index) => (
           <Motion.li
@@ -658,7 +719,7 @@ export function NlsWhenSuppressionSection() {
           >
             <NlsHoverLift
               as={Motion.div}
-              className="rounded-2xl border border-navy/10 bg-[#f8fafc] p-5 transition-[border-color,box-shadow] duration-300 hover:border-[#79df86]/35 hover:bg-white hover:shadow-[0_16px_40px_-24px_rgba(31,59,100,0.12)] md:p-6"
+              className="rounded-2xl border border-navy/10 bg-white p-5 shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-[#79df86]/35 hover:shadow-[0_16px_40px_-24px_rgba(31,59,100,0.12)] md:p-6"
             >
               <h3 className="font-heading text-base font-bold text-navy md:text-lg">{row.scenario}</h3>
               <p className="mt-2 text-sm leading-relaxed text-navy/75 md:text-[15px]">{row.why}</p>
@@ -751,6 +812,7 @@ export function NlsFeasibilitySection() {
       title="Not All Negative Content Is the Same: Removal and Suppression Feasibility"
       lead={NLS_FEASIBILITY_INTRO}
       tone="gradient"
+      titleOneLine
     >
       <NlsFeasibilityTable />
       <Motion.p
@@ -810,40 +872,62 @@ export function NlsContentTypesSection() {
 }
 
 export function NlsProcessSection() {
+  const { active, itemRefs } = useScrollActiveStep(NLS_PROCESS_STEPS.length);
+
   return (
     <DocSection id="process" title="How Our Suppression Process Works" tone="blue">
       <ol className="relative list-none space-y-0 p-0">
-        {NLS_PROCESS_STEPS.map((step, index) => (
-          <Motion.li
-            key={step.step}
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={nlsInView}
-            transition={{ duration: 0.42, delay: index * 0.06, ease: nlsEase }}
-            className="relative flex gap-4 pb-8 last:pb-0 md:gap-5"
-          >
-            {index < NLS_PROCESS_STEPS.length - 1 ? (
-              <span
-                className="absolute left-5 top-12 bottom-0 w-px bg-gradient-to-b from-[#4CAF50]/50 to-[#2E5B88]/20"
-                aria-hidden
-              />
-            ) : null}
-            <Motion.span
-              className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1f3b64] font-heading text-sm font-bold text-white shadow-md"
-              whileHover={{ scale: 1.08 }}
-              transition={{ type: "spring", stiffness: 400, damping: 22 }}
+        {NLS_PROCESS_STEPS.map((step, index) => {
+          const isActive = index === active;
+          const isPast = index < active;
+          return (
+            <Motion.li
+              key={step.step}
+              ref={(el) => {
+                itemRefs.current[index] = el;
+              }}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={nlsInView}
+              transition={{ duration: 0.42, delay: index * 0.06, ease: nlsEase }}
+              className="relative flex gap-4 pb-8 last:pb-0 md:gap-5"
             >
-              {step.step}
-            </Motion.span>
-            <NlsHoverLift
-              as={Motion.div}
-              className="min-w-0 flex-1 rounded-2xl border border-navy/10 bg-white p-4 shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-[#79df86]/35 hover:shadow-[0_16px_40px_-22px_rgba(31,59,100,0.14)] md:p-5"
-            >
-              <h3 className="font-heading text-base font-bold text-navy md:text-lg">{step.phase}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy/75 md:text-[15px]">{step.body}</p>
-            </NlsHoverLift>
-          </Motion.li>
-        ))}
+              {index < NLS_PROCESS_STEPS.length - 1 ? (
+                <span
+                  className={`absolute left-5 top-12 bottom-0 w-px transition-colors duration-500 ${nlsProcessConnectorClass(index, active)}`}
+                  aria-hidden
+                />
+              ) : null}
+              <Motion.span
+                className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-heading text-sm font-bold transition-[background-color,box-shadow,color] duration-500 motion-reduce:transition-none ${nlsProcessStepBadgeClass(index, active)}`}
+                animate={{ scale: isActive ? 1.1 : 1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 24 }}
+                aria-current={isActive ? "step" : undefined}
+              >
+                {step.step}
+              </Motion.span>
+              <NlsHoverLift
+                as={Motion.div}
+                className={`min-w-0 flex-1 rounded-2xl border bg-white p-4 shadow-sm transition-[border-color,box-shadow,background-color] duration-500 md:p-5 ${
+                  isActive
+                    ? "border-[#79df86]/50 shadow-[0_16px_40px_-22px_rgba(42,140,62,0.18)]"
+                    : isPast
+                      ? "border-navy/10 hover:border-[#79df86]/35 hover:shadow-[0_16px_40px_-22px_rgba(31,59,100,0.14)]"
+                      : "border-navy/10 opacity-90 hover:border-[#79df86]/35 hover:opacity-100 hover:shadow-[0_16px_40px_-22px_rgba(31,59,100,0.14)]"
+                }`}
+              >
+                <h3
+                  className={`font-heading text-base font-bold md:text-lg ${
+                    isActive ? "text-[#0f2e58]" : "text-navy"
+                  }`}
+                >
+                  {step.phase}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-navy/75 md:text-[15px]">{step.body}</p>
+              </NlsHoverLift>
+            </Motion.li>
+          );
+        })}
       </ol>
     </DocSection>
   );
@@ -853,72 +937,120 @@ export function NlsTimelineSection() {
   const [active, setActive] = useState(0);
   const phase = NLS_TIMELINE_PHASES[active] ?? NLS_TIMELINE_PHASES[0];
   const phaseNum = String(phase.n).padStart(2, "0");
+  const panelId = `nls-timeline-panel-${phase.n}`;
+
+  const onTabListKeyDown = (event) => {
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      event.preventDefault();
+      setActive((i) => Math.min(i + 1, NLS_TIMELINE_PHASES.length - 1));
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      event.preventDefault();
+      setActive((i) => Math.max(i - 1, 0));
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      setActive(0);
+    } else if (event.key === "End") {
+      event.preventDefault();
+      setActive(NLS_TIMELINE_PHASES.length - 1);
+    }
+  };
 
   return (
-    <DocSection id="timeline" title="How Long Does It Take?" tone="gradient" contentClassName="mt-2">
-      <Motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={nlsInView}
-        transition={{ duration: 0.45, ease: nlsEase }}
-        whileHover={{ y: -4 }}
-        className="overflow-hidden rounded-2xl border border-navy/12 bg-white shadow-[0_16px_48px_-28px_rgba(31,59,100,0.12)] transition-[box-shadow,border-color] duration-300 hover:border-navy/20 hover:shadow-[0_24px_56px_-24px_rgba(31,59,100,0.18)]"
-      >
-        <div className="grid grid-cols-2 divide-x divide-navy/[0.08] border-b border-navy/10 md:grid-cols-4">
+    <DocSection
+      id="timeline"
+      title="How Long Does It Take?"
+      tone="gradient"
+      contentClassName="mt-10 md:mt-12"
+    >
+      <div className="overflow-hidden rounded-2xl border border-navy/12 bg-white shadow-[0_16px_48px_-28px_rgba(31,59,100,0.12)]">
+        <div
+          className="grid grid-cols-2 divide-x divide-navy/[0.08] border-b border-navy/10 md:grid-cols-4"
+          role="tablist"
+          aria-label="Suppression campaign timeline phases"
+          onKeyDown={onTabListKeyDown}
+        >
           {NLS_TIMELINE_PHASES.map((p, index) => {
+            const num = String(p.n).padStart(2, "0");
             const selected = active === index;
             return (
-              <Motion.button
+              <button
                 key={p.n}
                 type="button"
+                role="tab"
+                aria-selected={selected}
+                id={`nls-timeline-tab-${p.n}`}
+                aria-controls={panelId}
+                tabIndex={selected ? 0 : -1}
                 onClick={() => setActive(index)}
                 onMouseEnter={() => setActive(index)}
-                whileHover={{ backgroundColor: selected ? undefined : "rgba(248,250,252,0.9)" }}
-                whileTap={{ scale: 0.98 }}
-                className={`px-3 py-4 text-left transition-colors duration-200 md:px-5 md:py-5 ${
+                className={`group relative px-4 py-5 text-left outline-none transition-[background-color,box-shadow] duration-300 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-navy/30 md:px-6 md:py-6 ${
                   selected ? "bg-[#f2f5ff]" : "bg-white hover:bg-[#f8fafc]"
                 }`}
               >
                 <span
-                  className={`inline-flex rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${
+                  className={`inline-flex rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] transition-colors duration-300 md:text-xs ${
                     selected ? "bg-navy text-white" : "bg-navy/8 text-navy/55"
                   }`}
                 >
-                  Phase {String(p.n).padStart(2, "0")}
+                  Phase {num}
                 </span>
-                <span className="mt-2 block font-heading text-sm font-bold text-navy md:text-base">
+                <span className="mt-2 block font-heading text-base font-bold text-navy md:text-lg">
                   {p.timespan}
                 </span>
-                <span className="mt-1 block text-xs text-navy/60">{p.title}</span>
-              </Motion.button>
+                <span className="mt-1 block text-xs font-medium leading-snug text-navy/60 md:text-sm">
+                  {p.title}
+                </span>
+              </button>
             );
           })}
         </div>
-        <AnimatePresence mode="wait" initial={false}>
+
+        <div className="h-1 bg-navy/[0.06]" aria-hidden>
           <Motion.div
-            key={phase.n}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.28, ease: nlsEase }}
-            className="p-6 md:p-8"
-          >
-            <h3 className="font-heading text-xl font-bold text-navy">
-              Phase {phaseNum}: {phase.title}
-            </h3>
-            <p className="mt-3 w-full max-w-none text-base leading-relaxed text-navy/75">{phase.body}</p>
-          </Motion.div>
-        </AnimatePresence>
-      </Motion.div>
-      <Motion.p
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={nlsInView}
-        transition={{ duration: 0.4, ease: nlsEase }}
-        className="mt-6 text-sm leading-relaxed text-navy/70 md:text-base"
-      >
+            className="h-full bg-gradient-to-r from-[#1f3b64] via-[#2e5b88] to-[#2a8c3e]"
+            initial={false}
+            animate={{
+              width: `${((active + 1) / NLS_TIMELINE_PHASES.length) * 100}%`,
+            }}
+            transition={{ duration: 0.45, ease: nlsEase }}
+          />
+        </div>
+
+        <div
+          id={panelId}
+          role="tabpanel"
+          aria-labelledby={`nls-timeline-tab-${phase.n}`}
+          className="relative min-h-[12rem] overflow-hidden p-6 md:min-h-[13rem] md:p-8 lg:p-10"
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            <Motion.div
+              key={phase.n}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.28, ease: nlsEase }}
+            >
+              <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
+                <span className="inline-flex rounded-full bg-navy px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-white">
+                  Phase {phaseNum}
+                </span>
+                <span className="font-heading text-2xl font-bold leading-tight text-navy md:text-3xl">
+                  {phase.timespan}
+                </span>
+              </div>
+              <h3 className="mt-4 font-heading text-xl font-bold text-navy md:text-2xl">
+                Phase {phaseNum}: {phase.title}
+              </h3>
+              <p className="mt-4 w-full max-w-none text-base leading-relaxed text-navy/75 md:text-lg md:leading-relaxed">
+                {phase.body}
+              </p>
+            </Motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+      <p className="mt-8 w-full max-w-none text-sm leading-relaxed text-navy/70 md:mt-10 md:text-base">
         {NLS_TIMELINE_NOTE}
-      </Motion.p>
+      </p>
     </DocSection>
   );
 }
