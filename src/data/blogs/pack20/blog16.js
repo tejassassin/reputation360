@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { ROI_REPUTATION_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -298,23 +299,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "How do I estimate the ROI for my specific situation?",
-      a: "Start with your stakes: compensation level, deal size, inbound revenue, and how severely search results affect trust decisions today. Reputation360 offers an initial consultation that includes a personalized ROI estimate based on your career or business context - not a generic calculator.",
-    },
-    {
-      id: "faq-2",
-      q: "Is there a minimum situation size where reputation management makes financial sense?",
-      a: "As a general guideline: if a negative search result is affecting a professional earning above $80,000 annually, or a business generating above $500,000 in annual revenue, the investment in professional reputation management almost always makes financial sense. Below those thresholds, a more targeted DIY approach may be appropriate.",
-    },
-    {
-      id: "faq-3",
-      q: "How quickly can I expect to see financial return?",
-      a: "Career returns often materialize at the next major transition - a role, board seat, or deal that would have stalled before. Business returns typically follow first-page improvement within 60 to 180 days as conversion rates normalize. Crisis ROI can be measured in weeks when revenue attrition stops accelerating.",
-    },
-  ],
+  faqs: ROI_REPUTATION_FAQS,
   cta: {
     title: "Take the next step",
     lead:

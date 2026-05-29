@@ -20,12 +20,26 @@ import {
 } from "./whoWeServeAudienceFaqs.js";
 import { DIY_FAQS } from "./blogs/diyReputationGuideInteractive.js";
 import { SUPPRESS_NEGATIVE_GUIDE_FAQS } from "./blogs/suppressNegativeGuideFaqs.js";
+import {
+  REMOVE_NEGATIVE_SEARCH_RESULTS_FAQS,
+  REMOVE_NEWS_ARTICLES_FAQS,
+  REPUTATION_REPAIR_TIMELINE_FAQS,
+} from "./blogs/blogFaqsRewritten.js";
 
 const DIY_REPUTATION_GUIDE_PATH = blogPostPath(
   "diy-online-reputation-management-complete-guide",
 );
 const SUPPRESS_NEGATIVE_GUIDE_PATH = blogPostPath(
   "how-to-suppress-negative-content-professionals-guide",
+);
+const REMOVE_NEGATIVE_SEARCH_RESULTS_PATH = blogPostPath(
+  "remove-negative-search-results-from-google",
+);
+const REPUTATION_REPAIR_TIMELINE_PATH = blogPostPath(
+  "how-long-does-it-take-to-fix-online-reputation",
+);
+const REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH = blogPostPath(
+  "can-you-remove-news-articles-from-google-search",
 );
 
 /** @type {Record<string, { question: string, answer: string }[]>} */
@@ -42,6 +56,9 @@ const FAQ_ITEMS_BY_PATH = {
   [AUDIENCE_PATH.businesses]: mapQuestionAnswerFaqs(BUSINESS_FAQ_ITEMS),
   [DIY_REPUTATION_GUIDE_PATH]: mapQaFaqs(DIY_FAQS),
   [SUPPRESS_NEGATIVE_GUIDE_PATH]: mapQaFaqs(SUPPRESS_NEGATIVE_GUIDE_FAQS),
+  [REMOVE_NEGATIVE_SEARCH_RESULTS_PATH]: mapQaFaqs(REMOVE_NEGATIVE_SEARCH_RESULTS_FAQS),
+  [REPUTATION_REPAIR_TIMELINE_PATH]: mapQaFaqs(REPUTATION_REPAIR_TIMELINE_FAQS),
+  [REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH]: mapQaFaqs(REMOVE_NEWS_ARTICLES_FAQS),
   ...PACK20_FAQ_SCHEMA_BY_PATH,
 };
 

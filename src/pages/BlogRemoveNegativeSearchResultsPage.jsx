@@ -4,7 +4,10 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import {
   articleAdditionalJsonLdFromInput,
   guideListingToSchemaInput,
+  mergeAdditionalJsonLd,
 } from "../data/articleSchema.js";
+import { faqAdditionalJsonLdFromItems, mapQaFaqs } from "../data/faqPageSchema.js";
+import { REMOVE_NEGATIVE_SEARCH_RESULTS_FAQS } from "../data/blogs/blogFaqsRewritten.js";
 import { cn } from "@/lib/utils";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { BlogGuideCtaSection } from "@/components/blog/BlogGuideCtaSection.jsx";
@@ -36,6 +39,7 @@ import {
 import {
   ChecklistBlock,
   DiyAccordion,
+  DiyFaqAccordion,
   DiyKeyBox,
   DiyLeadHighlight,
   DiySectionHeader,
@@ -109,11 +113,14 @@ export default function BlogRemoveNegativeSearchResultsPage() {
         description={removeNegativeSearchResultsMetaDescription}
         canonicalPath={REMOVE_NEGATIVE_SEARCH_RESULTS_PATH}
         ogImage={removeNegativeSearchResultsListing.image}
-        additionalJsonLd={articleAdditionalJsonLdFromInput(
-          guideListingToSchemaInput(
-            REMOVE_NEGATIVE_SEARCH_RESULTS_PATH,
-            removeNegativeSearchResultsListing,
-            removeNegativeSearchResultsMetaDescription,
+        additionalJsonLd={mergeAdditionalJsonLd(
+          faqAdditionalJsonLdFromItems(mapQaFaqs(REMOVE_NEGATIVE_SEARCH_RESULTS_FAQS)),
+          articleAdditionalJsonLdFromInput(
+            guideListingToSchemaInput(
+              REMOVE_NEGATIVE_SEARCH_RESULTS_PATH,
+              removeNegativeSearchResultsListing,
+              removeNegativeSearchResultsMetaDescription,
+            ),
           ),
         )}
       />
@@ -414,6 +421,23 @@ export default function BlogRemoveNegativeSearchResultsPage() {
                       until your search presence reflects who you truly are.
                     </p>
                   </div>
+                </div>
+              </section>
+
+              <section className="mb-20 scroll-mt-36" id="faq">
+                <h2 className="mb-8 font-heading text-3xl font-bold text-navy">FAQ</h2>
+                <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+                  {REMOVE_NEGATIVE_SEARCH_RESULTS_FAQS.map((f) => (
+                    <DiyFaqAccordion
+                      key={f.id}
+                      id={f.id}
+                      title={f.q}
+                      open={!!openAccordion[f.id]}
+                      onToggle={toggleAccordion}
+                    >
+                      <p>{f.a}</p>
+                    </DiyFaqAccordion>
+                  ))}
                 </div>
               </section>
 

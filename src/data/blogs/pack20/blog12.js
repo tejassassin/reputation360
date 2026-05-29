@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { OWN_FIRST_PAGE_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -381,28 +382,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "How much ongoing maintenance does first-page ownership require?",
-      a: "After the initial build, maintenance is largely passive for most positions. LinkedIn requires regular activity to maintain rankings. News features and articles are permanent once indexed. Personal and professional websites benefit from occasional content updates. Reputation360 offers ongoing monitoring to catch any shifts before they become problems.",
-    },
-    {
-      id: "faq-2",
-      q: "Can a business own its first page as well as an individual?",
-      a: "Absolutely. The same principles apply - it is about occupying the available search positions with authoritative, positive content. For businesses, this includes the company website, Google Business Profile, social media profiles, press coverage, and third-party business directories. We execute first-page strategies for both individuals and brands.",
-    },
-    {
-      id: "faq-3",
-      q: "What if my name is very common?",
-      a: "Common names are more competitive because multiple people share the same name. The strategy adapts: we focus on differentiating keyword combinations (your name plus your industry, city, or title) and ensure your assets clearly signal which person you are. For extremely common names, first-page ownership is more nuanced but still highly achievable.",
-    },
-    {
-      id: "faq-4",
-      q: "What happens to the negative content that is displaced?",
-      a: "It moves to lower positions - page two, three, or further. It does not disappear from the internet. But beyond page one, it has essentially no practical impact on your professional reputation for the vast majority of searchers.",
-    },
-  ],
+  faqs: OWN_FIRST_PAGE_FAQS,
   cta: {
     title: "Take the next step",
     lead:

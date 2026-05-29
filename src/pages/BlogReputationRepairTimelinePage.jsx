@@ -14,7 +14,10 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import {
   articleAdditionalJsonLdFromInput,
   guideListingToSchemaInput,
+  mergeAdditionalJsonLd,
 } from "../data/articleSchema.js";
+import { faqAdditionalJsonLdFromItems, mapQaFaqs } from "../data/faqPageSchema.js";
+import { REPUTATION_REPAIR_TIMELINE_FAQS } from "../data/blogs/blogFaqsRewritten.js";
 import { cn } from "@/lib/utils";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { BlogGuideCtaPanel } from "@/components/blog/BlogGuideCtaSection.jsx";
@@ -45,6 +48,7 @@ import {
 } from "../data/blogs/reputationRepairTimelineInteractive.js";
 import {
   DiyAccordion,
+  DiyFaqAccordion,
   DiyKeyBox,
   DiyLeadHighlight,
   DiySectionHeader,
@@ -182,11 +186,14 @@ export default function BlogReputationRepairTimelinePage() {
         description={reputationRepairTimelineMetaDescription}
         canonicalPath={REPUTATION_REPAIR_TIMELINE_PATH}
         ogImage={reputationRepairTimelineListing.image}
-        additionalJsonLd={articleAdditionalJsonLdFromInput(
-          guideListingToSchemaInput(
-            REPUTATION_REPAIR_TIMELINE_PATH,
-            reputationRepairTimelineListing,
-            reputationRepairTimelineMetaDescription,
+        additionalJsonLd={mergeAdditionalJsonLd(
+          faqAdditionalJsonLdFromItems(mapQaFaqs(REPUTATION_REPAIR_TIMELINE_FAQS)),
+          articleAdditionalJsonLdFromInput(
+            guideListingToSchemaInput(
+              REPUTATION_REPAIR_TIMELINE_PATH,
+              reputationRepairTimelineListing,
+              reputationRepairTimelineMetaDescription,
+            ),
           ),
         )}
       />
@@ -502,6 +509,23 @@ export default function BlogReputationRepairTimelinePage() {
                   timelines. Learn more{" "}
                   <DiyInternalLink href={ABOUT_PATH}>about our firm</DiyInternalLink>.
                 </DiyKeyBox>
+              </section>
+
+              <section className="mb-20 scroll-mt-36" id="faq">
+                <h2 className="mb-8 font-heading text-3xl font-bold text-navy">FAQ</h2>
+                <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+                  {REPUTATION_REPAIR_TIMELINE_FAQS.map((f) => (
+                    <DiyFaqAccordion
+                      key={f.id}
+                      id={f.id}
+                      title={f.q}
+                      open={!!openAccordion[f.id]}
+                      onToggle={toggleAccordion}
+                    >
+                      <p>{f.a}</p>
+                    </DiyFaqAccordion>
+                  ))}
+                </div>
               </section>
 
               <section className="mb-20 scroll-mt-36" id="start">

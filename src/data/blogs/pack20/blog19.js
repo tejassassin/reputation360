@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { SOCIAL_MEDIA_REPUTATION_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -314,23 +315,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "Should I delete all old social media content as a precaution?",
-      a: "Bulk deletion is typically unnecessary and may raise questions about why a professional has no social history. A targeted audit - identifying and addressing the specific content that could raise concerns - is a more proportionate approach. Reputation360 can advise on the right balance for your specific situation.",
-    },
-    {
-      id: "faq-2",
-      q: "How do I manage review platforms like Glassdoor and Yelp as part of a social strategy?",
-      a: "Review platforms are a distinct category within social media reputation management. They require active response management (responding professionally to all reviews), proactive generation of positive reviews from genuine customers, and monitoring for fake or malicious reviews that can be formally disputed.",
-    },
-    {
-      id: "faq-3",
-      q: "Does having a lot of social media followers help with reputation management?",
-      a: "Yes and no. A large following increases the reach and impact of your positive content, which is beneficial. It also increases exposure to pile-ons, misinterpretations, and public criticism. At high follower counts, professional reputation management support is essentially mandatory.",
-    },
-  ],
+  faqs: SOCIAL_MEDIA_REPUTATION_FAQS,
   cta: {
     title: "Take the next step",
     lead:

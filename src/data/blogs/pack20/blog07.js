@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { COURT_RECORDS_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -353,23 +354,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "Can I use the right to be forgotten to remove court records in Europe?",
-      a: "Potentially. Under GDPR, individuals in Europe have the right to request de-listing of information that is no longer relevant, excessive, or inaccurate. Court records from minor, dated proceedings have been successfully de-listed through right-to-be-forgotten requests in European jurisdictions. Reputation360 assists European clients with this process. Outcomes vary by country and by the specific nature of the content.",
-    },
-    {
-      id: "faq-2",
-      q: "What if there is a news article about my court case that I cannot get removed?",
-      a: "This is one of the most common situations we deal with. Suppression is almost always the answer - building enough positive authority that the news article shifts from page one to a position where it does not affect first impressions. We have done this for hundreds of clients.",
-    },
-    {
-      id: "faq-3",
-      q: "Does this work if the court record is very recent?",
-      a: "Recent records are more challenging because the content is fresh, Google re-crawls it frequently, and it may still be generating news coverage. It is not impossible, but the timeline is longer and the required content volume is higher. In some recent cases, the best strategy is to begin building a strong positive foundation now so suppression accelerates as the content ages.",
-    },
-  ],
+  faqs: COURT_RECORDS_FAQS,
   cta: {
     title: "Take the next step",
     lead:

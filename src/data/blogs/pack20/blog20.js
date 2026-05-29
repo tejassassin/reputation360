@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { AI_SEARCH_REPUTATION_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -343,28 +344,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "Can I ask AI tools to correct wrong information about me?",
-      a: "You can submit feedback to most AI tools, but this does not reliably update the model's outputs. The most effective way to correct inaccurate AI-generated information about you is to create and promote accurate, authoritative content in the sources the AI draws from - not to engage with the AI tool directly.",
-    },
-    {
-      id: "faq-2",
-      q: "If my Google search results are positive, will my AI representation automatically be positive?",
-      a: "Generally yes - particularly for real-time AI search tools like Perplexity. But there are exceptions: LLM tools with older training data may not reflect your current Google improvement; some AI tools weight Wikipedia and reference content higher than standard web pages; and AI synthesis can produce unexpected results when positive and negative sources both exist, even if the positive content dominates search rankings.",
-    },
-    {
-      id: "faq-3",
-      q: "How often should I check my AI search reputation?",
-      a: "Quarterly is a reasonable baseline for most professionals and businesses. For executives and brands with high public visibility, monthly checks are appropriate. Reputation360 includes AI search monitoring in our professional monitoring programs.",
-    },
-    {
-      id: "faq-4",
-      q: "Does AI search matter more for some industries than others?",
-      a: "It matters most for: high-trust professional services (finance, law, healthcare, consulting), executives and public figures who are frequently researched, brands in sectors where due diligence is thorough, and anyone whose primary audience includes technically sophisticated users who prefer AI tools to traditional search. That covers a large and growing segment of the professional world.",
-    },
-  ],
+  faqs: AI_SEARCH_REPUTATION_FAQS,
   cta: {
     title: "Take the next step",
     lead:

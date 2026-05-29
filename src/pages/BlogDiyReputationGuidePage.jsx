@@ -631,19 +631,7 @@ export default function BlogDiyReputationGuidePage() {
                       open={!!openAccordion[f.id]}
                       onToggle={toggleAccordion}
                     >
-                      {f.id === "diy-faq-5" ? (
-                        <p>
-                          If you&apos;re dealing with content that&apos;s ranking on page 1 for your name, content
-                          that cannot be removed, or a situation that&apos;s actively affecting your career or
-                          business - professional help is worth it. Start with a{" "}
-                          <DiyInternalLink href={FREE_RISK_SCAN_PATH}>free reputation scan</DiyInternalLink> to
-                          understand exactly what you&apos;re up against, or explore{" "}
-                          <DiyInternalLink href="/services">what professional ORM looks like</DiyInternalLink> before
-                          making a decision.
-                        </p>
-                      ) : (
-                        <p>{f.a}</p>
-                      )}
+                      <p>{f.a}</p>
                     </DiyFaqAccordion>
                   ))}
                 </div>

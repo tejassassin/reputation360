@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { OLD_SOCIAL_POSTS_FAQS } from "../blogFaqsRewritten.js";
 import { REMOVE_NEGATIVE_SEARCH_RESULTS_PATH } from "../removeNegativeSearchResultsGuide.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -321,23 +322,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "I deleted a tweet years ago but it still shows in Google. Why?",
-      a: "Google may have a cached version from when the tweet was public. If it is still indexed, use Google Search Console's URL removal tool to request expedited de-indexing. If the content was captured by third-party archiving sites, you will need to address those separately or consider suppression.",
-    },
-    {
-      id: "faq-2",
-      q: "Can old Facebook posts be removed from Google even if I no longer have access to the account?",
-      a: "This is a more complex scenario. If you cannot access the account to change privacy settings, you can submit a removal request directly to Facebook to reclaim or close the account. You can also submit a Google removal request citing personal data concerns if the content qualifies.",
-    },
-    {
-      id: "faq-3",
-      q: "Does making my account private immediately remove it from Google?",
-      a: "No. It prevents future content from being indexed and signals to Google that it should not display the content. But de-indexing only happens after Google re-crawls the page and confirms the content is now private. This can take days to weeks. Using Google Search Console's URL removal tool accelerates this significantly.",
-    },
-  ],
+  faqs: OLD_SOCIAL_POSTS_FAQS,
   cta: {
     title: "Take the next step",
     lead:

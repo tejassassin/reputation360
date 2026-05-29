@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { REMOVAL_VS_SUPPRESSION_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { REMOVE_NEGATIVE_SEARCH_RESULTS_PATH } from "../removeNegativeSearchResultsGuide.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
@@ -323,28 +324,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "Can Reputation360 guarantee removal of a specific piece of content?",
-      a: "No. We will not make that guarantee because we do not control the decisions made by other websites, platforms, or courts. What we guarantee is that we will pursue every available avenue for removal when applicable and execute suppression regardless of what the removal process produces.",
-    },
-    {
-      id: "faq-2",
-      q: "Is the right-to-be-forgotten law available in the US?",
-      a: "Not at a federal level. Some state privacy laws in the US provide limited rights around personal data removal from data brokers. The European GDPR provides broader rights. In Canada, PIPEDA and provincial privacy laws offer some pathways. We help clients understand their specific rights based on their jurisdiction.",
-    },
-    {
-      id: "faq-3",
-      q: "What about Google's removal request form?",
-      a: "Google's removal tool handles a specific set of circumstances: personal data, doxxing, certain legal orders, and content that violates Google's policies. For most negative reputation content - news articles, reviews, general commentary - the form will redirect you to contact the site directly. Reputation360 can help assess whether a Google removal request is worth pursuing in your specific case.",
-    },
-    {
-      id: "faq-4",
-      q: "How quickly can suppression begin?",
-      a: "We can begin suppression work within days of engagement. The first assets typically go live within two weeks. Meaningful ranking movement begins in 60 days for most clients, with sustained page-one improvement at 150 to 180 days.",
-    },
-  ],
+  faqs: REMOVAL_VS_SUPPRESSION_FAQS,
   cta: {
     title: "Take the next step",
     lead:

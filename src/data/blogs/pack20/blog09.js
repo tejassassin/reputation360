@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { LINKEDIN_OPTIMIZATION_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -328,23 +329,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "How quickly will a fully optimized LinkedIn profile rank for my name?",
-      a: "For most individuals, a freshly optimized or re-optimized LinkedIn profile will appear in the top 3 Google results for an exact name search within 2 to 4 weeks of the changes. If your profile is brand new, it may take slightly longer to accumulate the authority signals needed for top placement.",
-    },
-    {
-      id: "faq-2",
-      q: "Does LinkedIn optimization help if the negative result is also on a high-authority site?",
-      a: "Yes - LinkedIn can directly compete with and outrank most high-authority sites for a personal name search. Even content on major news platforms can be outranked by a strongly optimized LinkedIn profile when combined with other positive assets.",
-    },
-    {
-      id: "faq-3",
-      q: "What if I do not want to be on LinkedIn for privacy reasons?",
-      a: "We build suppression entirely around other assets: personal websites, alternative professional platforms, social presences, press placements, and directory listings that collectively do the same job. LinkedIn is a strong tool for name-search suppression, but it is not the only path.",
-    },
-  ],
+  faqs: LINKEDIN_OPTIMIZATION_FAQS,
   cta: {
     title: "Take the next step",
     lead:

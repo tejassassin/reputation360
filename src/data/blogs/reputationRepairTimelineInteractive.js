@@ -11,6 +11,7 @@ export const GUIDE_NAV = [
   { id: "phases", label: "Repair Phases" },
   { id: "diy-vs-professional", label: "DIY vs. Pro" },
   { id: "red-flags", label: "Red Flags" },
+  { id: "faq", label: "FAQ" },
   { id: "start", label: "Next Step" },
 ];
 
@@ -22,6 +23,7 @@ export const SCROLL_SPY_ORDER = [
   "phases",
   "diy-vs-professional",
   "red-flags",
+  "faq",
   "start",
 ];
 

@@ -6,6 +6,7 @@ export const GUIDE_NAV = [
   { id: "suppression", label: "Suppression" },
   { id: "monitoring", label: "Monitoring" },
   { id: "professional", label: "Expert Help" },
+  { id: "faq", label: "FAQ" },
   { id: "start", label: "Next Step" },
 ];
 
@@ -17,6 +18,7 @@ export const SCROLL_SPY_ORDER = [
   "suppression",
   "monitoring",
   "professional",
+  "faq",
   "start",
 ];
 

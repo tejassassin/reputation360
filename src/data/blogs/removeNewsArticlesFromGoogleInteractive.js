@@ -11,6 +11,7 @@ export const GUIDE_NAV = [
   { id: "legal-routes", label: "Legal Options" },
   { id: "when-removal-fails", label: "Suppression" },
   { id: "who-this-affects", label: "Who It Affects" },
+  { id: "faq", label: "FAQ" },
   { id: "start", label: "Next Step" },
 ];
 
@@ -22,6 +23,7 @@ export const SCROLL_SPY_ORDER = [
   "legal-routes",
   "when-removal-fails",
   "who-this-affects",
+  "faq",
   "start",
 ];
 

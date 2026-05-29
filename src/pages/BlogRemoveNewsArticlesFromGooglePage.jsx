@@ -4,7 +4,10 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import {
   articleAdditionalJsonLdFromInput,
   guideListingToSchemaInput,
+  mergeAdditionalJsonLd,
 } from "../data/articleSchema.js";
+import { faqAdditionalJsonLdFromItems, mapQaFaqs } from "../data/faqPageSchema.js";
+import { REMOVE_NEWS_ARTICLES_FAQS } from "../data/blogs/blogFaqsRewritten.js";
 import { cn } from "@/lib/utils";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import { AUDIENCE_PATH } from "@/constants/whoWeServePaths.js";
@@ -14,6 +17,7 @@ import { BlogShareSection } from "../components/blog/BlogShareSection.jsx";
 import {
   DiyAccordion,
   DiyAnswerBox,
+  DiyFaqAccordion,
   DiyInternalLink,
   DiyLeadHighlight,
   DiyKeyBox,
@@ -96,11 +100,14 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
         description={removeNewsArticlesFromGoogleMetaDescription}
         canonicalPath={REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH}
         ogImage={removeNewsArticlesFromGoogleListing.image}
-        additionalJsonLd={articleAdditionalJsonLdFromInput(
-          guideListingToSchemaInput(
-            REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH,
-            removeNewsArticlesFromGoogleListing,
-            removeNewsArticlesFromGoogleMetaDescription,
+        additionalJsonLd={mergeAdditionalJsonLd(
+          faqAdditionalJsonLdFromItems(mapQaFaqs(REMOVE_NEWS_ARTICLES_FAQS)),
+          articleAdditionalJsonLdFromInput(
+            guideListingToSchemaInput(
+              REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH,
+              removeNewsArticlesFromGoogleListing,
+              removeNewsArticlesFromGoogleMetaDescription,
+            ),
           ),
         )}
       />
@@ -387,6 +394,23 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
                   left unaddressed, becomes significantly harder and more expensive to manage in twelve months. Acting
                   early - even before you&apos;ve decided on a strategy - is almost always the right call.
                 </p>
+              </section>
+
+              <section className="mb-20 scroll-mt-36" id="faq">
+                <h2 className="mb-8 font-heading text-3xl font-bold text-navy">FAQ</h2>
+                <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+                  {REMOVE_NEWS_ARTICLES_FAQS.map((f) => (
+                    <DiyFaqAccordion
+                      key={f.id}
+                      id={f.id}
+                      title={f.q}
+                      open={!!openAccordion[f.id]}
+                      onToggle={toggleAccordion}
+                    >
+                      <p>{f.a}</p>
+                    </DiyFaqAccordion>
+                  ))}
+                </div>
               </section>
 
               <section className="mb-20 scroll-mt-36" id="start">

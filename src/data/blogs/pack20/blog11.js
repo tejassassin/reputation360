@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { JOB_INTERVIEW_REPUTATION_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -353,23 +354,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "I have an interview in two weeks. Is it too late to do anything meaningful?",
-      a: "Two weeks is enough to execute the quick-win actions: LinkedIn optimization, profile claims, and social cleanup. You may see meaningful search movement within the window. For a major negative result, two weeks is not enough to suppress it fully - but it is enough to begin building positive assets that will continue improving after the interview.",
-    },
-    {
-      id: "faq-2",
-      q: "Should I tell the interviewer about a known issue before they find it?",
-      a: "This depends entirely on the nature of the issue, the role, and your relationship with the recruiter. Reputation360 can advise on communication strategy for your specific situation. In general, proactive disclosure with good context is often better than having an interviewer discover something and wonder why you did not mention it.",
-    },
-    {
-      id: "faq-3",
-      q: "Does Reputation360 offer a fast-track service for job seekers?",
-      a: "Yes. We offer priority engagement for professionals in active job searches who need the fastest possible improvement in their search results. Contact us directly to discuss timelines and strategy for your specific situation.",
-    },
-  ],
+  faqs: JOB_INTERVIEW_REPUTATION_FAQS,
   cta: {
     title: "Take the next step",
     lead:

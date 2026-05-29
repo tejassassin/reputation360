@@ -18,6 +18,11 @@ import {
 } from "../../data/blogs/suppressNegativeGuideMeta.js";
 import { stripSuppressNegativeGuidePreamble } from "../../data/blogs/suppressNegativeGuideStrip.js";
 import { SUPPRESS_NEGATIVE_GUIDE_FAQS } from "../../data/blogs/suppressNegativeGuideFaqs.js";
+import {
+  REMOVE_NEGATIVE_SEARCH_RESULTS_FAQS,
+  REMOVE_NEWS_ARTICLES_FAQS,
+  REPUTATION_REPAIR_TIMELINE_FAQS,
+} from "../../data/blogs/blogFaqsRewritten.js";
 import { CASE_STUDIES, getCaseStudyBySlug } from "../../data/caseStudies/index.js";
 import { normalizeCanonicalPath } from "../canonicalHrefFromPath.js";
 import { escapeHtml } from "./html.js";
@@ -125,6 +130,7 @@ export function getPrerenderHtmlForPath(pathname) {
         interactiveGuideToHtml(
           removeNegativeSearchResultsHero,
           removeNegativeInteractive,
+          REMOVE_NEGATIVE_SEARCH_RESULTS_FAQS,
         ),
       );
     }
@@ -135,6 +141,7 @@ export function getPrerenderHtmlForPath(pathname) {
         interactiveGuideToHtml(
           reputationRepairTimelineHero,
           reputationTimelineInteractive,
+          REPUTATION_REPAIR_TIMELINE_FAQS,
         ),
       );
     }
@@ -145,6 +152,7 @@ export function getPrerenderHtmlForPath(pathname) {
         interactiveGuideToHtml(
           removeNewsArticlesFromGoogleHero,
           removeNewsInteractive,
+          REMOVE_NEWS_ARTICLES_FAQS,
         ),
       );
     }

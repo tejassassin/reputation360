@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { SUPPRESS_FRAMEWORK_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "../diyReputationGuide.js";
 import { REMOVE_NEGATIVE_SEARCH_RESULTS_PATH } from "../removeNegativeSearchResultsGuide.js";
@@ -310,28 +311,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "How is suppression different from removal?",
-      a: "Removal means a page comes down or is de-indexed by Google. Suppression means it gets pushed below visible search results. Removal is preferred when achievable, but it requires either the site owner's cooperation, a legal basis, or Google's compliance under its policies. Suppression is available in virtually every case and produces predictable results.",
-    },
-    {
-      id: "faq-2",
-      q: "Does suppression work for business names as well as personal names?",
-      a: "Yes. Reputation360 works with individuals, executives, and companies across a range of industries. Business name suppression often requires additional content volume because brand searches typically return more results than personal name searches, but the same framework applies.",
-    },
-    {
-      id: "faq-3",
-      q: "Is suppression legal?",
-      a: "Completely. Negative link suppression is SEO applied to reputation management. We are creating and promoting legitimate content, claiming real profiles, and building real links. There is nothing deceptive or illegal about it.",
-    },
-    {
-      id: "faq-4",
-      q: "How do I start?",
-      a: "Begin with a clear picture of what ranks today for your name or brand. A structured audit identifies the most urgent suppression targets and which assets will displace them fastest. From there, you can execute the framework yourself or work with a team that does this daily.",
-    },
-  ],
+  faqs: SUPPRESS_FRAMEWORK_FAQS,
   cta: {
     title: "Take the next step",
     lead:

@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { RECRUITERS_GOOGLE_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -316,23 +317,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "At what level do recruiters typically start doing deep online research?",
-      a: "For senior individual contributor roles and above, thorough online research is standard practice. For executive and board-level positions, it is essentially universal. Reputation360 works with professionals at all levels, but we see the highest urgency at the director, VP, and C-suite levels.",
-    },
-    {
-      id: "faq-2",
-      q: "Can I ask a recruiter what they found?",
-      a: "You can, and in some situations it makes sense to address a known issue proactively - for example: \"I want to be transparent about X, which you may find if you search my name.\" That demonstrates self-awareness and gives you the opportunity to provide context. Reputation360 can advise on whether and how to approach this in your specific situation.",
-    },
-    {
-      id: "faq-3",
-      q: "How long does it take to improve my online presence before a job search?",
-      a: "LinkedIn optimization and a few profile claims can produce meaningful improvement in 2 to 4 weeks. Suppression of more serious negative content typically takes 3 to 6 months for meaningful page-one change. If you are planning a senior job search, we recommend beginning at least six months before you start actively applying.",
-    },
-  ],
+  faqs: RECRUITERS_GOOGLE_FAQS,
   cta: {
     title: "Take the next step",
     lead:

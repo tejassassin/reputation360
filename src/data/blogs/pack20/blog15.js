@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { ORM_BEST_PRACTICES_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -393,28 +394,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "How do I know if my reputation management is working?",
-      a: "Reputation360 provides monthly reporting that shows search position tracking for all target keywords, new positive assets created and indexed, link acquisition for each asset, and overall page-one composition. Progress is visible and measurable at every stage.",
-    },
-    {
-      id: "faq-2",
-      q: "Can I implement any of this methodology myself?",
-      a: "Elements of the methodology - LinkedIn optimization, profile claiming, basic content creation - are accessible to self-starters. The link-building, media placement, and technical SEO components require professional expertise and relationships to execute effectively. Most clients who attempt DIY reputation management find they can achieve modest improvements but plateau without professional support for the authority-building components.",
-    },
-    {
-      id: "faq-3",
-      q: "How does the methodology differ for individuals vs. businesses?",
-      a: "The principles are the same; the assets differ. For individuals, personal profiles, personal sites, and individual media features are the primary tools. For businesses, company web presence, review management, and brand media coverage are more central. Many of our engagements involve both - an individual executive and their company brand, managed simultaneously.",
-    },
-    {
-      id: "faq-4",
-      q: "What makes Reputation360's methodology different from other ORM providers?",
-      a: "We can speak for our own approach: intelligence-first, quality-focused, transparency-grounded, and results-measured. Our 97% success rate across seven years and 1,100+ clients is the evidence we rely on, not marketing claims.",
-    },
-  ],
+  faqs: ORM_BEST_PRACTICES_FAQS,
   cta: {
     title: "Take the next step",
     lead:

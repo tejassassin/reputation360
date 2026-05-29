@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { CRISIS_MANAGEMENT_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -326,28 +327,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "How quickly can Reputation360 begin crisis work?",
-      a: "We prioritize crisis engagements. For clients in active reputation crises, we can begin strategy and content production within 24 to 48 hours of engagement. The first indexed assets typically go live within a week.",
-    },
-    {
-      id: "faq-2",
-      q: "Should we respond publicly to the negative content?",
-      a: "This is case-specific and requires careful judgment. In some situations, a calm, factual public response is appropriate and can itself become positive indexed content. In others, public response amplifies the story. Reputation360 advises on communication strategy as part of the crisis engagement.",
-    },
-    {
-      id: "faq-3",
-      q: "What if the crisis involves allegations that are partially true?",
-      a: "We work with clients in complicated situations. Our role is not to manufacture false narratives but to ensure the full context of a situation is represented in search results - not just the most sensationalized version. We do not work with clients whose reputation issues stem from ongoing harmful behavior.",
-    },
-    {
-      id: "faq-4",
-      q: "What does recovery actually look like after a major crisis?",
-      a: "Recovery is typically an improvement on the pre-crisis state because the crisis motivated investment in a stronger, actively managed digital presence. Clients who work with Reputation360 on long-term recovery often emerge with better search visibility than they had before.",
-    },
-  ],
+  faqs: CRISIS_MANAGEMENT_FAQS,
   cta: {
     title: "Take the next step",
     lead:

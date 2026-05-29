@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { MONITORING_REPUTATION_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -300,23 +301,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "Google Alerts does not seem to catch everything. Is there a better free option?",
-      a: "Google Alerts has known gaps - it misses content from sites that restrict crawling, some social platforms, and occasionally delays alerts by days or weeks. Pairing it with monthly manual audits and a free tier of Brand24 or Mention covers most gaps without significant cost.",
-    },
-    {
-      id: "faq-2",
-      q: "How do I monitor what a potential employer or partner would find?",
-      a: "Use an incognito browser to search your name without your own personalization affecting results. For a more accurate simulation of what someone in a different location sees, use a VPN set to their location - a recruiter in New York, for instance. Reputation360 can run a comprehensive multi-location search audit as part of our assessment service.",
-    },
-    {
-      id: "faq-3",
-      q: "What is the first thing I should do if my monitoring catches a new negative result?",
-      a: "Document it immediately - URL, screenshot, current position. Then assess: is it factually accurate or false? Is it on a high or low authority site? Is it in a position that will be seen by your key audiences? This assessment determines the response, which ranges from a formal removal request to an immediate escalation of suppression activities.",
-    },
-  ],
+  faqs: MONITORING_REPUTATION_FAQS,
   cta: {
     title: "Take the next step",
     lead:

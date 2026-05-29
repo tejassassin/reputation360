@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { NEGATIVE_LINKS_CASES_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -255,23 +256,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "How do I know if a negative result is actually costing me opportunities?",
-      a: "Often you do not know directly. What you may notice is that warm professional introductions go cold, deals that were progressing stall unexpectedly, or job processes pause at due diligence. A reputation scan will show you exactly what someone finds when they search your name.",
-    },
-    {
-      id: "faq-2",
-      q: "Can you help if my case involves a real event, not just false information?",
-      a: "Yes. The majority of cases we handle involve factually accurate but contextually unfair content - old news coverage, resolved legal matters, past business issues. Suppression works regardless of whether the original content is true or false.",
-    },
-    {
-      id: "faq-3",
-      q: "What is the first step to get started?",
-      a: "Tell us what you are dealing with. A brief description of the negative content and what it is costing you is all we need to begin an assessment. We will tell you what is realistically achievable and how long it is likely to take.",
-    },
-  ],
+  faqs: NEGATIVE_LINKS_CASES_FAQS,
   cta: {
     title: "Take the next step",
     lead:

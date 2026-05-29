@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { PROFILE_CLAIMING_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -275,33 +276,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "How long does it take for a newly claimed profile to rank in Google?",
-      a: "High-authority platforms like LinkedIn, Crunchbase, and Medium typically index within days to a week of a profile being created or significantly updated. Ranking movement for your name search typically begins within two to four weeks. Lower-authority platforms may take longer to index. For broader timelines for different types of reputation work, see our dedicated timeline guide.",
-      aParts: [
-        {
-          text: "High-authority platforms like LinkedIn, Crunchbase, and Medium typically index within days to a week of a profile being created or significantly updated. Ranking movement for your name search typically begins within two to four weeks. Lower-authority platforms may take longer to index. For ",
-        },
-        {
-          text: "broader timelines for different types of reputation work",
-          href: BLOG_PATHS.repairTimeline,
-        },
-        { text: ", see our dedicated timeline guide." },
-      ],
-    },
-    {
-      id: "faq-2",
-      q: "Do I need to be active on all of these platforms to maintain their rankings?",
-      a: "Not all platforms require ongoing activity to maintain rankings. LinkedIn benefits significantly from regular posting. Most other profiles maintain their rankings once completed, as long as the information remains current and relevant.",
-    },
-    {
-      id: "faq-3",
-      q: "What if someone else has already claimed my name on a platform?",
-      a: "For business-related platforms, most allow only one profile per individual - if a profile already exists with your information, you can typically request account ownership from the platform. For social platforms where username conflicts exist, use a variant (first name plus middle initial, name plus industry) and ensure the display name and bio are optimized for your full name.",
-    },
-  ],
+  faqs: PROFILE_CLAIMING_FAQS,
   cta: {
     title: "Take the next step",
     lead:

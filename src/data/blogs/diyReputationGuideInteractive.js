@@ -1,3 +1,5 @@
+import { DIY_REPUTATION_GUIDE_FAQS } from "./blogFaqsRewritten.js";
+
 export const DIY_GUIDE_NAV = [
   { id: "intro", label: "Introduction" },
   { id: "audit", label: "Reputation Audit" },
@@ -277,33 +279,7 @@ export const DIY_CHECKLIST = [
   "Google Alerts are active for my name, brand, and key negative terms.",
 ];
 
-export const DIY_FAQS = [
-  {
-    id: "diy-faq-1",
-    q: "How long does DIY reputation management take?",
-    a: "Expect early movement in 8-12 weeks with consistent effort. Full first-page control often takes 3-6 months depending on how entrenched the negative content is.",
-  },
-  {
-    id: "diy-faq-2",
-    q: "Can I remove negative content from Google myself?",
-    a: "Removal is only possible when content violates platform or Google policies. Most DIY success comes from suppression - creating stronger positive assets that outrank negatives.",
-  },
-  {
-    id: "diy-faq-3",
-    q: "Do I need a personal website?",
-    a: "While LinkedIn and Medium are powerful free platforms that rank well, owning your own website with a domain in your name (e.g., yourname.com) is one of the strongest long-term assets for reputation management. An owned domain gives you complete control - no algorithm changes, no platform shutdowns, no policy violations to worry about. LinkedIn and Medium can work perfectly for many professionals if maintained consistently, but your personal website is the foundation you truly own and control forever.",
-  },
-  {
-    id: "diy-faq-4",
-    q: "How many reviews do I need to offset one bad review?",
-    a: "Studies suggest 8-10 authentic five-star reviews can balance one one-star review in aggregate perception-but your public response matters just as much.",
-  },
-  {
-    id: "diy-faq-5",
-    q: "When should I hire a professional instead?",
-    a: "Consider help when negatives involve defamation, legal risk, high-authority news domains, or when DIY efforts stall after 90 days with no first-page movement.",
-  },
-];
+export const DIY_FAQS = DIY_REPUTATION_GUIDE_FAQS;
 
 export const SOCIAL_PLATFORMS = [
   {

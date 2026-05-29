@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { HIDDEN_COST_REPUTATION_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -271,18 +272,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "How do I calculate the financial impact of my reputation issue?",
-      a: "A personalized assessment maps your role, revenue, deal size, and the severity of your current search results. Book a consultation and we will build a custom analysis of what inaction is likely costing you versus what improvement could recover.",
-    },
-    {
-      id: "faq-2",
-      q: "Is the cost of reputation management worth it?",
-      a: "For the overwhelming majority of clients, the answer is yes - often significantly. For a senior professional, a single recovered job opportunity typically covers multiple years of reputation management investment. For a business, a modest improvement in conversion rate from improved search results can generate multiples of the engagement cost within the first year.",
-    },
-  ],
+  faqs: HIDDEN_COST_REPUTATION_FAQS,
   cta: {
     title: "Take the next step",
     lead:

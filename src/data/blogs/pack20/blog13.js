@@ -1,4 +1,5 @@
 import { blogPostPath } from "../../../constants/blogPaths.js";
+import { FIRST_GOOGLE_RESULTS_FAQS } from "../blogFaqsRewritten.js";
 import { BLOG_PATHS } from "../blogInternalPaths.js";
 import { PACK20_AUTHOR, PACK20_DATE, pack20Image } from "./shared.js";
 
@@ -285,18 +286,7 @@ export const article = {
       ],
     },
   ],
-  faqs: [
-    {
-      id: "faq-1",
-      q: "Does the anchoring effect apply even when people know they should be objective?",
-      a: "Yes. Anchoring is a pre-conscious process that operates before deliberate reasoning begins. Even people who know about the bias are subject to it. This is why research repeatedly shows that first impressions persist even when people are given corrective information afterward - the initial anchor does not fully clear.",
-    },
-    {
-      id: "faq-2",
-      q: "How does this apply to businesses, not just individuals?",
-      a: "Identically. When a potential customer, partner, or investor searches a brand name, the first result sets the frame. A negative review site in position 1 is every bit as damaging for a business as it is for an individual. Reputation360 applies first-position strategy to both personal and brand searches.",
-    },
-  ],
+  faqs: FIRST_GOOGLE_RESULTS_FAQS,
   cta: {
     title: "Take the next step",
     lead:
