@@ -4,32 +4,32 @@ const CHANNELS = [
   {
     Icon: Search,
     label: "Search",
-    desc: "Page-one results",
+    desc: "Page-one results.",
   },
   {
     Icon: Star,
     label: "Reviews",
-    desc: "Ratings & replies",
+    desc: "Ratings & replies.",
   },
   {
     Icon: Newspaper,
     label: "News",
-    desc: "Press & mentions",
+    desc: "Press & mentions.",
   },
   {
     Icon: MessageSquare,
     label: "Social",
-    desc: "Profiles & forums",
+    desc: "Profiles & forums.",
   },
 ];
 
-/** ORM-only illustration for the What Is section — stacks cleanly in narrow columns. */
+/** ORM-only illustration for the What Is section - stacks cleanly in narrow columns. */
 export function OrmHeroVisual() {
   return (
     <div
       className="relative w-full overflow-hidden rounded-xl border border-slate-200/90 bg-gradient-to-br from-[#0f2344] via-[#152d52] to-[#0a1628] shadow-[0_20px_50px_-28px_rgba(15,35,60,0.45)] ring-1 ring-[#2E5B88]/20"
       role="img"
-      aria-label="Online reputation spans search, reviews, news, and social - managed together"
+      aria-label="Online reputation spans search, reviews, news, and social - managed together."
     >
       <div
         className="pointer-events-none absolute -right-16 top-0 h-36 w-56 rounded-full bg-[#4CAF50]/18 blur-3xl"
@@ -55,7 +55,7 @@ export function OrmHeroVisual() {
           </div>
           <div className="min-w-0 flex-1">
             <p className="font-heading text-base font-bold leading-snug text-white md:text-lg">
-              Your reputation, everywhere people look
+              Your reputation, everywhere people look.
             </p>
             <p className="mt-1.5 text-sm leading-relaxed text-slate-300/90">
               ORM aligns what people find across every channel that shapes trust.

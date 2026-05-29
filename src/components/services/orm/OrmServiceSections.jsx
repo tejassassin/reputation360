@@ -87,7 +87,8 @@ const tileIdle =
 
 /** Section rhythm aligned with About page (`aboutSectionSpacing` / `aboutFirstContentSpacing`). */
 const ORM_SECTION_SPACING = "pt-16 pb-20 md:pt-20 md:pb-24";
-const ORM_FIRST_SECTION_SPACING = "pt-28 pb-20 md:pt-36 md:pb-24";
+/** First section after hero - header clearance lives on the hero, not here. */
+const ORM_FIRST_SECTION_SPACING = "pt-16 pb-20 md:pt-20 md:pb-24";
 
 /** Full-bleed navy band - matches About `#what-we-dont` background layers. */
 function OrmWhatWeDontBackground() {
@@ -275,17 +276,33 @@ function DocSection({
   );
 }
 
-function OrmHeroHeadline({ title }) {
+function OrmHeroHeadline({ title, subline }) {
   const pageOne = "Page One";
   const idx = title.indexOf(pageOne);
   if (idx === -1) {
-    return title;
+    return (
+      <>
+        {title}
+        {subline ? (
+          <>
+            <br />
+            {subline}
+          </>
+        ) : null}
+      </>
+    );
   }
   return (
     <>
       {title.slice(0, idx)}
       <span className="text-[#7df5b9]">{pageOne}</span>
       {title.slice(idx + pageOne.length)}
+      {subline ? (
+        <>
+          <br />
+          {subline}
+        </>
+      ) : null}
     </>
   );
 }
@@ -293,35 +310,36 @@ function OrmHeroHeadline({ title }) {
 export function OrmServiceHero() {
   return (
     <header
-      className="relative flex min-h-[min(460px,calc(100vh-10.5rem))] flex-col overflow-hidden bg-[#050a18] text-white md:min-h-[min(520px,calc(100vh-11rem))]"
+      id="orm-hero"
+      className="relative flex min-h-[min(520px,calc(100vh-10.5rem))] flex-col overflow-hidden bg-[#050a18] pb-10 pt-28 text-white md:min-h-[min(580px,calc(100vh-11rem))] md:pb-14 md:pt-32"
       aria-labelledby="orm-hero-heading"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_12%_-8%,rgba(76,175,80,0.22),transparent_52%),radial-gradient(ellipse_65%_45%_at_100%_0%,rgba(46,91,136,0.4),transparent_50%),linear-gradient(165deg,#050a18_0%,#1F3B64_42%,#0a1628_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_20%_-10%,rgba(76,175,80,0.18),transparent_50%),radial-gradient(ellipse_70%_50%_at_100%_0%,rgba(31,59,100,0.45),transparent_48%),linear-gradient(165deg,#050a18_0%,#1F3B64_38%,#0a1628_100%)]"
         aria-hidden
+      />
+      <Motion.div
+        className="pointer-events-none absolute -left-24 top-32 h-80 w-80 rounded-full bg-[#4CAF50]/22 blur-[100px]"
+        aria-hidden
+        animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
+        transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+      />
+      <Motion.div
+        className="pointer-events-none absolute -right-20 bottom-32 h-72 w-72 rounded-full bg-[#2E5B88]/28 blur-[90px]"
+        aria-hidden
+        animate={{ x: [0, -24, 0], y: [0, -16, 0] }}
+        transition={{ duration: 16, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
       />
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.32] [background-image:linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:48px_48px]"
+        className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:48px_48px]"
         aria-hidden
       />
-      <Motion.div
-        className="pointer-events-none absolute -left-20 top-24 h-72 w-72 rounded-full bg-[#4CAF50]/20 blur-[100px]"
-        aria-hidden
-        animate={{ x: [0, 28, 0], y: [0, 16, 0] }}
-        transition={{ duration: 18, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-      />
-      <Motion.div
-        className="pointer-events-none absolute -right-16 bottom-20 h-64 w-64 rounded-full bg-[#2E5B88]/25 blur-[90px]"
-        aria-hidden
-        animate={{ x: [0, -20, 0], y: [0, -12, 0] }}
-        transition={{ duration: 14, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-      />
-      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col justify-center px-5 pb-14 pt-36 text-center sm:pt-40 md:px-8 md:pb-16 md:pt-44 lg:px-8 lg:text-left">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 text-center lg:px-8 lg:text-left">
         <h1
           id="orm-hero-heading"
           className="font-heading text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-[2.75rem] lg:text-5xl xl:text-[3.25rem] xl:leading-[1.08]"
         >
-          <OrmHeroHeadline title={ormPageHero.title} />
+          <OrmHeroHeadline title={ormPageHero.title} subline={ormPageHero.titleSubline} />
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-300/90 md:mt-6 md:text-lg lg:mx-0 lg:max-w-none lg:mt-7">
           {ormPageHero.lead}
@@ -553,31 +571,36 @@ export function OrmRankingFactorsSection() {
       lead={RANKING_FACTORS_INTRO}
       tone="navy"
     >
-      <ul className="grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4 xl:gap-5">
+      <ul className="grid list-none items-stretch gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4 xl:gap-5">
         {RANKING_FACTORS.map((f) => {
           const Icon = FACTOR_ICONS[f.id] ?? Target;
           return (
             <li
               key={f.id}
-              className="ha-lift flex flex-col rounded-2xl border border-navy/10 bg-white p-5 shadow-[0_12px_40px_-24px_rgba(31,59,100,0.12)] md:p-6"
+              className="ha-lift flex h-full flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_12px_40px_-24px_rgba(31,59,100,0.12)]"
             >
-              <div className="flex items-center gap-3 border-b border-navy/8 pb-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white shadow-sm">
-                  <Icon className="h-5 w-5" aria-hidden strokeWidth={2} />
-                </span>
-                <h3 className="font-heading text-lg font-bold text-navy">{f.label}</h3>
+              <div className="flex min-h-0 flex-1 flex-col p-5 md:p-6">
+                <div className="flex items-center gap-3 border-b border-navy/8 pb-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white shadow-sm">
+                    <Icon className="h-5 w-5" aria-hidden strokeWidth={2} />
+                  </span>
+                  <h3 className="font-heading text-lg font-bold text-navy">{f.label}</h3>
+                </div>
+                <div className="mt-4 flex flex-1 flex-col">
+                  <p className="text-xs font-bold uppercase tracking-wide text-navy/45">
+                    What it means
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-navy/75 md:text-[15px]">
+                    {f.means}
+                  </p>
+                </div>
               </div>
-              <div className="mt-4 flex flex-1 flex-col">
-                <p className="text-xs font-bold uppercase tracking-wide text-navy/45">
-                  What It Means
+
+              <div className="shrink-0 bg-gradient-to-br from-[#1f3b64] via-[#183456] to-[#0f2344] px-5 py-4 md:px-6 md:py-5">
+                <p className="font-heading text-[11px] font-bold uppercase tracking-[0.12em] text-[#7df5b9] md:text-xs">
+                  Why it matters for suppression
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-navy/75 md:text-[15px]">
-                  {f.means}
-                </p>
-                <p className="mt-5 text-xs font-bold uppercase tracking-wide text-[#1a5c38]">
-                  Why It Matters for Suppression
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-navy/75 md:text-[15px]">
+                <p className="mt-2 text-sm leading-relaxed text-slate-100/92 md:text-[15px]">
                   {f.suppression}
                 </p>
               </div>
@@ -870,7 +893,7 @@ export function OrmProcessSection() {
               <h3 className="mt-4 font-heading text-xl font-bold text-navy md:text-2xl">
                 Phase {phaseNum}: {phase.title}
               </h3>
-              <p className="mt-4 max-w-3xl text-base leading-relaxed text-navy/75 md:text-lg md:leading-relaxed">
+              <p className="mt-4 w-full max-w-none text-base leading-relaxed text-navy/75 md:text-lg md:leading-relaxed">
                 {phase.body}
               </p>
             </Motion.div>
@@ -1055,23 +1078,30 @@ export function OrmWhyR360Section() {
           </p>
         </Motion.div>
 
-        <Motion.div
-          className="mb-12 border-t border-white/12 pt-12 text-center md:mb-16 md:pt-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={ormInView}
-          transition={{ duration: 0.55, delay: 0.04 }}
-        >
-          <h3 className="font-heading text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.25)] md:text-[2.1rem]">
-            What Sets Us Apart
-          </h3>
-          <div
-            className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] shadow-[0_0_24px_rgba(76,175,80,0.2)]"
-            aria-hidden
-          />
-        </Motion.div>
+        <div className="border-t border-white/12 pt-10 md:pt-12">
+          <Motion.div
+            className="mb-8 md:mb-10"
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={ormInView}
+            transition={{ duration: 0.45, delay: 0.04 }}
+          >
+            <div className="relative pl-5 md:pl-6">
+              <div
+                className="absolute inset-y-0 left-0 w-1 rounded-full bg-gradient-to-b from-[#4CAF50] via-emerald-300 to-[#2E5B88] shadow-[0_0_14px_rgba(76,175,80,0.35)]"
+                aria-hidden
+              />
+              <h3 className="font-heading text-2xl font-extrabold leading-tight tracking-tight text-white md:text-[1.75rem] lg:text-[2rem]">
+                What Sets Us Apart
+              </h3>
+              <div
+                className="mt-3 h-px max-w-xs bg-gradient-to-r from-[#4CAF50]/90 via-[#2E5B88]/70 to-transparent md:max-w-sm lg:max-w-md"
+                aria-hidden
+              />
+            </div>
+          </Motion.div>
 
-        <div className="flex flex-wrap justify-center gap-5 md:gap-6">
+          <div className="flex flex-wrap justify-center gap-5 md:gap-6">
           {WHY_R360_DIFFERENTIATORS.map((d, i) => {
             const Icon = WHY_R360_ICON_BY_ID[d.id] ?? Zap;
             return (
@@ -1103,6 +1133,7 @@ export function OrmWhyR360Section() {
               </Motion.div>
             );
           })}
+          </div>
         </div>
       </div>
     </section>
