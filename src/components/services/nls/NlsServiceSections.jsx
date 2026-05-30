@@ -645,7 +645,6 @@ function NlsRemovalComparisonTable() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -3 }}
     >
       <div className="overflow-x-auto">
         <table className="w-full min-w-[48rem] border-collapse text-left text-sm">
@@ -691,26 +690,26 @@ function NlsRemovalComparisonTable() {
                   key={row.aspect}
                   onMouseEnter={() => handleRowEnter(i)}
                   onMouseLeave={handleRowLeave}
-                  className={`group/row transition-colors duration-500 motion-reduce:transition-none ${
+                  className={`group/row transition-colors duration-700 motion-reduce:transition-none ${
                     isHovered
-                      ? "bg-[linear-gradient(90deg,rgba(236,244,255,0.96),rgba(255,255,255,1),rgba(240,250,243,0.98))] shadow-[inset_4px_0_0_0_#1f3b64,inset_-4px_0_0_0_#4CAF50]"
+                      ? "bg-[linear-gradient(90deg,rgba(244,248,253,0.96),rgba(255,255,255,1),rgba(245,251,246,0.98))] shadow-[inset_3px_0_0_0_rgba(31,59,100,0.78),inset_-3px_0_0_0_rgba(76,175,80,0.72)]"
                       : baseBg
                   }`}
                 >
                   <th
-                    className={`border-b border-[#e7eef6] px-5 py-5 align-top transition-colors duration-500 md:px-6 ${
+                    className={`border-b border-[#e7eef6] px-5 py-5 align-top transition-colors duration-700 md:px-6 ${
                       isHovered ? "text-[#0f2e58]" : "text-navy"
                     }`}
                   >
                     <div className="flex items-start gap-3.5">
                       <span
-                        className={`mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border transition-all duration-500 ${
+                        className={`mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border transition-all duration-700 ${
                           isHovered
-                            ? "border-[#4CAF50]/35 bg-[linear-gradient(135deg,#1F3B64_0%,#2E5B88_55%,#4CAF50_130%)] text-white shadow-[0_18px_36px_-22px_rgba(31,59,100,0.5)]"
+                            ? "border-[#c9d8e8] bg-[linear-gradient(180deg,#f9fbfd_0%,#eef4f8_100%)] text-[#2d4f7b] shadow-[0_10px_24px_-24px_rgba(31,59,100,0.2)]"
                             : "border-[#d8e4ef] bg-[linear-gradient(180deg,#ffffff_0%,#f6f9fc_100%)] text-[#1F3B64]"
                         }`}
                       >
-                        <Icon className="h-5 w-5" strokeWidth={2.15} aria-hidden />
+                        <Icon className="h-5 w-5 transition-colors duration-700" strokeWidth={2.15} aria-hidden />
                       </span>
                       <div>
                         <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
@@ -723,18 +722,18 @@ function NlsRemovalComparisonTable() {
                     </div>
                   </th>
                   <td
-                    className={`border-b border-[#e7eef6] px-5 py-5 align-top text-sm leading-relaxed transition-all duration-500 md:px-6 md:text-[15px] ${
+                    className={`border-b border-[#e7eef6] px-5 py-5 align-top text-sm leading-relaxed transition-all duration-700 md:px-6 md:text-[15px] ${
                       isHovered
-                        ? "bg-[#eef4ff]/85 text-navy/90"
+                        ? "bg-[#f5f8fc]/92 text-navy/88"
                         : "text-navy/75 hover:bg-[#f5f8fc]/80"
                     }`}
                   >
                     {row.removal}
                   </td>
                   <td
-                    className={`border-b border-[#e7eef6] px-5 py-5 align-top text-sm leading-relaxed transition-all duration-500 md:px-6 md:text-[15px] ${
+                    className={`border-b border-[#e7eef6] px-5 py-5 align-top text-sm leading-relaxed transition-all duration-700 md:px-6 md:text-[15px] ${
                       isHovered
-                        ? "bg-[#f0faf3]/95 text-navy/90"
+                        ? "bg-[#f6fbf7]/96 text-navy/88"
                         : "text-navy/75 hover:bg-[#f4fbf6]/80"
                     }`}
                   >
