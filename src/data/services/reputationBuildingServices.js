@@ -125,29 +125,43 @@ export const RBS_STRENGTHEN_ROWS = [
 ];
 
 export const RBS_WHY_EXIST = {
-  eyebrow: "Context",
+  eyebrow: "The Bigger Picture",
   title: "Why These Services Exist",
   intro:
-    "ORM controls what appears when someone searches for you. These services go further — because different reputation goals require different approaches.",
-  introEmphasis: "because different reputation goals require different approaches.",
+    "ORM is broad, search-focused, and built to control what appears when someone looks you up. These services exist because different reputation goals require different approaches.",
+  introEmphasis: "These services exist because different reputation goals require different approaches.",
   scenarios: [
     {
-      context: "Decision-makers",
-      text: "They don't form opinions on Google alone. They're on LinkedIn, reading what you publish, assessing whether you have a credible voice in your industry.",
-      tag: "Thought Leadership",
+      eyebrow: "When your goal is",
+      audience: "Being seen as a credible voice by decision-makers",
+      text: "They are not forming that opinion on Google alone. They are looking at LinkedIn, reading what you publish, and evaluating the editorial presence you have built over time.",
+      whereLabel: "Where they look",
+      signals: [
+        "LinkedIn profile and activity",
+        "Content you publish",
+        "Editorial presence in your field",
+      ],
+      tag: "Thought Leadership Work",
     },
     {
-      context: "Candidates",
-      text: "They aren't won over by search results. They're looking at your company page, employee reviews, and whether leadership shows up with authority.",
-      tag: "Employer Branding",
+      eyebrow: "When your goal is",
+      audience: "Winning the trust of talented candidates",
+      text: "They are not deciding from search results alone. They are looking at your company page, reading employee reviews, and checking whether leadership is visible and credible.",
+      whereLabel: "Where they look",
+      signals: [
+        "LinkedIn company page",
+        "Employee reviews",
+        "Leadership visibility",
+      ],
+      tag: "Employer Branding Work",
     },
   ],
   conclusion:
-    "Each service targets a specific reputation surface, a specific audience, and a specific outcome. That's the difference between broad and deep.",
-  conclusionEmphasis: "That's the difference between broad and deep.",
+    "Each service targets a specific reputation surface, a specific audience, and a specific outcome. That is the difference between broad and deep.",
+  conclusionEmphasis: "That is the difference between broad and deep.",
   paragraphs: [
-    "ORM controls what appears when someone searches for you.",
-    "These services go further — because different reputation goals require different approaches.",
+    "ORM is broad, search-focused, and built to control what appears when someone looks you up.",
+    "These services exist because different reputation goals require different approaches.",
   ],
 };
 

@@ -582,22 +582,46 @@ export function RbsFrameworkSection() {
         <div className="mt-8 flex max-w-[960px] flex-col gap-4">
           {RBS_WHY_EXIST.scenarios.map((scenario, index) => (
             <RbsHoverCard
-              key={scenario.context}
+              key={scenario.audience}
               delay={index * 0.06}
               hoverY={-4}
               hoverScale={1.004}
-              className="grid items-center gap-6 rounded-[12px] border border-[#E5E7EB] bg-white px-8 py-7 shadow-[0_1px_4px_rgba(0,0,0,0.05)] md:grid-cols-[minmax(0,1fr)_auto]"
+              className="group rounded-[16px] border border-[#E5E7EB] bg-white px-8 py-8 shadow-[0_1px_4px_rgba(0,0,0,0.05)]"
             >
-              <div>
-                <p className="font-heading text-[14px] font-medium uppercase tracking-[0.12em] text-[#6B7280]">
-                  {scenario.context}
-                </p>
-                <p className="mt-2 text-[15px] leading-[1.7] text-[#374151]">{scenario.text}</p>
+              <div className="grid gap-7 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+                <div>
+                  <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.22em] text-[#4CAF50]">
+                    {scenario.eyebrow}
+                  </p>
+                  <h4 className="mt-3 max-w-[30rem] font-heading text-[1.7rem] font-bold leading-[1.2] text-[#1F3B64]">
+                    {scenario.audience}
+                  </h4>
+                  <p className="mt-5 max-w-[34rem] text-[15px] leading-[1.8] text-[#4B5563]">
+                    {scenario.text}
+                  </p>
+                </div>
+                <div className="justify-self-start md:justify-self-end">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-[#1F3B64] px-5 py-2.5 font-heading text-[12px] font-semibold tracking-[0.02em] text-white">
+                    {scenario.tag}
+                    <span className="text-[#4CAF50] transition-transform duration-300 group-hover:translate-x-0.5">
+                      &rarr;
+                    </span>
+                  </span>
+                </div>
               </div>
-              <div className="justify-self-start md:justify-self-end">
-                <span className="inline-flex rounded-full bg-[#1F3B64] px-4 py-2 font-heading text-[12px] font-semibold tracking-[0.02em] text-white">
-                  {scenario.tag}
-                </span>
+
+              <div className="mt-7">
+                <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B7280]">
+                  {scenario.whereLabel}
+                </p>
+                <div className="mt-3 flex flex-col gap-2.5">
+                  {scenario.signals.map((signal) => (
+                    <div key={signal} className="flex items-center gap-3 text-[14px] text-[#374151]">
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#4CAF50]" aria-hidden />
+                      <span>{signal}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </RbsHoverCard>
           ))}
