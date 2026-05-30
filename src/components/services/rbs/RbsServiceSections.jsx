@@ -6,6 +6,7 @@ import {
   Briefcase,
   Building2,
   CheckCircle2,
+  ChevronDown,
   CircleDollarSign,
   Compass,
   FileText,
@@ -82,6 +83,61 @@ function RbsReveal({ children, className = "", delay = 0, y = 18 }) {
     >
       {children}
     </Motion.div>
+  );
+}
+
+function RbsHoverCard({
+  children,
+  className = "",
+  delay = 0,
+  y = 18,
+  hoverY = -6,
+  hoverScale = 1.012,
+  as: Component = Motion.div,
+}) {
+  return (
+    <Component
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={rbsInView}
+      transition={{ duration: 0.48, delay, ease: rbsEase }}
+      whileHover={{ y: hoverY, scale: hoverScale }}
+      className={`motion-reduce:transform-none ${className}`}
+    >
+      {children}
+    </Component>
+  );
+}
+
+function RbsExpandableBlock({
+  title,
+  children,
+  defaultOpen = false,
+  tone = "light",
+  className = "",
+}) {
+  const shell =
+    tone === "navy"
+      ? "border-white/14 bg-white/8 text-white"
+      : "border-[#dbe5f0] bg-white text-[#14355f]";
+  const summaryText = tone === "navy" ? "text-white" : "text-[#14355f]";
+
+  return (
+    <details
+      className={`group overflow-hidden rounded-[1.6rem] border ${shell} ${className}`}
+      defaultOpen={defaultOpen}
+    >
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 [&::-webkit-details-marker]:hidden">
+        <span className={`font-heading text-lg font-bold ${summaryText}`}>{title}</span>
+        <ChevronDown
+          className={`h-5 w-5 shrink-0 transition-transform duration-300 group-open:rotate-180 ${
+            tone === "navy" ? "text-[#7df5b9]" : "text-[#4CAF50]"
+          }`}
+          aria-hidden
+        />
+      </summary>
+      <div className="px-5 pb-5 pt-1">{children}</div>
+    </details>
   );
 }
 
@@ -164,56 +220,41 @@ export function RbsServiceHero() {
         aria-hidden
       />
       <div className={`relative ${RBS_CONTENT_RAIL}`}>
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_23rem] lg:items-start">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
-              {rbsPageHero.eyebrow}
-            </p>
-            <h1 className="mt-4 font-heading text-[1.85rem] font-extrabold leading-[1.05] tracking-tight text-[#14355f] sm:text-4xl md:text-[3rem] lg:text-[3.4rem]">
-              <RbsHeroHeadline />
-            </h1>
-            <div className="mt-5 h-1 w-20 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]" aria-hidden />
-            <div className="mt-6 space-y-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              {rbsPageHero.leadParagraphs.map((paragraph) => (
+        <Motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={rbsInView}
+          transition={{ duration: 0.55, ease: rbsEase }}
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
+            {rbsPageHero.eyebrow}
+          </p>
+          <h1 className="mt-4 max-w-5xl font-heading text-[1.85rem] font-extrabold leading-[1.05] tracking-tight text-[#14355f] sm:text-4xl md:text-[3rem] lg:text-[3.4rem]">
+            <RbsHeroHeadline />
+          </h1>
+          <div className="mt-5 h-1 w-20 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]" aria-hidden />
+          <div className="mt-6 max-w-4xl space-y-4 text-base leading-relaxed text-slate-600 md:text-lg">
+            {rbsPageHero.leadParagraphs.slice(0, 2).map((paragraph) => (
+              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+            ))}
+          </div>
+          <RbsExpandableBlock title="Read the full introduction" className="mt-5 max-w-4xl">
+            <div className="space-y-4 text-base leading-relaxed text-slate-600 md:text-lg">
+              {rbsPageHero.leadParagraphs.slice(2).map((paragraph) => (
                 <p key={paragraph.slice(0, 48)}>{paragraph}</p>
               ))}
             </div>
-            <ConsultationCtas
-              variant="onLight"
-              consultLabel={rbsPageHero.ctaLabel}
-              consultHref={rbsPageHero.consultHref}
-              consultLinkProps={internalAnchorProps(rbsPageHero.consultHref)}
-              wrapperClassName="mt-8 justify-start"
-              consultSuffix={<ArrowRight className="h-4 w-4" aria-hidden />}
-            />
-            <p className="mt-5 text-sm text-slate-500 md:text-[15px]">{rbsPageHero.trustLine}</p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-            <div className="rounded-[1.75rem] border border-[#dfe8f1] bg-white p-5 shadow-[0_20px_48px_-28px_rgba(20,53,95,0.22)]">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
-                Broad work
-              </p>
-              <h2 className="mt-2 font-heading text-xl font-bold text-[#14355f]">
-                Search control
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                ORM and Negative Link Suppression improve what people find when they search.
-              </p>
-            </div>
-            <div className="rounded-[1.75rem] border border-[#d6efe1] bg-[linear-gradient(180deg,#fbfefc_0%,#f2fbf5_100%)] p-5 shadow-[0_20px_48px_-28px_rgba(76,175,80,0.18)]">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#2a7a3a]">
-                Deep work
-              </p>
-              <h2 className="mt-2 font-heading text-xl font-bold text-[#1b5e20]">
-                Layer-specific reputation building
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                These services strengthen the one specific layer of perception that needs more depth.
-              </p>
-            </div>
-          </div>
-        </div>
+          </RbsExpandableBlock>
+          <ConsultationCtas
+            variant="onLight"
+            consultLabel={rbsPageHero.ctaLabel}
+            consultHref={rbsPageHero.consultHref}
+            consultLinkProps={internalAnchorProps(rbsPageHero.consultHref)}
+            wrapperClassName="mt-8 justify-start"
+            consultSuffix={<ArrowRight className="h-4 w-4" aria-hidden />}
+          />
+          <p className="mt-5 text-sm text-slate-500 md:text-[15px]">{rbsPageHero.trustLine}</p>
+        </Motion.div>
       </div>
     </header>
   );
@@ -224,9 +265,16 @@ export function RbsTwoKindsSection() {
     <RbsSection
       id="two-kinds"
       title={RBS_TWO_KINDS.title}
-      lead={[RBS_TWO_KINDS.intro, ...RBS_GO_DEEPER.paragraphs]}
+      lead={[RBS_TWO_KINDS.intro]}
       tone="mint"
     >
+      <RbsExpandableBlock title={RBS_GO_DEEPER.title} className="mb-6">
+        <div className="space-y-4 text-base leading-relaxed text-slate-600 md:text-lg">
+          {RBS_GO_DEEPER.paragraphs.map((paragraph) => (
+            <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+          ))}
+        </div>
+      </RbsExpandableBlock>
       <div className="grid gap-5 lg:grid-cols-2">
         {[
           {
@@ -242,8 +290,9 @@ export function RbsTwoKindsSection() {
             shell: "border-[#d6efe1] bg-[linear-gradient(180deg,#fbfefc_0%,#f3fbf5_100%)]",
           },
         ].map((card) => (
-          <div
+          <RbsHoverCard
             key={card.heading}
+            delay={card.heading === "Deep reputation work" ? 0.08 : 0}
             className={`rounded-[1.75rem] border p-6 shadow-[0_16px_40px_-28px_rgba(20,53,95,0.2)] md:p-7 ${card.shell}`}
           >
             <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
@@ -251,13 +300,18 @@ export function RbsTwoKindsSection() {
             </p>
             <h3 className="mt-2 font-heading text-2xl font-bold text-[#14355f]">{card.heading}</h3>
             <p className="mt-4 text-base leading-relaxed text-slate-600">{card.body}</p>
-          </div>
+          </RbsHoverCard>
         ))}
       </div>
-      <div className="mt-6 rounded-[1.75rem] border border-[#dfe8f1] bg-white px-6 py-5 shadow-[0_16px_40px_-30px_rgba(20,53,95,0.18)]">
+      <RbsHoverCard
+        className="mt-6 rounded-[1.75rem] border border-[#dfe8f1] bg-white px-6 py-5 shadow-[0_16px_40px_-30px_rgba(20,53,95,0.18)]"
+        delay={0.12}
+        hoverY={-4}
+        hoverScale={1.006}
+      >
         <p className="text-base leading-relaxed text-slate-600 md:text-lg">{RBS_TWO_KINDS.examples}</p>
         <p className="mt-4 font-semibold text-[#14355f]">{RBS_TWO_KINDS.closing}</p>
-      </div>
+      </RbsHoverCard>
     </RbsSection>
   );
 }
@@ -289,8 +343,13 @@ export function RbsFrameworkSection() {
           {RBS_LAYER_ROWS.map((row, index) => {
             const Icon = LAYER_ICONS[row.layer] ?? Layers3;
             return (
-              <div
+              <Motion.div
                 key={row.layer}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={rbsInView}
+                transition={{ duration: 0.4, delay: index * 0.04, ease: rbsEase }}
+                whileHover={{ backgroundColor: "rgba(248,251,255,0.95)" }}
                 className={`grid grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] border-b border-[#e6edf4] last:border-b-0 ${
                   index % 2 === 0 ? "bg-white" : "bg-[#fbfdff]"
                 }`}
@@ -306,7 +365,7 @@ export function RbsFrameworkSection() {
                 <div className="px-5 py-4 text-sm leading-relaxed text-slate-600 md:px-6 md:text-[15px]">
                   {row.controls}
                 </div>
-              </div>
+              </Motion.div>
             );
           })}
         </div>
@@ -320,10 +379,12 @@ export function RbsFrameworkSection() {
               {RBS_STRENGTHEN_ROWS.map((row, index) => {
                 const selected = activeIndex === index;
                 return (
-                  <button
+                  <Motion.button
                     key={row.focus}
                     type="button"
                     onClick={() => setActiveIndex(index)}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.99 }}
                     className={`w-full rounded-2xl border px-4 py-3.5 text-left transition-all duration-300 ${
                       selected
                         ? "border-[#14355f] bg-[#14355f] text-white shadow-[0_14px_30px_-18px_rgba(20,53,95,0.38)]"
@@ -331,7 +392,7 @@ export function RbsFrameworkSection() {
                     }`}
                   >
                     <span className="block text-sm font-semibold leading-relaxed">{row.focus}</span>
-                  </button>
+                  </Motion.button>
                 );
               })}
             </div>
@@ -363,18 +424,15 @@ export function RbsFrameworkSection() {
         </div>
       </div>
 
-      <div className="mt-10 rounded-[2rem] border border-[#dbe5f0] bg-white p-6 shadow-[0_24px_60px_-38px_rgba(20,53,95,0.2)] md:p-8">
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
-          {RBS_WHY_EXIST.title}
-        </p>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
+      <RbsExpandableBlock title={RBS_WHY_EXIST.title} className="mt-10">
+        <div className="grid gap-4 md:grid-cols-2">
           {RBS_WHY_EXIST.paragraphs.map((paragraph) => (
             <p key={paragraph.slice(0, 44)} className="text-base leading-relaxed text-slate-600">
               {paragraph}
             </p>
           ))}
         </div>
-      </div>
+      </RbsExpandableBlock>
     </RbsSection>
   );
 }
@@ -395,43 +453,51 @@ export function RbsSpecializedServicesSection() {
       contentClassName="mt-10"
     >
       <div className="grid gap-6 xl:grid-cols-[20rem_minmax(0,1fr)]">
-        <div className="rounded-[1.9rem] border border-[#dbe5f0] bg-white p-4 shadow-[0_24px_60px_-34px_rgba(20,53,95,0.18)]">
-          <ul className="space-y-2">
-            {RBS_SPECIALIZED_SERVICES.map((service, index) => {
-              const selected = activeId === service.id;
-              const Icon = SERVICE_ICONS[service.title] ?? Sparkles;
-              return (
-                <li key={service.id}>
-                  <button
-                    type="button"
-                    onClick={() => setActiveId(service.id)}
-                    className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3.5 text-left transition-all duration-300 ${
-                      selected
-                        ? "bg-[#14355f] text-white shadow-[0_14px_30px_-18px_rgba(20,53,95,0.4)]"
-                        : "bg-[#fbfdff] text-[#14355f] hover:bg-white hover:shadow-sm"
-                    }`}
-                  >
-                    <span
-                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
-                        selected ? "bg-white/14 text-[#7df5b9]" : "bg-[#eef4fb] text-[#14355f]"
+          <Motion.div
+            initial={{ opacity: 0, x: -14 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={rbsInView}
+            transition={{ duration: 0.45, ease: rbsEase }}
+            className="rounded-[1.9rem] border border-[#dbe5f0] bg-white p-4 shadow-[0_24px_60px_-34px_rgba(20,53,95,0.18)]"
+          >
+            <ul className="space-y-2">
+              {RBS_SPECIALIZED_SERVICES.map((service, index) => {
+                const selected = activeId === service.id;
+                const Icon = SERVICE_ICONS[service.title] ?? Sparkles;
+                return (
+                  <li key={service.id}>
+                    <Motion.button
+                      type="button"
+                      onClick={() => setActiveId(service.id)}
+                      whileHover={{ x: 3 }}
+                      whileTap={{ scale: 0.99 }}
+                      className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3.5 text-left transition-all duration-300 ${
+                        selected
+                          ? "bg-[#14355f] text-white shadow-[0_14px_30px_-18px_rgba(20,53,95,0.4)]"
+                          : "bg-[#fbfdff] text-[#14355f] hover:bg-white hover:shadow-sm"
                       }`}
                     >
-                      <Icon className="h-5 w-5" aria-hidden />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block text-xs font-bold uppercase tracking-[0.15em] opacity-60">
-                        Service {String(index + 1).padStart(2, "0")}
+                      <span
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
+                          selected ? "bg-white/14 text-[#7df5b9]" : "bg-[#eef4fb] text-[#14355f]"
+                        }`}
+                      >
+                        <Icon className="h-5 w-5" aria-hidden />
                       </span>
-                      <span className="mt-1 block font-heading text-sm font-bold leading-snug md:text-[15px]">
-                        {service.title}
+                      <span className="min-w-0">
+                        <span className="block text-xs font-bold uppercase tracking-[0.15em] opacity-60">
+                          Service {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <span className="mt-1 block font-heading text-sm font-bold leading-snug md:text-[15px]">
+                          {service.title}
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+                    </Motion.button>
+                  </li>
+                );
+              })}
+            </ul>
+          </Motion.div>
 
         <AnimatePresence mode="wait" initial={false}>
           <Motion.article
@@ -459,29 +525,40 @@ export function RbsSpecializedServicesSection() {
 
             <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)]">
               <div className="space-y-4">
-                {active.paragraphs.map((paragraph) => (
+                {active.paragraphs.slice(0, 2).map((paragraph) => (
                   <p key={paragraph.slice(0, 48)} className="text-base leading-relaxed text-slate-600 md:text-lg">
                     {paragraph}
                   </p>
                 ))}
-                {active.quote ? (
-                  <blockquote className="rounded-2xl border border-[#dbe5f0] bg-[#f8fbff] px-5 py-4 font-heading text-lg font-semibold leading-relaxed text-[#14355f]">
-                    {active.quote}
-                  </blockquote>
-                ) : null}
-                {active.testimonial ? (
-                  <blockquote className="rounded-2xl border border-[#d6efe1] bg-[#f4fbf6] px-5 py-4 text-base leading-relaxed text-[#14355f]">
-                    {active.testimonial}
-                  </blockquote>
+                {(active.paragraphs.length > 2 || active.quote || active.testimonial) ? (
+                  <RbsExpandableBlock title="Read the full service details">
+                    <div className="space-y-4">
+                      {active.paragraphs.slice(2).map((paragraph) => (
+                        <p
+                          key={paragraph.slice(0, 48)}
+                          className="text-base leading-relaxed text-slate-600 md:text-lg"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+                      {active.quote ? (
+                        <blockquote className="rounded-2xl border border-[#dbe5f0] bg-[#f8fbff] px-5 py-4 font-heading text-lg font-semibold leading-relaxed text-[#14355f]">
+                          {active.quote}
+                        </blockquote>
+                      ) : null}
+                      {active.testimonial ? (
+                        <blockquote className="rounded-2xl border border-[#d6efe1] bg-[#f4fbf6] px-5 py-4 text-base leading-relaxed text-[#14355f]">
+                          {active.testimonial}
+                        </blockquote>
+                      ) : null}
+                    </div>
+                  </RbsExpandableBlock>
                 ) : null}
               </div>
 
               <div className="space-y-5">
-                <div className="rounded-[1.75rem] border border-[#dbe5f0] bg-[#fbfdff] p-5">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
-                    {active.frameworkTitle}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{active.frameworkIntro}</p>
+                <RbsExpandableBlock title={active.frameworkTitle} defaultOpen>
+                  <p className="text-sm leading-relaxed text-slate-600">{active.frameworkIntro}</p>
                   {active.frameworkQuestionsIntro ? (
                     <p className="mt-3 text-sm leading-relaxed text-slate-600">
                       {active.frameworkQuestionsIntro}
@@ -495,13 +572,10 @@ export function RbsSpecializedServicesSection() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </RbsExpandableBlock>
 
-                <div className="rounded-[1.75rem] border border-[#dbe5f0] bg-white p-5">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
-                    What we help with
-                  </p>
-                  <ul className="mt-4 space-y-2">
+                <RbsExpandableBlock title="What we help with">
+                  <ul className="space-y-2">
                     {active.helpWith.map((item) => (
                       <li key={item} className="flex gap-3 text-sm leading-relaxed text-slate-600">
                         <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#2E5B88]" aria-hidden />
@@ -509,7 +583,10 @@ export function RbsSpecializedServicesSection() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-5 rounded-2xl bg-[linear-gradient(180deg,#f8fbff_0%,#f5faf6_100%)] px-4 py-4">
+                </RbsExpandableBlock>
+
+                <RbsExpandableBlock title="Best for and reputation outcome">
+                  <div className="rounded-2xl bg-[linear-gradient(180deg,#f8fbff_0%,#f5faf6_100%)] px-4 py-4">
                     <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#14355f]/50">
                       Best for
                     </p>
@@ -519,7 +596,7 @@ export function RbsSpecializedServicesSection() {
                     </p>
                     <p className="mt-2 text-sm leading-relaxed text-slate-600">{active.outcome}</p>
                   </div>
-                </div>
+                </RbsExpandableBlock>
               </div>
             </div>
           </Motion.article>
@@ -547,8 +624,9 @@ export function RbsBeforeAfterSection() {
             accent: "bg-[#4CAF50]",
           },
         ].map((column) => (
-          <div
+          <RbsHoverCard
             key={column.title}
+            delay={column.title === "AFTER" ? 0.08 : 0}
             className={`rounded-[1.85rem] border p-6 shadow-[0_20px_52px_-34px_rgba(20,53,95,0.2)] md:p-7 ${column.shell}`}
           >
             <div className="flex items-center gap-3">
@@ -563,7 +641,7 @@ export function RbsBeforeAfterSection() {
                 </li>
               ))}
             </ul>
-          </div>
+          </RbsHoverCard>
         ))}
       </div>
     </RbsSection>
@@ -583,22 +661,21 @@ export function RbsAssetsSection() {
     >
       <ul className="grid list-none gap-4 p-0 sm:grid-cols-2 xl:grid-cols-3">
         {RBS_ASSETS.map((item, index) => (
-          <li
+          <RbsHoverCard
             key={item}
+            as={Motion.li}
+            delay={index * 0.04}
             className="group rounded-[1.65rem] border border-[#dbe5f0] bg-white p-5 shadow-[0_18px_40px_-32px_rgba(20,53,95,0.18)] transition hover:-translate-y-0.5 hover:border-[#4CAF50]/35"
           >
             <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#4CAF50]">
               Asset {String(index + 1).padStart(2, "0")}
             </p>
             <p className="mt-3 font-heading text-lg font-bold leading-snug text-[#14355f]">{item}</p>
-          </li>
+          </RbsHoverCard>
         ))}
       </ul>
-      <div className="mt-10 rounded-[1.9rem] border border-[#dbe5f0] bg-white p-6 shadow-[0_20px_50px_-34px_rgba(20,53,95,0.18)] md:p-8">
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
-          Built Around Reputation, Not Vanity Metrics
-        </p>
-        <div className="mt-4 space-y-4 text-base leading-relaxed text-slate-600 md:text-lg">
+      <RbsExpandableBlock title="Built Around Reputation, Not Vanity Metrics" className="mt-10">
+        <div className="space-y-4 text-base leading-relaxed text-slate-600 md:text-lg">
           <p>Most marketing agencies optimize for reach, impressions, and engagement. We optimize for perception.</p>
           <p>
             That distinction matters. An article that reaches a million people and leaves them confused about who you are is not a reputation asset. A LinkedIn post that earns 50 responses from the right investors, clients, or partners is.
@@ -618,12 +695,14 @@ export function RbsAssetsSection() {
         <p className="mt-6 font-heading text-xl font-bold text-[#14355f]">
           Your digital presence should build trust before the first conversation.
         </p>
-      </div>
+      </RbsExpandableBlock>
     </RbsSection>
   );
 }
 
 export function RbsProcessSection() {
+  const [activeStep, setActiveStep] = useState(0);
+  const step = RBS_PROCESS_STEPS[activeStep] ?? RBS_PROCESS_STEPS[0];
   return (
     <RbsSection
       id="process"
@@ -631,27 +710,54 @@ export function RbsProcessSection() {
       tone="navy"
       contentClassName="mt-10"
     >
-      <div className="grid gap-5 lg:grid-cols-5">
-        {RBS_PROCESS_STEPS.map((step) => (
-          <div
+      <div className="rounded-[1.9rem] border border-white/14 bg-white/8 p-4 backdrop-blur-sm md:p-5">
+        <div className="grid gap-2 md:grid-cols-5">
+          {RBS_PROCESS_STEPS.map((item, index) => (
+            <Motion.button
+              key={item.n}
+              type="button"
+              onClick={() => setActiveStep(index)}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.99 }}
+              className={`rounded-2xl px-4 py-3 text-left transition-all duration-300 ${
+                activeStep === index
+                  ? "bg-white text-[#14355f] shadow-[0_16px_36px_-22px_rgba(0,0,0,0.4)]"
+                  : "bg-white/6 text-white hover:bg-white/10"
+              }`}
+            >
+              <span className={`inline-flex rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.18em] ${
+                activeStep === index ? "bg-[#14355f] text-[#7df5b9]" : "bg-white/10 text-[#7df5b9]"
+              }`}>
+                Step {String(item.n).padStart(2, "0")}
+              </span>
+              <span className="mt-3 block font-heading text-base font-bold leading-snug">
+                {item.title}
+              </span>
+            </Motion.button>
+          ))}
+        </div>
+
+        <AnimatePresence mode="wait" initial={false}>
+          <Motion.div
             key={step.n}
-            className="rounded-[1.65rem] border border-white/14 bg-white/10 p-5 shadow-[0_18px_42px_-30px_rgba(0,0,0,0.45)] backdrop-blur-sm"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.32, ease: rbsEase }}
+            className="mt-4 rounded-[1.75rem] border border-white/14 bg-white/10 p-6 shadow-[0_18px_42px_-30px_rgba(0,0,0,0.45)]"
           >
             <span className="inline-flex rounded-full bg-white/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[#7df5b9]">
               Step {String(step.n).padStart(2, "0")}
             </span>
-            <h3 className="mt-4 font-heading text-xl font-bold text-white">{step.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-slate-100/85">{step.body}</p>
-          </div>
-        ))}
+            <h3 className="mt-4 font-heading text-2xl font-bold text-white">{step.title}</h3>
+            <p className="mt-3 text-base leading-relaxed text-slate-100/85">{step.body}</p>
+          </Motion.div>
+        </AnimatePresence>
       </div>
 
       <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-        <div className="rounded-[1.9rem] border border-white/14 bg-white/8 p-6 backdrop-blur-sm">
-          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#7df5b9]">
-            What We Don't Do
-          </p>
-          <ul className="mt-5 space-y-3">
+        <RbsExpandableBlock title="What We Don't Do" tone="navy">
+          <ul className="space-y-3">
             {RBS_DONT_DO.map((item) => (
               <li key={item} className="flex gap-3 text-sm leading-relaxed text-slate-100/88">
                 <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#7df5b9]" aria-hidden />
@@ -660,18 +766,15 @@ export function RbsProcessSection() {
             ))}
           </ul>
           <p className="mt-5 font-semibold text-white">Reputation is a long game. We play it seriously.</p>
-        </div>
+        </RbsExpandableBlock>
 
-        <div className="rounded-[1.9rem] border border-white/14 bg-white/8 p-6 backdrop-blur-sm">
-          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#7df5b9]">
-            Why Reputation360?
-          </p>
-          <div className="mt-5 space-y-4 text-base leading-relaxed text-slate-100/88">
+        <RbsExpandableBlock title="Why Reputation360?" tone="navy">
+          <div className="space-y-4 text-base leading-relaxed text-slate-100/88">
             {RBS_WHY_R360.map((paragraph) => (
               <p key={paragraph.slice(0, 44)}>{paragraph}</p>
             ))}
           </div>
-        </div>
+        </RbsExpandableBlock>
       </div>
     </RbsSection>
   );
@@ -681,13 +784,14 @@ export function RbsWhoForSection() {
   return (
     <RbsSection id="who-for" title="Who These Services Are For">
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {RBS_WHO_FOR.map((item) => (
-          <div
+        {RBS_WHO_FOR.map((item, index) => (
+          <RbsHoverCard
             key={item}
+            delay={index * 0.04}
             className="rounded-[1.6rem] border border-[#dbe5f0] bg-white p-5 shadow-[0_18px_40px_-34px_rgba(20,53,95,0.16)]"
           >
             <p className="text-base leading-relaxed text-[#14355f]">{item}</p>
-          </div>
+          </RbsHoverCard>
         ))}
       </div>
     </RbsSection>
@@ -699,9 +803,11 @@ export function RbsFaqSection() {
     <RbsSection id="faq" title="Frequently Asked Questions" tone="mint">
       <div className="space-y-4">
         {RBS_FAQS.map((item, index) => (
-          <FaqAccordion key={item.q} question={item.q} defaultOpen={index === 0}>
-            <p>{item.a}</p>
-          </FaqAccordion>
+          <RbsReveal key={item.q} delay={index * 0.04} y={12}>
+            <FaqAccordion question={item.q} defaultOpen={index === 0}>
+              <p>{item.a}</p>
+            </FaqAccordion>
+          </RbsReveal>
         ))}
       </div>
       <p className="mt-6 text-sm leading-relaxed text-slate-500">{RBS_FAQ_FOOTNOTE}</p>
@@ -720,7 +826,14 @@ export function RbsCtaSection() {
         aria-hidden
       />
       <div className={`relative ${RBS_CONTENT_RAIL}`}>
-        <div className="mx-auto max-w-4xl rounded-[2.2rem] border border-white/15 bg-white/8 px-6 py-10 text-center shadow-[0_28px_70px_-34px_rgba(0,0,0,0.42)] backdrop-blur-sm md:px-10 md:py-12">
+        <Motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={rbsInView}
+          transition={{ duration: 0.55, ease: rbsEase }}
+          whileHover={{ y: -4, scale: 1.008 }}
+          className="mx-auto max-w-4xl rounded-[2.2rem] border border-white/15 bg-white/8 px-6 py-10 text-center shadow-[0_28px_70px_-34px_rgba(0,0,0,0.42)] backdrop-blur-sm md:px-10 md:py-12 motion-reduce:transform-none"
+        >
           <h2 className="font-heading text-3xl font-extrabold leading-[1.08] tracking-tight md:text-[2.5rem]">
             {RBS_FINAL_CTA.title}
           </h2>
@@ -738,7 +851,7 @@ export function RbsCtaSection() {
             wrapperClassName="mt-8 justify-center"
             consultSuffix={<ArrowRight className="h-4 w-4" aria-hidden />}
           />
-        </div>
+        </Motion.div>
       </div>
     </section>
   );
