@@ -376,7 +376,7 @@ export function OrmWhatIsSection() {
       tone="sage"
       first
     >
-      <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10 xl:gap-12">
+      <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-14">
         <div className="min-w-0 space-y-5">
           {ORM_WHAT_IS_PARAGRAPHS.map((paragraph) => (
             <p
@@ -394,7 +394,7 @@ export function OrmWhatIsSection() {
             {ORM_WHAT_IS_CALLOUT}
           </blockquote>
         </div>
-        <div className="relative mx-auto w-full min-w-0 max-w-xl lg:mx-0 lg:max-w-none lg:justify-self-end lg:left-10 xl:left-14 2xl:left-16">
+        <div className="relative mx-auto w-full min-w-0 max-w-2xl lg:mx-0 lg:max-w-none lg:justify-self-stretch">
           <OrmHeroVisual />
         </div>
       </div>
