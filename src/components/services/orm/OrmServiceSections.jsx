@@ -85,6 +85,9 @@ const tileSelected =
 const tileIdle =
   "border-[#dfe6ee] bg-[#fafbfd] hover:border-[#1f3b64]/28 hover:bg-white hover:shadow-[0_8px_22px_-14px_rgba(31,59,100,0.18)]";
 
+/** Shared horizontal rail with Services subnav (`max-w-6xl` + matching padding). */
+const ORM_CONTENT_RAIL = "mx-auto w-full max-w-6xl px-5 md:px-8";
+
 /** Section rhythm aligned with About page (`aboutSectionSpacing` / `aboutFirstContentSpacing`). */
 const ORM_SECTION_SPACING = "pt-16 pb-20 md:pt-20 md:pb-24";
 /** First section after hero - header clearance lives on the hero, not here. */
@@ -215,7 +218,7 @@ function OrmSectionShell({
       {...rest}
     >
       {surface.decor}
-      <div className="relative mx-auto max-w-6xl px-6">{children}</div>
+      <div className={`relative ${ORM_CONTENT_RAIL}`}>{children}</div>
     </section>
   );
 }
@@ -318,7 +321,7 @@ export function OrmServiceHero() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_-15%,rgba(76,175,80,0.07),transparent_52%),linear-gradient(180deg,#f8fafc_0%,#ffffff_55%)]"
         aria-hidden
       />
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 text-center lg:px-8 lg:text-left">
+      <div className={`relative z-10 ${ORM_CONTENT_RAIL} text-left`}>
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#4CAF50]">
           Online Reputation Management
         </p>
@@ -329,7 +332,7 @@ export function OrmServiceHero() {
           <OrmHeroHeadline title={ormPageHero.title} subline={ormPageHero.titleSubline} />
         </h1>
         <div
-          className="mx-auto mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] lg:mx-0"
+          className="mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"
           aria-hidden
         />
         <p className="mt-5 w-full max-w-none text-pretty text-base leading-relaxed text-slate-600 md:mt-6 md:text-lg md:leading-relaxed lg:text-xl lg:leading-relaxed">
@@ -347,7 +350,7 @@ export function OrmServiceHero() {
               aria-hidden
             />
           }
-          wrapperClassName="mt-8 justify-center lg:mt-10 lg:justify-start"
+          wrapperClassName="mt-8 justify-start lg:mt-10"
         />
       </div>
     </header>
@@ -400,101 +403,93 @@ function parseWhyMattersBullet(text) {
   return { kind: "narrative", text };
 }
 
-function WhyMattersStatCard({ stat, text, featured = false }) {
-  return (
-    <article
-      className={`group flex h-full flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_12px_40px_-24px_rgba(31,59,100,0.12)] transition-[border-color,box-shadow,transform] duration-200 motion-safe:hover:-translate-y-0.5 hover:border-[#79df86]/40 hover:shadow-[0_18px_44px_-20px_rgba(31,59,100,0.16)] ${
-        featured ? "min-h-[280px] md:min-h-full" : ""
-      }`}
-    >
-      <div
-        className={`flex flex-1 flex-col justify-center bg-gradient-to-br from-[#1f3b64] via-[#2e5b88] to-[#2a8c3e] ${
-          featured ? "px-6 py-10 md:px-8 md:py-12" : "px-5 py-5 md:px-6 md:py-6"
-        }`}
-      >
-        <p
-          className={`font-heading font-black leading-none tracking-tight text-white ${
-            featured ? "text-5xl md:text-6xl lg:text-7xl" : "text-4xl md:text-5xl"
-          }`}
-        >
-          {stat}
-        </p>
-      </div>
-      <p
-        className={`flex-1 leading-relaxed text-navy/80 ${
-          featured
-            ? "px-6 py-5 text-base md:px-8 md:py-6 md:text-lg"
-            : "px-5 py-4 text-sm md:px-6 md:py-5 md:text-[15px]"
-        }`}
-      >
-        {text}
-      </p>
-    </article>
-  );
+function whyMattersStatCaption(text, stat) {
+  if (text.startsWith(`${stat} `)) {
+    return text.slice(stat.length + 1);
+  }
+  return text;
 }
 
-function WhyMattersInsightCard({ text }) {
-  return (
-    <article className="group flex h-full gap-4 rounded-2xl border border-navy/10 bg-white p-5 shadow-[0_10px_32px_-22px_rgba(31,59,100,0.12)] transition-[border-color,box-shadow] duration-200 hover:border-[#79df86]/35 hover:shadow-[0_14px_36px_-18px_rgba(31,59,100,0.14)] md:gap-5 md:p-6">
-      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white shadow-sm transition group-hover:bg-[#2a8c3e] md:h-14 md:w-14">
-        <Check className="h-6 w-6 md:h-7 md:w-7" aria-hidden strokeWidth={2.25} />
-      </span>
-      <p className="flex-1 text-base leading-relaxed text-navy/80 md:text-lg md:leading-relaxed">
-        {text}
-      </p>
-    </article>
-  );
-}
+function WhyMattersFeaturedStat({ stat, text }) {
+  const caption = whyMattersStatCaption(text, stat);
 
-function WhyMattersIndividualsLayout({ statItem, narrativeItems }) {
   return (
-    <div
-      className="mt-6 grid gap-4 md:grid-cols-2 md:grid-rows-2"
-      role="list"
-      aria-label="Key points for individuals"
-    >
-      <div className="md:row-span-2">
-        <WhyMattersStatCard stat={statItem.stat} text={statItem.text} featured />
-      </div>
-      {narrativeItems.map((item, index) => (
-        <WhyMattersInsightCard key={item.key} text={item.text} />
-      ))}
+    <div className="group flex flex-col gap-4 rounded-2xl border border-[#4CAF50]/25 bg-gradient-to-r from-[#f0faf4] via-white to-white p-6 transition-[border-color,box-shadow,transform] duration-200 motion-safe:hover:-translate-y-0.5 hover:border-[#4CAF50]/45 hover:shadow-[0_18px_44px_-22px_rgba(31,59,100,0.14)] sm:flex-row sm:items-center sm:gap-8 md:p-8">
+      <p className="shrink-0 font-heading text-5xl font-black leading-none tracking-tight text-[#1f3b64] transition-transform duration-200 group-hover:scale-105 sm:w-32 sm:text-center md:text-6xl">
+        {stat}
+      </p>
+      <p className="text-base leading-relaxed text-navy/85 md:text-lg md:leading-relaxed">
+        {caption}
+      </p>
     </div>
   );
 }
 
-function WhyMattersBulletCards({ bullets }) {
+function WhyMattersStatsGrid({ items }) {
+  return (
+    <div
+      className={`grid gap-3 ${
+        items.length >= 3 ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2"
+      }`}
+      role="list"
+    >
+      {items.map((item) => {
+        const caption = whyMattersStatCaption(item.text, item.stat);
+
+        return (
+          <article
+            key={item.key}
+            className="group flex h-full flex-col rounded-xl border border-navy/10 bg-[#f8fafc] p-5 transition-[border-color,box-shadow,transform,background-color] duration-200 motion-safe:hover:-translate-y-0.5 hover:border-[#79df86]/40 hover:bg-white hover:shadow-[0_14px_36px_-18px_rgba(31,59,100,0.14)] md:p-6"
+          >
+            <p className="font-heading text-3xl font-black leading-none text-[#1f3b64] transition-transform duration-200 group-hover:scale-105 md:text-4xl">
+              {item.stat}
+            </p>
+            <p className="mt-3 flex-1 text-sm leading-relaxed text-navy/80 md:text-[15px]">
+              {caption}
+            </p>
+          </article>
+        );
+      })}
+    </div>
+  );
+}
+
+function WhyMattersPointsList({ items }) {
+  return (
+    <ul className="space-y-3" role="list">
+      {items.map((item) => (
+        <li
+          key={item.key}
+          className="group flex cursor-default gap-4 rounded-xl border border-navy/10 bg-white px-5 py-4 shadow-[0_8px_28px_-22px_rgba(31,59,100,0.12)] transition-[border-color,box-shadow,transform] duration-200 motion-safe:hover:-translate-y-0.5 hover:border-[#79df86]/40 hover:shadow-[0_14px_36px_-18px_rgba(31,59,100,0.16)] md:px-6 md:py-5"
+        >
+          <span
+            className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#4CAF50]/12 text-[#2d8f47] transition-[background-color,color,transform] duration-200 group-hover:scale-105 group-hover:bg-[#1f3b64] group-hover:text-white"
+            aria-hidden
+          >
+            <Check className="h-4 w-4" strokeWidth={2.5} />
+          </span>
+          <p className="text-base leading-relaxed text-navy/80 transition-colors duration-200 group-hover:text-navy md:text-[17px] md:leading-relaxed">
+            {item.text}
+          </p>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function WhyMattersTabBody({ bullets }) {
   const parsed = bullets.map((text) => ({ ...parseWhyMattersBullet(text), key: text }));
   const statItems = parsed.filter((item) => item.kind === "stat");
   const narrativeItems = parsed.filter((item) => item.kind === "narrative");
 
-  if (statItems.length === 1 && narrativeItems.length === 2 && bullets.length === 3) {
-    return (
-      <WhyMattersIndividualsLayout statItem={statItems[0]} narrativeItems={narrativeItems} />
-    );
-  }
-
   return (
-    <div className="mt-6 space-y-4">
-      {statItems.length > 0 ? (
-        <div
-          className={`grid gap-4 ${
-            statItems.length === 3 ? "md:grid-cols-3" : "sm:grid-cols-2 lg:grid-cols-3"
-          }`}
-          role="list"
-        >
-          {statItems.map((item) => (
-            <WhyMattersStatCard key={item.key} stat={item.stat} text={item.text} />
-          ))}
-        </div>
+    <div className="space-y-5">
+      {statItems.length === 1 ? (
+        <WhyMattersFeaturedStat stat={statItems[0].stat} text={statItems[0].text} />
+      ) : statItems.length > 0 ? (
+        <WhyMattersStatsGrid items={statItems} />
       ) : null}
-      {narrativeItems.length > 0 ? (
-        <div className="space-y-3" role="list">
-          {narrativeItems.map((item) => (
-            <WhyMattersInsightCard key={item.key} text={item.text} />
-          ))}
-        </div>
-      ) : null}
+      {narrativeItems.length > 0 ? <WhyMattersPointsList items={narrativeItems} /> : null}
     </div>
   );
 }
@@ -502,6 +497,24 @@ function WhyMattersBulletCards({ bullets }) {
 export function OrmWhyMattersSection() {
   const [tabId, setTabId] = useState(WHY_MATTERS_TABS[0].id);
   const tab = WHY_MATTERS_TABS.find((t) => t.id === tabId) ?? WHY_MATTERS_TABS[0];
+  const panelId = "orm-why-matters-panel";
+
+  const onTabListKeyDown = (event) => {
+    const index = WHY_MATTERS_TABS.findIndex((t) => t.id === tabId);
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      event.preventDefault();
+      setTabId(WHY_MATTERS_TABS[Math.min(index + 1, WHY_MATTERS_TABS.length - 1)].id);
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      event.preventDefault();
+      setTabId(WHY_MATTERS_TABS[Math.max(index - 1, 0)].id);
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      setTabId(WHY_MATTERS_TABS[0].id);
+    } else if (event.key === "End") {
+      event.preventDefault();
+      setTabId(WHY_MATTERS_TABS[WHY_MATTERS_TABS.length - 1].id);
+    }
+  };
 
   return (
     <DocSection
@@ -509,41 +522,58 @@ export function OrmWhyMattersSection() {
       title="Why Your Online Reputation Matters More Than Ever"
       tone="gradient"
     >
-      <div className="flex flex-wrap gap-2">
-        {WHY_MATTERS_TABS.map((t) => (
-          <button
-            key={t.id}
-            type="button"
-            aria-pressed={tabId === t.id}
-            onClick={() => setTabId(t.id)}
-            className={`rounded-full border px-4 py-2 font-heading text-sm font-semibold transition ${
-              tabId === t.id
-                ? "border-navy bg-navy text-white shadow-md"
-                : "border-navy/12 bg-white text-navy hover:border-[#79df86]/50"
-            }`}
-          >
-            {t.label}
-          </button>
-        ))}
+      <div
+        className="inline-flex w-full max-w-full flex-col rounded-xl border border-navy/10 bg-[#eef2f6] p-1 sm:w-auto sm:flex-row"
+        role="tablist"
+        aria-label="Who this affects"
+        onKeyDown={onTabListKeyDown}
+      >
+        {WHY_MATTERS_TABS.map((t) => {
+          const selected = tabId === t.id;
+          return (
+            <button
+              key={t.id}
+              type="button"
+              role="tab"
+              aria-selected={selected}
+              aria-controls={panelId}
+              id={`orm-why-matters-tab-${t.id}`}
+              onClick={() => setTabId(t.id)}
+              className={`min-w-0 flex-1 rounded-lg px-4 py-2.5 font-heading text-sm font-semibold transition sm:flex-none sm:px-5 md:text-[15px] ${
+                selected
+                  ? "bg-white text-navy shadow-sm ring-1 ring-navy/10"
+                  : "text-navy/70 hover:text-navy"
+              }`}
+            >
+              {t.label}
+            </button>
+          );
+        })}
       </div>
       <AnimatePresence mode="wait" initial={false}>
         <Motion.div
           key={tab.id}
-          initial={{ opacity: 0, y: 12 }}
+          id={panelId}
+          role="tabpanel"
+          aria-labelledby={`orm-why-matters-tab-${tab.id}`}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 rounded-2xl border border-navy/10 bg-white p-6 shadow-[0_16px_48px_-28px_rgba(15,35,60,0.1)] md:p-8"
+          exit={{ opacity: 0, y: -6 }}
+          transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-6 overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_20px_56px_-32px_rgba(15,35,60,0.14)]"
           aria-live="polite"
         >
-          <h3 className="font-heading text-xl font-bold text-navy">{tab.label}</h3>
-          <p className="mt-4 rounded-xl border border-navy/8 bg-[#f4f7fb] px-5 py-4 text-base leading-relaxed text-navy/80 md:text-lg">
-            {tab.lead}
-          </p>
-          <WhyMattersBulletCards bullets={tab.bullets} />
+          <div className="border-b border-navy/8 bg-[#f8fafc] px-6 py-6 md:px-8 md:py-7">
+            <p className="max-w-none text-base leading-relaxed text-navy/85 md:text-lg md:leading-relaxed">
+              {tab.lead}
+            </p>
+          </div>
+          <div className="px-6 py-6 md:px-8 md:py-7">
+            <WhyMattersTabBody bullets={tab.bullets} />
+          </div>
           {tab.closing ? (
-            <div className="mt-6 overflow-hidden rounded-2xl bg-gradient-to-br from-[#061f3d] via-[#0f3b64] to-[#1a4a7a] px-6 py-6 shadow-[0_16px_48px_-20px_rgba(7,47,95,0.35)] md:px-8 md:py-7">
-              <p className="font-heading text-lg font-semibold leading-relaxed text-white md:text-xl">
+            <div className="border-t border-navy/8 bg-gradient-to-r from-[#1f3b64] to-[#2e5b88] px-6 py-6 md:px-8 md:py-7">
+              <p className="font-heading text-lg font-semibold leading-relaxed text-white md:text-xl md:leading-snug">
                 {tab.closing}
               </p>
             </div>
@@ -1085,7 +1115,7 @@ export function OrmWhyR360Section() {
       className={`${ORM_SCROLL_TARGET_CLASS} relative overflow-hidden ${ORM_SECTION_SPACING} text-white`}
     >
       <OrmWhatWeDontBackground />
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className={`relative ${ORM_CONTENT_RAIL}`}>
         <Motion.div
           className="mb-12 text-left md:mb-16"
           initial={{ opacity: 0, y: 20 }}
