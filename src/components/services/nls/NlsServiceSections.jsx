@@ -55,6 +55,9 @@ const CONTACT_PATH = "/contact";
 const NLS_SECTION_SPACING = "pt-16 pb-20 md:pt-20 md:pb-24";
 const NLS_FIRST_SECTION_SPACING = "pt-16 pb-20 md:pt-20 md:pb-24";
 
+/** Shared horizontal rail with Services subnav (`max-w-6xl` + matching padding). */
+const NLS_CONTENT_RAIL = "mx-auto w-full max-w-6xl px-5 md:px-8";
+
 const nlsInView = { once: true, amount: 0.12 };
 const nlsEase = [0.22, 1, 0.36, 1];
 
@@ -295,7 +298,7 @@ function NlsHeroHeadline({ title, highlight }) {
   return (
     <>
       {title.slice(0, idx)}
-      <span className="text-[#7df5b9]">{highlight}</span>
+      <span className="text-[#3d9a52]">{highlight}</span>
       {title.slice(idx + highlight.length)}
     </>
   );
@@ -305,66 +308,51 @@ export function NlsServiceHero() {
   return (
     <header
       id="nls-hero"
-      className="relative flex min-h-[min(520px,calc(100vh-10.5rem))] flex-col overflow-hidden bg-[#050a18] pb-10 pt-28 text-white md:min-h-[min(580px,calc(100vh-11rem))] md:pb-14 md:pt-32"
+      className="relative overflow-hidden border-b border-slate-200/70 bg-white pb-12 pt-28 md:pb-16 md:pt-32"
       aria-labelledby="nls-hero-heading"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_20%_-10%,rgba(76,175,80,0.18),transparent_50%),radial-gradient(ellipse_70%_50%_at_100%_0%,rgba(31,59,100,0.45),transparent_48%),linear-gradient(165deg,#050a18_0%,#1F3B64_38%,#0a1628_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_-15%,rgba(76,175,80,0.07),transparent_52%),linear-gradient(180deg,#f8fafc_0%,#ffffff_55%)]"
         aria-hidden
       />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:48px_48px]"
-        aria-hidden
-      />
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 text-center lg:px-8 lg:text-left">
-        <Motion.h1
+      <div className={`relative z-10 ${NLS_CONTENT_RAIL} text-left`}>
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#4CAF50]">
+          Negative Link Suppression
+        </p>
+        <h1
           id="nls-hero-heading"
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: nlsEase }}
-          className="w-full max-w-none font-heading text-[1.65rem] font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl md:text-[2.65rem] lg:text-5xl xl:text-[3.25rem] xl:leading-[1.08]"
+          className="font-heading text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-[#1F3B64] sm:text-4xl md:text-[2.75rem] lg:text-5xl xl:text-[3.25rem] xl:leading-[1.08]"
         >
           <NlsHeroHeadline title={nlsPageHero.title} highlight={nlsPageHero.titleHighlight} />
-        </Motion.h1>
-        <div className="mt-5 w-full max-w-none space-y-4 md:mt-7 md:space-y-5">
-          {nlsPageHero.leadParagraphs.map((paragraph, index) => (
-            <Motion.p
+        </h1>
+        <div
+          className="mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"
+          aria-hidden
+        />
+        <div className="mt-5 w-full max-w-none space-y-4 md:mt-6 md:space-y-5">
+          {nlsPageHero.leadParagraphs.map((paragraph) => (
+            <p
               key={paragraph.slice(0, 48)}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.12 + index * 0.1, ease: nlsEase }}
-              className="w-full max-w-none text-base leading-relaxed text-slate-300/90 md:text-lg md:leading-relaxed lg:text-xl lg:leading-relaxed"
+              className="w-full max-w-none text-pretty text-base leading-relaxed text-slate-600 md:text-lg md:leading-relaxed lg:text-xl lg:leading-relaxed"
             >
               {paragraph}
-            </Motion.p>
+            </p>
           ))}
         </div>
-        <Motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.32, ease: nlsEase }}
-          className="mt-8"
-        >
-          <ConsultationCtas
-            variant="onDark"
-            freeScanLabel={nlsPageHero.freeScanLabel}
-            consultLabel={nlsPageHero.consultLabel}
-            consultHref={CONTACT_PATH}
-            consultLinkProps={externalAnchorProps(CONTACT_PATH)}
-            consultSuffix={
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
-            }
-            wrapperClassName="justify-center lg:justify-start"
-          />
-        </Motion.div>
-        <Motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.42 }}
-          className="mt-5 w-full max-w-none text-sm text-slate-400/90 md:text-[15px] lg:mx-0"
-        >
+        <ConsultationCtas
+          variant="onLight"
+          freeScanLabel={nlsPageHero.freeScanLabel}
+          consultLabel={nlsPageHero.consultLabel}
+          consultHref={CONTACT_PATH}
+          consultLinkProps={externalAnchorProps(CONTACT_PATH)}
+          consultSuffix={
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+          }
+          wrapperClassName="mt-8 justify-start lg:mt-10"
+        />
+        <p className="mt-5 w-full max-w-none text-sm text-slate-500 md:text-[15px]">
           {nlsPageHero.trustLine}
-        </Motion.p>
+        </p>
       </div>
     </header>
   );
@@ -604,36 +592,120 @@ export function NlsSearchResultsSection() {
 
 function NlsRemovalComparisonTable() {
   const [hoveredRow, setHoveredRow] = useState(null);
+  const aspectMeta = {
+    "What it does": {
+      Icon: Target,
+      accent: "Core outcome",
+    },
+    "Best used when": {
+      Icon: ShieldCheck,
+      accent: "When to choose it",
+    },
+    "How it works": {
+      Icon: Scale,
+      accent: "Execution path",
+    },
+    "Typical timeline": {
+      Icon: Clock,
+      accent: "Time to impact",
+    },
+    Permanence: {
+      Icon: CheckCircle2,
+      accent: "Long-term effect",
+    },
+    "Used together?": {
+      Icon: Database,
+      accent: "Best combined",
+    },
+  };
 
   return (
     <Motion.div
-      className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_12px_40px_-24px_rgba(31,59,100,0.12)] transition-[box-shadow,border-color] duration-300 hover:border-navy/20 hover:shadow-[0_24px_56px_-24px_rgba(31,59,100,0.2)]"
+      className="overflow-hidden rounded-[28px] border border-[#d7e2ef] bg-white shadow-[0_20px_60px_-32px_rgba(31,59,100,0.26)] transition-[box-shadow,border-color] duration-300 hover:border-[#bfd1e4] hover:shadow-[0_28px_80px_-34px_rgba(31,59,100,0.32)]"
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -3 }}
     >
+      <div className="relative overflow-hidden border-b border-[#d7e2ef] bg-[linear-gradient(135deg,rgba(15,46,88,0.04),rgba(255,255,255,0.95)_35%,rgba(76,175,80,0.08)_100%)] px-5 py-5 md:px-7 md:py-6">
+        <div
+          className="pointer-events-none absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-[#1F3B64] via-[#2E5B88] to-[#4CAF50]"
+          aria-hidden
+        />
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
+              Strategy Comparison
+            </p>
+            <h3 className="mt-2 font-heading text-2xl font-bold leading-tight text-[#0f2e58] md:text-[1.9rem]">
+              Two routes, one reputation outcome
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-[15px]">
+              Removal eliminates harmful content at the source when possible. Negative Link
+              Suppression strengthens your branded search landscape when removal is limited,
+              delayed, or impossible.
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:min-w-[23rem]">
+            <div className="rounded-2xl border border-[#1F3B64]/10 bg-white/90 px-4 py-3 shadow-[0_12px_24px_-18px_rgba(15,46,88,0.35)] backdrop-blur">
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#1F3B64]/60">
+                Brand approach
+              </p>
+              <p className="mt-1 font-heading text-sm font-bold text-[#1F3B64]">
+                Precision removal
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[#4CAF50]/20 bg-[#f4fbf6]/90 px-4 py-3 shadow-[0_12px_24px_-18px_rgba(76,175,80,0.3)] backdrop-blur">
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#2a6f38]/70">
+                Brand approach
+              </p>
+              <p className="mt-1 font-heading text-sm font-bold text-[#1b5e20]">
+                Visibility displacement
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
+        <table className="w-full min-w-[48rem] border-collapse text-left text-sm">
           <caption className="sr-only">
             Comparison of content removal and Negative Link Suppression
           </caption>
           <thead>
-            <tr className="border-b border-navy/10 bg-[#f4f7fb]">
-              <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-navy/55 md:px-5" />
-              <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-navy transition-colors duration-200 md:px-5">
-                Content Removal
+            <tr className="border-b border-[#d7e2ef] bg-[linear-gradient(180deg,#fbfdff_0%,#f6f9fc_100%)]">
+              <th className="w-[16rem] px-5 py-4 font-heading text-xs font-bold uppercase tracking-[0.16em] text-[#1F3B64]/55 md:px-6" />
+              <th className="px-5 py-4 md:px-6">
+                <div className="rounded-2xl border border-[#1F3B64]/10 bg-white px-4 py-3 shadow-[0_10px_24px_-20px_rgba(15,46,88,0.4)]">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#1F3B64]/55">
+                    Option 01
+                  </p>
+                  <p className="mt-1 font-heading text-sm font-extrabold uppercase tracking-[0.14em] text-[#1F3B64]">
+                    Content Removal
+                  </p>
+                </div>
               </th>
-              <th className="px-4 py-3 font-heading text-xs font-bold uppercase tracking-wide text-[#1a5c38] transition-colors duration-200 md:px-5">
-                Negative Link Suppression
+              <th className="px-5 py-4 md:px-6">
+                <div className="rounded-2xl border border-[#4CAF50]/20 bg-[linear-gradient(180deg,#f7fcf8_0%,#effaf1_100%)] px-4 py-3 shadow-[0_10px_24px_-20px_rgba(76,175,80,0.45)]">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#2a6f38]/60">
+                    Option 02
+                  </p>
+                  <p className="mt-1 font-heading text-sm font-extrabold uppercase tracking-[0.14em] text-[#1b5e20]">
+                    Negative Link Suppression
+                  </p>
+                </div>
               </th>
             </tr>
           </thead>
           <tbody>
             {NLS_REMOVAL_VS_SUPPRESSION_ROWS.map((row, i) => {
+              const meta = aspectMeta[row.aspect] ?? { Icon: Briefcase, accent: "Comparison point" };
+              const Icon = meta.Icon;
               const isHovered = hoveredRow === i;
-              const baseBg = i % 2 === 1 ? "bg-[#fafbfd]/80" : "bg-white";
+              const baseBg =
+                i % 2 === 1
+                  ? "bg-[linear-gradient(90deg,rgba(248,251,255,0.95),rgba(255,255,255,1),rgba(245,251,246,0.92))]"
+                  : "bg-white";
               return (
                 <Motion.tr
                   key={row.aspect}
@@ -641,38 +713,46 @@ function NlsRemovalComparisonTable() {
                   onMouseLeave={() => setHoveredRow(null)}
                   className={`group/row transition-colors duration-300 motion-reduce:transition-none ${
                     isHovered
-                      ? "bg-gradient-to-r from-[#eef4ff] via-white to-[#f0faf3] shadow-[inset_4px_0_0_0_#1f3b64,inset_-4px_0_0_0_#4CAF50]"
+                      ? "bg-[linear-gradient(90deg,rgba(236,244,255,0.96),rgba(255,255,255,1),rgba(240,250,243,0.98))] shadow-[inset_4px_0_0_0_#1f3b64,inset_-4px_0_0_0_#4CAF50]"
                       : baseBg
                   }`}
                 >
                   <th
-                    className={`px-4 py-3.5 align-top font-heading text-sm font-bold transition-colors duration-300 md:px-5 ${
+                    className={`border-b border-[#e7eef6] px-5 py-5 align-top transition-colors duration-300 md:px-6 ${
                       isHovered ? "text-[#0f2e58]" : "text-navy"
                     }`}
                   >
-                    <span className="inline-flex items-center gap-2">
+                    <div className="flex items-start gap-3.5">
                       <span
-                        className={`h-2 w-2 shrink-0 rounded-full transition-all duration-300 ${
+                        className={`mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border transition-all duration-300 ${
                           isHovered
-                            ? "scale-100 bg-[#4CAF50] opacity-100"
-                            : "scale-75 bg-navy/20 opacity-0 group-hover/row:opacity-100"
+                            ? "border-[#4CAF50]/35 bg-[linear-gradient(135deg,#1F3B64_0%,#2E5B88_55%,#4CAF50_130%)] text-white shadow-[0_18px_36px_-22px_rgba(31,59,100,0.5)]"
+                            : "border-[#d8e4ef] bg-[linear-gradient(180deg,#ffffff_0%,#f6f9fc_100%)] text-[#1F3B64]"
                         }`}
-                        aria-hidden
-                      />
-                      {row.aspect}
-                    </span>
+                      >
+                        <Icon className="h-5 w-5" strokeWidth={2.15} aria-hidden />
+                      </span>
+                      <div>
+                        <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
+                          {meta.accent}
+                        </p>
+                        <p className="mt-1 font-heading text-base font-bold leading-snug text-[#0f2e58]">
+                          {row.aspect}
+                        </p>
+                      </div>
+                    </div>
                   </th>
                   <td
-                    className={`px-4 py-3.5 align-top text-sm leading-relaxed transition-all duration-300 md:px-5 ${
+                    className={`border-b border-[#e7eef6] px-5 py-5 align-top text-sm leading-relaxed transition-all duration-300 md:px-6 md:text-[15px] ${
                       isHovered
-                        ? "bg-[#eef4ff]/90 text-navy/90"
-                        : "text-navy/75 hover:bg-[#f4f7fb]/80"
+                        ? "bg-[#eef4ff]/85 text-navy/90"
+                        : "text-navy/75 hover:bg-[#f5f8fc]/80"
                     }`}
                   >
                     {row.removal}
                   </td>
                   <td
-                    className={`px-4 py-3.5 align-top text-sm leading-relaxed transition-all duration-300 md:px-5 ${
+                    className={`border-b border-[#e7eef6] px-5 py-5 align-top text-sm leading-relaxed transition-all duration-300 md:px-6 md:text-[15px] ${
                       isHovered
                         ? "bg-[#f0faf3]/95 text-navy/90"
                         : "text-navy/75 hover:bg-[#f4fbf6]/80"
@@ -895,10 +975,15 @@ export function NlsFeasibilitySection() {
   return (
     <DocSection
       id="feasibility"
-      title="Not All Negative Content Is the Same: Removal and Negative Link Suppression Feasibility"
+      title={
+        <>
+          Not All Negative Content Is the Same:
+          <br />
+          Removal and Negative Link Suppression Feasibility
+        </>
+      }
       lead={NLS_FEASIBILITY_INTRO}
       tone="gradient"
-      titleOneLine
     >
       <NlsFeasibilityTable />
       <Motion.p
