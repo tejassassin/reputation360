@@ -12,7 +12,7 @@ export const ormPageHero = {
   title: "Your Reputation Lives on Page One.",
   titleSubline: "Make Sure It Works For You.",
   lead:
-    "Online Reputation Management is no longer optional - for executives, founders, professionals, and businesses, it is the difference between being trusted and being overlooked. Reputation360 helps individuals and brands take control of what people find when they search online, so the first impression you make is one you chose.",
+    "What people find when they search your name defines how they see you. Reputation360's Online Reputation Management ensures they find the right thing.",
 };
 
 /** Section order matches the ORM services Google Doc (same as original blog guide). */

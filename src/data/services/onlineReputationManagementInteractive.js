@@ -32,7 +32,7 @@ export const ORM_CTA = {
     "Your reputation is being shaped right now, by what shows up on page one of Google.",
   ],
   servingLine:
-    "Serving executives, founders, professionals, and businesses across the United States, Canada, and Australia.",
+    "Serving executives, founders, professionals, and businesses across the United States, Europe, Canada, and Australia.",
 };
 
 export const WHY_MATTERS_TABS = [

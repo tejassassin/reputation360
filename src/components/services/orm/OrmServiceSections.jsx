@@ -71,6 +71,17 @@ const WHY_R360_ICON_BY_ID = {
   transparency: Eye,
 };
 
+const ORM_BENEFIT_ICONS = {
+  trust: ShieldCheck,
+  opportunities: Sparkles,
+  conversions: Target,
+  investor: Layers,
+  protection: History,
+  peace: Award,
+};
+
+const ormRevealViewport = { once: true, amount: 0.12 };
+
 function audienceIconForOrmTile(audienceId) {
   const catalogId = ORM_AUDIENCE_ICON_ID[audienceId] ?? audienceId;
   return audienceIconById[catalogId] ?? Users;
@@ -681,42 +692,45 @@ export function OrmBenefitsSection() {
       id="benefits"
       title="The Benefits of Online Reputation Management"
       tone="canvas"
+      lead="Strong ORM does not only fix what is broken. It builds a search presence that earns trust, opens doors, and holds up when something goes wrong."
     >
-      <div className="overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_16px_48px_-28px_rgba(15,35,60,0.1)]">
-        <div
-          className="hidden border-b border-navy/10 bg-gradient-to-r from-[#f2f5ff] to-[#f8fafc] md:grid md:grid-cols-[minmax(12rem,34%)_1fr] md:gap-8 md:px-6 md:py-3.5"
-          aria-hidden
-        >
-          <p className="font-heading text-xs font-bold uppercase tracking-[0.14em] text-navy/55">
-            Benefit
-          </p>
-          <p className="font-heading text-xs font-bold uppercase tracking-[0.14em] text-[#1a5c38]">
-            What It Delivers
-          </p>
-        </div>
-        <ul className="list-none divide-y divide-navy/[0.08] p-0">
-          {ORM_BENEFITS.map((b, index) => (
-            <li
+      <ul className="grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
+        {ORM_BENEFITS.map((b, index) => {
+          const Icon = ORM_BENEFIT_ICONS[b.id] ?? Sparkles;
+          const step = String(index + 1).padStart(2, "0");
+
+          return (
+            <Motion.li
               key={b.id}
-              tabIndex={0}
-              className={`group relative grid cursor-default gap-2 overflow-hidden px-5 py-4 outline-none transition-[background-color,box-shadow,transform] duration-200 md:grid-cols-[minmax(12rem,34%)_1fr] md:items-start md:gap-8 md:px-6 md:py-5 motion-safe:hover:-translate-y-px motion-safe:hover:shadow-[0_12px_32px_-16px_rgba(31,59,100,0.2)] hover:z-[1] hover:bg-[#f0faf3] focus-visible:z-[1] focus-visible:bg-[#f0faf3] focus-visible:shadow-[0_12px_32px_-16px_rgba(31,59,100,0.2)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#79df86]/45 ${
-                index % 2 === 1 ? "bg-[#fafbfd]/80" : "bg-white"
-              }`}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={ormRevealViewport}
+              transition={{ duration: 0.42, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+              className="min-w-0"
             >
-              <span
-                className="pointer-events-none absolute inset-y-0 left-0 w-1 origin-center scale-y-0 bg-[#2a8c3e] transition-transform duration-200 group-hover:scale-y-100 group-focus-visible:scale-y-100 motion-reduce:transition-none"
-                aria-hidden
-              />
-              <h3 className="font-heading text-base font-bold leading-snug text-navy transition-colors duration-200 group-hover:text-[#0f2e58] group-focus-visible:text-[#0f2e58] md:text-[17px]">
-                {b.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-navy/75 transition-colors duration-200 group-hover:text-navy/85 group-focus-visible:text-navy/85 md:text-[15px] md:leading-relaxed">
-                {b.body}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
+              <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white p-6 shadow-[0_12px_40px_-24px_rgba(31,59,100,0.12)] transition-[border-color,box-shadow,transform] duration-200 motion-safe:hover:-translate-y-0.5 hover:border-[#79df86]/40 hover:shadow-[0_18px_44px_-20px_rgba(31,59,100,0.16)] md:p-7">
+                <div className="flex items-start justify-between gap-3">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#4CAF50]/12 text-[#2d8f47] transition-[background-color,color,transform] duration-200 group-hover:scale-105 group-hover:bg-[#1f3b64] group-hover:text-white">
+                    <Icon className="h-6 w-6" strokeWidth={2} aria-hidden />
+                  </span>
+                  <span
+                    className="font-heading text-sm font-bold tabular-nums text-navy/20 transition-colors duration-200 group-hover:text-[#4CAF50]/70"
+                    aria-hidden
+                  >
+                    {step}
+                  </span>
+                </div>
+                <h3 className="mt-5 font-heading text-lg font-bold leading-snug text-navy transition-colors duration-200 group-hover:text-[#0f2e58] md:text-xl">
+                  {b.title}
+                </h3>
+                <p className="mt-3 flex-1 text-base leading-relaxed text-navy/75 transition-colors duration-200 group-hover:text-navy/90 md:text-[17px] md:leading-relaxed">
+                  {b.body}
+                </p>
+              </article>
+            </Motion.li>
+          );
+        })}
+      </ul>
     </DocSection>
   );
 }
@@ -975,11 +989,10 @@ const BEFORE_OUTREACH_COLUMN = {
     panelClass:
       "border-[#79df86]/25 bg-gradient-to-br from-[#f0faf3] to-white",
     titleClass: "text-[#1a5c38]",
-    stepIdle: "bg-[#e8f7ec] text-[#1a5c38]",
-    stepHover: "group-hover:bg-[#d4f0dc] group-focus-visible:bg-[#d4f0dc]",
+    stepClass: "bg-[#e8f7ec] text-[#1a5c38]",
     iconClass: "text-[#2a8c3e]",
     itemBase:
-      "border border-transparent bg-white/40 text-navy/72 transition-[background-color,border-color,color] duration-300 ease-out hover:border-[#79df86]/30 hover:bg-white/95 hover:text-navy/88 focus-visible:border-[#79df86]/35 focus-visible:bg-white focus-visible:text-navy",
+      "border border-[#79df86]/22 bg-white text-navy/80 shadow-[0_8px_24px_-18px_rgba(31,59,100,0.1)] transition-[border-color,box-shadow,transform] duration-200 motion-safe:hover:-translate-y-px hover:border-[#79df86]/40 hover:shadow-[0_12px_32px_-16px_rgba(31,59,100,0.14)]",
     accentClass: "bg-[#2a8c3e]",
     counterClass: "text-[#1a5c38]/70",
   },
@@ -990,11 +1003,10 @@ const BEFORE_OUTREACH_COLUMN = {
     panelClass:
       "border-[#b85c5c]/25 bg-gradient-to-br from-[#fdf4f4] to-white",
     titleClass: "text-[#6b2a2a]",
-    stepIdle: "bg-[#fae8e8] text-[#6b2a2a]",
-    stepHover: "group-hover:bg-[#f5d4d4] group-focus-visible:bg-[#f5d4d4]",
+    stepClass: "bg-[#fae8e8] text-[#6b2a2a]",
     iconClass: "text-[#8b3a3a]",
     itemBase:
-      "border border-transparent bg-white/50 text-[#6b2a2a]/75 transition-[background-color,border-color,color] duration-300 ease-out hover:border-[#b85c5c]/30 hover:bg-white/95 hover:text-[#6b2a2a]/92 focus-visible:border-[#b85c5c]/35 focus-visible:bg-white focus-visible:text-[#5c2828]",
+      "border border-[#b85c5c]/22 bg-white text-[#6b2a2a]/85 shadow-[0_8px_24px_-18px_rgba(127,45,45,0.08)] transition-[border-color,box-shadow,transform] duration-200 motion-safe:hover:-translate-y-px hover:border-[#b85c5c]/38 hover:shadow-[0_12px_32px_-16px_rgba(127,45,45,0.12)]",
     accentClass: "bg-[#8b3a3a]",
     counterClass: "text-[#6b2a2a]/70",
   },
@@ -1003,88 +1015,42 @@ const BEFORE_OUTREACH_COLUMN = {
 function BeforeOutreachTipColumn({ variant }) {
   const config = BEFORE_OUTREACH_COLUMN[variant];
   const { title, items, Icon } = config;
-  const [activeIndex, setActiveIndex] = useState(0);
-  const listId = `orm-before-outreach-${variant}`;
-
-  const onListKeyDown = (event) => {
-    if (event.key === "ArrowDown") {
-      event.preventDefault();
-      setActiveIndex((i) => Math.min(i + 1, items.length - 1));
-    } else if (event.key === "ArrowUp") {
-      event.preventDefault();
-      setActiveIndex((i) => Math.max(i - 1, 0));
-    } else if (event.key === "Home") {
-      event.preventDefault();
-      setActiveIndex(0);
-    } else if (event.key === "End") {
-      event.preventDefault();
-      setActiveIndex(items.length - 1);
-    }
-  };
 
   return (
-    <div
-      className={`rounded-2xl border p-6 md:p-7 lg:p-8 ${config.panelClass}`}
-      onKeyDown={onListKeyDown}
-    >
+    <div className={`rounded-2xl border p-6 md:p-7 lg:p-8 ${config.panelClass}`}>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <h3 className={`font-heading text-lg font-bold md:text-xl ${config.titleClass}`}>
           {title}
         </h3>
-        <p
-          className={`font-heading text-xs font-semibold tabular-nums ${config.counterClass}`}
-          aria-live="polite"
-        >
-          {activeIndex + 1} of {items.length}
+        <p className={`font-heading text-xs font-semibold ${config.counterClass}`}>
+          {items.length} {items.length === 1 ? "tip" : "tips"}
         </p>
       </div>
-      <ul
-        id={listId}
-        role="listbox"
-        aria-label={title}
-        aria-activedescendant={`${listId}-option-${activeIndex}`}
-        className="mt-5 space-y-2.5"
-      >
-        {items.map((item, index) => {
-          const selected = activeIndex === index;
-          return (
-            <li key={item} role="presentation">
-              <button
-                type="button"
-                role="option"
-                id={`${listId}-option-${index}`}
-                aria-selected={selected}
-                onMouseEnter={() => setActiveIndex(index)}
-                onFocus={() => setActiveIndex(index)}
-                onClick={() => setActiveIndex(index)}
-                className={`group relative flex w-full gap-3 rounded-xl px-4 py-3.5 text-left outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${
-                  variant === "do"
-                    ? "focus-visible:ring-[#79df86]/50"
-                    : "focus-visible:ring-[#b85c5c]/45"
-                } ${config.itemBase}`}
+      <ul className="mt-5 space-y-2.5" role="list" aria-label={title}>
+        {items.map((item, index) => (
+          <li key={item}>
+            <div
+              className={`group relative flex gap-3 rounded-xl py-3.5 pl-5 pr-4 ${config.itemBase}`}
+            >
+              <span
+                className={`pointer-events-none absolute inset-y-3 left-0 w-1 rounded-full ${config.accentClass}`}
+                aria-hidden
+              />
+              <span
+                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg font-heading text-xs font-bold ${config.stepClass}`}
+                aria-hidden
               >
-                <span
-                  className={`pointer-events-none absolute inset-y-3 left-0 w-1 rounded-full opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 group-focus-visible:opacity-100 ${config.accentClass}`}
-                  aria-hidden
-                />
-                <span
-                  className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg font-heading text-xs font-bold transition-colors duration-300 ease-out ${config.stepIdle} ${config.stepHover}`}
-                  aria-hidden
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <Icon
-                  className={`mt-0.5 h-5 w-5 shrink-0 ${config.iconClass}`}
-                  aria-hidden
-                  strokeWidth={2.25}
-                />
-                <span className="min-w-0 flex-1 text-sm leading-relaxed transition-colors duration-300 ease-out md:text-[15px]">
-                  {item}
-                </span>
-              </button>
-            </li>
-          );
-        })}
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <Icon
+                className={`mt-0.5 h-5 w-5 shrink-0 ${config.iconClass}`}
+                aria-hidden
+                strokeWidth={2.25}
+              />
+              <p className="min-w-0 flex-1 text-sm leading-relaxed md:text-[15px]">{item}</p>
+            </div>
+          </li>
+        ))}
       </ul>
     </div>
   );
@@ -1130,12 +1096,12 @@ export function OrmWhyR360Section() {
             className="mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] shadow-[0_0_24px_rgba(76,175,80,0.2)]"
             aria-hidden
           />
-          <p className="mt-5 text-sm leading-relaxed text-slate-100/85 md:mt-6 md:whitespace-nowrap md:text-[15px] lg:text-base">
+          <p className="mt-5 max-w-none text-base leading-relaxed text-slate-100/90 md:mt-6 md:text-lg md:leading-relaxed lg:text-xl lg:leading-relaxed">
             {ORM_WHY_R360_INTRO}
           </p>
         </Motion.div>
 
-        <div className="border-t border-white/12 pt-10 md:pt-12">
+        <div className="pt-10 md:pt-12">
           <div className="flex flex-wrap justify-center gap-5 md:gap-6">
           {WHY_R360_DIFFERENTIATORS.map((d, i) => {
             const Icon = WHY_R360_ICON_BY_ID[d.id] ?? Zap;
