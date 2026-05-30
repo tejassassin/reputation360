@@ -214,47 +214,50 @@ function RbsHeroHeadline() {
 
 export function RbsServiceHero() {
   return (
-    <header className="relative overflow-hidden border-b border-slate-200/70 bg-white pb-14 pt-28 md:pb-18 md:pt-32">
+    <header
+      id="rbs-hero"
+      className="relative overflow-hidden border-b border-slate-200/70 bg-white pb-12 pt-28 md:pb-16 md:pt-32"
+      aria-labelledby="rbs-hero-heading"
+    >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(76,175,80,0.08),transparent_28%),linear-gradient(180deg,#f8fbff_0%,#ffffff_52%,#f6fbf7_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_-15%,rgba(76,175,80,0.07),transparent_52%),linear-gradient(180deg,#f8fafc_0%,#ffffff_55%)]"
         aria-hidden
       />
-      <div className={`relative ${RBS_CONTENT_RAIL}`}>
-        <Motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={rbsInView}
-          transition={{ duration: 0.55, ease: rbsEase }}
+      <div className={`relative z-10 ${RBS_CONTENT_RAIL} text-left`}>
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#4CAF50]">
+          {rbsPageHero.eyebrow}
+        </p>
+        <h1
+          id="rbs-hero-heading"
+          className="font-heading text-[1.75rem] font-extrabold leading-[1.1] tracking-tight text-[#1F3B64] sm:text-4xl md:text-[2.75rem] lg:text-5xl xl:text-[3.25rem] xl:leading-[1.08]"
         >
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
-            {rbsPageHero.eyebrow}
-          </p>
-          <h1 className="mt-4 max-w-5xl font-heading text-[1.85rem] font-extrabold leading-[1.05] tracking-tight text-[#14355f] sm:text-4xl md:text-[3rem] lg:text-[3.4rem]">
-            <RbsHeroHeadline />
-          </h1>
-          <div className="mt-5 h-1 w-20 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]" aria-hidden />
-          <div className="mt-6 max-w-4xl space-y-4 text-base leading-relaxed text-slate-600 md:text-lg">
-            {rbsPageHero.leadParagraphs.slice(0, 2).map((paragraph) => (
-              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-            ))}
-          </div>
-          <RbsExpandableBlock title="Read the full introduction" className="mt-5 max-w-4xl">
-            <div className="space-y-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              {rbsPageHero.leadParagraphs.slice(2).map((paragraph) => (
-                <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-              ))}
-            </div>
-          </RbsExpandableBlock>
-          <ConsultationCtas
-            variant="onLight"
-            consultLabel={rbsPageHero.ctaLabel}
-            consultHref={rbsPageHero.consultHref}
-            consultLinkProps={internalAnchorProps(rbsPageHero.consultHref)}
-            wrapperClassName="mt-8 justify-start"
-            consultSuffix={<ArrowRight className="h-4 w-4" aria-hidden />}
-          />
-          <p className="mt-5 text-sm text-slate-500 md:text-[15px]">{rbsPageHero.trustLine}</p>
-        </Motion.div>
+          <RbsHeroHeadline />
+        </h1>
+        <div
+          className="mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"
+          aria-hidden
+        />
+        <div className="mt-5 w-full max-w-none space-y-4 md:mt-6 md:space-y-5">
+          {rbsPageHero.leadParagraphs.map((paragraph) => (
+            <p
+              key={paragraph.slice(0, 48)}
+              className="w-full max-w-none text-pretty text-base leading-relaxed text-slate-600 md:text-lg md:leading-relaxed lg:text-xl lg:leading-relaxed"
+            >
+              {paragraph}
+            </p>
+          ))}
+        </div>
+        <ConsultationCtas
+          variant="onLight"
+          consultLabel={rbsPageHero.ctaLabel}
+          consultHref={rbsPageHero.consultHref}
+          consultLinkProps={internalAnchorProps(rbsPageHero.consultHref)}
+          consultSuffix={<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />}
+          wrapperClassName="mt-8 justify-start lg:mt-10"
+        />
+        <p className="mt-5 w-full max-w-none text-sm text-slate-500 md:text-[15px]">
+          {rbsPageHero.trustLine}
+        </p>
       </div>
     </header>
   );

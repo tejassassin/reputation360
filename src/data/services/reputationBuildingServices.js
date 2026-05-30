@@ -11,13 +11,11 @@ export const rbsPageMetaDescription =
 
 export const rbsPageHero = {
   title: "Reputation Building Services for Founders, Executives & Brands",
-  eyebrow: "When You Want to Go Deeper Than Search Results",
+  eyebrow: "Reputation Building Services",
   leadParagraphs: [
-    "Most people who come to Reputation360 start in the same place: they want to control what appears when someone searches their name or their company. That is what online reputation management and negative link suppression do — and for most clients, that is where the work begins.",
-    "But sometimes controlling search results is not enough on its own.",
-    "Sometimes you need to go deeper into a specific part of your reputation — to build something stronger, more credible, and more lasting in a particular direction. A more authoritative LinkedIn presence. A more compelling employer brand. A clearer company story. A recognized voice in your industry.",
-    "These services are built for that.",
-    "They are not replacements for ORM. They are what you add when you want to go to the depth of something — when broad reputation work has done its job and you need to strengthen one specific layer further.",
+    "Most clients come to Reputation360 with one goal: control what appears when someone searches their name or company. That's what ORM and negative link suppression are for — and for many, that's all they need.",
+    "But sometimes you need to go deeper.",
+    "A stronger LinkedIn presence. A more compelling employer brand. A clearer company story. A recognized industry voice. These services are built for that — not as replacements for ORM, but as the next layer when you want to strengthen something specific.",
   ],
   ctaLabel: "Book a Free Reputation Consultation",
   consultHref: RBS_CONTACT_PATH,
