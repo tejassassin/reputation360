@@ -592,6 +592,7 @@ export function NlsSearchResultsSection() {
 
 function NlsRemovalComparisonTable() {
   const [hoveredRow, setHoveredRow] = useState(null);
+  const hoverTimeoutRef = useRef(null);
   const aspectMeta = {
     "What it does": {
       Icon: Target,
@@ -617,6 +618,24 @@ function NlsRemovalComparisonTable() {
       Icon: Database,
       accent: "Best combined",
     },
+  };
+
+  const handleRowEnter = (index) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    hoverTimeoutRef.current = setTimeout(() => {
+      setHoveredRow(index);
+      hoverTimeoutRef.current = null;
+    }, 140);
+  };
+
+  const handleRowLeave = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    setHoveredRow(null);
   };
 
   return (
@@ -670,22 +689,22 @@ function NlsRemovalComparisonTable() {
               return (
                 <Motion.tr
                   key={row.aspect}
-                  onMouseEnter={() => setHoveredRow(i)}
-                  onMouseLeave={() => setHoveredRow(null)}
-                  className={`group/row transition-colors duration-300 motion-reduce:transition-none ${
+                  onMouseEnter={() => handleRowEnter(i)}
+                  onMouseLeave={handleRowLeave}
+                  className={`group/row transition-colors duration-500 motion-reduce:transition-none ${
                     isHovered
                       ? "bg-[linear-gradient(90deg,rgba(236,244,255,0.96),rgba(255,255,255,1),rgba(240,250,243,0.98))] shadow-[inset_4px_0_0_0_#1f3b64,inset_-4px_0_0_0_#4CAF50]"
                       : baseBg
                   }`}
                 >
                   <th
-                    className={`border-b border-[#e7eef6] px-5 py-5 align-top transition-colors duration-300 md:px-6 ${
+                    className={`border-b border-[#e7eef6] px-5 py-5 align-top transition-colors duration-500 md:px-6 ${
                       isHovered ? "text-[#0f2e58]" : "text-navy"
                     }`}
                   >
                     <div className="flex items-start gap-3.5">
                       <span
-                        className={`mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border transition-all duration-300 ${
+                        className={`mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border transition-all duration-500 ${
                           isHovered
                             ? "border-[#4CAF50]/35 bg-[linear-gradient(135deg,#1F3B64_0%,#2E5B88_55%,#4CAF50_130%)] text-white shadow-[0_18px_36px_-22px_rgba(31,59,100,0.5)]"
                             : "border-[#d8e4ef] bg-[linear-gradient(180deg,#ffffff_0%,#f6f9fc_100%)] text-[#1F3B64]"
@@ -704,7 +723,7 @@ function NlsRemovalComparisonTable() {
                     </div>
                   </th>
                   <td
-                    className={`border-b border-[#e7eef6] px-5 py-5 align-top text-sm leading-relaxed transition-all duration-300 md:px-6 md:text-[15px] ${
+                    className={`border-b border-[#e7eef6] px-5 py-5 align-top text-sm leading-relaxed transition-all duration-500 md:px-6 md:text-[15px] ${
                       isHovered
                         ? "bg-[#eef4ff]/85 text-navy/90"
                         : "text-navy/75 hover:bg-[#f5f8fc]/80"
@@ -713,7 +732,7 @@ function NlsRemovalComparisonTable() {
                     {row.removal}
                   </td>
                   <td
-                    className={`border-b border-[#e7eef6] px-5 py-5 align-top text-sm leading-relaxed transition-all duration-300 md:px-6 md:text-[15px] ${
+                    className={`border-b border-[#e7eef6] px-5 py-5 align-top text-sm leading-relaxed transition-all duration-500 md:px-6 md:text-[15px] ${
                       isHovered
                         ? "bg-[#f0faf3]/95 text-navy/90"
                         : "text-navy/75 hover:bg-[#f4fbf6]/80"
