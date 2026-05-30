@@ -21,6 +21,9 @@ const OnlineReputationManagementPage = lazy(
 const NegativeLinkSuppressionPage = lazy(
   () => import("../pages/NegativeLinkSuppressionPage.jsx"),
 );
+const ReputationBuildingServicesPage = lazy(
+  () => import("../pages/ReputationBuildingServicesPage.jsx"),
+);
 const FinancialAdvisorsPage = lazy(() => import("../pages/FinancialAdvisorsPage.jsx"));
 const JobSeekersPage = lazy(() => import("../pages/JobSeekersPage.jsx"));
 const DoctorsPage = lazy(() => import("../pages/DoctorsPage.jsx"));
@@ -90,6 +93,9 @@ export function pageForNonHomePath(path) {
   }
   if (path === "/services/negative-link-suppression") {
     return <NegativeLinkSuppressionPage />;
+  }
+  if (path === "/services/reputation-building-services") {
+    return <ReputationBuildingServicesPage />;
   }
   if (path === WHO_WE_SERVE_HUB_PATH) {
     window.location.replace(AUDIENCE_PATH.individuals);

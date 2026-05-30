@@ -10,6 +10,7 @@ import { DIY_REPUTATION_GUIDE_PATH } from "./blogs/diyReputationGuide.js";
 import {
   NEGATIVE_LINK_SUPPRESSION_PATH,
   ONLINE_REPUTATION_MANAGEMENT_PATH,
+  REPUTATION_BUILDING_SERVICES_PATH,
 } from "../constants/servicePaths.js";
 
 /** @typedef {{ href: string; label: string }} CrawlLink */
@@ -24,6 +25,10 @@ export const PRIORITY_COMMERCIAL_LINKS = [
   {
     href: NEGATIVE_LINK_SUPPRESSION_PATH,
     label: "Negative Link Suppression Service Guide",
+  },
+  {
+    href: REPUTATION_BUILDING_SERVICES_PATH,
+    label: "Reputation Building Services Guide",
   },
   { href: "/blog", label: "Insights and Blogs" },
   { href: "/case-studies", label: "Case Studies" },

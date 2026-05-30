@@ -1,6 +1,7 @@
 import {
   NEGATIVE_LINK_SUPPRESSION_PATH,
   ONLINE_REPUTATION_MANAGEMENT_PATH,
+  REPUTATION_BUILDING_SERVICES_PATH,
 } from "../constants/servicePaths.js";
 
 /** Dedicated service pages linked from /services and site nav. */
@@ -18,5 +19,12 @@ export const SERVICE_HUB_LINKS = [
     description:
       "How we push damaging links off page one: removal vs. suppression, feasibility, process, timelines, and FAQs.",
     badge: "Suppression guide",
+  },
+  {
+    href: REPUTATION_BUILDING_SERVICES_PATH,
+    title: "Reputation Building Services",
+    description:
+      "Specialized reputation-building guides for personal branding, LinkedIn authority, employer branding, thought leadership, social reputation, and brand positioning.",
+    badge: "Depth guide",
   },
 ];

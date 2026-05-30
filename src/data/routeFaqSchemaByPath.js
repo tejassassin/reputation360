@@ -27,6 +27,10 @@ import {
 } from "./blogs/blogFaqsRewritten.js";
 import { ORM_FAQS } from "./services/onlineReputationManagementInteractive.js";
 import { ORM_PAGE_PATH } from "./services/onlineReputationManagement.js";
+import {
+  RBS_FAQS,
+  REPUTATION_BUILDING_SERVICES_PATH,
+} from "./services/reputationBuildingServices.js";
 
 const DIY_REPUTATION_GUIDE_PATH = blogPostPath(
   "diy-online-reputation-management-complete-guide",
@@ -49,6 +53,7 @@ const FAQ_ITEMS_BY_PATH = {
   "/": mapQuestionAnswerFaqs(HOME_FAQ_ITEMS),
   "/services": mapQuestionAnswerFaqs(SERVICES_FAQ_ITEMS),
   [ORM_PAGE_PATH]: mapQaFaqs(ORM_FAQS),
+  [REPUTATION_BUILDING_SERVICES_PATH]: mapQaFaqs(RBS_FAQS),
   "/resources/faqs": RESOURCES_FAQ_SCHEMA_ITEMS,
   [AUDIENCE_PATH.individuals]: mapQuestionAnswerFaqs(PERSONAL_REPUTATION_FAQ_ITEMS),
   [AUDIENCE_PATH.financialAdvisors]: mapQuestionAnswerFaqs(FINANCIAL_ADVISOR_FAQ_ITEMS),

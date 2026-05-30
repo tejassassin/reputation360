@@ -30,6 +30,12 @@ export const SEO = {
     description:
       "One harmful search result is enough to cost you clients, deals, and opportunities. Reputation360 pushes damaging content off page one - ethically, precisely, and permanently. Get a free search analysis.",
   },
+  reputationBuildingServices: {
+    title: "Reputation Building Services for Founders, Executives & Brands | Reputation360",
+    path: "/services/reputation-building-services",
+    description:
+      "When online reputation management is not enough on its own, Reputation360 offers specialized services to go deeper — personal branding, LinkedIn authority, employer branding, thought leadership, social media reputation, and brand strategy.",
+  },
   whoWeServe: {
     title: "Who We Serve | Reputation360",
     path: "/who-we-serve",

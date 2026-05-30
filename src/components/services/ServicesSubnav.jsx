@@ -2,6 +2,7 @@ import { ChevronRight } from "lucide-react";
 import {
   NEGATIVE_LINK_SUPPRESSION_PATH,
   ONLINE_REPUTATION_MANAGEMENT_PATH,
+  REPUTATION_BUILDING_SERVICES_PATH,
 } from "../../constants/servicePaths.js";
 import { internalAnchorProps } from "../../lib/internalLinkProps.js";
 import { useDocumentPathname } from "../../hooks/useDocumentPathname.js";
@@ -18,6 +19,10 @@ const links = [
     href: NEGATIVE_LINK_SUPPRESSION_PATH,
     label: "Negative Link Suppression",
   },
+  {
+    href: REPUTATION_BUILDING_SERVICES_PATH,
+    label: "Reputation Building Services",
+  },
 ];
 
 /**
@@ -28,7 +33,8 @@ export function ServicesSubnav() {
   const onServices =
     pathname === SERVICES_OVERVIEW_PATH ||
     pathname === ONLINE_REPUTATION_MANAGEMENT_PATH ||
-    pathname === NEGATIVE_LINK_SUPPRESSION_PATH;
+    pathname === NEGATIVE_LINK_SUPPRESSION_PATH ||
+    pathname === REPUTATION_BUILDING_SERVICES_PATH;
 
   if (!onServices) return null;
 
