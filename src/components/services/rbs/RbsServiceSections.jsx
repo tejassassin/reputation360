@@ -564,15 +564,55 @@ export function RbsFrameworkSection() {
         </div>
       </div>
 
-      <RbsExpandableBlock title={RBS_WHY_EXIST.title} className="mt-10">
-        <div className="grid gap-4 md:grid-cols-2">
-          {RBS_WHY_EXIST.paragraphs.map((paragraph) => (
-            <p key={paragraph.slice(0, 44)} className="text-base leading-relaxed text-slate-600">
-              {paragraph}
-            </p>
+      <div className="mt-12">
+        <RbsReveal className="max-w-[960px]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#4CAF50]">
+            {RBS_WHY_EXIST.eyebrow}
+          </p>
+          <h3 className="mt-3 font-heading text-[2.25rem] font-bold leading-[1.2] text-[#1F3B64] md:text-[2.4rem]">
+            {RBS_WHY_EXIST.title}
+          </h3>
+          <div className="mt-3 h-[3px] w-12 rounded-full bg-[#4CAF50]" aria-hidden />
+          <p className="mt-9 max-w-none text-base leading-[1.75] text-[#374151]">
+            {RBS_WHY_EXIST.intro.replace(` ${RBS_WHY_EXIST.introEmphasis}`, "")}{" "}
+            <span className="font-medium text-[#1F3B64]">{RBS_WHY_EXIST.introEmphasis}</span>
+          </p>
+        </RbsReveal>
+
+        <div className="mt-8 flex max-w-[960px] flex-col gap-4">
+          {RBS_WHY_EXIST.scenarios.map((scenario, index) => (
+            <RbsHoverCard
+              key={scenario.context}
+              delay={index * 0.06}
+              hoverY={-4}
+              hoverScale={1.004}
+              className="grid items-center gap-6 rounded-[12px] border border-[#E5E7EB] bg-white px-8 py-7 shadow-[0_1px_4px_rgba(0,0,0,0.05)] md:grid-cols-[minmax(0,1fr)_auto]"
+            >
+              <div>
+                <p className="font-heading text-[14px] font-medium uppercase tracking-[0.12em] text-[#6B7280]">
+                  {scenario.context}
+                </p>
+                <p className="mt-2 text-[15px] leading-[1.7] text-[#374151]">{scenario.text}</p>
+              </div>
+              <div className="justify-self-start md:justify-self-end">
+                <span className="inline-flex rounded-full bg-[#1F3B64] px-4 py-2 font-heading text-[12px] font-semibold tracking-[0.02em] text-white">
+                  {scenario.tag}
+                </span>
+              </div>
+            </RbsHoverCard>
           ))}
         </div>
-      </RbsExpandableBlock>
+
+        <RbsReveal delay={0.14} className="mt-7 max-w-[960px]">
+          <div className="flex items-center gap-5 rounded-[12px] bg-[#1F3B64] px-8 py-8 shadow-[0_12px_32px_rgba(27,49,82,0.22)]">
+            <div className="h-12 w-1 shrink-0 rounded-full bg-[#4CAF50]" aria-hidden />
+            <p className="font-heading text-[16px] font-semibold leading-[1.6] text-white">
+              {RBS_WHY_EXIST.conclusion.replace(` ${RBS_WHY_EXIST.conclusionEmphasis}`, "")}{" "}
+              <span className="text-[#4CAF50]">{RBS_WHY_EXIST.conclusionEmphasis}</span>
+            </p>
+          </div>
+        </RbsReveal>
+      </div>
     </RbsSection>
   );
 }
@@ -582,167 +622,271 @@ export function RbsSpecializedServicesSection() {
   const active =
     RBS_SPECIALIZED_SERVICES.find((service) => service.id === activeId) ??
     RBS_SPECIALIZED_SERVICES[0];
-  const ActiveIcon = SERVICE_ICONS[active.title] ?? Sparkles;
+  const serviceMeta = {
+    "personal-branding": {
+      panelTag: "Individual Reputation",
+      navTag: "Individual Reputation",
+      sideTitle: "Questions We Answer",
+    },
+    "linkedin-branding": {
+      panelTag: "Platform Authority",
+      navTag: "Platform Authority",
+      sideTitle: "LinkedIn Authority System",
+    },
+    "employer-branding": {
+      panelTag: "Talent Reputation",
+      navTag: "Talent Reputation",
+      sideTitle: "Candidate Trust Audit",
+    },
+    "thought-leadership": {
+      panelTag: "Authority Building",
+      navTag: "Authority Building",
+      sideTitle: "Ideas Worth Publishing",
+    },
+    "social-media": {
+      panelTag: "Digital Presence",
+      navTag: "Digital Presence",
+      sideTitle: "Reputation-Safe Social System",
+    },
+    "performance-marketing": {
+      panelTag: "Paid Visibility",
+      navTag: "Paid Visibility",
+      sideTitle: "Assets We Amplify",
+    },
+    "brand-strategy": {
+      panelTag: "Positioning",
+      navTag: "Positioning",
+      sideTitle: "Foundation Questions",
+    },
+    consultation: {
+      panelTag: "Start Here",
+      navTag: "Start Here",
+      sideTitle: "Questions We Answer",
+    },
+  };
+  const activeMeta = serviceMeta[active.id] ?? {
+    panelTag: "Specialized Service",
+    navTag: "Service",
+    sideTitle: active.frameworkTitle,
+  };
+  const activeIntroParagraph = active.paragraphs[0] ?? "";
+  const activeExtraParagraphs = active.paragraphs.slice(1);
+  const isConsultation = active.id === "consultation";
 
   return (
-    <RbsSection
+    <section
       id="services"
-      title="Our Specialized Services"
-      lead="These services are built for clients who want to strengthen one specific layer of how they are perceived online."
-      tone="mint"
-      contentClassName="mt-10"
+      className={`${RBS_SCROLL_TARGET_CLASS} overflow-hidden bg-[#f5f7fa] py-16 md:py-20`}
     >
-      <div className="grid gap-6 xl:grid-cols-[20rem_minmax(0,1fr)]">
-          <Motion.div
-            initial={{ opacity: 0, x: -14 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={rbsInView}
-            transition={{ duration: 0.45, ease: rbsEase }}
-            className="rounded-[1.9rem] border border-[#dbe5f0] bg-white p-4 shadow-[0_24px_60px_-34px_rgba(20,53,95,0.18)]"
-          >
-            <ul className="space-y-2">
-              {RBS_SPECIALIZED_SERVICES.map((service, index) => {
-                const selected = activeId === service.id;
-                const Icon = SERVICE_ICONS[service.title] ?? Sparkles;
-                return (
-                  <li key={service.id}>
-                    <Motion.button
-                      type="button"
-                      onClick={() => setActiveId(service.id)}
-                      whileHover={{ x: 3 }}
-                      whileTap={{ scale: 0.99 }}
-                      className={`flex w-full items-center gap-3 rounded-2xl px-4 py-3.5 text-left transition-all duration-300 ${
-                        selected
-                          ? "bg-[#14355f] text-white shadow-[0_14px_30px_-18px_rgba(20,53,95,0.4)]"
-                          : "bg-[#fbfdff] text-[#14355f] hover:bg-white hover:shadow-sm"
-                      }`}
-                    >
-                      <span
-                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
-                          selected ? "bg-white/14 text-[#7df5b9]" : "bg-[#eef4fb] text-[#14355f]"
+      <div className="mx-auto max-w-[1400px] px-5 md:px-8">
+        <div className="overflow-hidden rounded-[1.9rem] border border-[#193154] bg-white shadow-[0_24px_60px_-34px_rgba(20,53,95,0.22)]">
+          <div className="bg-[#1F3B64] px-6 py-12 md:px-10 md:py-12">
+            <RbsReveal className="max-w-[600px]">
+              <p className="font-heading text-[11px] font-semibold uppercase tracking-[0.24em] text-[#4CAF50]">
+                What We Do
+              </p>
+              <h2 className="mt-3 font-heading text-[2.35rem] font-bold leading-[1.15] text-white md:text-[2.8rem]">
+                Our Specialized Services
+              </h2>
+              <p className="mt-4 max-w-none text-[14px] leading-[1.7] text-[#93A8C4] md:text-[15px] lg:whitespace-nowrap">
+                ORM is where most clients begin. These services are what you add when you need to go deeper — into one specific layer of how you're perceived online.
+              </p>
+            </RbsReveal>
+          </div>
+
+          <div className="grid xl:grid-cols-[280px_minmax(0,1fr)]">
+            <Motion.aside
+              initial={{ opacity: 0, x: -14 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={rbsInView}
+              transition={{ duration: 0.45, ease: rbsEase }}
+              className="border-b border-[#E5E7EB] bg-white xl:sticky xl:top-24 xl:h-fit xl:self-start xl:border-b-0 xl:border-r"
+            >
+              <div className="px-6 pb-6 pt-8">
+                <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B7280]">
+                  Services
+                </p>
+              </div>
+              <ul className="space-y-1 pb-3">
+                {RBS_SPECIALIZED_SERVICES.filter((service) => service.id !== "consultation").map((service, index) => {
+                  const selected = activeId === service.id;
+                  const meta = serviceMeta[service.id] ?? activeMeta;
+                  return (
+                    <li key={service.id}>
+                      <button
+                        type="button"
+                        onClick={() => setActiveId(service.id)}
+                        className={`flex w-full items-center gap-3 border-l-[3px] px-6 py-3.5 text-left transition-all duration-200 ${
+                          selected
+                            ? "border-l-[#4CAF50] bg-[#F0FBF0]"
+                            : "border-l-transparent hover:bg-[#F5F7FA]"
                         }`}
                       >
-                        <Icon className="h-5 w-5" aria-hidden />
-                      </span>
-                      <span className="min-w-0">
-                        <span className="block text-xs font-bold uppercase tracking-[0.15em] opacity-60">
-                          Service {String(index + 1).padStart(2, "0")}
+                        <span className="font-heading text-[11px] font-bold text-[#4CAF50]">
+                          {String(index + 1).padStart(2, "0")}
                         </span>
-                        <span className="mt-1 block font-heading text-sm font-bold leading-snug md:text-[15px]">
-                          {service.title}
+                        <span className="min-w-0 flex-1">
+                          <span className="block font-heading text-[15px] font-semibold leading-[1.3] text-[#1F3B64] md:text-[16px]">
+                            {service.title}
+                          </span>
+                          <span className="mt-0.5 block text-[10px] text-[#6B7280]">{meta.navTag}</span>
                         </span>
-                      </span>
-                    </Motion.button>
-                  </li>
-                );
-              })}
-            </ul>
-          </Motion.div>
-
-        <AnimatePresence mode="wait" initial={false}>
-          <Motion.article
-            key={active.id}
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.34, ease: rbsEase }}
-            className="rounded-[2rem] border border-[#dbe5f0] bg-white p-6 shadow-[0_24px_60px_-34px_rgba(20,53,95,0.22)] md:p-8"
-          >
-            <div className="flex flex-wrap items-start gap-4 border-b border-[#e7eef6] pb-5">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#14355f] text-[#7df5b9] shadow-sm">
-                <ActiveIcon className="h-7 w-7" aria-hidden />
-              </span>
-              <div className="min-w-0 flex-1">
-                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
-                  Specialized service
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+              <div className="mx-6 my-3 h-px bg-[#F3F4F6]" />
+              <button
+                type="button"
+                onClick={() => setActiveId("consultation")}
+                className={`mx-4 mb-6 block w-[calc(100%-2rem)] rounded-[10px] px-4 py-3.5 text-left transition-all duration-200 ${
+                  activeId === "consultation"
+                    ? "bg-[#153355] ring-2 ring-inset ring-[#4CAF50]/65"
+                    : "bg-[#1F3B64] hover:opacity-95"
+                }`}
+              >
+                <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.15em] text-[#4CAF50]">
+                  Start Here
                 </p>
-                <h3 className="mt-2 font-heading text-2xl font-bold leading-tight text-[#14355f] md:text-[2rem]">
-                  {active.title}
-                </h3>
-                <p className="mt-3 text-lg leading-relaxed text-[#14355f]/80">{active.kicker}</p>
-              </div>
-            </div>
+                <p className="mt-1 font-heading text-[13px] font-semibold text-white">Reputation Consultation</p>
+                <p className="mt-1 text-[12px] leading-[1.4] text-[#93A8C4]">
+                  Not sure where to begin? Start here.
+                </p>
+              </button>
+            </Motion.aside>
 
-            <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)]">
-              <div className="space-y-4">
-                {active.paragraphs.slice(0, 2).map((paragraph) => (
-                  <p key={paragraph.slice(0, 48)} className="text-base leading-relaxed text-slate-600 md:text-lg">
-                    {paragraph}
+            <div className="px-6 py-10 md:px-10 md:py-12">
+              <AnimatePresence mode="wait" initial={false}>
+                <Motion.article
+                  key={active.id}
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.34, ease: rbsEase }}
+                  className={isConsultation ? "consult-panel" : ""}
+                >
+                  <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4CAF50]">
+                    {activeMeta.panelTag}
                   </p>
-                ))}
-                {(active.paragraphs.length > 2 || active.quote || active.testimonial) ? (
-                  <RbsExpandableBlock title="Read the full service details">
-                    <div className="space-y-4">
-                      {active.paragraphs.slice(2).map((paragraph) => (
-                        <p
-                          key={paragraph.slice(0, 48)}
-                          className="text-base leading-relaxed text-slate-600 md:text-lg"
-                        >
-                          {paragraph}
-                        </p>
-                      ))}
-                      {active.quote ? (
-                        <blockquote className="rounded-2xl border border-[#dbe5f0] bg-[#f8fbff] px-5 py-4 font-heading text-lg font-semibold leading-relaxed text-[#14355f]">
-                          {active.quote}
-                        </blockquote>
-                      ) : null}
-                      {active.testimonial ? (
-                        <blockquote className="rounded-2xl border border-[#d6efe1] bg-[#f4fbf6] px-5 py-4 text-base leading-relaxed text-[#14355f]">
-                          {active.testimonial}
-                        </blockquote>
-                      ) : null}
+                  <h3 className="mt-2 font-heading text-[2rem] font-bold leading-[1.2] text-[#1F3B64] md:text-[2.2rem]">
+                    {active.title}
+                  </h3>
+                  <p className="mt-2 text-[17px] italic leading-[1.6] text-[#6B7280]">{active.kicker}</p>
+                  <div className="mt-6 h-[3px] w-10 rounded-full bg-[#4CAF50]" aria-hidden />
+
+                  {isConsultation ? (
+                    <div className="mt-8 rounded-[12px] border-l-4 border-[#4CAF50] bg-[#1F3B64] px-7 py-7">
+                      <p className="text-[16px] leading-[1.8] text-[#CBD5E1]">
+                        {activeIntroParagraph}{" "}
+                        {activeExtraParagraphs[0] ? (
+                          <span className="font-medium text-white">{activeExtraParagraphs[0]}</span>
+                        ) : null}
+                      </p>
                     </div>
-                  </RbsExpandableBlock>
-                ) : null}
-              </div>
-
-              <div className="space-y-5">
-                <RbsExpandableBlock title={active.frameworkTitle} defaultOpen>
-                  <p className="text-sm leading-relaxed text-slate-600">{active.frameworkIntro}</p>
-                  {active.frameworkQuestionsIntro ? (
-                    <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                      {active.frameworkQuestionsIntro}
+                  ) : (
+                    <p className="mt-7 max-w-none text-[17px] leading-[1.85] text-[#374151]">
+                      {activeIntroParagraph}
                     </p>
-                  ) : null}
-                  <ul className="mt-4 space-y-2">
-                    {active.frameworkItems.map((item) => (
-                      <li key={item} className="flex gap-3 text-sm leading-relaxed text-[#14355f]">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#4CAF50]" aria-hidden />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </RbsExpandableBlock>
+                  )}
 
-                <RbsExpandableBlock title="What we help with">
-                  <ul className="space-y-2">
-                    {active.helpWith.map((item) => (
-                      <li key={item} className="flex gap-3 text-sm leading-relaxed text-slate-600">
-                        <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#2E5B88]" aria-hidden />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </RbsExpandableBlock>
+                  <div className="mt-8 grid gap-5 lg:grid-cols-2">
+                    <RbsHoverCard
+                      hoverY={-3}
+                      hoverScale={1.003}
+                      className="rounded-[12px] border border-[#E5E7EB] bg-white px-6 py-6 shadow-[0_1px_4px_rgba(0,0,0,0.05)]"
+                    >
+                      <p className="font-heading text-[11px] font-semibold uppercase tracking-[0.2em] text-[#4CAF50]">
+                        What We Help With
+                      </p>
+                      <ul className="mt-4 space-y-2.5">
+                        {active.helpWith.slice(0, 7).map((item) => (
+                          <li key={item} className="flex items-start gap-2.5 text-[16px] leading-[1.55] text-[#4B5563]">
+                            <span className="mt-[6px] h-[5px] w-[5px] shrink-0 rounded-full bg-[#4CAF50]" aria-hidden />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </RbsHoverCard>
 
-                <RbsExpandableBlock title="Best for and reputation outcome">
-                  <div className="rounded-2xl bg-[linear-gradient(180deg,#f8fbff_0%,#f5faf6_100%)] px-4 py-4">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#14355f]/50">
-                      Best for
-                    </p>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-600">{active.bestFor}</p>
-                    <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.15em] text-[#14355f]/50">
-                      Reputation outcome
-                    </p>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-600">{active.outcome}</p>
+                    <RbsHoverCard
+                      hoverY={-3}
+                      hoverScale={1.003}
+                      className="rounded-[12px] border border-[#E5E7EB] bg-white px-6 py-6 shadow-[0_1px_4px_rgba(0,0,0,0.05)]"
+                    >
+                      <p className="font-heading text-[11px] font-semibold uppercase tracking-[0.2em] text-[#4CAF50]">
+                        {isConsultation ? activeMeta.sideTitle : active.frameworkTitle || activeMeta.sideTitle}
+                      </p>
+                      {active.frameworkIntro ? (
+                        <p className="mt-4 text-[15px] leading-[1.65] text-[#4B5563]">
+                          {active.frameworkIntro}
+                        </p>
+                      ) : null}
+                      {active.frameworkQuestionsIntro ? (
+                        <p className="mt-3 text-[15px] leading-[1.65] text-[#4B5563]">
+                          {active.frameworkQuestionsIntro}
+                        </p>
+                      ) : null}
+                      <ul className="mt-4 space-y-2.5">
+                        {active.frameworkItems.slice(0, 8).map((item) => (
+                          <li key={item} className="flex items-start gap-2.5 text-[16px] leading-[1.55] text-[#4B5563]">
+                            <span className="mt-[6px] h-[5px] w-[5px] shrink-0 rounded-full bg-[#4CAF50]" aria-hidden />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </RbsHoverCard>
                   </div>
-                </RbsExpandableBlock>
-              </div>
+
+                  <div className="mt-8 rounded-[12px] bg-[#1F3B64] px-7 py-6">
+                    <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_1px_minmax(0,1fr)] md:items-center">
+                      <div>
+                        <p className="font-heading text-[11px] font-semibold uppercase tracking-[0.18em] text-[#4CAF50]">
+                          Best For
+                        </p>
+                        <p className="mt-2 text-[16px] leading-[1.7] text-[#CBD5E1]">{active.bestFor}</p>
+                      </div>
+                      <div className="hidden bg-[#2E5B88] md:block md:self-stretch" aria-hidden />
+                      <div>
+                        <p className="font-heading text-[11px] font-semibold uppercase tracking-[0.18em] text-[#4CAF50]">
+                          Reputation Outcome
+                        </p>
+                        <p className="mt-2 text-[16px] leading-[1.7] text-[#CBD5E1]">{active.outcome}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {(activeExtraParagraphs.length > (isConsultation ? 1 : 0) || active.quote || active.testimonial) ? (
+                    <RbsExpandableBlock title="Read the full service details" className="mt-8">
+                      <div className="space-y-4">
+                        {activeExtraParagraphs.slice(isConsultation ? 1 : 0).map((paragraph) => (
+                          <p
+                            key={paragraph.slice(0, 48)}
+                            className="text-base leading-relaxed text-slate-600 md:text-lg"
+                          >
+                            {paragraph}
+                          </p>
+                        ))}
+                        {active.quote ? (
+                          <blockquote className="rounded-2xl border border-[#dbe5f0] bg-[#f8fbff] px-5 py-4 font-heading text-lg font-semibold leading-relaxed text-[#14355f]">
+                            {active.quote}
+                          </blockquote>
+                        ) : null}
+                        {active.testimonial ? (
+                          <blockquote className="rounded-2xl border border-[#d6efe1] bg-[#f4fbf6] px-5 py-4 text-base leading-relaxed text-[#14355f]">
+                            {active.testimonial}
+                          </blockquote>
+                        ) : null}
+                      </div>
+                    </RbsExpandableBlock>
+                  ) : null}
+                </Motion.article>
+              </AnimatePresence>
             </div>
-          </Motion.article>
-        </AnimatePresence>
+          </div>
+        </div>
       </div>
-    </RbsSection>
+    </section>
   );
 }
 
