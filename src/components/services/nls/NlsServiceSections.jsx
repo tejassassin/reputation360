@@ -812,8 +812,8 @@ export function NlsWhenSuppressionSection() {
                     aria-controls={panelId}
                     tabIndex={selected ? 0 : -1}
                     onClick={() => setActive(index)}
-                    onMouseEnter={() => setActive(index)}
-                    className={`rounded-xl border px-3.5 py-2.5 text-left outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-navy/30 sm:px-4 sm:py-3 ${
+                    onFocus={() => setActive(index)}
+                    className={`rounded-xl border px-3.5 py-2.5 text-left outline-none transition-all duration-300 focus-visible:ring-2 focus-visible:ring-navy/30 sm:px-4 sm:py-3 ${
                       selected
                         ? "border-navy bg-navy text-white shadow-md"
                         : "border-navy/12 bg-[#f8fafc] text-navy hover:border-[#79df86]/40 hover:bg-white hover:shadow-sm"
@@ -841,7 +841,7 @@ export function NlsWhenSuppressionSection() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.24, ease: nlsEase }}
+              transition={{ duration: 0.32, ease: nlsEase }}
             >
               <p className="text-xs font-bold uppercase tracking-wide text-navy/45">
                 Scenario {String(active + 1).padStart(2, "0")} of {String(NLS_WHEN_SUPPRESSION_ROWS.length).padStart(2, "0")}
@@ -1048,8 +1048,8 @@ export function NlsContentTypesSection() {
                     aria-controls={panelId}
                     tabIndex={selected ? 0 : -1}
                     onClick={() => setActive(index)}
-                    onMouseEnter={() => setActive(index)}
-                    className={`flex min-h-[4.75rem] w-full items-center gap-3 rounded-xl border px-3.5 py-3.5 text-left outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-navy/30 sm:min-h-[5.25rem] sm:gap-3.5 sm:px-4 sm:py-4 ${
+                    onFocus={() => setActive(index)}
+                    className={`flex min-h-[4.75rem] w-full items-center gap-3 rounded-xl border px-3.5 py-3.5 text-left outline-none transition-all duration-300 focus-visible:ring-2 focus-visible:ring-navy/30 sm:min-h-[5.25rem] sm:gap-3.5 sm:px-4 sm:py-4 ${
                       selected
                         ? "border-navy bg-navy text-white shadow-md"
                         : "border-navy/10 bg-[#f8fafc] text-navy hover:border-[#79df86]/40 hover:bg-white hover:shadow-sm"
@@ -1088,7 +1088,7 @@ export function NlsContentTypesSection() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.24, ease: nlsEase }}
+              transition={{ duration: 0.32, ease: nlsEase }}
               className="flex gap-4 sm:gap-5"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e8f7ec] text-[#1a5c38] ring-1 ring-[#79df86]/30 sm:h-14 sm:w-14">
@@ -1223,7 +1223,7 @@ export function NlsTimelineSection() {
                 aria-controls={panelId}
                 tabIndex={selected ? 0 : -1}
                 onClick={() => setActive(index)}
-                onMouseEnter={() => setActive(index)}
+                onFocus={() => setActive(index)}
                 className={`group relative px-4 py-5 text-left outline-none transition-[background-color,box-shadow] duration-300 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-navy/30 md:px-6 md:py-6 ${
                   selected ? "bg-[#f2f5ff]" : "bg-white hover:bg-[#f8fafc]"
                 }`}
@@ -1269,7 +1269,7 @@ export function NlsTimelineSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.28, ease: nlsEase }}
+              transition={{ duration: 0.34, ease: nlsEase }}
             >
               <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
                 <span className="inline-flex rounded-full bg-navy px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-white">
@@ -1354,7 +1354,7 @@ export function NlsWhoWeHelpSection() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3, ease: nlsEase }}
+            transition={{ duration: 0.36, ease: nlsEase }}
             className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10"
           >
             <div className="flex shrink-0 flex-col items-center gap-4 lg:w-[11.5rem]">
@@ -1417,8 +1417,8 @@ export function NlsWhoWeHelpSection() {
                   aria-controls={panelId}
                   tabIndex={selected ? 0 : -1}
                   onClick={() => setActiveId(w.id)}
-                  onMouseEnter={() => setActiveId(w.id)}
-                  className={`group flex h-full w-full flex-col items-center gap-3 rounded-2xl border px-3 py-4 text-center outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#7df5b9]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2f4d] sm:px-4 sm:py-5 ${
+                  onFocus={() => setActiveId(w.id)}
+                  className={`group flex h-full w-full flex-col items-center gap-3 rounded-2xl border px-3 py-4 text-center outline-none transition-all duration-300 focus-visible:ring-2 focus-visible:ring-[#7df5b9]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2f4d] sm:px-4 sm:py-5 ${
                     selected
                       ? "border-[#7df5b9]/50 bg-white text-navy shadow-[0_16px_40px_-20px_rgba(0,0,0,0.4)]"
                       : "border-white/15 bg-white/[0.07] text-white hover:border-white/28 hover:bg-white/12"
