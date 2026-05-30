@@ -628,45 +628,6 @@ function NlsRemovalComparisonTable() {
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -3 }}
     >
-      <div className="relative overflow-hidden border-b border-[#d7e2ef] bg-[linear-gradient(135deg,rgba(15,46,88,0.04),rgba(255,255,255,0.95)_35%,rgba(76,175,80,0.08)_100%)] px-5 py-5 md:px-7 md:py-6">
-        <div
-          className="pointer-events-none absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-[#1F3B64] via-[#2E5B88] to-[#4CAF50]"
-          aria-hidden
-        />
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
-              Strategy Comparison
-            </p>
-            <h3 className="mt-2 font-heading text-2xl font-bold leading-tight text-[#0f2e58] md:text-[1.9rem]">
-              Two routes, one reputation outcome
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-[15px]">
-              Removal eliminates harmful content at the source when possible. Negative Link
-              Suppression strengthens your branded search landscape when removal is limited,
-              delayed, or impossible.
-            </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:min-w-[23rem]">
-            <div className="rounded-2xl border border-[#1F3B64]/10 bg-white/90 px-4 py-3 shadow-[0_12px_24px_-18px_rgba(15,46,88,0.35)] backdrop-blur">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#1F3B64]/60">
-                Brand approach
-              </p>
-              <p className="mt-1 font-heading text-sm font-bold text-[#1F3B64]">
-                Precision removal
-              </p>
-            </div>
-            <div className="rounded-2xl border border-[#4CAF50]/20 bg-[#f4fbf6]/90 px-4 py-3 shadow-[0_12px_24px_-18px_rgba(76,175,80,0.3)] backdrop-blur">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#2a6f38]/70">
-                Brand approach
-              </p>
-              <p className="mt-1 font-heading text-sm font-bold text-[#1b5e20]">
-                Visibility displacement
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[48rem] border-collapse text-left text-sm">
           <caption className="sr-only">
