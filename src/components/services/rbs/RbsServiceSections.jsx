@@ -141,7 +141,15 @@ function RbsExpandableBlock({
   );
 }
 
-function RbsSection({ id, title, lead, tone = "light", children, contentClassName = "" }) {
+function RbsSection({
+  id,
+  title,
+  lead,
+  tone = "light",
+  children,
+  contentClassName = "",
+  headerClassName = "",
+}) {
   const toneClass =
     tone === "navy"
       ? "relative overflow-hidden bg-[linear-gradient(155deg,#12325b_0%,#163a67_45%,#224d79_100%)] text-white"
@@ -171,7 +179,7 @@ function RbsSection({ id, title, lead, tone = "light", children, contentClassNam
       ) : null}
       <div className={`relative ${RBS_CONTENT_RAIL}`}>
         <RbsReveal>
-          <div className="max-w-4xl">
+          <div className={`max-w-4xl ${headerClassName}`}>
             <h2 className={`font-heading text-3xl font-extrabold leading-[1.08] tracking-tight md:text-[2.3rem] ${titleClass}`}>
               {title}
             </h2>
@@ -264,58 +272,186 @@ export function RbsServiceHero() {
 }
 
 export function RbsTwoKindsSection() {
+  const [workFocus, setWorkFocus] = useState(null);
+  const introEmphasis =
+    "These services are for clients ready to invest in one specific layer of how they're perceived online.";
+  const introBody =
+    RBS_GO_DEEPER.paragraphs[0]?.replace(` ${introEmphasis}`, "") ?? RBS_GO_DEEPER.paragraphs[0];
+
+  const comparisonCards = [
+    {
+      id: "broad",
+      heading: RBS_TWO_KINDS.broadTitle,
+      body: RBS_TWO_KINDS.broad,
+      accent: RBS_TWO_KINDS.broadLabel,
+      shell:
+        "text-[#1F3B64]",
+      text: "text-[#4B5563]",
+      accentText: "text-[#4CAF50]",
+      shellBase:
+        "ha-lift relative flex h-full flex-col overflow-hidden rounded-[14px] border-0 px-7 py-8 text-left outline-none transition-[box-shadow,background-color,ring,opacity,transform] duration-200 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1F3B64]/35",
+      active:
+        "bg-white ring-2 ring-inset ring-[#1F3B64]/25 opacity-100 [box-shadow:inset_0_0_0_1px_rgba(31,59,100,0.06),0_18px_44px_-20px_rgba(15,35,60,0.18)]",
+      inactive:
+        "bg-gradient-to-br from-white to-[#f3f6fa] [box-shadow:inset_0_0_0_1px_rgba(31,59,100,0.04),0_10px_24px_-20px_rgba(15,35,60,0.12)] hover:bg-white hover:[box-shadow:inset_0_0_0_1px_rgba(31,59,100,0.08),0_18px_44px_-20px_rgba(15,35,60,0.18)]",
+    },
+    {
+      id: "deep",
+      heading: RBS_TWO_KINDS.deepTitle,
+      body: RBS_TWO_KINDS.deep,
+      accent: RBS_TWO_KINDS.deepLabel,
+      shell:
+        "text-white",
+      text: "text-[#B8C9DF]",
+      accentText: "text-[#4CAF50]",
+      shellBase:
+        "ha-lift relative flex h-full flex-col overflow-hidden rounded-[14px] border-0 px-7 py-8 text-left outline-none transition-[box-shadow,background-color,ring,opacity,transform] duration-200 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-300/45",
+      active:
+        "bg-gradient-to-br from-[#061f3d] via-[#072f5f] to-[#0c4a7a] ring-2 ring-inset ring-emerald-400/40 opacity-100 [box-shadow:inset_0_0_0_1px_rgba(255,255,255,0.06),0_18px_44px_-20px_rgba(15,35,60,0.28)]",
+      inactive:
+        "bg-gradient-to-br from-[#051a33] via-[#072f5f] to-[#082f52] [box-shadow:inset_0_0_0_1px_rgba(255,255,255,0.05),0_12px_28px_-20px_rgba(15,35,60,0.18)] hover:[box-shadow:inset_0_0_0_1px_rgba(167,243,208,0.12),0_18px_44px_-20px_rgba(15,35,60,0.28)]",
+    },
+  ];
+
   return (
-    <RbsSection
+    <section
       id="two-kinds"
-      title={RBS_TWO_KINDS.title}
-      lead={[RBS_TWO_KINDS.intro]}
-      tone="mint"
+      className={`${RBS_SCROLL_TARGET_CLASS} relative overflow-hidden bg-[linear-gradient(180deg,#f5f7fa_0%,#f3f6fb_100%)] py-16 md:py-20`}
     >
-      <RbsExpandableBlock title={RBS_GO_DEEPER.title} className="mb-6">
-        <div className="space-y-4 text-base leading-relaxed text-slate-600 md:text-lg">
-          {RBS_GO_DEEPER.paragraphs.map((paragraph) => (
-            <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-          ))}
-        </div>
-      </RbsExpandableBlock>
-      <div className="grid gap-5 lg:grid-cols-2">
-        {[
-          {
-            heading: "Broad reputation work",
-            body: RBS_TWO_KINDS.broad,
-            accent: "Foundational",
-            shell: "border-[#dce5ef] bg-white",
-          },
-          {
-            heading: "Deep reputation work",
-            body: RBS_TWO_KINDS.deep,
-            accent: "Focused depth",
-            shell: "border-[#d6efe1] bg-[linear-gradient(180deg,#fbfefc_0%,#f3fbf5_100%)]",
-          },
-        ].map((card) => (
-          <RbsHoverCard
-            key={card.heading}
-            delay={card.heading === "Deep reputation work" ? 0.08 : 0}
-            className={`rounded-[1.75rem] border p-6 shadow-[0_16px_40px_-28px_rgba(20,53,95,0.2)] md:p-7 ${card.shell}`}
-          >
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
-              {card.accent}
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(76,175,80,0.05),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(46,91,136,0.05),transparent_38%)]"
+        aria-hidden
+      />
+      <div className={`relative ${RBS_CONTENT_RAIL}`}>
+        <div className="w-full">
+          <RbsReveal>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#4CAF50]">
+              {RBS_TWO_KINDS.eyebrow}
             </p>
-            <h3 className="mt-2 font-heading text-2xl font-bold text-[#14355f]">{card.heading}</h3>
-            <p className="mt-4 text-base leading-relaxed text-slate-600">{card.body}</p>
-          </RbsHoverCard>
-        ))}
+            <h2 className="mt-3 font-heading text-[2.25rem] font-bold leading-[1.2] text-[#1F3B64] md:text-[2.4rem]">
+              {RBS_TWO_KINDS.title}
+            </h2>
+            <div className="mt-3 h-[3px] w-12 rounded-full bg-[#4CAF50]" aria-hidden />
+          </RbsReveal>
+
+          <RbsReveal delay={0.05} className="mt-9">
+            <div className="rounded-r-[12px] rounded-l-none border-l-[3px] border-[#4CAF50] bg-white px-[26px] py-[22px] shadow-[0_1px_4px_rgba(0,0,0,0.05)]">
+              <p className="text-[15.5px] leading-[1.75] text-[#374151]">
+                {introBody}{" "}
+                <span className="font-medium text-[#1F3B64]">{introEmphasis}</span>
+              </p>
+            </div>
+          </RbsReveal>
+
+          <div className="mt-6 grid gap-5 lg:grid-cols-2">
+          {comparisonCards.map((card, index) => (
+            <Motion.article
+              key={card.heading}
+              role="button"
+              tabIndex={0}
+              aria-pressed={workFocus === card.id}
+              onMouseEnter={() => setWorkFocus(card.id)}
+              onMouseLeave={() => setWorkFocus(null)}
+              onFocus={() => setWorkFocus(card.id)}
+              onBlur={() => setWorkFocus(null)}
+              onClick={() => setWorkFocus(card.id)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setWorkFocus(card.id);
+                }
+              }}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={rbsInView}
+              transition={{ duration: 0.48, delay: index * 0.08, ease: rbsEase }}
+              whileHover={{ y: -4 }}
+              className={`${card.shellBase} ${card.shell} ${
+                workFocus === card.id ? card.active : card.inactive
+              } ${
+                workFocus && workFocus !== card.id ? "opacity-[0.88] md:opacity-[0.92]" : ""
+              }`}
+            >
+              <p
+                className={`relative text-[10px] font-semibold uppercase tracking-[0.22em] ${card.accentText}`}
+              >
+                {card.accent}
+              </p>
+              <h3
+                className={`relative mt-3.5 font-heading text-[22px] font-bold leading-[1.25] ${
+                  workFocus === card.id
+                    ? card.id === "deep"
+                      ? "text-white"
+                      : "text-[#1F3B64]"
+                    : card.id === "deep"
+                      ? "text-white/90"
+                      : "text-[#1F3B64]/78"
+                }`}
+              >
+                {card.heading}
+              </h3>
+              <p
+                className={`relative mt-3.5 max-w-[34rem] text-[14.5px] leading-[1.75] ${
+                  card.id === "deep"
+                    ? workFocus === card.id
+                      ? "text-white/88"
+                      : "text-white/80"
+                    : workFocus === card.id
+                      ? "text-[#4B5563]"
+                      : "text-[#4B5563]/88"
+                } ${card.text}`}
+              >
+                {card.body}
+              </p>
+            </Motion.article>
+          ))}
+          </div>
+
+          <RbsReveal delay={0.12} className="mt-6">
+            <div className="rounded-[14px] border border-[#E5E7EB] bg-white px-8 py-9 shadow-[0_1px_4px_rgba(0,0,0,0.05)]">
+              <div className="flex flex-col gap-1.5">
+                {RBS_TWO_KINDS.examples.map((example, index) => {
+                  const lead = typeof example === "string" ? example : example.lead;
+                  const outcome = typeof example === "string" ? "" : example.outcome;
+
+                  return (
+                    <Motion.div
+                      key={lead}
+                      initial={{ opacity: 0, y: 14 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      whileHover={{ x: 6, y: -2 }}
+                      viewport={rbsInView}
+                      transition={{ duration: 0.42, delay: 0.06 + index * 0.06, ease: rbsEase }}
+                      className="group flex items-start gap-[13px] rounded-[12px] px-2 py-2 transition-colors duration-300 hover:bg-[rgba(46,91,136,0.04)]"
+                    >
+                      <span
+                        className="mt-[7px] h-[7px] w-[7px] shrink-0 rounded-full bg-[#4CAF50] transition-all duration-300 group-hover:scale-[1.45] group-hover:bg-[#2E5B88] group-hover:shadow-[0_0_0_6px_rgba(76,175,80,0.12)]"
+                        aria-hidden
+                      />
+                      <div className="text-[15px] leading-[1.65] text-[#374151] transition-colors duration-300 group-hover:text-[#2f445f]">
+                        <span className="transition-colors duration-300 group-hover:text-[#33465f]">
+                          {lead}
+                        </span>
+                        <span className="mx-1.5 inline-block font-semibold text-[#2E5B88] transition-transform duration-300 group-hover:translate-x-1">
+                          →
+                        </span>
+                        <span className="font-medium transition-colors duration-300 group-hover:text-[#1F3B64]">
+                          {outcome}
+                        </span>
+                      </div>
+                    </Motion.div>
+                  );
+                })}
+              </div>
+              <div className="mb-[22px] mt-[26px] h-px bg-[#E5E7EB]" aria-hidden />
+              <p className="font-heading text-[15.5px] font-semibold text-[#1F3B64]">
+                {RBS_TWO_KINDS.closing}
+              </p>
+            </div>
+          </RbsReveal>
+        </div>
       </div>
-      <RbsHoverCard
-        className="mt-6 rounded-[1.75rem] border border-[#dfe8f1] bg-white px-6 py-5 shadow-[0_16px_40px_-30px_rgba(20,53,95,0.18)]"
-        delay={0.12}
-        hoverY={-4}
-        hoverScale={1.006}
-      >
-        <p className="text-base leading-relaxed text-slate-600 md:text-lg">{RBS_TWO_KINDS.examples}</p>
-        <p className="mt-4 font-semibold text-[#14355f]">{RBS_TWO_KINDS.closing}</p>
-      </RbsHoverCard>
-    </RbsSection>
+    </section>
   );
 }
 
@@ -328,12 +464,13 @@ export function RbsFrameworkSection() {
     <RbsSection
       id="framework"
       title="The Reputation Layer Framework"
+      headerClassName="max-w-5xl"
       lead={[
         "Reputation is not a single thing. It is a stack of perceptions built across different platforms, audiences, and contexts. Online reputation management addresses the search layer. These services address everything beneath it.",
         "ORM handles the top layer. These services handle the depth of every other one.",
       ]}
     >
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,0.9fr)]">
+      <div className="mt-8 grid gap-8 lg:mt-10 lg:gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,0.9fr)]">
         <div className="overflow-hidden rounded-[1.85rem] border border-[#dbe5f0] bg-white shadow-[0_24px_60px_-34px_rgba(20,53,95,0.2)]">
           <div className="grid grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] border-b border-[#e6edf4] bg-[linear-gradient(180deg,#f8fbff_0%,#f4f8fd_100%)]">
             <div className="px-5 py-4 font-heading text-xs font-bold uppercase tracking-[0.16em] text-[#14355f]/60 md:px-6">
@@ -352,20 +489,20 @@ export function RbsFrameworkSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={rbsInView}
                 transition={{ duration: 0.4, delay: index * 0.04, ease: rbsEase }}
-                whileHover={{ backgroundColor: "rgba(248,251,255,0.95)" }}
-                className={`grid grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] border-b border-[#e6edf4] last:border-b-0 ${
+                whileHover={{ backgroundColor: "rgba(244,250,246,0.98)" }}
+                className={`group grid grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] border-b border-[#e6edf4] last:border-b-0 ${
                   index % 2 === 0 ? "bg-white" : "bg-[#fbfdff]"
                 }`}
               >
                 <div className="flex items-start gap-3 px-5 py-4 md:px-6">
-                  <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#eef4fb] text-[#14355f]">
+                  <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#eef4fb] text-[#14355f] shadow-sm transition-colors duration-150 group-hover:bg-[linear-gradient(135deg,#eef7ff_0%,#dff5e7_100%)] group-hover:text-[#1d6a37] group-hover:shadow-[0_14px_28px_-18px_rgba(20,53,95,0.28)] group-hover:ring-1 group-hover:ring-[#bfe8c8]">
                     <Icon className="h-5 w-5" aria-hidden />
                   </span>
-                  <span className="font-heading text-base font-bold leading-snug text-[#14355f]">
+                  <span className="font-heading text-base font-bold leading-snug text-[#14355f] transition-colors duration-150 group-hover:text-[#1f4f7d]">
                     {row.layer}
                   </span>
                 </div>
-                <div className="px-5 py-4 text-sm leading-relaxed text-slate-600 md:px-6 md:text-[15px]">
+                <div className="px-5 py-4 text-sm leading-relaxed text-slate-600 transition-colors duration-150 group-hover:text-[#2f6a46] md:px-6 md:text-[15px]">
                   {row.controls}
                 </div>
               </Motion.div>

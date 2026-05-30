@@ -23,24 +23,38 @@ export const rbsPageHero = {
 };
 
 export const RBS_TWO_KINDS = {
+  eyebrow: "Our Approach",
   title: "Two Kinds of Reputation Work",
-  intro: "It helps to understand the difference between broad and deep.",
+  intro:
+    "You've done the foundational work — or you're doing it now — and one part of your reputation needs more focused attention than broad ORM can provide. Or you're starting strong and want to build deliberately in one direction before a challenge ever arises. These services are for clients ready to invest in one specific layer of how they're perceived online.",
+  broadLabel: "Foundational",
+  broadTitle: "Broad reputation work",
   broad:
-    "Broad reputation work — online reputation management and negative link suppression — addresses what appears when someone searches for you. It improves your search presence, suppresses harmful or misleading content, and builds positive assets across multiple platforms. It is foundational. For most people and most companies, it is where reputation management begins and where it has the greatest overall impact.",
+    "ORM and negative link suppression address what appears when someone searches for you — suppressing harmful content, building positive assets, and strengthening your overall search presence. For most people, this is where reputation management has its greatest impact.",
+  deepLabel: "Focused Depth",
+  deepTitle: "Deep reputation work",
   deep:
-    "Deep reputation work is different. It focuses on one specific platform, one specific audience, or one specific perception challenge — and addresses it with the level of focus and detail that broad work cannot provide.",
-  examples:
-    "If your challenge is that investors do not take you seriously when they research you on LinkedIn, that requires deep LinkedIn work. If your challenge is that talented candidates are choosing other companies after researching yours, that requires deep employer branding work. If your challenge is that your industry does not yet see you as an authority, that requires deep thought leadership work.",
+    "Deep work focuses on one platform, one audience, or one perception challenge — with a level of focus and detail that broad ORM can't provide. It's what you add when you need to strengthen one specific layer further.",
+  examples: [
+    {
+      lead: "Investors don't take you seriously when they research you on LinkedIn",
+      outcome: "that requires deep LinkedIn work.",
+    },
+    {
+      lead: "Talented candidates choose competitors after researching your company",
+      outcome: "that requires deep employer branding work.",
+    },
+    {
+      lead: "Your industry doesn't yet see you as an authority",
+      outcome: "that requires deep thought leadership work.",
+    },
+  ],
   closing: "These services exist for exactly those situations.",
 };
 
 export const RBS_GO_DEEPER = {
   title: "When Do You Need to Go Deeper?",
-  paragraphs: [
-    "You have done the foundational work — or you are in the process of doing it — and you realize that one specific part of your reputation needs more focused attention than broad ORM can provide.",
-    "Or perhaps you are starting from a strong position and you want to build something more deliberate in a particular direction before a reputation challenge ever arises.",
-    "Either way, these services are designed for clients who are ready to invest meaningfully in one specific layer of how they are perceived online.",
-  ],
+  paragraphs: [RBS_TWO_KINDS.intro],
 };
 
 export const RBS_LAYER_ROWS = [
