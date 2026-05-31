@@ -660,7 +660,7 @@ export function OrmRankingFactorsSection() {
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white shadow-sm">
               <ActiveIcon className="h-5 w-5" aria-hidden strokeWidth={2} />
             </span>
-            <h3 className="font-heading text-xl font-bold text-navy">{factor.label}</h3>
+            <h4 className="font-heading text-xl font-bold text-navy">{factor.label}</h4>
           </div>
           <div className="mt-5 grid gap-5 md:grid-cols-2 md:gap-6">
             <div>
@@ -926,9 +926,9 @@ export function OrmProcessSection() {
                 <span className="mt-2 block font-heading text-base font-bold text-navy md:text-lg">
                   {p.timespan}
                 </span>
-                <h3 className="mt-1 block text-xs font-medium leading-snug text-navy/60 md:text-sm">
+                <span className="mt-1 block text-xs font-medium leading-snug text-navy/60 md:text-sm">
                   {p.title}
-                </h3>
+                </span>
               </button>
             );
           })}
