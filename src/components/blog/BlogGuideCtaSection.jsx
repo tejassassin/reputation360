@@ -31,9 +31,9 @@ export function BlogGuideCtaPanel({
         className,
       )}
     >
-      <h3 className="mb-3 font-heading text-2xl font-bold leading-tight text-white sm:text-3xl">
+      <h2 className="mb-3 font-heading text-2xl font-bold leading-tight text-white sm:text-3xl">
         {title}
-      </h3>
+      </h2>
       <p className="mx-auto mb-6 max-w-3xl font-body text-sm leading-relaxed text-white/85 sm:text-base">
         {lead}
       </p>

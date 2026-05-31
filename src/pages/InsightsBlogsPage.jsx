@@ -38,11 +38,15 @@ const HERO_IMG =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuB9RkcKxX1nZCRrBRIu6rOONYqsNVBW7ImSuvITVmOpUNdh9vHBQk72dRRSVg466yzV7FRLVAR74vtVn6mQM0qSQN7nwSKV5FRcqM2cRWLPZgV0I9AcJ4dx6eKagNgJmw90lkVLTGDucXhp4xEv1BziO3gnOT71pR9W2Me9zrfnNhsuERyYBIMHr21Picl79YYv-_eICE0qZQ-fU8O-bUpr5Nvt-K4QLuuTjb8c1GJuhLQBP1XrKDHjlV0QvXkwWydskHpIgIc5xa8";
 
 const latestArticles = [
-  ...getPack20Listings(),
+  ...getPack20Listings().filter(
+    (a) =>
+      a.id !== socialPostsArticle.listing.id &&
+      a.id !== crisisPlaybookArticle.listing.id &&
+      a.id !== ormMethodologyArticle.listing.id
+  ),
   removeNewsArticlesFromGoogleListing,
   reputationRepairTimelineListing,
   removeNegativeSearchResultsListing,
-  diyReputationGuideListing,
   suppressNegativeGuideListing,
 ];
 
@@ -89,8 +93,8 @@ function InsightsBlogsPage() {
               <span>Expert Insights</span>
             </div>
             <h1 className="font-insights-headline mb-8 text-5xl leading-tight font-extrabold tracking-tight text-[#02254d] md:text-6xl">
-              Insights From Seven Years of <br />
-              <span className="text-[#35618e]">Reputation Work</span>
+              Online Reputation Management Insights & Guides — <br />
+              <span className="text-[#35618e]">Seven Years of Expertise</span>
             </h1>
             <p className="max-w-2xl text-xl leading-relaxed font-light text-[#43474e]">
               No recycled advice. No generic lists. Every article here is
@@ -120,7 +124,7 @@ function InsightsBlogsPage() {
           <div className="mb-12 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <div>
               <h2 className="font-insights-headline mb-2 text-3xl font-bold text-[#02254d]">
-                Featured Insights
+                Featured Online Reputation Management Insights
               </h2>
               <p className="text-[#74777f]">
                 The most critical shifts in the reputation landscape this
@@ -235,7 +239,7 @@ function InsightsBlogsPage() {
         <div className="mb-16 flex flex-col gap-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="font-insights-headline text-4xl font-extrabold tracking-tight text-[#02254d]">
-              {searchQuery ? `Results for “${searchQuery}”` : "Latest Articles"}
+              {searchQuery ? `Results for “${searchQuery}”` : "Latest Online Reputation Management Articles & Guides"}
             </h2>
             <form
               action="/blog"
