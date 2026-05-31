@@ -47,6 +47,14 @@ import { guidePageToHtml } from "./guidePageToHtml.js";
 import { faqsPageToHtml } from "./faqsPageToHtml.js";
 import { ormGlossaryPageToHtml } from "./ormGlossaryPageToHtml.js";
 import { policyPageToHtml, POLICY_PATHS } from "./policyPageToHtml.js";
+import { ormServicePageToHtml } from "./ormServicePageToHtml.js";
+import { nlsServicePageToHtml } from "./nlsServicePageToHtml.js";
+import { rbsServicePageToHtml } from "./rbsServicePageToHtml.js";
+import {
+  ONLINE_REPUTATION_MANAGEMENT_PATH,
+  NEGATIVE_LINK_SUPPRESSION_PATH,
+  REPUTATION_BUILDING_SERVICES_PATH,
+} from "../../constants/servicePaths.js";
 
 const prerenderRoot = join(dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -86,6 +94,18 @@ export function getPrerenderHtmlForPath(pathname) {
 
   if (path === "/about") {
     return aboutPageToHtml();
+  }
+
+  if (path === ONLINE_REPUTATION_MANAGEMENT_PATH) {
+    return ormServicePageToHtml();
+  }
+
+  if (path === NEGATIVE_LINK_SUPPRESSION_PATH) {
+    return nlsServicePageToHtml();
+  }
+
+  if (path === REPUTATION_BUILDING_SERVICES_PATH) {
+    return rbsServicePageToHtml();
   }
 
   if (path === "/contact") {
@@ -224,6 +244,9 @@ export function prerenderPaths() {
   paths.add("/resources/guide");
   paths.add("/resources/faqs");
   paths.add("/resources/online-reputation-management-glossary");
+  paths.add(ONLINE_REPUTATION_MANAGEMENT_PATH);
+  paths.add(NEGATIVE_LINK_SUPPRESSION_PATH);
+  paths.add(REPUTATION_BUILDING_SERVICES_PATH);
   for (const policyPath of POLICY_PATHS) {
     paths.add(policyPath);
   }

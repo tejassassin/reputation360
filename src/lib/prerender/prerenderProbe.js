@@ -95,6 +95,18 @@ export function getPrerenderProbeSentence(pathname) {
     return "Online Reputation Management Glossary";
   }
 
+  if (path === "/services/online-reputation-management") {
+    return "Your Reputation Lives on Page One.";
+  }
+
+  if (path === "/services/negative-link-suppression") {
+    return "One Damaging Link on Google Should Not Get to Write Your Story.";
+  }
+
+  if (path === "/services/reputation-building-services") {
+    return "Reputation Building Services for Founders, Executives";
+  }
+
   if (
     [
       "/privacy-policy",
