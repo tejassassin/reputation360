@@ -23,7 +23,7 @@ Additionally:
 Two further graduate recruitment processes stalled at the screening stage without clear explanation in the weeks that followed.`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, the local news article ranking in Position 3 for his full name. Social media shares of the incident visible on Page 1 and Page 2. No owned professional content anywhere in the top 20 results.`,
     },
     {
@@ -58,7 +58,7 @@ LinkedIn, personal website, and professional platform profiles occupying top 5 p
 Candidate received two new graduate scheme offers within 6 weeks of Page 1 stabilising`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `A single incident from three years ago - involving no conviction, no ongoing legal consequence, and a person who had demonstrably moved on - no longer determined this candidate's professional future. His digital presence now reflects who he is: an ambitious, articulate, professionally engaged graduate ready to begin his career. The incident is gone. The person he has become is what employers find.`,
     },
   ],

@@ -23,7 +23,7 @@ Searches for his name returned:
 • His LinkedIn profile - outdated, last updated 3 years prior - ranking 8th`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, 7 of the top 10 results returned dismissal-related press or regulatory database content. His Employment Tribunal victory was entirely absent from the internet. The former employer's website still listed him in an archived leadership page under his previous role.`,
     },
     {
@@ -58,7 +58,7 @@ FINRA BrokerCheck and SEC-adjacent records updated to accurately reflect full pr
 Client secured two non-executive board advisory positions during the campaign period`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `His digital presence now reflects a senior finance executive with a strong, uninterrupted track record and full regulatory clarity. The wrongful dismissal - and the absence of his vindication online - no longer defines the narrative. Hiring committees and board nomination panels now encounter a credible, comprehensive professional picture from the very first search result.`,
     },
   ],

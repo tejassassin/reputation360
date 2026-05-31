@@ -23,7 +23,7 @@ Negative visibility was driven by:
 Pages 1-3 for branded search queries became dominated by authenticity concerns, directly impacting conversion rates and repeat purchase behaviour. Paid campaign performance deteriorated as landing page trust signals weakened.`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, branded search queries returned authenticity-concern content in 7 of the top 10 positions. The brand's own product pages ranked below three separate complaint or allegation URLs.`,
     },
     {
@@ -55,7 +55,7 @@ Improved conversion rates across website and marketplace channels
 Significant reduction in customer support queries related to authenticity concerns`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `The brand regained control over how its products were perceived online. Search results shifted from skepticism to clarity and confidence - enabling the business to restore customer trust and resume scaling without ongoing reputational friction.`,
     },
   ],

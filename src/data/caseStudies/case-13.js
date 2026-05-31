@@ -23,7 +23,7 @@ Searches for his name returned:
 Client redemptions increased within weeks. Three high-net-worth clients requested full account transfers. New client acquisition effectively halted for 4 months. Referral partners became cautious.`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, 8 of the top 10 results for his name returned regulatory association or negative press content. FCA and regulatory pages were identified immediately as immovable high-authority fixtures - the strategy was built entirely around contextualisation and surrounding authority, not removal attempts.`,
     },
     {
@@ -56,7 +56,7 @@ Firm website, VouchedFor profile, and LinkedIn occupy Positions 1-3
 New client acquisition recovered to 80% of pre-incident levels by month 12`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `The IFA's digital presence now accurately represents his full 20-year professional record. Prospective clients encountering the FCA page in context - surrounded by two decades of advisory expertise, verified client testimonials, and published financial insight - are able to make a genuinely informed and balanced judgement.`,
     },
   ],

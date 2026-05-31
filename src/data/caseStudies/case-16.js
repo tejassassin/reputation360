@@ -22,7 +22,7 @@ When prospective employers searched her name - a standard practice at the refere
 Three separate hiring processes stalled at the reference or offer stage without clear explanation over a 10-week period.`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, Glassdoor snippet containing her name visible in Position 4 Google snippet. Forum thread ranking in Position 12 (Page 2). Her outdated 2018 blog in Position 6. LinkedIn profile in Position 7 - below three pieces of third-party commentary content.`,
     },
     {
@@ -56,7 +56,7 @@ Outdated blog fully displaced from Page 1
 Candidate accepted a Director of Product role at a high-growth scale-up within 7 months of engagement start`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `Third-party commentary posted without her knowledge or consent - in the chaotic aftermath of a mass layoff - had been silently and seriously undermining her career progression. By methodically rebuilding her owned digital presence and addressing third-party content at the platform level, she entered the hiring market with a Page 1 that reflected her actual calibre and career record. Her next role represented a significant step up in both seniority and compensation.`,
     },
   ],

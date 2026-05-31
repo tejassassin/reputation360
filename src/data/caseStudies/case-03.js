@@ -20,7 +20,7 @@ const caseStudy = {
 Page 1 and Page 2 were dominated by adverse narratives. Patient confidence was visibly affected, with a 28% reduction in new private appointment bookings recorded in the 6 weeks following the initial coverage.`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, 8 of the top 10 search results for the physician's name returned negative or speculative content. The physician had no personal website, an incomplete medical directory presence, and an unclaimed Google Business Profile.`,
     },
     {
@@ -52,7 +52,7 @@ New private appointment bookings recovered to pre-incident levels by month 9
 Search results stabilised around professional credibility`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `Patients searching online encountered clear, accurate, and professionally rich information about the physician's expertise and clinical approach. The digital presence reinforced trust and transparency - allowing the physician to continue practising without ongoing reputational disruption.`,
     },
   ],

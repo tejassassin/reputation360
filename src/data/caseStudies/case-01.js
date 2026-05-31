@@ -20,7 +20,7 @@ const caseStudy = {
 Page 1 and Page 2 were dominated by critical opinion pieces. Investor calls became strained. Two board-level stakeholders privately flagged concerns about the founder's continued visibility as the company's public face.`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, 7 of the top 10 Google results for the founder's name returned negative or speculative content. The founder's own LinkedIn profile ranked 9th. There was no owned website, no published thought leadership, and no third-party credibility assets indexed anywhere on Page 1.`,
     },
     {
@@ -54,7 +54,7 @@ Page 1 shifted entirely toward leadership insight and professional authority
 Measurable improvement in investor and stakeholder sentiment reported directly by the client`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `The founder's digital presence came to reflect experience, stability, and leadership depth. Investor conversations moved away from controversy and back to business fundamentals. The personal website and LinkedIn profile - both non-existent at the start of the engagement - became the defining assets of his professional identity online.`,
     },
   ],

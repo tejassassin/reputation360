@@ -22,7 +22,7 @@ Negative content dominated:
 The brand's search results shifted almost entirely negative within 72 hours of the initial post going viral.`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, brand search results on Page 1 were 80% negative or controversy-linked. Social sentiment was net-negative across all monitored platforms. Two retail stockist partners had paused reorder conversations.`,
     },
     {
@@ -53,7 +53,7 @@ Social sentiment recovered from net-negative to net-positive within 6 months
 Retail partner confidence restored; two new stockist agreements signed`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `The brand emerged from the controversy with a stronger and more defined public identity. Their digital presence shifted from reactive controversy management to proactive brand storytelling - turning a reputational low point into a reset opportunity.`,
     },
   ],

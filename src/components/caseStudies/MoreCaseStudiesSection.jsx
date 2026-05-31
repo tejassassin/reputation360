@@ -24,7 +24,7 @@ export function MoreCaseStudiesSection({ caseStudyPath, className = "" }) {
             id="more-case-studies-heading"
             className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
           >
-            More Case Studies
+            Related Reputation Management Case Studies
           </h2>
           <p className="mt-3 text-base leading-[1.65] text-[#4f5f75] md:text-[17px] md:leading-[1.7]">
             See how we&apos;ve helped others in similar situations
@@ -42,7 +42,7 @@ export function MoreCaseStudiesSection({ caseStudyPath, className = "" }) {
 
       <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
         {links.map((link) => (
-          <SeeItInActionStoryCard key={link.href} href={link.href} label={link.label} />
+          <SeeItInActionStoryCard key={link.href} href={link.href} label={link.label} titleTag="h3" />
         ))}
       </ul>
     </section>

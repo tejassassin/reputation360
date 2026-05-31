@@ -21,7 +21,7 @@ const caseStudy = {
 Page 1 through Page 3 of Google were dominated by regulatory and enforcement-related content. The client's own professional profiles ranked nowhere in the top 30 results. Two institutional mandates were suspended pending review.`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, 9 of the top 10 results returned regulatory or negative press content. SEC.gov and FINRA BrokerCheck entries represented immovable, high-authority URLs. The strategy was built around contextualisation and displacement - not deletion.`,
     },
     {
@@ -53,7 +53,7 @@ Page 1 dominated by professional, neutral financial content; SEC and FINRA recor
 SEC and FINRA records remain visible as required, with search results stabilised and low volatility`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `The client regained measured trust with investors and institutional stakeholders. Their digital presence came to reflect 30 years of investment expertise rather than a single regulatory episode - allowing informed stakeholders to form a balanced view based on the full professional record.`,
     },
   ],

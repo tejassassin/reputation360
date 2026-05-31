@@ -22,7 +22,7 @@ Negative visibility was driven by:
 Pages 1 and 2 were dominated by controversy-related content, directly impacting partnership conversations, senior hiring efforts, and future fundraising discussions. One enterprise client paused contract renewal pending "further diligence."`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, 8 of the top 10 results for the company name and founder name returned controversy or speculation-linked content. The company's own website ranked 6th. There was minimal owned thought leadership content indexed anywhere online.`,
     },
     {
@@ -54,7 +54,7 @@ Stabilised perception among investors and senior hiring candidates
 Paused enterprise contract renewed in month 8`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `The startup's search presence shifted from controversy to capability. Stakeholders engaging with the brand online encountered a narrative centred on growth, execution, and market relevance - allowing the company to move through a critical scaling stage without ongoing reputational drag.`,
     },
   ],

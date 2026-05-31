@@ -19,7 +19,7 @@ const caseStudy = {
 The misattribution was causing direct, measurable harm: the practice manager reported that approximately two new patient registration inquiries per week were being turned away, with patients citing "concerns found online" as the reason.`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, the misattributed forum thread ranked in Position 4. The watchdog blog article ranked in Position 6. The GP's own GMC profile ranked 8th. She had no personal professional website and no LinkedIn presence.`,
     },
     {
@@ -50,7 +50,7 @@ Top 5 results now entirely composed of verified, accurate professional profiles
 New patient registration complaints ceased entirely by month 6`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `A situation caused entirely by mistaken identity - not professional conduct - was resolved through precise identity-building and targeted content authority. The GP's digital presence now unambiguously reflects her actual record and her patients can find accurate, reassuring information when they search her name.`,
     },
   ],

@@ -22,7 +22,7 @@ Searches for his name returned:
 Clients began requesting reassignment to other partners on active matters. Two prospective mandates were withdrawn by clients citing "concerns about track record."`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, 6 of the top 10 results returned case-loss or verdict-related content. The partner had no personal professional website and a thin LinkedIn presence with no published content. His Chambers & Partners and Legal 500 profiles had not been updated in 3 years.`,
     },
     {
@@ -55,7 +55,7 @@ Trade publication case-loss article suppressed to Page 3 by month 12
 Court reporting summary suppressed from Page 1 by month 10`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `Prospective clients searching his name now encounter a practitioner defined by 24 years of expertise, peer recognition, and substantive legal commentary - not a single case outcome. Two previously withdrawn mandates re-engaged within 3 months of Page 1 stabilising.`,
     },
   ],

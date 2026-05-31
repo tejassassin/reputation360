@@ -20,7 +20,7 @@ const caseStudy = {
 The blog indexed on Page 2 within 3 weeks and was climbing steadily. The solicitor's combined review platform average had dropped from 4.8 stars to 2.1 stars - visible directly in Google search snippets.`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, the attack blog ranked in Position 14 (Page 2) and rising. The solicitor had no personal professional website. Her Google Business Profile showed 2.1 stars. There were no owned content assets indexed on Page 1.`,
     },
     {
@@ -51,7 +51,7 @@ New professional website ranking at Position 1 within 5 months
 Podcast and content assets occupying 3 further Page 1 positions`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `The solicitor now has a robust, multi-layered digital presence that genuinely reflects her expertise and the quality of her client relationships. The episode ultimately accelerated the development of a professional online identity she had previously neglected - turning a targeted attack into a long-term reputational asset.`,
     },
   ],

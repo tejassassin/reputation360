@@ -22,7 +22,7 @@ Negative content ranked across:
 Pages 1 and 2 returned primarily negative results for both the individual's name and the associated consultancy name. Three prospective client engagements were paused or withdrawn during the first 60 days.`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, 8 of the top 10 results for the consultant's name returned negative or controversy-linked content. The individual had no personal professional website and minimal owned content indexed anywhere online.`,
     },
     {
@@ -54,7 +54,7 @@ Page 1 reflecting professional expertise, not employment disputes
 Client secured two new consulting contracts during the recovery period`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `The client's digital profile came to reflect professional depth and HR expertise rather than a single contested employment narrative. Prospective clients and employers encountered credibility, not controversy.`,
     },
   ],

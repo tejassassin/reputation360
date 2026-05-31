@@ -22,7 +22,7 @@ Negative visibility dominated Pages 1-4, driven by:
 Distributor confidence weakened. Inbound sales inquiry volume dropped by 41% in the 10 weeks following the initial press coverage.`,
     },
     {
-      heading: "Baseline",
+      heading: "Starting Position & Baseline",
       body: `At the start of engagement, 11 of the top 15 search results for the brand name returned negative or complaint-related content. The brand's own website ranked 4th - below three negative review or complaint pages.`,
     },
     {
@@ -53,7 +53,7 @@ Brand search click-through rate improved by 38%
 Distributor confidence and inbound sales inquiries stabilised and recovered`,
     },
     {
-      heading: "Impact",
+      heading: "Business Impact & Outcome",
       body: `The business regained control of its online narrative while maintaining transparency. Search results came to reflect a resolved product issue and a brand committed to quality - not a failing company - allowing the business to move forward without long-term reputational burden.`,
     },
   ],
