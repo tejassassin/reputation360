@@ -103,7 +103,7 @@ export const REPUTATION360_JOB_SEEKER_STEPS = [
   },
   {
     step: 4,
-    headline: "Step 4 - Displacement and Monitoring (Months 2-8)",
+    headline: "Step 4 - Reputation Displacement and Monitoring (Months 2–8)",
     body: "As your positive presence gains ranking strength, damaging content moves down. We monitor progress weekly and adjust the strategy to maintain momentum - and we keep you informed throughout so you always know where things stand.",
     Icon: BarChart3,
   },
