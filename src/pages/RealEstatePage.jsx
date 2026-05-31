@@ -901,8 +901,6 @@ function RealEstatePage() {
             </div>
           </section>
 
-          <RealEstateBusinessImpactSection />
-
           <RealEstateProblemSection />
 
           <RealEstateScaleSection />
@@ -912,6 +910,8 @@ function RealEstatePage() {
           <IndustryWhatReputation360Section steps={REPUTATION360_REAL_ESTATE_STEPS} />
 
           <RealEstateMarketInsightBanner />
+
+          <RealEstateBusinessImpactSection />
 
           <IndustryRealisticTimelineSection />
 
