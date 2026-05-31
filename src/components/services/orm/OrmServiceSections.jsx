@@ -913,6 +913,9 @@ export function OrmProcessSection() {
                   selected ? "bg-[#f2f5ff]" : "bg-white hover:bg-[#f8fafc]"
                 }`}
               >
+                <h3 className="sr-only">
+                  Phase {num}: {p.title}
+                </h3>
                 <span
                   className={`inline-flex rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] transition-colors duration-300 md:text-xs ${
                     selected ? "bg-navy text-white" : "bg-navy/8 text-navy/55"
