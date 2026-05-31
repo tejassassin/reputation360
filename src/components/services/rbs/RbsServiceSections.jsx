@@ -1023,53 +1023,126 @@ export function RbsBeforeAfterSection() {
 }
 
 export function RbsAssetsSection() {
+  const assetIcons = [
+    Briefcase,
+    Linkedin,
+    Building2,
+    FileText,
+    Lightbulb,
+    Users,
+    MessageSquareText,
+    Target,
+    BadgeCheck,
+    Search,
+    CircleDollarSign,
+    ShieldCheck,
+    Sparkles,
+  ];
+
+  const assetShells = [
+    "bg-[linear-gradient(180deg,#ffffff_0%,#f8fcf9_100%)]",
+    "bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)]",
+    "bg-[linear-gradient(180deg,#ffffff_0%,#fbfbff_100%)]",
+  ];
+
   return (
     <RbsSection
       id="assets"
-      title="Reputation Assets We Can Build"
+      title="Reputation Assets We Build"
       lead={[
         "These services produce tangible, lasting assets — not just strategies. Depending on the service, Reputation360 can help create or improve:",
         "Every asset is built with one question in mind: will this make the right people trust you more?",
       ]}
       tone="mint"
+      headerClassName="max-w-none"
     >
-      <ul className="grid list-none gap-4 p-0 sm:grid-cols-2 xl:grid-cols-3">
-        {RBS_ASSETS.map((item, index) => (
-          <RbsHoverCard
-            key={item}
-            as={Motion.li}
-            delay={index * 0.04}
-            className="group rounded-[1.65rem] border border-[#dbe5f0] bg-white p-5 shadow-[0_18px_40px_-32px_rgba(20,53,95,0.18)] transition hover:-translate-y-0.5 hover:border-[#4CAF50]/35"
-          >
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#4CAF50]">
-              Asset {String(index + 1).padStart(2, "0")}
-            </p>
-            <p className="mt-3 font-heading text-lg font-bold leading-snug text-[#14355f]">{item}</p>
-          </RbsHoverCard>
-        ))}
-      </ul>
-      <RbsExpandableBlock title="Built Around Reputation, Not Vanity Metrics" className="mt-10">
-        <div className="space-y-4 text-base leading-relaxed text-slate-600 md:text-lg">
-          <p>Most marketing agencies optimize for reach, impressions, and engagement. We optimize for perception.</p>
-          <p>
-            That distinction matters. An article that reaches a million people and leaves them confused about who you are is not a reputation asset. A LinkedIn post that earns 50 responses from the right investors, clients, or partners is.
-          </p>
-          <p>
-            Reputation360 measures success differently. We ask whether the digital assets we create are improving how the right audiences understand, evaluate, and trust you — not whether they generated traffic.
-          </p>
-          <p>Every piece of content, every profile, every campaign, and every recommendation is built around:</p>
+      <div className="mt-8 overflow-hidden rounded-[2rem] border border-[#dbe5f0] bg-[linear-gradient(180deg,rgba(255,255,255,0.88)_0%,rgba(246,251,247,0.96)_100%)] p-5 shadow-[0_24px_56px_-36px_rgba(20,53,95,0.2)] md:mt-10 md:p-6">
+        <ul className="grid list-none gap-4 p-0 sm:grid-cols-2 xl:grid-cols-3">
+          {RBS_ASSETS.map((item, index) => {
+            const Icon = assetIcons[index % assetIcons.length] ?? Sparkles;
+            const shell = assetShells[index % assetShells.length];
+
+            return (
+              <RbsHoverCard
+                key={item}
+                as={Motion.li}
+                delay={index * 0.04}
+                hoverY={-4}
+                hoverScale={1.006}
+                className={`group relative overflow-hidden rounded-[1.6rem] border border-[#dbe5f0] p-5 shadow-[0_16px_38px_-32px_rgba(20,53,95,0.16)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-[#4CAF50]/32 hover:shadow-[0_22px_44px_-26px_rgba(20,53,95,0.18)] ${
+                  index === RBS_ASSETS.length - 1 ? "xl:col-start-2" : ""
+                } ${shell}`}
+              >
+                <div
+                  className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#4CAF50_0%,#7cc986_55%,#2E5B88_100%)] opacity-80"
+                  aria-hidden
+                />
+                <div className="flex items-start justify-between gap-3">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[1rem] bg-[#14355f]/6 text-[#14355f] ring-1 ring-[#14355f]/8 transition-[transform,background-color,color] duration-200 group-hover:scale-105 group-hover:bg-[#4CAF50]/12 group-hover:text-[#237340]">
+                    <Icon className="h-5 w-5" aria-hidden strokeWidth={2.1} />
+                  </span>
+                  <span className="font-heading text-[11px] font-bold tracking-[0.16em] text-[#14355f]/26" aria-hidden>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <p className="mt-5 text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
+                  Asset {String(index + 1).padStart(2, "0")}
+                </p>
+                <p className="mt-2 font-heading text-[1.05rem] font-bold leading-snug text-[#14355f] md:text-[1.12rem]">
+                  {item}
+                </p>
+              </RbsHoverCard>
+            );
+          })}
+        </ul>
+      </div>
+
+      <div className="mt-12 overflow-hidden rounded-[1.6rem] border border-[#dbe5f0] bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] shadow-[0_20px_46px_-34px_rgba(20,53,95,0.18)]">
+        <div className="border-b border-[#dbe5f0] px-5 py-4 md:px-6">
+          <h3 className="font-heading text-lg font-bold text-[#14355f] md:text-[1.35rem]">
+            Built Around Reputation, Not Vanity Metrics
+          </h3>
         </div>
-        <div className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {RBS_PERCEPTION_METRICS.map((item) => (
-            <div key={item} className="rounded-2xl border border-[#dbe5f0] bg-[#fbfdff] px-4 py-4">
-              <p className="text-sm leading-relaxed text-[#14355f]">{item}</p>
+        <div className="px-5 py-5 md:px-6 md:py-6">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(20rem,0.95fr)] lg:items-start">
+            <div>
+              <div className="space-y-4 text-base leading-relaxed text-slate-600 md:text-lg">
+                <p>Most marketing agencies optimize for reach, impressions, and engagement. We optimize for perception.</p>
+                <p>
+                  That distinction matters. An article that reaches a million people and leaves them confused about who you are is not a reputation asset. A LinkedIn post that earns 50 responses from the right investors, clients, or partners is.
+                </p>
+                <p>
+                  Reputation360 measures success differently. We ask whether the digital assets we create are improving how the right audiences understand, evaluate, and trust you — not whether they generated traffic.
+                </p>
+                <p>Every piece of content, every profile, every campaign, and every recommendation is built around:</p>
+              </div>
+              <div className="mt-6 rounded-[1.4rem] bg-[#14355f] px-5 py-5 shadow-[0_18px_40px_-24px_rgba(20,53,95,0.28)]">
+                <p className="font-heading text-xl font-bold text-white">
+                  Your digital presence should build trust before the first conversation.
+                </p>
+              </div>
             </div>
-          ))}
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {RBS_PERCEPTION_METRICS.map((item, index) => (
+                <RbsHoverCard
+                  key={item}
+                  hoverY={-3}
+                  hoverScale={1.01}
+                  className="group rounded-[1.3rem] border border-[#dbe5f0] bg-white/92 px-4 py-4 shadow-[0_10px_24px_-20px_rgba(20,53,95,0.12)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-[#4CAF50]/28 hover:bg-white hover:shadow-[0_18px_34px_-22px_rgba(20,53,95,0.16)]"
+                >
+                  <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50] transition-colors duration-200 group-hover:text-[#2d8f47]">
+                    Metric {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-[#14355f] transition-colors duration-200 group-hover:text-[#0f2e58]">
+                    {item}
+                  </p>
+                </RbsHoverCard>
+              ))}
+            </div>
+          </div>
         </div>
-        <p className="mt-6 font-heading text-xl font-bold text-[#14355f]">
-          Your digital presence should build trust before the first conversation.
-        </p>
-      </RbsExpandableBlock>
+      </div>
     </RbsSection>
   );
 }
@@ -1129,44 +1202,228 @@ export function RbsProcessSection() {
         </AnimatePresence>
       </div>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-        <RbsExpandableBlock title="What We Don't Do" tone="navy">
-          <ul className="space-y-3">
-            {RBS_DONT_DO.map((item) => (
-              <li key={item} className="flex gap-3 text-sm leading-relaxed text-slate-100/88">
-                <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#7df5b9]" aria-hidden />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-5 font-semibold text-white">Reputation is a long game. We play it seriously.</p>
-        </RbsExpandableBlock>
-
-        <RbsExpandableBlock title="Why Reputation360?" tone="navy">
-          <div className="space-y-4 text-base leading-relaxed text-slate-100/88">
-            {RBS_WHY_R360.map((paragraph) => (
-              <p key={paragraph.slice(0, 44)}>{paragraph}</p>
-            ))}
+      <div className="mt-10">
+        <RbsReveal>
+          <div className="overflow-hidden rounded-[1.75rem] border border-white/14 bg-[linear-gradient(180deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.06)_100%)] shadow-[0_20px_46px_-32px_rgba(0,0,0,0.38)] backdrop-blur-sm">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-5 py-4 md:px-6">
+              <div>
+                <h3 className="font-heading text-[1.4rem] font-bold text-white md:text-[1.6rem]">
+                  What We Don&apos;t Do
+                </h3>
+              </div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.07] px-3 py-2">
+                <span className="font-heading text-lg font-bold text-white">
+                  {String(RBS_DONT_DO.length).padStart(2, "0")}
+                </span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#ffd3d3]">
+                  guardrails
+                </span>
+              </div>
+            </div>
+            <div className="px-5 py-5 md:px-6 md:py-6">
+              <ul className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                {RBS_DONT_DO.map((item) => (
+                  <li key={item}>
+                    <Motion.div
+                      whileHover={{ y: -3, scale: 1.008 }}
+                      transition={{ duration: 0.22, ease: rbsEase }}
+                      className="group relative flex h-full gap-3 rounded-[1.15rem] border border-[#b85c5c]/18 bg-white/[0.05] px-4 py-4 shadow-[0_14px_28px_-22px_rgba(0,0,0,0.18)] transition-[background-color,border-color,box-shadow] duration-200 hover:border-[#d36b6b]/28 hover:bg-white/[0.08] hover:shadow-[0_24px_40px_-24px_rgba(0,0,0,0.28)]"
+                    >
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-start gap-3">
+                          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-[0.9rem] bg-[#ffb3b3]/10 text-[#ffb3b3] transition-[transform,background-color,color] duration-200 group-hover:scale-105 group-hover:bg-[#7f2d2d]/28 group-hover:text-white">
+                            <X className="h-5 w-5" aria-hidden strokeWidth={2.2} />
+                          </span>
+                          <p className="min-w-0 text-sm leading-relaxed text-slate-100/88 transition-[color,transform] duration-200 group-hover:translate-x-0.5 group-hover:text-white md:text-[15px]">
+                            {item}
+                          </p>
+                        </div>
+                      </div>
+                    </Motion.div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </RbsExpandableBlock>
+        </RbsReveal>
+      </div>
+    </RbsSection>
+  );
+}
+
+export function RbsWhyReputation360Section() {
+  return (
+    <RbsSection
+      id="why-r360"
+      title="Why Reputation360?"
+      tone="mint"
+      lead="We are not a general digital marketing agency that also does reputation work. Reputation is the only thing we do."
+      contentClassName="mt-10"
+    >
+      <div className="mt-10">
+        <RbsReveal>
+          <div className="overflow-hidden rounded-[2rem] border border-[#dbe5f0] bg-white shadow-[0_24px_54px_-34px_rgba(20,53,95,0.18)]">
+            <div className="px-6 py-6 md:px-8 md:py-8">
+              <div className="grid items-start gap-5 xl:grid-cols-[minmax(0,1.18fr)_minmax(20rem,0.82fr)]">
+                <RbsHoverCard
+                  hoverY={-4}
+                  hoverScale={1.006}
+                  className="group rounded-[1.6rem] border border-[#dbe5f0] bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] px-6 py-6 shadow-[0_20px_42px_-30px_rgba(20,53,95,0.16)] transition-[border-color,box-shadow] duration-200 hover:border-[#c9d8ea] hover:shadow-[0_24px_50px_-30px_rgba(20,53,95,0.22)]"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
+                        The Standard
+                      </p>
+                      <h4 className="mt-3 max-w-[18ch] font-heading text-[1.45rem] font-bold leading-[1.12] text-[#14355f] md:text-[1.75rem]">
+                        Reputation work should hold up under scrutiny
+                      </h4>
+                    </div>
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[1rem] bg-[#4CAF50]/10 text-[#237340] ring-1 ring-[#4CAF50]/18 transition-transform duration-200 group-hover:scale-105">
+                      <BadgeCheck className="h-5 w-5" aria-hidden strokeWidth={2.1} />
+                    </span>
+                  </div>
+                  <p className="mt-5 text-[16px] leading-[1.82] text-slate-600 md:text-[17px]">
+                    {RBS_WHY_R360[1]}
+                  </p>
+                </RbsHoverCard>
+
+                <div className="grid gap-4">
+                  <RbsHoverCard
+                    hoverY={-3}
+                    hoverScale={1.004}
+                    className="group rounded-[1.4rem] border border-[#dbe5f0] bg-white px-5 py-5 shadow-[0_16px_34px_-28px_rgba(20,53,95,0.12)] transition-[border-color,box-shadow] duration-200 hover:border-[#cfe3d4] hover:shadow-[0_20px_40px_-28px_rgba(20,53,95,0.18)]"
+                  >
+                    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
+                      Reputation Lens
+                    </p>
+                    <p className="mt-3 text-[15px] leading-[1.8] text-slate-600 md:text-[16px]">
+                      {RBS_WHY_R360[2]}
+                    </p>
+                  </RbsHoverCard>
+
+                  <RbsHoverCard
+                    hoverY={-3}
+                    hoverScale={1.004}
+                    className="group rounded-[1.4rem] border border-[#dbe5f0] bg-[linear-gradient(180deg,#fbfefc_0%,#f7fbff_100%)] px-5 py-5 shadow-[0_16px_34px_-28px_rgba(20,53,95,0.12)] transition-[border-color,box-shadow] duration-200 hover:border-[#cfe3d4] hover:shadow-[0_20px_40px_-28px_rgba(20,53,95,0.18)]"
+                  >
+                    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
+                      Outcome
+                    </p>
+                    <p className="mt-3 text-[15px] leading-[1.8] text-[#14355f] md:text-[16px]">
+                      {RBS_WHY_R360[4]}
+                    </p>
+                  </RbsHoverCard>
+                </div>
+              </div>
+
+              <RbsHoverCard
+                delay={0.04}
+                hoverY={-4}
+                hoverScale={1.004}
+                className="group mt-5 overflow-hidden rounded-[1.6rem] border border-[#dbe5f0] bg-white shadow-[0_20px_42px_-30px_rgba(20,53,95,0.16)] transition-[border-color,box-shadow] duration-200 hover:border-[#c9d8ea] hover:shadow-[0_24px_50px_-30px_rgba(20,53,95,0.22)]"
+              >
+                <div className="grid gap-0 md:grid-cols-[minmax(0,0.36fr)_minmax(0,1fr)]">
+                  <div className="border-b border-[#dbe5f0] bg-[linear-gradient(180deg,#f8fbff_0%,#f5faf6_100%)] px-5 py-5 md:border-b-0 md:border-r">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
+                      Experience
+                    </p>
+                    <p className="mt-3 max-w-[16ch] font-heading text-[1.2rem] font-bold leading-[1.3] text-[#14355f] md:text-[1.35rem]">
+                      Reputation-first thinking, built through direct practice
+                    </p>
+                  </div>
+                  <div className="px-5 py-5 md:px-6">
+                    <p className="text-[15px] leading-[1.82] text-slate-600 md:text-[16px]">
+                      {RBS_WHY_R360[3]}
+                    </p>
+                  </div>
+                </div>
+              </RbsHoverCard>
+            </div>
+          </div>
+        </RbsReveal>
       </div>
     </RbsSection>
   );
 }
 
 export function RbsWhoForSection() {
+  const audienceIcons = [
+    Briefcase,
+    Building2,
+    ShieldCheck,
+    Linkedin,
+    Users,
+    Layers3,
+    MessageSquareText,
+    Sparkles,
+  ];
+
   return (
-    <RbsSection id="who-for" title="Who These Services Are For">
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {RBS_WHO_FOR.map((item, index) => (
-          <RbsHoverCard
-            key={item}
-            delay={index * 0.04}
-            className="rounded-[1.6rem] border border-[#dbe5f0] bg-white p-5 shadow-[0_18px_40px_-34px_rgba(20,53,95,0.16)]"
-          >
-            <p className="text-base leading-relaxed text-[#14355f]">{item}</p>
-          </RbsHoverCard>
-        ))}
+    <RbsSection
+      id="who-for"
+      title="Who These Services Are For"
+      tone="mint"
+      contentClassName="mt-10"
+    >
+      <div className="mt-8 overflow-hidden rounded-[2rem] border border-[#dbe5f0] bg-white shadow-[0_24px_54px_-34px_rgba(20,53,95,0.18)] md:mt-10">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#dbe5f0] bg-[linear-gradient(180deg,#f8fbff_0%,#f4faf5_100%)] px-6 py-5 md:px-8">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
+              Audience Fit
+            </p>
+            <p className="mt-1 font-heading text-[1.2rem] font-bold text-[#14355f] md:text-[1.35rem]">
+              These services are built for specific reputation situations
+            </p>
+          </div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#dbe5f0] bg-white px-4 py-2 shadow-[0_10px_24px_-18px_rgba(20,53,95,0.14)]">
+            <span className="font-heading text-xl font-bold text-[#14355f]">
+              {String(RBS_WHO_FOR.length).padStart(2, "0")}
+            </span>
+            <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
+              audiences
+            </span>
+          </div>
+        </div>
+
+        <div className="grid gap-px bg-[#e6edf4] sm:grid-cols-2 xl:grid-cols-4">
+          {RBS_WHO_FOR.map((item, index) => {
+            const Icon = audienceIcons[index % audienceIcons.length] ?? Sparkles;
+            const softShell =
+              index % 4 === 0
+                ? "bg-[linear-gradient(180deg,#ffffff_0%,#fbfefc_100%)]"
+                : index % 4 === 1
+                  ? "bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)]"
+                  : index % 4 === 2
+                    ? "bg-[linear-gradient(180deg,#ffffff_0%,#fbfbff_100%)]"
+                    : "bg-[linear-gradient(180deg,#ffffff_0%,#f8fcfb_100%)]";
+
+            return (
+              <RbsHoverCard
+                key={item}
+                delay={index * 0.04}
+                hoverY={-4}
+                hoverScale={1.006}
+                className={`group relative min-h-[220px] p-5 transition-[box-shadow,background-color] duration-200 hover:z-10 hover:shadow-[0_22px_42px_-24px_rgba(20,53,95,0.16)] md:p-6 ${softShell}`}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[1rem] bg-[#14355f]/6 text-[#14355f] ring-1 ring-[#14355f]/8 transition-[transform,background-color,color] duration-200 group-hover:scale-105 group-hover:bg-[#4CAF50]/12 group-hover:text-[#237340]">
+                    <Icon className="h-5 w-5" aria-hidden strokeWidth={2.1} />
+                  </span>
+                  <span className="font-heading text-[11px] font-bold tracking-[0.16em] text-[#14355f]/26" aria-hidden>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <p className="mt-5 text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
+                  Audience {String(index + 1).padStart(2, "0")}
+                </p>
+                <p className="mt-2 text-[15px] leading-[1.65] text-[#14355f] md:text-[16px]">
+                  {item}
+                </p>
+              </RbsHoverCard>
+            );
+          })}
+        </div>
       </div>
     </RbsSection>
   );
@@ -1175,7 +1432,7 @@ export function RbsWhoForSection() {
 export function RbsFaqSection() {
   return (
     <RbsSection id="faq" title="Frequently Asked Questions" tone="mint">
-      <div className="space-y-4">
+      <div className="mt-8 space-y-4 md:mt-10">
         {RBS_FAQS.map((item, index) => (
           <RbsReveal key={item.q} delay={index * 0.04} y={12}>
             <FaqAccordion question={item.q} defaultOpen={index === 0}>
@@ -1238,6 +1495,7 @@ export const RBS_SECTION_COMPONENTS_BY_ID = {
   "before-after": RbsBeforeAfterSection,
   assets: RbsAssetsSection,
   process: RbsProcessSection,
+  "why-r360": RbsWhyReputation360Section,
   "who-for": RbsWhoForSection,
   faq: RbsFaqSection,
   start: RbsCtaSection,
