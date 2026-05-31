@@ -193,9 +193,17 @@ export default function OrmGlossaryPage() {
             <h1 className="font-headline-faq mb-8 max-w-5xl text-4xl leading-[1.1] font-extrabold tracking-tighter text-[#1F3B64] md:text-6xl lg:text-7xl">
               {ORM_GLOSSARY_PAGE.title}
             </h1>
-            <p className="mb-12 max-w-4xl text-lg leading-relaxed text-[#5c677b] md:text-xl">
-              {ORM_GLOSSARY_PAGE.lead}
-            </p>
+            {ORM_GLOSSARY_PAGE.lead.split("\n\n").map((para, i) => (
+              <p
+                key={i}
+                className={cn(
+                  "max-w-4xl text-lg leading-relaxed text-[#5c677b] md:text-xl",
+                  i === 0 ? "mb-4" : "mb-12 font-semibold text-[#4CAF50]"
+                )}
+              >
+                {para}
+              </p>
+            ))}
 
             <div
               ref={heroStatsRef}

@@ -2,6 +2,14 @@ import { ORM_GLOSSARY_PAGE, ORM_GLOSSARY_SECTIONS } from "../../data/ormGlossary
 import { escapeHtml } from "./html.js";
 
 export function ormGlossaryPageToHtml() {
+  const leadHtml = ORM_GLOSSARY_PAGE.lead
+    .split("\n\n")
+    .map((para, i) => {
+      const cls = i === 0 ? "hero-description" : "hero-description hero-description--cta";
+      return `<p class="${cls}">${escapeHtml(para)}</p>`;
+    })
+    .join("\n");
+
   const sectionsHtml = ORM_GLOSSARY_SECTIONS.map((section) => {
     const itemsHtml = section.items.map((item) => {
       const answerProse = item.blocks
@@ -38,7 +46,7 @@ export function ormGlossaryPageToHtml() {
     <header class="glossary-hero">
       <span class="badge">${escapeHtml(ORM_GLOSSARY_PAGE.eyebrow)}</span>
       <h1>${escapeHtml(ORM_GLOSSARY_PAGE.title)}</h1>
-      <p class="hero-description">${escapeHtml(ORM_GLOSSARY_PAGE.lead)}</p>
+      ${leadHtml}
     </header>
 
     <main>
