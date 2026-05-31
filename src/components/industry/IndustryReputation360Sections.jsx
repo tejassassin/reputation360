@@ -282,7 +282,7 @@ export const REPUTATION360_LAWYER_STEPS = [
   },
   {
     step: 5,
-    headline: "Step 5 - Displacement and Maintenance (Months 3-12)",
+    headline: "Step 5 - Reputation Displacement and Maintenance (Months 3-12)",
     body: "As your positive presence gains authority, negative results are displaced from visible search pages. We monitor rankings throughout, adjust the strategy as results move, and maintain the presence we have built so your search results keep working in your favor long after primary displacement is complete.",
     Icon: RefreshCw,
   },
@@ -298,7 +298,7 @@ export const REPUTATION360_REAL_ESTATE_STEPS = [
   },
   {
     step: 2,
-    headline: "Step 2 - Strategy Design (Weeks 1-2)",
+    headline: "Step 2 - Reputation Strategy Design (Weeks 1-2)",
     body: "We design a content and SEO strategy specific to your situation, built to push negative results beyond page two - where fewer than 0.5% of searchers ever look. You receive a clear brief on what we are building and why.",
     Icon: Target,
   },
