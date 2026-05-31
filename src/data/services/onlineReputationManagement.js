@@ -9,8 +9,8 @@ export const ormPageMetaDescription =
   "Take control of what people find when they search your name. Reputation360 delivers proven Online Reputation Management for executives, founders, and brands across the US, Canada, and Australia. Book a free consultation.";
 
 export const ormPageHero = {
-  title: "Your Reputation Lives on Page One.",
-  titleSubline: "Make Sure It Works For You.",
+  title: "Online Reputation Management Services — Take Control of What People Find",
+  titleSubline: "",
   lead:
     "What people find when they search your name defines how they see you. Reputation360's Online Reputation Management ensures they find the right thing.",
 };
@@ -49,15 +49,15 @@ export const ORM_GUIDE_NAV = [
   },
   {
     id: "process",
-    label: "Our Process: How We Deliver Results",
+    label: "Our Online Reputation Management Process: How We Deliver Results",
     navLabel: "Our Process",
   },
   {
     id: "before-outreach",
-    label: "Is There Anything You Can Do Before Reaching Out?",
+    label: "Can You Improve Your Online Reputation Before Reaching Out?",
     navLabel: "Before You Reach Out",
   },
-  { id: "why-r360", label: "Why Choose Reputation360 for ORM?", navLabel: "Why Reputation360" },
+  { id: "why-r360", label: "Why Choose Reputation360 for Online Reputation Management?", navLabel: "Why Reputation360" },
   { id: "faq", label: "Frequently Asked Questions", navLabel: "FAQ" },
   {
     id: "start",

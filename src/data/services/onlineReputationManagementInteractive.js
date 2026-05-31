@@ -38,7 +38,7 @@ export const ORM_CTA = {
 export const WHY_MATTERS_TABS = [
   {
     id: "individuals",
-    label: "For Individuals",
+    label: "Online Reputation Management for Individuals",
     lead: "Your name is searched before almost every meaningful opportunity. Recruiters, clients, investors, media, and personal contacts all look you up - and most form their impressions in seconds.",
     bullets: [
       "87% of hiring managers say what they find online directly influences whether a candidate gets an interview.",
@@ -48,7 +48,7 @@ export const WHY_MATTERS_TABS = [
   },
   {
     id: "businesses",
-    label: "For Businesses and Brands",
+    label: "Reputation Management for Businesses and Brands",
     lead: "Your company's search results are the first page most customers visit before your website ever loads.",
     bullets: [
       "94% of consumers research a business online before making a purchasing decision.",
@@ -64,28 +64,28 @@ export const WHY_MATTERS_TABS = [
 export const RANKING_FACTORS = [
   {
     id: "relevance",
-    label: "Relevance",
+    label: "Relevance: Why Negative Content Targets Your Name",
     means: "The page matches your name, keywords, and search intent.",
     suppression:
       "We publish content that answers the same query with equal or stronger relevance.",
   },
   {
     id: "authority",
-    label: "Authority",
+    label: "Authority: Why High-Domain Sites Outrank You",
     means: "Strong backlinks, mentions, and citations from trusted sources.",
     suppression:
       "We amplify your story on platforms that outweigh the harmful source.",
   },
   {
     id: "experience",
-    label: "Experience",
+    label: "Experience: The Google Signal That Works Against You",
     means: "Signals firsthand expertise that search engines trust.",
     suppression:
       "Editorial depth that proves expertise, not keyword filler.",
   },
   {
     id: "timeliness",
-    label: "Timeliness",
+    label: "Timeliness: Why Fresh Negative Content Ranks Fast",
     means: "Fresh or updated content reads as current to Google.",
     suppression:
       "New, optimized pages can displace years-old negative coverage.",
@@ -101,8 +101,8 @@ export const ORM_BENEFITS = [
   },
   {
     id: "opportunities",
-    label: "More opportunities",
-    title: "More opportunities",
+    label: "More Business and Career Opportunities",
+    title: "More Business and Career Opportunities",
     body: "Professionals and businesses with strong online reputations are approached more, referred more, and shortlisted more consistently.",
   },
   {
@@ -119,8 +119,8 @@ export const ORM_BENEFITS = [
   },
   {
     id: "protection",
-    label: "Protection against future threats",
-    title: "Protection against future threats",
+    label: "Protection Against Future Reputation Threats",
+    title: "Protection Against Future Reputation Threats",
     body: "A well-established digital footprint is far harder to damage. One negative result cannot define someone with 10 strong ones beside it.",
   },
   {
@@ -216,7 +216,7 @@ export const SERVICE_INCLUDES = [
   },
   {
     id: "reinforcement",
-    title: "Ongoing Reinforcement and Protection",
+    title: "Ongoing Reputation Reinforcement and Protection",
     body: "Reputation is not a one-time project. We provide continuous maintenance to strengthen positive results over time and defend against future challenges as your profile evolves.",
   },
 ];
@@ -224,25 +224,25 @@ export const SERVICE_INCLUDES = [
 export const ORM_PROCESS_PHASES = [
   {
     n: 1,
-    title: "Audit and Launch",
+    title: "Reputation Audit and Campaign Launch",
     timespan: "Weeks 1-4",
     body: "We map everything search engines currently show about you - every result, how strong it is, and how suppressible it is. Your strategy is built, content goes live on trusted sites, and you receive your first report.",
   },
   {
     n: 2,
-    title: "Early Movement",
+    title: "Early Reputation Movement",
     timespan: "Months 2-4",
     body: "Positive content begins climbing in search rankings. Harmful links start to lose position as your new assets accumulate authority and engagement signals. You will see the first measurable displacement.",
   },
   {
     n: 3,
-    title: "Significant Shift",
+    title: "Significant Reputation Shift",
     timespan: "Months 5-8",
     body: "The majority of harmful or unwanted content moves to page two and beyond. Your positive results occupy critical first-page positions. The visible transformation becomes clear to anyone searching your name.",
   },
   {
     n: 4,
-    title: "Full Transformation",
+    title: "Full Reputation Transformation",
     timespan: "Months 8-11",
     body: "Your search results are dominated by authoritative, accurate content. Harmful links are effectively buried. We shift to reinforcement mode - monitoring for new threats and ensuring your results stay locked in long-term.",
   },
@@ -268,12 +268,12 @@ export const BEFORE_OUTREACH_AVOID = [
 export const WHY_R360_DIFFERENTIATORS = [
   {
     id: "speed",
-    label: "We move quickly",
+    label: "We Move Quickly to Suppress Negative Results",
     body: "When harmful content is active, time is working against you. We build your strategy and deploy immediately.",
   },
   {
     id: "tailored",
-    label: "Tailored to your situation",
+    label: "Tailored Reputation Management Strategy for Your Situation",
     body: "No templates. Every campaign is built around your specific content, the platforms it lives on, and the outcomes that matter to you.",
   },
   {
@@ -283,12 +283,12 @@ export const WHY_R360_DIFFERENTIATORS = [
   },
   {
     id: "expertise",
-    label: "7 years of specialized expertise",
+    label: "7+ Years of Specialized Reputation Management Expertise",
     body: "ORM requires different skills than standard digital marketing. Our depth of experience in this specific discipline translates to faster, more durable results.",
   },
   {
     id: "difficult",
-    label: "We handle difficult situations",
+    label: "We Handle Complex Reputation Management Situations",
     body: "Executives facing false accusations, professionals dealing with past mistakes, businesses under coordinated attack - we have navigated it all with discretion and a clear plan",
   },
   {

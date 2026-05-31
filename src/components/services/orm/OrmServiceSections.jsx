@@ -994,7 +994,7 @@ export function OrmProcessSection() {
 
 const BEFORE_OUTREACH_COLUMN = {
   do: {
-    title: "What to Do",
+    title: "What to Do Before Contacting a Reputation Management Company",
     items: BEFORE_OUTREACH_DO,
     Icon: Check,
     panelClass:
@@ -1008,7 +1008,7 @@ const BEFORE_OUTREACH_COLUMN = {
     counterClass: "text-[#1a5c38]/70",
   },
   avoid: {
-    title: "What Not to Do",
+    title: "Common Reputation Management Mistakes to Avoid",
     items: BEFORE_OUTREACH_AVOID,
     Icon: X,
     panelClass:
