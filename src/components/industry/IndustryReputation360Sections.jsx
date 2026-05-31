@@ -119,7 +119,7 @@ export const REPUTATION360_JOB_SEEKER_STEPS = [
 export const REPUTATION360_DOCTOR_STEPS = [
   {
     step: 1,
-    headline: "Step 1 - Full Digital Presence Audit (Week 1)",
+    headline: "Step 1 - Full Digital Reputation Audit (Week 1)",
     body: "We map every search result for your name, your practice name, and your specialty plus location - every review platform, directory listing, news reference, and social mention. We identify where the damage is concentrated and what approach each situation requires.",
     Icon: Map,
   },
@@ -137,7 +137,7 @@ export const REPUTATION360_DOCTOR_STEPS = [
   },
   {
     step: 4,
-    headline: "Step 4 - Authoritative Content Building (Months 1-5)",
+    headline: "Step 4 - Authoritative Reputation Content Building (Months 1-5)",
     body: "We build your thought leadership and professional presence - health articles published under your name, a professional website or blog, interview features, and educational content that positions you as the credible, trusted expert in your specialty. This content is built to rank for your name and hold that position over time.",
     Icon: BarChart3,
   },

@@ -508,7 +508,7 @@ function DoctorsFaqSection() {
       id="doctor-faqs"
       className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
     >
-      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">Frequently Asked Questions About Doctors and Healthcare Professionals Reputation Management</h2>
+      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">Frequently Asked Questions About Doctor & Healthcare Reputation Management</h2>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
       <div className="mt-8 max-w-4xl space-y-4">
         {DOCTOR_FAQ_ITEMS.map((item, index) => (
