@@ -3,9 +3,9 @@ export const ORM_GLOSSARY_PATH = "/resources/online-reputation-management-glossa
 export const ORM_GLOSSARY_PAGE = {
   "title": "Online Reputation Management Glossary",
   "eyebrow": "Resources",
-  "lead": "Online reputation management has its own vocabulary. If you don't know the terms, it is easy to be misled by jargon — or to miss what a strategy is actually doing. This glossary covers every core ORM term across ten categories: from the foundational concepts that define the discipline to the AI-era terminology reshaping it in 2025 and beyond. Every definition is written in plain English, with real-world examples wherever they help clarify what a term actually means in practice.",
+  "lead": "Online reputation management has its own vocabulary. If you don't know the terms, it is easy to be misled by jargon - or to miss what a strategy is actually doing. This glossary covers every core ORM term across ten categories: from the foundational concepts that define the discipline to the AI-era terminology reshaping it in 2025 and beyond. Every definition is written in plain English, with real-world examples wherever they help clarify what a term actually means in practice.",
   "seoTitle": "Online Reputation Management Glossary: 120+ ORM Terms Explained | Reputation360",
-  "seoDescription": "The complete glossary of Online Reputation Management terms — plain-English definitions for every ORM concept, from Search Suppression and Brand SERP to GEO, AI Overviews, and Knowledge Panel Management."
+  "seoDescription": "The complete glossary of Online Reputation Management terms - plain-English definitions for every ORM concept, from Search Suppression and Brand SERP to GEO, AI Overviews, and Knowledge Panel Management."
 };
 
 export const ORM_GLOSSARY_SECTIONS = [
@@ -33,7 +33,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Brand reputation is the overall perception that the public holds of your name or organisation — built through every interaction, article, review, and search result they encounter. It is not something you fully control, but it is something you can actively influence. A strong reputation creates trust before a conversation begins. A weak or damaged one makes that conversation harder to have."
+            "text": "Brand reputation is the overall perception that the public holds of your name or organisation - built through every interaction, article, review, and search result they encounter. It is not something you fully control, but it is something you can actively influence. A strong reputation creates trust before a conversation begins. A weak or damaged one makes that conversation harder to have."
           },
           {
             "t": "example",
@@ -46,7 +46,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Reputation is the sum of what others think about you — shaped by direct experiences, word of mouth, media coverage, and what they find online. In the digital age, your reputation is largely defined by what appears on the first page of a Google search for your name. That page is, for most people who look you up, the first and only impression they form."
+            "text": "Reputation is the sum of what others think about you - shaped by direct experiences, word of mouth, media coverage, and what they find online. In the digital age, your reputation is largely defined by what appears on the first page of a Google search for your name. That page is, for most people who look you up, the first and only impression they form."
           }
         ]
       },
@@ -55,11 +55,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A Brand SERP is the specific search engine results page that appears when someone types your name or your company's name directly into Google or another search engine. Unlike a general topic search, a brand search has high intent — the person looking you up already knows who you are and wants to form a view. What they see on that page — whether positive profiles, news coverage, or damaging results — determines whether they proceed or walk away."
+            "text": "A Brand SERP is the specific search engine results page that appears when someone types your name or your company's name directly into Google or another search engine. Unlike a general topic search, a brand search has high intent - the person looking you up already knows who you are and wants to form a view. What they see on that page - whether positive profiles, news coverage, or damaging results - determines whether they proceed or walk away."
           },
           {
             "t": "example",
-            "text": "Search 'Elon Musk' and the Brand SERP shows Wikipedia, his companies' official sites, news coverage, and social profiles. For a mid-sized business owner, that same structure — controlled, authoritative, varied — is what ORM works to build."
+            "text": "Search 'Elon Musk' and the Brand SERP shows Wikipedia, his companies' official sites, news coverage, and social profiles. For a mid-sized business owner, that same structure - controlled, authoritative, varied - is what ORM works to build."
           }
         ]
       },
@@ -68,11 +68,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Your digital footprint is everything that exists about you online — content you published yourself and content published by others. It includes your website, social media profiles, news mentions, forum posts, directory listings, old press releases, and archived content. You may not be aware of much of it. An ORM audit maps the full footprint so you know exactly what others can find."
+            "text": "Your digital footprint is everything that exists about you online - content you published yourself and content published by others. It includes your website, social media profiles, news mentions, forum posts, directory listings, old press releases, and archived content. You may not be aware of much of it. An ORM audit maps the full footprint so you know exactly what others can find."
           },
           {
             "t": "example",
-            "text": "A CEO discovers during an audit that a critical article from a 2019 business dispute still ranks on page one for her name — a piece of her digital footprint she had long forgotten but potential investors had not."
+            "text": "A CEO discovers during an audit that a critical article from a 2019 business dispute still ranks on page one for her name - a piece of her digital footprint she had long forgotten but potential investors had not."
           }
         ]
       },
@@ -81,7 +81,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Online sentiment is the collective emotional tone of what is being said about you or your brand across the internet — whether the overall conversation is positive, negative, or neutral. Tracking sentiment allows you to spot reputation risks early, measure whether an ORM programme is shifting perception in the right direction, and identify where the most damaging narratives are concentrated."
+            "text": "Online sentiment is the collective emotional tone of what is being said about you or your brand across the internet - whether the overall conversation is positive, negative, or neutral. Tracking sentiment allows you to spot reputation risks early, measure whether an ORM programme is shifting perception in the right direction, and identify where the most damaging narratives are concentrated."
           }
         ]
       },
@@ -90,7 +90,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Your digital identity is the version of you that exists online — assembled from everything associated with your name across search results, social platforms, professional directories, and published content. A strong digital identity is consistent, credible, and easy to find for the right reasons. A fragmented or unmanaged one leaves gaps that others can fill with content you did not choose."
+            "text": "Your digital identity is the version of you that exists online - assembled from everything associated with your name across search results, social platforms, professional directories, and published content. A strong digital identity is consistent, credible, and easy to find for the right reasons. A fragmented or unmanaged one leaves gaps that others can fill with content you did not choose."
           }
         ]
       },
@@ -99,7 +99,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Online image is the immediate impression formed by the results that appear when someone searches your name. It is the visual and editorial picture created by your top search results — the headlines, profile photos, star ratings, and article snippets that appear before anyone clicks through. Even if someone never visits a single page, your online image has already shaped their view."
+            "text": "Online image is the immediate impression formed by the results that appear when someone searches your name. It is the visual and editorial picture created by your top search results - the headlines, profile photos, star ratings, and article snippets that appear before anyone clicks through. Even if someone never visits a single page, your online image has already shaped their view."
           }
         ]
       },
@@ -121,7 +121,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A digital asset is any piece of online content that can be owned, controlled, and used to strengthen your reputation — your website, social media profiles, published articles, interview features, and professional directory listings. Building a strong portfolio of digital assets across authoritative platforms is the foundation of proactive reputation management."
+            "text": "A digital asset is any piece of online content that can be owned, controlled, and used to strengthen your reputation - your website, social media profiles, published articles, interview features, and professional directory listings. Building a strong portfolio of digital assets across authoritative platforms is the foundation of proactive reputation management."
           }
         ]
       },
@@ -130,11 +130,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Lack of information is a reputation problem in its own right. When a search for your name returns little or nothing, that absence can be interpreted as a red flag — suggesting inexperience, obscurity, or that you have something to conceal. It also leaves the field open for others to fill with content you have no control over."
+            "text": "Lack of information is a reputation problem in its own right. When a search for your name returns little or nothing, that absence can be interpreted as a red flag - suggesting inexperience, obscurity, or that you have something to conceal. It also leaves the field open for others to fill with content you have no control over."
           },
           {
             "t": "example",
-            "text": "A newly promoted executive finds that Googling her name produces almost no results. A prospective business partner who searches her name and finds nothing may default to caution — choosing a better-documented competitor instead."
+            "text": "A newly promoted executive finds that Googling her name produces almost no results. A prospective business partner who searches her name and finds nothing may default to caution - choosing a better-documented competitor instead."
           }
         ]
       }
@@ -155,7 +155,7 @@ export const ORM_GLOSSARY_SECTIONS = [
           },
           {
             "t": "example",
-            "text": "A founder preparing to raise a Series B invests in proactive ORM six months before outreach begins — publishing thought leadership, claiming profiles, and ensuring her Brand SERP is clean and credible by the time investors search her name."
+            "text": "A founder preparing to raise a Series B invests in proactive ORM six months before outreach begins - publishing thought leadership, claiming profiles, and ensuring her Brand SERP is clean and credible by the time investors search her name."
           }
         ]
       },
@@ -164,7 +164,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Reactive reputation management is the response to a reputation problem that has already occurred — damaging content that is actively ranking, a critical article that has gone live, or a complaint that is now visible in search results. It involves assessing the damage, developing a targeted strategy, and executing a programme to displace or neutralise what is causing harm."
+            "text": "Reactive reputation management is the response to a reputation problem that has already occurred - damaging content that is actively ranking, a critical article that has gone live, or a complaint that is now visible in search results. It involves assessing the damage, developing a targeted strategy, and executing a programme to displace or neutralise what is causing harm."
           },
           {
             "t": "example",
@@ -177,7 +177,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Reputation repair is the process of recovering from significant reputational damage — restoring credibility and a clean search presence after harmful content has taken hold. It is a sustained programme, not a quick fix, typically combining content suppression, platform optimisation, and strategic publishing over a period of months."
+            "text": "Reputation repair is the process of recovering from significant reputational damage - restoring credibility and a clean search presence after harmful content has taken hold. It is a sustained programme, not a quick fix, typically combining content suppression, platform optimisation, and strategic publishing over a period of months."
           },
           {
             "t": "example",
@@ -190,7 +190,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Crisis management in ORM is the rapid, strategic response to a sudden reputational event that threatens to cause lasting damage. The goal is to limit the spread of harmful coverage, respond with clarity and authority, and begin recovery before the narrative hardens. Speed matters enormously — the first 24 to 48 hours of a crisis often determine how the story is framed long-term."
+            "text": "Crisis management in ORM is the rapid, strategic response to a sudden reputational event that threatens to cause lasting damage. The goal is to limit the spread of harmful coverage, respond with clarity and authority, and begin recovery before the narrative hardens. Speed matters enormously - the first 24 to 48 hours of a crisis often determine how the story is framed long-term."
           },
           {
             "t": "example",
@@ -203,7 +203,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Brand protection is the ongoing effort to defend your name and identity from threats — impersonation, false content, misleading narratives, and domain hijacking. It is simultaneously proactive, in building a presence that is harder to attack, and reactive, in monitoring for threats and responding before they escalate."
+            "text": "Brand protection is the ongoing effort to defend your name and identity from threats - impersonation, false content, misleading narratives, and domain hijacking. It is simultaneously proactive, in building a presence that is harder to attack, and reactive, in monitoring for threats and responding before they escalate."
           }
         ]
       },
@@ -212,7 +212,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Reputation engineering is an emerging approach to ORM that goes beyond suppressing what is wrong to deliberately designing how a person or brand is understood — by search engines, AI platforms, and the public. It involves strategic content architecture, entity optimisation, and authoritative positioning that shapes perception at a structural level rather than firefighting problems as they arise."
+            "text": "Reputation engineering is an emerging approach to ORM that goes beyond suppressing what is wrong to deliberately designing how a person or brand is understood - by search engines, AI platforms, and the public. It involves strategic content architecture, entity optimisation, and authoritative positioning that shapes perception at a structural level rather than firefighting problems as they arise."
           }
         ]
       },
@@ -221,7 +221,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Brand safety refers to the processes used to ensure that a brand's name, advertising, or content does not appear in association with material that could cause reputational harm — such as offensive articles, extremist content, or misleading contexts. In ORM, brand safety extends to monitoring where your name is being referenced online and ensuring those associations are appropriate."
+            "text": "Brand safety refers to the processes used to ensure that a brand's name, advertising, or content does not appear in association with material that could cause reputational harm - such as offensive articles, extremist content, or misleading contexts. In ORM, brand safety extends to monitoring where your name is being referenced online and ensuring those associations are appropriate."
           }
         ]
       },
@@ -230,7 +230,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A command center or digital war room is the centralised setup — team, tools, and protocols — used to monitor and manage a reputation crisis in real time. It coordinates rapid, consistent decision-making across communication, legal, content, and technical teams when a damaging event threatens to spread."
+            "text": "A command center or digital war room is the centralised setup - team, tools, and protocols - used to monitor and manage a reputation crisis in real time. It coordinates rapid, consistent decision-making across communication, legal, content, and technical teams when a damaging event threatens to spread."
           },
           {
             "t": "example",
@@ -251,11 +251,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Search suppression is the process of pushing harmful, misleading, or outdated content lower in search engine results by building and optimising authoritative positive content that outranks it. It does not erase the negative content from the internet — it makes it far less likely that anyone will find it by ensuring better content occupies the positions people actually look at."
+            "text": "Search suppression is the process of pushing harmful, misleading, or outdated content lower in search engine results by building and optimising authoritative positive content that outranks it. It does not erase the negative content from the internet - it makes it far less likely that anyone will find it by ensuring better content occupies the positions people actually look at."
           },
           {
             "t": "example",
-            "text": "A broker has a three-year-old critical article ranking fourth when her name is searched. A suppression programme builds five authoritative profiles and two published articles that each outrank it — within four months, the article has dropped to page two."
+            "text": "A broker has a three-year-old critical article ranking fourth when her name is searched. A suppression programme builds five authoritative profiles and two published articles that each outrank it - within four months, the article has dropped to page two."
           }
         ]
       },
@@ -264,7 +264,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Negative link suppression is targeted search suppression focused on specific harmful URLs — a particular news article, a complaint page, or a directory entry — that are ranking prominently for a person's or brand's name. Rather than a broad approach, it involves identifying the exact links causing damage and building content specifically designed to outrank each one."
+            "text": "Negative link suppression is targeted search suppression focused on specific harmful URLs - a particular news article, a complaint page, or a directory entry - that are ranking prominently for a person's or brand's name. Rather than a broad approach, it involves identifying the exact links causing damage and building content specifically designed to outrank each one."
           }
         ]
       },
@@ -273,7 +273,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Content removal is the process of getting harmful content taken down from a website or platform entirely — not just moved down in rankings, but eliminated. It is only possible in specific circumstances: when content violates a platform's policies, constitutes provable defamation, or breaches privacy law. In most cases where removal is not achievable, suppression is the practical alternative. A responsible ORM firm will always give you an honest assessment of which is realistic for your situation."
+            "text": "Content removal is the process of getting harmful content taken down from a website or platform entirely - not just moved down in rankings, but eliminated. It is only possible in specific circumstances: when content violates a platform's policies, constitutes provable defamation, or breaches privacy law. In most cases where removal is not achievable, suppression is the practical alternative. A responsible ORM firm will always give you an honest assessment of which is realistic for your situation."
           }
         ]
       },
@@ -282,7 +282,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "The Right to Be Forgotten is a legal provision — most notably established under the EU's General Data Protection Regulation (GDPR) — that allows individuals to request that search engines remove certain results about them from their index, where that information is outdated, irrelevant, or disproportionately harmful. A successful request means those specific URLs no longer appear in search results in qualifying regions. It is a legal process, not a technical one, and its scope varies by jurisdiction."
+            "text": "The Right to Be Forgotten is a legal provision - most notably established under the EU's General Data Protection Regulation (GDPR) - that allows individuals to request that search engines remove certain results about them from their index, where that information is outdated, irrelevant, or disproportionately harmful. A successful request means those specific URLs no longer appear in search results in qualifying regions. It is a legal process, not a technical one, and its scope varies by jurisdiction."
           },
           {
             "t": "example",
@@ -304,7 +304,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A SERP — Search Engine Results Page — is the page of results that appears when someone types a query into a search engine. In ORM, the first SERP for your name is the single most consequential page on the internet for your reputation. Research consistently shows that 95% of users never go beyond it, which means that any damaging result on that page is doing active harm every time someone searches for you."
+            "text": "A SERP - Search Engine Results Page - is the page of results that appears when someone types a query into a search engine. In ORM, the first SERP for your name is the single most consequential page on the internet for your reputation. Research consistently shows that 95% of users never go beyond it, which means that any damaging result on that page is doing active harm every time someone searches for you."
           }
         ]
       },
@@ -313,7 +313,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Page rank is the measure of authority and relevance that a search engine assigns to a web page — determined by hundreds of factors, including the quality of sites linking to it, the credibility of the publishing domain, and the relevance of its content. High page rank means high visibility. In ORM, understanding which pages have the most authority helps identify which negative results are hardest to displace and which positive content has the best chance of outranking them."
+            "text": "Page rank is the measure of authority and relevance that a search engine assigns to a web page - determined by hundreds of factors, including the quality of sites linking to it, the credibility of the publishing domain, and the relevance of its content. High page rank means high visibility. In ORM, understanding which pages have the most authority helps identify which negative results are hardest to displace and which positive content has the best chance of outranking them."
           }
         ]
       },
@@ -322,7 +322,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "White hat SEO refers to ethical, search-engine-approved optimisation techniques — building authority through genuine content quality, earning links legitimately, and structuring sites in ways that help search engines understand them. In ORM, white hat methods are the only approach that produces durable results. Reputation360 works exclusively within these boundaries."
+            "text": "White hat SEO refers to ethical, search-engine-approved optimisation techniques - building authority through genuine content quality, earning links legitimately, and structuring sites in ways that help search engines understand them. In ORM, white hat methods are the only approach that produces durable results. Reputation360 works exclusively within these boundaries."
           }
         ]
       },
@@ -331,7 +331,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Black hat SEO refers to manipulative techniques that attempt to game search engine rankings artificially — such as buying links, creating fake profiles en masse, or hiding keyword-stuffed text on pages. In ORM, black hat approaches may produce short-term movement but typically trigger search engine penalties that make a reputation problem significantly worse. Any ORM firm that relies on these methods creates risk for their clients."
+            "text": "Black hat SEO refers to manipulative techniques that attempt to game search engine rankings artificially - such as buying links, creating fake profiles en masse, or hiding keyword-stuffed text on pages. In ORM, black hat approaches may produce short-term movement but typically trigger search engine penalties that make a reputation problem significantly worse. Any ORM firm that relies on these methods creates risk for their clients."
           }
         ]
       },
@@ -340,7 +340,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A search engine algorithm is the system of rules and signals a search engine uses to decide which pages rank where for a given query. Google's algorithm considers hundreds of factors and updates hundreds of times per year. ORM strategies are built on a deep understanding of how these algorithms evaluate authority, relevance, and trust — so that positive content can be engineered to consistently rank above harmful results."
+            "text": "A search engine algorithm is the system of rules and signals a search engine uses to decide which pages rank where for a given query. Google's algorithm considers hundreds of factors and updates hundreds of times per year. ORM strategies are built on a deep understanding of how these algorithms evaluate authority, relevance, and trust - so that positive content can be engineered to consistently rank above harmful results."
           }
         ]
       },
@@ -349,7 +349,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Anchor text is the visible, clickable text of a hyperlink — the words that are underlined or highlighted when a link appears on a page. Search engines use anchor text as a signal of what the linked page is about. In ORM, strategic anchor text helps search engines understand and rank positive content correctly, supporting its climb above damaging results."
+            "text": "Anchor text is the visible, clickable text of a hyperlink - the words that are underlined or highlighted when a link appears on a page. Search engines use anchor text as a signal of what the linked page is about. In ORM, strategic anchor text helps search engines understand and rank positive content correctly, supporting its climb above damaging results."
           }
         ]
       },
@@ -358,7 +358,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A link — or hyperlink — is a clickable reference that connects one web page to another. Links are one of the most significant factors in how search engines determine which pages rank highest: a page that earns links from many credible, high-authority sources is treated as more trustworthy and rises accordingly. In ORM, building links to positive content about a person or brand is a core technique for improving that content's position relative to harmful results."
+            "text": "A link - or hyperlink - is a clickable reference that connects one web page to another. Links are one of the most significant factors in how search engines determine which pages rank highest: a page that earns links from many credible, high-authority sources is treated as more trustworthy and rises accordingly. In ORM, building links to positive content about a person or brand is a core technique for improving that content's position relative to harmful results."
           }
         ]
       },
@@ -367,7 +367,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Link bait is content created specifically to earn links from other websites — because it is genuinely useful, surprising, well-researched, or shareable. In ORM, creating link-worthy content about a person or brand builds the authority that allows positive results to outrank negative ones."
+            "text": "Link bait is content created specifically to earn links from other websites - because it is genuinely useful, surprising, well-researched, or shareable. In ORM, creating link-worthy content about a person or brand builds the authority that allows positive results to outrank negative ones."
           }
         ]
       },
@@ -385,7 +385,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Suppression rate is a performance metric in ORM that tracks how effectively negative search results are being pushed down over time. It measures the position movement of specific harmful URLs — tracking them from page one toward page two and beyond. A rising suppression rate confirms that the programme is working."
+            "text": "Suppression rate is a performance metric in ORM that tracks how effectively negative search results are being pushed down over time. It measures the position movement of specific harmful URLs - tracking them from page one toward page two and beyond. A rising suppression rate confirms that the programme is working."
           }
         ]
       },
@@ -403,7 +403,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "In ORM, a strawman is a fake online profile or entity created specifically to manipulate search results — generating artificial authority signals to promote one result over another. It is a black hat tactic that violates search engine guidelines and can result in penalties that harm the very reputation it was intended to protect."
+            "text": "In ORM, a strawman is a fake online profile or entity created specifically to manipulate search results - generating artificial authority signals to promote one result over another. It is a black hat tactic that violates search engine guidelines and can result in penalties that harm the very reputation it was intended to protect."
           }
         ]
       }
@@ -420,7 +420,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Branded content is any content — articles, profiles, interviews, case studies, or media features — that is directly associated with and represents a person or brand online. In ORM, branded content is used to populate search results with accurate, credible material that reflects how a person or business wants to be known, ensuring that what people find is both true and favourable."
+            "text": "Branded content is any content - articles, profiles, interviews, case studies, or media features - that is directly associated with and represents a person or brand online. In ORM, branded content is used to populate search results with accurate, credible material that reflects how a person or business wants to be known, ensuring that what people find is both true and favourable."
           },
           {
             "t": "example",
@@ -433,7 +433,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "An attack blog is a website or blog created specifically to damage a person's or brand's reputation — publishing negative, misleading, or false content targeted at a specific individual. Attack blogs are a common and persistent reputation threat. They are often designed to rank prominently in search results by repeatedly using the target's name as a keyword, and they can be difficult to remove without legal grounds."
+            "text": "An attack blog is a website or blog created specifically to damage a person's or brand's reputation - publishing negative, misleading, or false content targeted at a specific individual. Attack blogs are a common and persistent reputation threat. They are often designed to rank prominently in search results by repeatedly using the target's name as a keyword, and they can be difficult to remove without legal grounds."
           }
         ]
       },
@@ -442,7 +442,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A covert attack blog operates like an attack blog but with the author's identity deliberately concealed — presented as independent commentary while being used to systematically damage a target. The hidden intent makes it harder to identify the source and pursue legal remedies."
+            "text": "A covert attack blog operates like an attack blog but with the author's identity deliberately concealed - presented as independent commentary while being used to systematically damage a target. The hidden intent makes it harder to identify the source and pursue legal remedies."
           }
         ]
       },
@@ -451,7 +451,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Astroturfing is the creation of a false impression of widespread organic public opinion through fabricated reviews, manufactured endorsements, or coordinated fake commentary — designed to look grassroots when it is in fact organised and often paid for. It is deceptive, unethical, and in many contexts illegal. Legitimate ORM firms do not engage in it."
+            "text": "Astroturfing is the creation of a false impression of widespread organic public opinion through fabricated reviews, manufactured endorsements, or coordinated fake commentary - designed to look grassroots when it is in fact organised and often paid for. It is deceptive, unethical, and in many contexts illegal. Legitimate ORM firms do not engage in it."
           },
           {
             "t": "example",
@@ -464,7 +464,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A content farm is a website that publishes large volumes of low-quality, keyword-focused content purely to capture search traffic — with no regard for accuracy, depth, or value to the reader. In ORM, content farms are sometimes used by bad actors to flood search results with negative or misleading mentions of a person's name. They are a black hat approach with significant risk of search engine penalty."
+            "text": "A content farm is a website that publishes large volumes of low-quality, keyword-focused content purely to capture search traffic - with no regard for accuracy, depth, or value to the reader. In ORM, content farms are sometimes used by bad actors to flood search results with negative or misleading mentions of a person's name. They are a black hat approach with significant risk of search engine penalty."
           }
         ]
       },
@@ -473,7 +473,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Viral media is content that spreads rapidly and widely across the internet through social sharing — reaching far beyond its original audience in a short time. In ORM, viral negative content represents one of the most urgent crisis scenarios, because the speed of spread directly determines how deeply the narrative embeds itself in public perception and search results."
+            "text": "Viral media is content that spreads rapidly and widely across the internet through social sharing - reaching far beyond its original audience in a short time. In ORM, viral negative content represents one of the most urgent crisis scenarios, because the speed of spread directly determines how deeply the narrative embeds itself in public perception and search results."
           },
           {
             "t": "example",
@@ -486,7 +486,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "User-generated content is any content created and published by members of the public rather than by the brand or individual it concerns — reviews, social posts, forum comments, and complaint submissions. UGC is one of the most significant sources of reputational risk because it sits outside your control, is trusted by readers as genuine, and can rank prominently in search results."
+            "text": "User-generated content is any content created and published by members of the public rather than by the brand or individual it concerns - reviews, social posts, forum comments, and complaint submissions. UGC is one of the most significant sources of reputational risk because it sits outside your control, is trusted by readers as genuine, and can rank prominently in search results."
           }
         ]
       },
@@ -495,7 +495,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "eWOM is the digital equivalent of word-of-mouth recommendation — opinions, assessments, and endorsements shared about a person or brand online through reviews, social posts, and community discussions. It carries significant weight because readers perceive it as independent and unbiased. Strong ORM ensures that positive eWOM is visible and that damaging or misleading eWOM is displaced."
+            "text": "eWOM is the digital equivalent of word-of-mouth recommendation - opinions, assessments, and endorsements shared about a person or brand online through reviews, social posts, and community discussions. It carries significant weight because readers perceive it as independent and unbiased. Strong ORM ensures that positive eWOM is visible and that damaging or misleading eWOM is displaced."
           }
         ]
       },
@@ -504,7 +504,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A content aggregator is a tool or platform that automatically collects and republishes content from multiple sources — news articles, blog posts, social updates — in one place. In reputation management, content aggregators can amplify both positive and negative coverage, redistributing material well beyond its original audience and making it discoverable through new search paths."
+            "text": "A content aggregator is a tool or platform that automatically collects and republishes content from multiple sources - news articles, blog posts, social updates - in one place. In reputation management, content aggregators can amplify both positive and negative coverage, redistributing material well beyond its original audience and making it discoverable through new search paths."
           }
         ]
       },
@@ -513,11 +513,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A content community is a platform — such as Reddit, YouTube, or Quora — where users create and engage with content around shared interests. Content communities are significant in ORM because they are indexed by search engines, rank prominently in results, and are increasingly cited by AI search platforms as sources. A damaging thread on Reddit can sit on page one for years."
+            "text": "A content community is a platform - such as Reddit, YouTube, or Quora - where users create and engage with content around shared interests. Content communities are significant in ORM because they are indexed by search engines, rank prominently in results, and are increasingly cited by AI search platforms as sources. A damaging thread on Reddit can sit on page one for years."
           },
           {
             "t": "example",
-            "text": "A thread on Reddit's r/personalfinance criticising a financial adviser's fee structure ranks on page one for her name for two years — far longer than any news article would."
+            "text": "A thread on Reddit's r/personalfinance criticising a financial adviser's fee structure ranks on page one for her name for two years - far longer than any news article would."
           }
         ]
       },
@@ -535,7 +535,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Multimedia content uses more than one format — combining text with images, video, audio, or interactive elements. In ORM, multimedia content tends to attract more engagement, more links, and more diverse search visibility than text alone, making it a valuable tool for building the authoritative presence needed to outrank harmful results."
+            "text": "Multimedia content uses more than one format - combining text with images, video, audio, or interactive elements. In ORM, multimedia content tends to attract more engagement, more links, and more diverse search visibility than text alone, making it a valuable tool for building the authoritative presence needed to outrank harmful results."
           }
         ]
       },
@@ -544,7 +544,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Unprofessional content refers to photos, videos, or written material that reflects poorly on a person's professional standing — whether originally posted by the individual or shared by others. In an ORM context, unprofessional content appearing in search results for someone's name can damage career prospects and client confidence. It is addressed through suppression where removal is not possible."
+            "text": "Unprofessional content refers to photos, videos, or written material that reflects poorly on a person's professional standing - whether originally posted by the individual or shared by others. In an ORM context, unprofessional content appearing in search results for someone's name can damage career prospects and client confidence. It is addressed through suppression where removal is not possible."
           }
         ]
       },
@@ -553,7 +553,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A digital war room is a coordinated team and toolset assembled to monitor and manage a reputational crisis in real time. It integrates communication, legal, content, and technical expertise to respond rapidly when damaging content threatens to spread — ensuring that the response is fast, consistent, and strategically coordinated across all channels."
+            "text": "A digital war room is a coordinated team and toolset assembled to monitor and manage a reputational crisis in real time. It integrates communication, legal, content, and technical expertise to respond rapidly when damaging content threatens to spread - ensuring that the response is fast, consistent, and strategically coordinated across all channels."
           }
         ]
       }
@@ -570,7 +570,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Online monitoring is the continuous tracking of mentions, references, and discussions about a person or brand across the internet — in news sites, social platforms, forums, review directories, and search results. It enables early detection of reputation threats before they escalate, allowing a faster and more effective response. Monitoring is not a one-time task; it is an ongoing operational requirement."
+            "text": "Online monitoring is the continuous tracking of mentions, references, and discussions about a person or brand across the internet - in news sites, social platforms, forums, review directories, and search results. It enables early detection of reputation threats before they escalate, allowing a faster and more effective response. Monitoring is not a one-time task; it is an ongoing operational requirement."
           }
         ]
       },
@@ -579,7 +579,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Media monitoring is the systematic tracking of how a person or brand is covered in news publications and online media. In ORM, media monitoring identifies new damaging coverage as soon as it is published — enabling a timely response before the article climbs in search rankings or is picked up by other outlets."
+            "text": "Media monitoring is the systematic tracking of how a person or brand is covered in news publications and online media. In ORM, media monitoring identifies new damaging coverage as soon as it is published - enabling a timely response before the article climbs in search rankings or is picked up by other outlets."
           }
         ]
       },
@@ -588,7 +588,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Media tracking is the ongoing measurement of how media coverage about a person or brand is performing over time — its reach, sentiment, audience engagement, and spread across platforms. In ORM, media tracking helps evaluate whether coverage is growing or subsiding, and whether a crisis is contained or escalating."
+            "text": "Media tracking is the ongoing measurement of how media coverage about a person or brand is performing over time - its reach, sentiment, audience engagement, and spread across platforms. In ORM, media tracking helps evaluate whether coverage is growing or subsiding, and whether a crisis is contained or escalating."
           }
         ]
       },
@@ -597,11 +597,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Social listening is the process of monitoring social media platforms for mentions of a brand, individual, or topic — and then analysing those conversations for sentiment, trends, and emerging risks. It is not just tracking mentions; it is understanding what is being said, who is saying it, and what it means for reputation before it becomes a visible problem."
+            "text": "Social listening is the process of monitoring social media platforms for mentions of a brand, individual, or topic - and then analysing those conversations for sentiment, trends, and emerging risks. It is not just tracking mentions; it is understanding what is being said, who is saying it, and what it means for reputation before it becomes a visible problem."
           },
           {
             "t": "example",
-            "text": "A retail brand uses social listening tools to detect a growing pattern of complaints about a product feature on X and TikTok — three days before any mainstream media picks it up. The early warning allows a response before the story escalates."
+            "text": "A retail brand uses social listening tools to detect a growing pattern of complaints about a product feature on X and TikTok - three days before any mainstream media picks it up. The early warning allows a response before the story escalates."
           }
         ]
       },
@@ -610,7 +610,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Sentiment analysis is the automated process of evaluating whether online content — mentions, articles, social posts, or reviews — is positive, negative, or neutral in tone toward a person or brand. AI-powered sentiment tools can process thousands of mentions simultaneously, allowing ORM teams to track shifts in public perception in near real time."
+            "text": "Sentiment analysis is the automated process of evaluating whether online content - mentions, articles, social posts, or reviews - is positive, negative, or neutral in tone toward a person or brand. AI-powered sentiment tools can process thousands of mentions simultaneously, allowing ORM teams to track shifts in public perception in near real time."
           }
         ]
       },
@@ -619,7 +619,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "In-depth sentiment goes beyond simple positive/negative labelling to capture the nuances of how people feel about a brand — with what intensity, on what specific issues, and through what emotional lens. It answers not just 'are people positive or negative?' but 'why, and how strongly?', providing a much more actionable picture of reputational health."
+            "text": "In-depth sentiment goes beyond simple positive/negative labelling to capture the nuances of how people feel about a brand - with what intensity, on what specific issues, and through what emotional lens. It answers not just 'are people positive or negative?' but 'why, and how strongly?', providing a much more actionable picture of reputational health."
           }
         ]
       },
@@ -628,7 +628,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "In reputation management, an aggregator is a tool or service that collects mentions, data, and conversations about a person or brand from across the internet and presents them in a single interface. Aggregators ensure comprehensive coverage — so that no relevant mention goes unnoticed, regardless of which platform it appears on."
+            "text": "In reputation management, an aggregator is a tool or service that collects mentions, data, and conversations about a person or brand from across the internet and presents them in a single interface. Aggregators ensure comprehensive coverage - so that no relevant mention goes unnoticed, regardless of which platform it appears on."
           }
         ]
       },
@@ -637,7 +637,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A monitoring specialist is a professional who tracks and analyses online conversations about a person or brand — identifying the most relevant, potentially damaging, or strategically important mentions across news, social media, forums, and review platforms. They provide the intelligence that allows reputation teams to respond appropriately and at the right moment."
+            "text": "A monitoring specialist is a professional who tracks and analyses online conversations about a person or brand - identifying the most relevant, potentially damaging, or strategically important mentions across news, social media, forums, and review platforms. They provide the intelligence that allows reputation teams to respond appropriately and at the right moment."
           }
         ]
       },
@@ -646,7 +646,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A reputation dashboard is a centralised interface — typically within an ORM software platform — that consolidates key metrics such as sentiment scores, search visibility, mention volume, and keyword rankings into one place. It allows ORM teams and clients to track performance at a glance and spot emerging threats without manually checking multiple platforms."
+            "text": "A reputation dashboard is a centralised interface - typically within an ORM software platform - that consolidates key metrics such as sentiment scores, search visibility, mention volume, and keyword rankings into one place. It allows ORM teams and clients to track performance at a glance and spot emerging threats without manually checking multiple platforms."
           }
         ]
       },
@@ -655,7 +655,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Social media measurement is the process of collecting and analysing data from social platforms to understand how a person or brand is being discussed — tracking engagement rates, sentiment, reach, and share of voice over time. In ORM, it reveals where reputation is being actively built or damaged across social channels."
+            "text": "Social media measurement is the process of collecting and analysing data from social platforms to understand how a person or brand is being discussed - tracking engagement rates, sentiment, reach, and share of voice over time. In ORM, it reveals where reputation is being actively built or damaged across social channels."
           }
         ]
       },
@@ -664,7 +664,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "An online community is a group of people connected through a shared digital platform — forums, social networks, niche community sites — where they discuss topics and form collective opinions. Online communities matter in ORM because the content they generate is indexed by search engines, can rank prominently in results, and carries genuine credibility with readers who trust peer opinion."
+            "text": "An online community is a group of people connected through a shared digital platform - forums, social networks, niche community sites - where they discuss topics and form collective opinions. Online communities matter in ORM because the content they generate is indexed by search engines, can rank prominently in results, and carries genuine credibility with readers who trust peer opinion."
           }
         ]
       },
@@ -673,11 +673,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A forum is an online platform where users post questions, answers, and discussions on specific topics. Forums such as Reddit, Quora, and industry-specific boards are indexed by search engines and can rank prominently for name-based searches. Content posted in a forum — even years ago — can surface every time someone Googles a person or brand."
+            "text": "A forum is an online platform where users post questions, answers, and discussions on specific topics. Forums such as Reddit, Quora, and industry-specific boards are indexed by search engines and can rank prominently for name-based searches. Content posted in a forum - even years ago - can surface every time someone Googles a person or brand."
           },
           {
             "t": "example",
-            "text": "A dentist discovers that a forum thread from 2018 — where a disgruntled patient described a billing dispute — ranks fifth when her name is searched. New patients are seeing it before they ever visit her website."
+            "text": "A dentist discovers that a forum thread from 2018 - where a disgruntled patient described a billing dispute - ranks fifth when her name is searched. New patients are seeing it before they ever visit her website."
           }
         ]
       },
@@ -686,7 +686,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Scraping is the automated extraction of data from websites using software programmes. In ORM, scraping is used by monitoring tools to collect mentions across the web — and by bad actors to harvest personal information for use in harassment campaigns or to expose private details publicly."
+            "text": "Scraping is the automated extraction of data from websites using software programmes. In ORM, scraping is used by monitoring tools to collect mentions across the web - and by bad actors to harvest personal information for use in harassment campaigns or to expose private details publicly."
           }
         ]
       },
@@ -712,11 +712,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Libel is written defamation — the publication of a false statement of fact that damages a person's reputation in a permanent, publicly visible form, such as a news article, social media post, or online review. Where content constitutes libel, legal avenues for removal may be available alongside or instead of suppression. Proving libel requires demonstrating that the statement is false, that it was published to others, and that it caused harm."
+            "text": "Libel is written defamation - the publication of a false statement of fact that damages a person's reputation in a permanent, publicly visible form, such as a news article, social media post, or online review. Where content constitutes libel, legal avenues for removal may be available alongside or instead of suppression. Proving libel requires demonstrating that the statement is false, that it was published to others, and that it caused harm."
           },
           {
             "t": "example",
-            "text": "A news site publishes an article falsely stating that a business owner was investigated for fraud — a claim that has no basis in fact. The article ranks first for her name. This is potential libel, and legal counsel may be able to compel removal."
+            "text": "A news site publishes an article falsely stating that a business owner was investigated for fraud - a claim that has no basis in fact. The article ranks first for her name. This is potential libel, and legal counsel may be able to compel removal."
           }
         ]
       },
@@ -725,7 +725,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Slander is spoken defamation — false statements made verbally in public that damage someone's reputation. While primarily an offline concern, slander that has been recorded and shared as video or audio content online becomes a persistent reputation threat subject to the same legal remedies as libel."
+            "text": "Slander is spoken defamation - false statements made verbally in public that damage someone's reputation. While primarily an offline concern, slander that has been recorded and shared as video or audio content online becomes a persistent reputation threat subject to the same legal remedies as libel."
           }
         ]
       },
@@ -734,7 +734,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Doxxing is the malicious exposure of someone's private personal information online without their consent — home address, phone number, family details, or financial information — typically with intent to cause harm or enable harassment. It is a serious privacy violation with legal consequences in most jurisdictions, and it frequently accompanies reputation attacks targeting public figures and business owners."
+            "text": "Doxxing is the malicious exposure of someone's private personal information online without their consent - home address, phone number, family details, or financial information - typically with intent to cause harm or enable harassment. It is a serious privacy violation with legal consequences in most jurisdictions, and it frequently accompanies reputation attacks targeting public figures and business owners."
           }
         ]
       },
@@ -743,7 +743,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Cyber squatting is the practice of registering a domain name using someone else's name, trademark, or brand — typically with the intent of either selling it back at an inflated price or using it to publish damaging content. It is illegal in most jurisdictions and a significant reputation risk, particularly for professionals and businesses that have not yet registered all relevant domains associated with their name."
+            "text": "Cyber squatting is the practice of registering a domain name using someone else's name, trademark, or brand - typically with the intent of either selling it back at an inflated price or using it to publish damaging content. It is illegal in most jurisdictions and a significant reputation risk, particularly for professionals and businesses that have not yet registered all relevant domains associated with their name."
           },
           {
             "t": "example",
@@ -756,7 +756,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Brandjacking occurs when someone impersonates a person or brand online — creating fake social media accounts, websites, or profiles in their name — with the intent of misleading the public, damaging their reputation, or diverting their audience. It is a form of identity fraud with both legal and reputational consequences."
+            "text": "Brandjacking occurs when someone impersonates a person or brand online - creating fake social media accounts, websites, or profiles in their name - with the intent of misleading the public, damaging their reputation, or diverting their audience. It is a form of identity fraud with both legal and reputational consequences."
           }
         ]
       },
@@ -765,7 +765,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Identity assault is a deliberate, targeted attack in which a bad actor assumes someone's identity online and uses it to post damaging, embarrassing, or illegal content — making it appear to originate from the victim. It is one of the most serious forms of online reputation attack, combining identity fraud with direct reputational harm."
+            "text": "Identity assault is a deliberate, targeted attack in which a bad actor assumes someone's identity online and uses it to post damaging, embarrassing, or illegal content - making it appear to originate from the victim. It is one of the most serious forms of online reputation attack, combining identity fraud with direct reputational harm."
           }
         ]
       },
@@ -774,11 +774,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Identity confusion is a reputation risk that occurs when content about a different person with the same or a similar name appears prominently in search results for yours. Even if that other person's content is entirely unrelated to you, viewers may associate it with you — particularly if it is negative, criminal, or embarrassing."
+            "text": "Identity confusion is a reputation risk that occurs when content about a different person with the same or a similar name appears prominently in search results for yours. Even if that other person's content is entirely unrelated to you, viewers may associate it with you - particularly if it is negative, criminal, or embarrassing."
           },
           {
             "t": "example",
-            "text": "A marketing executive named Michael Carter discovers that another Michael Carter — a local man with a criminal record — appears prominently in his Google results. Clients researching him are unknowingly seeing someone else's record."
+            "text": "A marketing executive named Michael Carter discovers that another Michael Carter - a local man with a criminal record - appears prominently in his Google results. Clients researching him are unknowingly seeing someone else's record."
           }
         ]
       },
@@ -787,7 +787,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Online privacy is your ability to control what personal information about you exists on the internet and who can access it. In ORM, online privacy and reputation management overlap significantly: private information that has been published without consent — medical details, financial records, family information — may be addressed through privacy-based legal requests for removal in addition to suppression."
+            "text": "Online privacy is your ability to control what personal information about you exists on the internet and who can access it. In ORM, online privacy and reputation management overlap significantly: private information that has been published without consent - medical details, financial records, family information - may be addressed through privacy-based legal requests for removal in addition to suppression."
           }
         ]
       },
@@ -796,7 +796,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Silent slashes refers to covert, anonymous reputation attacks conducted without the target's knowledge — typically by a competitor or bad actor working through third parties to plant negative content or manipulate search results. The damage is usually only discovered after it has already taken hold, making continuous monitoring essential."
+            "text": "Silent slashes refers to covert, anonymous reputation attacks conducted without the target's knowledge - typically by a competitor or bad actor working through third parties to plant negative content or manipulate search results. The damage is usually only discovered after it has already taken hold, making continuous monitoring essential."
           }
         ]
       },
@@ -805,7 +805,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Shame farming is the deliberate cultivation and amplification of embarrassing or damaging content about a specific individual — for personal grudges, financial motives, or competitive advantage. In ORM, it is addressed through monitoring to detect early, legal remedies where content is unlawful, and suppression to reduce visibility."
+            "text": "Shame farming is the deliberate cultivation and amplification of embarrassing or damaging content about a specific individual - for personal grudges, financial motives, or competitive advantage. In ORM, it is addressed through monitoring to detect early, legal remedies where content is unlawful, and suppression to reduce visibility."
           }
         ]
       }
@@ -822,7 +822,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Social media refers to the digital platforms — including LinkedIn, Instagram, X (formerly Twitter), Facebook, YouTube, and TikTok — where people create, share, and engage with content publicly. Social media is simultaneously one of the most powerful tools for building a positive reputation and one of its most common sources of risk, because content shared there can spread rapidly and rank in search results for years."
+            "text": "Social media refers to the digital platforms - including LinkedIn, Instagram, X (formerly Twitter), Facebook, YouTube, and TikTok - where people create, share, and engage with content publicly. Social media is simultaneously one of the most powerful tools for building a positive reputation and one of its most common sources of risk, because content shared there can spread rapidly and rank in search results for years."
           }
         ]
       },
@@ -831,7 +831,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A social network is the web of connected individuals, businesses, and profiles linked together through a social media platform. The size and quality of your social network influences how widely your content is seen and how quickly reputation events — positive or negative — can spread."
+            "text": "A social network is the web of connected individuals, businesses, and profiles linked together through a social media platform. The size and quality of your social network influences how widely your content is seen and how quickly reputation events - positive or negative - can spread."
           }
         ]
       },
@@ -840,7 +840,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A social networking site is a platform — such as LinkedIn, Facebook, or X — that allows users to create profiles, connect with others, and share content publicly. These platforms are indexed by search engines. Your profiles and any public content associated with your name on them can appear in search results and form part of your Brand SERP."
+            "text": "A social networking site is a platform - such as LinkedIn, Facebook, or X - that allows users to create profiles, connect with others, and share content publicly. These platforms are indexed by search engines. Your profiles and any public content associated with your name on them can appear in search results and form part of your Brand SERP."
           }
         ]
       },
@@ -849,7 +849,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Social network aggregation is the consolidation of content and activity from multiple social media platforms into a single interface. In ORM, aggregation tools allow teams to monitor a person's or brand's presence and reputation across all social platforms simultaneously — essential for detecting emerging threats quickly."
+            "text": "Social network aggregation is the consolidation of content and activity from multiple social media platforms into a single interface. In ORM, aggregation tools allow teams to monitor a person's or brand's presence and reputation across all social platforms simultaneously - essential for detecting emerging threats quickly."
           }
         ]
       },
@@ -858,11 +858,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A social media crisis is a rapid, high-visibility reputation event that is triggered or amplified by social media — a damaging post gaining traction, a coordinated pile-on, or a story spreading faster than any formal response can contain. Social media crises require immediate, strategic intervention to limit spread and begin reframing the narrative before the coverage hardens into a lasting search result."
+            "text": "A social media crisis is a rapid, high-visibility reputation event that is triggered or amplified by social media - a damaging post gaining traction, a coordinated pile-on, or a story spreading faster than any formal response can contain. Social media crises require immediate, strategic intervention to limit spread and begin reframing the narrative before the coverage hardens into a lasting search result."
           },
           {
             "t": "example",
-            "text": "In 2017, a video of a passenger being forcibly removed from a United Airlines flight went viral within hours. The resulting social media crisis cost the airline over $1 billion in market value within days — a textbook case of why rapid, coordinated crisis response is essential."
+            "text": "In 2017, a video of a passenger being forcibly removed from a United Airlines flight went viral within hours. The resulting social media crisis cost the airline over $1 billion in market value within days - a textbook case of why rapid, coordinated crisis response is essential."
           }
         ]
       },
@@ -884,7 +884,7 @@ export const ORM_GLOSSARY_SECTIONS = [
           },
           {
             "t": "example",
-            "text": "A C-suite executive working on a brand-building programme has a social strategist who plans her LinkedIn content schedule, advises on what to post and what to avoid, and monitors her mentions for emerging risk — keeping her social presence an asset rather than a liability."
+            "text": "A C-suite executive working on a brand-building programme has a social strategist who plans her LinkedIn content schedule, advises on what to post and what to avoid, and monitors her mentions for emerging risk - keeping her social presence an asset rather than a liability."
           }
         ]
       },
@@ -893,7 +893,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Social proof is the psychological principle that people form opinions and make decisions based on what others around them visibly believe or do. In reputation management, social proof is the publicly visible evidence — endorsements, testimonials, media features, and follower counts — that others regard you positively. Strong social proof reduces hesitation and builds trust before a first conversation."
+            "text": "Social proof is the psychological principle that people form opinions and make decisions based on what others around them visibly believe or do. In reputation management, social proof is the publicly visible evidence - endorsements, testimonials, media features, and follower counts - that others regard you positively. Strong social proof reduces hesitation and builds trust before a first conversation."
           },
           {
             "t": "example",
@@ -906,11 +906,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A sock puppet is a fake online account — created on social media, forums, or review platforms — used to post content under a false identity. Sock puppets are commonly used to inflate apparent support for a position, manufacture fake reviews, or spread negative content about a target while obscuring the real source. Platforms actively detect and remove them."
+            "text": "A sock puppet is a fake online account - created on social media, forums, or review platforms - used to post content under a false identity. Sock puppets are commonly used to inflate apparent support for a position, manufacture fake reviews, or spread negative content about a target while obscuring the real source. Platforms actively detect and remove them."
           },
           {
             "t": "example",
-            "text": "A disgruntled ex-employee creates five different accounts on a professional forum and uses each to post separate critical comments about their former employer — creating the false impression of widespread independent criticism."
+            "text": "A disgruntled ex-employee creates five different accounts on a professional forum and uses each to post separate critical comments about their former employer - creating the false impression of widespread independent criticism."
           }
         ]
       },
@@ -919,11 +919,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A concern troll is someone who engages in a conversation or community while appearing to be genuinely helpful or worried — but whose underlying intent is to sow doubt, undermine confidence, or spread damaging suggestions. In reputation management, concern trolling is particularly insidious because it is harder to dismiss than overt criticism."
+            "text": "A concern troll is someone who engages in a conversation or community while appearing to be genuinely helpful or worried - but whose underlying intent is to sow doubt, undermine confidence, or spread damaging suggestions. In reputation management, concern trolling is particularly insidious because it is harder to dismiss than overt criticism."
           },
           {
             "t": "example",
-            "text": "A competitor leaves comments on a consultant's LinkedIn posts saying things like 'I hope your clients know about the issues I've been hearing about' — without ever specifying what those issues are. The implication of wrongdoing is the intended damage."
+            "text": "A competitor leaves comments on a consultant's LinkedIn posts saying things like 'I hope your clients know about the issues I've been hearing about' - without ever specifying what those issues are. The implication of wrongdoing is the intended damage."
           }
         ]
       },
@@ -932,7 +932,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A troll is someone who deliberately posts inflammatory, provocative, or false content online with the primary goal of causing distress, generating conflict, or damaging a reputation. Trolls rely on engagement — every public reaction amplifies their reach. In ORM, knowing when to respond publicly, when to address privately, and when to ignore entirely is a critical skill."
+            "text": "A troll is someone who deliberately posts inflammatory, provocative, or false content online with the primary goal of causing distress, generating conflict, or damaging a reputation. Trolls rely on engagement - every public reaction amplifies their reach. In ORM, knowing when to respond publicly, when to address privately, and when to ignore entirely is a critical skill."
           },
           {
             "t": "example",
@@ -945,7 +945,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A hate site is a website created with the specific purpose of publishing false, misleading, or abusive content targeting a particular individual or brand. Hate sites are engineered to rank for the target's name in search results and can cause sustained reputational damage. They are typically addressed through suppression — and, where content is provably false or unlawful, through legal channels."
+            "text": "A hate site is a website created with the specific purpose of publishing false, misleading, or abusive content targeting a particular individual or brand. Hate sites are engineered to rank for the target's name in search results and can cause sustained reputational damage. They are typically addressed through suppression - and, where content is provably false or unlawful, through legal channels."
           }
         ]
       },
@@ -954,7 +954,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A faceplant — in reputation terms — is when someone causes avoidable damage to their own reputation by responding emotionally, disproportionately, or carelessly to something online. The original incident may be minor; the reaction becomes the story."
+            "text": "A faceplant - in reputation terms - is when someone causes avoidable damage to their own reputation by responding emotionally, disproportionately, or carelessly to something online. The original incident may be minor; the reaction becomes the story."
           },
           {
             "t": "example",
@@ -967,7 +967,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "EdgeRank was Facebook's original algorithm for deciding which content appears in a user's news feed, based on three factors: affinity (how close you are to the poster), weight (the type of content), and recency. While Facebook's ranking system has since evolved into a more complex AI-based model, EdgeRank introduced the concept that social platform algorithms — not chronology — determine what gets seen. In reputation management, understanding platform algorithms helps ensure that positive content reaches audiences effectively."
+            "text": "EdgeRank was Facebook's original algorithm for deciding which content appears in a user's news feed, based on three factors: affinity (how close you are to the poster), weight (the type of content), and recency. While Facebook's ranking system has since evolved into a more complex AI-based model, EdgeRank introduced the concept that social platform algorithms - not chronology - determine what gets seen. In reputation management, understanding platform algorithms helps ensure that positive content reaches audiences effectively."
           }
         ]
       },
@@ -976,7 +976,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Social CRM is the use of social media data and platforms to manage and develop relationships with clients and customers. In ORM, social CRM helps track how conversations about a brand are evolving across social networks — enabling more responsive, reputation-aware engagement with the audiences that matter most."
+            "text": "Social CRM is the use of social media data and platforms to manage and develop relationships with clients and customers. In ORM, social CRM helps track how conversations about a brand are evolving across social networks - enabling more responsive, reputation-aware engagement with the audiences that matter most."
           }
         ]
       }
@@ -986,14 +986,14 @@ export const ORM_GLOSSARY_SECTIONS = [
     "id": "category-08",
     "label": "08. Review & Trust Terms",
     "title": "Review & Trust Terms",
-    "description": "Reviews and trust signals are central to how professional reputation is built and damaged online — particularly in high-trust industries where decisions depend heavily on credibility.",
+    "description": "Reviews and trust signals are central to how professional reputation is built and damaged online - particularly in high-trust industries where decisions depend heavily on credibility.",
     "items": [
       {
         "term": "What is Review Management",
         "blocks": [
           {
             "t": "p",
-            "text": "Review management is the process of monitoring, responding to, and strategically influencing the reviews that appear about a person or business across public platforms. Effective review management means responding professionally to all feedback — including criticism — ensuring that the overall picture of reviews visible online reflects the quality of work being done."
+            "text": "Review management is the process of monitoring, responding to, and strategically influencing the reviews that appear about a person or business across public platforms. Effective review management means responding professionally to all feedback - including criticism - ensuring that the overall picture of reviews visible online reflects the quality of work being done."
           }
         ]
       },
@@ -1002,7 +1002,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Review generation is the active, legitimate practice of encouraging satisfied clients or customers to share their experiences publicly — on platforms where those reviews will be seen by future prospects. It builds social proof, strengthens credibility in search results, and ensures that positive experiences are represented online, not just negative ones."
+            "text": "Review generation is the active, legitimate practice of encouraging satisfied clients or customers to share their experiences publicly - on platforms where those reviews will be seen by future prospects. It builds social proof, strengthens credibility in search results, and ensures that positive experiences are represented online, not just negative ones."
           },
           {
             "t": "example",
@@ -1015,7 +1015,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A review site is a platform where members of the public can publicly rate and review a person, business, or service. Review sites — such as Trustpilot, Yelp, Google Reviews, Avvo (for lawyers), and Healthgrades (for doctors) — are indexed by search engines and often rank on the first page of results for a brand name search, making their content highly visible to anyone researching you."
+            "text": "A review site is a platform where members of the public can publicly rate and review a person, business, or service. Review sites - such as Trustpilot, Yelp, Google Reviews, Avvo (for lawyers), and Healthgrades (for doctors) - are indexed by search engines and often rank on the first page of results for a brand name search, making their content highly visible to anyone researching you."
           }
         ]
       },
@@ -1024,7 +1024,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A negative review is a publicly posted critical assessment of a service, professional, or business. In ORM, the primary concern is visibility: a negative review that ranks on page one for your name reaches every future client, partner, or employer who searches for you. Addressing it does not always mean removing it — it means ensuring it is not the dominant impression."
+            "text": "A negative review is a publicly posted critical assessment of a service, professional, or business. In ORM, the primary concern is visibility: a negative review that ranks on page one for your name reaches every future client, partner, or employer who searches for you. Addressing it does not always mean removing it - it means ensuring it is not the dominant impression."
           }
         ]
       },
@@ -1033,7 +1033,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Authenticity, in online reputation, refers to the genuine and honest quality of a person's or brand's presence — using accurate content, transparent communication, and legitimate practices. Authentic content builds durable credibility. Manufactured or misleading content may produce short-term gains but undermines long-term trust."
+            "text": "Authenticity, in online reputation, refers to the genuine and honest quality of a person's or brand's presence - using accurate content, transparent communication, and legitimate practices. Authentic content builds durable credibility. Manufactured or misleading content may produce short-term gains but undermines long-term trust."
           }
         ]
       },
@@ -1042,7 +1042,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "An influencer is a person who has built a substantial, engaged online following and has the ability to shape the opinions and behaviour of their audience. In reputation management, an influencer's mention — positive or negative — can have an outsized and lasting impact on how a brand is perceived, because it carries the weight of trusted recommendation to a large audience."
+            "text": "An influencer is a person who has built a substantial, engaged online following and has the ability to shape the opinions and behaviour of their audience. In reputation management, an influencer's mention - positive or negative - can have an outsized and lasting impact on how a brand is perceived, because it carries the weight of trusted recommendation to a large audience."
           },
           {
             "t": "example",
@@ -1055,7 +1055,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "An influence score is a metric that quantifies the reach, authority, and credibility of an individual's online presence — how many people they can reach, how trusted their voice is within a given community, and how likely their content is to drive real-world opinion or behaviour."
+            "text": "An influence score is a metric that quantifies the reach, authority, and credibility of an individual's online presence - how many people they can reach, how trusted their voice is within a given community, and how likely their content is to drive real-world opinion or behaviour."
           }
         ]
       },
@@ -1064,7 +1064,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Influencer proximity scoring assesses how closely aligned a specific influencer is with a brand's values, audience, and positioning. In ORM, proximity scoring helps identify which influencers represent appropriate associations for a brand — and which ones, despite their reach, introduce reputational risks that outweigh potential benefits."
+            "text": "Influencer proximity scoring assesses how closely aligned a specific influencer is with a brand's values, audience, and positioning. In ORM, proximity scoring helps identify which influencers represent appropriate associations for a brand - and which ones, despite their reach, introduce reputational risks that outweigh potential benefits."
           }
         ]
       },
@@ -1073,7 +1073,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Transparency in reputation management means conducting yourself and your ORM programme honestly — using accurate content, genuine practices, and open communication rather than manipulation or fabrication. It is both an ethical requirement and a strategic one: transparent practices build durable credibility that cannot be undermined by a competitor pointing to fake reviews or manufactured content."
+            "text": "Transparency in reputation management means conducting yourself and your ORM programme honestly - using accurate content, genuine practices, and open communication rather than manipulation or fabrication. It is both an ethical requirement and a strategic one: transparent practices build durable credibility that cannot be undermined by a competitor pointing to fake reviews or manufactured content."
           }
         ]
       },
@@ -1082,11 +1082,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A truth remix is content that takes factual information and reframes or selectively presents it to create a misleading but technically defensible narrative. It cannot be simply dismissed as false — which makes it one of the hardest forms of damaging content to address. The impression created is misleading even though no single statement in it may be outright untrue."
+            "text": "A truth remix is content that takes factual information and reframes or selectively presents it to create a misleading but technically defensible narrative. It cannot be simply dismissed as false - which makes it one of the hardest forms of damaging content to address. The impression created is misleading even though no single statement in it may be outright untrue."
           },
           {
             "t": "example",
-            "text": "An article accurately reports that a business owner 'faced a lawsuit in 2021' — without mentioning that the case was dismissed within weeks with no finding against the owner. The selective fact creates a damaging implication the full truth does not support."
+            "text": "An article accurately reports that a business owner 'faced a lawsuit in 2021' - without mentioning that the case was dismissed within weeks with no finding against the owner. The selective fact creates a damaging implication the full truth does not support."
           }
         ]
       },
@@ -1095,7 +1095,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Your namespace is the unique identifier for your name or brand across the internet — the username, domain, and profile name that distinguishes you from others. Claiming your namespace consistently across all relevant platforms — social media, directories, professional networks — prevents others from occupying it and ensures that your controlled content dominates your Brand SERP."
+            "text": "Your namespace is the unique identifier for your name or brand across the internet - the username, domain, and profile name that distinguishes you from others. Claiming your namespace consistently across all relevant platforms - social media, directories, professional networks - prevents others from occupying it and ensures that your controlled content dominates your Brand SERP."
           }
         ]
       }
@@ -1112,11 +1112,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A reputation score is a composite metric that aggregates multiple signals — search result composition, sentiment, visible positive versus negative content, and mention volume — into a single number representing the overall health of a person's or brand's online reputation. It is used to track progress over time and measure whether an ORM programme is achieving its objectives."
+            "text": "A reputation score is a composite metric that aggregates multiple signals - search result composition, sentiment, visible positive versus negative content, and mention volume - into a single number representing the overall health of a person's or brand's online reputation. It is used to track progress over time and measure whether an ORM programme is achieving its objectives."
           },
           {
             "t": "example",
-            "text": "At the start of a programme, a client's reputation score is 42 out of 100 — reflecting three negative page-one results, low sentiment across review platforms, and limited positive coverage. Twelve months later, the score has risen to 78, with negative results pushed to page two and authoritative positive content occupying the top five positions."
+            "text": "At the start of a programme, a client's reputation score is 42 out of 100 - reflecting three negative page-one results, low sentiment across review platforms, and limited positive coverage. Twelve months later, the score has risen to 78, with negative results pushed to page two and authoritative positive content occupying the top five positions."
           }
         ]
       },
@@ -1125,7 +1125,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Net Promoter Score measures how likely a person's clients or customers are to recommend them to others — on a scale of one to ten. In ORM, NPS reflects the real-world strength of a reputation: high NPS means genuine advocates exist, and genuine advocacy is both more credible and more durable than manufactured content."
+            "text": "Net Promoter Score measures how likely a person's clients or customers are to recommend them to others - on a scale of one to ten. In ORM, NPS reflects the real-world strength of a reputation: high NPS means genuine advocates exist, and genuine advocacy is both more credible and more durable than manufactured content."
           }
         ]
       },
@@ -1134,7 +1134,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Brand equity is the long-term commercial and reputational value accumulated around a name or brand — the trust, recognition, and goodwill that makes people choose you over equally qualified alternatives. It is built over years through consistent performance and a well-managed online presence. A reputation crisis erodes brand equity quickly; a sustained ORM programme rebuilds and protects it."
+            "text": "Brand equity is the long-term commercial and reputational value accumulated around a name or brand - the trust, recognition, and goodwill that makes people choose you over equally qualified alternatives. It is built over years through consistent performance and a well-managed online presence. A reputation crisis erodes brand equity quickly; a sustained ORM programme rebuilds and protects it."
           }
         ]
       },
@@ -1143,7 +1143,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Share of voice in ORM is the proportion of the online conversation about a person, brand, or topic that is positive and controlled by the subject — relative to negative content and competitor noise. A strong ORM programme progressively increases share of voice, ensuring that more of what is said and found about a person online aligns with their intended positioning."
+            "text": "Share of voice in ORM is the proportion of the online conversation about a person, brand, or topic that is positive and controlled by the subject - relative to negative content and competitor noise. A strong ORM programme progressively increases share of voice, ensuring that more of what is said and found about a person online aligns with their intended positioning."
           }
         ]
       },
@@ -1152,11 +1152,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "AI visibility measures how often and how positively a name or brand appears in responses generated by AI platforms — ChatGPT, Google AI Overviews, Perplexity, and similar tools. As AI-mediated search becomes the primary way many people discover and research professionals and businesses, AI visibility is increasingly as important as traditional search ranking."
+            "text": "AI visibility measures how often and how positively a name or brand appears in responses generated by AI platforms - ChatGPT, Google AI Overviews, Perplexity, and similar tools. As AI-mediated search becomes the primary way many people discover and research professionals and businesses, AI visibility is increasingly as important as traditional search ranking."
           },
           {
             "t": "example",
-            "text": "An executive searches 'who are the leading M&A lawyers in Chicago' in Perplexity. Two of her competitors appear in the AI-generated answer. She does not. Her AI visibility for that query is zero — and it is costing her."
+            "text": "An executive searches 'who are the leading M&A lawyers in Chicago' in Perplexity. Two of her competitors appear in the AI-generated answer. She does not. Her AI visibility for that query is zero - and it is costing her."
           }
         ]
       },
@@ -1165,7 +1165,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Suppression rate tracks how successfully negative search results are being displaced over the course of an ORM programme. It measures the position movement of specific harmful URLs from page one downward — providing an objective, trackable measure of whether the programme is working."
+            "text": "Suppression rate tracks how successfully negative search results are being displaced over the course of an ORM programme. It measures the position movement of specific harmful URLs from page one downward - providing an objective, trackable measure of whether the programme is working."
           }
         ]
       }
@@ -1175,18 +1175,18 @@ export const ORM_GLOSSARY_SECTIONS = [
     "id": "category-10",
     "label": "10. AI & Emerging Reputation Terms",
     "title": "AI & Emerging Reputation Terms",
-    "description": "AI-powered search has introduced a new and rapidly evolving layer of complexity in reputation management. These terms define the frontier of ORM in 2025 and beyond — terms every professional navigating this landscape should understand.",
+    "description": "AI-powered search has introduced a new and rapidly evolving layer of complexity in reputation management. These terms define the frontier of ORM in 2025 and beyond - terms every professional navigating this landscape should understand.",
     "items": [
       {
         "term": "What is Generative Engine Optimisation (GEO)",
         "blocks": [
           {
             "t": "p",
-            "text": "Generative Engine Optimisation is the practice of structuring, validating, and distributing content so that AI-powered platforms — ChatGPT, Google AI Overviews, Perplexity, and Claude — reference it as a credible source in their generated answers. Where SEO is about ranking in a list of links, GEO is about being cited within the answer itself. For professionals and brands, it is a critical and rapidly growing dimension of reputation management."
+            "text": "Generative Engine Optimisation is the practice of structuring, validating, and distributing content so that AI-powered platforms - ChatGPT, Google AI Overviews, Perplexity, and Claude - reference it as a credible source in their generated answers. Where SEO is about ranking in a list of links, GEO is about being cited within the answer itself. For professionals and brands, it is a critical and rapidly growing dimension of reputation management."
           },
           {
             "t": "example",
-            "text": "A wealth management firm ensures its published content is structured, well-cited, and distributed across platforms that AI tools trust. When a potential client asks ChatGPT to recommend wealth managers in their city, the firm appears in the response — not because of their website's SEO, but because their content has earned citation authority with the AI."
+            "text": "A wealth management firm ensures its published content is structured, well-cited, and distributed across platforms that AI tools trust. When a potential client asks ChatGPT to recommend wealth managers in their city, the firm appears in the response - not because of their website's SEO, but because their content has earned citation authority with the AI."
           }
         ]
       },
@@ -1195,11 +1195,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "An AI Overview is the AI-generated answer that appears above traditional search results in Google for eligible queries — powered by Google's Gemini model, synthesising information from multiple sources into a single direct response. When someone searches a person's name and an AI Overview appears, its content can shape perception more powerfully and instantly than any individual search result below it."
+            "text": "An AI Overview is the AI-generated answer that appears above traditional search results in Google for eligible queries - powered by Google's Gemini model, synthesising information from multiple sources into a single direct response. When someone searches a person's name and an AI Overview appears, its content can shape perception more powerfully and instantly than any individual search result below it."
           },
           {
             "t": "example",
-            "text": "A search for a consultant's name in Google produces an AI Overview that includes a reference to an outdated controversy. The consultant has not seen this before — and neither, until now, has she thought about managing what AI says about her rather than just what individual pages say."
+            "text": "A search for a consultant's name in Google produces an AI Overview that includes a reference to an outdated controversy. The consultant has not seen this before - and neither, until now, has she thought about managing what AI says about her rather than just what individual pages say."
           }
         ]
       },
@@ -1208,7 +1208,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Answer Engine Optimisation is the practice of ensuring that your content appears as the direct answer — not just a ranked result — when users ask questions in AI-powered search tools. As search behaviour shifts toward conversational questions, AEO is becoming a core element of both SEO and ORM strategy."
+            "text": "Answer Engine Optimisation is the practice of ensuring that your content appears as the direct answer - not just a ranked result - when users ask questions in AI-powered search tools. As search behaviour shifts toward conversational questions, AEO is becoming a core element of both SEO and ORM strategy."
           }
         ]
       },
@@ -1217,7 +1217,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "LLMO is the practice of influencing how large language models — the AI systems behind ChatGPT, Google Gemini, and Claude — understand, recall, and describe your brand or name. It involves ensuring that the content those models draw from is accurate, authoritative, and reflective of the truth — so that AI-generated answers about you are consistently correct and positive."
+            "text": "LLMO is the practice of influencing how large language models - the AI systems behind ChatGPT, Google Gemini, and Claude - understand, recall, and describe your brand or name. It involves ensuring that the content those models draw from is accurate, authoritative, and reflective of the truth - so that AI-generated answers about you are consistently correct and positive."
           }
         ]
       },
@@ -1226,11 +1226,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Entity optimisation is the process of ensuring that search engines and AI systems understand exactly who you are — your name, role, organisation, expertise, and context — without ambiguity or confusion with others. A well-optimised entity profile allows AI systems to mention, recommend, and cite you accurately and confidently across platforms."
+            "text": "Entity optimisation is the process of ensuring that search engines and AI systems understand exactly who you are - your name, role, organisation, expertise, and context - without ambiguity or confusion with others. A well-optimised entity profile allows AI systems to mention, recommend, and cite you accurately and confidently across platforms."
           },
           {
             "t": "example",
-            "text": "There are dozens of people named 'David Miller' in finance. Entity optimisation for a specific David Miller — financial adviser in Chicago, author of two published articles, LinkedIn profile with 4,000 connections — ensures that when AI tools reference him, they are accurately referring to him, not someone else with the same name."
+            "text": "There are dozens of people named 'David Miller' in finance. Entity optimisation for a specific David Miller - financial adviser in Chicago, author of two published articles, LinkedIn profile with 4,000 connections - ensures that when AI tools reference him, they are accurately referring to him, not someone else with the same name."
           }
         ]
       },
@@ -1239,7 +1239,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Google's Knowledge Graph is a vast database of factual information about people, places, organisations, and concepts that Google uses to understand the world and enhance its search results. When your entity is well-represented in the Knowledge Graph — because your information is consistent, authoritative, and cross-referenced across credible sources — you are more likely to appear accurately in knowledge panels, AI Overviews, and AI-generated responses."
+            "text": "Google's Knowledge Graph is a vast database of factual information about people, places, organisations, and concepts that Google uses to understand the world and enhance its search results. When your entity is well-represented in the Knowledge Graph - because your information is consistent, authoritative, and cross-referenced across credible sources - you are more likely to appear accurately in knowledge panels, AI Overviews, and AI-generated responses."
           }
         ]
       },
@@ -1248,11 +1248,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A knowledge panel is the information box that appears on the right side of Google search results when someone searches a well-known person, organisation, or brand. It displays key facts — name, role, organisation, published works, social profiles — pulled from authoritative sources. For executives, public figures, and established professionals, a knowledge panel is a significant and highly visible part of their Brand SERP."
+            "text": "A knowledge panel is the information box that appears on the right side of Google search results when someone searches a well-known person, organisation, or brand. It displays key facts - name, role, organisation, published works, social profiles - pulled from authoritative sources. For executives, public figures, and established professionals, a knowledge panel is a significant and highly visible part of their Brand SERP."
           },
           {
             "t": "example",
-            "text": "Search 'Oprah Winfrey' and a knowledge panel appears on the right of the results, showing her photo, birthdate, net worth, productions, and social profiles. A business leader who has built sufficient entity authority may earn a similar panel — which then becomes a key element of their managed search presence."
+            "text": "Search 'Oprah Winfrey' and a knowledge panel appears on the right of the results, showing her photo, birthdate, net worth, productions, and social profiles. A business leader who has built sufficient entity authority may earn a similar panel - which then becomes a key element of their managed search presence."
           }
         ]
       },
@@ -1270,7 +1270,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "AI sentiment in search refers to the emotional tone — positive, negative, or neutral — of the way AI platforms describe a person or brand in their generated responses. A person can have strong, positive traditional search results and still have negative AI sentiment — because AI tools draw from a different and broader set of sources. Monitoring and managing AI sentiment is an emerging and important dimension of modern ORM."
+            "text": "AI sentiment in search refers to the emotional tone - positive, negative, or neutral - of the way AI platforms describe a person or brand in their generated responses. A person can have strong, positive traditional search results and still have negative AI sentiment - because AI tools draw from a different and broader set of sources. Monitoring and managing AI sentiment is an emerging and important dimension of modern ORM."
           }
         ]
       },
@@ -1279,7 +1279,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Retrieval-Augmented Generation is the process by which AI systems search external sources in real time to supplement their responses with current, sourced information — rather than relying solely on what they were trained on. RAG is why what exists about you online today directly shapes what AI tools say about you tomorrow. Managing your online content at a foundational level is therefore increasingly important for controlling AI-generated descriptions."
+            "text": "Retrieval-Augmented Generation is the process by which AI systems search external sources in real time to supplement their responses with current, sourced information - rather than relying solely on what they were trained on. RAG is why what exists about you online today directly shapes what AI tools say about you tomorrow. Managing your online content at a foundational level is therefore increasingly important for controlling AI-generated descriptions."
           }
         ]
       },
@@ -1288,7 +1288,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "LLM visibility describes how frequently and how positively a name or brand appears in the responses generated by large language model tools — ChatGPT, Perplexity, Google Gemini, and others. High LLM visibility means that when users ask AI tools about your industry or field, your name appears as a credible reference. It is an emerging and increasingly important metric in advanced reputation programmes."
+            "text": "LLM visibility describes how frequently and how positively a name or brand appears in the responses generated by large language model tools - ChatGPT, Perplexity, Google Gemini, and others. High LLM visibility means that when users ask AI tools about your industry or field, your name appears as a credible reference. It is an emerging and increasingly important metric in advanced reputation programmes."
           }
         ]
       },
@@ -1297,7 +1297,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "Sentiment drift is the gradual shift in how AI systems describe a person or brand over time — typically caused by new negative content being indexed and incorporated into the sources AI tools draw from. A brand that is well-regarded in AI responses today can experience sentiment drift if damaging content accumulates unchecked. Monitoring and correcting drift is part of AI-era reputation management."
+            "text": "Sentiment drift is the gradual shift in how AI systems describe a person or brand over time - typically caused by new negative content being indexed and incorporated into the sources AI tools draw from. A brand that is well-regarded in AI responses today can experience sentiment drift if damaging content accumulates unchecked. Monitoring and correcting drift is part of AI-era reputation management."
           }
         ]
       },
@@ -1306,11 +1306,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "An AI reputation scan is an audit of how a person or brand is described and perceived across major AI platforms — what ChatGPT, Perplexity, Google AI Overviews, and similar tools say when asked about them directly. It is an increasingly essential complement to a traditional search audit, because AI-generated descriptions can reach and influence audiences completely independently of traditional search rankings."
+            "text": "An AI reputation scan is an audit of how a person or brand is described and perceived across major AI platforms - what ChatGPT, Perplexity, Google AI Overviews, and similar tools say when asked about them directly. It is an increasingly essential complement to a traditional search audit, because AI-generated descriptions can reach and influence audiences completely independently of traditional search rankings."
           },
           {
             "t": "example",
-            "text": "Reputation360's AI Reputation Scan prompts multiple AI platforms with variations of a client's name and field — 'Who is [Name]?', 'What do people say about [Name]?', 'Is [Name] reputable?' — and documents the responses. The results often reveal a very different picture from what traditional search monitoring shows."
+            "text": "Reputation360's AI Reputation Scan prompts multiple AI platforms with variations of a client's name and field - 'Who is [Name]?', 'What do people say about [Name]?', 'Is [Name] reputable?' - and documents the responses. The results often reveal a very different picture from what traditional search monitoring shows."
           }
         ]
       },
@@ -1319,7 +1319,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "App Store Optimisation is the practice of improving how a brand's app appears within app stores — its title, description, keywords, ratings, and reviews. In ORM, ASO matters because app store listings and ratings are indexed by search engines and can appear prominently in Brand SERP results. A poorly rated app or a damaging app store review section can undermine an otherwise strong search presence."
+            "text": "App Store Optimisation is the practice of improving how a brand's app appears within app stores - its title, description, keywords, ratings, and reviews. In ORM, ASO matters because app store listings and ratings are indexed by search engines and can appear prominently in Brand SERP results. A poorly rated app or a damaging app store review section can undermine an otherwise strong search presence."
           }
         ]
       },
@@ -1328,7 +1328,7 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "An affiliate link is a trackable URL used in referral and advertising programmes — containing a unique identifier that credits the affiliate when a sale or action results from their referral. In ORM, affiliate-linked content — particularly paid reviews or sponsored articles — can appear in search results for a brand's name and must be distinguished from genuine editorial coverage in any audit of a brand's search presence."
+            "text": "An affiliate link is a trackable URL used in referral and advertising programmes - containing a unique identifier that credits the affiliate when a sale or action results from their referral. In ORM, affiliate-linked content - particularly paid reviews or sponsored articles - can appear in search results for a brand's name and must be distinguished from genuine editorial coverage in any audit of a brand's search presence."
           }
         ]
       },
@@ -1337,11 +1337,11 @@ export const ORM_GLOSSARY_SECTIONS = [
         "blocks": [
           {
             "t": "p",
-            "text": "A zombie account is an online profile or social media account that has been abandoned by its original owner — but remains publicly visible, indexed by search engines, and potentially able to spread outdated or inaccurate information about a person or brand. In some cases, zombie accounts are hijacked and controlled by third parties without the original owner's knowledge."
+            "text": "A zombie account is an online profile or social media account that has been abandoned by its original owner - but remains publicly visible, indexed by search engines, and potentially able to spread outdated or inaccurate information about a person or brand. In some cases, zombie accounts are hijacked and controlled by third parties without the original owner's knowledge."
           },
           {
             "t": "example",
-            "text": "A business owner shut down an old Twitter account in 2018 but never formally deleted it. The account still appears on page one of her Brand SERP, displaying outdated branding, an old role title, and no activity — creating confusion for anyone researching her."
+            "text": "A business owner shut down an old Twitter account in 2018 but never formally deleted it. The account still appears on page one of her Brand SERP, displaying outdated branding, an old role title, and no activity - creating confusion for anyone researching her."
           }
         ]
       }

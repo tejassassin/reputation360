@@ -617,7 +617,7 @@ function RealEstateCareersSection() {
   const careerPillars = [
     {
       title: "For New Agents: Building Credibility from Zero",
-      text: "No track record yet? Your digital presence is your proof of professionalism. Without it, potential clients find you — and find nothing worth trusting.",
+      text: "No track record yet? Your digital presence is your proof of professionalism. Without it, potential clients find you - and find nothing worth trusting.",
       Icon: Award,
       accentColor: "border-t-[#79df86]",
       iconBg: "bg-emerald-50 text-emerald-600 border-emerald-100/50",
@@ -744,7 +744,7 @@ function RealEstateChecklistSection() {
           Quick Reputation Checklist: Where Do You Stand?
         </h2>
         <p className="text-[14px] leading-relaxed text-[#5d6c80] md:text-[15px] md:leading-relaxed">
-          Before reaching out to us — or even if you decide not to — take five minutes to run this assessment on your digital footprint:
+          Before reaching out to us - or even if you decide not to - take five minutes to run this assessment on your digital footprint:
         </p>
       </div>
 
@@ -811,7 +811,7 @@ function RealEstateChecklistSection() {
                   Moment of Truth
                 </p>
                 <p className="text-[15px] md:text-[16px] text-white font-medium leading-relaxed">
-                  Be completely honest. If a potential client or seller searches your name and finds a mix of inactive profiles, outdated listings, or negative results—would they feel confident signing with you, or would they keep looking?
+                  Be completely honest. If a potential client or seller searches your name and finds a mix of inactive profiles, outdated listings, or negative results-would they feel confident signing with you, or would they keep looking?
                 </p>
               </div>
             </div>

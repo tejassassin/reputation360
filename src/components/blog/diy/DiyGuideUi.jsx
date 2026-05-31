@@ -97,7 +97,7 @@ export function DiyAnswerBox({ label, verdict, verdictLabel, children }) {
 }
 
 /**
- * Editorial lead-in — highlighted prose, not styled as a quotation.
+ * Editorial lead-in - highlighted prose, not styled as a quotation.
  * @param {{ children: import('react').ReactNode; className?: string; label?: string; variant?: 'accent' | 'panel' }} props
  */
 export function DiyLeadHighlight({ children, className, label, variant = "accent" }) {

@@ -35,7 +35,7 @@ export const SEO = {
     title: "Reputation Building Services for Founders, Executives & Brands | Reputation360",
     path: "/services/reputation-building-services",
     description:
-      "When online reputation management is not enough on its own, Reputation360 offers specialized services to go deeper — personal branding, LinkedIn authority, employer branding, thought leadership, social media reputation, and brand strategy.",
+      "When online reputation management is not enough on its own, Reputation360 offers specialized services to go deeper - personal branding, LinkedIn authority, employer branding, thought leadership, social media reputation, and brand strategy.",
   },
   whoWeServe: {
     title: "Who We Serve | Reputation360",
@@ -139,7 +139,7 @@ export const SEO = {
     title: "Online Reputation Management Glossary: 120+ ORM Terms Explained | Reputation360",
     path: ORM_GLOSSARY_PATH,
     description:
-      "The complete glossary of Online Reputation Management terms — plain-English definitions for every ORM concept, from Search Suppression and Brand SERP to GEO, AI Overviews, and Knowledge Panel Management.",
+      "The complete glossary of Online Reputation Management terms - plain-English definitions for every ORM concept, from Search Suppression and Brand SERP to GEO, AI Overviews, and Knowledge Panel Management.",
   },
   financialAdvisors: {
     title: "Reputation Management for Financial Advisors | Reputation360",

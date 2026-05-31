@@ -738,7 +738,7 @@ export function RbsSpecializedServicesSection() {
                 Our Specialized Services
               </h2>
               <p className="mt-4 max-w-none text-[14px] leading-[1.7] text-[#93A8C4] md:text-[15px] lg:whitespace-nowrap">
-                ORM is where most clients begin. These services are what you add when you need to go deeper — into one specific layer of how you're perceived online.
+                ORM is where most clients begin. These services are what you add when you need to go deeper - into one specific layer of how you're perceived online.
               </p>
             </RbsReveal>
           </div>
@@ -1050,7 +1050,7 @@ export function RbsAssetsSection() {
       id="assets"
       title="Reputation Assets We Build"
       lead={[
-        "These services produce tangible, lasting assets — not just strategies. Depending on the service, Reputation360 can help create or improve:",
+        "These services produce tangible, lasting assets - not just strategies. Depending on the service, Reputation360 can help create or improve:",
         "Every asset is built with one question in mind: will this make the right people trust you more?",
       ]}
       tone="mint"
@@ -1112,7 +1112,7 @@ export function RbsAssetsSection() {
                   That distinction matters. An article that reaches a million people and leaves them confused about who you are is not a reputation asset. A LinkedIn post that earns 50 responses from the right investors, clients, or partners is.
                 </p>
                 <p>
-                  Reputation360 measures success differently. We ask whether the digital assets we create are improving how the right audiences understand, evaluate, and trust you — not whether they generated traffic.
+                  Reputation360 measures success differently. We ask whether the digital assets we create are improving how the right audiences understand, evaluate, and trust you - not whether they generated traffic.
                 </p>
                 <p>Every piece of content, every profile, every campaign, and every recommendation is built around:</p>
               </div>
