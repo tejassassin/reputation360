@@ -316,7 +316,7 @@ export const REPUTATION360_REAL_ESTATE_STEPS = [
   },
   {
     step: 5,
-    headline: "Step 5 - Displacement & Maintenance (Months 3-12)",
+    headline: "Step 5 - Reputation Displacement & Maintenance (Months 3–12)",
     body: "As your positive properties gain authority, they begin outranking the negative content. We monitor rankings weekly, adjust strategy as results move, and maintain the presence we have built so your search results keep working in your favor long after primary displacement is complete.",
     Icon: RefreshCw,
   },
