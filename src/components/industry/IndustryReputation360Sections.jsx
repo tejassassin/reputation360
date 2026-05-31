@@ -51,7 +51,7 @@ export const REPUTATION360_FA_STEPS = [
 export const REPUTATION360_FINANCIAL_ADVISOR_STEPS = [
   {
     step: 1,
-    headline: "Step 1 - Complete Search Audit (Week 1)",
+    headline: "Step 1 - Complete Reputation Search Audit (Week 1)",
     body: "We run the same search your clients run. We map every result appearing for your name, your firm name, and common search combinations. We assess the strength of each negative entry and identify exactly what we are working with before any strategy is designed.",
     Icon: Map,
   },
@@ -63,19 +63,19 @@ export const REPUTATION360_FINANCIAL_ADVISOR_STEPS = [
   },
   {
     step: 3,
-    headline: "Step 3 - Content and Presence Building (Months 1-4)",
+    headline: "Step 3 - Reputation Content and Presence Building (Months 1-4)",
     body: "We build your authoritative digital footprint: LinkedIn profile optimization, a professional website or thought leadership hub, financial commentary and expert articles on high-authority platforms, and optimized profiles on financial directories. All of it built to rank for your name.",
     Icon: Layers,
   },
   {
     step: 4,
-    headline: "Step 4 - Ranking Displacement (Months 3-8)",
+    headline: "Step 4 - Search Ranking Displacement (Months 3-8)",
     body: "As your positive properties gain authority, they begin outranking the negative content. We monitor rankings weekly, adjust strategy as results move, and keep you informed of progress throughout.",
     Icon: BarChart3,
   },
   {
     step: 5,
-    headline: "Step 5 - Long-Term Maintenance (Months 8-12)",
+    headline: "Step 5 - Long-Term Reputation Maintenance (Months 8-12)",
     body: "Once negative content is displaced, we maintain the presence that replaced it - ensuring it holds position and continues working in your favor. A strong search presence, once built, becomes a permanent professional asset.",
     Icon: RefreshCw,
   },
@@ -326,6 +326,33 @@ export const REALISTIC_TIMELINE_PHASES = [
   {
     id: "weeks-1-4",
     window: "Weeks 1-4: Initial Reputation Audit and Setup",
+    body: "Audit complete. Strategy live. Initial content published and indexed.",
+    Icon: CalendarRange,
+  },
+  {
+    id: "months-2-4",
+    window: "Months 2-4: Early Reputation Movement",
+    body: "Measurable ranking movement. Positive properties gaining traction.",
+    Icon: TrendingUp,
+  },
+  {
+    id: "months-4-7",
+    window: "Months 4-7: Significant Reputation Shift",
+    body: "Primary negative results displaced for most cases.",
+    Icon: CheckCircle2,
+  },
+  {
+    id: "months-8-12",
+    window: "Months 8-12: Full Reputation Transformation",
+    body: "Substantial transformation complete. Negative content pushed well beyond visible pages.",
+    Icon: Sparkles,
+  },
+];
+
+export const REALISTIC_TIMELINE_FA_PHASES = [
+  {
+    id: "weeks-1-4",
+    window: "Weeks 1-4: Initial Audit and Campaign Setup",
     body: "Audit complete. Strategy live. Initial content published and indexed.",
     Icon: CalendarRange,
   },

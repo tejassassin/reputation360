@@ -5,6 +5,7 @@ import {
   IndustryWhatReputation360Section,
   IndustryRealisticTimelineSection,
   REPUTATION360_FINANCIAL_ADVISOR_STEPS,
+  REALISTIC_TIMELINE_FA_PHASES,
 } from "../components/industry/IndustryReputation360Sections";
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeeItInActionSection } from "../components/whoWeServe/SeeItInActionSection.jsx";
@@ -114,7 +115,7 @@ function FinancialAdvisorsProblemSection() {
       className="mt-12 scroll-mt-28 rounded-[24px] border border-[#d9e3ea] bg-white px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.07)] md:mt-16 md:px-9 md:py-11"
     >
       <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        The Problem Financial Professionals Face
+        The Reputation Problem Financial Professionals Face
       </h2>
 
       <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-start">
@@ -131,7 +132,7 @@ function FinancialAdvisorsProblemSection() {
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e8f0] pb-4">
         <h3 className="font-heading text-base font-semibold text-[#0f2e58] md:text-lg">
-          Where damaging content typically appears:
+          Where Damaging Reputation Content Typically Appears Online
         </h3>
       </div>
 
@@ -216,7 +217,7 @@ const ADVISOR_SCALE_METRICS = [
   {
     id: "hnw-research",
     figure: "87%",
-    blurb: "HNW investors research you before they wire",
+    blurb: "How HNW Investors Research Financial Advisors Before Investing",
     description:
       "87% of high-net-worth individuals research their financial advisor online before committing funds",
     Icon: UserSearch,
@@ -224,7 +225,7 @@ const ADVISOR_SCALE_METRICS = [
   {
     id: "disclosure-dropoff",
     figure: "74%",
-    blurb: "Walk away after a page-one disclosure",
+    blurb: "How Clients Walk Away After Seeing a Page-One Disclosure",
     description:
       "74% say they would not proceed with an advisor if they found a regulatory disclosure on the first page of results",
     Icon: FileWarning,
@@ -232,7 +233,7 @@ const ADVISOR_SCALE_METRICS = [
   {
     id: "conversion",
     figure: "3x",
-    blurb: "Strong presence, stronger close rate",
+    blurb: "How a Strong Reputation Increases Your Close Rate",
     description:
       "3x higher conversion from initial inquiry to onboarded client reported by advisors with a clean, authoritative online presence",
     Icon: TrendingUp,
@@ -240,7 +241,7 @@ const ADVISOR_SCALE_METRICS = [
   {
     id: "aum-leak",
     figure: "$500K-$2M+",
-    blurb: "Estimated annual loss from one bad result",
+    blurb: "Estimated Annual Revenue Loss from One Negative Search Result",
     description:
       "$500K-$2M+ estimated annual AUM loss from a single negative result on page one, depending on practice size",
     Icon: DollarSign,
@@ -363,21 +364,21 @@ function FinancialAdvisorsScaleSection() {
 const WHY_HARDER_PILLARS = [
   {
     id: "permanent",
-    label: "Permanent record",
+    label: "Permanent Record: Why Financial Disclosures Never Leave Google",
     hook: "Source material survives closure, payment, or time.",
     body: "Regulatory records are permanent. A FINRA disclosure or SEC order, once public, cannot be erased from the source. News articles covering proceedings do not disappear because a case was resolved or a penalty was paid.",
     Icon: Lock,
   },
   {
     id: "limited-response",
-    label: "Limited response",
+    label: "Limited Response: Why Financial Advisors Can't Respond Like Others",
     hook: "Public replies can trigger more regulatory exposure.",
     body: "You also cannot respond publicly to many complaints without risking further regulatory scrutiny. A single complaint can generate multiple pages of indexed content - and your options for direct response are severely limited.",
     Icon: ShieldAlert,
   },
   {
     id: "suppression",
-    label: "Suppression path",
+    label: "The Suppression Path: How We Push Down Financial Disclosure Results",
     hook: "Authority at scale is what moves rankings.",
     body: "This is why suppression is the most effective strategy available: building a stronger, more authoritative presence that displaces negative content from visible search results.",
     Icon: TrendingUp,
@@ -483,7 +484,7 @@ function FinancialAdvisorsFaqSection() {
       className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
     >
       <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        FAQs
+        Frequently Asked Questions About Financial Advisor Reputation Management
       </h2>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
       <div className="mt-8 max-w-4xl space-y-4">
@@ -563,8 +564,7 @@ function FinancialAdvisorsPage() {
         <section className="rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:px-4 md:py-7 grid gap-5 md:grid-cols-[1.03fr_0.97fr] items-start">
           <div className="max-w-[570px]">
             <h1 className="font-heading text-[34px] md:text-[40px] leading-[1.02] text-[#0f2e58] font-bold tracking-tight max-w-[520px]">
-              Your Clients Research You Before Every Meeting. What Are They
-              Finding?
+              Online Reputation Management for Financial Advisors — Control What Clients Find
             </h1>
             <p className="mt-5 text-[#4f5f75] text-[15px] md:text-[16px] leading-[1.5] max-w-[520px]">
               The wrong answer to that question costs more than you think.
@@ -701,6 +701,7 @@ function FinancialAdvisorsPage() {
         <IndustryRealisticTimelineSection
           sectionTitle="Financial Advisor Reputation Repair Timeline"
           sectionTitleTag="h2"
+          phases={REALISTIC_TIMELINE_FA_PHASES}
         />
 
         <SeeItInActionSection
