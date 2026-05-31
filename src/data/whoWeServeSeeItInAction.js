@@ -103,10 +103,6 @@ export const WHO_WE_SERVE_SEE_IT_IN_ACTION = {
         href: "/case-studies/consumer-electronics-product-crisis-recovery",
         label: "Consumer Electronics - Product Crisis Recovery",
       },
-      {
-        href: "/case-studies/startup-reputation-recovery-after-funding-controversy",
-        label: "Startup Reputation Recovery After Funding Controversy",
-      },
     ],
   },
   [AUDIENCE_PATH.individuals]: {

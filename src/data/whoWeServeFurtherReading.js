@@ -110,10 +110,6 @@ export const WHO_WE_SERVE_FURTHER_READING = {
         ),
         label: "Social Media Reputation Management: Multi-Platform Strategy",
       },
-      {
-        href: blogPostPath("roi-reputation-management-what-clients-see-reputation360"),
-        label: "The ROI of Reputation Management: What Our Clients See",
-      },
     ],
   },
   [AUDIENCE_PATH.individuals]: {
