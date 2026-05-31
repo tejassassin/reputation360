@@ -76,7 +76,7 @@ export function AboutRelatedContentBlock() {
         </section>
 
         <section
-          className="further-reading scroll-mt-28 border-t border-[#dce3ec]/80 pt-12 md:pt-14 lg:pt-16"
+          className="further-reading mt-24 md:mt-32 scroll-mt-28 border-t border-[#dce3ec]/80 pt-12 md:pt-14 lg:pt-16"
           aria-labelledby="about-further-reading-heading"
         >
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between md:gap-8">

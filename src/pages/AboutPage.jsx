@@ -638,7 +638,7 @@ function WhatDrivesUsSection() {
   return (
     <section
       id="what-drives-us"
-      className={`relative overflow-hidden ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+      className={`relative overflow-hidden pt-16 pb-0 md:pt-20 md:pb-0 ${aboutScrollTargetClass}`}
     >
       <div
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,#ffffff_0%,#f0fdf4_38%,#eff6ff_72%,#ffffff_100%)]"
@@ -1275,7 +1275,7 @@ function AboutPage() {
     <main className="relative flex-1 bg-[#f4f6fb] pt-28 text-slate-800 md:pt-32">
       <nav
         aria-label="Sections on this page"
-        className="sticky top-28 z-30 bg-[#070f1c]/88 shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_-1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-xl md:top-32"
+        className="sticky top-[68px] lg:top-[72px] z-30 bg-[#070f1c]/88 shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_-1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-xl"
       >
         <div className="relative mx-auto max-w-7xl px-3 py-2.5 pb-3 md:px-6 md:py-3 md:pb-3.5">
           <ul className="flex gap-1.5 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] md:flex-wrap md:justify-center md:gap-2 md:overflow-x-visible [&::-webkit-scrollbar]:hidden">
@@ -1432,7 +1432,7 @@ function AboutPage() {
       <section
         ref={whoWeAreRef}
         id="who-we-are"
-        className={`relative overflow-hidden border-y border-slate-200/80 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
+        className={`relative overflow-hidden border-y border-slate-200/80 pb-20 pt-0 mt-0 md:pb-24 md:pt-0 ${aboutScrollTargetClass}`}
       >
         <div
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(125deg,#f8fafc_0%,#eef6ff_40%,#f0fdf4_100%)]"
