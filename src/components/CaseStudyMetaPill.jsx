@@ -101,3 +101,42 @@ export const CASE_STUDY_ENGAGEMENT_PANEL =
   "w-full border-b border-green/15 bg-gradient-to-br from-green/8 to-offwhite p-6 sm:p-7 md:max-w-md md:w-[40%] md:shrink-0 md:border-b-0 md:border-r md:py-8";
 
 export const CASE_STUDY_HERO_BODY = "flex min-h-0 flex-1 flex-col p-6 sm:p-7 md:py-8";
+
+const caseStudyImageMap = {
+  // 1: Exec & Founder SaaS - Modern glass corporate building facade
+  1: "https://plus.unsplash.com/premium_photo-1666788166012-2596989d747d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 2: Financial Advisor - Real stock market price chart screen
+  2: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 3: Doctor/Physician - Clean medical clinic lobby
+  3: "https://plus.unsplash.com/premium_photo-1682130157004-057c137d96d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 4: HR Dispute - Empty corporate boardroom meeting table
+  4: "https://plus.unsplash.com/premium_photo-1676495972676-57a46cb521d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 5: E-commerce Fashion - Professional boutique clothing rack
+  5: "https://plus.unsplash.com/premium_photo-1664202526559-e21e9c0fb46a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 6: Consumer Electronics - Sleek computer laptop on office desk
+  6: "https://images.unsplash.com/photo-1595303526913-c7037797ebe7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 7: Startup Reputation - Modern startup office workspace empty
+  7: "https://plus.unsplash.com/premium_photo-1661931749081-23d69ddb62d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 8: E-commerce Counterfeit - Cardboard shipping package box beside door
+  8: "https://images.unsplash.com/photo-1614018453562-77f6180ce036?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 9: Surgeon - Sterile hospital operating room lights
+  9: "https://plus.unsplash.com/premium_photo-1664476911056-ca371bb2a8c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 10: GP Partner - Medical reference textbooks and stethoscope on desk
+  10: "https://plus.unsplash.com/premium_photo-1661699540413-2390093cfb29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 11: Litigation Partner - Legal balance scale and law books on table
+  11: "https://plus.unsplash.com/premium_photo-1695449439526-9cebdbfa1a2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 12: Family Solicitor - Lawyer wooden table with legal magnifying glass
+  12: "https://plus.unsplash.com/premium_photo-1698084059730-d3784b0c467a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 13: IFA Collapsed Fund - Historic bank columns architecture
+  13: "https://images.unsplash.com/photo-1676517243531-69e3b27276e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 14: Accountant - Financial spreadsheet and calculator on office desk
+  14: "https://images.unsplash.com/photo-1707157284454-553ef0a4ed0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 15: Graduate - Academic graduation caps flying in the air
+  15: "https://plus.unsplash.com/premium_photo-1682075199505-e96c80e84e5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 16: Product Manager - Whiteboard wall with colorful sticky notes
+  16: "https://images.unsplash.com/photo-1735639013995-086e648eaa38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+};
+
+export function getCaseStudyImage(n) {
+  return caseStudyImageMap[n] || caseStudyImageMap[1];
+}

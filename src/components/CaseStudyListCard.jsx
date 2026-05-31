@@ -9,6 +9,7 @@ import {
   CASE_STUDY_ENGAGEMENT_PANEL,
   CASE_STUDY_HERO_BODY,
   CaseStudyMetaPill,
+  getCaseStudyImage,
 } from "./CaseStudyMetaPill.jsx";
 
 /**
@@ -50,8 +51,15 @@ export function CaseStudyListCard({ study, index }) {
       >
         <div className={CASE_STUDY_CARD_BAR} aria-hidden />
         <div className="flex min-h-0 flex-col gap-0 md:min-h-[12rem] md:flex-row">
-          <div className={CASE_STUDY_ENGAGEMENT_PANEL}>
-            <CaseStudyEngagementBlock study={study} />
+          <div className={`${CASE_STUDY_ENGAGEMENT_PANEL} relative !justify-start overflow-hidden`}>
+            <img 
+              src={getCaseStudyImage(study.n)} 
+              alt="" 
+              className="absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-multiply pointer-events-none"
+            />
+            <div className="relative z-10 w-full">
+              <CaseStudyEngagementBlock study={study} />
+            </div>
           </div>
 
           <div className={`${CASE_STUDY_HERO_BODY} min-h-0`}>
