@@ -264,7 +264,7 @@ function ContactPage() {
             </p>
           </div>
           <h2 className="font-heading text-[28px] font-bold tracking-tight text-[#02254d] md:text-[40px]">
-            Get in Touch
+            Contact Our Reputation Management Team
           </h2>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-6">
             {/* Book a Call */}

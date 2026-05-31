@@ -10,7 +10,7 @@ export function contactPageToHtml() {
 
     <main>
       <section class="contact-channels">
-        <h2>Get in Touch</h2>
+        <h2>Contact Our Reputation Management Team</h2>
         <ul>
           <li>
             <h3>Book a Call</h3>
