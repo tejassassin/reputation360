@@ -447,6 +447,13 @@ function HowItAllBeganStory() {
       className={`relative overflow-hidden border-y border-slate-200/60 ${aboutFirstContentSpacing} ${aboutScrollTargetClass}`}
     >
       <div
+        style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}
+      >
+        {howItBeganSteps.map((s) => (
+          <h3 key={s.id}>{s.headline}</h3>
+        ))}
+      </div>
+      <div
         className="pointer-events-none absolute inset-0 bg-[#f0f4f2]"
         aria-hidden
       />
@@ -595,11 +602,6 @@ function HowItAllBeganStory() {
                     >
                       {s.timelineSubtitle}
                     </p>
-                    <h3
-                      style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}
-                    >
-                      {s.headline}
-                    </h3>
                   </button>
                 </Motion.div>
               );
@@ -945,6 +947,13 @@ function HowWeWorkSection() {
               </p>
             </Motion.div>
           </AnimatePresence>
+          <div
+            style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}
+          >
+            {howWeWorkSteps.map((step) => (
+              <h3 key={step.n}>{step.title}</h3>
+            ))}
+          </div>
         </div>
       </div>
     </section>
