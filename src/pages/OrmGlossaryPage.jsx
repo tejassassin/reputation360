@@ -194,7 +194,7 @@ export default function OrmGlossaryPage() {
               {ORM_GLOSSARY_PAGE.eyebrow}
             </span>
             <h1 className="font-headline-faq mb-8 max-w-5xl text-4xl leading-[1.1] font-extrabold tracking-tighter text-[#1F3B64] md:text-6xl lg:text-7xl">
-              {ORM_GLOSSARY_PAGE.title}
+              Online Reputation Management Glossary: 120+ ORM Terms Explained
             </h1>
             {ORM_GLOSSARY_PAGE.lead.split("\n\n").map((para, i) => (
               <p
@@ -239,9 +239,9 @@ export default function OrmGlossaryPage() {
           <section className="grid grid-cols-1 gap-16 pb-24 lg:grid-cols-12">
             <aside className="hidden lg:col-span-3 lg:block">
               <div className="sticky top-32 space-y-2">
-                <h3 className="font-headline-faq mb-6 text-xs font-bold tracking-widest text-[#6B7280] uppercase">
+                <p className="font-headline-faq mb-6 text-xs font-bold tracking-widest text-[#6B7280] uppercase">
                   Quick Navigation
-                </h3>
+                </p>
                 {sidebarLinks.map((link) => {
                   const id = link.href.replace("#", "");
                   const isActive = activeSection === id;
