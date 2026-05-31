@@ -103,10 +103,10 @@ function HomeTestimonials() {
           id="testimonials-heading"
           className="font-heading text-balance text-3xl font-bold leading-tight sm:text-4xl md:text-5xl"
         >
-          <span className="text-navy">Our Customers</span>{" "}
+          <span className="text-navy">Client Results</span>{" "}
           <span className="relative inline-block">
             <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 bg-clip-text text-transparent">
-              Love Us
+              & Reviews
             </span>
             <svg
               className="absolute -bottom-1.5 left-0 w-full"

@@ -42,7 +42,7 @@ function WhatWeBelieve() {
             id="what-we-believe-heading"
             className="font-heading text-3xl font-bold leading-tight text-navy md:text-4xl"
           >
-            What we believe
+            Why Online Reputation Matters
           </h2>
         </div>
 

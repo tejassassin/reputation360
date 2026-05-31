@@ -17,7 +17,7 @@ function OurServices() {
             id="our-services-heading"
             className="font-heading text-4xl font-bold tracking-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] md:text-5xl"
           >
-            Our Services
+            Online Reputation Management Services
           </h2>
           <div
             className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"
