@@ -41,6 +41,12 @@ import {
   whoWeServeAudiencePageToHtml,
   WHO_WE_SERVE_AUDIENCE_PATHS,
 } from "./whoWeServeAudienceLinksToHtml.js";
+import { contactPageToHtml } from "./contactPageToHtml.js";
+import { freeRiskScanPageToHtml } from "./freeRiskScanPageToHtml.js";
+import { guidePageToHtml } from "./guidePageToHtml.js";
+import { faqsPageToHtml } from "./faqsPageToHtml.js";
+import { ormGlossaryPageToHtml } from "./ormGlossaryPageToHtml.js";
+import { policyPageToHtml, POLICY_PATHS } from "./policyPageToHtml.js";
 
 const prerenderRoot = join(dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -80,6 +86,30 @@ export function getPrerenderHtmlForPath(pathname) {
 
   if (path === "/about") {
     return aboutPageToHtml();
+  }
+
+  if (path === "/contact") {
+    return contactPageToHtml();
+  }
+
+  if (path === "/free-reputation-scan") {
+    return freeRiskScanPageToHtml();
+  }
+
+  if (path === "/resources/guide") {
+    return guidePageToHtml();
+  }
+
+  if (path === "/resources/faqs") {
+    return faqsPageToHtml();
+  }
+
+  if (path === "/resources/online-reputation-management-glossary") {
+    return ormGlossaryPageToHtml();
+  }
+
+  if (POLICY_PATHS.includes(path)) {
+    return policyPageToHtml(path);
   }
 
   if (path === BLOG_INDEX_PATH) {
@@ -188,6 +218,14 @@ export function prerenderPaths() {
   paths.add(REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH);
   for (const audiencePath of WHO_WE_SERVE_AUDIENCE_PATHS) {
     paths.add(audiencePath);
+  }
+  paths.add("/contact");
+  paths.add("/free-reputation-scan");
+  paths.add("/resources/guide");
+  paths.add("/resources/faqs");
+  paths.add("/resources/online-reputation-management-glossary");
+  for (const policyPath of POLICY_PATHS) {
+    paths.add(policyPath);
   }
   return [...paths];
 }

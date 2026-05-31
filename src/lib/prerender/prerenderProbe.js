@@ -75,6 +75,40 @@ export function getPrerenderProbeSentence(pathname) {
     return "A sample of results we've delivered for our clients";
   }
 
+  if (path === "/contact") {
+    return "Reach out through whichever channel feels most convenient to you.";
+  }
+
+  if (path === "/free-reputation-scan") {
+    return "We analyze the first 3 pages of Google-style results";
+  }
+
+  if (path === "/resources/guide") {
+    return "The Complete Guide to Online Reputation Management in 2026";
+  }
+
+  if (path === "/resources/faqs") {
+    return "Online Reputation Management FAQs";
+  }
+
+  if (path === "/resources/online-reputation-management-glossary") {
+    return "Online Reputation Management Glossary";
+  }
+
+  if (
+    [
+      "/privacy-policy",
+      "/terms-of-service",
+      "/cookie-policy",
+      "/refund-policy",
+      "/acceptable-use-policy",
+      "/terms-of-use",
+      "/dmca-copyright-policy",
+    ].includes(path)
+  ) {
+    return "Reputation360 Legal Document";
+  }
+
   if (path === BLOG_INDEX_PATH) {
     return "Expert articles on negative link suppression, crisis management, and long-term reputation strategy.";
   }
