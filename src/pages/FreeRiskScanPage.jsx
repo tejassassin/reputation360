@@ -528,14 +528,14 @@ export default function FreeRiskScanPage() {
       <SeoHead title={seo.title} description={seo.description} canonicalPath={seo.path} />
 
       {phase === "form" ? (
+        <>
         <div className="relative z-0 mx-auto grid w-full max-w-5xl gap-6 px-3 pb-10 pt-5 sm:px-4 md:min-h-[calc(100dvh-6rem)] md:grid-cols-[0.9fr_1fr] md:items-center md:gap-10 md:pt-0">
           <div className="mb-6 text-center md:mb-0 md:text-left">
             <h1 className="font-heading text-balance text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
-              {FREE_REPUTATION_SCAN_LABEL}
+              Free Online Reputation Scan — See What Google Says About You
             </h1>
             <p className="mx-auto mt-3 max-w-md text-pretty text-sm leading-relaxed text-slate-600 md:mx-0 md:text-base">
-              We analyze the first {FREE_SCAN_GOOGLE_PAGES} pages of Google-style results for your name and country
-              context (up to {FREE_SCAN_LINK_LIMIT} links), classify each URL, and email a polished report card.
+              We analyse the first 3 pages of Google search results for your name, classify each URL as negative, neutral, or positive, and email you a detailed PDF report — so you know exactly where you stand before deciding what to do next.
             </p>
           </div>
 
@@ -641,6 +641,35 @@ export default function FreeRiskScanPage() {
             </button>
           </form>
         </div>
+          <div className="mx-auto max-w-4xl px-4 pb-20">
+            <section className="mt-12 space-y-12 border-t border-slate-200/60 pt-16 md:mt-16">
+              <div>
+                <h2 className="font-heading text-2xl font-bold text-[#0f2e58] md:text-3xl">
+                  What Your Free Reputation Scan Includes
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-slate-600">
+                  Your scan covers up to 30 links across the first three pages of Google results for your name and country. Each result is classified as negative, neutral, or positive — with a clear breakdown of what's working in your favour, what's being ignored, and what may be actively costing you opportunities. You'll receive the full analysis as a PDF report by email, usually within one business day.
+                </p>
+              </div>
+              <div>
+                <h2 className="font-heading text-2xl font-bold text-[#0f2e58] md:text-3xl">
+                  Who Should Run a Reputation Scan?
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-slate-600">
+                  If you're a founder, executive, professional, doctor, lawyer, financial advisor, job seeker, or business owner — and someone could Google your name before a meeting, interview, investment, or client decision — this scan is for you. It takes 30 seconds to request and gives you a clear, honest picture of what people are finding when they search for you.
+                </p>
+              </div>
+              <div>
+                <h2 className="font-heading text-2xl font-bold text-[#0f2e58] md:text-3xl">
+                  What Happens After Your Scan?
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-slate-600">
+                  You'll receive your PDF reputation report by email. If anything concerning appears, you can book a free consultation with the Reputation360 team to walk through your results and understand your options — whether that's content removal, negative link suppression, or building a stronger positive presence. There's no obligation and no sales pressure.
+                </p>
+              </div>
+            </section>
+          </div>
+        </>
       ) : null}
 
       {phase === "generating" ? (
