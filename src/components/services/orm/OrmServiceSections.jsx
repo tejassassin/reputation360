@@ -890,7 +890,7 @@ export function OrmProcessSection() {
   return (
     <DocSection
       id="process"
-      title="Our Process: How We Deliver Results"
+      title="Our Online Reputation Management Process: How We Deliver Results"
       tone="gradient"
       contentClassName="mt-10 md:mt-12"
     >
@@ -1071,7 +1071,7 @@ export function OrmBeforeOutreachSection() {
   return (
     <DocSection
       id="before-outreach"
-      title="Is There Anything You Can Do Before Reaching Out?"
+      title="Can You Improve Your Online Reputation Before Reaching Out?"
       lead={ORM_BEFORE_OUTREACH_INTRO}
       tone="blue"
     >
@@ -1101,7 +1101,7 @@ export function OrmWhyR360Section() {
           transition={{ duration: 0.55 }}
         >
           <h2 className="font-heading text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.25)] md:text-[2.1rem]">
-            Why Choose Reputation360 for ORM?
+            Why Choose Reputation360 for Online Reputation Management?
           </h2>
           <div
             className="mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] shadow-[0_0_24px_rgba(76,175,80,0.2)]"
