@@ -61,7 +61,7 @@ function GlossarySection({ id, title, description, items, defaultOpenFirst = fal
             <span className="font-headline-faq text-base font-extrabold text-[#1F3B64]">
               {String(items.length).padStart(2, "0")}
             </span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
+            <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#6B7280]">
               terms
             </span>
           </div>
