@@ -660,7 +660,6 @@ export function OrmRankingFactorsSection() {
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white shadow-sm">
               <ActiveIcon className="h-5 w-5" aria-hidden strokeWidth={2} />
             </span>
-            <h4 className="font-heading text-xl font-bold text-navy">{factor.label}</h4>
           </div>
           <div className="mt-5 grid gap-5 md:grid-cols-2 md:gap-6">
             <div>
@@ -967,9 +966,6 @@ export function OrmProcessSection() {
                   {phase.timespan}
                 </span>
               </div>
-              <h3 className="mt-4 font-heading text-xl font-bold text-navy md:text-2xl">
-                Phase {phaseNum}: {phase.title}
-              </h3>
               <p className="mt-4 w-full max-w-none text-base leading-relaxed text-navy/75 md:text-lg md:leading-relaxed">
                 {phase.body}
               </p>
