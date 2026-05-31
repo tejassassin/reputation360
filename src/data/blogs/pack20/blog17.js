@@ -65,7 +65,7 @@ export const article = {
     },
     {
       type: "p",
-      text: "Profile claiming is standard operating procedure for every Reputation360 client across the US, Canada, Australia, and Europe. See the full methodology profile claiming is part of for where it sits in the seven-principle system that has served 1,100+ clients over seven years. Here is the complete guide to the platforms that matter and how to maximize each one.",
+      text: "Profile claiming is standard operating procedure for every Reputation360 client across the US, Canada, Australia, and Europe. See the full methodology profile claiming is part of for where it sits in the 7-principle system that has served 1,100+ clients over 7 years. Here is the complete guide to the platforms that matter and how to maximize each one.",
       parts: [
         {
           text: "Profile claiming is standard operating procedure for every Reputation360 client across the US, Canada, Australia, and Europe. See ",
@@ -75,7 +75,7 @@ export const article = {
           href: BLOG_PATHS.bestPractices,
         },
         {
-          text: " for where it sits in the seven-principle system that has served 1,100+ clients over seven years. Here is the complete guide to the platforms that matter and how to maximize each one.",
+          text: " for where it sits in the 7-principle system that has served 1,100+ clients over 7 years. Here is the complete guide to the platforms that matter and how to maximize each one.",
         },
       ],
     },

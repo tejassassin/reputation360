@@ -318,7 +318,7 @@ export const article = {
           type: "keyBox",
           variant: "insight",
           title: "Same strategy, higher stakes",
-          text: "This is not a new strategy - it is the same comprehensive ORM methodology we use for clients across the US, Canada, Australia, and Europe for seven years. The AI era makes it more important, not different.",
+          text: "This is not a new strategy - it is the same comprehensive ORM methodology we use for clients across the US, Canada, Australia, and Europe for 7 years. The AI era makes it more important, not different.",
         },
       ],
     },

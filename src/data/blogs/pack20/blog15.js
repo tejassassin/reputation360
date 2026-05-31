@@ -48,7 +48,7 @@ export const article = {
     title:
       "Online Reputation Management Best Practices: The Reputation360 Methodology",
     excerpt:
-      "What does excellent ORM look like? Reputation360 shares the seven principles behind our 97% suppression success rate across 1,100+ clients.",
+      "What does excellent ORM look like? Reputation360 shares the 7 principles behind our 97% suppression success rate across 1,100+ clients.",
     date: PACK20_DATE,
     author: PACK20_AUTHOR,
     readTime: "18 minutes",
@@ -74,7 +74,7 @@ export const article = {
   introBlocks: [
     {
       type: "p",
-      text: "Online Reputation Management is not a single action - it is a system. It is a coordinated, ongoing set of activities that together determine how a person or brand is perceived across the internet, and specifically how they appear in search. After seven years of hands-on reputation work with more than 1,100 clients in the US, Canada, Australia, and Europe, Reputation360 has developed a methodology that produces consistent results across a wide range of situations.",
+      text: "Online Reputation Management is not a single action - it is a system. It is a coordinated, ongoing set of activities that together determine how a person or brand is perceived across the internet, and specifically how they appear in search. After 7 years of hands-on reputation work with more than 1,100 clients in the US, Canada, Australia, and Europe, Reputation360 has developed a methodology that produces consistent results across a wide range of situations.",
     },
     {
       type: "p",
@@ -93,7 +93,7 @@ export const article = {
     {
       type: "lead",
       label: "What this guide covers",
-      text: "Seven principles that govern every engagement, how they combine in practice across geographies and industries, and how year-one build phases differ from year-three maintenance.",
+      text: "7 principles that govern every engagement, how they combine in practice across geographies and industries, and how year-one build phases differ from year-three maintenance.",
     },
   ],
   toc: TOC,

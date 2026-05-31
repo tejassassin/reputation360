@@ -69,10 +69,10 @@ export const article = {
     },
     {
       type: "p",
-      text: "At Reputation360, LinkedIn optimization is the first action we take for virtually every individual client across the US, Canada, Australia, and Europe - seven years of experience and more than 1,100 engagements. For anyone in an active job search, it also aligns with what recruiters search before an interview. Here is the complete checklist we use, and why each element matters.",
+      text: "At Reputation360, LinkedIn optimization is the first action we take for virtually every individual client across the US, Canada, Australia, and Europe - 7 years of experience and more than 1,100 engagements. For anyone in an active job search, it also aligns with what recruiters search before an interview. Here is the complete checklist we use, and why each element matters.",
       parts: [
         {
-          text: "At Reputation360, LinkedIn optimization is the first action we take for virtually every individual client across the US, Canada, Australia, and Europe - seven years of experience and more than 1,100 engagements. For anyone in an active job search, it also aligns with ",
+          text: "At Reputation360, LinkedIn optimization is the first action we take for virtually every individual client across the US, Canada, Australia, and Europe - 7 years of experience and more than 1,100 engagements. For anyone in an active job search, it also aligns with ",
         },
         {
           text: "what recruiters search before an interview",

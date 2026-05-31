@@ -64,7 +64,7 @@ export const article = {
     },
     {
       type: "p",
-      text: "Reputation360 monitors search results for all active clients across the US, Canada, Australia, and Europe as a core part of our service - seven years, 1,100+ clients, 97% success rate. Monitoring your online reputation is not a one-time check - it is an ongoing discipline. But whether you are working with us or managing independently, here is the complete toolkit and process.",
+      text: "Reputation360 monitors search results for all active clients across the US, Canada, Australia, and Europe as a core part of our service - 7 years, 1,100+ clients, 97% success rate. Monitoring your online reputation is not a one-time check - it is an ongoing discipline. But whether you are working with us or managing independently, here is the complete toolkit and process.",
     },
     {
       type: "lead",

@@ -84,7 +84,7 @@ export const article = {
     },
     {
       type: "p",
-      text: "But there is a second, equally damaging scenario that gets far less attention: content posted about you on someone else's account. You did not write it. You cannot delete it. And it is sitting on the first page of your name search. At Reputation360, we work with individuals and professionals across the US, Canada, Australia, and Europe on both problems - seven years of experience, more than 1,100 clients served.",
+      text: "But there is a second, equally damaging scenario that gets far less attention: content posted about you on someone else's account. You did not write it. You cannot delete it. And it is sitting on the first page of your name search. At Reputation360, we work with individuals and professionals across the US, Canada, Australia, and Europe on both problems - 7 years of experience, more than 1,100 clients served.",
     },
     {
       type: "lead",

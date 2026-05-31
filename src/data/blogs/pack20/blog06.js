@@ -67,10 +67,10 @@ export const article = {
     },
     {
       type: "p",
-      text: "After seven years and more than 1,100 clients served across the US, Canada, Australia, and Europe, Reputation360 has seen exactly how this plays out. The situations differ by country and industry; the framework that resolves them stays consistent. CareerBuilder research documents how widely employers use search screening before offers.",
+      text: "After 7 years and more than 1,100 clients served across the US, Canada, Australia, and Europe, Reputation360 has seen exactly how this plays out. The situations differ by country and industry; the framework that resolves them stays consistent. CareerBuilder research documents how widely employers use search screening before offers.",
       parts: [
         {
-          text: "After seven years and more than 1,100 clients served across the US, Canada, Australia, and Europe, Reputation360 has seen exactly how this plays out. The situations differ by country and industry; the framework that resolves them stays consistent. ",
+          text: "After 7 years and more than 1,100 clients served across the US, Canada, Australia, and Europe, Reputation360 has seen exactly how this plays out. The situations differ by country and industry; the framework that resolves them stays consistent. ",
         },
         {
           text: "CareerBuilder research",

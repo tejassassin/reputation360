@@ -498,7 +498,7 @@ export const RBS_WHY_R360 = [
   "We are not a general digital marketing agency that also does reputation work. Reputation is the only thing we do.",
   "That means when we build a LinkedIn profile, we are thinking about how it holds up under scrutiny from a potential investor. When we develop thought leadership, we are thinking about what a journalist finds when they research you. When we create employer brand content, we are thinking about what a talented candidate believes after ten minutes of research.",
   "Every service we offer connects back to one question: will this make the right people trust you more?",
-  "With seven years of direct experience in online reputation management, negative link suppression, and digital brand building, Reputation360 brings a reputation-first lens to every service we provide. Our measure of success is not the number of assets we produce. It is the strength of the perception those assets create.",
+  "With 7 years of direct experience in online reputation management, negative link suppression, and digital brand building, Reputation360 brings a reputation-first lens to every service we provide. Our measure of success is not the number of assets we produce. It is the strength of the perception those assets create.",
   "We help people and brands control, strengthen, and protect how they are seen online.",
 ];
 

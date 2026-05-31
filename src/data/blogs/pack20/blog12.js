@@ -68,7 +68,7 @@ export const article = {
     },
     {
       type: "p",
-      text: "At Reputation360, we have executed first-page ownership strategies for more than 1,100 clients across the US, Canada, Australia, and Europe over seven years, with a 97% success rate. This is not just about pushing negative content down. It is about building a comprehensive, deliberately constructed digital presence that occupies every meaningful position on your first page with content that serves your professional interests.",
+      text: "At Reputation360, we have executed first-page ownership strategies for more than 1,100 clients across the US, Canada, Australia, and Europe over 7 years, with a 97% success rate. This is not just about pushing negative content down. It is about building a comprehensive, deliberately constructed digital presence that occupies every meaningful position on your first page with content that serves your professional interests.",
     },
     {
       type: "lead",
@@ -345,7 +345,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "A management consultant in Australia had built a highly successful practice over many years - but had almost no positive online presence to show for it. When his name was searched, the results returned a LinkedIn profile and two professional directory listings. Seven open positions on page one, with nothing positive to fill them.",
+          text: "A management consultant in Australia had built a highly successful practice over many years - but had almost no positive online presence to show for it. When his name was searched, the results returned a LinkedIn profile and two professional directory listings. 7 open positions on page one, with nothing positive to fill them.",
         },
         {
           type: "compare",

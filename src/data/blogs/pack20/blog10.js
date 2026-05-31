@@ -53,7 +53,7 @@ export const article = {
     badge: "Insider Report",
     title: "What Do Recruiters Google About You? Reputation360's Online Reputation Report",
     lead:
-      "Roughly seven in ten employers use social and search screening; for senior and high-trust roles the practice is effectively universal. Before an offer, someone types your name - this is what they run and what they conclude.",
+      "Roughly 7 in ten employers use social and search screening; for senior and high-trust roles the practice is effectively universal. Before an offer, someone types your name - this is what they run and what they conclude.",
     meta: [
       { value: "70%", label: "Employers who screen online" },
       { value: "100%", label: "Executive roles screened" },
@@ -78,7 +78,7 @@ export const article = {
     },
     {
       type: "p",
-      text: "At Reputation360, we have spent seven years working with more than 1,100 professionals across the US, Canada, Australia, and Europe who discovered - often too late - that what showed up in that search was costing them opportunities. This is what we have learned about how recruiters actually conduct online research.",
+      text: "At Reputation360, we have spent 7 years working with more than 1,100 professionals across the US, Canada, Australia, and Europe who discovered - often too late - that what showed up in that search was costing them opportunities. This is what we have learned about how recruiters actually conduct online research.",
     },
     {
       type: "lead",

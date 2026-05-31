@@ -70,7 +70,7 @@ export const article = {
     },
     {
       type: "p",
-      text: "After seven years working with more than 1,100 clients in the US, Canada, Australia, and Europe, Reputation360 has developed a clear picture of what reputation inaction actually costs. These numbers are not hypothetical.",
+      text: "After 7 years working with more than 1,100 clients in the US, Canada, Australia, and Europe, Reputation360 has developed a clear picture of what reputation inaction actually costs. These numbers are not hypothetical.",
     },
     {
       type: "lead",

@@ -67,7 +67,7 @@ export const article = {
     },
     {
       type: "p",
-      text: "At Reputation360, we have helped clients in the US, Canada, Australia, and Europe navigate the full spectrum of social media reputation challenges: from proactive presence-building to crisis response to the long-term cleanup of historical content. With seven years of experience and more than 1,100 clients served, this is our complete multi-platform strategy.",
+      text: "At Reputation360, we have helped clients in the US, Canada, Australia, and Europe navigate the full spectrum of social media reputation challenges: from proactive presence-building to crisis response to the long-term cleanup of historical content. With 7 years of experience and more than 1,100 clients served, this is our complete multi-platform strategy.",
     },
     {
       type: "lead",

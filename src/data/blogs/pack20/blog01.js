@@ -73,7 +73,7 @@ export const article = {
     },
     {
       type: "p",
-      text: "At Reputation360, we have spent seven years working with more than 1,100 clients on pushing negative content down and elevating positive content up. Our suppression success rate sits at 97%. What follows is the framework behind those results - not a quick fix, but a deliberate strategy you can understand before you invest time or budget.",
+      text: "At Reputation360, we have spent 7 years working with more than 1,100 clients on pushing negative content down and elevating positive content up. Our suppression success rate sits at 97%. What follows is the framework behind those results - not a quick fix, but a deliberate strategy you can understand before you invest time or budget.",
     },
     {
       type: "lead",
@@ -156,7 +156,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Over seven years and more than 1,100 engagements, we have refined a five-phase framework that consistently produces first-page improvements. Tap each phase below to see what it involves and how it connects to the next step.",
+          text: "Over 7 years and more than 1,100 engagements, we have refined a five-phase framework that consistently produces first-page improvements. Tap each phase below to see what it involves and how it connects to the next step.",
         },
         {
           type: "steps",

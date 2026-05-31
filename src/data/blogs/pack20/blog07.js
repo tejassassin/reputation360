@@ -70,7 +70,7 @@ export const article = {
     },
     {
       type: "p",
-      text: "Over seven years, Reputation360 has worked with more than 1,100 clients across the US, Canada, Australia, and Europe navigating legal record visibility. This is not a peripheral service for us - it is one of the most consistent and significant areas of work we handle. In fully executed engagements, we have pushed first-page legal content to page three or four within defined timelines.",
+      text: "Over 7 years, Reputation360 has worked with more than 1,100 clients across the US, Canada, Australia, and Europe navigating legal record visibility. This is not a peripheral service for us - it is one of the most consistent and significant areas of work we handle. In fully executed engagements, we have pushed first-page legal content to page three or four within defined timelines.",
     },
     {
       type: "lead",

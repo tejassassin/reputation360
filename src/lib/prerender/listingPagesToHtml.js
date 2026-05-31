@@ -26,7 +26,7 @@ export function blogIndexToHtml() {
   const crawlNav = linkListToHtml("All insights and blog posts", CRAWL_BLOG_PAGES);
 
   return `<header>
-  <h1>Insights From Seven Years of Online Reputation Management</h1>
+  <h1>Insights From 7 Years of Online Reputation Management</h1>
   <p>Expert articles on negative link suppression, crisis management, and long-term reputation strategy.</p>
   <form action="/blog" method="get" role="search" class="mt-6">
     <label for="blog-search-q">Search articles</label>

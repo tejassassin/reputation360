@@ -50,7 +50,7 @@ export const article = {
     title:
       "The ROI of Reputation Management: What Reputation360 Clients See",
     lead:
-      "Reputation management is an investment. Like any investment, the question that matters most is: what do you get back? After seven years and more than 1,100 clients, this is what the return actually looks like.",
+      "Reputation management is an investment. Like any investment, the question that matters most is: what do you get back? After 7 years and more than 1,100 clients, this is what the return actually looks like.",
     meta: [
       { value: "15-35%", label: "Typical conversion lift" },
       { value: "$500K", label: "Example annual revenue gain" },
@@ -60,7 +60,7 @@ export const article = {
   introBlocks: [
     {
       type: "p",
-      text: "Reputation management is an investment. Like any investment, the question that matters most is: what do you get back? At Reputation360, we have worked with more than 1,100 clients across the US, Canada, Australia, and Europe over seven years. We have seen the results of that investment across dozens of industries and hundreds of individual situations. This is what the return actually looks like.",
+      text: "Reputation management is an investment. Like any investment, the question that matters most is: what do you get back? At Reputation360, we have worked with more than 1,100 clients across the US, Canada, Australia, and Europe over 7 years. We have seen the results of that investment across dozens of industries and hundreds of individual situations. This is what the return actually looks like.",
     },
     {
       type: "lead",

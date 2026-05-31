@@ -80,7 +80,7 @@ export const article = {
     },
     {
       type: "p",
-      text: "That starts with understanding exactly how Google decides what ranks, then building positive assets that beat harmful URLs on relevance, authority, and trust. At Reputation360, we have spent seven years doing this for more than 1,100 clients across the United States, Canada, Australia, and Europe, with a 97% suppression success rate. This guide is the content-ranking strategy behind those results.",
+      text: "That starts with understanding exactly how Google decides what ranks, then building positive assets that beat harmful URLs on relevance, authority, and trust. At Reputation360, we have spent 7 years doing this for more than 1,100 clients across the United States, Canada, Australia, and Europe, with a 97% suppression success rate. This guide is the content-ranking strategy behind those results.",
     },
     {
       type: "lead",
@@ -325,10 +325,10 @@ export const article = {
   cta: {
     title: "Start Managing Your Online Reputation Today",
     lead:
-      "Get a clear audit of what ranks today for your name or brand and which content assets will outrank your highest-priority negatives. If you want support from a team with seven years doing this for more than 1,100 clients, explore our Online Reputation Management services.",
+      "Get a clear audit of what ranks today for your name or brand and which content assets will outrank your highest-priority negatives. If you want support from a team with 7 years doing this for more than 1,100 clients, explore our Online Reputation Management services.",
     leadParts: [
       {
-        text: "Get a clear audit of what ranks today for your name or brand and which content assets will outrank your highest-priority negatives. If you want support from a team with seven years doing this for more than 1,100 clients, explore ",
+        text: "Get a clear audit of what ranks today for your name or brand and which content assets will outrank your highest-priority negatives. If you want support from a team with 7 years doing this for more than 1,100 clients, explore ",
       },
       {
         text: "our Online Reputation Management services",

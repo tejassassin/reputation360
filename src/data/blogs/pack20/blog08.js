@@ -72,7 +72,7 @@ export const article = {
     },
     {
       type: "p",
-      text: "Reputation360 has worked with clients across the US, Canada, Australia, and Europe through every type of reputation crisis: executive misconduct allegations, product failures, financial controversies, employee disputes, coordinated online attacks, and more. With seven years of experience and a 97% success rate, we have built a repeatable playbook for crisis response and long-term recovery. This is it.",
+      text: "Reputation360 has worked with clients across the US, Canada, Australia, and Europe through every type of reputation crisis: executive misconduct allegations, product failures, financial controversies, employee disputes, coordinated online attacks, and more. With 7 years of experience and a 97% success rate, we have built a repeatable playbook for crisis response and long-term recovery. This is it.",
     },
     {
       type: "lead",

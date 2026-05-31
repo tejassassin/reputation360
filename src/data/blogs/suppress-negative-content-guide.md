@@ -26,7 +26,7 @@ And yet, most professionals don't know how to respond. They think negative conte
 
 These assumptions are costing you clients, patients, and opportunities.
 
-Over seven years, Reputation360 has helped hundreds of professionals suppress negative content and reclaim their search results. What we've learned is this: **negative content suppression is both an art and a science**. It's not about removing content - often impossible. It's about strategically pushing down harmful information so positive content dominates the first page of Google.
+Over 7 years, Reputation360 has helped hundreds of professionals suppress negative content and reclaim their search results. What we've learned is this: **negative content suppression is both an art and a science**. It's not about removing content - often impossible. It's about strategically pushing down harmful information so positive content dominates the first page of Google.
 
 This guide reveals exactly how.
 
@@ -387,7 +387,7 @@ Effects are relatively permanent IF you maintain them. Once positive content ran
 
 ## Why This Matters in 2026
 
-Here's what we know from seven years of managing professional reputations: your online presence has become inseparable from your professional credibility.
+Here's what we know from 7 years of managing professional reputations: your online presence has become inseparable from your professional credibility.
 
 The doctor without strong reviews and a well-optimized online presence loses patients to competitors who have them. The lawyer without a professional web presence looks smaller than one with one. The consultant without thought leadership content seems less credible than one with it.
 
@@ -430,4 +430,4 @@ That's it. Simple, not complicated.
 
 **[Schedule Your Free Reputation Assessment](https://www.thereputation360.com/contact)** - **[Contact Our Team](https://www.thereputation360.com/contact)**
 
-*Reputation360 helps professionals suppress negative content and control their online narrative. Over seven years, we've helped hundreds of doctors, lawyers, and consultants reclaim their search results.*
+*Reputation360 helps professionals suppress negative content and control their online narrative. Over 7 years, we've helped hundreds of doctors, lawyers, and consultants reclaim their search results.*

@@ -264,7 +264,7 @@ export default function BlogReputationRepairTimelinePage() {
                   predictable once you understand the variables that drive it.
                 </p>
                 <p className="mb-6">
-                  After seven years managing reputations for founders, executives, businesses, and individuals
+                  After 7 years managing reputations for founders, executives, businesses, and individuals
                   across the US, Canada, and Australia:{" "}
                   <strong>most clients see meaningful, visible improvements within 60 to 90 days</strong>. Full
                   page-one transformation - where Google reflects who you actually are - typically takes 3 to 12

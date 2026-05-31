@@ -67,7 +67,7 @@ export const article = {
     },
     {
       type: "p",
-      text: "Reputation360 has spent seven years working with more than 1,100 clients in the United States, Canada, Australia, and Europe on exactly this kind of challenge, with a 97% suppression success rate. We work with professionals who are in exactly this position: an active job search, a known or suspected reputation issue in search results, and limited time to address it.",
+      text: "Reputation360 has spent 7 years working with more than 1,100 clients in the United States, Canada, Australia, and Europe on exactly this kind of challenge, with a 97% suppression success rate. We work with professionals who are in exactly this position: an active job search, a known or suspected reputation issue in search results, and limited time to address it.",
     },
     {
       type: "lead",

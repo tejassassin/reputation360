@@ -415,7 +415,7 @@ export default function BlogRemoveNegativeSearchResultsPage() {
                   <div className="flex items-start gap-4">
                     <TrendingUp className="h-8 w-8 shrink-0 text-green" aria-hidden />
                     <p className="font-body text-lg leading-relaxed text-slate-200">
-                      With seven years of hands-on experience, Reputation360 combines technical SEO with proven{" "}
+                      With 7 years of hands-on experience, Reputation360 combines technical SEO with proven{" "}
                       <DiyInternalLink href={SUPPRESS_NEGATIVE_GUIDE_PATH}>suppression methodology</DiyInternalLink>
                       . We assess your landscape, build a tailored strategy, execute with precision, and monitor
                       until your search presence reflects who you truly are.

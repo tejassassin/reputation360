@@ -82,7 +82,7 @@ export default function PrivacyPolicyPage() {
             <Prose>
               <p>
                 Reputation360 is an Online Reputation Management company headquartered in India and operating across the
-                United States, Canada, and Australia. With over seven years of hands-on experience, we specialize in:
+                United States, Canada, and Australia. With over 7 years of hands-on experience, we specialize in:
               </p>
             </Prose>
             <BulletList

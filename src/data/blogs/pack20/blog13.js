@@ -69,7 +69,7 @@ export const article = {
     },
     {
       type: "p",
-      text: "At Reputation360, we have spent seven years understanding not just the mechanics of search ranking but the human psychology that makes that ranking so consequential. This is what we know.",
+      text: "At Reputation360, we have spent 7 years understanding not just the mechanics of search ranking but the human psychology that makes that ranking so consequential. This is what we know.",
     },
     {
       type: "lead",

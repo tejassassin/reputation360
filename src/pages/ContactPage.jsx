@@ -133,7 +133,7 @@ function ContactAuthorityRoadmap() {
           viewBox="0 -210 2100 1120"
           preserveAspectRatio="xMidYMid meet"
           role="img"
-          aria-label="Seven-step journey roadmap"
+          aria-label="7-step journey roadmap"
         >
           <path
             d={AUTHORITY_ROADMAP_PATH_D}

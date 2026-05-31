@@ -94,7 +94,7 @@ function InsightsBlogsPage() {
             </div>
             <h1 className="font-insights-headline mb-8 text-5xl leading-tight font-extrabold tracking-tight text-[#02254d] md:text-6xl">
               Online Reputation Management Insights & Guides - <br />
-              <span className="text-[#35618e]">Seven Years of Expertise</span>
+              <span className="text-[#35618e]">7 Years of Expertise</span>
             </h1>
             <p className="max-w-2xl text-xl leading-relaxed font-light text-[#43474e]">
               No recycled advice. No generic lists. Every article here is

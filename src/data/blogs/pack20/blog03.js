@@ -72,7 +72,7 @@ export const article = {
     },
     {
       type: "p",
-      text: "The problem is that removal is far less available than most people assume, and far more complicated than the companies who promise it imply. At Reputation360, we pursue removal when it is genuinely achievable. We also tell clients clearly when it is not and why suppression is the more reliable path. After seven years working with more than 1,100 clients across the US, Canada, Australia, and Europe, we have seen every type of negative content and every approach to dealing with it.",
+      text: "The problem is that removal is far less available than most people assume, and far more complicated than the companies who promise it imply. At Reputation360, we pursue removal when it is genuinely achievable. We also tell clients clearly when it is not and why suppression is the more reliable path. After 7 years working with more than 1,100 clients across the US, Canada, Australia, and Europe, we have seen every type of negative content and every approach to dealing with it.",
     },
     {
       type: "lead",
