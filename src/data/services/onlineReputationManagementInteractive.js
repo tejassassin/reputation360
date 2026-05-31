@@ -135,14 +135,14 @@ export const WHO_NEEDS_ORM = [
   {
     id: "individuals",
     label: "Individuals",
-    title: "Individuals",
+    title: "Personal Reputation Management for Individuals",
     body: "Your name is your first impression. Whether a recruiter, client, or new contact searches for you, ORM ensures what they find reflects who you actually are.",
     href: AUDIENCE_PATH.individuals,
   },
   {
     id: "executives",
     label: "Executives and C-Suite Leaders",
-    title: "Executives and C-Suite Leaders",
+    title: "Reputation Management for Executives",
     body: "Your credibility and your company's credibility are inseparable. Investors, journalists, and partners search for you before they engage.",
     href: AUDIENCE_PATH.executives,
   },

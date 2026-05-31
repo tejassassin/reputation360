@@ -109,7 +109,7 @@ function LawyersProblemSection() {
       className="mt-12 scroll-mt-28 rounded-[24px] border border-[#d9e3ea] bg-white px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.07)] md:mt-16 md:px-9 md:py-11"
     >
       <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        The Problem Lawyers and Attorneys Face
+        The Reputation Problem Lawyers and Attorneys Face
       </h2>
 
       <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-start">
@@ -128,7 +128,7 @@ function LawyersProblemSection() {
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e8f0] pb-4">
         <h3 className="font-heading text-base font-semibold text-[#0f2e58] md:text-lg">
-          Where damaging content typically appears:
+          Where Damaging Reputation Content Typically Appears Online
         </h3>
       </div>
 
@@ -213,7 +213,7 @@ const LAWYERS_SCALE_METRICS = [
   {
     id: "discipline-dropoff",
     figure: "73%",
-    blurb: "Walk away after a disciplinary hit",
+    blurb: "How Clients Walk Away After Finding a Disciplinary Search Result",
     description:
       "73% of individuals researching legal services say they would not contact a lawyer if they found a disciplinary record on the first page of results",
     Icon: FileWarning,
@@ -221,7 +221,7 @@ const LAWYERS_SCALE_METRICS = [
   {
     id: "corporate-diligence",
     figure: "68%",
-    blurb: "GCs vet outside counsel online",
+    blurb: "How General Counsels Vet Outside Counsel's Reputation Online",
     description:
       "68% of corporate legal departments conduct online due diligence on outside counsel before retaining them",
     Icon: Building2,
@@ -229,7 +229,7 @@ const LAWYERS_SCALE_METRICS = [
   {
     id: "presence-multiplier",
     figure: "2.4x",
-    blurb: "Strong presence, stronger pipeline",
+    blurb: "How a Strong Reputation Builds a Stronger Legal Pipeline",
     description:
       "2.4x more organic inquiries received by lawyers with a strong, authoritative online presence compared to peers with an unmanaged digital footprint",
     Icon: TrendingUp,
@@ -237,7 +237,7 @@ const LAWYERS_SCALE_METRICS = [
   {
     id: "page-one-decides",
     figure: "Page 1",
-    blurb: "Where retain / no-retain is decided",
+    blurb: "How Search Results Decide Whether a Client Retains You",
     description:
       "Studies of professional-services search behavior consistently show users rarely move past the first page of results when evaluating counsel-making page-one visibility disproportionately decisive for intake",
     Icon: Search,
@@ -359,14 +359,14 @@ function LawyersScaleSection() {
 const LAWYERS_WHY_HARDER_PILLARS = [
   {
     id: "adversarial",
-    label: "Adversarial fallout",
+    label: "Adversarial Fallout: When Opposing Parties Attack Your Legal Reputation",
     hook: "Every case creates someone who lost.",
     body: "You work in an adversarial system. Every case creates a party who lost - and sometimes that party produces content about you. The nature of high-profile cases means your name may be associated with controversial matters for years after resolution.",
     Icon: Gavel,
   },
   {
     id: "response-limits",
-    label: "Limited public response",
+    label: "Limited Public Response: Why Attorney-Client Privilege Restricts Your Options",
     hook: "Rules constrain how you answer online.",
     body: "You cannot respond to client grievances publicly without potential professional conduct implications. That leaves indexed narratives largely unanswered in the very channels your next client is reading.",
     Icon: ShieldAlert,
@@ -520,9 +520,7 @@ function LawyersFaqSection() {
       id="lawyer-faqs"
       className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
     >
-      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        FAQs
-      </h2>
+      <h2>Frequently Asked Questions About Lawyers and Attorneys Reputation Management</h2>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
       <div className="mt-8 max-w-4xl space-y-4">
         {LAWYER_FAQ_ITEMS.map((item, index) => (
@@ -553,12 +551,7 @@ function LawyersPage() {
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 md:px-6 md:py-14">
         <section className="relative grid items-start gap-5 overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:grid-cols-[1.03fr_0.97fr] md:px-4 md:py-7">
           <div className="max-w-[570px]">
-            <h1 className="max-w-[520px] font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#0f2e58] md:text-[40px]">
-              <span className="block">
-                Before a client retains you, they search you.
-              </span>
-              <span className="mt-1 block md:mt-1.5">What do they find?</span>
-            </h1>
+            <h1>Reputation Management for Lawyers & Attorneys — Control What Clients Find</h1>
             <p className="mt-5 max-w-[520px] text-[15px] leading-[1.5] text-[#4f5f75] md:text-[16px]">
               Your reputation is being read before your proposal is.
             </p>

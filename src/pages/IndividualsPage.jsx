@@ -154,21 +154,21 @@ const INDIVIDUAL_SCALE_METRICS = [
 const INDIVIDUAL_WHY_PILLARS = [
   {
     id: "private",
-    label: "Private & Confidential",
+    label: "Why Personal Reputation Management Must Be Private & Confidential",
     hook: "Your consultation stays between you and us.",
     body: "Consultation, audit, and strategy stay between you and us - no visible signal that you are managing your reputation.",
     Icon: Lock,
   },
   {
     id: "removal-first",
-    label: "Removal First, Suppression When Needed",
+    label: "Removal First, Suppression When Needed: Our Dual Approach",
     hook: "Ethical removal paths come before displacement.",
     body: "We pursue every ethical removal path before building the positive presence that displaces what cannot come down.",
     Icon: ShieldCheck,
   },
   {
     id: "your-story",
-    label: "A Personal Reputation Strategy Built Around Your Story",
+    label: "A Personal Reputation Strategy Built Around Your Genuine Story",
     hook: "Not a template - a plan for what you face.",
     body: "Not a template - a careful audit and a plan for what you are actually dealing with, at a pace you are comfortable with.",
     Icon: Heart,
@@ -765,9 +765,7 @@ function IndividualsPage() {
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 md:px-6 md:py-14">
         <section className="relative overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:grid md:grid-cols-[1.03fr_0.97fr] md:items-start md:px-4 md:py-7">
           <div className="max-w-[580px]">
-            <h1 className="max-w-[560px] font-heading text-[22px] font-bold leading-[1.12] tracking-tight text-[#0f2e58] sm:text-[26px] md:text-[30px] lg:text-[34px]">
-              Personal Reputation Management Services — Take Back Control of Your Google Results
-            </h1>
+            <h1>Personal Reputation Management Services — Take Back Control of Your Google Results</h1>
             <p className="mt-5 max-w-[520px] text-[15px] leading-[1.5] text-[#4f5f75] md:text-[16px]">
               When your name is searched, old stories shouldn&apos;t own your next
               chapter.

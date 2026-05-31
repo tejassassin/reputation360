@@ -17,7 +17,7 @@ import {
 export const REPUTATION360_FA_STEPS = [
   {
     step: 1,
-    headline: "Step 1 - Complete Search Audit (Week 1)",
+    headline: "Step 1 - Complete Reputation Search Audit (Week 1)",
     body: "We map every result appearing for your name, your firm name, and common search combinations. We assess the strength of each negative entry and identify exactly what we are working with.",
     Icon: Map,
   },
@@ -29,7 +29,7 @@ export const REPUTATION360_FA_STEPS = [
   },
   {
     step: 3,
-    headline: "Step 3 - Content and Presence Building (Months 1-4)",
+    headline: "Step 3 - Reputation Content and Presence Building (Months 1–4)",
     body: "We build your authoritative digital footprint: LinkedIn profile optimization, a professional website or thought leadership hub, financial commentary and expert articles on high-authority platforms, optimized profiles on financial directories, and supporting professional properties.",
     Icon: Layers,
   },
@@ -41,7 +41,7 @@ export const REPUTATION360_FA_STEPS = [
   },
   {
     step: 5,
-    headline: "Step 5 - Long-Term Maintenance (Month 8 onward)",
+    headline: "Step 5 - Long-Term Reputation Maintenance (Months 8–12)",
     body: "Once negative content is displaced, we maintain the presence that replaced it - ensuring it holds position and continues working in your favor.",
     Icon: RefreshCw,
   },
@@ -159,7 +159,7 @@ export const REPUTATION360_EXECUTIVE_STEPS = [
   },
   {
     step: 2,
-    headline: "Step 2 - Strategic Brief and Priority Setting (Week 2)",
+    headline: "Step 2 - Strategic Reputation Brief and Priority Setting (Week 2)",
     body: "We present our findings and agree on a clear priority order - which results need to be displaced first, which present the highest risk, and what the realistic outcome looks like for your specific situation.",
     Icon: Target,
   },
@@ -325,25 +325,25 @@ export const REPUTATION360_REAL_ESTATE_STEPS = [
 export const REALISTIC_TIMELINE_PHASES = [
   {
     id: "weeks-1-4",
-    window: "Weeks 1-4: Initial Reputation Audit and Setup",
+    window: "Weeks 1–4: Initial Reputation Audit and Setup",
     body: "Audit complete. Strategy live. Initial content published and indexed.",
     Icon: CalendarRange,
   },
   {
     id: "months-2-4",
-    window: "Months 2-4: Early Reputation Movement",
+    window: "Months 2–4: Early Reputation Movement",
     body: "Measurable ranking movement. Positive properties gaining traction.",
     Icon: TrendingUp,
   },
   {
     id: "months-4-7",
-    window: "Months 4-7: Significant Reputation Shift",
+    window: "Months 4–7: Significant Reputation Shift",
     body: "Primary negative results displaced for most cases.",
     Icon: CheckCircle2,
   },
   {
     id: "months-8-12",
-    window: "Months 8-12: Full Reputation Transformation",
+    window: "Months 8–12: Full Reputation Transformation",
     body: "Substantial transformation complete. Negative content pushed well beyond visible pages.",
     Icon: Sparkles,
   },
@@ -352,25 +352,25 @@ export const REALISTIC_TIMELINE_PHASES = [
 export const REALISTIC_TIMELINE_FA_PHASES = [
   {
     id: "weeks-1-4",
-    window: "Weeks 1-4: Initial Audit and Campaign Setup",
+    window: "Weeks 1–4: Initial Reputation Audit and Setup",
     body: "Audit complete. Strategy live. Initial content published and indexed.",
     Icon: CalendarRange,
   },
   {
     id: "months-2-4",
-    window: "Months 2-4: Early Reputation Movement",
+    window: "Months 2–4: Early Reputation Movement",
     body: "Measurable ranking movement. Positive properties gaining traction.",
     Icon: TrendingUp,
   },
   {
     id: "months-4-7",
-    window: "Months 4-7: Significant Reputation Shift",
+    window: "Months 4–7: Significant Reputation Shift",
     body: "Primary negative results displaced for most cases.",
     Icon: CheckCircle2,
   },
   {
     id: "months-8-12",
-    window: "Months 8-12: Full Reputation Transformation",
+    window: "Months 8–12: Full Reputation Transformation",
     body: "Substantial transformation complete. Negative content pushed well beyond visible pages.",
     Icon: Sparkles,
   },

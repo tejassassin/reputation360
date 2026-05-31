@@ -96,7 +96,7 @@ const EXECUTIVE_SCALE_METRICS = [
   {
     id: "csuite",
     figure: "82%",
-    blurb: "Executives & online decisions",
+    blurb: "How Executives Are Judged by Online Search Results",
     description:
       "82% of executives make decisions based on what they find online.",
     Icon: Users,
@@ -104,7 +104,7 @@ const EXECUTIVE_SCALE_METRICS = [
   {
     id: "investors",
     figure: "65%",
-    blurb: "Investors & online decisions",
+    blurb: "How Investors Research Executives Before Making Decisions",
     description:
       "65% of investors make decisions based on what they find online.",
     Icon: TrendingUp,
@@ -112,7 +112,7 @@ const EXECUTIVE_SCALE_METRICS = [
   {
     id: "results",
     figure: "12-20",
-    blurb: "Typical results vs. your control",
+    blurb: "Typical Executive Search Results vs. What You Can Control",
     description:
       "12-20 unique results typically surface for an executive's name - and fewer than 3 are usually under their direct control.",
     Icon: BarChart3,
@@ -122,21 +122,21 @@ const EXECUTIVE_SCALE_METRICS = [
 const EXECUTIVE_WHY_STAKES_PILLARS = [
   {
     id: "trust",
-    label: "Trust is the currency",
+    label: "Why Trust Is the Core Currency of Executive Reputation",
     hook: "Investors and partners decide before they ask you.",
     body: "At board and C-suite level, trust is the currency. An investor who finds something concerning does not email you to ask for clarification - they pass. A potential co-founder who sees a damaging article from three years ago declines the conversation. A senior executive you are trying to recruit decides your organization is not the right platform.",
     Icon: Users,
   },
   {
     id: "invisible",
-    label: "Invisible damage",
+    label: "How Reputation Damage Stays Invisible Until It Costs You",
     hook: "The cost shows up in conversations that never happen.",
     body: "The damage does not announce itself. It accumulates invisibly, in conversations that never happen and decisions made without you.",
     Icon: Eye,
   },
   {
     id: "proactive",
-    label: "Proactive, not reactive",
+    label: "Why Reputation Management for Executives Must Be Proactive",
     hook: "Presence is a function of your position.",
     body: "Building a protective, authoritative digital presence is not something you do reactively. It is something you maintain proactively, as a function of your position.",
     Icon: TrendingUp,
@@ -154,7 +154,7 @@ function ExecutivesProblemSection() {
       className="mt-12 scroll-mt-28 rounded-[24px] border border-[#d9e3ea] bg-white px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.07)] md:mt-16 md:px-9 md:py-11"
     >
       <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        The Problem Executives Face
+        The Reputation Problem Executives Face
       </h2>
 
       <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-start">
@@ -170,7 +170,7 @@ function ExecutivesProblemSection() {
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e8f0] pb-4">
         <h3 className="font-heading text-base font-semibold text-[#0f2e58] md:text-lg">
-          Where damaging content typically appears:
+          Where Damaging Reputation Content Typically Appears Online
         </h3>
       </div>
 
@@ -511,9 +511,7 @@ function ExecutivesFaqSection() {
       id="executives-faqs"
       className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
     >
-      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        FAQs
-      </h2>
+      <h2>Frequently Asked Questions About Executives Reputation Management</h2>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
       <div className="mt-8 max-w-4xl space-y-4">
         {EXECUTIVE_FAQ_ITEMS.map((item, index) => (
@@ -546,9 +544,7 @@ function ExecutivesPage() {
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 md:px-6 md:py-14">
         <section className="relative overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:grid md:grid-cols-[1.03fr_0.97fr] md:items-start md:px-4 md:py-7">
           <div className="max-w-[570px]">
-            <h1 className="max-w-[520px] font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#0f2e58] md:text-[40px]">
-              Every board member will search your name.
-            </h1>
+            <h1>Executive Reputation Management Services — Control What Board Members Find</h1>
             <p className="mt-5 max-w-[520px] text-[15px] leading-[1.5] text-[#4f5f75] md:text-[16px]">
               Is your digital presence ready for that moment? Shape what
               stakeholders see before diligence, press, or partnerships hinge on a

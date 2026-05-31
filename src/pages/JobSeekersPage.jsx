@@ -96,7 +96,7 @@ const JOB_SEEKER_SCALE_METRICS = [
   {
     id: "recruiter-research",
     figure: "77%",
-    blurb: "Recruiters research you before they decide",
+    blurb: "How Recruiters Research Job Seekers Before Hiring",
     description:
       "77% of recruiters and hiring managers research candidates online before making a hiring decision.",
     Icon: UserSearch,
@@ -104,7 +104,7 @@ const JOB_SEEKER_SCALE_METRICS = [
   {
     id: "eliminated",
     figure: "56%",
-    blurb: "Eliminated after something surfaced online",
+    blurb: "How Job Seekers Are Eliminated by Damaging Search Results",
     description:
       "56% say they have eliminated a candidate based on something they found online.",
     Icon: UserRoundX,
@@ -112,7 +112,7 @@ const JOB_SEEKER_SCALE_METRICS = [
   {
     id: "no-contact",
     figure: "47%",
-    blurb: "Won't reach out if search raises concerns",
+    blurb: "How Recruiters React When Search Results Raise Concerns",
     description:
       "47% say they would not even contact a candidate if their online search raised concerns.",
     Icon: ShieldAlert,
@@ -120,7 +120,7 @@ const JOB_SEEKER_SCALE_METRICS = [
   {
     id: "self-search",
     figure: "Only 6%",
-    blurb: "Candidates who search their own name first",
+    blurb: "How Successful Job Seekers Manage Their Own Search Results",
     description:
       "Only 6% of candidates ever think to search their own name before applying.",
     Icon: Eye,
@@ -130,21 +130,21 @@ const JOB_SEEKER_SCALE_METRICS = [
 const WHY_DIFFICULT_JOB_SEEKER_PILLARS = [
   {
     id: "on-your-own",
-    label: "On your own",
+    label: "On Your Own: Why Companies Won't Fix Your Personal Reputation",
     hook: "No dedicated team to manage your public footprint.",
     body: "Unlike a business that can invest in ongoing brand management, a job seeker is typically navigating this alone - often during an already stressful period of transition.",
     Icon: UserSearch,
   },
   {
     id: "silent-signals",
-    label: "Silent signals",
+    label: "Silent Signals: How Unseen Search Results Derail Your Career",
     hook: "Silence rarely means your search results are fine.",
     body: "There is also a timing problem. The damage is happening now, with every application you submit - but you will not receive clear feedback telling you that your search results are the issue. You may interpret silence as a skills gap or a competitive market, when the real obstacle is something Google is showing that you have never even looked at.",
     Icon: MessagesSquare,
   },
   {
     id: "practical-path",
-    label: "The practical path forward",
+    label: "The Practical Path Forward: Rebuilding Your Professional Search Profile",
     hook: "What actually moves what recruiters see first.",
     body: "Every week your search results remain unchanged is another set of opportunities quietly closing. Building a stronger, more authoritative online presence is how negative content gets displaced from the first page of results - the page that decides whether you get a call.",
     Icon: TrendingUp,
@@ -364,9 +364,7 @@ function JobSeekersFaqSection() {
       id="job-seeker-faqs"
       className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
     >
-      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        FAQs
-      </h2>
+      <h2>Frequently Asked Questions About Job Seekers Reputation Management</h2>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
       <div className="mt-8 max-w-4xl space-y-4">
         {JOB_SEEKER_FAQ_ITEMS.map((item, index) => (
@@ -437,7 +435,7 @@ function JobSeekersProblemSection() {
       className="mt-12 scroll-mt-28 rounded-[24px] border border-[#d9e3ea] bg-white px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.07)] md:mt-16 md:px-9 md:py-11"
     >
       <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        The Problem Job Seekers Face
+        The Reputation Problem Job Seekers Face
       </h2>
 
       <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-start">
@@ -453,7 +451,7 @@ function JobSeekersProblemSection() {
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e8f0] pb-4">
         <h3 className="font-heading text-base font-semibold text-[#0f2e58] md:text-lg">
-          Where damaging content typically appears:
+          Where Damaging Reputation Content Typically Appears Online
         </h3>
       </div>
 
@@ -550,9 +548,7 @@ function JobSeekersPage() {
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 space-y-10">
         <section className="relative overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:px-4 md:py-7 grid gap-5 md:grid-cols-[1.03fr_0.97fr] items-start">
           <div className="max-w-[570px]">
-            <h1 className="font-heading text-[34px] md:text-[40px] leading-[1.02] text-[#0f2e58] font-bold tracking-tight max-w-[520px]">
-              Recruiters Google You Before They Call. What Do They Find?
-            </h1>
+            <h1>Personal Reputation Management for Job Seekers — Control What Recruiters Find</h1>
             <p className="mt-5 text-[#4f5f75] text-[15px] md:text-[16px] leading-[1.5] max-w-[520px]">
               Ensure your digital reputation reflects your true professional
               value before a recruiter ever hits 'Search'.

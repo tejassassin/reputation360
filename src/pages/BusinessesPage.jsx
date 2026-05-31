@@ -77,7 +77,7 @@ const BUSINESS_SCALE_METRICS = [
   {
     id: "research",
     figure: "88%",
-    blurb: "Research before purchase",
+    blurb: "How B2B Buyers Research Your Business Reputation Before Purchase",
     description:
       "88% of consumers research a business online before making a purchase decision.",
     Icon: Users,
@@ -85,7 +85,7 @@ const BUSINESS_SCALE_METRICS = [
   {
     id: "reviews",
     figure: "94%",
-    blurb: "Reviews change decisions",
+    blurb: "How Reviews Change B2B Purchasing Decisions",
     description:
       "94% say a negative review has convinced them not to use a business.",
     Icon: Star,
@@ -93,7 +93,7 @@ const BUSINESS_SCALE_METRICS = [
   {
     id: "b2b-sources",
     figure: "7",
-    blurb: "Sources B2B buyers consult",
+    blurb: "How B2B Buyers Consult Search Results Before Buying",
     description:
       "7 content sources consulted on average by B2B buyers before making a vendor decision - search results are among the first.",
     Icon: Layers,
@@ -101,7 +101,7 @@ const BUSINESS_SCALE_METRICS = [
   {
     id: "conversion",
     figure: "22%",
-    blurb: "First-page impact",
+    blurb: "How First-Page Search Results Impact Business Revenue",
     description:
       "22% average reduction in organic lead conversion for companies with a negative first-page result for their brand name.",
     Icon: TrendingDown,
@@ -111,21 +111,21 @@ const BUSINESS_SCALE_METRICS = [
 const BUSINESS_WHY_STAKES_PILLARS = [
   {
     id: "surfaces",
-    label: "Multiple reputation surfaces",
+    label: "Multiple Reputation Surfaces: Why Business Damage Spreads Everywhere",
     hook: "Company, founders, and products - each can carry damage.",
     body: "A business has multiple reputation surfaces - your company name, your founders' names, your product names. All of them can carry damaging content.",
     Icon: Building2,
   },
   {
     id: "competitive",
-    label: "Competitive dynamics",
+    label: "Competitive Dynamics: When Competitors Weaponize Your Search Results",
     hook: "Competitors and platforms target your brand in search.",
     body: "You also face competitive dynamics that individuals do not. Competitors actively create content targeting your brand name in search. Review platforms have become competitive battlegrounds.",
     Icon: Crosshair,
   },
   {
     id: "stakeholders",
-    label: "One result, many audiences",
+    label: "One Result, Many Audiences: How a Single Article Scares Everyone",
     hook: "Customers, talent, investors, partners, and press all search.",
     body: "Because you serve multiple stakeholders simultaneously - customers, talent, investors, partners, press - a negative result that affects one group often affects all of them.",
     Icon: Users,
@@ -143,7 +143,7 @@ function BusinessesProblemSection() {
       className="mt-12 scroll-mt-28 rounded-[24px] border border-[#d9e3ea] bg-white px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.07)] md:mt-16 md:px-9 md:py-11"
     >
       <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        The Problem Businesses Face
+        The Reputation Problem Businesses Face
       </h2>
 
       <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-start">
@@ -160,7 +160,7 @@ function BusinessesProblemSection() {
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e8f0] pb-4">
         <h3 className="font-heading text-base font-semibold text-[#0f2e58] md:text-lg">
-          Where damaging content typically appears:
+          Where Damaging Reputation Content Typically Appears Online
         </h3>
       </div>
 
@@ -497,9 +497,7 @@ function BusinessesFaqSection() {
       id="businesses-faqs"
       className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
     >
-      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        FAQs
-      </h2>
+      <h2>Frequently Asked Questions About Businesses Reputation Management</h2>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
       <div className="mt-8 max-w-4xl space-y-4">
         {BUSINESS_FAQ_ITEMS.map((item, index) => (
@@ -532,9 +530,7 @@ function BusinessesPage() {
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 md:px-6 md:py-14">
         <section className="relative overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:grid md:grid-cols-[1.03fr_0.97fr] md:items-start md:px-4 md:py-7">
           <div className="max-w-[570px]">
-            <h1 className="max-w-[560px] font-heading text-[30px] font-bold leading-[1.05] tracking-tight text-[#0f2e58] sm:text-[34px] md:text-[40px]">
-              Your Business May Have a Google Problem. Have You Checked?
-            </h1>
+            <h1>Business Reputation Management Services — Control What Customers Find</h1>
             <p className="mt-5 max-w-[520px] text-[15px] leading-[1.5] text-[#4f5f75] md:text-[16px]">
               In thirty seconds, it either builds confidence - or costs you the
               deal.

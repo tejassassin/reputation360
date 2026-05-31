@@ -96,7 +96,7 @@ function DoctorsProblemSection() {
       className="mt-12 scroll-mt-28 rounded-[24px] border border-[#d9e3ea] bg-white px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.07)] md:mt-16 md:px-9 md:py-11"
     >
       <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        The Problem Healthcare Professionals Face
+        The Reputation Problem Healthcare Professionals Face
       </h2>
 
       <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-start">
@@ -115,7 +115,7 @@ function DoctorsProblemSection() {
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e8f0] pb-4">
         <h3 className="font-heading text-base font-semibold text-[#0f2e58] md:text-lg">
-          Where damaging content typically appears:
+          Where Damaging Reputation Content Typically Appears Online
         </h3>
       </div>
 
@@ -200,7 +200,7 @@ const DOCTOR_SCALE_METRICS = [
   {
     id: "trust-reviews",
     figure: "84%",
-    blurb: "Trust reviews like a referral",
+    blurb: "How Patients Trust Online Reviews Like a Doctor Referral",
     description:
       "84% of patients trust online reviews about doctors as much as a personal recommendation.",
     Icon: Star,
@@ -208,7 +208,7 @@ const DOCTOR_SCALE_METRICS = [
   {
     id: "search-before-booking",
     figure: "77%",
-    blurb: "Search before they book",
+    blurb: "How Patients Search Your Medical Reputation Before They Book",
     description:
       "77% of patients search online before booking a healthcare appointment.",
     Icon: UserSearch,
@@ -216,7 +216,7 @@ const DOCTOR_SCALE_METRICS = [
   {
     id: "star-dropoff",
     figure: "19%",
-    blurb: "Inquiries fall when ratings slip",
+    blurb: "How Patient Inquiries Fall When Doctor Ratings Slip",
     description:
       "19% decline in new patient inquiries associated with a drop from 4.0 to 3.5 stars on a major review platform.",
     Icon: TrendingDown,
@@ -224,7 +224,7 @@ const DOCTOR_SCALE_METRICS = [
   {
     id: "few-reviews",
     figure: "<10",
-    blurb: "Thin review footprint",
+    blurb: "How a Thin Review Footprint Damages a Doctor's Reputation",
     description:
       "Doctors with fewer than 10 online reviews are significantly more vulnerable to a single negative outlier shifting their overall rating.",
     Icon: AlertTriangle,
@@ -347,21 +347,21 @@ function DoctorsScaleSection() {
 const DOCTOR_WHY_HARDER_PILLARS = [
   {
     id: "asymmetry",
-    label: "The asymmetry",
+    label: "The Asymmetry: Why Fake Reviews Outweigh Real Medical Credentials",
     hook: "Patients can name you. You cannot reply in kind.",
     body: "You operate under a fundamental asymmetry. A patient can post a detailed, emotionally charged review naming you specifically. You cannot respond with clinical specifics without risking a HIPAA violation. Your professional body may restrict how you engage publicly with complaints.",
     Icon: ShieldAlert,
   },
   {
     id: "others-shape",
-    label: "Limited control",
+    label: "Limited Control: Why Doctors Struggle to Remove False Patient Claims",
     hook: "Others shape what Google shows.",
     body: "This means the content landscape around your name can be shaped almost entirely by others - while your ability to respond directly is severely limited.",
     Icon: MessagesSquare,
   },
   {
     id: "presence-path",
-    label: "The practical path",
+    label: "The Practical Path: How We Displace Negative Medical Reviews",
     hook: "Authority beats arguing online.",
     body: "The most effective strategy is not responding to complaints. It is building a presence so authoritative and well-ranked that negative content never gets the visibility it needs to do damage.",
     Icon: TrendingUp,
@@ -508,9 +508,7 @@ function DoctorsFaqSection() {
       id="doctor-faqs"
       className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
     >
-      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        FAQs
-      </h2>
+      <h2>Frequently Asked Questions About Doctors and Healthcare Professionals Reputation Management</h2>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
       <div className="mt-8 max-w-4xl space-y-4">
         {DOCTOR_FAQ_ITEMS.map((item, index) => (
@@ -544,9 +542,7 @@ function DoctorsPage() {
             <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#1f3b64]/70 md:text-[11px] md:tracking-[0.16em]">
               Doctors &amp; Healthcare Professionals
             </p>
-            <h1 className="mt-2 max-w-[520px] font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#0f2e58] md:text-[40px]">
-              Your Patients Search You Before They Book. What Do They See?
-            </h1>
+            <h1>Reputation Management for Doctors & Healthcare Professionals — Protect Your Clinical Record</h1>
             <p className="mt-5 max-w-[520px] text-[15px] leading-[1.5] text-[#4f5f75] md:text-[16px]">
               One review - fair or not - can empty a waiting room that took years
               to fill.

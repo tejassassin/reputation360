@@ -98,7 +98,7 @@ function RealEstateProblemSection() {
       className="mt-12 scroll-mt-28 rounded-[24px] border border-[#d9e3ea] bg-white px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.07)] md:mt-16 md:px-9 md:py-11"
     >
       <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        The Problem Real Estate Professionals Face
+        The Reputation Problem Real Estate Professionals Face
       </h2>
 
       <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-start">
@@ -115,7 +115,7 @@ function RealEstateProblemSection() {
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e8f0] pb-4">
         <h3 className="font-heading text-base font-semibold text-[#0f2e58] md:text-lg">
-          Where damaging content typically appears:
+          Where Damaging Reputation Content Typically Appears Online
         </h3>
       </div>
 
@@ -200,7 +200,7 @@ const REAL_ESTATE_SCALE_METRICS = [
   {
     id: "homebuyer-research",
     figure: "97%",
-    blurb: "Homebuyers research agents online",
+    blurb: "How Homebuyers Research Real Estate Agents Online",
     description:
       "97% of homebuyers research agents online before making contact. Nearly every potential client will search your name before they speak to you.",
     Icon: UserSearch,
@@ -208,7 +208,7 @@ const REAL_ESTATE_SCALE_METRICS = [
   {
     id: "page-one",
     figure: "95%",
-    blurb: "Never look beyond page one",
+    blurb: "How Clients Never Look Beyond Page One of Search Results",
     description:
       "95% of people never look beyond the first page of search results. If damaging content sits there, it is doing harm every single day.",
     Icon: Search,
@@ -216,7 +216,7 @@ const REAL_ESTATE_SCALE_METRICS = [
   {
     id: "revenue-uplift",
     figure: "5-9%",
-    blurb: "Revenue increase per star rating gain",
+    blurb: "How a Real Estate Agent's Revenue Increases With Star Ratings",
     description:
       "A one-star rating increase can drive a 5-9% revenue uplift (Harvard Business School). In real estate, where individual transactions generate thousands in commission, that is a material difference.",
     Icon: TrendingUp,
@@ -224,7 +224,7 @@ const REAL_ESTATE_SCALE_METRICS = [
   {
     id: "referral-loop",
     figure: "88%",
-    blurb: "Referrals depend on search results",
+    blurb: "How Real Estate Referrals Depend on Your Online Reputation",
     description:
       "88% of buyers would use the same agent again or refer them - but only if they can find them first. Your digital presence determines whether that referral loop closes.",
     Icon: Globe2,
@@ -345,21 +345,21 @@ function RealEstateScaleSection() {
 const REAL_ESTATE_WHY_HARDER_PILLARS = [
   {
     id: "permanent",
-    label: "Entrenched negative press",
+    label: "Entrenched Negative Press: Why Real Estate Scrutiny Sticks",
     hook: "News articles and public complaints hold search positions.",
     body: "Most agents assume that negative content will eventually fade, or that time alone will push it down. In practice, that rarely happens. Search engines favour authoritative, established content. A critical article on a news site or a dispute on a high-authority platform will often hold its position for years - regardless of how many positive transactions follow.",
     Icon: Lock,
   },
   {
     id: "limitations",
-    label: "Standard active limits",
+    label: "Standard Active Limits: How Review Sites Block Removal Efforts",
     hook: "Just posting more updates rarely moves hard results.",
     body: "The other assumption is that building a stronger presence is simply a matter of being more active online. Posting more content, maintaining social profiles, and ensuring listings are up to date are all worthwhile - but they rarely move a deeply entrenched negative result. The internet does not self-correct.",
     Icon: ShieldAlert,
   },
   {
     id: "suppression",
-    label: "Technical suppression path",
+    label: "The Technical Suppression Path: Outranking Negative Real Estate News",
     hook: "Search algorithms require authority at scale to shift.",
     body: "What is required is a structured, technically informed approach: one that understands how search algorithms rank content, which content types carry the most authority, and how to systematically build a search presence that displaces harmful results from the positions that matter most.",
     Icon: TrendingUp,
@@ -464,9 +464,7 @@ function RealEstateFaqSection() {
       id="real-estate-faqs"
       className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
     >
-      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        Frequently Asked Questions
-      </h2>
+      <h2>Frequently Asked Questions About Real Estate Professionals Reputation Management</h2>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
       <div className="mt-8 max-w-4xl space-y-4">
         {REAL_ESTATE_FAQ_ITEMS.map((item, index) => (
@@ -834,9 +832,7 @@ function RealEstatePage() {
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 space-y-10">
           <section className="rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:px-4 md:py-7 grid gap-5 md:grid-cols-[1.03fr_0.97fr] items-start">
             <div className="max-w-[570px]">
-              <h1 className="font-heading text-[34px] md:text-[40px] leading-[1.02] text-[#0f2e58] font-bold tracking-tight max-w-[520px]">
-                Online Reputation Management for Real Estate Agents & Brokers
-              </h1>
+              <h1>Online Reputation Management for Real Estate Agents & Brokers — Control What Clients Find</h1>
               <p className="mt-5 text-[#4f5f75] text-[15px] md:text-[16px] leading-[1.5] max-w-[520px]">
                 Your next client will Google you before they call you. What they find in those first
                 few results determines whether they reach out, or quietly move on.

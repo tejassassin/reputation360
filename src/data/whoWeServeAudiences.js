@@ -32,7 +32,7 @@ export const WHO_WE_SERVE_AUDIENCES = [
   },
   {
     id: "executives",
-    title: "Executive Reputation Management for C-Suite Leaders",
+    title: "Reputation Management for Executives",
     description:
       "Protect your leadership reputation and ensure your vision and impact come through clearly.",
     linkLabel: "Executive Reputation Repair Solutions",
