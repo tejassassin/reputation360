@@ -57,7 +57,7 @@ export const ORM_GUIDE_NAV = [
     label: "Is There Anything You Can Do Before Reaching Out?",
     navLabel: "Before You Reach Out",
   },
-  { id: "why-r360", label: "Why Reputation360?", navLabel: "Why Reputation360" },
+  { id: "why-r360", label: "Why Choose Reputation360 for ORM?", navLabel: "Why Reputation360" },
   { id: "faq", label: "Frequently Asked Questions", navLabel: "FAQ" },
   {
     id: "start",

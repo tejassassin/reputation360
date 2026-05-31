@@ -1090,7 +1090,7 @@ export function OrmWhyR360Section() {
           transition={{ duration: 0.55 }}
         >
           <h2 className="font-heading text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.25)] md:text-[2.1rem]">
-            Why Reputation360?
+            Why Choose Reputation360 for ORM?
           </h2>
           <div
             className="mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] shadow-[0_0_24px_rgba(76,175,80,0.2)]"
@@ -1123,9 +1123,9 @@ export function OrmWhyR360Section() {
                     <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/20 bg-[#0f1c2c]/85 text-[#7df5b9] shadow-inner shadow-black/20 ring-1 ring-[#4CAF50]/35">
                       <Icon className="h-6 w-6" strokeWidth={2} aria-hidden />
                     </div>
-                    <h4 className="font-heading text-base font-extrabold leading-snug text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] md:text-lg">
+                    <h3 className="font-heading text-base font-extrabold leading-snug text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] md:text-lg">
                       {d.label}
-                    </h4>
+                    </h3>
                   </div>
                   <p className="text-sm leading-relaxed text-slate-100/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.15)] md:text-[15px]">
                     {d.body}
