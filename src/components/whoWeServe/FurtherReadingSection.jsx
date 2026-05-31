@@ -128,7 +128,7 @@ export function FurtherReadingSection({
 
   return (
     <section
-      className={`further-reading scroll-mt-28 border-t border-[#dce3ec] pt-10 md:pt-12 ${className}`.trim()}
+      className={`!mt-16 md:!mt-24 further-reading scroll-mt-28 border-t border-[#dce3ec] pt-10 md:pt-12 ${className}`.trim()}
       aria-labelledby="further-reading-heading"
     >
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
