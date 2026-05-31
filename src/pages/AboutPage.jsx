@@ -142,37 +142,37 @@ const whatDrivesPersonas = [
 const whoWeServe = [
   {
     icon: User,
-    title: "Individuals",
+    title: "Personal Reputation Management for Individuals",
     text: "Anyone whose online presence does not reflect who they truly are",
     href: AUDIENCE_PATH.individuals,
   },
   {
     icon: Landmark,
-    title: "Financial Leaders",
+    title: "Online Reputation Management for Financial Advisors & Leaders",
     text: "Executives and advisors protecting decades of professional credibility",
     href: AUDIENCE_PATH.financialAdvisors,
   },
   {
     icon: Stethoscope,
-    title: "Doctors & Healthcare Professionals",
+    title: "Reputation Management for Doctors & Healthcare Professionals",
     text: "Physicians and healthcare professionals managing their digital standing",
     href: AUDIENCE_PATH.doctors,
   },
   {
     icon: Gavel,
-    title: "Lawyers & Attorneys",
+    title: "Reputation Management for Lawyers & Attorneys",
     text: "Legal professionals maintaining the trust their practice depends on",
     href: AUDIENCE_PATH.lawyers,
   },
   {
     icon: BarChart3,
-    title: "Executives & C-Suite Leaders",
+    title: "Executive Reputation Management for C-Suite Leaders",
     text: "Leaders ensuring their influence and legacy are represented accurately online",
     href: AUDIENCE_PATH.executives,
   },
   {
     icon: Building2,
-    title: "Businesses and Companies",
+    title: "Business Reputation Management Services",
     text: "E-commerce, manufacturing, and consumer brands protecting their market reputation",
     href: AUDIENCE_PATH.businesses,
   },
@@ -181,17 +181,17 @@ const whoWeServe = [
 const howWeWorkSteps = [
   {
     n: "01",
-    title: "Audit",
+    title: "Reputation Audit & Risk Assessment",
     text: "We start by understanding exactly where you stand. We analyse your current online presence, identify what is working against you, and map out the full picture before recommending anything.",
   },
   {
     n: "02",
-    title: "Strategy",
+    title: "Custom Reputation Management Strategy",
     text: "No templates. No copy-paste solutions. We build a fully customised plan around your specific situation, your goals, and your timeline - with clear milestones from day one.",
   },
   {
     n: "03",
-    title: "Execute & Protect",
+    title: "Execute, Build & Protect Your Online Reputation",
     text: "We get to work. Our global team implements your strategy, monitors results continuously, and adapts in real time. We do not stop until the right narrative is in place - and we stay vigilant to protect it long after.",
   },
 ];
@@ -464,7 +464,7 @@ function HowItAllBeganStory() {
             OUR STORY
           </p>
           <h2 className="font-heading mt-2 text-3xl font-bold tracking-tight text-navy md:text-4xl">
-            Our Story
+            Our Story: 7+ Years in Online Reputation Management
           </h2>
           <div
             className="mt-5 h-1.5 w-full max-w-3xl overflow-hidden rounded-full bg-slate-200/90"
@@ -655,7 +655,7 @@ function WhatDrivesUsSection() {
           <h2
             className={`${headlineFont} text-3xl font-extrabold leading-tight text-[#1F3B64] md:text-[2.1rem]`}
           >
-            Our Mission & Values
+            Our Mission & Values as a Reputation Management Company
           </h2>
           <p
             className={`${headlineFont} mx-auto mt-4 max-w-2xl text-balance text-lg font-semibold leading-snug text-[#2E5B88] md:text-xl`}
@@ -1064,7 +1064,7 @@ function ClientStoriesSection() {
           <h2
             className={`${headlineFont} text-2xl font-extrabold text-[#1F3B64] md:text-3xl`}
           >
-            What Our Clients Say
+            What Our Clients Say About Our Reputation Management Services
           </h2>
           <p className="font-body mx-auto mt-3 max-w-xl text-sm text-slate-600 md:text-base">
             Real words from people who needed page one to tell the truth.
@@ -1368,7 +1368,7 @@ function AboutPage() {
                 <h1
                   className={`${headlineFont} text-[1.6rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[2.5rem] lg:leading-[1.08]`}
                 >
-                  About Reputation360 - Online Reputation Management Experts
+                  About Reputation360 | Online Reputation Management Company
                 </h1>
               </Motion.div>
               <Motion.p
@@ -1639,7 +1639,7 @@ function AboutPage() {
             <h2
               className={`${headlineFont} text-3xl font-extrabold tracking-tight text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.25)] md:text-[2.1rem]`}
             >
-              What We Don&apos;t Do
+              What Our Reputation Management Company Doesn&apos;t Do
             </h2>
             <div
               className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] shadow-[0_0_24px_rgba(76,175,80,0.2)]"
@@ -1702,7 +1702,7 @@ function AboutPage() {
             transition={{ duration: 0.5 }}
           >
             <h2 className={`${headlineFont} text-3xl font-extrabold text-[#1F3B64] md:text-[2.1rem]`}>
-              Our Promise to You
+              Our Promise: Honest, Transparent Reputation Management
             </h2>
             <Motion.div
               className="mx-auto mt-4 h-1.5 w-24 origin-center rounded-full bg-gradient-to-r from-[#4CAF50] to-emerald-300"
@@ -1775,7 +1775,7 @@ function AboutPage() {
               <h2
                 className={`${headlineFont} mb-6 text-3xl font-extrabold leading-snug text-white md:text-4xl lg:text-[2.35rem]`}
               >
-                Ready to take back control?
+                Ready to Fix Your Online Reputation?
               </h2>
               <p className="mx-auto mb-10 max-w-2xl text-base text-white/70 md:text-lg">
                 Your story deserves to be told on your terms. Let&apos;s build a
