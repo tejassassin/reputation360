@@ -28,11 +28,6 @@ import {
   FREE_RISK_SCAN_PATH,
 } from "../constants/freeRiskScan.js";
 import { LOGO_ALT_NAV } from "../constants/imageAlt.js";
-import {
-  NEGATIVE_LINK_SUPPRESSION_PATH,
-  ONLINE_REPUTATION_MANAGEMENT_PATH,
-  REPUTATION_BUILDING_SERVICES_PATH,
-} from "../constants/servicePaths.js";
 import { ORM_GLOSSARY_PATH } from "../data/ormGlossaryData.js";
 
 const navItems = [
@@ -45,26 +40,7 @@ const navItems = [
       { name: "Contact", link: "/contact" },
     ],
   },
-  {
-    name: "Services",
-    link: "/services",
-    parentNonNavigable: true,
-    children: [
-      { name: "All Services", link: "/services" },
-      {
-        name: "Online Reputation Management",
-        link: ONLINE_REPUTATION_MANAGEMENT_PATH,
-      },
-      {
-        name: "Negative Link Suppression",
-        link: NEGATIVE_LINK_SUPPRESSION_PATH,
-      },
-      {
-        name: "Reputation Building Services",
-        link: REPUTATION_BUILDING_SERVICES_PATH,
-      },
-    ],
-  },
+  { name: "Services", link: "/services" },
   {
     name: "Who We Serve?",
     parentNonNavigable: true,
