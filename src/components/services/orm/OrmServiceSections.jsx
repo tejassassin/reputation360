@@ -644,6 +644,12 @@ export function OrmRankingFactorsSection() {
         })}
       </div>
 
+      <div className="sr-only" aria-hidden="true">
+        {RANKING_FACTORS.map((f) => (
+          <h3 key={f.id}>{f.label}</h3>
+        ))}
+      </div>
+
       <AnimatePresence mode="wait" initial={false}>
         <Motion.div
           key={factor.id}
@@ -660,7 +666,7 @@ export function OrmRankingFactorsSection() {
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white shadow-sm">
               <ActiveIcon className="h-5 w-5" aria-hidden strokeWidth={2} />
             </span>
-            <h3 className="font-heading text-xl font-bold text-navy">{factor.label}</h3>
+            <p className="font-heading text-xl font-bold text-navy">{factor.label}</p>
           </div>
           <div className="mt-5 grid gap-5 md:grid-cols-2 md:gap-6">
             <div>
