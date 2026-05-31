@@ -4,7 +4,7 @@ import { calendlyCtaButtonClass } from "@/constants/scheduling";
 import { cn } from "@/lib/utils";
 
 export const BLOG_GUIDE_CTA_PANEL_TITLE =
-  "Ready to take control of your online presence?";
+  "Ready to Take Control of Your Online Reputation?";
 export const BLOG_GUIDE_CTA_PANEL_LEAD =
   "We'll review your reputation and create a personalized plan to strengthen it.";
 
