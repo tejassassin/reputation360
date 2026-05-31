@@ -80,7 +80,7 @@ export function BlogGuideCtaSection({
     <section className={cn("mb-20 scroll-mt-36", className)} id={id}>
       {sectionTag ? <span className="diy-section-tag">{sectionTag}</span> : null}
       {sectionTitle ? (
-        <h2 className="mb-6 font-heading text-3xl font-bold text-navy">{sectionTitle}</h2>
+        <p className="mb-6 font-heading text-3xl font-bold text-navy">{sectionTitle}</p>
       ) : null}
       {sectionLead ? (
         <p className="mb-8 font-body text-lg text-steel">{sectionLead}</p>

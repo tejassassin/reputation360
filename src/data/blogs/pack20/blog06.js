@@ -235,7 +235,7 @@ export const article = {
     {
       id: "what-works",
       number: "04",
-      title: "What actually produced results",
+      title: "What Actually Produced Reputation Management Results",
       blocks: [
         {
           type: "p",
@@ -244,7 +244,7 @@ export const article = {
         {
           type: "keyBox",
           variant: "insight",
-          title: "Accurate but unfair content",
+          title: "Handling Accurate But Unfair Content in Search Results",
           text: "Most engagements involve factually accurate but context-poor material: old news, resolved legal matters, past business disputes. Suppression works whether the original content is true or false - because page one is what decision-makers see.",
         },
         {

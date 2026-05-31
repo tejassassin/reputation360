@@ -278,7 +278,7 @@ export const article = {
     {
       id: "proactive-disclosure",
       number: "04",
-      title: "Addressing known issues proactively",
+      title: "Addressing Known Reputation Issues Proactively",
       blocks: [
         {
           type: "p",

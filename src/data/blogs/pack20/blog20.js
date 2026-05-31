@@ -110,7 +110,7 @@ export const article = {
             {
               id: "newsworthy-bias",
               label: "Newsworthy bias",
-              title: "Prominence skews negative",
+              title: "Why AI Search Prominence Skews Toward Negative Content",
               body: "AI summaries may reflect the most prominent information in training data or current web access - which often skews negative because newsworthy events tend to be negative.",
             },
             {
@@ -207,7 +207,7 @@ export const article = {
             {
               id: "dominance",
               label: "1. Multi-source dominance",
-              title: "Own ten good sources, not one great one",
+              title: "Why Owning Ten Strong Sources Beats One Great One in AI Search",
               body: "AI tools synthesize across sources - so owning one great source is less effective than owning ten good sources consistently saying the same positive things. Start with the profile claiming guide and first-page ownership. When positive information appears on LinkedIn, Wikipedia, company websites, news features, industry publications, and multiple social profiles, AI tools receive consistent positive signals. Contradictory information (some positive, some negative) produces inconsistent AI answers; consistent positive information produces reliable positive summaries.",
               parts: [
                 {

@@ -255,13 +255,13 @@ export const article = {
             {
               id: "high-stakes",
               label: "High stakes",
-              title: "Substantially higher returns",
+              title: "Substantially Higher Returns from Reputation Management",
               body: "Executives and businesses with significant reputation damage and high opportunity value - large deals, senior roles, investor scrutiny - frequently see returns that substantially exceed the engagement cost within the first year.",
             },
             {
               id: "inaction",
               label: "Doing nothing",
-              title: "Reliably zero or negative",
+              title: "Why DIY Reputation Repair is Reliably Zero or Negative",
               body: "What is consistent across engagements in the US, Canada, Australia, and Europe is that clients who take action - even at modest scale - consistently report better outcomes than they experienced before. The return on doing nothing, by contrast, is reliably zero or negative.",
             },
           ],

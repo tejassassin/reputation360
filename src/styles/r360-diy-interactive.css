@@ -187,7 +187,7 @@ html.r360-has-breadcrumb .r360-diy-interactive .diy-hero-band {
   margin-bottom: 2.5rem;
 }
 
-.r360-diy-interactive .diy-toc-panel h2 {
+.r360-diy-interactive .diy-toc-panel p.diy-toc-title {
   font-family: var(--font-heading, Inter, system-ui, sans-serif);
   font-size: 1.2rem;
   font-weight: 700;
@@ -239,7 +239,7 @@ html.r360-has-breadcrumb .r360-diy-interactive .diy-hero-band {
   margin-top: 1.5rem;
 }
 
-.r360-diy-interactive .diy-toc-numbered h2 {
+.r360-diy-interactive .diy-toc-numbered p.diy-toc-title {
   font-family: var(--font-heading, Inter, system-ui, sans-serif);
   font-size: 1.35rem;
   font-weight: 700;

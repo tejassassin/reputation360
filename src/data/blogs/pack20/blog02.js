@@ -122,7 +122,7 @@ export const article = {
         {
           type: "keyBox",
           variant: "insight",
-          title: "The ranking goal",
+          title: "The Ranking Goal in Reputation Management",
           text: "You are not spotlighting the negative page by creating new content. You are giving Google better options to display, which pushes the harmful result down while your narrative takes the visible slots.",
         },
       ],
@@ -285,7 +285,7 @@ export const article = {
         {
           type: "keyBox",
           variant: "warning",
-          title: "When negatives keep gaining links",
+          title: "When Negative Search Results Keep Gaining Links",
           text: "High-profile individuals and brands with ongoing media coverage need continuous positive content scaled to match new inbound links on the harmful page. Reputation360 monitors link growth on negative URLs as part of active management so strategy keeps pace with the threat.",
           parts: [
             {

@@ -192,7 +192,7 @@ export const article = {
             },
             {
               n: 4,
-              title: "A cooperative source",
+              title: "Working with a Cooperative Source for Reputation Content Removal",
               body: "Occasionally, the person or organization behind a negative piece of content is willing to edit or remove it in response to professional communication - particularly if the content was published without full context, or if the original concern has since been resolved. This is situation-specific but worth exploring before escalating to legal or technical measures.",
             },
           ],
@@ -294,7 +294,7 @@ export const article = {
     {
       id: "bottom-line",
       number: "06",
-      title: "The bottom line",
+      title: "The Bottom Line on Reputation Content Removal vs Suppression",
       blocks: [
         {
           type: "p",

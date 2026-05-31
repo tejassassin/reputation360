@@ -202,8 +202,8 @@ export default function CaseStudiesPage() {
             Documented results across industries
           </span>
           <h1 className="font-headline-faq mb-8 max-w-5xl text-4xl font-extrabold leading-[1.1] tracking-tighter text-[#1F3B64] md:text-6xl lg:text-7xl">
-            Negative Search Results Buried. Trusted Profiles Rising.{" "}
-            <span className="text-[#2E5B88]">See How We Made It Happen</span>
+            Online Reputation Management Case Studies —{" "}
+            <span className="text-[#2E5B88]">Real Results for Real Clients</span>
           </h1>
           <p className="mb-12 max-w-2xl text-lg font-light text-[#6B7280] md:text-xl">
             Detailed analysis of how we restore trust, counter harmful narratives, and rebuild
@@ -430,6 +430,7 @@ export default function CaseStudiesPage() {
         </Motion.div>
       ) : (
         <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-14 sm:pt-16 md:px-6 md:pb-12 md:pt-20">
+          <h2 className="sr-only">Reputation Management Case Studies</h2>
           <ul className="list-none space-y-6 sm:space-y-7 md:space-y-8">
             <AnimatePresence mode="popLayout">
               {filtered.map((c, i) => (

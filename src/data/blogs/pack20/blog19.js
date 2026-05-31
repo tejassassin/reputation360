@@ -156,7 +156,7 @@ export const article = {
             {
               id: "twitter",
               label: "Twitter / X",
-              title: "Treat every post as permanent",
+              title: "Treat Every Social Media Post as a Permanent Reputation Record",
               body: "Twitter/X presents both significant opportunity and significant risk. Public tweets are indexed by Google, search crawlers, and archival tools. A professional account with consistent, authoritative content can occupy first-page positions and build genuine audience trust. However, the informal, real-time nature of the platform means careless or emotionally reactive posts create reputation risk that other platforms do not. If you use Twitter/X publicly, treat every post as if it will be screenshotted and shared indefinitely. If you have historical tweets that could raise concerns, audit and delete them proactively. If you do not use the platform professionally, set your account to private.",
             },
             {

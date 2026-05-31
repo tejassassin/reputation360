@@ -301,7 +301,7 @@ export const article = {
             {
               id: "months-3-4",
               label: "Months 3-4",
-              title: "Full recovery",
+              title: "Full Reputation Recovery Timeline",
               body: "By month three inquiry rates recovered to pre-crisis baseline. New business conversations progressed without awkward references to the blog. Two prospects who had gone quiet re-engaged. By month four the blog was off page one entirely - not removed or de-indexed, but displaced through coordinated authoritative positive content. The firm ended with a stronger digital presence than before the crisis: optimized website, active principal profiles, indexed thought leadership library, and ongoing social signals. Infrastructure built to counter the crisis became the foundation of ongoing reputation.",
             },
           ],

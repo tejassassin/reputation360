@@ -214,7 +214,7 @@ export const article = {
         {
           type: "doDont",
           do: {
-            title: "Act now",
+            title: "When to Act Now on a Reputation Threat",
             items: [
               {
                 text: "New negative content on a high-authority site (DA 50+) or in positions 1-5 for your primary name search - start with how to respond when monitoring flags a serious result",
@@ -237,7 +237,7 @@ export const article = {
             ],
           },
           dont: {
-            title: "Monitor or ignore",
+            title: "When to Monitor or Ignore a Reputation Issue",
             items: [
               "Lower-authority sites: monitor and assess",
               "Single negative reviews vs. a pattern",

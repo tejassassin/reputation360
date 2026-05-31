@@ -109,7 +109,7 @@ export const article = {
         {
           type: "keyBox",
           variant: "insight",
-          title: "Applied to search results",
+          title: "How the Anchoring Effect Applies to Search Results",
           text: "If the first result for your name is a fully optimised LinkedIn profile, subsequent results are interpreted through the lens of credible professional. If the first result is a critical news article, subsequent positive results are interpreted through the lens of did this happen? - and the positive content feels like the footnotes, not the story.",
           parts: [
             { text: "If the first result for your name is " },
@@ -251,7 +251,7 @@ export const article = {
     {
       id: "in-practice",
       number: "05",
-      title: "What this means in practice",
+      title: "What the Anchoring Effect Means in Reputation Management Practice",
       blocks: [
         {
           type: "p",

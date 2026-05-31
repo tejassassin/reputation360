@@ -189,7 +189,7 @@ export const article = {
         {
           type: "keyBox",
           variant: "tip",
-          title: "Order of operations",
+          title: "Order of Operations for Social Media Content Removal",
           text: "Delete or privatize at the source first, then request removal in Search Console. Requesting removal while the post is still public will not succeed.",
         },
       ],
@@ -209,17 +209,17 @@ export const article = {
           steps: [
             {
               n: 1,
-              title: "Platform reporting",
+              title: "Platform Reporting for Social Media Reputation Issues",
               body: "Every major platform has a reporting mechanism for content that violates its policies. If the content about you is false, defamatory, or constitutes harassment, you can submit a report directly to the platform. Platforms will generally act on content that is clearly false and harmful, involves personal identifying information published without consent, constitutes targeted harassment, or violates their specific community standards. What platforms will not remove on request alone: opinions, criticism, negative reviews, or content that is factually accurate but damaging to your reputation.",
             },
             {
               n: 2,
-              title: "Direct removal request",
+              title: "Direct Removal Requests for Reputation Damage",
               body: "If you know who posted the content, a direct, professional request for removal is sometimes the simplest path. This works most often when the poster is a known individual rather than an anonymous account, the content was posted impulsively rather than with intent to harm, and the relationship is not adversarial enough to make contact counterproductive. Keep the communication factual and without threat - escalating tone in an initial outreach typically hardens the other party's position.",
             },
             {
               n: 3,
-              title: "Legal channels",
+              title: "Legal Channels for Removing Negative Content",
               titleParts: [
                 {
                   text: "Legal channels",
@@ -230,7 +230,7 @@ export const article = {
             },
             {
               n: 4,
-              title: "Google's role",
+              title: "Google's Role in Removing Social Media Content",
               body: "Google will remove content from search results in specific circumstances: if a court order establishes the content is defamatory, if the content contains sensitive personal information such as financial data or intimate images published without consent, or if the content violates Google's own removal policies. Outside these conditions, Google does not intervene in reputation disputes between individuals and will defer to the platform hosting the content.",
             },
             {

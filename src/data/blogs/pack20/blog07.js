@@ -283,7 +283,7 @@ export const article = {
     {
       id: "first-steps",
       number: "05",
-      title: "What to do first",
+      title: "What to Do First: Initial Reputation Audit",
       blocks: [
         {
           type: "p",

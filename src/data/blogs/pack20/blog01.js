@@ -281,7 +281,7 @@ export const article = {
     {
       id: "take-back-first-page",
       number: "05",
-      title: "Take back your first page",
+      title: "Take Back Your First Page: Reputation Management Strategy",
       blocks: [
         {
           type: "p",

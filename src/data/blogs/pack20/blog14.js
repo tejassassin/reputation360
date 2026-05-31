@@ -87,7 +87,7 @@ export const article = {
     {
       id: "career-cost",
       number: "01",
-      title: "The career cost",
+      title: "The Career Cost of a Damaged Reputation",
       blocks: [
         {
           type: "p",
@@ -126,7 +126,7 @@ export const article = {
     {
       id: "business-cost",
       number: "02",
-      title: "The business cost",
+      title: "The Business Cost of a Damaged Reputation",
       blocks: [
         {
           type: "p",
@@ -157,7 +157,7 @@ export const article = {
     {
       id: "compounding",
       number: "03",
-      title: "Why waiting makes it worse",
+      title: "Why Waiting Makes Reputation Damage Worse",
       blocks: [
         {
           type: "p",
@@ -194,7 +194,7 @@ export const article = {
     {
       id: "irreversibility",
       number: "04",
-      title: "The irreversibility threshold",
+      title: "The Irreversibility Threshold in Reputation Management",
       blocks: [
         {
           type: "p",

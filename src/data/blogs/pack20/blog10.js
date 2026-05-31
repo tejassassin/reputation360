@@ -142,7 +142,7 @@ export const article = {
     {
       id: "red-flags",
       number: "02",
-      title: "What raises red flags",
+      title: "What Raises Red Flags in Reputation Searches",
       blocks: [
         {
           type: "p",
@@ -227,7 +227,7 @@ export const article = {
         {
           type: "keyBox",
           variant: "insight",
-          title: "Proactive transparency",
+          title: "Proactive Transparency in Reputation Management",
           text: "You can, and in some situations should, address a known issue proactively: \"I want to be transparent about X, which you may find if you search my name.\" That demonstrates self-awareness and gives you the opportunity to provide context. Reputation360 can advise on whether and how to approach this in your specific situation.",
         },
       ],

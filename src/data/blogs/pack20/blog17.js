@@ -119,7 +119,7 @@ export const article = {
         {
           type: "keyBox",
           variant: "tip",
-          title: "Speed advantage",
+          title: "The Speed Advantage of High-Authority Profiles",
           text: "High-authority platforms like LinkedIn, Crunchbase, and Medium typically index within days to a week of a profile being created or significantly updated. Ranking movement for your name search typically begins within two to four weeks. See how profile claiming has worked for our clients when you want documented proof.",
           parts: [
             {

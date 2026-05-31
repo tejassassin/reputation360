@@ -527,7 +527,7 @@ export function DiyGuideToc({
 }) {
   return (
     <nav className="diy-toc-numbered scroll-mt-28" aria-label={ariaLabel}>
-      <h2>{title}</h2>
+      <p className="diy-toc-title">{title}</p>
       <ul className="diy-toc-numbered-list">
         {items.map((item) => (
           <li key={item.id}>
