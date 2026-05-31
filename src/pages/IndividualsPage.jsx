@@ -186,7 +186,7 @@ function IndividualsWhoForSection() {
       className="mt-12 scroll-mt-28 rounded-[24px] border border-[#d9e3ea] bg-white px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.07)] md:mt-16 md:px-9 md:py-11"
     >
       <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        Who This Page Is For
+        Who Needs Personal Reputation Management?
       </h2>
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e8f0] pb-4">
@@ -304,7 +304,7 @@ function IndividualsScaleSection() {
 
       <div className="relative flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <h2 className="font-heading text-[26px] font-bold leading-tight tracking-tight md:text-[32px]">
-          The Scale of the Problem
+          The Impact of Negative Search Results
         </h2>
         <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
           Tap a metric to explore
@@ -498,7 +498,7 @@ function IndividualsWhatCanBeDoneSection() {
   return (
     <section id="what-can-be-done-individuals" className="mt-12 scroll-mt-28 md:mt-16">
       <h2 className="text-center font-heading text-3xl font-bold tracking-tight text-navy md:text-4xl">
-        Removal or suppression?
+        Removal vs Suppression: Which Do You Need?
       </h2>
       <p className="mx-auto mt-4 max-w-3xl text-center text-base leading-relaxed text-navy/70 md:text-lg">
         Not every negative result can be permanently deleted. Here is an honest
