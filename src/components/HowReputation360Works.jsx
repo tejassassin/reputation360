@@ -118,7 +118,7 @@ export default function HowReputation360Works() {
                     <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#64748b]">
                       Phase {step.num}
                     </p>
-                    <p className="font-heading mt-2 text-2xl font-bold text-[#02254d] md:text-3xl lg:text-4xl">
+                    <p className="font-heading mt-2 text-xl font-bold text-[#02254d] md:text-2xl lg:text-3xl">
                       {step.label}
                     </p>
                     <p className="font-body mt-4 text-base font-semibold leading-relaxed text-[#43474e] md:text-lg">
