@@ -3,7 +3,7 @@ export const ORM_GLOSSARY_PATH = "/resources/online-reputation-management-glossa
 export const ORM_GLOSSARY_PAGE = {
   "title": "Online Reputation Management Glossary",
   "eyebrow": "Resources",
-  "lead": "Online reputation management has its own vocabulary. If you don't know the terms, it is easy to be misled by jargon - or to miss what a strategy is actually doing. This glossary covers every core ORM term across ten categories: from the foundational concepts that define the discipline to the AI-era terminology reshaping it in 2025 and beyond. Every definition is written in plain English, with real-world examples wherever they help clarify what a term actually means in practice.",
+  "lead": "Online reputation management has its own vocabulary — and if you don't know the terms, it's easy to miss what a strategy is actually doing. This glossary covers every core ORM term, written in plain English with real-world examples.",
   "seoTitle": "Online Reputation Management Glossary: 120+ ORM Terms Explained | Reputation360",
   "seoDescription": "The complete glossary of Online Reputation Management terms - plain-English definitions for every ORM concept, from Search Suppression and Brand SERP to GEO, AI Overviews, and Knowledge Panel Management."
 };
