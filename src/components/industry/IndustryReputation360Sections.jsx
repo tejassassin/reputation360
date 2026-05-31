@@ -91,13 +91,13 @@ export const REPUTATION360_JOB_SEEKER_STEPS = [
   },
   {
     step: 2,
-    headline: "Step 2 - Strategy and Priority Setting (Week 2)",
+    headline: "Step 2 - Reputation Strategy and Priority Setting (Week 2)",
     body: "We identify which results are causing the most damage, which can potentially be removed, and what content strategy will most effectively displace what cannot be removed. You get a clear plan before any work begins.",
     Icon: Target,
   },
   {
     step: 3,
-    headline: "Step 3 - Building Your Professional Presence (Months 1-3)",
+    headline: "Step 3 - Building Your Professional Reputation Presence (Months 1–3)",
     body: "We build a positive, authoritative digital footprint that outranks the damaging content - LinkedIn optimization, a personal professional website or portfolio, published professional commentary, and supporting profiles designed to rank for your name.",
     Icon: Layers,
   },
@@ -109,7 +109,7 @@ export const REPUTATION360_JOB_SEEKER_STEPS = [
   },
   {
     step: 5,
-    headline: "Step 5 - Resolution (Months 8-12)",
+    headline: "Step 5 - Reputation Resolution and Long-Term Maintenance (Months 8–12)",
     body: "For most clients, negative content has moved well beyond visible search pages by this point. The professional presence we have built continues to hold its position and work in your favor long after the engagement ends.",
     Icon: Sparkles,
   },
