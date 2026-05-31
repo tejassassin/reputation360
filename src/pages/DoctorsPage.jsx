@@ -271,7 +271,7 @@ function DoctorsScaleSection() {
 
       <div className="relative flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <h2 className="font-heading text-[26px] font-bold leading-[1.12] md:text-[32px] md:leading-[1.1]">
-          The Scale of the Problem
+          The Impact of Negative Search Results on Healthcare Professionals
         </h2>
         <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
           Tap a metric to explore
@@ -306,6 +306,7 @@ function DoctorsScaleSection() {
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0a2038] text-[#8ce596] shadow-inner shadow-black/20">
                   <Icon className="h-5 w-5" aria-hidden />
                 </span>
+                <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{m.blurb}</h3>
                 <span className="mt-4 font-heading text-[28px] font-bold leading-none tracking-tight text-white tabular-nums md:text-[34px]">
                   {m.figure}
                 </span>
@@ -384,7 +385,7 @@ function DoctorsWhyHarderSection() {
       className="mt-16 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 md:mt-20 md:px-9 md:py-11"
     >
       <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        Why This Is Harder for You Than Most
+        Why Healthcare Professional Reputation Cases Are Different
       </h2>
       <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
         Three realities physicians hit in search.
@@ -422,6 +423,7 @@ function DoctorsWhyHarderSection() {
                     absoluteStrokeWidth
                   />
                 </span>
+                <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{p.label}</h3>
                 <span className="mt-3 font-heading text-[13px] font-semibold leading-tight text-[#0f2e58] md:text-sm">
                   {p.label}
                 </span>
@@ -473,13 +475,7 @@ function DoctorsMarketInsightBanner() {
             Market Insight
           </p>
           <h2 className="mt-3 font-heading text-[19px] font-bold leading-[1.24] md:mt-4 md:text-[24px] lg:text-[27px]">
-            <span className="text-[#4eab66]">1 in 4</span>
-            <span className="text-white">
-              {" "}
-              patients stop considering a provider after reading just{" "}
-            </span>
-            <span className="text-[#4eab66]">3</span>
-            <span className="text-white"> negative reviews.</span>
+            Why Online Reputation Matters for Healthcare Professionals
           </h2>
           <p className="mt-2.5 font-heading text-[14px] font-semibold leading-snug text-white md:mt-3 md:text-[16px]">
             It takes years to build a practice. It takes very little to quietly lose one.
@@ -592,9 +588,9 @@ function DoctorsPage() {
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 shrink-0">{item.icon}</div>
                   <div>
-                    <h3 className="text-[15px] font-semibold leading-tight text-[#1f3b64] md:text-[16px]">
+                    <p className="text-[15px] font-semibold leading-tight text-[#1f3b64] md:text-[16px]">
                       {item.title}
-                    </h3>
+                    </p>
                     <p className="mt-1.5 text-[12px] leading-[1.5] text-[#5d6c80] md:text-[13px]">
                       {item.text}
                     </p>
@@ -638,7 +634,7 @@ function DoctorsPage() {
                 <div className="h-px flex-1 bg-white/35" aria-hidden />
               </div>
               <h2 className="fa-invisible-leak-headline mt-5 max-w-none font-heading text-[26px] font-bold leading-[1.12] tracking-tight text-white md:text-[32px] md:leading-[1.1]">
-                Before booking, they search your name.
+                How Negative Search Results Affect Healthcare Professionals
               </h2>
             </div>
           </div>
@@ -680,6 +676,8 @@ function DoctorsPage() {
         <IndustryWhatReputation360Section
           steps={REPUTATION360_DOCTOR_STEPS}
           sectionTitle="Our Doctor & Healthcare Professional Reputation Management Service"
+          sectionTitleTag="h2"
+          stepDetailTitleTag="p"
           footer={
             <p className="mx-auto max-w-3xl text-center font-heading text-[16px] font-semibold leading-snug text-[#0f2e58] md:text-[18px] md:leading-snug">
               <span className="block">
@@ -694,11 +692,20 @@ function DoctorsPage() {
 
         <IndustryRealisticTimelineSection
           sectionTitle="Doctor & Healthcare Professional Reputation Repair Timeline"
+          sectionTitleTag="h2"
         />
 
-        <SeeItInActionSection audiencePath={seo.path} />
+        <SeeItInActionSection
+          audiencePath={seo.path}
+          sectionTitleTag="h2"
+          cardTitleTag="h3"
+        />
 
-        <FurtherReadingSection audiencePath={seo.path} />
+        <FurtherReadingSection
+          audiencePath={seo.path}
+          sectionTitleTag="h2"
+          cardTitleTag="h3"
+        />
 
         <section className="mt-10 scroll-mt-28 rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:mt-12 md:px-10 md:py-12">
           <p className="mx-auto max-w-3xl font-heading font-semibold leading-snug text-white md:leading-snug">
