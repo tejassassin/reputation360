@@ -946,13 +946,13 @@ function RealEstatePage() {
             </div>
           </section>
 
-          <RealEstateCareersSection />
-
           <RealEstateProblemSection />
 
           <RealEstateScaleSection />
 
           <RealEstateWhyHarderSection />
+
+          <RealEstateCareersSection />
 
           <IndustryWhatReputation360Section steps={REPUTATION360_REAL_ESTATE_STEPS} />
 
