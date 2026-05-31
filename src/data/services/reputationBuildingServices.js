@@ -24,15 +24,15 @@ export const rbsPageHero = {
 
 export const RBS_TWO_KINDS = {
   eyebrow: "Our Approach",
-  title: "Two Kinds of Reputation Work",
+  title: "Two Approaches to Reputation Building",
   intro:
     "You've done the foundational work - or you're doing it now - and one part of your reputation needs more focused attention than broad ORM can provide. Or you're starting strong and want to build deliberately in one direction before a challenge ever arises. These services are for clients ready to invest in one specific layer of how they're perceived online.",
   broadLabel: "Foundational",
-  broadTitle: "Broad reputation work",
+  broadTitle: "Broad ORM and Reputation Management Work",
   broad:
     "ORM and negative link suppression address what appears when someone searches for you - suppressing harmful content, building positive assets, and strengthening your overall search presence. For most people, this is where reputation management has its greatest impact.",
   deepLabel: "Focused Depth",
-  deepTitle: "Deep reputation work",
+  deepTitle: "Deep Reputation Building for Specific Goals",
   deep:
     "Deep work focuses on one platform, one audience, or one perception challenge - with a level of focus and detail that broad ORM can't provide. It's what you add when you need to strengthen one specific layer further.",
   examples: [
@@ -126,7 +126,7 @@ export const RBS_STRENGTHEN_ROWS = [
 
 export const RBS_WHY_EXIST = {
   eyebrow: "The Bigger Picture",
-  title: "Why These Services Exist",
+  title: "Why Reputation Building Services Exist",
   intro:
     "ORM is broad, search-focused, and built to control what appears when someone looks you up. These services exist because different reputation goals require different approaches.",
   introEmphasis: "These services exist because different reputation goals require different approaches.",
@@ -310,7 +310,7 @@ export const RBS_SPECIALIZED_SERVICES = [
   },
   {
     id: "performance-marketing",
-    title: "Performance Marketing",
+    title: "Performance Marketing for Reputation Visibility",
     kicker: "Paid visibility, used correctly, is a reputation tool.",
     paragraphs: [
       "When strong assets exist but aren't reaching the right people, paid visibility closes that gap. ORM builds and strengthens the assets. Performance marketing ensures those assets are actively seen by the specific decision-makers, candidates, investors, or clients you most want to reach. The goal is not clicks - it is controlled visibility and measurable trust.",
@@ -453,7 +453,7 @@ export const RBS_DONT_DO = [
 export const RBS_PROCESS_STEPS = [
   {
     n: 1,
-    title: "Understand You First",
+    title: "Understanding Your Reputation Goals First",
     body:
       "Every engagement begins with a direct conversation. We speak with the person or team requesting the service to understand their situation, their audience, their goals, and the specific reputation dynamics they are dealing with. The most common reason reputation work fails is that it starts with execution before it starts with understanding.",
   },
@@ -471,13 +471,13 @@ export const RBS_PROCESS_STEPS = [
   },
   {
     n: 4,
-    title: "Build the Right Assets",
+    title: "Build the Right Reputation Assets",
     body:
       "We create or improve the profiles, content, pages, narratives, and campaigns that support the desired perception - with depth in the specific area that needs it most.",
   },
   {
     n: 5,
-    title: "Strengthen Visibility and Refine Over Time",
+    title: "Strengthen Reputation Visibility and Refine Over Time",
     body:
       "We ensure the right assets are active, discoverable, and aligned across the platforms where your audiences look. Reputation is not static - we monitor what is resonating and adjust so your presence continues to strengthen over time.",
   },
@@ -503,7 +503,7 @@ export const RBS_WHY_R360 = [
 ];
 
 export const RBS_FINAL_CTA = {
-  title: "Ready to Go Deeper on Your Reputation?",
+  title: "Ready to Go Deeper on Your Online Reputation?",
   paragraphs: [
     "Whether you are starting from scratch, strengthening a specific layer of your digital presence, or looking to go deeper after completing an ORM campaign - Reputation360 can help you build the kind of presence that earns trust before you walk in the room.",
   ],
@@ -515,7 +515,7 @@ export const RBS_FAQS = [
     a: "Online reputation management and negative link suppression address what appears when someone searches for you - broadly, across search results. These services go deeper into specific platforms, specific audiences, and specific perception goals. They are for clients who want to strengthen one particular layer of their reputation with the kind of focus that broad ORM work is not designed to provide.",
   },
   {
-    q: "Do I need these services if I already have an ORM campaign running?",
+    q: "Do I need these if I already have a reputation management campaign running?",
     a: "In many cases, yes - and they work better together. Suppression is more effective when strong, credible assets exist around your name or brand. Services like LinkedIn personal branding, thought leadership, and employer branding directly support your ORM campaign by giving search engines more authoritative content to surface, and giving audiences more reasons to trust you when they look deeper.",
   },
   {
@@ -523,11 +523,11 @@ export const RBS_FAQS = [
     a: "The clearest starting point is a reputation consultation. It helps identify which layer of your reputation is most in need of attention and what the right sequence of work looks like. Many clients come in thinking they need one service and leave with clarity that a different - or combined - approach will produce better results.",
   },
   {
-    q: "What is the difference between personal branding and ORM?",
+    q: "What is the difference between personal branding and online reputation management?",
     a: "ORM controls what appears in search results when someone searches your name. Personal branding goes deeper - it shapes what that presence communicates, the authority it projects, the platforms it appears on, and the impression it creates with the specific audiences who matter most to you.",
   },
   {
-    q: "Can these services be used without an ORM campaign?",
+    q: "Can these services be used without a reputation management campaign?",
     a: "Yes. While these services complement ORM well, they also work as standalone engagements for clients who do not have a negative reputation issue but want to build something stronger and more deliberate in a specific direction.",
   },
   {
