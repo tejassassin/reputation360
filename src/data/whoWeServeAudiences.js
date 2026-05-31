@@ -14,7 +14,7 @@ import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 export const WHO_WE_SERVE_AUDIENCES = [
   {
     id: "individuals",
-    title: "Individuals",
+    title: "Personal Reputation Management for Individuals",
     description:
       "Take control of what people find when they search your name online.",
     linkLabel: "Personal Reputation Management Services",
@@ -32,7 +32,7 @@ export const WHO_WE_SERVE_AUDIENCES = [
   },
   {
     id: "executives",
-    title: "Executives & C-Suite Leaders",
+    title: "Executive Reputation Management for C-Suite Leaders",
     description:
       "Protect your leadership reputation and ensure your vision and impact come through clearly.",
     linkLabel: "Executive Reputation Repair Solutions",
@@ -41,7 +41,7 @@ export const WHO_WE_SERVE_AUDIENCES = [
   },
   {
     id: "doctors",
-    title: "Doctors & Healthcare Professionals",
+    title: "Reputation Management for Doctors & Healthcare Professionals",
     description:
       "Protect your practice where patient reviews, listings, and search results meet.",
     linkLabel: "Healthcare Reputation Management Services",
@@ -50,7 +50,7 @@ export const WHO_WE_SERVE_AUDIENCES = [
   },
   {
     id: "lawyers",
-    title: "Lawyers & Attorneys",
+    title: "Reputation Management for Lawyers & Attorneys",
     description:
       "Keep your professional standing clear when legal press and records surface in search.",
     linkLabel: "Lawyer Reputation Management Solutions",
@@ -77,7 +77,7 @@ export const WHO_WE_SERVE_AUDIENCES = [
   },
   {
     id: "businesses",
-    title: "Businesses & Companies",
+    title: "Business Reputation Management Services",
     description:
       "Own your industry online through powerful branding and a strong search presence.",
     linkLabel: "Business Reputation Management Services",
