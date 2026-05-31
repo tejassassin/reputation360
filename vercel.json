@@ -1,4 +1,6 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "build": {
     "env": {
       "SKIP_PUPPETEER_INSTALL": "1",
@@ -206,28 +208,6 @@
       "source": "/api/:path*",
       "destination": "/api/:path*"
     },
-    { "source": "/about", "destination": "/about/index.html" },
-    { "source": "/contact", "destination": "/contact/index.html" },
-    { "source": "/services", "destination": "/services/index.html" },
-    { "source": "/services/online-reputation-management", "destination": "/services/online-reputation-management/index.html" },
-    { "source": "/services/negative-link-suppression", "destination": "/services/negative-link-suppression/index.html" },
-    { "source": "/services/reputation-building-services", "destination": "/services/reputation-building-services/index.html" },
-    { "source": "/free-reputation-scan", "destination": "/free-reputation-scan/index.html" },
-    { "source": "/blog", "destination": "/blog/index.html" },
-    { "source": "/blog/:slug", "destination": "/blog/:slug/index.html" },
-    { "source": "/case-studies", "destination": "/case-studies/index.html" },
-    { "source": "/case-studies/:slug", "destination": "/case-studies/:slug/index.html" },
-    { "source": "/resources/guide", "destination": "/resources/guide/index.html" },
-    { "source": "/resources/faqs", "destination": "/resources/faqs/index.html" },
-    { "source": "/resources/online-reputation-management-glossary", "destination": "/resources/online-reputation-management-glossary/index.html" },
-    { "source": "/who-we-serve/:slug", "destination": "/who-we-serve/:slug/index.html" },
-    { "source": "/privacy-policy", "destination": "/privacy-policy/index.html" },
-    { "source": "/terms-of-service", "destination": "/terms-of-service/index.html" },
-    { "source": "/cookie-policy", "destination": "/cookie-policy/index.html" },
-    { "source": "/refund-policy", "destination": "/refund-policy/index.html" },
-    { "source": "/acceptable-use-policy", "destination": "/acceptable-use-policy/index.html" },
-    { "source": "/terms-of-use", "destination": "/terms-of-use/index.html" },
-    { "source": "/dmca-copyright-policy", "destination": "/dmca-copyright-policy/index.html" },
     {
       "source": "/:path((?!api/|assets/|.*\\..*).*)",
       "destination": "/index.html"
