@@ -506,7 +506,6 @@ export const RBS_FINAL_CTA = {
   title: "Ready to Go Deeper on Your Reputation?",
   paragraphs: [
     "Whether you are starting from scratch, strengthening a specific layer of your digital presence, or looking to go deeper after completing an ORM campaign — Reputation360 can help you build the kind of presence that earns trust before you walk in the room.",
-    "Book a free reputation consultation with Reputation360.",
   ],
 };
 

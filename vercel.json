@@ -58,6 +58,7 @@
     { "source": "/services/executives", "destination": "/who-we-serve/executives-and-c-suite-leaders", "permanent": true },
     { "source": "/services/doctors", "destination": "/who-we-serve/doctors-and-healthcare-professionals", "permanent": true },
     { "source": "/services/lawyers", "destination": "/who-we-serve/lawyers-and-attorneys", "permanent": true },
+    { "source": "/services/real-estate", "destination": "/who-we-serve/real-estate-agents-and-brokers", "permanent": true },
     { "source": "/services/job-seekers", "destination": "/who-we-serve/job-seekers", "permanent": true },
     { "source": "/services/businesses", "destination": "/who-we-serve/businesses-and-companies", "permanent": true },
     { "source": "/who-we-serve", "destination": "/who-we-serve/individual", "permanent": true },

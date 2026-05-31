@@ -365,7 +365,7 @@ export const NLS_FAQS = [
 export const NLS_CTA = {
   title: "One Conversation Changes What People Find First",
   paragraphs: [
-    "Harmful search results do not fix themselves. But they can be systematically displaced - replaced by a search presence that reflects your achievements, your character, and where you stand today.",
+    "Harmful results stay until something better takes their place. We build that something.",
   ],
   freeScanLabel: "Request Your Free Search Analysis",
   consultLabel: "Speak to a Specialist Today",

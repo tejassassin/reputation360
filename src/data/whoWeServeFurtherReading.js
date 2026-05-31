@@ -133,4 +133,21 @@ export const WHO_WE_SERVE_FURTHER_READING = {
       },
     ],
   },
+  [AUDIENCE_PATH.realEstate]: {
+    intro: "Insights on reputation suppression, local SEO, and managing real estate search results:",
+    links: [
+      {
+        href: blogPostPath("how-to-suppress-negative-search-results-reputation360-framework"),
+        label: "How to Suppress Negative Search Results: The Framework",
+      },
+      {
+        href: blogPostPath("how-to-suppress-negative-content-professionals-guide"),
+        label: "How to Suppress Negative Content - A Professional's Guide",
+      },
+      {
+        href: blogPostPath("roi-reputation-management-what-clients-see-reputation360"),
+        label: "The ROI of Reputation Management: What Our Clients See",
+      },
+    ],
+  },
 };

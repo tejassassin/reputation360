@@ -28,6 +28,7 @@ const FinancialAdvisorsPage = lazy(() => import("../pages/FinancialAdvisorsPage.
 const JobSeekersPage = lazy(() => import("../pages/JobSeekersPage.jsx"));
 const DoctorsPage = lazy(() => import("../pages/DoctorsPage.jsx"));
 const LawyersPage = lazy(() => import("../pages/LawyersPage.jsx"));
+const RealEstatePage = lazy(() => import("../pages/RealEstatePage.jsx"));
 const ExecutivesPage = lazy(() => import("../pages/ExecutivesPage.jsx"));
 const BusinessesPage = lazy(() => import("../pages/BusinessesPage.jsx"));
 const IndividualsPage = lazy(() => import("../pages/IndividualsPage.jsx"));
@@ -53,6 +54,7 @@ const BlogRemoveNewsArticlesFromGooglePage = lazy(
 );
 const BlogPack20ArticlePage = lazy(() => import("../pages/BlogPack20ArticlePage.jsx"));
 const GuidePage = lazy(() => import("../pages/GuidePage.jsx"));
+const OrmGlossaryPage = lazy(() => import("../pages/OrmGlossaryPage.jsx"));
 const AcceptableUsePolicyPage = lazy(() => import("../pages/AcceptableUsePolicyPage.jsx"));
 const CookiePolicyPage = lazy(() => import("../pages/CookiePolicyPage.jsx"));
 const PrivacyPolicyPage = lazy(() => import("../pages/PrivacyPolicyPage.jsx"));
@@ -73,6 +75,11 @@ const audienceRouteRows = [
   [ExecutivesPage, AUDIENCE_PATH.executives, LEGACY_SERVICE_AUDIENCE_PATH.executives],
   [DoctorsPage, AUDIENCE_PATH.doctors, LEGACY_SERVICE_AUDIENCE_PATH.doctors],
   [LawyersPage, AUDIENCE_PATH.lawyers, LEGACY_SERVICE_AUDIENCE_PATH.lawyers],
+  [
+    RealEstatePage,
+    AUDIENCE_PATH.realEstate,
+    LEGACY_SERVICE_AUDIENCE_PATH.realEstate,
+  ],
   [JobSeekersPage, AUDIENCE_PATH.jobSeekers, LEGACY_SERVICE_AUDIENCE_PATH.jobSeekers],
   [BusinessesPage, AUDIENCE_PATH.businesses, LEGACY_SERVICE_AUDIENCE_PATH.businesses],
 ];
@@ -140,6 +147,9 @@ export function pageForNonHomePath(path) {
   }
   if (path === "/resources/guide") return <GuidePage />;
   if (path === "/resources/faqs") return <FaqsPage />;
+  if (path === "/resources/online-reputation-management-glossary") {
+    return <OrmGlossaryPage />;
+  }
   if (path === "/privacy-policy") return <PrivacyPolicyPage />;
   if (path === "/terms-of-service") return <TermsOfServicePage />;
   if (path === "/terms-of-use") return <TermsOfUsePage />;

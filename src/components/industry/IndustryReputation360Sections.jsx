@@ -288,6 +288,40 @@ export const REPUTATION360_LAWYER_STEPS = [
   },
 ];
 
+/** Real Estate Agents & Brokers page only. */
+export const REPUTATION360_REAL_ESTATE_STEPS = [
+  {
+    step: 1,
+    headline: "Step 1 - Real Estate Search Audit (Week 1)",
+    body: "We run the same search your clients run. We map every result appearing for your name, your agency name, and common search combinations. We assess the strength of each negative entry and identify exactly what we are working with before any strategy is designed.",
+    Icon: Map,
+  },
+  {
+    step: 2,
+    headline: "Step 2 - Strategy Design (Weeks 1-2)",
+    body: "We design a content and SEO strategy specific to your situation, built to push negative results beyond page two - where fewer than 0.5% of searchers ever look. You receive a clear brief on what we are building and why.",
+    Icon: Target,
+  },
+  {
+    step: 3,
+    headline: "Step 3 - Profile & Directory Optimization (Months 1-2)",
+    body: "We optimize your profiles on Google Business, Zillow, Realtor.com, Yelp, and key industry directories. We ensure your official presence is comprehensive, current, and ranking prominently to outrank review aggregators.",
+    Icon: Layers,
+  },
+  {
+    step: 4,
+    headline: "Step 4 - Thought Leadership & Local Authority (Months 1-5)",
+    body: "We publish authoritative local market reports, expert real estate guides, and professional profiles on high-authority platforms. All of it is built to rank for your name and establish you as a trusted local expert.",
+    Icon: BarChart3,
+  },
+  {
+    step: 5,
+    headline: "Step 5 - Displacement & Maintenance (Months 3-12)",
+    body: "As your positive properties gain authority, they begin outranking the negative content. We monitor rankings weekly, adjust strategy as results move, and maintain the presence we have built so your search results keep working in your favor long after primary displacement is complete.",
+    Icon: RefreshCw,
+  },
+];
+
 export const REALISTIC_TIMELINE_PHASES = [
   {
     id: "weeks-1-4",

@@ -11,6 +11,7 @@ export const AUDIENCE_PATH = {
   executives: "/who-we-serve/executives-and-c-suite-leaders",
   doctors: "/who-we-serve/doctors-and-healthcare-professionals",
   lawyers: "/who-we-serve/lawyers-and-attorneys",
+  realEstate: "/who-we-serve/real-estate-agents-and-brokers",
   jobSeekers: "/who-we-serve/job-seekers",
   businesses: "/who-we-serve/businesses-and-companies",
 };
@@ -22,6 +23,7 @@ export const LEGACY_SERVICE_AUDIENCE_PATH = {
   executives: "/services/executives",
   doctors: "/services/doctors",
   lawyers: "/services/lawyers",
+  realEstate: "/services/real-estate",
   jobSeekers: "/services/job-seekers",
   businesses: "/services/businesses",
 };

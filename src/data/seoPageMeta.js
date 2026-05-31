@@ -4,6 +4,7 @@
  */
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
+import { ORM_GLOSSARY_PATH } from "./ormGlossaryData.js";
 
 export const SEO = {
   home: {
@@ -134,6 +135,12 @@ export const SEO = {
     description:
       "The Complete Guide to Online Reputation Management 2026: Monitor, control & improve your digital footprint globally. Essential strategies for founders & brands in US, Europe & worldwide. Resources for around the world.",
   },
+  ormGlossary: {
+    title: "Online Reputation Management Glossary: 120+ ORM Terms Explained | Reputation360",
+    path: ORM_GLOSSARY_PATH,
+    description:
+      "The complete glossary of Online Reputation Management terms — plain-English definitions for every ORM concept, from Search Suppression and Brand SERP to GEO, AI Overviews, and Knowledge Panel Management.",
+  },
   financialAdvisors: {
     title: "Reputation Management for Financial Advisors | Reputation360",
     path: AUDIENCE_PATH.financialAdvisors,
@@ -174,6 +181,12 @@ export const SEO = {
     title: "Personal Reputation Management Services | Reputation360",
     path: AUDIENCE_PATH.individuals,
     description:
-      "Something harmful appearing when people Google your name? Reputation360 suppresses negative results and builds a stronger personal search presence. Free scan.",
+      "Something harmful appearing when people Google your name? Reputation360 suppresses negative results and builds a stronger personal search presence. Get a free scan.",
+  },
+  realEstate: {
+    title: "Online Reputation Management for Real Estate Agents & Brokers | Reputation360",
+    path: AUDIENCE_PATH.realEstate,
+    description:
+      "Negative search results costing you listings? Reputation360 helps real estate agents and brokers suppress harmful content and build a search presence clients trust. Free scan.",
   },
 };

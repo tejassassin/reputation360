@@ -126,4 +126,21 @@ export const WHO_WE_SERVE_SEE_IT_IN_ACTION = {
       },
     ],
   },
+  [AUDIENCE_PATH.realEstate]: {
+    intro: "Real cases from real estate professionals and local businesses we've helped:",
+    links: [
+      {
+        href: "/case-studies/financial-professional-reputation-recovery",
+        label: "Financial Professional Reputation Recovery",
+      },
+      {
+        href: "/case-studies/the-accountant-and-the-wrongful-dismissal-headline",
+        label: "The Accountant and the Wrongful Dismissal Headline",
+      },
+      {
+        href: "/case-studies/hr-and-employment-dispute-reputation-management",
+        label: "HR & Employment Dispute Reputation Management",
+      },
+    ],
+  },
 };

@@ -163,6 +163,12 @@ export const SITEMAP_URL_ENTRIES = [
     priority: "0.75",
   },
   {
+    path: "/who-we-serve/real-estate-agents-and-brokers",
+    lastmod: "2026-05-31",
+    changefreq: "monthly",
+    priority: "0.75",
+  },
+  {
     path: "/who-we-serve/job-seekers",
     lastmod: "2026-05-25",
     changefreq: "monthly",

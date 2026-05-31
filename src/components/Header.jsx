@@ -33,6 +33,7 @@ import {
   ONLINE_REPUTATION_MANAGEMENT_PATH,
   REPUTATION_BUILDING_SERVICES_PATH,
 } from "../constants/servicePaths.js";
+import { ORM_GLOSSARY_PATH } from "../data/ormGlossaryData.js";
 
 const navItems = [
   { name: "Home", link: "/" },
@@ -79,6 +80,7 @@ const navItems = [
         link: AUDIENCE_PATH.doctors,
       },
       { name: "Lawyers & Attorneys", link: AUDIENCE_PATH.lawyers },
+      { name: "Real Estate Agents & Brokers", link: AUDIENCE_PATH.realEstate },
       { name: "Job Seekers", link: AUDIENCE_PATH.jobSeekers },
       {
         name: "Businesses & Companies",
@@ -94,6 +96,7 @@ const navItems = [
       { name: "Insights & Blogs", link: "/blog" },
       { name: "Guide", link: "/resources/guide" },
       { name: "FAQs", link: "/resources/faqs" },
+      { name: "ORM Glossary", link: ORM_GLOSSARY_PATH },
       { name: FREE_REPUTATION_SCAN_LABEL, link: FREE_RISK_SCAN_PATH },
     ],
   },

@@ -2,6 +2,7 @@ import {
   Briefcase,
   Building,
   Gavel,
+  Home,
   Landmark,
   Stethoscope,
   User,
@@ -55,6 +56,15 @@ export const WHO_WE_SERVE_AUDIENCES = [
     linkLabel: "Lawyer Reputation Management Solutions",
     href: AUDIENCE_PATH.lawyers,
     icon: Gavel,
+  },
+  {
+    id: "real-estate",
+    title: "Real Estate Agents & Brokers",
+    description:
+      "Secure listings and build client trust by keeping your search results clean.",
+    linkLabel: "Real Estate Reputation Management Solutions",
+    href: AUDIENCE_PATH.realEstate,
+    icon: Home,
   },
   {
     id: "job-seekers",

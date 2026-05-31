@@ -7,6 +7,7 @@ import { PACK20_ARTICLES } from "./blogs/pack20/catalog.js";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
 import { DIY_REPUTATION_GUIDE_PATH } from "./blogs/diyReputationGuide.js";
+import { ORM_GLOSSARY_PATH } from "./ormGlossaryData.js";
 import {
   NEGATIVE_LINK_SUPPRESSION_PATH,
   ONLINE_REPUTATION_MANAGEMENT_PATH,
@@ -43,6 +44,7 @@ export const CRAWL_MAIN_PAGES = [
   ...PRIORITY_COMMERCIAL_LINKS,
   { href: "/resources/guide", label: "Reputation Guide" },
   { href: "/resources/faqs", label: "FAQs" },
+  { href: ORM_GLOSSARY_PATH, label: "ORM Glossary" },
 ];
 
 /** @type {CrawlLink[]} */
@@ -55,6 +57,7 @@ export const CRAWL_AUDIENCE_PAGES = [
   { href: AUDIENCE_PATH.executives, label: "Executive Reputation Repair Solutions" },
   { href: AUDIENCE_PATH.doctors, label: "Healthcare Reputation Management Services" },
   { href: AUDIENCE_PATH.lawyers, label: "Lawyer Reputation Management Solutions" },
+  { href: AUDIENCE_PATH.realEstate, label: "Online Reputation Management for Real Estate Agents & Brokers" },
   { href: AUDIENCE_PATH.jobSeekers, label: "Personal Branding for Job Seekers" },
   { href: AUDIENCE_PATH.businesses, label: "Business Reputation Management Services" },
 ];

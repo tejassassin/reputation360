@@ -186,3 +186,42 @@ export const BUSINESS_FAQ_ITEMS = [
     "Business reputation management is priced based on the scale of the problem, the number of search results to address, the industry involved, and the scope of work. We provide a custom proposal after a free assessment - with clear deliverables, timelines, and expected outcomes.",
   ),
 ];
+
+/** Real Estate (/who-we-serve/real-estate-agents-and-brokers) */
+export const REAL_ESTATE_FAQ_ITEMS = [
+  faq(
+    "re-what-is-orm",
+    "What is Online Reputation Management for real estate agents?",
+    "Online Reputation Management (ORM) for real estate agents is the process of controlling what appears when someone searches your name or your agency. It covers everything from how you appear in search engine results to what content ranks on page one - ensuring that the digital impression you make reflects your actual professionalism, track record, and credibility. For real estate professionals, where trust drives every transaction, it is one of the most direct levers on business performance.",
+  ),
+  faq(
+    "re-damaged-presence",
+    "How does a damaged online presence affect a real estate agent's business?",
+    "The impact is both immediate and compounding. In the short term, a damaging search result reduces inbound enquiries - clients who find something concerning simply move on to another agent. Over time, the effects compound: fewer referrals close, brokerage recruiting conversations become harder, and the agent's ability to hold their commission rate erodes. Because most clients never tell you why they did not call, the damage often goes unnoticed until it becomes significant.",
+  ),
+  faq(
+    "re-brokers-vs-agents",
+    "Is Online Reputation Management relevant for brokers and agencies, or just individual agents?",
+    "Both - and the stakes are different at each level. Individual agents carry the most direct exposure because their name is their brand. But brokers and agency owners face a compounded risk: a reputational issue at the brand level affects every agent, every recruitment conversation, and every new client who searches before signing. We work with individual agents, team leads, brokers, and multi-office agencies across all levels of the market.",
+  ),
+  faq(
+    "re-timeline",
+    "How long does it take to see results from a reputation management programme?",
+    "For most real estate clients, meaningful movement on targeted search terms is visible within 90 days. Substantial results - including negative content pushed off page one - are typically achieved within six months. Timelines depend on the authority of the content involved and the volume of results requiring displacement. We provide a clear, honest assessment of expected timelines during the initial audit.",
+  ),
+  faq(
+    "re-permanent-removal",
+    "Can damaging content be permanently removed from the internet?",
+    "In most cases, content on third-party platforms - news sites, industry publications, complaint directories - cannot be removed. What can be done is suppression: building a body of authoritative content that outranks the harmful result and reduces its visibility to the point where it no longer affects your business. Permanent removal is only possible in specific circumstances, and we will always give you a clear and honest assessment of what is and is not achievable in your situation.",
+  ),
+  faq(
+    "re-competitive-markets",
+    "Does online reputation management work for agents in competitive markets like New York, Los Angeles, or Toronto?",
+    "Yes - and in highly competitive markets, it matters more. In dense agent markets, search results are often the primary differentiator between agents with similar experience and track records. A clean, authoritative search presence does not just protect you from damage - it actively positions you ahead of competitors whose online presence is weaker or unmanaged. We have experience working with real estate professionals across major US and Canadian markets.",
+  ),
+  faq(
+    "re-how-to-start",
+    "How do I get started with Reputation360?",
+    "Start with a free reputation scan. We will review your current search presence across all relevant platforms, identify every result of concern, and give you an honest picture of where you stand. From there, we walk you through what a programme would look like for your specific situation - timeline, scope, and expected outcomes. There is no obligation, and no pressure to proceed.",
+  ),
+];
