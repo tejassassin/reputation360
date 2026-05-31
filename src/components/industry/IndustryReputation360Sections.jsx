@@ -242,13 +242,13 @@ export const REPUTATION360_INDIVIDUAL_STEPS = [
   },
   {
     step: 4,
-    headline: "Step 4 - Presence Building (Months 1-4)",
+    headline: "Step 4 - Reputation Presence Building (Months 1-4)",
     body: "For cases where suppression is required, we build an appropriate positive presence around your name - content that reflects who you are today, not who you were or what happened to you. This is done with care for your privacy and your comfort throughout.",
     Icon: BarChart3,
   },
   {
     step: 5,
-    headline: "Step 5 - Displacement and Resolution (Months 2-12)",
+    headline: "Step 5 - Search Displacement and Reputation Resolution (Months 2-12)",
     body: "As your positive presence gains ranking strength, damaging content is displaced from visible search pages. We monitor progress and adjust until the result you need is achieved - and we maintain the presence we have built so it continues protecting you long after the engagement ends.",
     Icon: RefreshCw,
   },
@@ -325,25 +325,25 @@ export const REPUTATION360_REAL_ESTATE_STEPS = [
 export const REALISTIC_TIMELINE_PHASES = [
   {
     id: "weeks-1-4",
-    window: "Weeks 1-4",
+    window: "Weeks 1-4: Initial Reputation Audit and Setup",
     body: "Audit complete. Strategy live. Initial content published and indexed.",
     Icon: CalendarRange,
   },
   {
     id: "months-2-4",
-    window: "Months 2-4",
+    window: "Months 2-4: Early Reputation Movement",
     body: "Measurable ranking movement. Positive properties gaining traction.",
     Icon: TrendingUp,
   },
   {
     id: "months-4-7",
-    window: "Months 4-7",
+    window: "Months 4-7: Significant Reputation Shift",
     body: "Primary negative results displaced for most cases.",
     Icon: CheckCircle2,
   },
   {
     id: "months-8-12",
-    window: "Months 8-12",
+    window: "Months 8-12: Full Reputation Transformation",
     body: "Substantial transformation complete. Negative content pushed well beyond visible pages.",
     Icon: Sparkles,
   },
@@ -506,7 +506,6 @@ export function IndustryWhatReputation360Section({
                       />
                     </span>
                     <span className="min-w-0 flex-1">
-                      <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{shortLabel}</h3>
                       <span className="font-heading text-[11px] font-bold tracking-wide text-[#1f3b64]/65 md:text-xs">
                         Step {stepItem.step}
                       </span>
@@ -663,7 +662,6 @@ export function IndustryRealisticTimelineSection({
                     </span>
                     {!railPhaseHeadings ? (
                       <>
-                        <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{p.window}</h3>
                         <span
                           className={`mt-2 max-w-[7.5rem] text-center font-heading text-[10px] font-bold leading-tight tracking-wide md:max-w-none md:text-[11px] ${
                             selected ? "text-[#0f2e58]" : "text-[#5d6c80]"

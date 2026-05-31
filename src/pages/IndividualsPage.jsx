@@ -82,42 +82,42 @@ const removalVsSuppressionStrategy = [
 const INDIVIDUAL_WHO_FOR_TILES = [
   {
     id: "news-legal",
-    label: "Old news & legal records",
+    label: "Old News Articles and Legal Records Appearing in Search",
     description:
       "Individuals with old news articles covering a legal matter, an arrest, a court case, or an allegation - regardless of outcome.",
     Icon: Newspaper,
   },
   {
     id: "defamation",
-    label: "Defamation & harassment",
+    label: "Online Defamation and Harassment Damaging Your Reputation",
     description:
       "People who have been the subject of defamatory content, false accusations, or targeted harassment campaigns online.",
     Icon: ShieldAlert,
   },
   {
     id: "family-link",
-    label: "Linked to someone else’s content",
+    label: "Mistakenly Linked to Someone Else's Negative Content",
     description:
       "Those whose name is associated with a family member's or former partner's negative content in search.",
     Icon: Link2,
   },
   {
     id: "social-past",
-    label: "Past social media in search",
+    label: "Past Social Media Posts Appearing in Google Search Results",
     description:
       "People whose personal social media content from years ago is now ranking in search and creating problems.",
     Icon: Smartphone,
   },
   {
     id: "high-control",
-    label: "After a high-control group",
+    label: "Rebuilding Your Reputation After Leaving a High-Control Group",
     description:
       "Individuals who have left a cult, a high-control group, or an organization that has generated content about them they cannot control.",
     Icon: DoorOpen,
   },
   {
     id: "common-name",
-    label: "Wrong person, same name",
+    label: "Negative Results for the Wrong Person With Your Name",
     description:
       "People with a common name who are negatively affected by results belonging to a different person.",
     Icon: Fingerprint,
@@ -128,7 +128,7 @@ const INDIVIDUAL_SCALE_METRICS = [
   {
     id: "searched",
     figure: "85%",
-    blurb: "Name search before meeting",
+    blurb: "How People Search Your Name Before Every Meeting",
     description:
       "85% of adults say they have searched someone's name online before meeting them - professionally or personally.",
     Icon: Search,
@@ -136,7 +136,7 @@ const INDIVIDUAL_SCALE_METRICS = [
   {
     id: "reconsider",
     figure: "70%",
-    blurb: "Negative result, second thoughts",
+    blurb: "How One Negative Result Creates Doubt and Second Thoughts",
     description:
       "70% say something negative in a search result would cause them to reconsider a relationship or opportunity.",
     Icon: Users,
@@ -144,7 +144,7 @@ const INDIVIDUAL_SCALE_METRICS = [
   {
     id: "still-ranks",
     figure: "Still",
-    blurb: "Old content, live damage",
+    blurb: "How Old Content Still Causes Live Reputation Damage",
     description:
       "Content that is years old, resolved, or factually wrong still ranks - and still does damage - without any warning to the person it concerns.",
     Icon: Star,
@@ -168,7 +168,7 @@ const INDIVIDUAL_WHY_PILLARS = [
   },
   {
     id: "your-story",
-    label: "Built Around Your Story",
+    label: "A Personal Reputation Strategy Built Around Your Story",
     hook: "Not a template - a plan for what you face.",
     body: "Not a template - a careful audit and a plan for what you are actually dealing with, at a pace you are comfortable with.",
     Icon: Heart,
@@ -305,7 +305,7 @@ function IndividualsScaleSection() {
 
       <div className="relative flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <h2 className="font-heading text-[26px] font-bold leading-tight tracking-tight md:text-[32px]">
-          The Impact of Negative Search Results
+          The Real Impact of Negative Search Results on Your Personal Reputation
         </h2>
       </div>
 
@@ -539,7 +539,7 @@ function IndividualsWhatCanBeDoneSection() {
                     removalFocus === "direct" ? "text-navy" : "text-navy/75"
                   }`}
                 >
-                  Direct removal
+                  Direct Content Removal: When It's Possible
                 </h3>
                 {removalFocus === "direct" ? (
                   <span className="shrink-0 rounded-full bg-navy px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white shadow-sm">
@@ -624,7 +624,7 @@ function IndividualsWhatCanBeDoneSection() {
                       : "text-white/90"
                   }`}
                 >
-                  Suppression strategy
+                  Suppression Strategy: When Removal Isn't Possible
                 </h3>
                 {removalFocus === "suppression" ? (
                   <span className="shrink-0 rounded-full border border-emerald-300/40 bg-emerald-400/15 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-emerald-50 shadow-sm backdrop-blur-sm">
@@ -731,7 +731,7 @@ function IndividualsFaqSection() {
       className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
     >
       <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        FAQs
+        Frequently Asked Questions About Personal Reputation Management
       </h2>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
       <div className="mt-8 max-w-4xl space-y-4">
@@ -766,8 +766,7 @@ function IndividualsPage() {
         <section className="relative overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:grid md:grid-cols-[1.03fr_0.97fr] md:items-start md:px-4 md:py-7">
           <div className="max-w-[580px]">
             <h1 className="max-w-[560px] font-heading text-[22px] font-bold leading-[1.12] tracking-tight text-[#0f2e58] sm:text-[26px] md:text-[30px] lg:text-[34px]">
-              Something From Your Past Is Ranking on Google. Why Should It Follow You
-              Forever?
+              Personal Reputation Management Services — Take Back Control of Your Google Results
             </h1>
             <p className="mt-5 max-w-[520px] text-[15px] leading-[1.5] text-[#4f5f75] md:text-[16px]">
               When your name is searched, old stories shouldn&apos;t own your next
