@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { BookOpen } from "lucide-react";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { StatNumber } from "../components/StatNumber.jsx";
@@ -58,11 +59,13 @@ function GlossarySection({ id, title, description, items, defaultOpenFirst = fal
             {description}
           </p>
         </div>
-        <div className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#dbe5f0] bg-white px-4 py-2 shadow-sm">
-          <span className="font-headline-faq text-xl font-bold text-[#1F3B64]">
+        <div className="inline-flex shrink-0 items-center gap-2.5 rounded-full border border-[#1F3B64]/10 bg-white/80 backdrop-blur-sm px-4 py-2 shadow-sm transition-all duration-300 hover:border-[#4CAF50]/30 hover:shadow-md hover:bg-white">
+          <BookOpen className="h-4 w-4 text-[#4CAF50] transition-transform duration-300" />
+          <div className="h-4 w-px bg-[#1F3B64]/15" />
+          <span className="font-headline-faq text-base font-extrabold text-[#1F3B64]">
             {String(items.length).padStart(2, "0")}
           </span>
-          <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
+          <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
             terms
           </span>
         </div>
