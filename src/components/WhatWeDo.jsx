@@ -17,7 +17,7 @@ function WhatWeDo() {
             id="about-reputation360-heading"
             className="font-heading mb-6 text-3xl font-bold text-navy md:text-4xl"
           >
-            About Reputation360
+            About Reputation360 — ORM Specialists Since 2019
           </h2>
           <p className="mb-4 font-body text-lg leading-relaxed text-steel">
             Reputation360 helps individuals and brands take control of how they

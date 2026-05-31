@@ -9,7 +9,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const STEPS = [
   {
     num: "01",
-    label: "Audit",
+    label: "Reputation Audit & Risk Assessment",
     text: "We assess your current search results and risks",
     detail:
       "You get a prioritized picture of what to fix first-so every later move is grounded in data, not guesswork.",
@@ -19,7 +19,7 @@ const STEPS = [
   },
   {
     num: "02",
-    label: "Strategy",
+    label: "Custom Reputation Management Strategy",
     text: "A custom plan based on your goals and urgency",
     detail:
       "Your roadmap matches budget, timeline, and the outcomes you care about-whether that is speed, depth, or discretion.",
@@ -29,7 +29,7 @@ const STEPS = [
   },
   {
     num: "03",
-    label: "Execution",
+    label: "Campaign Execution & Content Creation",
     text: "SEO-driven content, authority building & asset control",
     detail:
       "We publish and amplify assets search engines trust, while steering attention toward accurate, helpful narratives.",
@@ -39,7 +39,7 @@ const STEPS = [
   },
   {
     num: "04",
-    label: "Monitoring",
+    label: "Ongoing Monitoring & Reputation Defense",
     text: "Ongoing tracking and adjustments",
     detail:
       "Rankings and mentions evolve-we watch the SERPs and refine tactics so gains hold and new risks do not creep back in.",

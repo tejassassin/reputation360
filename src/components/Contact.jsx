@@ -9,7 +9,7 @@ function Contact() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="font-heading font-bold text-3xl md:text-4xl mb-4">
-          Ready to Take the Next Step?{" "}
+          Ready to Fix Your Online Reputation?
         </h2>
         <p className="font-body text-white/80 max-w-2xl mx-auto mb-10">
           Your reputation took years to build. Don’t let the internet decide its

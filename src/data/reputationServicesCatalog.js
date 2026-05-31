@@ -54,14 +54,14 @@ export const reputationServicesCatalog = [
   {
     id: "consultation",
     navLabel: "Consultation",
-    title: "Consultation",
+    title: "Reputation Management Consultation",
     description:
       "Strategic marketing consultation built on experience, not theory - offering clarity, course correction, and measurable impact.",
   },
   {
     id: "branding",
     navLabel: "Branding",
-    title: "Branding",
+    title: "Reputation Management Branding",
     description:
       "We help your audience recognize your brand the way you intend - building connection, trust, and momentum for growth.",
   },

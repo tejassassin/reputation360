@@ -106,7 +106,7 @@ function HomeTestimonials() {
           <span className="text-navy">Client Results</span>{" "}
           <span className="relative inline-block">
             <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 bg-clip-text text-transparent">
-              & Reviews
+              & Reputation Management Reviews
             </span>
             <svg
               className="absolute -bottom-1.5 left-0 w-full"

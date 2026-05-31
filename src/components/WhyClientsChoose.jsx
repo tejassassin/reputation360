@@ -25,7 +25,7 @@ function WhyClientsChoose() {
             id="why-clients-heading"
             className="font-heading mx-auto max-w-[22rem] text-balance text-3xl font-bold leading-tight tracking-tight text-white sm:max-w-none md:text-4xl"
           >
-            Why Clients Choose Reputation360
+            Why Clients Choose Reputation360 as Their ORM Company
           </h2>
           <div
             className="mx-auto mt-4 h-0.5 w-16 max-w-full rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"

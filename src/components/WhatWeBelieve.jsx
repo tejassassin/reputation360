@@ -6,17 +6,17 @@ import WhatWeBelieveSearchMockup, {
 const insights = [
   {
     icon: CircleUserRound,
-    title: "Accuracy over distortion",
+    title: "Accurate search results protect your professional reputation",
     text: "Your online impression should match who you are today-not outdated, misleading, or one-sided results.",
   },
   {
     icon: Layers,
-    title: "Small issues snowball",
+    title: "Negative results compound — reputation damage grows over time",
     text: "Ignored reputation problems compound, gain authority in search, and become harder to displace.",
   },
   {
     icon: Timer,
-    title: "Earlier costs less",
+    title: "Early reputation repair costs less than crisis management",
     text: "Early intervention shortens timelines and total cost compared with waiting until damage spreads.",
   },
 ];

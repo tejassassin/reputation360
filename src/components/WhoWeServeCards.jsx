@@ -17,7 +17,7 @@ export default function WhoWeServeCards() {
             id="who-we-serve-heading"
             className="font-heading text-4xl font-bold tracking-tight text-white md:text-5xl"
           >
-            Professionals & Industries We Serve
+            Who We Help: Reputation Management for Professionals & Businesses
           </h2>
           <div
             className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-green to-slate"
