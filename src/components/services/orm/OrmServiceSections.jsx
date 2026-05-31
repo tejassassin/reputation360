@@ -644,7 +644,7 @@ export function OrmRankingFactorsSection() {
         })}
       </div>
 
-      <div className="sr-only" aria-hidden="true">
+      <div className="sr-only">
         {RANKING_FACTORS.map((f) => (
           <h3 key={f.id}>{f.label}</h3>
         ))}
