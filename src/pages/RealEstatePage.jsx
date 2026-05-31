@@ -954,13 +954,18 @@ function RealEstatePage() {
 
           <RealEstateCareersSection />
 
-          <IndustryWhatReputation360Section steps={REPUTATION360_REAL_ESTATE_STEPS} />
+          <IndustryWhatReputation360Section
+            steps={REPUTATION360_REAL_ESTATE_STEPS}
+            sectionTitle="Our Real Estate Agent & Broker Reputation Management Service"
+          />
 
           <RealEstateMarketInsightBanner />
 
           <RealEstateBusinessImpactSection />
 
-          <IndustryRealisticTimelineSection />
+          <IndustryRealisticTimelineSection
+            sectionTitle="Real Estate Agent & Broker Reputation Repair Timeline"
+          />
 
           <RealEstateChecklistSection />
 

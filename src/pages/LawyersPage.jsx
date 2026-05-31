@@ -696,9 +696,14 @@ function LawyersPage() {
 
         <LawyersWhyHarderSection />
 
-        <IndustryWhatReputation360Section steps={REPUTATION360_LAWYER_STEPS} />
+        <IndustryWhatReputation360Section
+          steps={REPUTATION360_LAWYER_STEPS}
+          sectionTitle="Our Lawyer & Attorney Reputation Management Service"
+        />
         <LawyersMarketInsightBanner />
-        <IndustryRealisticTimelineSection />
+        <IndustryRealisticTimelineSection
+          sectionTitle="Lawyer & Attorney Reputation Repair Timeline"
+        />
 
         <SeeItInActionSection audiencePath={seo.path} />
 

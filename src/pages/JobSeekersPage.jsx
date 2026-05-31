@@ -692,11 +692,14 @@ function JobSeekersPage() {
 
         <IndustryWhatReputation360Section
           steps={REPUTATION360_JOB_SEEKER_STEPS}
+          sectionTitle="Our Job Seeker Reputation Management Service"
         />
 
         <JobSeekersMarketInsightBanner />
 
-        <IndustryRealisticTimelineSection />
+        <IndustryRealisticTimelineSection
+          sectionTitle="Job Seeker Reputation Repair Timeline"
+        />
 
         <SeeItInActionSection audiencePath={seo.path} />
 

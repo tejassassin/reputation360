@@ -446,6 +446,7 @@ export function IndustryWhatReputation360Section({
   steps = REPUTATION360_FA_STEPS,
   footer = null,
   sectionTitleTag = "h3",
+  sectionTitle = "What Reputation360 Does",
   stepDetailTitleTag = "h4",
 }) {
   const [active, setActive] = useState(0);
@@ -459,11 +460,11 @@ export function IndustryWhatReputation360Section({
     >
       {sectionTitleTag === "h2" ? (
         <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-          What Reputation360 Does
+          {sectionTitle}
         </h2>
       ) : (
         <h3 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-          What Reputation360 Does
+          {sectionTitle}
         </h3>
       )}
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
@@ -561,6 +562,7 @@ export function IndustryRealisticTimelineSection({
   headingId = "realistic-timeline-heading",
   phases = REALISTIC_TIMELINE_PHASES,
   sectionTitleTag = "h3",
+  sectionTitle = "Realistic Timeline",
   phaseDetailTitleTag = "p",
   phaseHeadingsInRail = false,
 }) {
@@ -583,14 +585,14 @@ export function IndustryRealisticTimelineSection({
           id={headingId}
           className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]"
         >
-          Realistic Timeline
+          {sectionTitle}
         </h2>
       ) : (
         <h3
           id={headingId}
           className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]"
         >
-          Realistic Timeline
+          {sectionTitle}
         </h3>
       )}
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />

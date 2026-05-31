@@ -679,6 +679,7 @@ function DoctorsPage() {
 
         <IndustryWhatReputation360Section
           steps={REPUTATION360_DOCTOR_STEPS}
+          sectionTitle="Our Doctor & Healthcare Professional Reputation Management Service"
           footer={
             <p className="mx-auto max-w-3xl text-center font-heading text-[16px] font-semibold leading-snug text-[#0f2e58] md:text-[18px] md:leading-snug">
               <span className="block">
@@ -691,7 +692,9 @@ function DoctorsPage() {
 
         <DoctorsMarketInsightBanner />
 
-        <IndustryRealisticTimelineSection />
+        <IndustryRealisticTimelineSection
+          sectionTitle="Doctor & Healthcare Professional Reputation Repair Timeline"
+        />
 
         <SeeItInActionSection audiencePath={seo.path} />
 

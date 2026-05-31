@@ -701,11 +701,14 @@ function ExecutivesPage() {
 
         <IndustryWhatReputation360Section
           steps={REPUTATION360_EXECUTIVE_STEPS}
+          sectionTitle="Our Executive & C-Suite Reputation Management Service"
         />
 
         <ExecutivesMarketInsightBanner />
 
-        <IndustryRealisticTimelineSection />
+        <IndustryRealisticTimelineSection
+          sectionTitle="Executive & C-Suite Reputation Repair Timeline"
+        />
 
         <SeeItInActionSection audiencePath={seo.path} />
 

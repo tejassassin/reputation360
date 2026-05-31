@@ -706,11 +706,14 @@ function FinancialAdvisorsPage() {
 
         <IndustryWhatReputation360Section
           steps={REPUTATION360_FINANCIAL_ADVISOR_STEPS}
+          sectionTitle="Our Financial Advisor Reputation Management Service"
         />
 
         <FinancialAdvisorsMarketInsightBanner />
 
-        <IndustryRealisticTimelineSection />
+        <IndustryRealisticTimelineSection
+          sectionTitle="Financial Advisor Reputation Repair Timeline"
+        />
 
         <SeeItInActionSection audiencePath={seo.path} />
 

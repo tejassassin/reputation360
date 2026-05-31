@@ -691,6 +691,7 @@ function BusinessesPage() {
         <IndustryWhatReputation360Section
           sectionId="what-reputation360-does-businesses"
           steps={REPUTATION360_BUSINESS_STEPS}
+          sectionTitle="Our Business Reputation Management Service"
         />
 
         <BusinessesMarketInsightBanner />
@@ -698,6 +699,7 @@ function BusinessesPage() {
         <IndustryRealisticTimelineSection
           sectionId="businesses-realistic-timeline"
           headingId="businesses-realistic-timeline-heading"
+          sectionTitle="Business Reputation Repair Timeline"
         />
 
         <SeeItInActionSection audiencePath={seo.path} />

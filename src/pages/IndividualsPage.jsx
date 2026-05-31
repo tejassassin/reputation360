@@ -923,6 +923,7 @@ function IndividualsPage() {
           sectionId="what-reputation360-does-individuals"
           steps={REPUTATION360_INDIVIDUAL_STEPS}
           sectionTitleTag="h2"
+          sectionTitle="Our Personal Reputation Management Service"
           stepDetailTitleTag="h3"
         />
 
@@ -933,6 +934,7 @@ function IndividualsPage() {
           headingId="individuals-realistic-timeline-heading"
           phases={REALISTIC_TIMELINE_INDIVIDUAL_PHASES}
           sectionTitleTag="h2"
+          sectionTitle="Personal Reputation Repair Timeline"
           phaseDetailTitleTag="h3"
           phaseHeadingsInRail
         />

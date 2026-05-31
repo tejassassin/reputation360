@@ -86,6 +86,7 @@ export function SeeItInActionSection({
   className = "",
   sectionTitleTag = "h3",
   cardTitleTag = "h4",
+  sectionTitle = "Reputation Management Case Studies",
 }) {
   const config = WHO_WE_SERVE_SEE_IT_IN_ACTION[audiencePath];
   if (!config) return null;
@@ -107,14 +108,14 @@ export function SeeItInActionSection({
               id="see-it-in-action-heading"
               className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
             >
-              See It In Action
+              {sectionTitle}
             </h2>
           ) : (
             <h3
               id="see-it-in-action-heading"
               className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
             >
-              See It In Action
+              {sectionTitle}
             </h3>
           )}
           <p className="mt-3 text-base leading-[1.65] text-[#4f5f75] md:text-[17px] md:leading-[1.7]">

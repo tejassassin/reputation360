@@ -116,6 +116,7 @@ export function FurtherReadingSection({
   className = "",
   sectionTitleTag = "h3",
   cardTitleTag = "h4",
+  sectionTitle = "Reputation Management Guides & Insights",
 }) {
   const config = WHO_WE_SERVE_FURTHER_READING[audiencePath];
   if (!config) return null;
@@ -137,14 +138,14 @@ export function FurtherReadingSection({
               id="further-reading-heading"
               className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
             >
-              Related Readings
+              {sectionTitle}
             </h2>
           ) : (
             <h3
               id="further-reading-heading"
               className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
             >
-              Related Readings
+              {sectionTitle}
             </h3>
           )}
           <p className="mt-3 text-base leading-[1.65] text-[#4f5f75] md:text-[17px] md:leading-[1.7]">
