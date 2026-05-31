@@ -46,7 +46,7 @@ export function AboutRelatedContentBlock() {
                 id="about-work-in-action-heading"
                 className="mt-2 font-heading text-[28px] font-bold leading-[1.1] text-[#0f2e58] md:text-[34px]"
               >
-                Our Work in Action
+                Reputation Management Case Studies
               </h2>
               <p className="mt-3 text-[16px] leading-[1.65] text-[#4a5d75] md:text-[17px] md:leading-[1.7]">
                 {ABOUT_WORK_IN_ACTION_SUBHEADING}
@@ -88,7 +88,7 @@ export function AboutRelatedContentBlock() {
                 id="about-further-reading-heading"
                 className="mt-2 font-heading text-[28px] font-bold leading-[1.1] text-[#0f2e58] md:text-[34px]"
               >
-                Related Readings
+                Reputation Management Guides & Insights
               </h2>
               <p className="mt-3 text-[16px] leading-[1.65] text-[#4a5d75] md:text-[17px] md:leading-[1.7]">
                 {ABOUT_FURTHER_READING_SUBHEADING}

@@ -18,7 +18,7 @@ function workInActionSectionHtml() {
   <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between md:gap-8">
     <div class="max-w-2xl">
       <p class="text-[12px] font-bold uppercase tracking-[0.14em] text-[#1a5c38]">Case studies</p>
-      <h2 id="about-work-in-action-heading" class="mt-2 font-heading text-[28px] font-bold leading-[1.1] text-[#0f2e58] md:text-[34px]">Our Work in Action</h2>
+      <h2 id="about-work-in-action-heading" class="mt-2 font-heading text-[28px] font-bold leading-[1.1] text-[#0f2e58] md:text-[34px]">Reputation Management Case Studies</h2>
       <p class="mt-3 text-[16px] leading-[1.65] text-[#4a5d75] md:text-[17px]">${escapeHtml(ABOUT_WORK_IN_ACTION_SUBHEADING)}</p>
     </div>
     <p class="m-0 shrink-0 self-start md:self-auto"><a href="/case-studies" class="inline-flex items-center gap-2 rounded-full border border-[#0f2e58]/15 bg-white px-5 py-2.5 text-sm font-semibold text-[#0f2e58] no-underline shadow-[0_8px_24px_-12px_rgba(15,46,88,0.2)]">All case studies <span aria-hidden="true">→</span></a></p>
@@ -38,7 +38,7 @@ function furtherReadingSectionHtml() {
   <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between md:gap-8">
     <div class="max-w-2xl">
       <p class="text-[12px] font-bold uppercase tracking-[0.14em] text-[#2e5b88]">Insights</p>
-      <h2 id="about-further-reading-heading" class="mt-2 font-heading text-[28px] font-bold leading-[1.1] text-[#0f2e58] md:text-[34px]">Related Readings</h2>
+      <h2 id="about-further-reading-heading" class="mt-2 font-heading text-[28px] font-bold leading-[1.1] text-[#0f2e58] md:text-[34px]">Reputation Management Guides & Insights</h2>
       <p class="mt-3 text-[16px] leading-[1.65] text-[#4a5d75] md:text-[17px]">${escapeHtml(ABOUT_FURTHER_READING_SUBHEADING)}</p>
     </div>
     <p class="m-0 shrink-0 self-start md:self-auto"><a href="${escapeHtmlAttr(BLOG_INDEX_PATH)}" class="inline-flex items-center gap-2 rounded-full border border-[#0f2e58]/15 bg-white px-5 py-2.5 text-sm font-semibold text-[#0f2e58] no-underline shadow-[0_8px_24px_-12px_rgba(15,46,88,0.2)]">All articles <span aria-hidden="true">→</span></a></p>

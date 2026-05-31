@@ -464,7 +464,7 @@ function HowItAllBeganStory() {
             OUR STORY
           </p>
           <h2 className="font-heading mt-2 text-3xl font-bold tracking-tight text-navy md:text-4xl">
-            How it all began
+            Our Story
           </h2>
           <div
             className="mt-5 h-1.5 w-full max-w-3xl overflow-hidden rounded-full bg-slate-200/90"
@@ -655,7 +655,7 @@ function WhatDrivesUsSection() {
           <h2
             className={`${headlineFont} text-3xl font-extrabold leading-tight text-[#1F3B64] md:text-[2.1rem]`}
           >
-            What Drives Us
+            Our Mission & Values
           </h2>
           <p
             className={`${headlineFont} mx-auto mt-4 max-w-2xl text-balance text-lg font-semibold leading-snug text-[#2E5B88] md:text-xl`}
@@ -837,7 +837,7 @@ function HowWeWorkSection() {
           <h2
             className={`${headlineFont} mb-3 text-3xl font-extrabold text-[#1F3B64] md:text-[2.05rem]`}
           >
-            How We Work
+            Our Reputation Management Process
           </h2>
         </Motion.div>
 
@@ -1442,7 +1442,7 @@ function AboutPage() {
             <h2
               className={`${headlineFont} text-3xl font-extrabold text-[#1F3B64] md:text-[2.1rem]`}
             >
-              Who Are We
+              Meet the Reputation360 Team
             </h2>
             <p className="font-body mx-auto mt-3 max-w-2xl text-slate-600">
               One team. Global coverage. Obsessive about outcomes.

@@ -97,7 +97,7 @@ for (const pathname of prerenderPaths()) {
     /<article[^>]*id="r360-prerender"[\s\S]*<h1[\s>]/i.test(html) ||
     (pathname === "/" && html.includes("Reputation Management Insights & Guides")) ||
     (pathname === "/services" && html.includes("See It In Action")) ||
-    (pathname === "/about" && html.includes("Our Work in Action"));
+    (pathname === "/about" && html.includes("Reputation Management Case Studies"));
   if (!hasPrerenderHeading) {
     console.error(`verify-prerender-content: ${rel} prerender block missing expected heading`);
     failed = true;
@@ -117,11 +117,11 @@ for (const pathname of prerenderPaths()) {
   }
 
   if (pathname === "/about") {
-    if (!html.includes("Our Work in Action")) {
-      console.error(`verify-prerender-content: ${rel} missing Our Work in Action section`);
+    if (!html.includes("Reputation Management Case Studies")) {
+      console.error(`verify-prerender-content: ${rel} missing Reputation Management Case Studies section`);
       failed = true;
-    } else if (!html.includes("Related Readings")) {
-      console.error(`verify-prerender-content: ${rel} missing Related Readings section`);
+    } else if (!html.includes("Reputation Management Guides & Insights")) {
+      console.error(`verify-prerender-content: ${rel} missing Reputation Management Guides & Insights section`);
       failed = true;
     } else if (!html.includes("the-review-that-almost-ended-the-surgeons-career")) {
       console.error(
