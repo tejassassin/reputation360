@@ -686,31 +686,45 @@ function RealEstateChecklistSection() {
         })}
       </div>
 
-      {/* The 5th and hardest question as a custom high-impact card */}
+      {/* The 5th and hardest question as a custom high-impact card in a split-grid layout */}
       <div
         style={{
           transitionDelay: entered ? "400ms" : "0ms",
         }}
-        className={`relative overflow-hidden rounded-[24px] border border-[#0f2e58]/20 bg-[linear-gradient(135deg,#0a1b3a_0%,#0f2e58_60%,#1a3e6e_100%)] p-6 md:p-8 text-white shadow-lg transition-all duration-500 ${
+        className={`relative overflow-hidden rounded-[28px] border border-[#1f3b64]/30 bg-[linear-gradient(145deg,#0a1931_0%,#0f284e_50%,#08162d_100%)] p-8 md:p-10 text-white shadow-xl transition-all duration-500 ${
           entered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
         }`}
       >
-        <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#8ce596]/10 blur-2xl pointer-events-none" />
-        <div className="absolute -left-16 -bottom-16 h-48 w-48 rounded-full bg-blue-500/10 blur-2xl pointer-events-none" />
+        <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#8ce596]/8 blur-3xl pointer-events-none" />
+        <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
 
-        <div className="relative flex flex-col items-center text-center max-w-2xl mx-auto space-y-4">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#8ce596]/15 border border-[#8ce596]/30 text-[#8ce596] shadow-[0_0_15px_rgba(140,229,150,0.15)] animate-pulse">
-            <AlertTriangle className="h-6 w-6" aria-hidden />
-          </span>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#8ce596]">
-            The Moment of Truth
-          </p>
-          <h3 className="font-heading text-lg md:text-xl font-bold leading-snug max-w-xl text-white">
-            &ldquo;Would you hire yourself based solely on what you find online right now?&rdquo;
-          </h3>
-          <p className="text-[13px] text-white/80 leading-relaxed max-w-lg">
-            Be completely honest. If a potential client or seller searches your name and finds a mix of inactive profiles, outdated listings, or negative results—would they feel confident signing with you, or would they keep looking?
-          </p>
+        <div className="relative grid gap-8 lg:grid-cols-[1.15fr_0.85fr] items-center">
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#8ce596]/10 border border-[#8ce596]/20 px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#8ce596]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#8ce596] animate-pulse" />
+              The Hard Question
+            </div>
+            <h3 className="font-heading text-2xl md:text-3xl font-bold leading-[1.2] text-white tracking-tight">
+              &ldquo;Would you hire yourself based solely on what you find online right now?&rdquo;
+            </h3>
+            <div className="h-1.5 w-16 rounded-full bg-[#8ce596]/85" />
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm shadow-inner">
+            <div className="flex items-start gap-4">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#8ce596]">
+                <AlertTriangle className="h-5 w-5" aria-hidden />
+              </span>
+              <div className="space-y-3">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/40">
+                  Moment of Truth
+                </p>
+                <p className="text-[13px] md:text-[14px] text-white/80 leading-relaxed">
+                  Be completely honest. If a potential client or seller searches your name and finds a mix of inactive profiles, outdated listings, or negative results—would they feel confident signing with you, or would they keep looking?
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
