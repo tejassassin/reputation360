@@ -132,11 +132,11 @@ function FaqsPage() {
             <h1 className="font-headline-faq mb-8 max-w-5xl text-4xl leading-[1.1] font-extrabold tracking-tighter text-[#1F3B64] md:text-6xl lg:text-7xl">
               Online Reputation Management FAQs
             </h1>
-            <h2 className="font-headline-faq mb-12 max-w-3xl text-lg leading-snug font-semibold tracking-tight text-[#1F3B64] md:text-xl lg:text-2xl">
+            <p className="font-headline-faq mb-12 max-w-3xl text-lg leading-snug font-semibold tracking-tight text-[#1F3B64] md:text-xl lg:text-2xl">
               Your online reputation is not something that just happens to you.{" "}
               <span className="text-[#2E5B88]">It is built</span> - either
               deliberately or by default.
-            </h2>
+            </p>
             <div
               ref={heroStatsRef}
               className="grid w-full max-w-4xl grid-cols-1 gap-6 md:grid-cols-3"
