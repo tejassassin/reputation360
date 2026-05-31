@@ -43,7 +43,7 @@ function GlossaryAnswer({ blocks }) {
   );
 }
 
-function GlossarySection({ id, title, description, items }) {
+function GlossarySection({ id, title, description, items, defaultOpenFirst = false }) {
   return (
     <section id={id} className="scroll-mt-36">
       <div className="mb-8 flex flex-wrap items-start justify-between gap-4">
@@ -72,7 +72,7 @@ function GlossarySection({ id, title, description, items }) {
           <FaqAccordion
             key={`${id}-${item.term}`}
             question={`${item.term}?`}
-            defaultOpen={index === 0}
+            defaultOpen={defaultOpenFirst && index === 0}
           >
             <GlossaryAnswer blocks={item.blocks} />
           </FaqAccordion>
@@ -254,13 +254,14 @@ export default function OrmGlossaryPage() {
             </aside>
 
             <div className="space-y-20 lg:col-span-9">
-              {ORM_GLOSSARY_SECTIONS.map((section) => (
+              {ORM_GLOSSARY_SECTIONS.map((section, index) => (
                 <GlossarySection
                   key={section.id}
                   id={section.id}
                   title={section.title}
                   description={section.description}
                   items={section.items}
+                  defaultOpenFirst={index === 0}
                 />
               ))}
             </div>

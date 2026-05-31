@@ -214,6 +214,12 @@ export const SITEMAP_URL_ENTRIES = [
   ...PACK20_SITEMAP_ENTRIES,
   { path: "/resources/guide", lastmod: "2026-04-26", changefreq: "monthly", priority: "0.7" },
   { path: "/resources/faqs", lastmod: "2026-04-26", changefreq: "monthly", priority: "0.6" },
+  {
+    path: "/resources/online-reputation-management-glossary",
+    lastmod: "2026-05-31",
+    changefreq: "monthly",
+    priority: "0.6",
+  },
   { path: "/privacy-policy", lastmod: "2026-05-15", changefreq: "yearly", priority: "0.4" },
   { path: "/terms-of-service", lastmod: "2026-05-15", changefreq: "yearly", priority: "0.4" },
   { path: "/cookie-policy", lastmod: "2026-05-15", changefreq: "yearly", priority: "0.4" },

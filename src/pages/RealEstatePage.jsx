@@ -269,7 +269,7 @@ function RealEstateScaleSection() {
 
       <div className="relative flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <h2 className="font-heading text-[26px] font-bold leading-tight tracking-tight md:text-[32px]">
-          The Numbers Don't Lie
+          The Scale of the Problem
         </h2>
         <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
           Tap a metric to explore
