@@ -853,10 +853,7 @@ function IndividualsPage() {
                 <div className="h-px flex-1 bg-white/35" />
               </div>
               <h2 className="fa-invisible-leak-headline mt-5 w-full max-w-none font-heading text-[22px] font-bold leading-[1.06] tracking-tight sm:text-[26px] md:text-[30px]">
-                <span className="block whitespace-nowrap">They search your name.</span>
-                <span className="block whitespace-nowrap">
-                  What they find follows you.
-                </span>
+                How Negative Search Results Affect Individuals
               </h2>
             </div>
           </div>
