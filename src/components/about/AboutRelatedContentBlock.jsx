@@ -70,6 +70,7 @@ export function AboutRelatedContentBlock() {
                 label={link.label}
                 layout="grid"
                 titleTag="h3"
+                withImage={true}
               />
             ))}
           </ul>

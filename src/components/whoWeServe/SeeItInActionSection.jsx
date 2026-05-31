@@ -3,6 +3,7 @@ import { getCaseStudyBySlug } from "../../data/caseStudies/index.js";
 import { WHO_WE_SERVE_SEE_IT_IN_ACTION } from "../../data/whoWeServeSeeItInAction.js";
 import { internalAnchorProps } from "../../lib/internalLinkProps.js";
 import { caseStudyListTeaser } from "../../utils/caseStudyTeaser.js";
+import { getCaseStudyImage } from "../CaseStudyMetaPill.jsx";
 
 /** @param {string} href */
 function slugFromCaseStudyHref(href) {
@@ -18,6 +19,7 @@ export function SeeItInActionStoryCard({
   label,
   layout = "carousel",
   titleTag = layout === "grid" ? "h3" : "h4",
+  withImage = false,
 }) {
   const slug = slugFromCaseStudyHref(href);
   const study = slug ? getCaseStudyBySlug(slug) : null;
@@ -36,9 +38,17 @@ export function SeeItInActionStoryCard({
       <a
         href={href}
         {...internalAnchorProps(href)}
-        className={`group flex h-full ${widthClass} flex-col rounded-2xl border border-[#0f2e58]/10 bg-white p-6 text-left no-underline shadow-[0_16px_48px_-24px_rgba(15,46,88,0.28)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#79df86]/40 hover:shadow-[0_28px_60px_-22px_rgba(15,46,88,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#79df86] focus-visible:ring-offset-2 md:p-7`}
+        className={`group flex h-full ${widthClass} flex-col rounded-2xl border border-[#0f2e58]/10 bg-white p-6 text-left no-underline shadow-[0_16px_48px_-24px_rgba(15,46,88,0.28)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#79df86]/40 hover:shadow-[0_28px_60px_-22px_rgba(15,46,88,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#79df86] focus-visible:ring-offset-2 md:p-7 relative overflow-hidden`}
       >
-        <div className="flex items-center justify-between gap-3">
+        {withImage && study && (
+          <img 
+            src={getCaseStudyImage(study.n)} 
+            alt="" 
+            className="absolute inset-0 w-full h-full object-cover opacity-[0.08] mix-blend-multiply pointer-events-none z-0"
+          />
+        )}
+        <div className="relative z-10 flex h-full flex-col">
+          <div className="flex items-center justify-between gap-3">
           <span className="rounded-full bg-[#79df86]/15 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[#1a5c38] md:text-xs">
             Case study
           </span>
@@ -72,6 +82,7 @@ export function SeeItInActionStoryCard({
             →
           </span>
         </span>
+        </div>
       </a>
     </li>
   );
