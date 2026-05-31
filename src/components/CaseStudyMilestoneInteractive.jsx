@@ -21,6 +21,20 @@ export function CaseStudyMilestoneInteractive({ items, headingForLabel = "Milest
       role="group"
       aria-label={`${headingForLabel}: select a period, use previous and next, or use arrow keys.`}
     >
+      {items.map((p) => (
+        <h3
+          key={`seo-heading-${p.time}`}
+          style={{
+            position: "absolute",
+            left: "-9999px",
+            width: "1px",
+            height: "1px",
+            overflow: "hidden",
+          }}
+        >
+          {p.time}
+        </h3>
+      ))}
       <div className="mb-3 h-1.5 w-20 rounded-full bg-gradient-to-r from-navy via-slate to-navy" aria-hidden />
 
       <div
