@@ -8,7 +8,7 @@ export const nlsPageMetaDescription =
   "One harmful search result is enough to cost you clients, deals, and opportunities. Reputation360 pushes damaging content off page one - ethically, precisely, and permanently. Get a free search analysis.";
 
 export const nlsPageHero = {
-  title: "Negative Link Suppression Services — Push Down Harmful Google Results",
+  title: "Negative Link Suppression Services - Push Down Harmful Google Results",
   titleHighlight: "",
   leadParagraphs: [
     "Damaging search results don't go away on their own.",

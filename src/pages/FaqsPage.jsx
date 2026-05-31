@@ -130,7 +130,7 @@ function FaqsPage() {
               Honest Answers to the Questions We Hear Most
             </span>
             <h1 className="font-headline-faq mb-8 max-w-5xl text-4xl leading-[1.1] font-extrabold tracking-tighter text-[#1F3B64] md:text-6xl lg:text-7xl">
-              Online Reputation Management FAQs — Your Questions Answered
+              Online Reputation Management FAQs - Your Questions Answered
             </h1>
             <p className="font-headline-faq mb-12 max-w-3xl text-lg leading-snug font-semibold tracking-tight text-[#1F3B64] md:text-xl lg:text-2xl">
               Your online reputation is not something that just happens to you.{" "}

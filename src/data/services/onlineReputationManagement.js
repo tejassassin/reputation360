@@ -9,7 +9,7 @@ export const ormPageMetaDescription =
   "Take control of what people find when they search your name. Reputation360 delivers proven Online Reputation Management for executives, founders, and brands across the US, Canada, and Australia. Book a free consultation.";
 
 export const ormPageHero = {
-  title: "Online Reputation Management Services — Take Control of What People Find",
+  title: "Online Reputation Management Services - Take Control of What People Find",
   titleSubline: "",
   lead:
     "What people find when they search your name defines how they see you. Reputation360's Online Reputation Management ensures they find the right thing.",

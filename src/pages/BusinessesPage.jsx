@@ -530,7 +530,7 @@ function BusinessesPage() {
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 md:px-6 md:py-14">
         <section className="relative overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:grid md:grid-cols-[1.03fr_0.97fr] md:items-start md:px-4 md:py-7">
           <div className="max-w-[570px]">
-            <h1 className="max-w-[560px] font-heading text-[30px] font-bold leading-[1.05] tracking-tight text-[#0f2e58] sm:text-[34px] md:text-[40px]">Business Reputation Management Services — Control What Customers Find</h1>
+            <h1 className="max-w-[560px] font-heading text-[30px] font-bold leading-[1.05] tracking-tight text-[#0f2e58] sm:text-[34px] md:text-[40px]">Business Reputation Management Services - Control What Customers Find</h1>
             <p className="mt-5 max-w-[520px] text-[15px] leading-[1.5] text-[#4f5f75] md:text-[16px]">
               In thirty seconds, it either builds confidence - or costs you the
               deal.

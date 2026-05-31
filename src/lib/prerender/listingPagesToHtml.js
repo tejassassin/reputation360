@@ -56,7 +56,7 @@ export function caseStudiesIndexToHtml() {
   );
 
   return `<header>
-  <h1>Online Reputation Management Case Studies — Real Results for Real Clients</h1>
+  <h1>Online Reputation Management Case Studies - Real Results for Real Clients</h1>
   <p>Detailed analysis of how we restore trust, counter harmful narratives, and rebuild digital legacies.</p>
 </header>
 ${crawlNav}

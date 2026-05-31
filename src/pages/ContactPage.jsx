@@ -262,7 +262,7 @@ function ContactPage() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 md:mb-12">
             <h1 className="font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#02254d] md:text-5xl lg:text-6xl">
-              Contact Reputation360 — Online Reputation Management Experts
+              Contact Reputation360 - Online Reputation Management Experts
             </h1>
             <p className="mt-2 text-base font-medium text-[#1F3B64] md:text-lg">
               How to reach us

@@ -542,7 +542,7 @@ function DoctorsPage() {
             <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#1f3b64]/70 md:text-[11px] md:tracking-[0.16em]">
               Doctors &amp; Healthcare Professionals
             </p>
-            <h1 className="mt-2 max-w-[520px] font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#0f2e58] md:text-[40px]">Reputation Management for Doctors & Healthcare Professionals — Protect Your Clinical Record</h1>
+            <h1 className="mt-2 max-w-[520px] font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#0f2e58] md:text-[40px]">Reputation Management for Doctors & Healthcare Professionals - Protect Your Clinical Record</h1>
             <p className="mt-5 max-w-[520px] text-[15px] leading-[1.5] text-[#4f5f75] md:text-[16px]">
               One review - fair or not - can empty a waiting room that took years
               to fill.

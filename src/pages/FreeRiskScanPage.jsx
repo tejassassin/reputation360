@@ -532,7 +532,7 @@ export default function FreeRiskScanPage() {
         <div className="relative z-0 mx-auto grid w-full max-w-5xl gap-6 px-3 pb-10 pt-5 sm:px-4 md:min-h-[calc(100dvh-6rem)] md:grid-cols-[0.9fr_1fr] md:items-center md:gap-10 md:pt-0">
           <div className="mb-6 text-center md:mb-0 md:text-left">
             <h1 className="font-heading text-balance text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
-              Free Online Reputation Scan — See What Google Says About You
+              Free Online Reputation Scan - See What Google Says About You
             </h1>
             <p className="mx-auto mt-3 max-w-md text-pretty text-sm leading-relaxed text-slate-600 md:mx-0 md:text-base">
               We analyse the first 3 pages of Google search results for your name, classify each URL as negative, neutral, or positive, and email you a detailed PDF report — so you know exactly where you stand before deciding what to do next.

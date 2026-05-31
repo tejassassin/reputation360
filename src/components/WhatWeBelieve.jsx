@@ -11,7 +11,7 @@ const insights = [
   },
   {
     icon: Layers,
-    title: "Negative results compound — reputation damage grows over time",
+    title: "Negative results compound - reputation damage grows over time",
     text: "Ignored reputation problems compound, gain authority in search, and become harder to displace.",
   },
   {

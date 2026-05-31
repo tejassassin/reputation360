@@ -548,7 +548,7 @@ function JobSeekersPage() {
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 space-y-10">
         <section className="relative overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:px-4 md:py-7 grid gap-5 md:grid-cols-[1.03fr_0.97fr] items-start">
           <div className="max-w-[570px]">
-            <h1 className="font-heading text-[34px] md:text-[40px] leading-[1.02] text-[#0f2e58] font-bold tracking-tight max-w-[520px]">Personal Reputation Management for Job Seekers — Control What Recruiters Find</h1>
+            <h1 className="font-heading text-[34px] md:text-[40px] leading-[1.02] text-[#0f2e58] font-bold tracking-tight max-w-[520px]">Personal Reputation Management for Job Seekers - Control What Recruiters Find</h1>
             <p className="mt-5 text-[#4f5f75] text-[15px] md:text-[16px] leading-[1.5] max-w-[520px]">
               Ensure your digital reputation reflects your true professional
               value before a recruiter ever hits 'Search'.

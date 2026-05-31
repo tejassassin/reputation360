@@ -8,7 +8,7 @@ export function guidePageToHtml() {
 
     <main>
       <section id="ch1" class="chapter">
-        <h2>Chapter 1 — What Is Online Reputation Management?</h2>
+        <h2>Chapter 1 - What Is Online Reputation Management?</h2>
         <p>Online Reputation Management (ORM) in 2026 is no longer just about "fixing" a problem. It is the sophisticated process of monitoring, influencing, and controlling your digital footprint across search engines, social media platforms, and AI knowledge bases.</p>
         <ul>
           <li><strong>Monitoring</strong>: Real-time tracking of brand mentions and sentiment shifts across the global web.</li>
@@ -18,7 +18,7 @@ export function guidePageToHtml() {
       </section>
 
       <section id="ch2" class="chapter">
-        <h2>Chapter 2 — Why Your Search Results Matter More Than Ever</h2>
+        <h2>Chapter 2 - Why Your Search Results Matter More Than Ever</h2>
         <p>Your search results define your first impression and credibility:</p>
         <ul>
           <li><strong>92% of search traffic</strong> never makes it past the first page of Google results. If your positive assets aren't on page one, they effectively don't exist.</li>
@@ -29,7 +29,7 @@ export function guidePageToHtml() {
       </section>
 
       <section id="ch3" class="chapter">
-        <h2>Chapter 3 — Removal vs. Suppression</h2>
+        <h2>Chapter 3 - Removal vs. Suppression</h2>
         <p>Every reputation strategy balances permanent removal and search engine suppression:</p>
         <ul>
           <li>
@@ -44,7 +44,7 @@ export function guidePageToHtml() {
       </section>
 
       <section id="ch4" class="chapter">
-        <h2>Chapter 4 — What You Can Do Yourself</h2>
+        <h2>Chapter 4 - What You Can Do Yourself</h2>
         <p>Actionable DIY steps to improve your online presence:</p>
         <ol>
           <li><strong>Audit Your Digital Presence</strong>: Perform incognito searches to map what people find, checking image and news tabs specifically.</li>
@@ -54,7 +54,7 @@ export function guidePageToHtml() {
       </section>
 
       <section id="ch5" class="chapter">
-        <h2>Chapter 5 — When Professional Help Makes Sense</h2>
+        <h2>Chapter 5 - When Professional Help Makes Sense</h2>
         <p>DIY methods have limits. Professional reputation management is recommended for high-stakes scenarios: nationally syndicated negative press, coordinated review attacks, or complex legal de-indexing requests.</p>
       </section>
     </main>
