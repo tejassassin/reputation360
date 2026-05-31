@@ -50,7 +50,6 @@ const navItems = [
     link: "/services",
     parentNonNavigable: true,
     children: [
-      { name: "All Services", link: "/services" },
       {
         name: "Online Reputation Management",
         link: ONLINE_REPUTATION_MANAGEMENT_PATH,
