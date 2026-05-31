@@ -820,9 +820,9 @@ export function RbsSpecializedServicesSection() {
                   <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4CAF50]">
                     {activeMeta.panelTag}
                   </p>
-                  <h3 className="mt-2 font-heading text-[2rem] font-bold leading-[1.2] text-[#1F3B64] md:text-[2.2rem]">
+                  <p className="mt-2 font-heading text-[2rem] font-bold leading-[1.2] text-[#1F3B64] md:text-[2.2rem]">
                     {active.title}
-                  </h3>
+                  </p>
                   <p className="mt-2 text-[17px] italic leading-[1.6] text-[#6B7280]">{active.kicker}</p>
                   <div className="mt-6 h-[3px] w-10 rounded-full bg-[#4CAF50]" aria-hidden />
 
