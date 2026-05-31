@@ -15,29 +15,33 @@ export function CaseStudyEngagementBlock({ study, showLabel = true, compact = fa
   if (compact) {
     if (e.value) {
       return (
-        <div className="flex flex-col items-end border-r-2 border-green/40 pr-3 sm:pr-4">
+        <div className="inline-flex items-center gap-2.5 rounded-full border border-slate/15 bg-white py-1.5 pl-3 pr-4 shadow-sm transition-shadow hover:shadow-md">
           {showLabel ? (
-            <p className="mb-0.5 text-[0.65rem] font-extrabold uppercase tracking-widest text-slate-400">
-              Engagement
-            </p>
+            <div className="flex items-center gap-1.5 border-r border-slate/20 pr-2.5">
+              <span className="text-[0.65rem] font-extrabold uppercase tracking-widest text-slate-500">
+                Engagement
+              </span>
+            </div>
           ) : null}
-          <p className="flex items-baseline gap-x-1.5 font-heading font-extrabold leading-none tracking-tight">
-            <span className="bg-gradient-to-br from-navy to-green bg-clip-text text-4xl tabular-nums text-transparent md:text-[2.75rem]">
+          <p className="flex items-baseline gap-x-1 font-heading font-extrabold leading-none tracking-tight">
+            <span className="bg-gradient-to-br from-navy to-green bg-clip-text text-xl tabular-nums text-transparent md:text-2xl">
               {e.value}
             </span>
-            <span className="text-base font-bold text-navy md:text-lg">{e.unit}</span>
+            <span className="text-xs font-bold text-navy md:text-sm">{e.unit}</span>
           </p>
         </div>
       );
     }
     return (
-      <div className="flex flex-col items-end border-r-2 border-green/40 pr-3 sm:pr-4">
+      <div className="inline-flex items-center gap-2.5 rounded-full border border-slate/15 bg-white py-1.5 pl-3 pr-4 shadow-sm transition-shadow hover:shadow-md">
         {showLabel ? (
-          <p className="mb-0.5 text-[0.65rem] font-extrabold uppercase tracking-widest text-slate-400">
-            Timeline
-          </p>
+          <div className="flex items-center gap-1.5 border-r border-slate/20 pr-2.5">
+            <span className="text-[0.65rem] font-extrabold uppercase tracking-widest text-slate-500">
+              Timeline
+            </span>
+          </div>
         ) : null}
-        <p className="font-heading text-lg font-extrabold leading-tight text-navy md:text-xl">
+        <p className="font-heading text-sm font-extrabold leading-tight text-navy md:text-base">
           {e.full}
         </p>
       </div>
