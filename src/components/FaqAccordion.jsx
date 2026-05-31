@@ -8,9 +8,9 @@ export function FaqAccordion({ question, defaultOpen, children }) {
       defaultOpen={defaultOpen}
     >
       <summary className="flex cursor-pointer list-none items-center justify-between p-6 [&::-webkit-details-marker]:hidden">
-        <span className="font-headline-faq text-lg font-semibold text-[#1F3B64]">
+        <h3 className="font-headline-faq text-lg font-semibold text-[#1F3B64]">
           {question}
-        </span>
+        </h3>
         <ChevronDown
           className="faq-chevron h-6 w-6 shrink-0 text-[#4CAF50] transition-transform"
           aria-hidden

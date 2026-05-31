@@ -159,7 +159,7 @@ export function DiyAccordion({ id, title, children, open, onToggle, variant = "d
         id={`${id}-btn`}
         onClick={() => onToggle(id)}
       >
-        <span className="text-lg font-bold text-charcoal">{title}</span>
+        <h3 className="text-lg font-bold text-charcoal">{title}</h3>
         <ChevronDown
           className={cn("h-5 w-5 shrink-0 text-navy transition-transform", open && "rotate-180")}
           aria-hidden
@@ -188,7 +188,7 @@ export function DiyFaqAccordion({ id, title, children, open, onToggle }) {
         id={`${id}-btn`}
         onClick={() => onToggle(id)}
       >
-        <span className="text-xl font-bold text-charcoal">{title}</span>
+        <h3 className="text-xl font-bold text-charcoal">{title}</h3>
         {open ? (
           <Minus className="h-5 w-5 shrink-0 text-navy" aria-hidden />
         ) : (

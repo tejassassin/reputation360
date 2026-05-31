@@ -556,7 +556,7 @@ export function OrmWhyMattersSection() {
                   : "text-navy/70 hover:text-navy"
               }`}
             >
-              {t.label}
+              <h3 className="font-heading text-sm font-semibold inline">{t.label}</h3>
             </button>
           );
         })}
@@ -638,7 +638,7 @@ export function OrmRankingFactorsSection() {
               >
                 <Icon className="h-5 w-5" aria-hidden strokeWidth={2} />
               </span>
-              <span className="font-heading text-sm font-bold leading-snug">{f.label}</span>
+              <h3 className="font-heading text-sm font-bold leading-snug">{f.label}</h3>
             </button>
           );
         })}
@@ -923,9 +923,9 @@ export function OrmProcessSection() {
                 <span className="mt-2 block font-heading text-base font-bold text-navy md:text-lg">
                   {p.timespan}
                 </span>
-                <span className="mt-1 block text-xs font-medium leading-snug text-navy/60 md:text-sm">
+                <h3 className="mt-1 block text-xs font-medium leading-snug text-navy/60 md:text-sm">
                   {p.title}
-                </span>
+                </h3>
               </button>
             );
           })}

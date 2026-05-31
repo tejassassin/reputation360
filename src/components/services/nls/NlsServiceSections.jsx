@@ -837,9 +837,9 @@ export function NlsWhenSuppressionSection() {
                         : "border-navy/12 bg-[#f8fafc] text-navy hover:border-[#79df86]/40 hover:bg-white hover:shadow-sm"
                     }`}
                   >
-                    <span className="block font-heading text-xs font-bold leading-snug sm:text-sm">
+                    <h3 className="block font-heading text-xs font-bold leading-snug sm:text-sm">
                       {shortLabel}
-                    </span>
+                    </h3>
                   </button>
                 </li>
               );
@@ -1080,13 +1080,13 @@ export function NlsContentTypesSection() {
                     >
                       <TabIcon className="h-5 w-5 sm:h-[1.375rem] sm:w-[1.375rem]" aria-hidden strokeWidth={2.25} />
                     </span>
-                    <span
+                    <h3
                       className={`line-clamp-2 min-w-0 flex-1 font-heading text-sm font-bold leading-snug sm:text-[15px] md:text-base ${
                         selected ? "text-white" : "text-navy"
                       }`}
                     >
                       {item.title}
-                    </span>
+                    </h3>
                   </button>
                 </li>
               );
@@ -1256,9 +1256,9 @@ export function NlsTimelineSection() {
                 <span className="mt-2 block font-heading text-base font-bold text-navy md:text-lg">
                   {p.timespan}
                 </span>
-                <span className="mt-1 block text-xs font-medium leading-snug text-navy/60 md:text-sm">
+                <h3 className="mt-1 block text-xs font-medium leading-snug text-navy/60 md:text-sm">
                   {p.title}
-                </span>
+                </h3>
               </button>
             );
           })}
@@ -1451,13 +1451,13 @@ export function NlsWhoWeHelpSection() {
                   >
                     <WIcon className="h-5 w-5" aria-hidden strokeWidth={2.25} />
                   </span>
-                  <span
+                  <h3
                     className={`line-clamp-3 font-heading text-sm font-bold leading-snug sm:text-[15px] ${
                       selected ? "text-navy" : "text-white"
                     }`}
                   >
                     {w.who}
-                  </span>
+                  </h3>
                 </button>
               </li>
             );
