@@ -98,7 +98,7 @@ export function SeeItInActionSection({
 
   return (
     <section
-      className={`case-study-links scroll-mt-28 ${className}`.trim()}
+      className={`!mt-16 md:!mt-24 case-study-links scroll-mt-28 ${className}`.trim()}
       aria-labelledby="see-it-in-action-heading"
     >
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">

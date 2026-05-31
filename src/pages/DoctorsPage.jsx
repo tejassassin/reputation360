@@ -273,9 +273,6 @@ function DoctorsScaleSection() {
         <h2 className="font-heading text-[26px] font-bold leading-[1.12] md:text-[32px] md:leading-[1.1]">
           The Impact of Negative Search Results on Healthcare Professionals
         </h2>
-        <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
-          Tap a metric to explore
-        </p>
       </div>
 
       <div className="relative mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] lg:items-stretch">
@@ -707,7 +704,7 @@ function DoctorsPage() {
           cardTitleTag="h3"
         />
 
-        <section className="mt-10 scroll-mt-28 rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:mt-12 md:px-10 md:py-12">
+        <section className="!mt-20 md:!mt-32 scroll-mt-28 rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
           <p className="mx-auto max-w-3xl font-heading font-semibold leading-snug text-white md:leading-snug">
             <span className="-mx-1 block min-w-0 md:mx-0">
               <span className="flex justify-center overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] md:overflow-visible [&::-webkit-scrollbar]:hidden">

@@ -283,9 +283,6 @@ function BusinessesScaleSection() {
         <h2 className="font-heading text-[26px] font-bold leading-tight tracking-tight md:text-[32px]">
           The Impact of Negative Search Results on Businesses
         </h2>
-        <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
-          Tap a metric to explore
-        </p>
       </div>
 
       <div className="relative mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] lg:items-stretch">
@@ -705,7 +702,7 @@ function BusinessesPage() {
           cardTitleTag="h3"
         />
 
-        <section className="rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
+        <section className="!mt-20 md:!mt-32 rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
           <p className="mx-auto max-w-3xl font-heading leading-snug text-white md:leading-snug">
             <span className="block text-[19px] font-semibold md:text-[23px]">
               Your business has earned its reputation through real work and real
