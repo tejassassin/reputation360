@@ -970,9 +970,9 @@ export function OrmProcessSection() {
                   {phase.timespan}
                 </span>
               </div>
-              <h3 className="mt-4 font-heading text-xl font-bold text-navy md:text-2xl">
+              <p className="mt-4 font-heading text-xl font-bold text-navy md:text-2xl">
                 Phase {phaseNum}: {phase.title}
-              </h3>
+              </p>
               <p className="mt-4 w-full max-w-none text-base leading-relaxed text-navy/75 md:text-lg md:leading-relaxed">
                 {phase.body}
               </p>
@@ -983,6 +983,13 @@ export function OrmProcessSection() {
       <p className="mt-8 w-full max-w-none text-sm leading-relaxed text-navy/70 md:mt-10 md:text-base">
         {ORM_PROCESS_NOTE}
       </p>
+      <div className="sr-only">
+        {ORM_PROCESS_PHASES.map((p) => (
+          <h3 key={p.n}>
+            Phase {String(p.n).padStart(2, "0")}: {p.title}
+          </h3>
+        ))}
+      </div>
     </DocSection>
   );
 }
