@@ -409,6 +409,7 @@ export function NlsWhyCostsSection() {
                   : "border-navy/12 bg-white text-navy hover:border-[#79df86]/40 hover:shadow-md"
               }`}
             >
+              <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{r.perspective}</h3>
               <span className="font-heading text-sm font-bold">{r.perspective}</span>
             </Motion.button>
           );
@@ -864,9 +865,9 @@ export function NlsWhenSuppressionSection() {
               <p className="text-xs font-bold uppercase tracking-wide text-navy/45">
                 Scenario {String(active + 1).padStart(2, "0")} of {String(NLS_WHEN_SUPPRESSION_ROWS.length).padStart(2, "0")}
               </p>
-              <h3 className="mt-2 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
+              <p className="mt-2 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
                 {row.scenario}
-              </h3>
+              </p>
               <p className="mt-3 text-sm leading-relaxed text-navy/75 md:text-base">{row.why}</p>
             </Motion.div>
           </AnimatePresence>
@@ -1117,9 +1118,9 @@ export function NlsContentTypesSection() {
                   Content type {String(active + 1).padStart(2, "0")} of{" "}
                   {String(NLS_HARMFUL_CONTENT_PARSED.length).padStart(2, "0")}
                 </p>
-                <h3 className="mt-2 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
+                <p className="mt-2 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
                   {entry.title}
-                </h3>
+                </p>
                 <p className="mt-3 text-sm leading-relaxed text-navy/75 md:text-base">{entry.description}</p>
               </div>
             </Motion.div>
@@ -1217,7 +1218,7 @@ export function NlsTimelineSection() {
   return (
     <DocSection
       id="timeline"
-      title="How Long Does It Take?"
+      title="Negative Link Suppression Timeline"
       tone="gradient"
       contentClassName="mt-10 md:mt-12"
     >
@@ -1256,9 +1257,10 @@ export function NlsTimelineSection() {
                 <span className="mt-2 block font-heading text-base font-bold text-navy md:text-lg">
                   {p.timespan}
                 </span>
-                <h3 className="mt-1 block text-xs font-medium leading-snug text-navy/60 md:text-sm">
+                <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Phase {num}: {p.title}</h3>
+                <p className="mt-1 block text-xs font-medium leading-snug text-navy/60 md:text-sm">
                   {p.title}
-                </h3>
+                </p>
               </button>
             );
           })}
@@ -1297,9 +1299,9 @@ export function NlsTimelineSection() {
                   {phase.timespan}
                 </span>
               </div>
-              <h3 className="mt-4 font-heading text-xl font-bold text-navy md:text-2xl">
+              <p className="mt-4 font-heading text-xl font-bold text-navy md:text-2xl">
                 Phase {phaseNum}: {phase.title}
-              </h3>
+              </p>
               <p className="mt-4 w-full max-w-none text-base leading-relaxed text-navy/75 md:text-lg md:leading-relaxed">
                 {phase.body}
               </p>
@@ -1351,7 +1353,7 @@ export function NlsWhoWeHelpSection() {
   };
 
   return (
-    <DocSection id="who-we-help" title="Who We Help" tone="navy">
+    <DocSection id="who-we-help" title="Who We Help with Negative Link Suppression" tone="navy">
       <div
         id={panelId}
         role="tabpanel"
@@ -1391,9 +1393,9 @@ export function NlsWhoWeHelpSection() {
               </div>
             </div>
             <div className="min-w-0 flex-1 text-center lg:text-left">
-              <h3 className="font-heading text-2xl font-bold leading-tight text-white md:text-3xl">
+              <p className="font-heading text-2xl font-bold leading-tight text-white md:text-3xl">
                 {entry.who}
-              </h3>
+              </p>
               <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-100/90 md:text-lg lg:mx-0">
                 {entry.why}
               </p>
