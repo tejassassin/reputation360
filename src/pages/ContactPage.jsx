@@ -47,7 +47,7 @@ const NAVY = "#1F3B64";
 const AUTHORITY_ROADMAP_MILESTONES = [
   {
     n: 1,
-    title: "Discovery & Assessment",
+    title: "Discovery & Reputation Assessment",
     text: "We get on a confidential call to understand your situation - the reputation damage, your goals, and everything we need to know.",
     green: false,
     line: { x1: 477, y1: 365, x2: 477, y2: 480 },
@@ -58,7 +58,7 @@ const AUTHORITY_ROADMAP_MILESTONES = [
   },
   {
     n: 2,
-    title: "Digital Audit",
+    title: "Digital Reputation Audit",
     text: "We conduct a thorough audit of your digital footprint, identifying exactly what needs to be addressed.",
     green: true,
     line: { x1: 719, y1: 405, x2: 719, y2: 290 },
@@ -69,7 +69,7 @@ const AUTHORITY_ROADMAP_MILESTONES = [
   },
   {
     n: 3,
-    title: "Tailored Strategy & Proposal",
+    title: "Tailored Reputation Management Strategy & Proposal",
     text: "We present a clear, personalised plan built around your needs and send a formal proposal for your review.",
     green: false,
     line: { x1: 961, y1: 445, x2: 961, y2: 550 },
@@ -91,7 +91,7 @@ const AUTHORITY_ROADMAP_MILESTONES = [
   },
   {
     n: 5,
-    title: "Ecosystem Build",
+    title: "Reputation Ecosystem Build & Content Creation",
     text: "We build or rebuild your digital presence - social media profiles, websites, and your full online ecosystem.",
     green: false,
     line: { x1: 1479, y1: 260, x2: 1479, y2: 380 },
@@ -102,7 +102,7 @@ const AUTHORITY_ROADMAP_MILESTONES = [
   },
   {
     n: 6,
-    title: "Active Execution & Reporting",
+    title: "Active Campaign Execution & Reputation Reporting",
     text: "Your strategy goes live. We execute across all channels, manage your content, and keep you updated with regular progress reports.",
     green: true,
     line: { x1: 1702, y1: 205, x2: 1702, y2: 95 },
@@ -262,7 +262,7 @@ function ContactPage() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 md:mb-12">
             <h1 className="font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#02254d] md:text-5xl lg:text-6xl">
-              Contact Reputation360
+              Contact Reputation360 — Online Reputation Management Experts
             </h1>
             <p className="mt-2 text-base font-medium text-[#1F3B64] md:text-lg">
               How to reach us
@@ -469,7 +469,7 @@ function ContactPage() {
           <div className="mb-1 text-center md:mb-2">
             <h2 className="font-heading text-[28px] font-bold tracking-tight text-[#02254d] md:text-[40px]">
               What Happens{" "}
-              <span className="text-[#4CAF50]">Next</span>
+              <span className="text-[#4CAF50]">Next: Your Reputation Management Journey</span>
             </h2>
             <p className="mx-auto mt-1.5 max-w-2xl text-[15px] leading-relaxed text-[#43474e] md:text-[16px]">
               A transparent roadmap of your journey from first contact to a
@@ -525,7 +525,7 @@ function ContactPage() {
               </div>
               <div>
                 <h2 className="font-heading text-[26px] font-bold md:text-3xl lg:text-4xl">
-                  Everything Is Confidential
+                  Your Reputation Management is 100% Confidential
                 </h2>
                 <p className="mt-4 text-[15px] leading-relaxed text-white md:mt-6 md:text-[17px]">
                   Everything you share with us stays with us - no exceptions. We do
