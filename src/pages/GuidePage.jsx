@@ -234,9 +234,9 @@ function GuidePage() {
                       className="mb-4 h-8 w-8 text-[#35618e]"
                       strokeWidth={1.5}
                     />
-                    <h4 className="font-guide-headline mb-2 font-bold text-[#02254d]">
+                    <h3 className="font-guide-headline mb-2 font-bold text-[#02254d]">
                       {title}
-                    </h4>
+                    </h3>
                     <p className="text-sm text-slate-600">{text}</p>
                   </div>
                 ))}
@@ -258,9 +258,9 @@ function GuidePage() {
               <div className="group ha-lift relative flex flex-col justify-between overflow-hidden rounded-3xl bg-[#02254d] p-10 text-white md:col-span-2 md:row-span-2">
                 <div className="relative z-10">
                   <div className="mb-4 text-7xl font-black">92%</div>
-                  <h4 className="font-guide-headline mb-4 text-2xl font-bold">
+                  <h3 className="font-guide-headline mb-4 text-2xl font-bold">
                     Search Traffic Dominance
-                  </h4>
+                  </h3>
                   <p className="text-lg opacity-80">
                     Over 90% of all search traffic never makes it past the first
                     page of results. If your positive assets aren&apos;t on page
@@ -407,9 +407,9 @@ function GuidePage() {
                     {num}
                   </div>
                   <div>
-                    <h4 className="font-guide-headline mb-1 text-xl font-bold text-[#02254d]">
+                    <h3 className="font-guide-headline mb-1 text-xl font-bold text-[#02254d]">
                       {title}
-                    </h4>
+                    </h3>
                     <p className="text-[#43474e]">{body}</p>
                   </div>
                 </div>
@@ -464,9 +464,9 @@ function GuidePage() {
                   </div>
                 </div>
                 <div className="ha-lift flex flex-col items-center justify-center space-y-8 rounded-3xl border border-white/10 bg-white/10 p-10 text-center backdrop-blur-md">
-                  <h4 className="font-guide-headline text-2xl font-bold">
-                    Ready to take control?
-                  </h4>
+                  <h2 className="font-guide-headline text-2xl font-bold">
+                    Ready to Take Control of Your Online Reputation?
+                  </h2>
                   <p className="text-slate-300">
                     Schedule a confidential analysis with our senior reputation
                     strategists.
