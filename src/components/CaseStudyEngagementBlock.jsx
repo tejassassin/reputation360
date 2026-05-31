@@ -14,17 +14,17 @@ export function CaseStudyEngagementBlock({ study, showLabel = true, compact = fa
   );
   if (e.value) {
     return (
-      <div>
+      <div className={compact ? "text-right" : ""}>
         {showLabel ? (
-          <p className="mb-0.5 text-xs font-extrabold uppercase tracking-wider text-steel">
+          <p className="mb-0.5 text-[0.65rem] font-extrabold uppercase tracking-widest text-slate-500">
             Engagement
           </p>
         ) : null}
-        <p className="flex flex-wrap items-baseline gap-x-2 gap-y-0 font-heading font-extrabold leading-none tracking-tight">
-          <span className={`bg-gradient-to-r from-navy via-slate to-green bg-clip-text tabular-nums text-transparent ${compact ? "text-3xl md:text-4xl" : "text-5xl sm:text-6xl md:text-7xl"}`}>
+        <p className={`flex flex-wrap items-baseline gap-x-1.5 gap-y-0 font-heading font-extrabold leading-none tracking-tight ${compact ? "justify-end" : ""}`}>
+          <span className={`bg-gradient-to-br from-navy via-[#2E5B88] to-green bg-clip-text tabular-nums text-transparent ${compact ? "text-4xl md:text-[2.75rem]" : "text-5xl sm:text-6xl md:text-7xl"}`}>
             {e.value}
           </span>
-          <span className={`font-bold text-slate ${compact ? "text-lg md:text-xl" : "text-2xl sm:text-3xl"}`}>{e.unit}</span>
+          <span className={`font-bold text-navy ${compact ? "text-[1.1rem] md:text-xl" : "text-2xl sm:text-3xl"}`}>{e.unit}</span>
         </p>
       </div>
     );
