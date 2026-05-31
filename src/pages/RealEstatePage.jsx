@@ -518,6 +518,83 @@ function RealEstateMarketInsightBanner() {
   );
 }
 
+function RealEstateBusinessImpactSection() {
+  const [entered, setEntered] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) setEntered(true);
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.15 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      id="real-estate-business-impact"
+      className="mt-16 scroll-mt-28 space-y-8"
+    >
+      <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
+        The Direct Business Impact of Online Reputation
+      </h2>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          {
+            title: "Lead Generation",
+            text: "Your search presence is your first showing. Agents with a clean, credible page one attract higher-quality inbound enquiries.",
+            Icon: TrendingUp,
+            color: "text-emerald-500 bg-emerald-50",
+          },
+          {
+            title: "Client Acquisition Cost",
+            text: "A strong reputation reduces what you spend to win business. Referrals cost nothing and convert at the highest rate.",
+            Icon: Globe2,
+            color: "text-blue-500 bg-blue-50",
+          },
+          {
+            title: "Recruiting & Relationships",
+            text: "Top brokerages check your online presence before they recruit you. They want agents who understand brand alignment.",
+            Icon: UserSearch,
+            color: "text-indigo-500 bg-indigo-50",
+          },
+          {
+            title: "Pricing Power",
+            text: "Well-regarded agents can hold their commission rates. Conversations start from a position of earned trust.",
+            Icon: ShieldCheck,
+            color: "text-teal-500 bg-teal-50",
+          },
+        ].map((item, i) => {
+          const Icon = item.Icon;
+          return (
+            <article
+              key={item.title}
+              style={{
+                transitionDelay: entered ? `${i * 75}ms` : "0ms",
+              }}
+              className={`ha-lift rounded-2xl border border-[#dfe6ee] bg-white p-6 shadow-sm hover:border-[#1f3b64]/25 hover:shadow-md transition-all duration-300 ${
+                entered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+              }`}
+            >
+              <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${item.color} mb-4`}>
+                <Icon className="h-5 w-5" aria-hidden />
+              </div>
+              <h3 className="font-heading font-bold text-base text-[#0f2e58]">{item.title}</h3>
+              <p className="mt-2.5 text-xs text-[#5d6c80] leading-relaxed">{item.text}</p>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 function RealEstatePage() {
   const seo = useLocalizedSeo("realEstate");
   return (
@@ -724,42 +801,7 @@ function RealEstatePage() {
             </ul>
           </section>
 
-          <section
-            id="real-estate-business-impact"
-            className="mt-12 scroll-mt-28 space-y-8"
-          >
-            <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-              The Direct Business Impact of Online Reputation
-            </h2>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                {
-                  title: "Lead Generation",
-                  text: "Your search presence is your first showing. Agents with a clean, credible page one attract higher-quality inbound enquiries.",
-                },
-                {
-                  title: "Client Acquisition Cost",
-                  text: "A strong reputation reduces what you spend to win business. Referrals cost nothing and convert at the highest rate.",
-                },
-                {
-                  title: "Recruiting & Relationships",
-                  text: "Top brokerages check your online presence before they recruit you. They want agents who understand brand alignment.",
-                },
-                {
-                  title: "Pricing Power",
-                  text: "Well-regarded agents can hold their commission rates. Conversations start from a position of earned trust.",
-                },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-2xl border border-[#dfe6ee] bg-white p-5 shadow-sm"
-                >
-                  <h3 className="font-heading font-bold text-base text-[#0f2e58]">{item.title}</h3>
-                  <p className="mt-2.5 text-xs text-[#5d6c80] leading-relaxed">{item.text}</p>
-                </div>
-              ))}
-            </div>
-          </section>
+          <RealEstateBusinessImpactSection />
 
           <RealEstateProblemSection />
 
