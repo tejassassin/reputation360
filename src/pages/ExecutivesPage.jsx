@@ -511,7 +511,7 @@ function ExecutivesFaqSection() {
       id="executives-faqs"
       className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
     >
-      <h2>Frequently Asked Questions About Executives Reputation Management</h2>
+      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">Frequently Asked Questions About Executive Reputation Management</h2>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
       <div className="mt-8 max-w-4xl space-y-4">
         {EXECUTIVE_FAQ_ITEMS.map((item, index) => (
@@ -544,7 +544,7 @@ function ExecutivesPage() {
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 md:px-6 md:py-14">
         <section className="relative overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:grid md:grid-cols-[1.03fr_0.97fr] md:items-start md:px-4 md:py-7">
           <div className="max-w-[570px]">
-            <h1>Executive Reputation Management Services — Control What Board Members Find</h1>
+            <h1 className="max-w-[520px] font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#0f2e58] md:text-[40px]">Executive Reputation Management Services — Control What Board Members Find</h1>
             <p className="mt-5 max-w-[520px] text-[15px] leading-[1.5] text-[#4f5f75] md:text-[16px]">
               Is your digital presence ready for that moment? Shape what
               stakeholders see before diligence, press, or partnerships hinge on a

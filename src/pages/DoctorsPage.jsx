@@ -508,7 +508,7 @@ function DoctorsFaqSection() {
       id="doctor-faqs"
       className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
     >
-      <h2>Frequently Asked Questions About Doctors and Healthcare Professionals Reputation Management</h2>
+      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">Frequently Asked Questions About Doctors and Healthcare Professionals Reputation Management</h2>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
       <div className="mt-8 max-w-4xl space-y-4">
         {DOCTOR_FAQ_ITEMS.map((item, index) => (
@@ -542,7 +542,7 @@ function DoctorsPage() {
             <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#1f3b64]/70 md:text-[11px] md:tracking-[0.16em]">
               Doctors &amp; Healthcare Professionals
             </p>
-            <h1>Reputation Management for Doctors & Healthcare Professionals — Protect Your Clinical Record</h1>
+            <h1 className="mt-2 max-w-[520px] font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#0f2e58] md:text-[40px]">Reputation Management for Doctors & Healthcare Professionals — Protect Your Clinical Record</h1>
             <p className="mt-5 max-w-[520px] text-[15px] leading-[1.5] text-[#4f5f75] md:text-[16px]">
               One review - fair or not - can empty a waiting room that took years
               to fill.

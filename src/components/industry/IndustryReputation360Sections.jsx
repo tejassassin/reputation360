@@ -193,13 +193,13 @@ export const REPUTATION360_BUSINESS_STEPS = [
   },
   {
     step: 2,
-    headline: "Step 2 - Strategy Design (Weeks 1-2)",
+    headline: "Step 2 - Reputation Strategy Design (Weeks 1-2)",
     body: "We build a strategy around your specific business type and the nature of the damaging content. A SaaS company's approach looks different from a restaurant group's, which looks different from a healthcare firm's.",
     Icon: Target,
   },
   {
     step: 3,
-    headline: "Step 3 - Content and Brand Presence Building (Months 1-4)",
+    headline: "Step 3 - Reputation Content and Brand Presence Building (Months 1-4)",
     body: "We create the authoritative brand content that displaces negative results - press features, thought leadership, company profiles on high-authority platforms, and owned media. Built to rank and stay ranked.",
     Icon: Layers,
   },
@@ -211,7 +211,7 @@ export const REPUTATION360_BUSINESS_STEPS = [
   },
   {
     step: 5,
-    headline: "Step 5 - Displacement and Monitoring (Months 2-12)",
+    headline: "Step 5 - Reputation Displacement and Monitoring (Months 2-12)",
     body: "We track your search results throughout the engagement, adjust as results move, and transition into ongoing maintenance once primary displacement is achieved.",
     Icon: RefreshCw,
   },
