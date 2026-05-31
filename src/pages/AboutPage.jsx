@@ -579,7 +579,6 @@ function HowItAllBeganStory() {
                     onClick={() => setActiveStep(i)}
                     className="min-w-0 flex-1 border-b border-slate-200/70 pb-6 text-left last:border-0 sm:pb-7"
                   >
-                    <h3 className="sr-only">{s.headline}</h3>
                     <p
                       className={`font-heading text-[10px] font-semibold uppercase tracking-[0.14em] sm:text-xs sm:tracking-[0.16em] ${
                         isActive ? "text-[#4CAF50]" : "text-slate-400"
@@ -596,6 +595,11 @@ function HowItAllBeganStory() {
                     >
                       {s.timelineSubtitle}
                     </p>
+                    <h3
+                      style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}
+                    >
+                      {s.headline}
+                    </h3>
                   </button>
                 </Motion.div>
               );
@@ -722,13 +726,13 @@ function WhatDrivesUsSection() {
                     >
                       {persona.label}
                     </span>
-                    <span
+                    <h3
                       className={`${headlineFont} text-sm font-bold leading-snug sm:text-[15px] lg:text-sm xl:text-[15px] ${
                         isActive ? "text-white" : "text-[#1F3B64]"
                       }`}
                     >
                       {persona.cardLine}
-                    </span>
+                    </h3>
                   </button>
                 </Motion.div>
               );
