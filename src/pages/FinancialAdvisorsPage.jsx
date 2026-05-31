@@ -287,7 +287,7 @@ function FinancialAdvisorsScaleSection() {
 
       <div className="relative flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <h2 className="font-heading text-[26px] font-bold leading-tight tracking-tight md:text-[32px]">
-          The Scale of the Problem
+          The Impact of Negative Search Results on Financial Advisors
         </h2>
         <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
           Tap a metric to explore
@@ -400,7 +400,7 @@ function FinancialAdvisorsWhyHarderSection() {
       className="mt-16 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 md:mt-20 md:px-9 md:py-11"
     >
       <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        Why This Is Harder for You Than Most
+        Why Financial Advisor Reputation Cases Are Different
       </h2>
       <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
         Three constraints advisors hit in search.
@@ -517,13 +517,7 @@ function FinancialAdvisorsMarketInsightBanner() {
             Market Insight
           </p>
           <h2 className="mt-3 font-heading text-[19px] font-bold leading-[1.24] md:mt-4 md:text-[24px] lg:text-[27px]">
-            <span className="text-[#4eab66]">96%</span>
-            <span className="text-white">
-              {" "}
-              of clients research you online before they call.{" "}
-            </span>
-            <span className="text-[#4eab66]">83%</span>
-            <span className="text-white"> check reviews before anything else.</span>
+            Why Online Reputation Matters for Financial Advisors
           </h2>
           <p className="mt-2.5 font-heading text-[14px] font-semibold leading-snug text-white md:mt-3 md:text-[16px]">
             Make sure they like what they find.
@@ -657,12 +651,7 @@ function FinancialAdvisorsPage() {
                 <div className="h-px flex-1 bg-white/30" />
               </div>
               <h2 className="fa-invisible-leak-headline mt-5 w-full max-w-none font-heading text-[26px] font-bold leading-[1.08] tracking-tight sm:text-[30px] md:text-[34px]">
-                <span className="block whitespace-nowrap">
-                  A client searches your name
-                </span>
-                <span className="block whitespace-nowrap">
-                  before the first interview.
-                </span>
+                How Negative Search Results Affect Financial Advisors
               </h2>
             </div>
           </div>
@@ -707,17 +696,28 @@ function FinancialAdvisorsPage() {
         <IndustryWhatReputation360Section
           steps={REPUTATION360_FINANCIAL_ADVISOR_STEPS}
           sectionTitle="Our Financial Advisor Reputation Management Service"
+          sectionTitleTag="h2"
+          stepDetailTitleTag="h3"
         />
 
         <FinancialAdvisorsMarketInsightBanner />
 
         <IndustryRealisticTimelineSection
           sectionTitle="Financial Advisor Reputation Repair Timeline"
+          sectionTitleTag="h2"
         />
 
-        <SeeItInActionSection audiencePath={seo.path} />
+        <SeeItInActionSection
+          audiencePath={seo.path}
+          sectionTitleTag="h2"
+          cardTitleTag="h3"
+        />
 
-        <FurtherReadingSection audiencePath={seo.path} />
+        <FurtherReadingSection
+          audiencePath={seo.path}
+          sectionTitleTag="h2"
+          cardTitleTag="h3"
+        />
 
         <section className="rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
           <p className="mx-auto max-w-3xl font-heading text-[19px] font-semibold leading-snug text-white md:text-[23px] md:leading-snug">
