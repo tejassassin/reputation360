@@ -113,7 +113,7 @@ function Footer() {
                 <a
                   href={contactMailtoHref()}
                   onClick={handleMailtoClick}
-                  className="ha-nudge inline-block max-w-full break-words rounded px-0.5 transition-colors hover:text-green"
+                  className="ha-nudge inline-block max-w-full break-words rounded px-0.5 transition-colors"
                 >
                   Contact us - {CONTACT_EMAIL}
                 </a>
