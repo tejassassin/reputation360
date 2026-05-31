@@ -160,9 +160,9 @@ function GuidePage() {
         <aside className="hidden min-h-0 lg:block">
           <div className="sticky top-28 z-20 max-h-[calc(100dvh-7.5rem)] overflow-y-auto rounded-xl bg-slate-50 p-6 text-sm leading-relaxed shadow-sm ring-1 ring-slate-200/60 overscroll-contain">
             <div className="mb-8">
-              <h3 className="font-guide-headline mb-1 text-lg font-bold text-[#02254d]">
+              <p className="font-guide-headline mb-1 text-lg font-bold text-[#02254d]">
                 Guide Index
-              </h3>
+              </p>
               <p className="text-slate-500">Reputation Management 101</p>
             </div>
             <nav className="flex flex-col gap-4" aria-label="Guide chapters">
@@ -212,17 +212,17 @@ function GuidePage() {
                 {[
                   {
                     Icon: Eye,
-                    title: "Monitoring",
+                    title: "Monitoring Your Online Reputation",
                     text: "Real-time tracking of brand mentions and sentiment shifts across the global web.",
                   },
                   {
                     Icon: Sparkles,
-                    title: "Influencing",
+                    title: "Influencing What People Find About You",
                     text: "Strategically curating high-authority content that defines your narrative.",
                   },
                   {
                     Icon: BadgeCheck,
-                    title: "Controlling",
+                    title: "Controlling Your Search Results",
                     text: "Managing search results to ensure only accurate, fair information remains visible.",
                   },
                 ].map(({ Icon, title, text }) => (
@@ -259,7 +259,7 @@ function GuidePage() {
                 <div className="relative z-10">
                   <div className="mb-4 text-7xl font-black">92%</div>
                   <h3 className="font-guide-headline mb-4 text-2xl font-bold">
-                    Search Traffic Dominance
+                    Why Google Search Traffic Dominates All Other Channels
                   </h3>
                   <p className="text-lg opacity-80">
                     Over 90% of all search traffic never makes it past the first
@@ -322,7 +322,7 @@ function GuidePage() {
                     <Trash2 className="h-7 w-7 text-[#ba1a1a]" aria-hidden />
                   </div>
                   <h3 className="font-guide-headline text-2xl font-extrabold text-[#02254d]">
-                    Permanent Removal
+                    Permanent Content Removal: When It's Possible
                   </h3>
                 </div>
                 <p className="mb-6 text-slate-600">
@@ -348,7 +348,7 @@ function GuidePage() {
                     <Layers className="h-7 w-7 text-[#275582]" aria-hidden />
                   </div>
                   <h3 className="font-guide-headline text-2xl font-extrabold text-[#02254d]">
-                    Strategic Suppression
+                    Strategic Suppression: When Removal Isn't an Option
                   </h3>
                 </div>
                 <p className="mb-6 text-slate-600">
@@ -378,24 +378,24 @@ function GuidePage() {
                 04
               </span>
               <h2 className="font-guide-headline text-4xl font-extrabold tracking-tight text-[#02254d]">
-                What You Can Do Yourself
+                What You Can Do Yourself to Improve Your Online Reputation
               </h2>
             </div>
             <div className="space-y-6">
               {[
                 {
                   num: "01",
-                  title: "Audit Your Digital Presence",
+                  title: "Audit Your Digital Reputation Presence",
                   body: 'Perform a "Clean Search" using incognito mode to see what others see. Check Image and News tabs specifically.',
                 },
                 {
                   num: "02",
-                  title: "Claim Your Stake",
+                  title: "Claim Your Digital Presence Across Key Platforms",
                   body: "Secure your name on LinkedIn, Twitter/X, and professional directories even if you don't use them daily.",
                 },
                 {
                   num: "03",
-                  title: "Build Your Own Hub",
+                  title: "Build Your Own Reputation Hub Online",
                   body: "Launch a personal website (YourName.com). It is the most powerful tool for controlling your narrative.",
                 },
               ].map(({ num, title, body }) => (
@@ -424,14 +424,14 @@ function GuidePage() {
                 05
               </span>
               <h2 className="font-guide-headline text-4xl font-extrabold tracking-tight text-[#02254d]">
-                When Professional Help Makes Sense
+                When Professional Reputation Management Help Makes Sense
               </h2>
             </div>
             <div className="relative overflow-hidden rounded-[2.5rem] bg-[#02254d] p-12 text-white">
               <div className="relative z-10 grid gap-12 md:grid-cols-2">
                 <div>
                   <h3 className="font-guide-headline mb-6 text-3xl font-bold">
-                    High-Stakes Scenarios
+                    High-Stakes Reputation Scenarios That Require Professional Help
                   </h3>
                   <p className="mb-8 text-slate-300">
                     Sometimes DIY isn&apos;t enough. Professional intervention is
