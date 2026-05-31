@@ -919,7 +919,7 @@ function IndividualsPage() {
           steps={REPUTATION360_INDIVIDUAL_STEPS}
           sectionTitleTag="h2"
           sectionTitle="Our Personal Reputation Management Service"
-          stepDetailTitleTag="h3"
+          stepDetailTitleTag="p"
         />
 
         <IndividualsMarketInsightBanner />
@@ -929,7 +929,7 @@ function IndividualsPage() {
           headingId="individuals-realistic-timeline-heading"
           sectionTitleTag="h2"
           sectionTitle="Personal Reputation Repair Timeline"
-          phaseDetailTitleTag="h3"
+          phaseDetailTitleTag="p"
         />
 
         <SeeItInActionSection

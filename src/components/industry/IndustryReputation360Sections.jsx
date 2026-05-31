@@ -536,9 +536,9 @@ export function IndustryWhatReputation360Section({
                       <span className="font-heading text-[11px] font-bold tracking-wide text-[#1f3b64]/65 md:text-xs">
                         Step {stepItem.step}
                       </span>
-                      <span className="mt-0.5 block font-heading text-[13px] font-semibold leading-snug text-[#0f2e58] md:text-sm">
+                      <h3 className="mt-0.5 block font-heading text-[13px] font-semibold leading-snug text-[#0f2e58] md:text-sm">
                         {shortLabel}
-                      </span>
+                      </h3>
                     </span>
                   </button>
                 </li>
@@ -689,13 +689,13 @@ export function IndustryRealisticTimelineSection({
                     </span>
                     {!railPhaseHeadings ? (
                       <>
-                        <span
+                        <h3
                           className={`mt-2 max-w-[7.5rem] text-center font-heading text-[10px] font-bold leading-tight tracking-wide md:max-w-none md:text-[11px] ${
                             selected ? "text-[#0f2e58]" : "text-[#5d6c80]"
                           }`}
                         >
                           {p.window}
-                        </span>
+                        </h3>
                       </>
                     ) : null}
                   </button>
