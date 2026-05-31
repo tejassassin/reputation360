@@ -586,7 +586,7 @@ function RealEstateBusinessImpactSection() {
                 <Icon className="h-5 w-5" aria-hidden />
               </div>
               <h3 className="font-heading font-bold text-base text-[#0f2e58]">{item.title}</h3>
-              <p className="mt-2.5 text-xs text-[#5d6c80] leading-relaxed">{item.text}</p>
+              <p className="mt-2.5 text-sm text-[#5d6c80] leading-relaxed">{item.text}</p>
             </article>
           );
         })}
@@ -677,7 +677,7 @@ function RealEstateChecklistSection() {
                 <h3 className="font-heading font-bold text-base text-[#0f2e58] group-hover:text-[#1f3b64] transition-colors">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-xs text-[#5d6c80] leading-relaxed">
+                <p className="mt-2 text-sm text-[#5d6c80] leading-relaxed">
                   {item.text}
                 </p>
               </div>
