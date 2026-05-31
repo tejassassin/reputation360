@@ -150,7 +150,7 @@ function Hero() {
                     Take control of your
                   </span>
                   <span className="block max-w-[20rem] text-[1.375rem] leading-tight text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
-                    Online Reputation Management
+                    Online Reputation Management -
                   </span>
                   <span className="block max-w-[21rem] text-[1.375rem] leading-snug text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
                     <Highlight className="max-md:!px-1 max-md:!pb-0">
