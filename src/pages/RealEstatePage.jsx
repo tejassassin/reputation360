@@ -617,21 +617,21 @@ function RealEstateCareersSection() {
   const careerPillars = [
     {
       title: "For New Agents: Building Credibility from Zero",
-      text: "Becoming a real estate agent without investing in your online presence is like opening an office with no signage. Potential clients cannot find you — and when they do, there is nothing to build confidence. New agents face unique challenges: no track record to point to, a limited referral network, and immediate competition from established agents. Your digital presence becomes your proof of professionalism before you have the history to speak for itself.",
+      text: "No track record yet? Your digital presence is your proof of professionalism. Without it, potential clients find you — and find nothing worth trusting.",
       Icon: Award,
       accentColor: "border-t-[#79df86]",
       iconBg: "bg-emerald-50 text-emerald-600 border-emerald-100/50",
     },
     {
       title: "For Experienced Agents: Protecting and Leveraging",
-      text: "Established agents often have the business but underestimate how much an unmanaged or damaged search presence is costing them at the margins. Clients who do not call. Referrals that go elsewhere. Top brokerages that look at your digital footprint before they look at your numbers. Your track record means nothing if the first page of results does not reflect it.",
+      text: "Your track record means nothing if the first page of results doesn't reflect it. An unmanaged search presence is quietly costing you clients and referrals.",
       Icon: ShieldCheck,
       accentColor: "border-t-[#2e5b88]",
       iconBg: "bg-blue-50 text-blue-600 border-blue-100/50",
     },
     {
       title: "For Brokers & Agency Owners: Your Brand Is on the Line",
-      text: "When you run a brokerage, your personal reputation and your business reputation are inseparable. A negative result for your name or your agency affects every agent under your brand, every recruitment conversation, and every new client who searches before signing. The stakes are higher, and the complexity of managing reputation across an organisation is greater — which is why specialist support matters more, not less.",
+      text: "One negative result for your name affects every agent under your brand, every recruit, and every client who searches before signing. The stakes are too high to leave it unmanaged.",
       Icon: Building2,
       accentColor: "border-t-indigo-500",
       iconBg: "bg-indigo-50 text-indigo-600 border-indigo-100/50",
