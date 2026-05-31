@@ -5,6 +5,7 @@ import {
   BadgeCheck,
   Briefcase,
   Building2,
+  Check,
   CheckCircle2,
   ChevronDown,
   CircleDollarSign,
@@ -19,6 +20,7 @@ import {
   Sparkles,
   Target,
   Users,
+  X,
 } from "lucide-react";
 import { ConsultationCtas } from "../../ConsultationCtas.jsx";
 import { FaqAccordion } from "../../FaqAccordion.jsx";
@@ -565,7 +567,7 @@ export function RbsFrameworkSection() {
       </div>
 
       <div className="mt-12">
-        <RbsReveal className="max-w-[900px]">
+        <RbsReveal className="max-w-none">
           <div className="mb-14">
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#4CAF50]">
               {RBS_WHY_EXIST.eyebrow}
@@ -574,14 +576,14 @@ export function RbsFrameworkSection() {
               {RBS_WHY_EXIST.title}
             </h3>
             <div className="mt-5 h-[3px] w-12 rounded-full bg-[#4CAF50]" aria-hidden />
-            <p className="mt-6 max-w-[620px] text-[16.5px] leading-[1.8] text-[#4B5563]">
+            <p className="mt-6 max-w-none text-[16.5px] leading-[1.8] text-[#4B5563]">
               {RBS_WHY_EXIST.intro.replace(` ${RBS_WHY_EXIST.introEmphasis}`, "")}{" "}
               <span className="font-medium text-[#1F3B64]">{RBS_WHY_EXIST.introEmphasis}</span>
             </p>
           </div>
         </RbsReveal>
 
-        <RbsReveal delay={0.06} className="max-w-[900px]">
+        <RbsReveal delay={0.06} className="max-w-none">
           <div className="overflow-hidden rounded-t-[16px]">
             <div className="grid gap-[2px] md:grid-cols-2">
               {RBS_WHY_EXIST.scenarios.map((scenario, index) => (
@@ -589,18 +591,34 @@ export function RbsFrameworkSection() {
                   key={scenario.audience}
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -10, scale: 1.015 }}
                   viewport={rbsInView}
-                  transition={{ duration: 0.46, delay: 0.1 + index * 0.08, ease: rbsEase }}
-                  className="relative flex h-full flex-col overflow-hidden bg-white px-9 py-10"
+                  transition={{
+                    y: { type: "spring", stiffness: 340, damping: 22 },
+                    scale: { type: "spring", stiffness: 280, damping: 22 },
+                    opacity: { duration: 0.46, delay: 0.1 + index * 0.08, ease: rbsEase },
+                  }}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-[2px] border border-[#dbe5f0] bg-[linear-gradient(180deg,#ffffff_0%,#fbfdff_100%)] px-9 py-10 shadow-[0_10px_28px_-24px_rgba(31,59,100,0.16)] transition-[box-shadow,transform,background-color,border-color,ring] duration-300 hover:border-[#1F3B64]/24 hover:bg-[linear-gradient(180deg,#ffffff_0%,#f7fbff_100%)] hover:shadow-[0_34px_72px_-30px_rgba(31,59,100,0.34)] hover:ring-1 hover:ring-[#4CAF50]/18"
                 >
-                  <div className="absolute inset-x-0 top-0 h-1 bg-[#4CAF50]" aria-hidden />
+                  <div
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    aria-hidden
+                  >
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(76,175,80,0.09),transparent_46%),radial-gradient(circle_at_100%_100%,rgba(46,91,136,0.08),transparent_44%)]" />
+                  </div>
+                  <div
+                    className="absolute inset-x-0 top-0 h-1 bg-[#4CAF50] transition-all duration-300 group-hover:h-[6px] group-hover:bg-[#79df86] group-hover:shadow-[0_0_22px_rgba(76,175,80,0.36)]"
+                    aria-hidden
+                  />
                   <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.22em] text-[#4CAF50]">
                     {scenario.eyebrow}
                   </p>
-                  <h4 className="mt-[10px] max-w-[20rem] font-heading text-[22px] font-bold leading-[1.2] text-[#1F3B64]">
+                  <h4 className="mt-[10px] max-w-[20rem] font-heading text-[22px] font-bold leading-[1.2] text-[#1F3B64] transition-colors duration-200 group-hover:text-[#0f2e58]">
                     {scenario.audience}
                   </h4>
-                  <p className="mt-5 text-[14.5px] leading-[1.8] text-[#4B5563]">{scenario.text}</p>
+                  <p className="mt-5 text-[16.5px] leading-[1.8] text-[#4B5563] transition-colors duration-200 group-hover:text-[#374151]">
+                    {scenario.text}
+                  </p>
 
                   <div className="mt-7">
                     <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B7280]">
@@ -608,8 +626,14 @@ export function RbsFrameworkSection() {
                     </p>
                     <div className="mt-3 flex flex-col gap-2">
                       {scenario.signals.map((signal) => (
-                        <div key={signal} className="flex items-center gap-[10px] text-[13.5px] text-[#374151]">
-                          <span className="h-[6px] w-[6px] shrink-0 rounded-full bg-[#4CAF50]" aria-hidden />
+                        <div
+                          key={signal}
+                          className="flex items-center gap-[10px] text-[15.5px] text-[#374151] transition-colors duration-200 group-hover:text-[#32455f]"
+                        >
+                          <span
+                            className="h-[6px] w-[6px] shrink-0 rounded-full bg-[#4CAF50] transition-all duration-200 group-hover:scale-110 group-hover:bg-[#2d8f47]"
+                            aria-hidden
+                          />
                           <span>{signal}</span>
                         </div>
                       ))}
@@ -617,9 +641,11 @@ export function RbsFrameworkSection() {
                   </div>
 
                   <div className="mt-7">
-                    <span className="inline-flex items-center gap-2 rounded-full bg-[#1F3B64] px-[18px] py-[10px] font-heading text-[12px] font-semibold tracking-[0.02em] text-white">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-[#1F3B64] px-[18px] py-[10px] font-heading text-[12px] font-semibold tracking-[0.02em] text-white transition-[background-color,box-shadow,transform] duration-300 group-hover:bg-[#173050] group-hover:shadow-[0_22px_38px_-18px_rgba(31,59,100,0.32)] group-hover:-translate-y-1">
                       {scenario.tag}
-                      <span className="text-[14px] text-[#4CAF50]">&rarr;</span>
+                      <span className="text-[14px] text-[#4CAF50] transition-transform duration-200 group-hover:translate-x-0.5">
+                        &rarr;
+                      </span>
                     </span>
                   </div>
                 </Motion.div>
@@ -914,42 +940,83 @@ export function RbsSpecializedServicesSection() {
 }
 
 export function RbsBeforeAfterSection() {
+  const columns = [
+    {
+      title: "Before",
+      items: RBS_BEFORE_ITEMS,
+      Icon: X,
+      panelClass: "border-[#ead7d7] bg-[linear-gradient(180deg,#fff9f9_0%,#fffdfd_100%)]",
+      titleClass: "text-[#7b2f2f]",
+      itemBase:
+        "border border-[#efdada] bg-white/92 text-[#7b3a3a] shadow-[0_8px_26px_-22px_rgba(123,47,47,0.12)]",
+      stepClass: "bg-[#f7e6e6] text-[#7b2f2f]",
+      iconClass: "text-[#a24444]",
+      accentClass: "bg-[#a24444]",
+      counterClass: "text-[#9c6666]",
+    },
+    {
+      title: "After",
+      items: RBS_AFTER_ITEMS,
+      Icon: Check,
+      panelClass: "border-[#d6efe1] bg-[linear-gradient(180deg,#fbfefc_0%,#f3fbf5_100%)]",
+      titleClass: "text-[#195f3a]",
+      itemBase:
+        "border border-[#dcefe2] bg-white/92 text-[#466286] shadow-[0_8px_26px_-22px_rgba(20,53,95,0.1)]",
+      stepClass: "bg-[#e3f3e8] text-[#195f3a]",
+      iconClass: "text-[#2e8f47]",
+      accentClass: "bg-[#2e8f47]",
+      counterClass: "text-[#5f916f]",
+    },
+  ];
+
   return (
     <RbsSection id="before-after" title="Before and After Reputation360">
-      <div className="grid gap-5 lg:grid-cols-2">
-        {[
-          {
-            title: "BEFORE",
-            items: RBS_BEFORE_ITEMS,
-            shell: "border-[#e7d8d8] bg-[linear-gradient(180deg,#fffafa_0%,#fffefe_100%)]",
-            accent: "bg-[#d96b6b]",
-          },
-          {
-            title: "AFTER",
-            items: RBS_AFTER_ITEMS,
-            shell: "border-[#d6efe1] bg-[linear-gradient(180deg,#fbfefc_0%,#f3fbf5_100%)]",
-            accent: "bg-[#4CAF50]",
-          },
-        ].map((column) => (
-          <RbsHoverCard
-            key={column.title}
-            delay={column.title === "AFTER" ? 0.08 : 0}
-            className={`rounded-[1.85rem] border p-6 shadow-[0_20px_52px_-34px_rgba(20,53,95,0.2)] md:p-7 ${column.shell}`}
-          >
-            <div className="flex items-center gap-3">
-              <span className={`h-3 w-3 rounded-full ${column.accent}`} aria-hidden />
-              <h3 className="font-heading text-2xl font-bold text-[#14355f]">{column.title}</h3>
-            </div>
-            <ul className="mt-5 space-y-3">
-              {column.items.map((item) => (
-                <li key={item} className="flex gap-3 text-base leading-relaxed text-slate-600">
-                  <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#2E5B88]" aria-hidden />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </RbsHoverCard>
-        ))}
+      <div className="mt-6 grid gap-6 lg:grid-cols-2 lg:gap-12">
+        {columns.map((column, columnIndex) => {
+          const Icon = column.Icon;
+
+          return (
+            <RbsReveal key={column.title} delay={columnIndex * 0.06}>
+              <div className={`rounded-[2rem] border p-6 md:p-7 lg:p-8 ${column.panelClass}`}>
+                <div className="flex flex-wrap items-end justify-between gap-3">
+                  <h3 className={`font-heading text-[2rem] font-bold md:text-[2.15rem] ${column.titleClass}`}>
+                    {column.title}
+                  </h3>
+                  <p className={`font-heading text-xs font-semibold ${column.counterClass}`}>
+                    {column.items.length} {column.items.length === 1 ? "item" : "items"}
+                  </p>
+                </div>
+
+                <ul className="mt-6 space-y-4" role="list" aria-label={column.title}>
+                  {column.items.map((item, index) => (
+                    <li key={item}>
+                      <div className={`group relative flex gap-4 rounded-[1.4rem] px-5 py-5 ${column.itemBase}`}>
+                        <span
+                          className={`pointer-events-none absolute inset-y-5 left-0 w-1 rounded-full ${column.accentClass}`}
+                          aria-hidden
+                        />
+                        <span
+                          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-[1rem] font-heading text-base font-bold ${column.stepClass}`}
+                          aria-hidden
+                        >
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <Icon
+                          className={`mt-1 h-6 w-6 shrink-0 ${column.iconClass}`}
+                          aria-hidden
+                          strokeWidth={2.25}
+                        />
+                        <p className="min-w-0 flex-1 text-sm leading-relaxed md:text-[15px]">
+                          {item}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </RbsReveal>
+          );
+        })}
       </div>
     </RbsSection>
   );
