@@ -539,7 +539,7 @@ function RealEstateBusinessImpactSection() {
     <section
       ref={sectionRef}
       id="real-estate-business-impact"
-      className="mt-16 scroll-mt-28 space-y-8"
+      className="mt-16 md:mt-24 scroll-mt-28 space-y-8"
     >
       <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
         The Direct Business Impact of Online Reputation
@@ -643,7 +643,7 @@ function RealEstateChecklistSection() {
     <section
       ref={sectionRef}
       id="re-checklist-section"
-      className="mt-16 scroll-mt-28 space-y-8"
+      className="mt-16 md:mt-24 scroll-mt-28 space-y-8"
     >
       <div className="text-center max-w-3xl mx-auto space-y-3">
         <p className="inline-flex rounded-full bg-[#eef2ff] border border-blue-100/50 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-blue-600 shadow-sm">
@@ -691,7 +691,7 @@ function RealEstateChecklistSection() {
         style={{
           transitionDelay: entered ? "400ms" : "0ms",
         }}
-        className={`relative overflow-hidden rounded-[28px] border border-[#1f3b64]/30 bg-[linear-gradient(145deg,#0a1931_0%,#0f284e_50%,#08162d_100%)] p-8 md:p-10 text-white shadow-xl transition-all duration-500 ${
+        className={`relative mt-6 md:mt-10 overflow-hidden rounded-[28px] border border-[#1f3b64]/30 bg-[linear-gradient(145deg,#0a1931_0%,#0f284e_50%,#08162d_100%)] p-8 md:p-10 text-white shadow-xl transition-all duration-500 ${
           entered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
         }`}
       >
@@ -917,7 +917,7 @@ function RealEstatePage() {
 
           <RealEstateChecklistSection />
 
-          <SeeItInActionSection audiencePath={seo.path} />
+          <SeeItInActionSection audiencePath={seo.path} className="mt-16 md:mt-24" />
 
           <FurtherReadingSection audiencePath={seo.path} />
 
