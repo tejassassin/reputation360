@@ -110,22 +110,22 @@ export const article = {
           steps: [
             {
               n: 1,
-              title: "Incognito name search",
+              title: "Incognito Name Search for True Reputation",
               body: "Search your full name in a private window. Screenshot page one and page two with timestamps.",
             },
             {
               n: 2,
-              title: "Employer combinations",
+              title: "Employer Combinations in Reputation Search",
               body: "Search your name plus current employer and your name plus most recent employer. Note anything tied to company news or reviews.",
             },
             {
               n: 3,
-              title: "Location search",
+              title: "Location Search for Local Reputation",
               body: "Search your name plus your city. Local news or directory results sometimes surface here first.",
             },
             {
               n: 4,
-              title: "Build the working list",
+              title: "Build the Working Reputation Threat List",
               body: "Tag every top-ten URL as helpful, neutral, or concerning. Prioritize anything a hiring manager would pause on.",
             },
           ],
@@ -247,13 +247,13 @@ export const article = {
           items: [
             {
               id: "quick-wins",
-              title: "Quick-win track",
+              title: "Quick-Win Reputation Repair Track",
               tone: "after",
               body: "LinkedIn optimization, profile claims, social cleanup, and a personal site launch. Begin immediately. Meaningful movement often appears within 2-4 weeks even if the interview is sooner.",
             },
             {
               id: "suppression",
-              title: "Suppression track",
+              title: "Long-Term Reputation Suppression Track",
               tone: "before",
               body: "Professional suppression for high-authority negatives. Runs in parallel from day one. Even if page one has not fully shifted before the interview, a stronger positive surround reduces impact significantly - as real cases where negative links stalled job offers show.",
               parts: [
@@ -307,7 +307,7 @@ export const article = {
           steps: [
             {
               n: 1,
-              title: "Week 1",
+              title: "Week 1: Initial Reputation Audit and Setup",
               body: "Google audit, LinkedIn full optimization, social media cleanup, and follow our guide on dealing with old social media posts when deleted content still appears in search.",
               parts: [
                 {
@@ -324,17 +324,17 @@ export const article = {
             },
             {
               n: 2,
-              title: "Week 2",
+              title: "Week 2: Early Reputation Movement",
               body: "Claim high-authority profiles, launch personal website or update existing one, optimize Google Business Profile if applicable.",
             },
             {
               n: 3,
-              title: "Week 3",
+              title: "Week 3: Significant Reputation Shift",
               body: "Post thought leadership content on LinkedIn, publish first Medium article or industry contribution if applicable, begin link requests to your new assets.",
             },
             {
               n: 4,
-              title: "Week 4",
+              title: "Week 4: Full Reputation Transformation",
               body: "Re-audit search results in incognito, document improvements, set up reputation monitoring for ongoing alerts, and prepare proactive talking points for any remaining issues that cannot be fully addressed in this timeframe.",
               parts: [
                 {

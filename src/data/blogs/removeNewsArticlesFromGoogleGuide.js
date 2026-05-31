@@ -12,7 +12,7 @@ export const removeNewsArticlesFromGoogleListing = {
   slug: REMOVE_NEWS_ARTICLES_FROM_GOOGLE_SLUG,
   filter: "Suppression & Removal",
   category: "Suppression & Removal",
-  title: "Can You Remove News Articles From Google Search?",
+  title: "Can You Remove News Articles From Google Search? Online Reputation Management Guide",
   excerpt:
     "Can a news article be removed from Google? When removal is possible, when it isn't, and what actually works to protect your reputation online.",
   date: "May 22, 2026",
@@ -31,7 +31,7 @@ export const removeNewsArticlesFromGoogleMetaDescription =
 
 export const removeNewsArticlesFromGoogleHero = {
   badge: "Google Reputation Management",
-  title: "Can You Remove News Articles From Google Search?",
+  title: "Can You Remove News Articles From Google Search? Online Reputation Management Guide",
   lead:
     "Removal from Google and removal from the web are not the same thing. This guide explains when Google will act, when publishers might, and what works when they won't.",
 };

@@ -277,13 +277,13 @@ export const article = {
           items: [
             {
               id: "situation",
-              title: "The situation",
+              title: "The Reputation Situation",
               tone: "before",
               body: "A professional services firm in Canada came to Reputation360 with two problems: an inaccurate news article from five years prior and a cluster of fake reviews on a consumer platform. The article may have supported a defamation claim, but legal proceedings would take 12 to 18 months. The fake reviews violated the platform's terms but had not been removed despite multiple formal requests.",
             },
             {
               id: "outcome",
-              title: "The outcome",
+              title: "The Outcome: Measurable Reputation Results",
               tone: "after",
               body: "We initiated suppression immediately, building 12 new authoritative assets over 90 days. A detailed platform dispute with documented fake-account evidence removed some reviews at month four. A formal notice to the news outlet produced a correction at month eight. By then the article had already been pushed to page three by suppression. The correction became an additional positive signal.",
             },

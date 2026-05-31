@@ -264,13 +264,13 @@ export const article = {
           items: [
             {
               id: "situation",
-              title: "The situation",
+              title: "The Situation: Reputation Threat",
               tone: "before",
               body: "A senior finance professional on the US East Coast came to us after a years-old news article about a regulatory inquiry - resolved without findings - still ranked in position 2 for his name search.",
             },
             {
               id: "outcome",
-              title: "The outcome",
+              title: "The Outcome: Measurable Reputation Results",
               tone: "after",
               body: "Within six months the article moved off page one entirely. Nine months in, the top six results for his name were positive professional assets. He subsequently closed a board advisory role that had stalled during due diligence.",
             },

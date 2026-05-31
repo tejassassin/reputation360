@@ -204,13 +204,13 @@ export const article = {
           items: [
             {
               id: "tactical",
-              title: "Tactical outcome",
+              title: "Tactical Reputation Outcome",
               tone: "before",
               body: "We improved your search results - negative URLs moved off page one, positive assets now dominate visible positions.",
             },
             {
               id: "strategic",
-              title: "Strategic outcome",
+              title: "Strategic Reputation Outcome",
               tone: "after",
               body: "We contained what could have become an existential business problem - the kind of revenue attrition, customer churn, and employee retention damage that reputation risk and its financial consequences describe when left unaddressed.",
               parts: [

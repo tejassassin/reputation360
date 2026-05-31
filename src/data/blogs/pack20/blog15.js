@@ -314,22 +314,22 @@ export const article = {
           steps: [
             {
               n: 1,
-              title: "Intelligence first",
+              title: "Intelligence First: Audit Your Reputation",
               body: "Map page one, audit negative URL authority, inventory claimed and unclaimed platforms, benchmark displacement requirements.",
             },
             {
               n: 2,
-              title: "Foundation second",
+              title: "Foundation Second: Build Your Reputation Hubs",
               body: "Launch or upgrade LinkedIn, personal or company site, GBP or Crunchbase as applicable - fastest indexing wins.",
             },
             {
               n: 3,
-              title: "Content and links in parallel",
+              title: "Content and Links in Parallel for Reputation Authority",
               body: "Press, bylines, profiles, and legitimate link building run together - not sequentially after months of delay.",
             },
             {
               n: 4,
-              title: "Monitor throughout",
+              title: "Monitor Your Reputation Throughout",
               body: "Weekly or monthly position tracking, alerts on new negatives, quarterly asset refreshes.",
             },
           ],
@@ -365,13 +365,13 @@ export const article = {
           items: [
             {
               id: "year-one",
-              title: "Year one",
+              title: "Year One: Reputation Management Results",
               tone: "before",
               body: "Highest intensity: asset creation, first page-one shifts, monitoring infrastructure established. Investment and effort peak as the positive ecosystem is built from scratch or recovered from damage.",
             },
             {
               id: "year-three",
-              title: "Year three",
+              title: "Year Three: Long-Term Reputation Success",
               tone: "after",
               body: "Maintenance-forward mode: assets established, page one consistently positive, focus on freshness, algorithm adaptation, and proactive expansion. Investment is typically lower than year one, but protected opportunity value continues to grow.",
             },

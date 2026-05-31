@@ -36,7 +36,7 @@ export const article = {
     slug: SLUG,
     filter: "Career, Crisis & Case Studies",
     category: "Career, Crisis & Case Studies",
-    title: "What Do Recruiters Google About You? Reputation360's Insider Report",
+    title: "What Do Recruiters Google About You? Reputation360's Online Reputation Report",
     excerpt:
       "Recruiters run a sequence of searches, not just one. Learn what they look for, what stalls offers, and how to prepare your presence before you apply.",
     date: PACK20_DATE,
@@ -51,8 +51,7 @@ export const article = {
     "Recruiters Google every candidate. Reputation360's insider report reveals what they find, what raises red flags, and how to prepare your presence.",
   hero: {
     badge: "Insider Report",
-    title:
-      "What Do Recruiters Google About You? Reputation360's Insider Report",
+    title: "What Do Recruiters Google About You? Reputation360's Online Reputation Report",
     lead:
       "Roughly seven in ten employers use social and search screening; for senior and high-trust roles the practice is effectively universal. Before an offer, someone types your name - this is what they run and what they conclude.",
     meta: [
@@ -248,27 +247,27 @@ export const article = {
           steps: [
             {
               n: 1,
-              title: "Google yourself thoroughly",
+              title: "Google Yourself Thoroughly to Audit Your Reputation",
               body: "Search your full name, your name plus each of your past companies, and your name plus your city. Make a list of everything you find.",
             },
             {
               n: 2,
-              title: "Label each result",
+              title: "Label Each Reputation Result",
               body: "For every URL on page one and page two, ask: would this give a recruiter pause? Tag each as helpful, neutral, or concerning.",
             },
             {
               n: 3,
-              title: "Maximize LinkedIn",
+              title: "Maximize LinkedIn for Your Professional Reputation",
               body: "Optimize your LinkedIn profile to the fullest extent possible. This is the fastest lever for name-search improvement.",
             },
             {
               n: 4,
-              title: "Clean up social media",
+              title: "Clean Up Social Media for a Better Reputation",
               body: "Address any obviously problematic public social content. Privatize personal accounts where appropriate.",
             },
             {
               n: 5,
-              title: "Engage support early for serious issues",
+              title: "Engage Reputation Support Early for Serious Issues",
               body: "If negative results would affect a senior search, start with fixing your reputation before an interview - or engage a reputation professional before you begin applying, not after a process stalls.",
               parts: [
                 {

@@ -296,22 +296,22 @@ export const article = {
             },
             {
               n: 2,
-              title: "Complete high-impact fields",
+              title: "Complete High-Impact Fields for Reputation",
               body: "Update photo, banner, custom URL, headline, and About (500+ words with your full name and geography).",
             },
             {
               n: 3,
-              title: "Deepen Experience and skills",
+              title: "Deepen Experience and Skills to Build Reputation",
               body: "Add 3-5 sentences per role, max out skills, reorder top 10, and request five or more specific recommendations.",
             },
             {
               n: 4,
-              title: "Activate and expand",
+              title: "Activate and Expand Your Reputation Network",
               body: "Post twice weekly, grow toward 500+ relevant connections, and claim one or two complementary profiles (Crunchbase, X, or a directory).",
             },
             {
               n: 5,
-              title: "Re-check in two weeks",
+              title: "Re-Check Your Reputation Results in Two Weeks",
               body: "Repeat the name search and monitor your results weekly so you catch position shifts early. Most clients see top-three movement within 2-4 weeks after a full optimization pass.",
               parts: [
                 { text: "Repeat the name search and " },

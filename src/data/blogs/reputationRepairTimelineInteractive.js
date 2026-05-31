@@ -182,31 +182,31 @@ export const REPAIR_PHASES = [
   {
     n: 1,
     timespan: "Weeks 1-2: Audit & Strategy",
-    title: "Deep Diagnosis",
+    title: "Weeks 1-2: Deep Diagnosis and Strategy",
     bodyKey: "phase1",
   },
   {
     n: 2,
     timespan: "Weeks 2-6: Content & Asset Creation",
-    title: "Building the Positive Infrastructure",
+    title: "Weeks 2-6: Building Positive Reputation Infrastructure",
     bodyKey: "phase2",
   },
   {
     n: 3,
     timespan: "Weeks 4-12: Link Building & Amplification",
-    title: "Building the Authority Signal",
+    title: "Weeks 4-12: Building Reputation Authority Signals",
     bodyKey: "phase3",
   },
   {
     n: 4,
     timespan: "Month 2-4: First Visible Results",
-    title: "Rankings Begin to Shift",
+    title: "Months 2-4: Reputation Rankings Begin to Shift",
     bodyKey: "phase4",
   },
   {
     n: 5,
     timespan: "Month 3-12: Consolidation & Dominance",
-    title: "Locking In the New Narrative",
+    title: "Months 3-12: Locking In the New Reputation Narrative",
     bodyKey: "phase5",
   },
 ];

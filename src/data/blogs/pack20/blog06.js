@@ -36,7 +36,7 @@ export const article = {
     slug: SLUG,
     filter: "Career, Crisis & Case Studies",
     category: "Career, Crisis & Case Studies",
-    title: "Negative Links That Cost Jobs and Deals: Real Cases Reputation360 Solved",
+    title: "Online Reputation Management Case Studies: Negative Links That Cost Jobs and Deals",
     excerpt:
       "Deals stall and offers pause when search results raise doubt. Representative cases show how structured suppression changed outcomes.",
     date: PACK20_DATE,
@@ -51,8 +51,7 @@ export const article = {
     "Negative results cost real opportunities. Reputation360 shares the cases we solve and the results achieved for clients across the US and beyond.",
   hero: {
     badge: "Real Outcomes",
-    title:
-      "Negative Links That Cost Jobs and Deals: Real Cases Reputation360 Solved",
+    title: "Online Reputation Management Case Studies: Negative Links That Cost Jobs and Deals",
     lead:
       "No one tells you the Google result killed the deal. The email stops, the offer goes on hold, and the link between search and opportunity stays invisible. These patterns appear again and again across our client work.",
     meta: [
@@ -173,13 +172,13 @@ export const article = {
           items: [
             {
               id: "before",
-              title: "Before engagement",
+              title: "Before: A Weak or Damaged Online Reputation",
               tone: "before",
               body: "Resolved regulatory inquiry still ranked in position 2 below LinkedIn. C-suite due diligence stalled. No coordinated positive assets beyond a static profile.",
             },
             {
               id: "after",
-              title: "After nine months",
+              title: "After Nine Months: A Strong, Credible Online Reputation",
               tone: "after",
               body: "Article on page two. Press, website, LinkedIn, and social footprint maintained and monitored. Comparable C-suite process advanced through due diligence without interruption.",
             },

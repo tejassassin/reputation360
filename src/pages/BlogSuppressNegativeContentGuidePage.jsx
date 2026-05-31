@@ -482,9 +482,9 @@ export default function BlogSuppressNegativeContentGuidePage() {
           <div className="flex flex-col gap-8 pb-4 lg:flex-row lg:gap-0">
             {/* Left: Guide index */}
             <aside className="hidden w-64 shrink-0 lg:sticky lg:top-28 lg:block lg:h-[calc(100dvh-8rem)] lg:overflow-y-auto lg:border-r lg:border-slate-200/80 lg:pr-6 lg:pt-2">
-              <h3 className="mb-4 font-heading text-xs font-bold tracking-widest text-steel uppercase">
+              <p className="mb-4 font-heading text-xs font-bold tracking-widest text-steel uppercase">
                 Guide Index
-              </h3>
+              </p>
               <nav className="flex flex-col gap-1 text-sm text-steel" aria-label="Guide index">
                 {GUIDE_NAV.map(({ id, label }) => (
                   <a
@@ -1076,7 +1076,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
               </section>
 
               <section className="mb-20 scroll-mt-36" id="faq">
-                <h2 className="mb-8 font-heading text-3xl font-bold text-navy">FAQ: Your Remaining Questions</h2>
+                <h2 className="mb-8 font-heading text-3xl font-bold text-navy">Frequently Asked Questions About Suppressing Negative Content</h2>
                 <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
                   {FAQS.map((f) => (
                     <FaqAccordion key={f.id} id={f.id} title={f.q} open={!!openAccordion[f.id]} onToggle={toggleAccordion}>

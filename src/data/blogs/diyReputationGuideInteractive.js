@@ -56,7 +56,7 @@ export const AUDIT_STEPS = [
   },
   {
     n: 2,
-    title: "Search variations",
+    title: "Search Variations for Your Reputation",
     body: 'Try your full name, first + last, first + middle + last, and common nicknames. Include your profession (e.g., "John Smith entrepreneur").',
   },
   {
@@ -284,7 +284,7 @@ export const DIY_FAQS = DIY_REPUTATION_GUIDE_FAQS;
 export const SOCIAL_PLATFORMS = [
   {
     id: "linkedin",
-    title: "LinkedIn",
+    title: "LinkedIn Reputation Strategies",
     tips: [
       "Complete every profile section with detailed expertise",
       "Post insights 2-3 times per week",
@@ -294,7 +294,7 @@ export const SOCIAL_PLATFORMS = [
   },
   {
     id: "twitter",
-    title: "Twitter/X",
+    title: "Twitter/X Reputation Strategies",
     tips: [
       "Share genuine field insights consistently",
       "Engage in relevant conversations professionally",
@@ -304,7 +304,7 @@ export const SOCIAL_PLATFORMS = [
   },
   {
     id: "instagram",
-    title: "Instagram",
+    title: "Instagram Reputation Strategies",
     tips: [
       "Use a professional headshot and optimize your bio with your role and expertise",
       "Post 80% expertise content and 20% personal moments to build credibility",

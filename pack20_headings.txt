@@ -1,0 +1,265 @@
+
+--- blog01.js ---
+H1: How to Suppress Negative Search Results: The Reputation360 Framework
+H2: What negative link suppression actually means
+H3 (keyBox): Suppression vs. removal
+H2: Why Google keeps surfacing the negative result
+H2: The Reputation360 suppression framework
+H3 (step): Search audit and threat mapping
+H3 (step): Positive asset creation
+H3 (step): Profile claiming and optimization
+H3 (step): Link building and authority signals
+H3 (step): Monitoring and maintenance
+H3 (keyBox): How the phases work together
+H2: Real-world suppression: what a typical timeline looks like
+H3 (compare): The situation
+H3 (compare): The outcome
+H2: Take back your first page
+
+--- blog02.js ---
+H1: How to Rank Positive Content Above Negative Results: The Reputation360 Strategy
+H2: Understanding why content ranks
+H3 (keyBox): The ranking goal
+H2: Four content types that consistently outrank negatives
+H3 (keyBox): Why we lead with profiles and press
+H2: Links, keywords, and query coverage
+H3 (compare): The situation
+H3 (compare): The outcome
+H2: How long outranking takes
+H3 (keyBox): When negatives keep gaining links
+H2: Start with a clear picture of your search results
+
+--- blog03.js ---
+H1: The Reputation360 Method: Removal vs. Suppression (Which Actually Works?)
+H2: What removal actually means
+H3 (keyBox): Why the distinction matters
+H2: When removal is realistic
+H3 (step): Provably defamatory content
+H3 (step): Platform terms-of-service violations
+H3 (step): Unlawful personal data exposure
+H3 (step): A cooperative source
+H2: Why most removal attempts fail
+H3 (keyBox): Parallel execution
+H2: What suppression offers that removal does not
+H2: When both strategies work together
+H3 (compare): The situation
+H3 (compare): The outcome
+H2: The bottom line
+
+--- blog05.js ---
+H1: Dealing With Old Social Media Posts That Show Up in Google: The Reputation360 Guide
+H2: Why old social media posts appear in Google
+H2: Platform-by-platform: what you can do with your own content
+H2: Google's URL removal tool: what it does and doesn't do
+H3 (keyBox): Order of operations
+H2: When the content is on someone else's account
+H3 (step): Platform reporting
+H3 (step): Direct removal request
+H3 (step): Legal channels
+H3 (step): Google's role
+H3 (step): When removal is not available
+H2: When deletion is not enough: the suppression strategy
+H3 (keyBox): Displacement vs. deletion
+H2: Prevention: building a clean digital footprint going forward
+
+--- blog06.js ---
+H1: Negative Links That Cost Jobs and Deals: Real Cases Reputation360 Solved
+H2: The invisible cost of negative links
+H2: Four case patterns we see repeatedly
+H3 (compare): Before engagement
+H3 (compare): After nine months
+H2: The pattern across all these cases
+H2: What actually produced results
+H3 (keyBox): Accurate but unfair content
+
+--- blog07.js ---
+H1: How to Remove Court Records From Google: What Reputation360 Knows
+H2: Why court records appear in Google - and why they are hard to shift
+H2: What expungement actually does - and does not do
+H3 (keyBox): Pursue both tracks in parallel
+H2: Removal options that are sometimes available
+H2: When removal is not available: the suppression strategy
+H2: What to do first
+H3 (step): Audit everything indexed
+H3 (step): Pursue expungement if eligible
+H3 (step): Batch data-broker opt-outs
+H3 (step): Test news outreach
+H3 (step): Request Google de-indexing
+H3 (step): Start suppression early
+
+--- blog08.js ---
+H1: Crisis Management and Reputation Recovery: The Reputation360 Playbook
+H2: The first 48 hours: what you do now matters most
+H2: Phase 1: Containment (days 1-14)
+H2: Phase 2: Stabilization (weeks 2-8)
+H3 (keyBox): Do not ease off early
+H2: Phase 3: Recovery (months 2-6)
+H2: Phase 4: Long-term resilience (month 8 and beyond)
+H3 (step): Contain
+H3 (step): Stabilize
+H3 (step): Recover
+H3 (step): Build resilience
+H2: A real crisis recovery: the firm that needed to move fast
+H3 (compare): Day 3 (engagement start)
+H3 (compare): Month 4
+
+--- blog09.js ---
+H1: LinkedIn Profile Optimization for Search Results: The Reputation360 Checklist
+H2: Why LinkedIn ranks so well for name searches
+H2: The Reputation360 LinkedIn optimization checklist
+H3 (keyBox): Work in this order
+H2: Beyond LinkedIn: the profile ecosystem
+H3 (keyBox): Privacy-conscious clients
+H2: Put the checklist to work
+H3 (step): Baseline search audit
+H3 (step): Complete high-impact fields
+H3 (step): Deepen Experience and skills
+H3 (step): Activate and expand
+H3 (step): Re-check in two weeks
+
+--- blog10.js ---
+H1: What Do Recruiters Google About You? Reputation360's Insider Report
+H2: The recruiter search sequence
+H3 (keyBox): Run the sequence yourself
+H2: What raises red flags
+H2: What a strong online presence looks like to a recruiter
+H3 (keyBox): Proactive transparency
+H2: How to prepare your online presence before a job search
+H3 (step): Google yourself thoroughly
+H3 (step): Label each result
+H3 (step): Maximize LinkedIn
+H3 (step): Clean up social media
+H3 (step): Engage support early for serious issues
+
+--- blog11.js ---
+H1: How to Fix Your Reputation Before Your Job Interview: Reputation360 Guide
+H2: Start here: Google yourself right now
+H3 (step): Incognito name search
+H3 (step): Employer combinations
+H3 (step): Location search
+H3 (step): Build the working list
+H2: What you can fix in under 30 days
+H2: What takes longer: the hard truth
+H3 (compare): Quick-win track
+H3 (compare): Suppression track
+H2: Addressing known issues proactively
+H3 (keyBox): When proactive disclosure helps
+H2: The 30-day pre-interview reputation plan
+H3 (step): Week 1
+H3 (step): Week 2
+H3 (step): Week 3
+H3 (step): Week 4
+
+--- blog12.js ---
+H1: Own Your First Page: Reputation360's Strategy to Control Google Results
+H2: The ten positions: what each one means
+H2: The asset categories: what can occupy a first page position
+H2: The sequencing strategy: building in the right order
+H3 (step): Foundation layer (Weeks 1-4)
+H3 (step): Authority layer (Months 1-3)
+H3 (step): Reinforcement layer (Months 3-6)
+H2: First-page ownership as reputation insurance
+H2: Case study: from zero to owned first page
+H3 (compare): Before engagement
+H3 (compare): After six months
+
+--- blog13.js ---
+H1: Why Your First Google Results Matter: Reputation360's Psychology Deep Dive
+H2: The anchoring effect in search
+H3 (keyBox): Applied to search results
+H2: Click-through rates: the mathematical reality
+H2: Trust heuristics and social proof in search
+H2: The halo effect: how one result colors the whole page
+H3 (compare): Halo effect
+H3 (compare): Horns effect
+H2: What this means in practice
+
+--- blog14.js ---
+H1: The Hidden Cost of Ignoring Your Online Reputation (Reputation360 Analysis)
+H2: The career cost
+H2: The business cost
+H3 (keyBox): Trust-heavy categories
+H2: Why waiting makes it worse
+H2: The irreversibility threshold
+H2: The cost of zero presence: not just negative content
+
+--- blog15.js ---
+H1: Online Reputation Management Best Practices: The Reputation360 Methodology
+H2: Principle 1: Start with intelligence, not action
+H2: Principle 2: Build the foundation first
+H2: Principle 3: Create content that Google wants to show
+H2: Principle 4: Authority requires links
+H2: Principle 5: Volume and variety beat single assets
+H2: Principle 6: Monitor, maintain, and adapt
+H2: Principle 7: Transparency and realistic expectations
+H3 (keyBox): What we promise instead
+H2: The full methodology in practice
+H3 (step): Intelligence first
+H3 (step): Foundation second
+H3 (step): Content and links in parallel
+H3 (step): Monitor throughout
+H2: What best practice looks like in year one vs. year three
+H3 (compare): Year one
+H3 (compare): Year three
+
+--- blog16.js ---
+H1: The ROI of Reputation Management: What Reputation360 Clients See
+H2: The career ROI: individual professionals
+H3 (keyBox): The compensation math
+H2: The business ROI: companies and brands
+H2: The crisis ROI: cost avoidance
+H3 (compare): Tactical outcome
+H3 (compare): Strategic outcome
+H2: What the honest numbers look like
+
+--- blog17.js ---
+H1: Building a Positive Google Presence: Reputation360's Profile Claiming Guide
+H2: Why profiles rank so well
+H3 (keyBox): Speed advantage
+H2: The 12 profiles to claim immediately
+H2: Optimization principles across all profiles
+
+--- blog18.js ---
+H1: Monitoring Your Online Reputation: Reputation360's Tools & Tactics Guide
+H2: The free monitoring toolkit
+H2: Paid and professional monitoring tools
+H2: Reputation360's internal monitoring
+H2: When to escalate: knowing what requires action
+H2: Building a monitoring routine
+H3 (step): Daily
+H3 (step): Weekly
+H3 (step): Monthly
+H3 (step): Quarterly
+
+--- blog19.js ---
+H1: Social Media Reputation Management: Reputation360's Multi-Platform Strategy
+H2: The dual role of social media in reputation
+H3 (compare): Building tool
+H3 (compare): Vulnerability
+H2: Platform-by-platform strategy
+H2: Social media crisis response: what to do and when
+H3 (step): Assess before responding
+H3 (step): Choose the right channel
+H3 (step): Never respond in anger
+H3 (step): Run suppression in parallel
+H2: Historical content audit: what to review and when
+H3 (keyBox): When to run a full audit
+H2: Case study: a brand that got social media right
+
+--- blog20.js ---
+H1: How AI Search Changes Reputation: Reputation360's Guide to ChatGPT & Beyond
+H2: How AI search engines generate answers about people and brands
+H2: The AI training data problem
+H3 (keyBox): Rehabilitation lag
+H2: Google AI Overviews: what they mean for your reputation
+H2: Perplexity and real-time AI search
+H2: The Reputation360 AI search strategy
+H2: What to do right now: AI search reputation checklist
+H3 (step): Ask ChatGPT
+H3 (step): Ask Perplexity
+H3 (step): Check Google AI Overviews
+H3 (step): Assess the gap
+H3 (step): Build the fix
+H2: The future of AI search and reputation
+H3 (keyBox): Same strategy, higher stakes
+H2: Reputation360 is already working in the AI era

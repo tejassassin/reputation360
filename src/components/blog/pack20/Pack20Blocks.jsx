@@ -417,7 +417,7 @@ export function Pack20FaqSection({ faqs, accordionState, toggleAccordion }) {
   if (!faqs?.length) return null;
   return (
     <section className="mb-20 scroll-mt-36" id="faq">
-      <h2 className="mb-8 font-heading text-3xl font-bold text-navy">FAQ</h2>
+      <h2 className="mb-8 font-heading text-3xl font-bold text-navy">Frequently Asked Questions About Online Reputation Management</h2>
       <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
         {faqs.map((f) => (
           <DiyFaqAccordion

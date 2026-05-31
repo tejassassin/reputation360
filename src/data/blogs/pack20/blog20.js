@@ -267,12 +267,12 @@ export const article = {
           steps: [
             {
               n: 1,
-              title: "Ask ChatGPT",
+              title: "Ask ChatGPT About Your Reputation",
               body: "Using GPT-4 or later, ask what it says about your name and your business. Document the answer and note any negative framing.",
             },
             {
               n: 2,
-              title: "Ask Perplexity",
+              title: "Ask Perplexity About Your Reputation",
               titleParts: [
                 {
                   text: "Ask Perplexity",
@@ -284,17 +284,17 @@ export const article = {
             },
             {
               n: 3,
-              title: "Check Google AI Overviews",
+              title: "Check Google AI Overviews for Your Name",
               body: "Search your professional background and brand name. Document whether an AI Overview appears and what it summarizes.",
             },
             {
               n: 4,
-              title: "Assess the gap",
+              title: "Assess Your Reputation Gap",
               body: "Compare how these tools describe you versus how you want to be described. Identify which authoritative sources are missing or inconsistent.",
             },
             {
               n: 5,
-              title: "Build the fix",
+              title: "Build Your Reputation Fix",
               body: "Prioritize multi-source positive content, reference-quality documentation, fact-dense bios, and structured data on owned properties. Reputation360 can tell you exactly which changes to your digital presence will have the most impact on AI-generated answers.",
             },
           ],

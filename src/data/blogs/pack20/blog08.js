@@ -241,22 +241,22 @@ export const article = {
           steps: [
             {
               n: 1,
-              title: "Contain",
+              title: "Phase 1: Contain the Reputation Crisis",
               body: "Days 1-14: press, profiles, narrative content, and link building begin claiming search real estate.",
             },
             {
               n: 2,
-              title: "Stabilize",
+              title: "Phase 2: Stabilize Search Results",
               body: "Weeks 2-8: daily monitoring, counter each new negative, sustain content velocity.",
             },
             {
               n: 3,
-              title: "Recover",
+              title: "Phase 3: Recover Your Online Reputation",
               body: "Months 2-6: negative URLs lose relative authority as the positive corpus grows.",
             },
             {
               n: 4,
-              title: "Build resilience",
+              title: "Phase 4: Build Reputation Resilience",
               body: "Month 8+: monitoring, refreshes, quarterly audits, and rapid-response protocols.",
             },
           ],
@@ -312,13 +312,13 @@ export const article = {
           items: [
             {
               id: "peak",
-              title: "Day 3 (engagement start)",
+              title: "Day 3: Beginning the Reputation Engagement",
               tone: "before",
               body: "Industry blog at positions 3-4 for firm name search. Forum links accelerating authority. Inquiry rate dropping. No coordinated counter-assets live.",
             },
             {
               id: "month-four",
-              title: "Month 4",
+              title: "Month 4: Significant Reputation Shift",
               tone: "after",
               body: "Blog off page one - displaced, not deleted. Firm website, LinkedIn, press, and thought leadership own page one. Inquiry rate at pre-crisis baseline. Stronger presence than before the event.",
             },

@@ -278,22 +278,22 @@ export const article = {
           steps: [
             {
               n: 1,
-              title: "Daily",
+              title: "Daily Reputation Monitoring",
               body: "Check Google Alerts email digest. Review notifications from any paid monitoring tools.",
             },
             {
               n: 2,
-              title: "Weekly",
+              title: "Weekly Reputation Monitoring",
               body: "Check review platforms for new reviews. Check social platforms for direct mentions.",
             },
             {
               n: 3,
-              title: "Monthly",
+              title: "Monthly Reputation Monitoring",
               body: "Conduct full manual search audit across all keyword variants. Update monitoring search terms if your name, title, or business details have changed.",
             },
             {
               n: 4,
-              title: "Quarterly",
+              title: "Quarterly Reputation Monitoring",
               body: "Review overall search landscape and assess whether suppression work is holding. Reassess monitoring tools to ensure coverage remains comprehensive.",
             },
           ],

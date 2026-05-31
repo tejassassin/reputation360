@@ -295,7 +295,7 @@ export const article = {
           steps: [
             {
               n: 1,
-              title: "Audit everything indexed",
+              title: "Audit Your Indexed Search Results",
               body: "Start with a professional audit of everything indexed for your name - not just the obvious result, but every source and position. Understand what you are dealing with before deciding on approach.",
               parts: [
                 { text: "Start with a " },

@@ -267,17 +267,17 @@ export const article = {
           steps: [
             {
               n: 1,
-              title: "Foundation layer (Weeks 1-4)",
+              title: "Foundation Layer (Weeks 1-4): Initial Reputation Audit and Setup",
               body: "LinkedIn optimization, personal website launch, Crunchbase profile, and any other directly controlled profiles. These assets index quickly and begin claiming positions early.",
             },
             {
               n: 2,
-              title: "Authority layer (Months 1-3)",
+              title: "Authority Layer (Months 1-3): Early Reputation Movement",
               body: "Press releases, media placements, contributed articles, and Wikipedia development where eligible. These take longer to acquire but carry the highest domain authority.",
             },
             {
               n: 3,
-              title: "Reinforcement layer (Months 3-6)",
+              title: "Reinforcement Layer (Months 3-6): Significant Reputation Shift",
               body: "Additional social profiles, industry directory listings, link building to all existing assets, and content publication to keep profiles active. By month six, a client who began with a mixed or negative first page typically has six to eight of ten positions occupied by positive, professional content.",
             },
           ],
@@ -353,13 +353,13 @@ export const article = {
           items: [
             {
               id: "before",
-              title: "Before engagement",
+              title: "Before: A Weak or Damaged Online Reputation",
               tone: "before",
               body: "Sparse page one: LinkedIn plus two directories. A competitor filed a fabricated complaint on a consumer forum. With little else competing, the complaint indexed at position 4 almost immediately - defining perception for clients and partners.",
             },
             {
               id: "after",
-              title: "After six months",
+              title: "After Six Months: A Strong, Credible Online Reputation",
               tone: "after",
               body: "Reputation360 rebuilt LinkedIn, launched a personal website, established Crunchbase, issued three press releases, secured two industry bylines, and built six additional optimized profiles - all cross-linked and monitored. He owned positions 1 through 9. The complaint dropped to page three.",
             },

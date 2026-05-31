@@ -96,7 +96,7 @@ export const article = {
           items: [
             {
               id: "building",
-              title: "Building tool",
+              title: "Social Media as a Reputation Building Tool",
               tone: "after",
               body: "Indexed positive content, demonstrated expertise, trust with recruiters and partners, first-page anchors that are hard for negative content to displace - which is why how recruiters use social media during their search process matters so much.",
               parts: [
@@ -112,7 +112,7 @@ export const article = {
             },
             {
               id: "vulnerability",
-              title: "Vulnerability",
+              title: "Social Media as a Reputation Vulnerability",
               tone: "before",
               body: "Permanent public record, screenshots that resurface years later, pile-ons that index in Google within 48 hours, informal posts that read badly out of context - which is why monitoring social mentions before they reach Google is essential.",
               parts: [
@@ -202,22 +202,22 @@ export const article = {
           steps: [
             {
               n: 1,
-              title: "Assess before responding",
+              title: "Assess the Situation Before Responding",
               body: "The first 30 minutes are for assessment, not action. Who is involved? What is the reach? Is the criticism factually accurate or misleading? What is the emotional temperature? Understanding these dynamics determines whether and how to respond.",
             },
             {
               n: 2,
-              title: "Choose the right channel",
+              title: "Choose the Right Channel for Your Response",
               body: "Not every crisis requires a social media response. In some situations, a brief, calm statement on your owned platform - your website, your email list, your LinkedIn - that provides factual context is more effective than engaging on the platform where the crisis is occurring.",
             },
             {
               n: 3,
-              title: "Never respond in anger",
+              title: "Never Respond in Anger to Protect Reputation",
               body: "The single most common mistake is an emotional, defensive reaction that generates new content - screenshots of your defensive response - and amplifies the original story. Any public response should be measured, factual, and focused on clarification rather than combat.",
             },
             {
               n: 4,
-              title: "Run suppression in parallel",
+              title: "Run Reputation Suppression in Parallel",
               body: "Regardless of how the social response is managed, run suppression in parallel with your social response - begin building positive search assets immediately. The crisis may generate new negative content that will rank. Having positive assets in process gives you the best chance of containing the search damage.",
               parts: [
                 {

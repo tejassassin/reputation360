@@ -233,13 +233,13 @@ export const article = {
           items: [
             {
               id: "situation",
-              title: "The situation",
+              title: "The Reputation Situation",
               tone: "before",
               body: "A business owner in California came to Reputation360 after a single inaccurate review on a consumer complaint site had occupied position 4 for her business name search for almost two years. The page had accumulated more than 30 inbound links from other complaint forums and was unlikely to be removed.",
             },
             {
               id: "outcome",
-              title: "The outcome",
+              title: "The Outcome: Measurable Reputation Results",
               tone: "after",
               body: "Over four months we optimized her LinkedIn and Google Business Profile, issued two targeted press releases, secured two thought leadership placements, and built a focused link profile to each asset. By month four the complaint page dropped to position 11 - off page one - and six of the top ten results were positive assets we had created or optimized. Her inquiry rate from new clients increased within 60 days of the page-one shift.",
             },

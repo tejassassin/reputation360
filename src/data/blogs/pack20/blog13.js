@@ -211,13 +211,13 @@ export const article = {
           items: [
             {
               id: "halo",
-              title: "Halo effect",
+              title: "The Halo Effect in Reputation Management",
               tone: "after",
               body: "A strong positive first result - comprehensive LinkedIn, a respected publication feature, a professional website - creates a halo that improves how the viewer interprets everything else on the page. Neutral content reads as supportive; positive content reads as confirmation.",
             },
             {
               id: "horns",
-              title: "Horns effect",
+              title: "The Horns Effect in Reputation Management",
               tone: "before",
               body: "A negative first result creates a horns effect: it primes the viewer to interpret subsequent results with suspicion, looking for evidence that confirms the negative impression. Even neutral or positive content below a negative first result may be read as less credible or relevant - as real cases where the horns effect cost professionals opportunities demonstrate.",
               parts: [
