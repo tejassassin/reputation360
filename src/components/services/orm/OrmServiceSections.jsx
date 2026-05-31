@@ -932,6 +932,11 @@ export function OrmProcessSection() {
                 <span className="mt-1 block text-xs font-medium leading-snug text-navy/60 md:text-sm">
                   {p.title}
                 </span>
+                <h3
+                  style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}
+                >
+                  Phase {num}: {p.title}
+                </h3>
               </button>
             );
           })}
@@ -983,15 +988,6 @@ export function OrmProcessSection() {
       <p className="mt-8 w-full max-w-none text-sm leading-relaxed text-navy/70 md:mt-10 md:text-base">
         {ORM_PROCESS_NOTE}
       </p>
-      <div
-        style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0,0,0,0)", whiteSpace: "nowrap" }}
-      >
-        {ORM_PROCESS_PHASES.map((p) => (
-          <h3 key={p.n}>
-            Phase {String(p.n).padStart(2, "0")}: {p.title}
-          </h3>
-        ))}
-      </div>
     </DocSection>
   );
 }
