@@ -447,13 +447,6 @@ function HowItAllBeganStory() {
       className={`relative overflow-hidden border-y border-slate-200/60 ${aboutFirstContentSpacing} ${aboutScrollTargetClass}`}
     >
       <div
-        style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}
-      >
-        {howItBeganSteps.map((s) => (
-          <h3 key={s.id}>{s.headline}</h3>
-        ))}
-      </div>
-      <div
         className="pointer-events-none absolute inset-0 bg-[#f0f4f2]"
         aria-hidden
       />
@@ -505,9 +498,9 @@ function HowItAllBeganStory() {
               <p className="font-heading text-xs font-semibold uppercase leading-snug tracking-[0.18em] text-[#4CAF50] sm:tracking-[0.2em]">
                 {step.panelKicker}
               </p>
-              <h3 className="font-heading mt-2 text-xl font-bold leading-snug text-navy sm:text-2xl">
-                {step.headline}
-              </h3>
+          <p className="font-heading mt-2 text-xl font-bold leading-snug text-navy sm:text-2xl">
+            {step.headline}
+          </p>
               <AnimatePresence mode="wait">
                 <Motion.p
                   key={step.id}
