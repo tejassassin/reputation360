@@ -264,7 +264,7 @@ export const REPUTATION360_LAWYER_STEPS = [
   },
   {
     step: 2,
-    headline: "Step 2 - Strategy Design (Weeks 1-2)",
+    headline: "Step 2 - Reputation Strategy Design (Weeks 1-2)",
     body: "We design a suppression and presence strategy calibrated to your specific situation - the nature of the damaging content, the authority of the sources, and the competitive picture for your name in search. You receive a clear brief before any work begins.",
     Icon: Target,
   },
@@ -292,7 +292,7 @@ export const REPUTATION360_LAWYER_STEPS = [
 export const REPUTATION360_REAL_ESTATE_STEPS = [
   {
     step: 1,
-    headline: "Step 1 - Real Estate Search Audit (Week 1)",
+    headline: "Step 1 - Real Estate Reputation Search Audit (Week 1)",
     body: "We run the same search your clients run. We map every result appearing for your name, your agency name, and common search combinations. We assess the strength of each negative entry and identify exactly what we are working with before any strategy is designed.",
     Icon: Map,
   },

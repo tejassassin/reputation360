@@ -464,7 +464,7 @@ function RealEstateFaqSection() {
       id="real-estate-faqs"
       className="mt-14 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 shadow-[0_10px_28px_rgba(15,23,42,0.04)] md:mt-16 md:px-9 md:py-11"
     >
-      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">Frequently Asked Questions About Real Estate Professionals Reputation Management</h2>
+      <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">Frequently Asked Questions About Real Estate Agent Reputation Management</h2>
       <div className="mt-3 h-1.5 w-20 rounded-full bg-[#79df86]" />
       <div className="mt-8 max-w-4xl space-y-4">
         {REAL_ESTATE_FAQ_ITEMS.map((item, index) => (
@@ -543,25 +543,25 @@ function RealEstateBusinessImpactSection() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {[
           {
-            title: "Lead Generation",
+            title: "Lead Generation: How Reputation Drives Real Estate Leads",
             text: "Your search presence is your first showing. Agents with a clean, credible page one attract higher-quality inbound enquiries.",
             Icon: TrendingUp,
             color: "text-emerald-500 bg-emerald-50",
           },
           {
-            title: "Client Acquisition Cost",
+            title: "Client Acquisition Cost: How Reputation Reduces Marketing Spend",
             text: "A strong reputation reduces what you spend to win business. Referrals cost nothing and convert at the highest rate.",
             Icon: Globe2,
             color: "text-blue-500 bg-blue-50",
           },
           {
-            title: "Recruiting & Relationships",
+            title: "Recruiting & Relationships: Why Reputation Attracts Top Agents",
             text: "Top brokerages check your online presence before they recruit you. They want agents who understand brand alignment.",
             Icon: UserSearch,
             color: "text-indigo-500 bg-indigo-50",
           },
           {
-            title: "Pricing Power",
+            title: "Pricing Power: How a Strong Reputation Justifies Higher Commissions",
             text: "Well-regarded agents can hold their commission rates. Conversations start from a position of earned trust.",
             Icon: ShieldCheck,
             color: "text-teal-500 bg-teal-50",
@@ -610,21 +610,21 @@ function RealEstateCareersSection() {
 
   const careerPillars = [
     {
-      title: "For New Agents: Building Credibility from Zero",
+      title: "For New Agents: Building Real Estate Reputation and Credibility",
       text: "No track record yet? Your digital presence is your proof of professionalism. Without it, potential clients find you - and find nothing worth trusting.",
       Icon: Award,
       accentColor: "border-t-[#79df86]",
       iconBg: "bg-emerald-50 text-emerald-600 border-emerald-100/50",
     },
     {
-      title: "For Experienced Agents: Protecting and Leveraging",
+      title: "For Experienced Agents: Protecting and Leveraging Your Reputation",
       text: "Your track record means nothing if the first page of results doesn't reflect it. An unmanaged search presence is quietly costing you clients and referrals.",
       Icon: ShieldCheck,
       accentColor: "border-t-[#2e5b88]",
       iconBg: "bg-blue-50 text-blue-600 border-blue-100/50",
     },
     {
-      title: "For Brokers & Agency Owners: Your Brand Is on the Line",
+      title: "For Brokers & Agency Owners: Your Reputation and Brand Are on the Line",
       text: "One negative result for your name affects every agent under your brand, every recruit, and every client who searches before signing. The stakes are too high to leave it unmanaged.",
       Icon: Building2,
       accentColor: "border-t-indigo-500",
@@ -643,7 +643,7 @@ function RealEstateCareersSection() {
           Career Implications
         </p>
         <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1] tracking-tight">
-          How a Poor Online Presence Limits Real Estate Careers
+          How a Poor Online Reputation Limits Real Estate Careers
         </h2>
         <p className="text-[14px] leading-relaxed text-[#5d6c80] md:text-[15px] md:leading-relaxed">
           Reputation risk isn&apos;t static. It affects real estate professionals at every stage of their career growth.
