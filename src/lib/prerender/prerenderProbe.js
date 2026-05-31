@@ -96,11 +96,11 @@ export function getPrerenderProbeSentence(pathname) {
   }
 
   if (path === "/services/online-reputation-management") {
-    return "Your Reputation Lives on Page One.";
+    return "Online Reputation Management Services - Take Control of What People Find";
   }
 
   if (path === "/services/negative-link-suppression") {
-    return "One Damaging Link on Google Should Not Get to Write Your Story.";
+    return "Negative Link Suppression Services - Push Down Harmful Google Results";
   }
 
   if (path === "/services/reputation-building-services") {
