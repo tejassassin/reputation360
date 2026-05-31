@@ -33,7 +33,7 @@ import { markdownGuideToHtml } from "./markdownToHtml.js";
 import { pack20ArticleToHtml } from "./pack20ArticleToHtml.js";
 import { prependArticleBreadcrumbHtml } from "./articleBreadcrumb.js";
 import { furtherReadingSectionHtml } from "./furtherReadingToHtml.js";
-import { homeFromOurBlogSectionHtml } from "./homeFromOurBlogToHtml.js";
+import { homePageToHtml } from "./homePageToHtml.js";
 import { aboutPageToHtml } from "./aboutPageToHtml.js";
 import { servicesPageToHtml } from "./servicesPageToHtml.js";
 import { prependBreadcrumbPrerenderHtml } from "../breadcrumbs.js";
@@ -71,7 +71,7 @@ export function getPrerenderHtmlForPath(pathname) {
   const path = normalizeCanonicalPath(pathname);
 
   if (path === "/") {
-    return homeFromOurBlogSectionHtml();
+    return homePageToHtml();
   }
 
   if (path === "/services") {
