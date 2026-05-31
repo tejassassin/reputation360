@@ -19,7 +19,7 @@ export function SeeItInActionStoryCard({
   label,
   layout = "carousel",
   titleTag = layout === "grid" ? "h3" : "h4",
-  withImage = false,
+  withImage = true,
 }) {
   const slug = slugFromCaseStudyHref(href);
   const study = slug ? getCaseStudyBySlug(slug) : null;
