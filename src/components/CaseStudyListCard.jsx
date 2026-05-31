@@ -59,14 +59,21 @@ export function CaseStudyListCard({ study, index }) {
             />
           </div>
 
-          <div className={`${CASE_STUDY_HERO_BODY} min-h-0 md:border-r border-green/15`}>
-            <span className="inline-flex w-fit items-center rounded-full bg-gradient-to-r from-navy/10 to-green/10 px-3 py-1 text-[0.65rem] font-extrabold uppercase tracking-wider text-slate ring-1 ring-green/20 sm:text-xs">
-              {study.industry}
-            </span>
-            <p className="mt-3 text-xs font-extrabold uppercase tracking-wider text-green">
-              Case study
-            </p>
-            <h3 className="mt-1 font-heading text-xl font-extrabold leading-tight tracking-tight text-navy sm:text-2xl md:text-[1.65rem] md:leading-tight">
+          <div className={`${CASE_STUDY_HERO_BODY} min-h-0`}>
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <span className="inline-flex w-fit items-center rounded-full bg-gradient-to-r from-navy/10 to-green/10 px-3 py-1 text-[0.65rem] font-extrabold uppercase tracking-wider text-slate ring-1 ring-green/20 sm:text-xs">
+                  {study.industry}
+                </span>
+                <p className="mt-3 text-xs font-extrabold uppercase tracking-wider text-green">
+                  Case study
+                </p>
+              </div>
+              <div className="shrink-0 text-right">
+                <CaseStudyEngagementBlock study={study} compact={true} />
+              </div>
+            </div>
+            <h3 className="mt-2 font-heading text-xl font-extrabold leading-tight tracking-tight text-navy sm:mt-1 sm:text-2xl md:text-[1.65rem] md:leading-tight">
               {study.listTitle}
             </h3>
             <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-slate-600 [text-wrap:pretty] sm:text-[0.95rem] md:leading-relaxed">
@@ -102,12 +109,6 @@ export function CaseStudyListCard({ study, index }) {
               >
                 <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2.25} />
               </span>
-            </div>
-          </div>
-
-          <div className={`${CASE_STUDY_ENGAGEMENT_PANEL} relative !justify-start overflow-hidden md:w-[25%] md:border-r-0`}>
-            <div className="relative z-10 w-full">
-              <CaseStudyEngagementBlock study={study} />
             </div>
           </div>
         </div>

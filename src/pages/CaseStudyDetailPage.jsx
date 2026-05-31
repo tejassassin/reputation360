@@ -289,14 +289,21 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                   />
                 </div>
-                <div className={`${CASE_STUDY_HERO_BODY} min-h-0 md:border-r border-green/15`}>
-                  <span className="inline-flex w-fit items-center rounded-full bg-gradient-to-r from-navy/10 to-green/10 px-3 py-1 text-[0.65rem] font-extrabold uppercase tracking-wider text-slate ring-1 ring-green/20 sm:text-xs">
-                    {study.industry}
-                  </span>
-                  <p className="mt-3 text-xs font-extrabold uppercase tracking-wider text-green">
-                    Case study
-                  </p>
-                  <h1 className="mt-1 font-heading text-2xl font-extrabold leading-tight tracking-tight text-navy sm:text-3xl md:text-[2rem] md:leading-tight">
+                <div className={`${CASE_STUDY_HERO_BODY} min-h-0`}>
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <span className="inline-flex w-fit items-center rounded-full bg-gradient-to-r from-navy/10 to-green/10 px-3 py-1 text-[0.65rem] font-extrabold uppercase tracking-wider text-slate ring-1 ring-green/20 sm:text-xs">
+                        {study.industry}
+                      </span>
+                      <p className="mt-3 text-xs font-extrabold uppercase tracking-wider text-green">
+                        Case study
+                      </p>
+                    </div>
+                    <div className="shrink-0 text-right">
+                      <CaseStudyEngagementBlock study={study} compact={true} />
+                    </div>
+                  </div>
+                  <h1 className="mt-2 font-heading text-2xl font-extrabold leading-tight tracking-tight text-navy sm:mt-1 sm:text-3xl md:text-[2rem] md:leading-tight">
                     {study.listTitle}
                   </h1>
                   {study.summary ? (
@@ -316,11 +323,6 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
                       variant="wide"
                       tone="challenge"
                     />
-                  </div>
-                </div>
-                <div className={`${CASE_STUDY_ENGAGEMENT_PANEL} relative !justify-start overflow-hidden md:w-[25%] md:border-r-0`}>
-                  <div className="relative z-10 w-full">
-                    <CaseStudyEngagementBlock study={study} />
                   </div>
                 </div>
               </div>
