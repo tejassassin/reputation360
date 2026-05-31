@@ -710,16 +710,16 @@ function RealEstateChecklistSection() {
             <div className="h-1.5 w-16 rounded-full bg-[#8ce596]/85" />
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm shadow-inner">
+          <div className="rounded-2xl border border-white/15 bg-white/[0.07] p-6 backdrop-blur-sm shadow-md">
             <div className="flex items-start gap-4">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#8ce596]">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#8ce596]/15 border border-[#8ce596]/30 text-[#8ce596] shadow-sm">
                 <AlertTriangle className="h-5 w-5" aria-hidden />
               </span>
               <div className="space-y-3">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/40">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#8ce596]">
                   Moment of Truth
                 </p>
-                <p className="text-[13px] md:text-[14px] text-white/80 leading-relaxed">
+                <p className="text-[15px] md:text-[16px] text-white font-medium leading-relaxed">
                   Be completely honest. If a potential client or seller searches your name and finds a mix of inactive profiles, outdated listings, or negative results—would they feel confident signing with you, or would they keep looking?
                 </p>
               </div>
