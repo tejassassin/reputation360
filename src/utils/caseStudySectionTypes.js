@@ -105,12 +105,17 @@ export function getSectionTheme(heading) {
  */
 function parseMilestoneLine(line) {
   const t = line.trim();
-  if (!/^(Month|Months)\b/i.test(t)) return null;
-  const idx = t.indexOf(":");
+  if (!/^(Month|Months|Week|Weeks)\b/i.test(t)) return null;
+  let idx = t.indexOf(" - ");
+  let skip = 3;
+  if (idx === -1) {
+    idx = t.indexOf(":");
+    skip = 1;
+  }
   if (idx === -1) return { time: t, text: "" };
   return {
     time: t.slice(0, idx).trim(),
-    text: t.slice(idx + 1).trim(),
+    text: t.slice(idx + skip).trim(),
   };
 }
 
@@ -123,7 +128,7 @@ function parseMilestoneLine(line) {
 export function parseMilestoneItems(body, heading) {
   const kind = getSectionKind(heading);
   if (kind !== "milestone") {
-    if (!/^(Month|Months)\b/im.test(body)) return null;
+    if (!/^(Month|Months|Week|Weeks)\b/im.test(body)) return null;
   }
   const lines = String(body)
     .split("\n")
@@ -152,7 +157,7 @@ export function getIconListLines(body, heading, isTimeline) {
     .filter(Boolean);
   if (lines.length < 2) return null;
   if (lines.some((l) => l.length > 450)) return null;
-  if (lines[0] && /^(Month|Months)\b/i.test(lines[0])) return null;
+  if (lines[0] && /^(Month|Months|Week|Weeks)\b/i.test(lines[0])) return null;
 
   if (k === "strategy" && lines.length >= 2) {
     return lines;

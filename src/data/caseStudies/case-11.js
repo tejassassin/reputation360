@@ -10,7 +10,7 @@ const caseStudy = {
     "A high-stakes loss tied the partner’s name to a harsh verdict in trade and national search - above his own firm’s bio. The work balanced accuracy about the docket with a long arc of new authority and third-party context.",
   sections: [
     {
-      heading: "The Challenge",
+      heading: "The Reputation Management Challenge",
       body: `A senior litigation partner had built a formidable reputation across 24 years of commercial dispute resolution. When a high-profile case he led resulted in a significant loss - one involving a well-known corporate defendant - it attracted extensive coverage from legal trade publications, court reporting services, and two national newspapers. His personal name became directly and persistently associated with the verdict in search results.
 Searches for his name returned:
 
@@ -22,15 +22,15 @@ Searches for his name returned:
 Clients began requesting reassignment to other partners on active matters. Two prospective mandates were withdrawn by clients citing "concerns about track record."`,
     },
     {
-      heading: "Starting Position & Baseline",
+      heading: "Starting Position: Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, 6 of the top 10 results returned case-loss or verdict-related content. The partner had no personal professional website and a thin LinkedIn presence with no published content. His Chambers & Partners and Legal 500 profiles had not been updated in 3 years.`,
     },
     {
-      heading: "Our Objective",
+      heading: "Our Reputation Management Objective",
       body: `Reframe the digital narrative from a single case outcome to a 24-year body of work - ensuring Page 1 reflected the full depth of his professional record rather than one headline.`,
     },
     {
-      heading: "Our Strategy",
+      heading: "Our Reputation Management Strategy",
       body: `Recognised from the outset that court records and established trade press coverage were unlikely to be removed - the strategy focused entirely on displacement through authority-building, not deletion attempts
 Rebuilt his firm bio page as a deeply structured, SEO-optimised professional profile - featuring comprehensive case history, client outcomes across practice areas, speaking engagements, and professional recognition
 Personal professional website launched and beginning to rank within approximately 8 weeks
@@ -40,14 +40,14 @@ Co-authored a series of articles on commercial arbitration developments with a r
 Updated and significantly expanded his Chambers & Partners and Legal 500 directory profiles - both gained significant search traction within 3 months`,
     },
     {
-      heading: "Month-by-Month Milestones",
-      body: `Months 1-2: SERP audit; firm bio rebuilt; Chambers and Legal 500 profiles updated; website launched
-Months 3-5: LinkedIn content gaining consistent traction; website indexed on Page 2
-Months 6-9: Website and LinkedIn enter Page 1; trade publication article begins dropping
-Months 10-14: Court reporting summary suppressed from Page 1; trade article drops to Page 3; Page 1 fully stabilised`,
+      heading: "Month-by-Month Reputation Management Milestones",
+      body: `Months 1–2: Initial Reputation Audit and Setup - SERP audit; firm bio rebuilt; Chambers and Legal 500 profiles updated; website launched
+Months 3–5: Early Reputation Campaign Progress - LinkedIn content gaining consistent traction; website indexed on Page 2
+Months 6–9: Continued Reputation Movement - Website and LinkedIn enter Page 1; trade publication article begins dropping
+Months 10–14: Full Reputation Transformation - Court reporting summary suppressed from Page 1; trade article drops to Page 3; Page 1 fully stabilised`,
     },
     {
-      heading: "The Results (14 Months)",
+      heading: "Reputation Management Results (14 Months)",
       body: `Firm bio page moved to Position 1
 LinkedIn profile entered top 3 results
 Chambers & Partners and Legal 500 profiles ranking prominently on Page 1
@@ -55,7 +55,7 @@ Trade publication case-loss article suppressed to Page 3 by month 12
 Court reporting summary suppressed from Page 1 by month 10`,
     },
     {
-      heading: "Business Impact & Outcome",
+      heading: "Business Impact & Reputation Management Outcome",
       body: `Prospective clients searching his name now encounter a practitioner defined by 24 years of expertise, peer recognition, and substantive legal commentary - not a single case outcome. Two previously withdrawn mandates re-engaged within 3 months of Page 1 stabilising.`,
     },
   ],

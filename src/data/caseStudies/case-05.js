@@ -1,7 +1,8 @@
 /** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 5,
-  listTitle: "E-commerce & Retail Brand Recovery",
+  listTitle: "E-commerce & Retail Brand Recovery Case Study",
+  slug: "e-commerce-and-retail-brand-recovery",
   industry: "Businesses & Companies",
   profile: "Fast-growing DTC Fashion Brand (4 years in operation, £4M annual revenue)",
   challengeType: "Influencer fallout & ethics controversy",
@@ -10,7 +11,7 @@ const caseStudy = {
     "A viral creator fallout pushed boycott sentiment and near-total negative SERPs within days. Recovery combined crisis-framed comms, durable brand assets, and systematic work to re-balance what prospects saw first.",
   sections: [
     {
-      heading: "The Challenge",
+      heading: "The Reputation Management Challenge",
       body: `A growing DTC fashion brand faced acute reputational damage after a high-profile influencer partnership collapsed publicly. The influencer - with 800,000 followers across Instagram and TikTok - made allegations regarding non-payment and unethical working practices. The claims spread rapidly across social platforms, fashion commentary blogs, and consumer advocacy websites, attracting media coverage and organised consumer boycott calls.
 Negative content dominated:
 
@@ -22,15 +23,15 @@ Negative content dominated:
 The brand's search results shifted almost entirely negative within 72 hours of the initial post going viral.`,
     },
     {
-      heading: "Starting Position & Baseline",
+      heading: "Starting Position: Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, brand search results on Page 1 were 80% negative or controversy-linked. Social sentiment was net-negative across all monitored platforms. Two retail stockist partners had paused reorder conversations.`,
     },
     {
-      heading: "Our Objective",
+      heading: "Our Reputation Management Objective",
       body: `Restore brand credibility with consumers and retail partners, suppress the influencer-driven narrative from prominent search positions, and rebuild a digital presence that authentically reflected the brand's values and product quality.`,
     },
     {
-      heading: "Our Strategy",
+      heading: "Our Reputation Management Strategy",
       body: `Executed an urgent SERP triage within 48 hours of engagement to identify the highest-traffic negative URLs
 Published a carefully crafted brand-led transparency statement addressing the partnership dispute directly and factually
 Developed new content pillars around ethical sourcing, production transparency, fair working practices, and community initiatives
@@ -39,21 +40,21 @@ Amplified verified customer reviews and user-generated content from loyal brand 
 Initiated platform-level content flagging for social posts containing demonstrably false factual claims where terms of service applied`,
     },
     {
-      heading: "Month-by-Month Milestones",
-      body: `Months 1-2: SERP triage; transparency statement published; new content pillars developed
-Months 3-4: Micro-influencer content gaining traction; social sentiment beginning to shift
-Months 5-6: Social sentiment moves net-positive; controversy content beginning to drop from Page 1
-Months 7-8: Page 1 stabilised around brand values and product content`,
+      heading: "Month-by-Month Reputation Management Milestones",
+      body: `Months 1–2: Initial Reputation Audit and Setup - SERP triage; transparency statement published; new content pillars developed
+Months 3–4: Early Reputation Campaign Progress - Micro-influencer content gaining traction; social sentiment beginning to shift
+Months 5–6: Continued Reputation Movement - Social sentiment moves net-positive; controversy content beginning to drop from Page 1
+Months 7–8: Significant Reputation Shift - Page 1 stabilised around brand values and product content`,
     },
     {
-      heading: "The Results (8 Months)",
+      heading: "Reputation Management Results (8 Months)",
       body: `Influencer controversy content suppressed to Page 4 and beyond
 New brand values content ranking across Pages 1 and 2
 Social sentiment recovered from net-negative to net-positive within 6 months
 Retail partner confidence restored; two new stockist agreements signed`,
     },
     {
-      heading: "Business Impact & Outcome",
+      heading: "Business Impact & Reputation Management Outcome",
       body: `The brand emerged from the controversy with a stronger and more defined public identity. Their digital presence shifted from reactive controversy management to proactive brand storytelling - turning a reputational low point into a reset opportunity.`,
     },
   ],

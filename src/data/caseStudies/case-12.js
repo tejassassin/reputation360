@@ -10,7 +10,7 @@ const caseStudy = {
     "A client-led campaign hammered an average star rating and pushed a name-blog up search in weeks. The plan combined platform hygiene, defensible response patterns, and durable owned proof of the practice’s work.",
   sections: [
     {
-      heading: "The Challenge",
+      heading: "The Reputation Management Challenge",
       body: `A family law solicitor became the target of a sustained and coordinated reputation attack by a former client deeply dissatisfied with a divorce settlement outcome. The former client:
 
 • Posted 6 one-star reviews across Google, Trustpilot, and two specialist legal review platforms within a single week
@@ -20,15 +20,15 @@ const caseStudy = {
 The blog indexed on Page 2 within 3 weeks and was climbing steadily. The solicitor's combined review platform average had dropped from 4.8 stars to 2.1 stars - visible directly in Google search snippets.`,
     },
     {
-      heading: "Starting Position & Baseline",
+      heading: "Starting Position: Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, the attack blog ranked in Position 14 (Page 2) and rising. The solicitor had no personal professional website. Her Google Business Profile showed 2.1 stars. There were no owned content assets indexed on Page 1.`,
     },
     {
-      heading: "Our Objective",
+      heading: "Our Reputation Management Objective",
       body: `Suppress the attack blog, restore the review profile to an accurate representation of genuine client sentiment, and build a content authority base strong enough to significantly reduce vulnerability to future targeted attacks.`,
     },
     {
-      heading: "Our Strategy",
+      heading: "Our Reputation Management Strategy",
       body: `Conducted a detailed legal assessment of the blog content - identified three specific statements meeting the evidential threshold for a formal letter before action for defamation, sent via separate legal counsel
 Simultaneously launched an aggressive positive content build to ensure the strategy did not appear purely reactive
 Implemented a structured ethical review generation campaign - existing satisfied clients were personally invited to share their experience, yielding 55 new verified reviews across platforms within 8 weeks
@@ -37,21 +37,21 @@ Published a weekly "Family Law Explained" content series - establishing her as a
 Secured a podcast interview on a family law and personal wellbeing programme - transcript indexed and ranking within 6 weeks of broadcast`,
     },
     {
-      heading: "Month-by-Month Milestones",
-      body: `Months 1-2: Legal assessment complete; defamation letter sent; review campaign launched; website built
-Month 3: Blog voluntarily removed following legal letter; review average climbing
-Months 4-5: Website indexed and entering Page 1; podcast transcript indexed
-Months 6-8: Page 1 fully stabilised; review average at 4.7 stars`,
+      heading: "Month-by-Month Reputation Management Milestones",
+      body: `Months 1–2: Initial Reputation Audit and Setup - Legal assessment complete; defamation letter sent; review campaign launched; website built
+Month 3: Early Reputation Campaign Progress - Blog voluntarily removed following legal letter; review average climbing
+Months 4–5: Early Reputation Campaign Progress - Website indexed and entering Page 1; podcast transcript indexed
+Months 6–8: Continued Reputation Movement - Page 1 fully stabilised; review average at 4.7 stars`,
     },
     {
-      heading: "The Results (8 Months)",
+      heading: "Reputation Management Results (8 Months)",
       body: `Attack blog received a formal legal letter and was voluntarily removed by month 3
 Review average restored to 4.7 stars across all platforms
 New professional website ranking at Position 1 within 5 months
 Podcast and content assets occupying 3 further Page 1 positions`,
     },
     {
-      heading: "Business Impact & Outcome",
+      heading: "Business Impact & Reputation Management Outcome",
       body: `The solicitor now has a robust, multi-layered digital presence that genuinely reflects her expertise and the quality of her client relationships. The episode ultimately accelerated the development of a professional online identity she had previously neglected - turning a targeted attack into a long-term reputational asset.`,
     },
   ],

@@ -1,7 +1,8 @@
 /** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 6,
-  listTitle: "Consumer Electronics - Product Crisis Recovery",
+  listTitle: "Consumer Electronics - Product Crisis Recovery Case Study",
+  slug: "consumer-electronics-product-crisis-recovery",
   industry: "Businesses & Companies",
   profile: "Mid-sized Consumer Electronics Brand (15 years in operation, $120M annual revenue)",
   challengeType: "Product defect controversy & widespread customer backlash",
@@ -10,7 +11,7 @@ const caseStudy = {
     "A defect-driven recall and national press coverage pushed complaints and review threads ahead of the brand’s own site in search, and sales fell hard. The programme aimed to make constructive, fact-led presence competitive with the crisis narrative.",
   sections: [
     {
-      heading: "The Challenge",
+      heading: "The Reputation Management Challenge",
       body: `A consumer electronics brand with a 15-year operating history faced serious reputational damage after a manufacturing defect in their flagship wireless audio product led to a wave of customer complaints, a formal recall process, and significant refund volumes. The issue escalated when it was picked up by national technology media and a leading financial publication, creating a sustained negative search footprint.
 Negative visibility dominated Pages 1-4, driven by:
 
@@ -22,15 +23,15 @@ Negative visibility dominated Pages 1-4, driven by:
 Distributor confidence weakened. Inbound sales inquiry volume dropped by 41% in the 10 weeks following the initial press coverage.`,
     },
     {
-      heading: "Starting Position & Baseline",
+      heading: "Starting Position: Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, 11 of the top 15 search results for the brand name returned negative or complaint-related content. The brand's own website ranked 4th - below three negative review or complaint pages.`,
     },
     {
-      heading: "Our Objective",
+      heading: "Our Reputation Management Objective",
       body: `Restore commercial credibility while maintaining full transparency about the product issue and the corrective measures taken. Suppress speculative and complaint-driven content without suppressing legitimate consumer reporting.`,
     },
     {
-      heading: "Our Strategy",
+      heading: "Our Reputation Management Strategy",
       body: `Conducted a crisis-specific SERP analysis identifying which URLs were driving the highest levels of trust erosion
 Created brand-led explanatory content addressing the defect, the recall process, quality improvements made, and the brand's commitment to resolution
 Introduced neutral, third-party informational content to reduce the concentration of negative coverage
@@ -39,21 +40,21 @@ Worked to suppress speculative forum discussions by replacing them with authorit
 Developed a post-crisis product content strategy to rebuild category authority`,
     },
     {
-      heading: "Month-by-Month Milestones",
-      body: `Months 1-2: Crisis SERP audit; brand response content published; website optimised
-Months 3-5: New content indexed; brand website reclaims Position 1
-Months 6-9: Forum and Reddit content beginning to drop from Page 1
-Months 10-14: 92% of negative URLs suppressed beyond Page 3; Page 1 stabilised`,
+      heading: "Month-by-Month Reputation Management Milestones",
+      body: `Months 1–2: Initial Reputation Audit and Setup - Crisis SERP audit; brand response content published; website optimised
+Months 3–5: Early Reputation Campaign Progress - New content indexed; brand website reclaims Position 1
+Months 6–9: Continued Reputation Movement - Forum and Reddit content beginning to drop from Page 1
+Months 10–14: Full Reputation Transformation - 92% of negative URLs suppressed beyond Page 3; Page 1 stabilised`,
     },
     {
-      heading: "The Results (14 Months)",
+      heading: "Reputation Management Results (14 Months)",
       body: `92% of negative URLs suppressed beyond Page 3
 Page 1 dominated by controlled brand assets and neutral editorial coverage
 Brand search click-through rate improved by 38%
 Distributor confidence and inbound sales inquiries stabilised and recovered`,
     },
     {
-      heading: "Business Impact & Outcome",
+      heading: "Business Impact & Reputation Management Outcome",
       body: `The business regained control of its online narrative while maintaining transparency. Search results came to reflect a resolved product issue and a brand committed to quality - not a failing company - allowing the business to move forward without long-term reputational burden.`,
     },
   ],

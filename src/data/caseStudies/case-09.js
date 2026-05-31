@@ -12,7 +12,7 @@ const caseStudy = {
     "A single patient thread escalated into one-star platforms and a local health headline, with the surgeon’s own site buried. The case was about regaining a fair, proportionate first page without unsafe claims.",
   sections: [
     {
-      heading: "The Challenge",
+      heading: "The Reputation Management Challenge",
       body: `A consultant surgeon with 18 years of uninterrupted practice found his professional reputation unraveling rapidly after a single patient complaint escalated beyond the hospital's internal grievance process. The patient - dissatisfied with post-operative recovery expectations rather than clinical outcome - posted detailed, emotionally charged reviews across three major medical review platforms. A local health journalist then picked up the story, publishing a speculative piece that indexed on Page 1 within days of publication.
 Negative visibility included:
 
@@ -24,15 +24,15 @@ Negative visibility included:
 Referrals from GP partners dropped by an estimated 35% over 8 weeks. The clinic's patient coordinator reported a consistent pattern of prospective patients going quiet after initial inquiry calls - a well-recognised sign of negative search influence at the decision stage.`,
     },
     {
-      heading: "Starting Position & Baseline",
+      heading: "Starting Position: Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, 7 of the top 10 results for the surgeon's name returned negative or complaint-related content. His Google Business Profile was unclaimed. His professional website had not been updated in 4 years. There were no thought leadership assets indexed anywhere online.`,
     },
     {
-      heading: "Our Objective",
+      heading: "Our Reputation Management Objective",
       body: `Rebuild Page 1 with authoritative, expertise-led content accurately reflecting his 18-year clinical record, while ethically managing review platform visibility - without making claims that contradicted or dismissed legitimate patient experience.`,
     },
     {
-      heading: "Our Strategy",
+      heading: "Our Reputation Management Strategy",
       body: `Conducted a full SERP audit mapping every URL ranking for his name, clinic name, and specialty-based search terms
 Immediately claimed and fully optimised his unclaimed Google Business Profile - a foundational visibility asset
 Rebuilt his professional website with dedicated pages for each surgical specialisation, patient education articles, pre- and post-operative guidance, and a fully verified credentials section
@@ -43,21 +43,21 @@ Worked with the clinic to implement an ethical post-appointment review invitatio
 Filed platform-specific factual dispute requests on two review entries containing demonstrably false procedural claims`,
     },
     {
-      heading: "Month-by-Month Milestones",
-      body: `Months 1-2: SERP audit complete; Google Business Profile claimed and optimised; website rebuilt
-Months 3-4: First content pieces indexed; new verified reviews begin appearing; website appearing on Page 2
-Months 5-6: Personal website enters Page 1; local news article drops to Position 7
-Months 7-9: News article exits Page 1; review platform average lifts to 4.6 stars; owned content holds 4 of top 5 positions`,
+      heading: "Month-by-Month Reputation Management Milestones",
+      body: `Months 1–2: Initial Reputation Audit and Setup - SERP audit complete; Google Business Profile claimed and optimised; website rebuilt
+Months 3–4: Early Reputation Campaign Progress - First content pieces indexed; new verified reviews begin appearing; website appearing on Page 2
+Months 5–6: Continued Reputation Movement - Personal website enters Page 1; local news article drops to Position 7
+Months 7–9: Significant Reputation Shift - News article exits Page 1; review platform average lifts to 4.6 stars; owned content holds 4 of top 5 positions`,
     },
     {
-      heading: "The Results (9 Months)",
+      heading: "Reputation Management Results (9 Months)",
       body: `Negative news article suppressed from Page 1
 Review platform average lifted from 1.8 stars to 4.6 stars
 Surgeon's own content occupying top 4 positions on Page 1
 Referral volume recovered to pre-incident levels by month 8`,
     },
     {
-      heading: "Business Impact & Outcome",
+      heading: "Business Impact & Reputation Management Outcome",
       body: `Prospective patients now find a clear, credible, and professionally rich picture of this surgeon's clinical expertise. The single complaint that once defined his search results became statistically insignificant against a body of verified positive patient sentiment and expert-led content.`,
     },
   ],

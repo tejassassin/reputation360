@@ -1,7 +1,8 @@
 /** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 4,
-  listTitle: "HR & Employment Dispute Reputation Management",
+  listTitle: "HR & Employment Dispute Reputation Management Case Study",
+  slug: "hr-and-employment-dispute-reputation-management",
   industry: "Executives & C-Suite Leaders",
   profile: "44-year-old HR Director & Independent Consultant",
   challengeType: "Wrongful termination allegation & LinkedIn controversy",
@@ -10,7 +11,7 @@ const caseStudy = {
     "A public wrongful-termination story spread across social and review sites, and clients froze new engagements. The plan moved attention back to a verified, owned narrative the consultant could stand behind in search.",
   sections: [
     {
-      heading: "The Challenge",
+      heading: "The Reputation Management Challenge",
       body: `A senior HR leader and independent consultant faced damaging online exposure after a former employee publicly alleged wrongful termination. The allegations were posted across LinkedIn, Reddit, and a workplace review platform, gaining significant organic engagement. Two industry newsletters subsequently referenced the posts, providing the allegations with additional SEO traction.
 Negative content ranked across:
 
@@ -22,15 +23,15 @@ Negative content ranked across:
 Pages 1 and 2 returned primarily negative results for both the individual's name and the associated consultancy name. Three prospective client engagements were paused or withdrawn during the first 60 days.`,
     },
     {
-      heading: "Starting Position & Baseline",
+      heading: "Starting Position: Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, 8 of the top 10 results for the consultant's name returned negative or controversy-linked content. The individual had no personal professional website and minimal owned content indexed anywhere online.`,
     },
     {
-      heading: "Our Objective",
+      heading: "Our Reputation Management Objective",
       body: `Separate the individual's professional standing from the contested employer narrative, rebuild visible credibility within the HR community, and suppress user-generated negative content from prominent search positions.`,
     },
     {
-      heading: "Our Strategy",
+      heading: "Our Reputation Management Strategy",
       body: `Conducted an identity-separated SERP strategy - building distinct and separate visibility for the individual consultant versus the business entity
 Launched a personal professional website - indexed and beginning to rank within approximately 8 weeks of launch
 Published expert commentary and thought leadership pieces on HR best practices, employment law developments, and organisational culture
@@ -40,21 +41,21 @@ Applied platform-level suppression strategies to reduce the search dominance of 
 Maintained a consistently forward-looking, non-reactive tone throughout - never engaging with the allegations directly`,
     },
     {
-      heading: "Month-by-Month Milestones",
-      body: `Months 1-2: SERP audit; website launched; professional profiles rebuilt
-Months 3-5: Thought leadership content gaining traction; website indexed on Page 2
-Months 6-9: Website enters Page 1; Glassdoor content beginning to drop
-Months 10-13: Page 1 stabilised around professional expertise content`,
+      heading: "Month-by-Month Reputation Management Milestones",
+      body: `Months 1–2: Initial Reputation Audit and Setup - SERP audit; website launched; professional profiles rebuilt
+Months 3–5: Early Reputation Campaign Progress - Thought leadership content gaining traction; website indexed on Page 2
+Months 6–9: Continued Reputation Movement - Website enters Page 1; Glassdoor content beginning to drop
+Months 10–13: Full Reputation Transformation - Page 1 stabilised around professional expertise content`,
     },
     {
-      heading: "The Results (13 Months)",
+      heading: "Reputation Management Results (13 Months)",
       body: `Glassdoor and Reddit threads suppressed to Page 3 and beyond
 LinkedIn thought leadership content ranking in the top 5 results for name-based searches
 Page 1 reflecting professional expertise, not employment disputes
 Client secured two new consulting contracts during the recovery period`,
     },
     {
-      heading: "Business Impact & Outcome",
+      heading: "Business Impact & Reputation Management Outcome",
       body: `The client's digital profile came to reflect professional depth and HR expertise rather than a single contested employment narrative. Prospective clients and employers encountered credibility, not controversy.`,
     },
   ],
