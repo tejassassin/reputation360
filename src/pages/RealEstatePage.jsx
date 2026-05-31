@@ -691,7 +691,7 @@ function RealEstateChecklistSection() {
         style={{
           transitionDelay: entered ? "400ms" : "0ms",
         }}
-        className={`relative mt-6 md:mt-10 overflow-hidden rounded-[28px] border border-[#1f3b64]/30 bg-[linear-gradient(145deg,#0a1931_0%,#0f284e_50%,#08162d_100%)] p-8 md:p-10 text-white shadow-xl transition-all duration-500 ${
+        className={`relative mt-16 md:mt-24 overflow-hidden rounded-[28px] border border-[#1f3b64]/30 bg-[linear-gradient(145deg,#0a1931_0%,#0f284e_50%,#08162d_100%)] p-8 md:p-10 text-white shadow-xl transition-all duration-500 ${
           entered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
         }`}
       >
@@ -921,7 +921,7 @@ function RealEstatePage() {
 
           <FurtherReadingSection audiencePath={seo.path} />
 
-          <section className="rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
+          <section className="mt-16 md:mt-24 rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
             <p className="mx-auto max-w-3xl font-heading text-[19px] font-semibold leading-snug text-white md:text-[23px] md:leading-snug">
               <span className="block">Your next listing should not be cost by an unmanaged search presence.</span>
               <span className="mt-2 block">We make sure it isn&apos;t.</span>
