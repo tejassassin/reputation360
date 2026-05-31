@@ -282,17 +282,14 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
             >
               <div className={CASE_STUDY_CARD_BAR} aria-hidden />
               <div className="flex min-h-0 flex-col gap-0 md:flex-row md:min-h-[12rem]">
-                <div className={`${CASE_STUDY_ENGAGEMENT_PANEL} relative !justify-start overflow-hidden`}>
+                <div className="relative w-full md:w-[30%] shrink-0 overflow-hidden border-b border-green/15 md:border-b-0 md:border-r">
                   <img 
                     src={getCaseStudyImage(study.n)} 
                     alt="" 
-                    className="absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-multiply pointer-events-none"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                   />
-                  <div className="relative z-10 w-full">
-                    <CaseStudyEngagementBlock study={study} />
-                  </div>
                 </div>
-                <div className={CASE_STUDY_HERO_BODY}>
+                <div className={`${CASE_STUDY_HERO_BODY} min-h-0 md:border-r border-green/15`}>
                   <span className="inline-flex w-fit items-center rounded-full bg-gradient-to-r from-navy/10 to-green/10 px-3 py-1 text-[0.65rem] font-extrabold uppercase tracking-wider text-slate ring-1 ring-green/20 sm:text-xs">
                     {study.industry}
                   </span>
@@ -319,6 +316,11 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
                       variant="wide"
                       tone="challenge"
                     />
+                  </div>
+                </div>
+                <div className={`${CASE_STUDY_ENGAGEMENT_PANEL} relative !justify-start overflow-hidden md:w-[25%] md:border-r-0`}>
+                  <div className="relative z-10 w-full">
+                    <CaseStudyEngagementBlock study={study} />
                   </div>
                 </div>
               </div>
