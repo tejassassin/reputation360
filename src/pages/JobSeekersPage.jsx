@@ -455,9 +455,6 @@ function JobSeekersProblemSection() {
         <h3 className="font-heading text-base font-semibold text-[#0f2e58] md:text-lg">
           Where damaging content typically appears:
         </h3>
-        <p className="text-xs font-medium text-[#5d6c80] md:text-[13px]">
-          Tap an icon to see the full context
-        </p>
       </div>
 
       <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_minmax(280px,360px)] lg:items-start">

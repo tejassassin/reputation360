@@ -352,7 +352,6 @@ export const REALISTIC_TIMELINE_PHASES = [
 export const REALISTIC_TIMELINE_DISCLAIMER =
   "Results vary based on the authority of the negative content and the number of negative results; we will give you an honest assessment in your first consultation.";
 
-/** Individuals page only; four-step process shown in Realistic Timeline. */
 export const REALISTIC_TIMELINE_INDIVIDUAL_PHASES = [
   {
     id: "personal-audit",

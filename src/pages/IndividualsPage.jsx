@@ -928,11 +928,9 @@ function IndividualsPage() {
         <IndustryRealisticTimelineSection
           sectionId="individuals-realistic-timeline"
           headingId="individuals-realistic-timeline-heading"
-          phases={REALISTIC_TIMELINE_INDIVIDUAL_PHASES}
           sectionTitleTag="h2"
           sectionTitle="Personal Reputation Repair Timeline"
           phaseDetailTitleTag="h3"
-          phaseHeadingsInRail
         />
 
         <SeeItInActionSection
