@@ -31,6 +31,8 @@ import {
   Check,
   Lock,
   ShieldAlert,
+  Building2,
+  Award,
 } from "lucide-react";
 
 const REAL_ESTATE_PROBLEM_TILES = [
@@ -595,6 +597,95 @@ function RealEstateBusinessImpactSection() {
   );
 }
 
+function RealEstateCareersSection() {
+  const [entered, setEntered] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) setEntered(true);
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.15 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const careerPillars = [
+    {
+      title: "For New Agents: Building Credibility from Zero",
+      text: "Becoming a real estate agent without investing in your online presence is like opening an office with no signage. Potential clients cannot find you — and when they do, there is nothing to build confidence. New agents face unique challenges: no track record to point to, a limited referral network, and immediate competition from established agents. Your digital presence becomes your proof of professionalism before you have the history to speak for itself.",
+      Icon: Award,
+      accentColor: "border-t-[#79df86]",
+      iconBg: "bg-emerald-50 text-emerald-600 border-emerald-100/50",
+    },
+    {
+      title: "For Experienced Agents: Protecting and Leveraging",
+      text: "Established agents often have the business but underestimate how much an unmanaged or damaged search presence is costing them at the margins. Clients who do not call. Referrals that go elsewhere. Top brokerages that look at your digital footprint before they look at your numbers. Your track record means nothing if the first page of results does not reflect it.",
+      Icon: ShieldCheck,
+      accentColor: "border-t-[#2e5b88]",
+      iconBg: "bg-blue-50 text-blue-600 border-blue-100/50",
+    },
+    {
+      title: "For Brokers & Agency Owners: Your Brand Is on the Line",
+      text: "When you run a brokerage, your personal reputation and your business reputation are inseparable. A negative result for your name or your agency affects every agent under your brand, every recruitment conversation, and every new client who searches before signing. The stakes are higher, and the complexity of managing reputation across an organisation is greater — which is why specialist support matters more, not less.",
+      Icon: Building2,
+      accentColor: "border-t-indigo-500",
+      iconBg: "bg-indigo-50 text-indigo-600 border-indigo-100/50",
+    },
+  ];
+
+  return (
+    <section
+      ref={sectionRef}
+      id="real-estate-careers-impact"
+      className="mt-16 md:mt-24 scroll-mt-28 space-y-8"
+    >
+      <div className="max-w-3xl space-y-3">
+        <p className="inline-flex rounded-full bg-[#f0fdf4] border border-emerald-100 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-600 shadow-sm">
+          Career Implications
+        </p>
+        <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1] tracking-tight">
+          How a Poor Online Presence Limits Real Estate Careers
+        </h2>
+        <p className="text-[14px] leading-relaxed text-[#5d6c80] md:text-[15px] md:leading-relaxed">
+          Reputation risk isn&apos;t static. It affects real estate professionals at every stage of their career growth.
+        </p>
+      </div>
+
+      <div className="grid gap-6 md:grid-cols-3">
+        {careerPillars.map((pillar, i) => {
+          const Icon = pillar.Icon;
+          return (
+            <article
+              key={i}
+              style={{
+                transitionDelay: entered ? `${i * 100}ms` : "0ms",
+              }}
+              className={`group ha-lift rounded-2xl border border-[#dfe6ee] border-t-4 ${pillar.accentColor} bg-white p-6 md:p-7 shadow-sm hover:border-[#1f3b64]/25 hover:shadow-md transition-all duration-300 ${
+                entered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+              }`}
+            >
+              <div className={`flex h-11 w-11 items-center justify-center rounded-xl border ${pillar.iconBg} mb-5 shadow-sm transition-transform duration-200 group-hover:scale-105`}>
+                <Icon className="h-5.5 w-5.5" aria-hidden />
+              </div>
+              <h3 className="font-heading font-bold text-[17px] md:text-[18px] text-[#0f2e58] group-hover:text-[#1f3b64] transition-colors leading-snug">
+                {pillar.title}
+              </h3>
+              <p className="mt-3.5 text-[14px] md:text-[15px] text-[#4f5f75] leading-relaxed">
+                {pillar.text}
+              </p>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 function RealEstateChecklistSection() {
   const [entered, setEntered] = useState(false);
   const sectionRef = useRef(null);
@@ -855,51 +946,7 @@ function RealEstatePage() {
             </div>
           </section>
 
-          <section className="mt-12 scroll-mt-28 space-y-8" id="real-estate-careers-impact">
-            <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-              How a Poor Online Presence Limits Real Estate Careers
-            </h2>
-            <div className="grid gap-6 md:grid-cols-3">
-              <article className="rounded-2xl border border-[#dfe6ee] bg-white p-6 shadow-sm">
-                <h3 className="font-heading text-lg font-bold text-[#0f2e58]">
-                  For New Agents: Building Credibility from Zero
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#4f5f75]">
-                  Becoming a real estate agent without investing in your online presence is like
-                  opening an office with no signage. Potential clients cannot find you — and when
-                  they do, there is nothing to build confidence. New agents face unique challenges: no
-                  track record to point to, a limited referral network, and immediate competition
-                  from established agents. Your digital presence becomes your proof of
-                  professionalism before you have the history to speak for itself.
-                </p>
-              </article>
-              <article className="rounded-2xl border border-[#dfe6ee] bg-white p-6 shadow-sm">
-                <h3 className="font-heading text-lg font-bold text-[#0f2e58]">
-                  For Experienced Agents: Protecting and Leveraging
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#4f5f75]">
-                  Established agents often have the business but underestimate how much an unmanaged or
-                  damaged search presence is costing them at the margins. Clients who do not call.
-                  Referrals that go elsewhere. Top brokerages that look at your digital footprint
-                  before they look at your numbers. Your track record means nothing if the first page
-                  of results does not reflect it.
-                </p>
-              </article>
-              <article className="rounded-2xl border border-[#dfe6ee] bg-white p-6 shadow-sm">
-                <h3 className="font-heading text-lg font-bold text-[#0f2e58]">
-                  For Brokers & Agency Owners: Your Brand Is on the Line
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#4f5f75]">
-                  When you run a brokerage, your personal reputation and your business reputation are
-                  inseparable. A negative result for your name or your agency affects every agent
-                  under your brand, every recruitment conversation, and every new client who searches
-                  before signing. The stakes are higher, and the complexity of managing reputation
-                  across an organisation is greater — which is why specialist support matters more, not
-                  less.
-                </p>
-              </article>
-            </div>
-          </section>
+          <RealEstateCareersSection />
 
           <RealEstateProblemSection />
 
