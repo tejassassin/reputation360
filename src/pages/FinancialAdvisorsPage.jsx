@@ -322,6 +322,7 @@ function FinancialAdvisorsScaleSection() {
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0a2038] text-[#8ce596] shadow-inner shadow-black/20">
                   <Icon className="h-5 w-5" aria-hidden />
                 </span>
+                <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{m.blurb}</h3>
                 <span className="mt-4 font-heading text-[28px] font-bold leading-none tracking-tight text-white tabular-nums md:text-[34px]">
                   {m.figure}
                 </span>
@@ -438,6 +439,7 @@ function FinancialAdvisorsWhyHarderSection() {
                     absoluteStrokeWidth
                   />
                 </span>
+                <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{p.label}</h3>
                 <span className="mt-3 font-heading text-[13px] font-semibold leading-tight text-[#0f2e58] md:text-sm">
                   {p.label}
                 </span>
@@ -604,9 +606,9 @@ function FinancialAdvisorsPage() {
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 shrink-0">{item.icon}</div>
                   <div>
-                    <h3 className="text-[15px] md:text-[16px] leading-tight font-semibold text-[#1f3b64]">
+                    <p className="text-[15px] md:text-[16px] leading-tight font-semibold text-[#1f3b64]">
                       {item.title}
-                    </h3>
+                    </p>
                     <p className="mt-1.5 text-[12px] md:text-[13px] leading-[1.5] text-[#5d6c80]">
                       {item.text}
                     </p>
@@ -697,7 +699,7 @@ function FinancialAdvisorsPage() {
           steps={REPUTATION360_FINANCIAL_ADVISOR_STEPS}
           sectionTitle="Our Financial Advisor Reputation Management Service"
           sectionTitleTag="h2"
-          stepDetailTitleTag="h3"
+          stepDetailTitleTag="p"
         />
 
         <FinancialAdvisorsMarketInsightBanner />

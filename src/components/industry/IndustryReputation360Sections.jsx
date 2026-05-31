@@ -663,13 +663,16 @@ export function IndustryRealisticTimelineSection({
                       />
                     </span>
                     {!railPhaseHeadings ? (
-                      <span
-                        className={`mt-2 max-w-[7.5rem] text-center font-heading text-[10px] font-bold leading-tight tracking-wide md:max-w-none md:text-[11px] ${
-                          selected ? "text-[#0f2e58]" : "text-[#5d6c80]"
-                        }`}
-                      >
-                        {p.window}
-                      </span>
+                      <>
+                        <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{p.window}</h3>
+                        <span
+                          className={`mt-2 max-w-[7.5rem] text-center font-heading text-[10px] font-bold leading-tight tracking-wide md:max-w-none md:text-[11px] ${
+                            selected ? "text-[#0f2e58]" : "text-[#5d6c80]"
+                          }`}
+                        >
+                          {p.window}
+                        </span>
+                      </>
                     ) : null}
                   </button>
                   {railPhaseHeadings ? (
