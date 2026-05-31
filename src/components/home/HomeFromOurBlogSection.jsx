@@ -37,7 +37,7 @@ export function HomeFromOurBlogSection({ id = "from-our-blog", className = "" })
               id="from-our-blog-heading"
               className="font-heading text-[28px] font-bold leading-[1.1] text-[#0f2e58] md:text-[36px]"
             >
-              From Our Blog
+              Reputation Management Insights & Guides
             </h2>
             <p className="mt-3 text-[16px] leading-[1.65] text-[#4a5d75] md:text-[17px]">
               {HOME_FROM_OUR_BLOG_SUBHEADING}

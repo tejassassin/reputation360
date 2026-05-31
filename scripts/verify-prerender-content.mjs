@@ -95,7 +95,7 @@ for (const pathname of prerenderPaths()) {
 
   const hasPrerenderHeading =
     /<article[^>]*id="r360-prerender"[\s\S]*<h1[\s>]/i.test(html) ||
-    (pathname === "/" && html.includes("From Our Blog")) ||
+    (pathname === "/" && html.includes("Reputation Management Insights & Guides")) ||
     (pathname === "/services" && html.includes("See It In Action")) ||
     (pathname === "/about" && html.includes("Our Work in Action"));
   if (!hasPrerenderHeading) {
@@ -157,8 +157,8 @@ for (const pathname of prerenderPaths()) {
   }
 
   if (pathname === "/") {
-    if (!html.includes("From Our Blog")) {
-      console.error(`verify-prerender-content: ${rel} missing From Our Blog section`);
+    if (!html.includes("Reputation Management Insights & Guides")) {
+      console.error(`verify-prerender-content: ${rel} missing Reputation Management Insights & Guides section`);
       failed = true;
     } else if (!html.includes("remove-negative-search-results-from-google")) {
       console.error(
