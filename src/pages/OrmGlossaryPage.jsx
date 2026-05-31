@@ -47,28 +47,28 @@ function GlossaryAnswer({ blocks }) {
 function GlossarySection({ id, title, description, items, defaultOpenFirst = false }) {
   return (
     <section id={id} className="scroll-mt-36">
-      <div className="mb-8 flex flex-wrap items-start justify-between gap-4">
-        <div className="min-w-0">
-          <div className="mb-4 flex items-center gap-4">
+      <div className="mb-8">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+          <div className="flex items-center gap-4">
             <span className="h-0.5 w-12 bg-[#4CAF50]" />
             <h2 className="font-headline-faq text-3xl font-bold tracking-tight text-[#2E5B88]">
               {title}
             </h2>
           </div>
-          <p className="max-w-3xl text-base leading-relaxed text-[#6B7280] md:text-lg">
-            {description}
-          </p>
+          <div className="inline-flex shrink-0 items-center gap-2.5 rounded-full border border-[#1F3B64]/10 bg-white/80 backdrop-blur-sm px-4 py-2 shadow-sm transition-all duration-300 hover:border-[#4CAF50]/30 hover:shadow-md hover:bg-white">
+            <BookOpen className="h-4 w-4 text-[#4CAF50] transition-transform duration-300" />
+            <div className="h-4 w-px bg-[#1F3B64]/15" />
+            <span className="font-headline-faq text-base font-extrabold text-[#1F3B64]">
+              {String(items.length).padStart(2, "0")}
+            </span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
+              terms
+            </span>
+          </div>
         </div>
-        <div className="inline-flex shrink-0 items-center gap-2.5 rounded-full border border-[#1F3B64]/10 bg-white/80 backdrop-blur-sm px-4 py-2 shadow-sm transition-all duration-300 hover:border-[#4CAF50]/30 hover:shadow-md hover:bg-white">
-          <BookOpen className="h-4 w-4 text-[#4CAF50] transition-transform duration-300" />
-          <div className="h-4 w-px bg-[#1F3B64]/15" />
-          <span className="font-headline-faq text-base font-extrabold text-[#1F3B64]">
-            {String(items.length).padStart(2, "0")}
-          </span>
-          <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B7280]">
-            terms
-          </span>
-        </div>
+        <p className="max-w-3xl text-base leading-relaxed text-[#6B7280] md:text-lg">
+          {description}
+        </p>
       </div>
       <div className="space-y-4">
         {items.map((item, index) => (
