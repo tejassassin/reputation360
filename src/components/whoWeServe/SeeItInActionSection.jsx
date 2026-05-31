@@ -38,16 +38,18 @@ export function SeeItInActionStoryCard({
       <a
         href={href}
         {...internalAnchorProps(href)}
-        className={`group flex h-full ${widthClass} flex-col rounded-2xl border border-[#0f2e58]/10 bg-white p-6 text-left no-underline shadow-[0_16px_48px_-24px_rgba(15,46,88,0.28)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#79df86]/40 hover:shadow-[0_28px_60px_-22px_rgba(15,46,88,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#79df86] focus-visible:ring-offset-2 md:p-7 relative overflow-hidden`}
+        className={`group flex h-full ${widthClass} flex-col rounded-2xl border border-[#0f2e58]/10 bg-white text-left no-underline shadow-[0_16px_48px_-24px_rgba(15,46,88,0.28)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#79df86]/40 hover:shadow-[0_28px_60px_-22px_rgba(15,46,88,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#79df86] focus-visible:ring-offset-2 relative overflow-hidden`}
       >
         {withImage && study && (
-          <img 
-            src={getCaseStudyImage(study.n)} 
-            alt="" 
-            className="absolute inset-0 w-full h-full object-cover opacity-[0.08] mix-blend-multiply pointer-events-none z-0"
-          />
+          <div className="h-48 w-full shrink-0 overflow-hidden border-b border-[#0f2e58]/5 sm:h-52">
+            <img 
+              src={getCaseStudyImage(study.n)} 
+              alt="" 
+              className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          </div>
         )}
-        <div className="relative z-10 flex h-full flex-col">
+        <div className="flex h-full flex-1 flex-col p-6 md:p-7">
           <div className="flex items-center justify-between gap-3">
           <span className="rounded-full bg-[#79df86]/15 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[#1a5c38] md:text-xs">
             Case study
