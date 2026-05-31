@@ -336,7 +336,7 @@ export function RbsTwoKindsSection() {
 
           <RbsReveal delay={0.05} className="mt-9">
             <div className="rounded-r-[12px] rounded-l-none border-l-[3px] border-[#4CAF50] bg-white px-[26px] py-[22px] shadow-[0_1px_4px_rgba(0,0,0,0.05)]">
-              <p className="text-[15.5px] leading-[1.75] text-[#374151]">
+              <p className="text-[17px] leading-[1.75] text-[#374151]">
                 {introBody}{" "}
                 <span className="font-medium text-[#1F3B64]">{introEmphasis}</span>
               </p>
@@ -391,7 +391,7 @@ export function RbsTwoKindsSection() {
                 {card.heading}
               </h3>
               <p
-                className={`relative mt-3.5 max-w-[34rem] text-[14.5px] leading-[1.75] ${
+                className={`relative mt-3.5 max-w-[34rem] text-[16.5px] leading-[1.75] ${
                   card.id === "deep"
                     ? workFocus === card.id
                       ? "text-white/88"
@@ -428,7 +428,7 @@ export function RbsTwoKindsSection() {
                         className="mt-[7px] h-[7px] w-[7px] shrink-0 rounded-full bg-[#4CAF50] transition-all duration-300 group-hover:scale-[1.45] group-hover:bg-[#2E5B88] group-hover:shadow-[0_0_0_6px_rgba(76,175,80,0.12)]"
                         aria-hidden
                       />
-                      <div className="text-[15px] leading-[1.65] text-[#374151] transition-colors duration-300 group-hover:text-[#2f445f]">
+                      <div className="text-[16.5px] leading-[1.65] text-[#374151] transition-colors duration-300 group-hover:text-[#2f445f]">
                         <span className="transition-colors duration-300 group-hover:text-[#33465f]">
                           {lead}
                         </span>
@@ -444,7 +444,7 @@ export function RbsTwoKindsSection() {
                 })}
               </div>
               <div className="mb-[22px] mt-[26px] h-px bg-[#E5E7EB]" aria-hidden />
-              <p className="font-heading text-[15.5px] font-semibold text-[#1F3B64]">
+              <p className="font-heading text-[17px] font-semibold text-[#1F3B64]">
                 {RBS_TWO_KINDS.closing}
               </p>
             </div>
@@ -565,72 +565,71 @@ export function RbsFrameworkSection() {
       </div>
 
       <div className="mt-12">
-        <RbsReveal className="max-w-[960px]">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#4CAF50]">
-            {RBS_WHY_EXIST.eyebrow}
-          </p>
-          <h3 className="mt-3 font-heading text-[2.25rem] font-bold leading-[1.2] text-[#1F3B64] md:text-[2.4rem]">
-            {RBS_WHY_EXIST.title}
-          </h3>
-          <div className="mt-3 h-[3px] w-12 rounded-full bg-[#4CAF50]" aria-hidden />
-          <p className="mt-9 max-w-none text-base leading-[1.75] text-[#374151]">
-            {RBS_WHY_EXIST.intro.replace(` ${RBS_WHY_EXIST.introEmphasis}`, "")}{" "}
-            <span className="font-medium text-[#1F3B64]">{RBS_WHY_EXIST.introEmphasis}</span>
-          </p>
+        <RbsReveal className="max-w-[900px]">
+          <div className="mb-14">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#4CAF50]">
+              {RBS_WHY_EXIST.eyebrow}
+            </p>
+            <h3 className="mt-[14px] font-heading text-[2.5rem] font-bold leading-[1.15] text-[#1F3B64]">
+              {RBS_WHY_EXIST.title}
+            </h3>
+            <div className="mt-5 h-[3px] w-12 rounded-full bg-[#4CAF50]" aria-hidden />
+            <p className="mt-6 max-w-[620px] text-[16.5px] leading-[1.8] text-[#4B5563]">
+              {RBS_WHY_EXIST.intro.replace(` ${RBS_WHY_EXIST.introEmphasis}`, "")}{" "}
+              <span className="font-medium text-[#1F3B64]">{RBS_WHY_EXIST.introEmphasis}</span>
+            </p>
+          </div>
         </RbsReveal>
 
-        <div className="mt-8 flex max-w-[960px] flex-col gap-4">
-          {RBS_WHY_EXIST.scenarios.map((scenario, index) => (
-            <RbsHoverCard
-              key={scenario.audience}
-              delay={index * 0.06}
-              hoverY={-4}
-              hoverScale={1.004}
-              className="group rounded-[16px] border border-[#E5E7EB] bg-white px-8 py-8 shadow-[0_1px_4px_rgba(0,0,0,0.05)]"
-            >
-              <div className="grid gap-7 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
-                <div>
+        <RbsReveal delay={0.06} className="max-w-[900px]">
+          <div className="overflow-hidden rounded-t-[16px]">
+            <div className="grid gap-[2px] md:grid-cols-2">
+              {RBS_WHY_EXIST.scenarios.map((scenario, index) => (
+                <Motion.div
+                  key={scenario.audience}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={rbsInView}
+                  transition={{ duration: 0.46, delay: 0.1 + index * 0.08, ease: rbsEase }}
+                  className="relative flex h-full flex-col overflow-hidden bg-white px-9 py-10"
+                >
+                  <div className="absolute inset-x-0 top-0 h-1 bg-[#4CAF50]" aria-hidden />
                   <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.22em] text-[#4CAF50]">
                     {scenario.eyebrow}
                   </p>
-                  <h4 className="mt-3 max-w-[30rem] font-heading text-[1.7rem] font-bold leading-[1.2] text-[#1F3B64]">
+                  <h4 className="mt-[10px] max-w-[20rem] font-heading text-[22px] font-bold leading-[1.2] text-[#1F3B64]">
                     {scenario.audience}
                   </h4>
-                  <p className="mt-5 max-w-[34rem] text-[15px] leading-[1.8] text-[#4B5563]">
-                    {scenario.text}
-                  </p>
-                </div>
-                <div className="justify-self-start md:justify-self-end">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-[#1F3B64] px-5 py-2.5 font-heading text-[12px] font-semibold tracking-[0.02em] text-white">
-                    {scenario.tag}
-                    <span className="text-[#4CAF50] transition-transform duration-300 group-hover:translate-x-0.5">
-                      &rarr;
-                    </span>
-                  </span>
-                </div>
-              </div>
+                  <p className="mt-5 text-[14.5px] leading-[1.8] text-[#4B5563]">{scenario.text}</p>
 
-              <div className="mt-7">
-                <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B7280]">
-                  {scenario.whereLabel}
-                </p>
-                <div className="mt-3 flex flex-col gap-2.5">
-                  {scenario.signals.map((signal) => (
-                    <div key={signal} className="flex items-center gap-3 text-[14px] text-[#374151]">
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#4CAF50]" aria-hidden />
-                      <span>{signal}</span>
+                  <div className="mt-7">
+                    <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B7280]">
+                      {scenario.whereLabel}
+                    </p>
+                    <div className="mt-3 flex flex-col gap-2">
+                      {scenario.signals.map((signal) => (
+                        <div key={signal} className="flex items-center gap-[10px] text-[13.5px] text-[#374151]">
+                          <span className="h-[6px] w-[6px] shrink-0 rounded-full bg-[#4CAF50]" aria-hidden />
+                          <span>{signal}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
-            </RbsHoverCard>
-          ))}
-        </div>
+                  </div>
 
-        <RbsReveal delay={0.14} className="mt-7 max-w-[960px]">
-          <div className="flex items-center gap-5 rounded-[12px] bg-[#1F3B64] px-8 py-8 shadow-[0_12px_32px_rgba(27,49,82,0.22)]">
-            <div className="h-12 w-1 shrink-0 rounded-full bg-[#4CAF50]" aria-hidden />
-            <p className="font-heading text-[16px] font-semibold leading-[1.6] text-white">
+                  <div className="mt-7">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-[#1F3B64] px-[18px] py-[10px] font-heading text-[12px] font-semibold tracking-[0.02em] text-white">
+                      {scenario.tag}
+                      <span className="text-[14px] text-[#4CAF50]">&rarr;</span>
+                    </span>
+                  </div>
+                </Motion.div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-[4px_1fr] items-center gap-7 rounded-b-[16px] bg-[#1F3B64] px-10 py-10">
+            <div className="min-h-[60px] self-stretch rounded-full bg-[#4CAF50]" aria-hidden />
+            <p className="font-heading text-[18px] font-semibold leading-[1.65] text-white">
               {RBS_WHY_EXIST.conclusion.replace(` ${RBS_WHY_EXIST.conclusionEmphasis}`, "")}{" "}
               <span className="text-[#4CAF50]">{RBS_WHY_EXIST.conclusionEmphasis}</span>
             </p>
