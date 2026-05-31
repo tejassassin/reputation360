@@ -1554,7 +1554,7 @@ function AboutPage() {
             <h2
               className={`${headlineFont} text-3xl font-extrabold text-[#1F3B64] md:text-[2.1rem]`}
             >
-              Who We Serve
+              Who We Serve: Reputation Management for Professionals & Businesses
             </h2>
           </Motion.div>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
