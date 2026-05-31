@@ -638,7 +638,7 @@ export function OrmRankingFactorsSection() {
               >
                 <Icon className="h-5 w-5" aria-hidden strokeWidth={2} />
               </span>
-              <h3 className="font-heading text-sm font-bold leading-snug">{f.label}</h3>
+              <span className="font-heading text-sm font-bold leading-snug">{f.label}</span>
             </button>
           );
         })}
@@ -660,6 +660,7 @@ export function OrmRankingFactorsSection() {
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#1f3b64] text-white shadow-sm">
               <ActiveIcon className="h-5 w-5" aria-hidden strokeWidth={2} />
             </span>
+            <h3 className="font-heading text-xl font-bold text-navy">{factor.label}</h3>
           </div>
           <div className="mt-5 grid gap-5 md:grid-cols-2 md:gap-6">
             <div>
@@ -912,9 +913,6 @@ export function OrmProcessSection() {
                   selected ? "bg-[#f2f5ff]" : "bg-white hover:bg-[#f8fafc]"
                 }`}
               >
-                <h3 className="sr-only">
-                  Phase {num}: {p.title}
-                </h3>
                 <span
                   className={`inline-flex rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] transition-colors duration-300 md:text-xs ${
                     selected ? "bg-navy text-white" : "bg-navy/8 text-navy/55"
@@ -966,6 +964,9 @@ export function OrmProcessSection() {
                   {phase.timespan}
                 </span>
               </div>
+              <h3 className="mt-4 font-heading text-xl font-bold text-navy md:text-2xl">
+                Phase {phaseNum}: {phase.title}
+              </h3>
               <p className="mt-4 w-full max-w-none text-base leading-relaxed text-navy/75 md:text-lg md:leading-relaxed">
                 {phase.body}
               </p>

@@ -6,6 +6,19 @@ import {
 import { ORM_FAQS } from "../../data/services/onlineReputationManagementInteractive.js";
 
 export function ormServicePageToHtml() {
+  const sectionBodiesById = {
+    "ranking-factors": `
+        <h3>Relevance</h3>
+        <h3>Authority</h3>
+        <h3>Experience</h3>
+        <h3>Timeliness</h3>`,
+    process: `
+        <h3>Phase 01: Audit and Launch</h3>
+        <h3>Phase 02: Early Movement</h3>
+        <h3>Phase 03: Significant Shift</h3>
+        <h3>Phase 04: Full Transformation</h3>`,
+  };
+
   const tocHtml = ORM_GUIDE_NAV.map(
     (item) =>
       `<li><a href="#${item.id}">${escapeHtml(item.label)}</a></li>`,
@@ -15,6 +28,7 @@ export function ormServicePageToHtml() {
     (item) => `
       <section id="${item.id}" class="orm-section">
         <h2>${escapeHtml(item.label)}</h2>
+        ${sectionBodiesById[item.id] ?? ""}
       </section>`,
   ).join("\n");
 
