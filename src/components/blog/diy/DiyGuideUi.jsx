@@ -306,14 +306,14 @@ export function StepPicker({
                 {active.timespan}
               </p>
             ) : null}
-            <h4
+            <h3
               className={cn(
                 "font-heading text-base font-bold text-navy sm:text-lg",
                 active.timespan ? "mt-1" : "",
               )}
             >
               {renderTitle ? renderTitle(active) : active.title}
-            </h4>
+            </h3>
             <div className="mt-2 font-body text-sm leading-relaxed text-jet sm:text-base">
               {renderBody ? (
                 renderBody(active)

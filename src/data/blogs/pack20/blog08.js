@@ -329,7 +329,7 @@ export const article = {
   ],
   faqs: CRISIS_MANAGEMENT_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "If active crisis content is indexing today, parallel search and communications planning should start now through our Online Reputation Management services - not after legal or PR cycles finish.",
     leadParts: [

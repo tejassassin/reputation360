@@ -86,12 +86,12 @@ export function BlogShareSection({ title, canonicalPath, className = "" }) {
       )}
       aria-labelledby="blog-share-heading"
     >
-      <h2
+      <p
         id="blog-share-heading"
         className="font-heading text-[22px] font-bold leading-tight text-[#0f2e58] md:text-[26px]"
       >
         Share this article
-      </h2>
+      </p>
       <p className="mt-2 max-w-lg font-body text-sm text-steel md:text-base">
         Found it useful? Share it with a colleague or save the link for later.
       </p>

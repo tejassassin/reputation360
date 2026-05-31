@@ -111,9 +111,9 @@ function ContentTypePicker({ items, pillKey, pillState, setPillState, renderBody
         </div>
         <div className="min-w-0 flex-1">
           {active?.title ? (
-            <h4 className="font-heading text-lg font-bold leading-snug text-navy sm:text-xl">
+            <h3 className="font-heading text-lg font-bold leading-snug text-navy sm:text-xl">
               <Pack20RichText text={active.title} parts={active.titleParts} />
-            </h4>
+            </h3>
           ) : null}
           <p className="mt-3 font-body text-base leading-relaxed text-steel">
             {renderBody && active ? renderBody(active) : active?.body}
@@ -371,7 +371,7 @@ export function Pack20Blocks({
               key={item.title}
               className="ha-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm motion-reduce:transform-none"
             >
-              <h4 className="mb-2 font-heading text-base font-bold text-navy">{item.title}</h4>
+              <h3 className="mb-2 font-heading text-base font-bold text-navy">{item.title}</h3>
               <p className="font-body text-sm leading-relaxed text-steel">
                 <Pack20RichText text={item.body} parts={item.parts} />
               </p>

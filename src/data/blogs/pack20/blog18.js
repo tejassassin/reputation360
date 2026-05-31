@@ -303,7 +303,7 @@ export const article = {
   ],
   faqs: MONITORING_REPUTATION_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "Reputation360 provides continuous monitoring and immediate response capability for all active clients. Learn what professional monitoring looks like for your situation.",
   },

@@ -317,7 +317,7 @@ export const article = {
   ],
   faqs: SOCIAL_MEDIA_REPUTATION_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "We will audit your social media presence across all major platforms, identify vulnerabilities, and build a multi-platform reputation strategy.",
   },

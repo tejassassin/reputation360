@@ -396,7 +396,7 @@ export const article = {
   ],
   faqs: ORM_BEST_PRACTICES_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "We will walk you through exactly how our methodology applies to your situation and what results are realistically achievable.",
   },

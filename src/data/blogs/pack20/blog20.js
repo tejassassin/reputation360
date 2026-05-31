@@ -346,7 +346,7 @@ export const article = {
   ],
   faqs: AI_SEARCH_REPUTATION_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "Find out what AI tools say about you today and what it would take to improve it. Reputation360 offers a comprehensive AI search reputation assessment.",
   },

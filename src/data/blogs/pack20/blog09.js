@@ -331,7 +331,7 @@ export const article = {
   ],
   faqs: LINKEDIN_OPTIMIZATION_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "Search your exact name in an incognito window, open your LinkedIn URL, and compare what Google shows versus what your profile delivers. We can audit gaps field by field through our reputation management services.",
     leadParts: [

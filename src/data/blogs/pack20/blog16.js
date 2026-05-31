@@ -301,7 +301,7 @@ export const article = {
   ],
   faqs: ROI_REPUTATION_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "Book a consultation and we will build a custom return-on-investment analysis for your situation - career, business, or crisis context.",
   },

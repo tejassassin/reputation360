@@ -288,7 +288,7 @@ export const article = {
   ],
   faqs: FIRST_GOOGLE_RESULTS_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "See your current first result and what it would take to change it. We specialize in moving the right content to position 1 for your name.",
   },

@@ -384,7 +384,7 @@ export const article = {
   ],
   faqs: OWN_FIRST_PAGE_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "Book a consultation to map your current first page and build a custom ownership strategy for your name or brand. Browse more client outcomes to see what full first-page ownership looks like in practice.",
     leadParts: [

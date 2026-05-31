@@ -274,7 +274,7 @@ export const article = {
   ],
   faqs: HIDDEN_COST_REPUTATION_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "Estimate what your current search results are costing you, then book a consultation to see what can be done about it.",
   },

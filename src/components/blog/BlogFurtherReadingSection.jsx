@@ -25,7 +25,7 @@ export function BlogFurtherReadingSection({ blogPath, className = "" }) {
             id="further-reading-heading"
             className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
           >
-            Related Readings
+            Related Reputation Management Articles
           </h2>
         </div>
         <a
@@ -45,6 +45,7 @@ export function BlogFurtherReadingSection({ blogPath, className = "" }) {
             href={link.href}
             label={link.label}
             layout="grid"
+            titleTag="h3"
           />
         ))}
       </ul>

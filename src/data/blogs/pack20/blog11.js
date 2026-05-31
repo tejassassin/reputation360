@@ -356,7 +356,7 @@ export const article = {
   ],
   faqs: JOB_INTERVIEW_REPUTATION_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "In an active job search with limited time? We can begin building your positive search profile within 48 hours and map what is realistic before your next interview. See how we've handled similar cases when serious negatives are on page one.",
     leadParts: [

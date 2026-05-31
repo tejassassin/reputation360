@@ -326,7 +326,7 @@ export const article = {
   ],
   faqs: REMOVAL_VS_SUPPRESSION_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "Tell us what you are dealing with. We will assess your removal options and outline a suppression strategy in the same conversation through our Online Reputation Management services.",
     leadParts: [

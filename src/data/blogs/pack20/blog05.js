@@ -324,7 +324,7 @@ export const article = {
   ],
   faqs: OLD_SOCIAL_POSTS_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "Find out exactly what social media content is currently indexed under your name. We will identify every indexing issue and outline a practical cleanup or suppression plan through our Online Reputation Management services.",
     leadParts: [

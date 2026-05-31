@@ -313,7 +313,7 @@ export const article = {
   ],
   faqs: SUPPRESS_FRAMEWORK_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "See exactly what Google shows for your name today and which suppression levers apply to your situation.",
   },

@@ -258,7 +258,7 @@ export const article = {
   ],
   faqs: NEGATIVE_LINKS_CASES_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "Describe the negative link and what it is costing you. We will assess what movement is realistic and on what timeline through our Online Reputation Management services.",
     leadParts: [

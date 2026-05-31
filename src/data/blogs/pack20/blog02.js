@@ -323,7 +323,7 @@ export const article = {
   ],
   faqs: RANK_POSITIVE_CONTENT_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "Get a clear audit of what ranks today for your name or brand and which content assets will outrank your highest-priority negatives. If you want support from a team with seven years doing this for more than 1,100 clients, explore our Online Reputation Management services.",
     leadParts: [

@@ -278,7 +278,7 @@ export const article = {
   ],
   faqs: PROFILE_CLAIMING_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "We will identify which key profiles are unclaimed for your name and build a prioritized claiming and optimization plan through our reputation management services.",
     leadParts: [

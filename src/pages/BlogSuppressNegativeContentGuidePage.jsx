@@ -482,9 +482,9 @@ export default function BlogSuppressNegativeContentGuidePage() {
           <div className="flex flex-col gap-8 pb-4 lg:flex-row lg:gap-0">
             {/* Left: Guide index */}
             <aside className="hidden w-64 shrink-0 lg:sticky lg:top-28 lg:block lg:h-[calc(100dvh-8rem)] lg:overflow-y-auto lg:border-r lg:border-slate-200/80 lg:pr-6 lg:pt-2">
-              <h4 className="mb-4 font-heading text-xs font-bold tracking-widest text-steel uppercase">
+              <h3 className="mb-4 font-heading text-xs font-bold tracking-widest text-steel uppercase">
                 Guide Index
-              </h4>
+              </h3>
               <nav className="flex flex-col gap-1 text-sm text-steel" aria-label="Guide index">
                 {GUIDE_NAV.map(({ id, label }) => (
                   <a
@@ -894,9 +894,9 @@ export default function BlogSuppressNegativeContentGuidePage() {
                 >
                   {activeScenario === "chen" ? (
                     <div id="chen">
-                      <h4 className="mb-5 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
+                      <h3 className="mb-5 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
                         Case 1: Dr. Sarah Chen - How to Remove Negative Articles from Google (#2 Ranking)
-                      </h4>
+                      </h3>
                       <p className="font-body leading-relaxed text-steel">
                         Our negative content suppression strategy involved creating a series of high-authority medical
                         guides on her own .com domain and establishing her as a contributor on Healthline. Within 180
@@ -906,11 +906,11 @@ export default function BlogSuppressNegativeContentGuidePage() {
                     </div>
                   ) : activeScenario === "johnson" ? (
                     <div id="johnson">
-                      <h4 className="mb-5 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
+                      <h3 className="mb-5 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
                         Case 2:{" "}
                         <DiyInternalLink href={AUDIENCE_PATH.lawyers}>Attorney Marcus Johnson</DiyInternalLink> -
                         Reputation Recovery from Negative Press
-                      </h4>
+                      </h3>
                       <p className="font-body leading-relaxed text-steel">
                         An old, dismissed legal dispute continued surfacing on Google when potential clients searched his
                         name. Our reputation recovery strategy involved identifying which negative articles and links were
@@ -921,11 +921,11 @@ export default function BlogSuppressNegativeContentGuidePage() {
                     </div>
                   ) : (
                     <div id="mitchell">
-                      <h4 className="mb-5 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
+                      <h3 className="mb-5 font-heading text-lg font-bold leading-snug text-navy md:text-xl">
                         Case 3:{" "}
                         <DiyInternalLink href={AUDIENCE_PATH.executives}>Sarah Mitchell, Founder</DiyInternalLink> -
                         Executive Reputation Management
-                      </h4>
+                      </h3>
                       <p className="font-body leading-relaxed text-steel">
                         As a founder scaling her SaaS company, Sarah needed to establish thought leadership while
                         suppressing an old blog post about a failed startup. Our executive reputation management service

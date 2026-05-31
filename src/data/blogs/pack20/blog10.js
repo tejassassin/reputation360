@@ -319,7 +319,7 @@ export const article = {
   ],
   faqs: RECRUITERS_GOOGLE_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "Find out exactly what a recruiter finds when they search your name. We will map your current results and show you what needs to change.",
   },

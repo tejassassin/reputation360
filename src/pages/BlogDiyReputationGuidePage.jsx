@@ -160,9 +160,9 @@ export default function BlogDiyReputationGuidePage() {
         <div className="mx-auto max-w-[min(100%,90rem)] px-4 pb-4 pt-8 sm:px-6 sm:pt-10 lg:px-8 lg:pt-12">
           <div className="flex flex-col gap-8 pb-4 lg:flex-row lg:gap-0">
             <aside className="hidden w-64 shrink-0 lg:sticky lg:top-28 lg:block lg:h-[calc(100dvh-8rem)] lg:overflow-y-auto lg:border-r lg:border-slate-200/80 lg:pr-6 lg:pt-2">
-              <h4 className="mb-4 font-heading text-xs font-bold tracking-widest text-steel uppercase">
+              <h3 className="mb-4 font-heading text-xs font-bold tracking-widest text-steel uppercase">
                 Guide Index
-              </h4>
+              </h3>
               <nav className="flex flex-col gap-1 text-sm text-steel" aria-label="Guide index">
                 {DIY_GUIDE_NAV.map(({ id, label }) => (
                   <a
@@ -269,9 +269,9 @@ export default function BlogDiyReputationGuidePage() {
                   ))}
                 </div>
                 <div className="my-8 max-w-3xl">
-                  <h4 className="mb-4 font-heading text-lg font-bold text-navy">
+                  <h3 className="mb-4 font-heading text-lg font-bold text-navy">
                     Why Platform Choice Matters
-                  </h4>
+                  </h3>
                   <div className="space-y-4 font-body text-base leading-relaxed text-steel">
                     {CONTENT_PLATFORMS_WHY.map((paragraph) => (
                       <p key={paragraph}>{paragraph}</p>
@@ -280,9 +280,9 @@ export default function BlogDiyReputationGuidePage() {
                 </div>
 
                 <div className="my-8">
-                  <h4 className="mb-4 font-heading text-lg font-bold text-navy">
+                  <h3 className="mb-4 font-heading text-lg font-bold text-navy">
                     Strategy for Maximum Impact
-                  </h4>
+                  </h3>
                   <DiyDoAvoidSection
                     doItems={CONTENT_PLATFORMS_STRATEGY_DO}
                     avoidItems={CONTENT_PLATFORMS_STRATEGY_AVOID}
@@ -616,7 +616,7 @@ export default function BlogDiyReputationGuidePage() {
               </section>
 
               <BlogGuideCtaSection
-                sectionTitle="Take the next step"
+                sectionTitle="Start Managing Your Online Reputation Today"
                 sectionLead="Start with a free scan to see what ranks for your name, or book a consultation for a personalized plan."
               />
 

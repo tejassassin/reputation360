@@ -138,9 +138,9 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
         <div className="mx-auto max-w-[min(100%,90rem)] px-4 pb-4 pt-8 sm:px-6 sm:pt-10 lg:px-8 lg:pt-12">
           <div className="flex flex-col gap-8 pb-4 lg:flex-row lg:gap-0">
             <aside className="hidden w-64 shrink-0 lg:sticky lg:top-28 lg:block lg:h-[calc(100dvh-8rem)] lg:overflow-y-auto lg:border-r lg:border-slate-200/80 lg:pr-6 lg:pt-2">
-              <h4 className="mb-4 font-heading text-xs font-bold tracking-widest text-steel uppercase">
+              <h3 className="mb-4 font-heading text-xs font-bold tracking-widest text-steel uppercase">
                 Guide Index
-              </h4>
+              </h3>
               <nav className="flex flex-col gap-1 text-sm text-steel" aria-label="Guide index">
                 {GUIDE_NAV.map(({ id, label }) => (
                   <a

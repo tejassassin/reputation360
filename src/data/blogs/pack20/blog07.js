@@ -356,7 +356,7 @@ export const article = {
   ],
   faqs: COURT_RECORDS_FAQS,
   cta: {
-    title: "Take the next step",
+    title: "Start Managing Your Online Reputation Today",
     lead:
       "Tell us what is ranking for your name. We will map each source, outline which removal paths apply, and recommend a suppression plan for what cannot come down through our Online Reputation Management services.",
     leadParts: [
