@@ -1275,7 +1275,7 @@ export function RbsWhyReputation360Section() {
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>The Standard</h3>
+                      <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Our Standard: Quality-First Reputation Building</h3>
                       <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
                         Our Standard: Quality-First Reputation Building
                       </p>
@@ -1298,7 +1298,7 @@ export function RbsWhyReputation360Section() {
                     hoverScale={1.004}
                     className="group rounded-[1.4rem] border border-[#dbe5f0] bg-white px-5 py-5 shadow-[0_16px_34px_-28px_rgba(20,53,95,0.12)] transition-[border-color,box-shadow] duration-200 hover:border-[#cfe3d4] hover:shadow-[0_20px_40px_-28px_rgba(20,53,95,0.18)]"
                   >
-                    <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Reputation Lens</h3>
+                    <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>The Reputation Lens: Decisions Optimised for Trust</h3>
                     <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
                       The Reputation Lens: Decisions Optimised for Trust
                     </p>
@@ -1312,7 +1312,7 @@ export function RbsWhyReputation360Section() {
                     hoverScale={1.004}
                     className="group rounded-[1.4rem] border border-[#dbe5f0] bg-[linear-gradient(180deg,#fbfefc_0%,#f7fbff_100%)] px-5 py-5 shadow-[0_16px_34px_-28px_rgba(20,53,95,0.12)] transition-[border-color,box-shadow] duration-200 hover:border-[#cfe3d4] hover:shadow-[0_20px_40px_-28px_rgba(20,53,95,0.18)]"
                   >
-                    <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Outcome</h3>
+                    <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Outcome: Measurable Reputation Building Results</h3>
                     <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
                       Outcome: Measurable Reputation Building Results
                     </p>
@@ -1331,7 +1331,7 @@ export function RbsWhyReputation360Section() {
               >
                 <div className="grid gap-0 md:grid-cols-[minmax(0,0.36fr)_minmax(0,1fr)]">
                   <div className="border-b border-[#dbe5f0] bg-[linear-gradient(180deg,#f8fbff_0%,#f5faf6_100%)] px-5 py-5 md:border-b-0 md:border-r">
-                    <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Experience</h3>
+                    <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Experience: 7+ Years of Specialist Reputation Building</h3>
                     <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
                       Experience: 7+ Years of Specialist Reputation Building
                     </p>
