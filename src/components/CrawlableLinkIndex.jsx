@@ -13,7 +13,7 @@ export function CrawlableLinkIndex({ title, links, className = "sr-only" }) {
 
   return (
     <nav aria-label={title} className={className}>
-      <h2 className="font-heading text-sm font-bold text-navy">{title}</h2>
+      <p className="font-heading text-sm font-bold text-navy">{title}</p>
       <ul className="m-0 mt-2 list-none space-y-1 p-0">
         {links.map((link) => (
           <li key={link.href}>

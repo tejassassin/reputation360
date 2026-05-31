@@ -61,9 +61,9 @@ export function CaseStudyListCard({ study, index }) {
             <p className="mt-3 text-xs font-extrabold uppercase tracking-wider text-green">
               Case study
             </p>
-            <h2 className="mt-1 font-heading text-xl font-extrabold leading-tight tracking-tight text-navy sm:text-2xl md:text-[1.65rem] md:leading-tight">
+            <h3 className="mt-1 font-heading text-xl font-extrabold leading-tight tracking-tight text-navy sm:text-2xl md:text-[1.65rem] md:leading-tight">
               {study.listTitle}
-            </h2>
+            </h3>
             <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-slate-600 [text-wrap:pretty] sm:text-[0.95rem] md:leading-relaxed">
               {blurb}
             </p>
