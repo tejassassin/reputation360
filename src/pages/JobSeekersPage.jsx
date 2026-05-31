@@ -188,7 +188,7 @@ function JobSeekersScaleSection() {
 
       <div className="relative flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <h2 className="font-heading text-[26px] font-bold leading-tight tracking-tight md:text-[32px]">
-          The Scale of the Problem
+          The Impact of Negative Search Results on Job Seekers
         </h2>
         <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">
           Tap a metric to explore
@@ -223,6 +223,7 @@ function JobSeekersScaleSection() {
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0a2038] text-[#8ce596] shadow-inner shadow-black/20">
                   <Icon className="h-5 w-5" aria-hidden />
                 </span>
+                <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{m.blurb}</h3>
                 <span className="mt-4 font-heading text-[28px] font-bold leading-none tracking-tight text-white tabular-nums md:text-[34px]">
                   {m.figure}
                 </span>
@@ -279,7 +280,7 @@ function JobSeekersWhyDifficultSection() {
       className="mt-16 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 md:mt-20 md:px-9 md:py-11"
     >
       <h2 className="max-w-4xl font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-        Why This Is Particularly Difficult for Job Seekers
+        Why Job Seeker Reputation Cases Are Different
       </h2>
       <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-[#5d6c80] md:text-[14px] md:leading-relaxed">
         Three realities job seekers hit in search.
@@ -317,6 +318,7 @@ function JobSeekersWhyDifficultSection() {
                     absoluteStrokeWidth
                   />
                 </span>
+                <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{p.label}</h3>
                 <span className="mt-3 font-heading text-[13px] font-semibold leading-tight text-[#0f2e58] md:text-sm">
                   {p.label}
                 </span>
@@ -393,16 +395,7 @@ function JobSeekersMarketInsightBanner() {
             Market Insight
           </p>
           <h2 className="mt-3 font-heading text-[19px] font-bold leading-[1.24] md:mt-4 md:text-[24px] lg:text-[27px]">
-            <span className="text-[#4eab66]">77%</span>
-            <span className="text-white">
-              {" "}
-              of recruiters research candidates online before they call.{" "}
-            </span>
-            <span className="text-[#4eab66]">56%</span>
-            <span className="text-white">
-              {" "}
-              have eliminated a candidate based on something they found online.
-            </span>
+            Why Online Reputation Matters for Job Seekers
           </h2>
           <p className="mt-2.5 font-heading text-[14px] font-semibold leading-snug text-white md:mt-3 md:text-[16px]">
             Make sure they like what they find.
@@ -601,9 +594,9 @@ function JobSeekersPage() {
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 shrink-0">{item.icon}</div>
                   <div>
-                    <h3 className="text-[15px] md:text-[16px] leading-tight font-semibold text-[#1f3b64]">
+                    <p className="text-[15px] md:text-[16px] leading-tight font-semibold text-[#1f3b64]">
                       {item.title}
-                    </h3>
+                    </p>
                     <p className="mt-1.5 text-[12px] md:text-[13px] leading-[1.5] text-[#5d6c80]">
                       {item.text}
                     </p>
@@ -643,12 +636,7 @@ function JobSeekersPage() {
                 <div className="h-px flex-1 bg-white/35" />
               </div>
               <h2 className="fa-invisible-leak-headline mt-5 w-full max-w-none font-heading text-[26px] font-bold leading-[1.08] tracking-tight sm:text-[30px] md:text-[34px]">
-                <span className="block whitespace-nowrap">
-                  A recruiter searches your name
-                </span>
-                <span className="block whitespace-nowrap">
-                  before the first interview.
-                </span>
+                How Negative Search Results Affect Job Seekers
               </h2>
             </div>
           </div>
@@ -693,17 +681,28 @@ function JobSeekersPage() {
         <IndustryWhatReputation360Section
           steps={REPUTATION360_JOB_SEEKER_STEPS}
           sectionTitle="Our Job Seeker Reputation Management Service"
+          sectionTitleTag="h2"
+          stepDetailTitleTag="p"
         />
 
         <JobSeekersMarketInsightBanner />
 
         <IndustryRealisticTimelineSection
           sectionTitle="Job Seeker Reputation Repair Timeline"
+          sectionTitleTag="h2"
         />
 
-        <SeeItInActionSection audiencePath={seo.path} />
+        <SeeItInActionSection
+          audiencePath={seo.path}
+          sectionTitleTag="h2"
+          cardTitleTag="h3"
+        />
 
-        <FurtherReadingSection audiencePath={seo.path} />
+        <FurtherReadingSection
+          audiencePath={seo.path}
+          sectionTitleTag="h2"
+          cardTitleTag="h3"
+        />
 
         <section className="rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
           <p className="mx-auto max-w-3xl font-heading leading-snug text-white md:leading-snug">
