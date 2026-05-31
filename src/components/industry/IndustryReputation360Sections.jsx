@@ -507,6 +507,7 @@ export function IndustryWhatReputation360Section({
                       />
                     </span>
                     <span className="min-w-0 flex-1">
+                      <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{shortLabel}</h3>
                       <span className="font-heading text-[11px] font-bold tracking-wide text-[#1f3b64]/65 md:text-xs">
                         Step {stepItem.step}
                       </span>
