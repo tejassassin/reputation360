@@ -569,7 +569,7 @@ export function NlsSearchResultsSection() {
   return (
     <DocSection
       id="search-results"
-      title="Understanding What Is in Your Search Results"
+      title="Understanding Your Search Results: Negative, Neutral, and Positive Content"
       lead={NLS_SEARCH_RESULTS_INTRO}
       tone="canvas"
     >
@@ -773,11 +773,11 @@ export function NlsRemovalVsSuppressionSection() {
 }
 
 function nlsWhenSuppressionShortLabel(scenario) {
-  if (scenario.startsWith("The content is accurate")) return "Outdated but accurate";
-  if (scenario.startsWith("Removal")) return "Removal failed";
-  if (scenario.startsWith("You are facing")) return "Ongoing attacks";
-  if (scenario.startsWith("The content is old")) return "Stale content";
-  if (scenario.startsWith("You are anticipating")) return "Proactive defense";
+  if (scenario.startsWith("The content is accurate")) return "Outdated but Accurate Content That Still Ranks";
+  if (scenario.startsWith("Removal")) return "When Content Removal Has Failed or Is Not Possible";
+  if (scenario.startsWith("You are facing")) return "Ongoing Reputation Attacks and Defamatory Content";
+  if (scenario.startsWith("The content is old")) return "Stale Content Ranking Above Your Positive Results";
+  if (scenario.startsWith("You are anticipating")) return "Proactive Reputation Defense Before Problems Arise";
   return scenario.split(" ").slice(0, 3).join(" ");
 }
 

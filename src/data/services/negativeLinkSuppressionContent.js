@@ -12,25 +12,25 @@ export const NLS_WHY_COSTS_CLOSING =
 export const NLS_WHY_COSTS_ROWS = [
   {
     id: "individuals",
-    perspective: "Individuals",
+    perspective: "How Harmful Search Results Affect Individuals",
     impact:
       "Recruiters, clients, collaborators, and personal contacts search before they engage. A damaging result quietly closes doors to opportunities you never knew were open",
   },
   {
     id: "executives",
-    perspective: "Executives",
+    perspective: "How Damaging Links Hurt Executive Reputations",
     impact:
       "Negative results surface in investor due diligence, media background checks, and board-level assessments - shaping opinions before you say a word",
   },
   {
     id: "businesses",
-    perspective: "Businesses",
+    perspective: "How Negative Search Results Cost Businesses",
     impact:
       "94% of consumers research before buying. 88% never leave page one. One negative result redirects potential customers to competitors every single day",
   },
   {
     id: "professionals",
-    perspective: "Professionals",
+    perspective: "How Harmful Links Affect Professionals",
     impact:
       "Doctors, lawyers, and financial advisors operate on trust. One harmful result can undo years of earned credibility in seconds",
   },
@@ -46,7 +46,7 @@ export const NLS_SEARCH_RESULTS_CLOSING =
 export const NLS_SEARCH_RESULT_CATEGORIES = [
   {
     id: "negative",
-    label: "Negative",
+    label: "Negative Content: What It Is and Why It Ranks",
     tone: "risk",
     examples:
       "Critical news article or investigative report; one-star review on Google, Yelp, or Glassdoor; Reddit thread or forum post criticizing you; mugshot or arrest record site; outdated article misrepresenting your current role; social media post from a disgruntled customer or former employee; RipoffReport or similar complaint site listing",
@@ -54,7 +54,7 @@ export const NLS_SEARCH_RESULT_CATEGORIES = [
   },
   {
     id: "neutral",
-    label: "Neutral",
+    label: "Neutral Content: How to Strengthen and Amplify It",
     tone: "neutral",
     examples:
       "Basic directory listing with no reviews; old employer's staff page that still lists you; social media profile that is active but not optimized; generic news mention where you are briefly quoted; Wikipedia page about your company or industry; conference attendee list including your name",
@@ -62,7 +62,7 @@ export const NLS_SEARCH_RESULT_CATEGORIES = [
   },
   {
     id: "positive",
-    label: "Positive",
+    label: "Positive Content: How to Build and Protect It",
     tone: "positive",
     examples:
       "Your official website or About page; LinkedIn profile with strong endorsements; feature in a reputable publication such as Forbes, Inc., or a trade journal; glowing client testimonial or case study; podcast interview or speaking engagement recap; professional award or certification announcement; well-reviewed Google Business Profile",
@@ -285,43 +285,43 @@ export const NLS_TIMELINE_NOTE =
 export const NLS_WHO_WE_HELP = [
   {
     id: "individuals",
-    who: "Individuals",
+    who: "Negative Link Suppression for Individuals",
     why: "Mugshot sites, defamatory posts, data broker exposure - private individuals deserve control over their own name in search results",
     href: AUDIENCE_PATH.individuals,
   },
   {
     id: "executives",
-    who: "Executives and Senior Leaders",
+    who: "Negative Link Suppression for Executives and Senior Leaders",
     why: "A clean, authoritative search presence supports every career move, deal, and public engagement",
     href: AUDIENCE_PATH.executives,
   },
   {
     id: "founders",
-    who: "Business Owners and Founders",
+    who: "Negative Link Suppression for Business Owners and Founders",
     why: "Negative press, coordinated review attacks, and competitor misinformation require a Negative Link Suppression strategy that matches the threat",
     href: AUDIENCE_PATH.businesses,
   },
   {
     id: "financial",
-    who: "Financial Advisors",
+    who: "Negative Link Suppression for Financial Advisors",
     why: "One harmful result can destroy the trust a client relationship is built on - Negative Link Suppression protects what years of work have earned",
     href: AUDIENCE_PATH.financialAdvisors,
   },
   {
     id: "lawyers",
-    who: "Lawyers and Attorneys",
+    who: "Negative Link Suppression for Lawyers and Attorneys",
     why: "Legal coverage and court records surface regularly. We ensure what appears reflects professional track record, not past proceedings",
     href: AUDIENCE_PATH.lawyers,
   },
   {
     id: "doctors",
-    who: "Doctors and Healthcare Professionals",
+    who: "Negative Link Suppression for Doctors and Healthcare Professionals",
     why: "Patient-facing results directly influence bookings and practice reputation at the moment of decision",
     href: AUDIENCE_PATH.doctors,
   },
   {
     id: "businesses-attack",
-    who: "Businesses & Companies",
+    who: "Negative Link Suppression for Businesses & Companies",
     why: "Crisis situations, organized negative review campaigns, and harmful media coverage require both Negative Link Suppression and broader Reputation Management strategy",
     href: AUDIENCE_PATH.businesses,
   },
@@ -363,7 +363,7 @@ export const NLS_FAQS = [
 ];
 
 export const NLS_CTA = {
-  title: "One Conversation Changes What People Find First",
+  title: "Start Your Negative Link Suppression Campaign Today",
   paragraphs: [
     "Harmful results stay until something better takes their place. We build that something.",
   ],
