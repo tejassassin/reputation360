@@ -156,7 +156,7 @@ function ContactAuthorityRoadmap() {
             const fill = m.green ? GROWTH : NAVY;
             const label = String(m.n).padStart(2, "0");
             return (
-              <g key={m.n}>
+              <g key={m.n} className="group cursor-default">
                 <line
                   x1={m.line.x1}
                   y1={m.line.y1}
@@ -164,36 +164,44 @@ function ContactAuthorityRoadmap() {
                   y2={m.line.y2}
                   stroke={fill}
                   strokeWidth={2}
+                  className="transition-all duration-300 group-hover:stroke-4"
                 />
-                <circle cx={m.anchor.cx} cy={m.anchor.cy} r={10} fill={fill} />
-                <circle
-                  cx={m.ring.cx}
-                  cy={m.ring.cy}
-                  r={50}
-                  fill={fill}
-                  className="drop-shadow-[0_8px_24px_rgba(0,0,0,0.18)]"
-                />
-                <text
-                  x={m.num.x}
-                  y={m.num.y}
-                  fill="#ffffff"
-                  stroke="rgba(15, 23, 42, 0.45)"
-                  strokeWidth={3}
-                  strokeLinejoin="round"
-                  textAnchor="middle"
-                  className="pointer-events-none font-heading text-[30px] font-extrabold md:text-[34px]"
-                  style={{
-                    fontVariantNumeric: "tabular-nums",
-                    paintOrder: "stroke fill",
-                  }}
+                <circle cx={m.anchor.cx} cy={m.anchor.cy} r={10} fill={fill} className="transition-transform duration-300 group-hover:scale-125" style={{ transformOrigin: `${m.anchor.cx}px ${m.anchor.cy}px` }} />
+                
+                <g 
+                  className="transition-transform duration-300 ease-out group-hover:-translate-y-2 group-hover:scale-110"
+                  style={{ transformOrigin: `${m.ring.cx}px ${m.ring.cy}px` }}
                 >
-                  {label}
-                </text>
+                  <circle
+                    cx={m.ring.cx}
+                    cy={m.ring.cy}
+                    r={50}
+                    fill={fill}
+                    className="drop-shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-all duration-300 group-hover:drop-shadow-[0_16px_32px_rgba(0,0,0,0.3)]"
+                  />
+                  <text
+                    x={m.num.x}
+                    y={m.num.y}
+                    fill="#ffffff"
+                    stroke="rgba(15, 23, 42, 0.45)"
+                    strokeWidth={3}
+                    strokeLinejoin="round"
+                    textAnchor="middle"
+                    className="pointer-events-none font-heading text-[30px] font-extrabold md:text-[34px]"
+                    style={{
+                      fontVariantNumeric: "tabular-nums",
+                      paintOrder: "stroke fill",
+                    }}
+                  >
+                    {label}
+                  </text>
+                </g>
                 <foreignObject
                   x={m.fo.x}
                   y={m.fo.y}
                   width={m.fo.w}
                   height={m.fo.h}
+                  className="transition-transform duration-300 ease-out group-hover:-translate-y-1"
                 >
                   <div
                     xmlns="http://www.w3.org/1999/xhtml"
@@ -201,10 +209,10 @@ function ContactAuthorityRoadmap() {
                       m.green ? "justify-end" : "justify-start"
                     }`}
                   >
-                    <h3 className="font-heading text-[17px] font-bold leading-snug text-[#02254d] md:text-[19px]">
+                    <h3 className="font-heading text-[17px] font-bold leading-snug text-[#02254d] transition-colors duration-300 group-hover:text-[#4CAF50] md:text-[19px]">
                       {m.title}
                     </h3>
-                    <p className="font-heading text-[15px] font-normal leading-relaxed tracking-normal text-[#43474e] md:text-[17px]">
+                    <p className="font-heading text-[15px] font-normal leading-relaxed tracking-normal text-[#43474e] transition-colors duration-300 group-hover:text-[#02254d] md:text-[17px]">
                       {m.text}
                     </p>
                   </div>
@@ -263,7 +271,7 @@ function ContactPage() {
               Reach out through whichever channel feels most convenient to you.
             </p>
           </div>
-          <h2 className="font-heading text-[28px] font-bold tracking-tight text-[#02254d] md:text-[40px]">
+          <h2 className="font-heading text-2xl font-bold tracking-tight text-[#1F3B64] md:text-3xl">
             Contact Our Reputation Management Team
           </h2>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-6">
