@@ -595,6 +595,128 @@ function RealEstateBusinessImpactSection() {
   );
 }
 
+function RealEstateChecklistSection() {
+  const [entered, setEntered] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) setEntered(true);
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.15 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const checklistItems = [
+    {
+      title: "Google your name in an incognito window",
+      text: "What appears in the first ten results? Would a stranger find what they see reassuring?",
+      Icon: Search,
+      badgeColor: "text-blue-600 bg-blue-50 border-blue-100",
+    },
+    {
+      title: "Check your last post date",
+      text: "When did you last share something of value publicly? An inactive presence signals stagnation.",
+      Icon: Activity,
+      badgeColor: "text-amber-600 bg-amber-50 border-amber-100",
+    },
+    {
+      title: "Verify consistency across platforms",
+      text: "Is your contact info, title, and firm name identical everywhere? Inconsistency erodes trust with search engines and clients.",
+      Icon: ShieldCheck,
+      badgeColor: "text-emerald-600 bg-emerald-50 border-emerald-100",
+    },
+    {
+      title: "Assess your local competition",
+      text: "Search the top agents in your market. How does your search presence compare? What impression does theirs create versus yours?",
+      Icon: Scale,
+      badgeColor: "text-purple-600 bg-purple-50 border-purple-100",
+    },
+  ];
+
+  return (
+    <section
+      ref={sectionRef}
+      id="re-checklist-section"
+      className="mt-16 scroll-mt-28 space-y-8"
+    >
+      <div className="text-center max-w-3xl mx-auto space-y-3">
+        <p className="inline-flex rounded-full bg-[#eef2ff] border border-blue-100/50 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-blue-600 shadow-sm">
+          5-Minute Assessment
+        </p>
+        <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1] tracking-tight">
+          Quick Reputation Checklist: Where Do You Stand?
+        </h2>
+        <p className="text-[14px] leading-relaxed text-[#5d6c80] md:text-[15px] md:leading-relaxed">
+          Before reaching out to us — or even if you decide not to — take five minutes to run this assessment on your digital footprint:
+        </p>
+      </div>
+
+      <div className="grid gap-6 md:grid-cols-2">
+        {checklistItems.map((item, i) => {
+          const Icon = item.Icon;
+          return (
+            <div
+              key={i}
+              style={{
+                transitionDelay: entered ? `${i * 100}ms` : "0ms",
+              }}
+              className={`group ha-lift flex items-start gap-4 rounded-[22px] border border-[#dfe6ee] bg-white p-5 md:p-6 shadow-sm hover:border-[#1f3b64]/25 hover:shadow-md transition-all duration-300 ${
+                entered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+              }`}
+            >
+              <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border ${item.badgeColor} shadow-sm transition-transform duration-200 group-hover:scale-105`}>
+                <Icon className="h-5 w-5" aria-hidden />
+              </span>
+              <div>
+                <h3 className="font-heading font-bold text-base text-[#0f2e58] group-hover:text-[#1f3b64] transition-colors">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-xs text-[#5d6c80] leading-relaxed">
+                  {item.text}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* The 5th and hardest question as a custom high-impact card */}
+      <div
+        style={{
+          transitionDelay: entered ? "400ms" : "0ms",
+        }}
+        className={`relative overflow-hidden rounded-[24px] border border-[#0f2e58]/20 bg-[linear-gradient(135deg,#0a1b3a_0%,#0f2e58_60%,#1a3e6e_100%)] p-6 md:p-8 text-white shadow-lg transition-all duration-500 ${
+          entered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+        }`}
+      >
+        <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#8ce596]/10 blur-2xl pointer-events-none" />
+        <div className="absolute -left-16 -bottom-16 h-48 w-48 rounded-full bg-blue-500/10 blur-2xl pointer-events-none" />
+
+        <div className="relative flex flex-col items-center text-center max-w-2xl mx-auto space-y-4">
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#8ce596]/15 border border-[#8ce596]/30 text-[#8ce596] shadow-[0_0_15px_rgba(140,229,150,0.15)] animate-pulse">
+            <AlertTriangle className="h-6 w-6" aria-hidden />
+          </span>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#8ce596]">
+            The Moment of Truth
+          </p>
+          <h3 className="font-heading text-lg md:text-xl font-bold leading-snug max-w-xl text-white">
+            &ldquo;Would you hire yourself based solely on what you find online right now?&rdquo;
+          </h3>
+          <p className="text-[13px] text-white/80 leading-relaxed max-w-lg">
+            Be completely honest. If a potential client or seller searches your name and finds a mix of inactive profiles, outdated listings, or negative results—would they feel confident signing with you, or would they keep looking?
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function RealEstatePage() {
   const seo = useLocalizedSeo("realEstate");
   return (
@@ -765,42 +887,6 @@ function RealEstatePage() {
             </div>
           </section>
 
-          <section
-            id="re-checklist-section"
-            className="mt-12 scroll-mt-28 rounded-[24px] border border-[#dce3ec] bg-[#f8f9fc] px-5 py-9 md:px-9 md:py-11"
-          >
-            <h2 className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] md:leading-[1.1]">
-              Quick Reputation Checklist: Where Do You Stand?
-            </h2>
-            <p className="mt-2 text-sm text-[#4f5f75]">
-              Before reaching out to us — or even if you decide not to — take five minutes to run
-              this assessment on yourself:
-            </p>
-            <ul className="mt-6 space-y-3 pl-5 list-disc text-sm text-[#3f4f66] leading-relaxed">
-              <li>
-                <strong>Google your name in an incognito window.</strong> What appears in the first ten
-                results? Would a stranger find what they see reassuring?
-              </li>
-              <li>
-                <strong>Check your last post date.</strong> When did you last share something of value
-                publicly? An inactive presence signals stagnation.
-              </li>
-              <li>
-                <strong>Verify consistency.</strong> Is your contact information, title, and firm name
-                identical across all platforms and directories? Inconsistency erodes trust with both
-                clients and search engines.
-              </li>
-              <li>
-                <strong>Assess your competition.</strong> Search the top agents in your market. How does
-                your search presence compare? What impression does theirs create versus yours?
-              </li>
-              <li>
-                <strong>Ask the hard question:</strong> Would you hire yourself based solely on what you
-                find online right now?
-              </li>
-            </ul>
-          </section>
-
           <RealEstateBusinessImpactSection />
 
           <RealEstateProblemSection />
@@ -814,6 +900,8 @@ function RealEstatePage() {
           <RealEstateMarketInsightBanner />
 
           <IndustryRealisticTimelineSection />
+
+          <RealEstateChecklistSection />
 
           <SeeItInActionSection audiencePath={seo.path} />
 
