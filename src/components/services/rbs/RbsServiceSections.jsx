@@ -613,9 +613,9 @@ export function RbsFrameworkSection() {
                   <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.22em] text-[#4CAF50]">
                     {scenario.eyebrow}
                   </p>
-                  <h4 className="mt-[10px] max-w-[20rem] font-heading text-[22px] font-bold leading-[1.2] text-[#1F3B64] transition-colors duration-200 group-hover:text-[#0f2e58]">
+                  <h3 className="mt-[10px] max-w-[20rem] font-heading text-[22px] font-bold leading-[1.2] text-[#1F3B64] transition-colors duration-200 group-hover:text-[#0f2e58]">
                     {scenario.audience}
-                  </h4>
+                  </h3>
                   <p className="mt-5 text-[16.5px] leading-[1.8] text-[#4B5563] transition-colors duration-200 group-hover:text-[#374151]">
                     {scenario.text}
                   </p>
@@ -775,6 +775,7 @@ export function RbsSpecializedServicesSection() {
                           {String(index + 1).padStart(2, "0")}
                         </span>
                         <span className="min-w-0 flex-1">
+                          <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{service.title}</h3>
                           <span className="block font-heading text-[15px] font-semibold leading-[1.3] text-[#1F3B64] md:text-[16px]">
                             {service.title}
                           </span>
@@ -798,6 +799,7 @@ export function RbsSpecializedServicesSection() {
                 <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.15em] text-[#4CAF50]">
                   Start Here
                 </p>
+                <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Reputation Consultation</h3>
                 <p className="mt-1 font-heading text-[13px] font-semibold text-white">Reputation Consultation</p>
                 <p className="mt-1 text-[12px] leading-[1.4] text-[#93A8C4]">
                   Not sure where to begin? Start here.
@@ -1177,6 +1179,7 @@ export function RbsProcessSection() {
               }`}>
                 Step {String(item.n).padStart(2, "0")}
               </span>
+              <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{item.title}</h3>
               <span className="mt-3 block font-heading text-base font-bold leading-snug">
                 {item.title}
               </span>
@@ -1196,7 +1199,7 @@ export function RbsProcessSection() {
             <span className="inline-flex rounded-full bg-white/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[#7df5b9]">
               Step {String(step.n).padStart(2, "0")}
             </span>
-            <h3 className="mt-4 font-heading text-2xl font-bold text-white">{step.title}</h3>
+            <p className="mt-4 font-heading text-2xl font-bold text-white">{step.title}</p>
             <p className="mt-3 text-base leading-relaxed text-slate-100/85">{step.body}</p>
           </Motion.div>
         </AnimatePresence>
@@ -1255,7 +1258,7 @@ export function RbsWhyReputation360Section() {
   return (
     <RbsSection
       id="why-r360"
-      title="Why Reputation360?"
+      title="Why Choose Reputation360 for Reputation Building?"
       tone="mint"
       lead="We are not a general digital marketing agency that also does reputation work. Reputation is the only thing we do."
       contentClassName="mt-10"
@@ -1272,12 +1275,13 @@ export function RbsWhyReputation360Section() {
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
+                      <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>The Standard</h3>
                       <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
                         The Standard
                       </p>
-                      <h4 className="mt-3 max-w-[18ch] font-heading text-[1.45rem] font-bold leading-[1.12] text-[#14355f] md:text-[1.75rem]">
+                      <h3 className="mt-3 max-w-[18ch] font-heading text-[1.45rem] font-bold leading-[1.12] text-[#14355f] md:text-[1.75rem]">
                         Reputation work should hold up under scrutiny
-                      </h4>
+                      </h3>
                     </div>
                     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[1rem] bg-[#4CAF50]/10 text-[#237340] ring-1 ring-[#4CAF50]/18 transition-transform duration-200 group-hover:scale-105">
                       <BadgeCheck className="h-5 w-5" aria-hidden strokeWidth={2.1} />
@@ -1294,6 +1298,7 @@ export function RbsWhyReputation360Section() {
                     hoverScale={1.004}
                     className="group rounded-[1.4rem] border border-[#dbe5f0] bg-white px-5 py-5 shadow-[0_16px_34px_-28px_rgba(20,53,95,0.12)] transition-[border-color,box-shadow] duration-200 hover:border-[#cfe3d4] hover:shadow-[0_20px_40px_-28px_rgba(20,53,95,0.18)]"
                   >
+                    <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Reputation Lens</h3>
                     <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
                       Reputation Lens
                     </p>
@@ -1307,6 +1312,7 @@ export function RbsWhyReputation360Section() {
                     hoverScale={1.004}
                     className="group rounded-[1.4rem] border border-[#dbe5f0] bg-[linear-gradient(180deg,#fbfefc_0%,#f7fbff_100%)] px-5 py-5 shadow-[0_16px_34px_-28px_rgba(20,53,95,0.12)] transition-[border-color,box-shadow] duration-200 hover:border-[#cfe3d4] hover:shadow-[0_20px_40px_-28px_rgba(20,53,95,0.18)]"
                   >
+                    <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Outcome</h3>
                     <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
                       Outcome
                     </p>
@@ -1325,6 +1331,7 @@ export function RbsWhyReputation360Section() {
               >
                 <div className="grid gap-0 md:grid-cols-[minmax(0,0.36fr)_minmax(0,1fr)]">
                   <div className="border-b border-[#dbe5f0] bg-[linear-gradient(180deg,#f8fbff_0%,#f5faf6_100%)] px-5 py-5 md:border-b-0 md:border-r">
+                    <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Experience</h3>
                     <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
                       Experience
                     </p>
@@ -1417,6 +1424,7 @@ export function RbsWhoForSection() {
                 <p className="mt-5 text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
                   Audience {String(index + 1).padStart(2, "0")}
                 </p>
+                <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{item}</h3>
                 <p className="mt-2 text-[15px] leading-[1.65] text-[#14355f] md:text-[16px]">
                   {item}
                 </p>
