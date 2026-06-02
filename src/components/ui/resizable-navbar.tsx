@@ -119,7 +119,7 @@ export const NavItems = ({
         }
       }}
       className={cn(
-        "relative z-10 mx-0 hidden min-h-0 w-full flex-row flex-nowrap items-center justify-start gap-x-2 text-[13px] font-medium text-white transition-colors duration-200 hover:text-green font-heading sm:gap-x-2.5 sm:text-sm lg:col-start-2 lg:row-start-1 lg:flex lg:w-auto lg:max-w-none lg:gap-x-2 xl:gap-x-3",
+        "relative z-10 mx-0 hidden min-h-0 w-full flex-row flex-nowrap items-center justify-center gap-x-3 text-[13px] font-medium text-white transition-colors duration-200 hover:text-green font-heading sm:gap-x-3 sm:text-sm lg:col-start-2 lg:row-start-1 lg:flex lg:w-auto lg:max-w-none lg:gap-x-5 xl:gap-x-7 2xl:gap-x-8",
         className,
       )}
     >
