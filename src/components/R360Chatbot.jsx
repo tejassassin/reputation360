@@ -100,10 +100,24 @@ export default function R360Chatbot() {
     email: "",
   });
 
-  // Delay showing the greeting card slightly on first mount
+  // Auto-open chat panel on first landing in session
+  useEffect(() => {
+    const hasAutoOpened = sessionStorage.getItem("r360_chatbot_auto_opened");
+    if (!hasAutoOpened) {
+      const t = setTimeout(() => {
+        setOpen(true);
+        setShowGreeting(false);
+        sessionStorage.setItem("r360_chatbot_auto_opened", "true");
+      }, 3000);
+      return () => clearTimeout(t);
+    }
+  }, []);
+
+  // Delay showing the greeting card slightly on first mount if not open
   useEffect(() => {
     const isDismissed = sessionStorage.getItem("r360_chatbot_greeting_dismissed");
-    if (!isDismissed && !open) {
+    const hasAutoOpened = sessionStorage.getItem("r360_chatbot_auto_opened");
+    if (!isDismissed && !open && hasAutoOpened) {
       const t = setTimeout(() => setShowGreeting(true), 2500);
       return () => clearTimeout(t);
     }
