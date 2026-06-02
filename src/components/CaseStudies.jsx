@@ -50,7 +50,7 @@ function CaseStudies() {
 
   return (
     <section
-      className="relative overflow-hidden border-t border-slate-200/60 bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9] to-[#E2E8F0] py-16 md:py-20"
+      className="relative overflow-hidden border-t border-slate-200/60 bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9] to-[#E2E8F0] pt-4 pb-16 md:pt-6 md:pb-20"
       aria-labelledby="home-glimpse-cases-heading"
     >
       <div
@@ -62,7 +62,7 @@ function CaseStudies() {
         aria-hidden
       />
 
-      <div className="relative mx-auto w-full max-w-6xl px-4 pt-12 pb-2 sm:px-6 sm:pt-16 sm:pb-3">
+      <div className="relative mx-auto w-full max-w-6xl px-4 pt-2 pb-2 sm:px-6 sm:pt-3 sm:pb-3">
         <div className="mb-8 text-center sm:mb-10">
           <h2
             id="home-glimpse-cases-heading"
