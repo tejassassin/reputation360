@@ -1,5 +1,5 @@
 import { useMemo, useRef } from "react";
-import { ArrowUpRight, ChevronLeft, ChevronRight, Clock3 } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, Clock3, User, ShieldCheck } from "lucide-react";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion.js";
 import { CASE_STUDIES, CASE_STUDIES_FOOTER } from "@/data/caseStudies/index.js";
 import { getOutcomeAndKeyPoints } from "@/utils/caseStudyGlimpse.js";
@@ -12,9 +12,6 @@ const SCROLL_PAD = 0.86;
 const NAV_BTN =
   "inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300/90 bg-white text-slate-700 shadow-sm transition hover:border-[#4CAF50]/45 hover:bg-gradient-to-b hover:from-white hover:to-slate-50/90 hover:shadow-md hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/30 active:scale-[0.98] sm:h-12 sm:w-12";
 
-/** Hover lift + tint for profile / duration / outcome (visual only; not links). */
-const CASE_FIELD_HOVER =
-  "group/field rounded-xl border border-transparent p-2.5 -m-2.5 transition duration-200 ease-out will-change-transform motion-reduce:transition-none motion-reduce:hover:transform-none motion-reduce:hover:shadow-none hover:-translate-y-0.5 hover:border-slate-200/80 hover:bg-gradient-to-br hover:from-white hover:via-slate-50/80 hover:to-[#f0f7f4]/90 hover:shadow-[0_8px_24px_-8px_rgba(31,59,100,0.14)] hover:ring-1 hover:ring-[#4CAF50]/15";
 
 function engagementLabel(eng) {
   if (eng.value && eng.unit) return `${eng.value} ${eng.unit}`;
@@ -123,8 +120,6 @@ function CaseStudies() {
               const eng = parseEngagementMonths(study.duration);
               const engText = engagementLabel(eng);
               const hasDuration = Boolean(engText && engText !== "-");
-              const fieldLabelClass =
-                "m-0 font-heading text-[0.65rem] font-bold uppercase tracking-[0.14em] text-[#2E5B88]/90";
 
               const caseStudyHref = `/case-studies/${study.slug}`;
 
@@ -136,68 +131,55 @@ function CaseStudies() {
                   <a
                     href={caseStudyHref}
                     {...internalAnchorProps(caseStudyHref)}
-                    className="r360-cs-tile group/card flex h-full min-h-[20rem] flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-gradient-to-b from-white via-white to-slate-50/60 text-left no-underline shadow-[0_4px_28px_-10px_rgba(31,59,100,0.14)] ring-1 ring-slate-200/30 transition duration-300 hover:-translate-y-0.5 hover:border-slate-300/60 hover:shadow-[0_24px_44px_-22px_rgba(31,59,100,0.22)] motion-reduce:transition-shadow motion-reduce:hover:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green sm:min-h-[21rem]"
+                    className="group/card flex h-full min-h-[22rem] flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white text-left no-underline shadow-[0_8px_30px_rgb(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#4CAF50]/30 hover:shadow-[0_24px_50px_-15px_rgba(76,175,80,0.14)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green sm:min-h-[23rem]"
                   >
                     <div
-                      className="h-1.5 w-full bg-gradient-to-r from-navy via-green to-slate"
+                      className="h-1.5 w-full bg-gradient-to-r from-[#1f3b64] via-[#4CAF50] to-[#2E5B88]"
                       aria-hidden
                     />
                     <div className="flex min-h-0 flex-1 flex-col p-5 sm:p-6">
-                      <h3 className="line-clamp-2 font-heading text-base font-bold leading-snug text-navy [text-wrap:balance] sm:text-[1.05rem]">
-                        <span className="text-inherit">{study.listTitle}</span>
-                      </h3>
-                      <p className="mt-2 inline-flex max-w-full [text-wrap:balance]">
-                        <span className="rounded-full bg-gradient-to-r from-[#1f3b64]/[0.07] to-slate-100/80 px-2.5 py-0.5 text-left text-[0.7rem] font-semibold leading-tight text-slate-600 ring-1 ring-slate-200/60 sm:px-3 sm:text-xs">
+                      <p className="mb-2.5 inline-flex max-w-full">
+                        <span className="rounded-full bg-[#1f3b64]/5 border border-[#1f3b64]/10 px-2.5 py-0.5 text-left text-[9px] font-bold uppercase tracking-wider text-[#1f3b64]">
                           {study.industry}
                         </span>
                       </p>
+                      <h3 className="line-clamp-2 font-heading text-base font-extrabold leading-snug text-navy [text-wrap:balance] sm:text-[1.05rem]">
+                        <span className="text-inherit">{study.listTitle}</span>
+                      </h3>
 
-                      <div className="mt-4 flex min-h-0 flex-1 flex-col gap-2 sm:gap-2.5">
-                        <div className={CASE_FIELD_HOVER}>
-                          <p className={fieldLabelClass}>Profile</p>
-                          <p className="mt-1 line-clamp-3 font-body text-sm leading-relaxed text-slate-800 [text-wrap:pretty]">
-                            {study.profile}
-                          </p>
+                      <div className="mt-5 flex min-h-0 flex-1 flex-col gap-3">
+                        {/* Profile Field */}
+                        <div className="flex gap-3 items-start bg-slate-50/50 p-3 rounded-xl border border-slate-100/50 transition-colors duration-200 hover:bg-slate-50">
+                          <User className="h-4.5 w-4.5 text-[#2E5B88] mt-0.5 shrink-0" strokeWidth={2.2} />
+                          <div>
+                            <p className="font-heading text-[9px] font-bold uppercase tracking-[0.14em] text-slate-400">Profile</p>
+                            <p className="mt-0.5 line-clamp-2 font-body text-sm font-semibold text-slate-800 leading-relaxed">{study.profile}</p>
+                          </div>
                         </div>
-                        <div className={CASE_FIELD_HOVER}>
-                          <p className={fieldLabelClass}>Duration</p>
-                          {hasDuration ? (
-                            <p className="mt-1.5 flex items-baseline gap-1.5 font-body text-sm font-medium tabular-nums text-slate-800">
-                              <Clock3
-                                className="h-4 w-4 shrink-0 text-slate-400 transition-colors duration-200 group-hover/field:text-slate-600"
-                                strokeWidth={2}
-                                aria-hidden
-                              />
-                              {engText}
-                            </p>
-                          ) : (
-                            <p className="mt-1.5 font-body text-sm text-slate-500">-</p>
-                          )}
+
+                        {/* Duration Field */}
+                        <div className="flex gap-3 items-start bg-slate-50/50 p-3 rounded-xl border border-slate-100/50 transition-colors duration-200 hover:bg-slate-50">
+                          <Clock3 className="h-4.5 w-4.5 text-[#2E5B88] mt-0.5 shrink-0" strokeWidth={2.2} />
+                          <div>
+                            <p className="font-heading text-[9px] font-bold uppercase tracking-[0.14em] text-slate-400">Duration</p>
+                            <p className="mt-0.5 font-body text-sm font-semibold text-slate-800 leading-relaxed">{hasDuration ? engText : "-"}</p>
+                          </div>
                         </div>
-                        <div className={CASE_FIELD_HOVER}>
-                          <p className={fieldLabelClass}>Outcome</p>
-                          {out ? (
-                            <p className="mt-1.5 line-clamp-3 border-l-[3px] border-[#4CAF50]/50 pl-3.5 font-body text-sm leading-relaxed text-slate-800 [text-wrap:pretty] transition-[border-color] duration-200 sm:leading-[1.5] group-hover/field:border-[#4CAF50]">
-                              {out}
-                            </p>
-                          ) : (
-                            <p className="mt-1.5 font-body text-sm text-slate-500">
-                              -
-                            </p>
-                          )}
+
+                        {/* Outcome Field */}
+                        <div className="flex gap-3 items-start bg-[#f0faf4] p-3 rounded-xl border border-[#4CAF50]/15 transition-colors duration-200 hover:bg-[#e6f9ed]">
+                          <ShieldCheck className="h-4.5 w-4.5 text-[#4CAF50] mt-0.5 shrink-0" strokeWidth={2.2} />
+                          <div>
+                            <p className="font-heading text-[9px] font-bold uppercase tracking-[0.14em] text-[#2a6b3a]/90">Outcome</p>
+                            <p className="mt-0.5 line-clamp-3 font-body text-sm leading-relaxed text-slate-700 [text-wrap:pretty]">{out || "-"}</p>
+                          </div>
                         </div>
                       </div>
 
-                      <div className="mt-auto flex items-center justify-center gap-1.5 border-t border-slate-200/70 bg-gradient-to-r from-transparent via-slate-50/40 to-transparent px-3 py-2.5 pt-4 text-sm font-semibold text-navy sm:px-3.5 sm:pt-4">
-                        <span>Read case study: {study.listTitle}</span>
-                        <span
-                          className="grid h-5 w-5 place-items-center rounded-md bg-navy/5 text-navy transition duration-200 group-hover/card:bg-green/15"
-                          aria-hidden
-                        >
-                          <ArrowUpRight
-                            className="h-3.5 w-3.5 transition duration-200 group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5"
-                            strokeWidth={2.25}
-                          />
+                      <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-sm font-bold text-[#1f3b64] group-hover/card:text-[#4CAF50] transition-colors duration-200">
+                        <span>Read case study</span>
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition duration-200 group-hover/card:bg-[#4CAF50] group-hover/card:text-white">
+                          <ArrowUpRight className="h-4 w-4" strokeWidth={2.5} />
                         </span>
                       </div>
                     </div>
