@@ -12,6 +12,7 @@ export function buildBlogShareUrls(pageUrl, title) {
     linkedIn: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
     x: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+    whatsapp: `https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`,
     email: `mailto:?subject=${encodedTitle}&body=${emailBody}`,
   };
 }

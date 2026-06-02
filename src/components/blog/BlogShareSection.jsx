@@ -1,22 +1,14 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Check, Copy, Facebook, Linkedin, Mail, Share2 } from "lucide-react";
+import { Check, Copy, Mail, Share2 } from "lucide-react";
+import {
+  IconBrandLinkedin,
+  IconBrandX,
+  IconBrandFacebook,
+  IconBrandWhatsapp,
+} from "@tabler/icons-react";
 import { canonicalHrefFromPath } from "../../lib/canonicalHrefFromPath.js";
 import { buildBlogShareUrls } from "../../lib/blogShareUrls.js";
 import { cn } from "@/lib/utils";
-
-function XIcon({ className }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-}
 
 const SHARE_BUTTON_CLASS =
   "inline-flex items-center gap-2 rounded-full border border-[#0f2e58]/15 bg-white px-4 py-2.5 text-sm font-semibold text-[#0f2e58] shadow-sm transition hover:border-[#2e5b88]/40 hover:bg-[#f4f8fc] hover:text-[#163d6e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2e5b88]";
@@ -72,9 +64,10 @@ export function BlogShareSection({ title, canonicalPath, className = "" }) {
   }, [copyLink, pageUrl, title]);
 
   const externalShare = [
-    { id: "linkedin", label: "LinkedIn", href: shareUrls.linkedIn, Icon: Linkedin },
-    { id: "x", label: "X", href: shareUrls.x, Icon: XIcon },
-    { id: "facebook", label: "Facebook", href: shareUrls.facebook, Icon: Facebook },
+    { id: "linkedin", label: "LinkedIn", href: shareUrls.linkedIn, Icon: IconBrandLinkedin },
+    { id: "x", label: "X", href: shareUrls.x, Icon: IconBrandX },
+    { id: "facebook", label: "Facebook", href: shareUrls.facebook, Icon: IconBrandFacebook },
+    { id: "whatsapp", label: "WhatsApp", href: shareUrls.whatsapp, Icon: IconBrandWhatsapp },
     { id: "email", label: "Email", href: shareUrls.email, Icon: Mail },
   ];
 
