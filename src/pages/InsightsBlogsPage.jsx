@@ -92,7 +92,7 @@ function InsightsBlogsPage() {
               <BadgeCheck className="h-3.5 w-3.5 shrink-0" aria-hidden />
               <span>Expert Insights</span>
             </div>
-            <h1 className="font-insights-headline mb-8 text-5xl leading-tight font-extrabold tracking-tight text-[#02254d] md:text-6xl sm:whitespace-nowrap">
+            <h1 className="font-insights-headline mb-8 text-5xl leading-tight font-extrabold tracking-tight text-[#02254d] md:text-6xl">
               Reputation Management Guides & Insights
             </h1>
             <p className="max-w-2xl text-xl leading-relaxed font-light text-[#43474e]">
