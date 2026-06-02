@@ -189,7 +189,7 @@ function GuidePage() {
           </div>
         </aside>
 
-        <div className="space-y-24 pt-[4.25rem] lg:col-span-3 lg:pt-0">
+        <div className="space-y-20 pt-[4.25rem] lg:col-span-3 lg:pt-0">
           {/* Chapter 1 */}
           <section className="scroll-mt-32" id="ch1">
             <div className="mb-8 flex items-baseline gap-4">
