@@ -553,7 +553,7 @@ export const RBS_FAQS = [
 ];
 
 export const RBS_FAQ_FOOTNOTE =
-  "All statistics referenced are from credible sources: Edelman Trust Barometer, Edelman-LinkedIn B2B Thought Leadership Impact Report, Glassdoor Research, LinkedIn B2B Institute, Sprout Social 2023 Index, and Google Ads research. Client testimonials are paraphrased and identifying details withheld on request.";
+  "All statistics referenced are from credible sources: Edelman Trust Barometer, Edelman-LinkedIn B2B Thought Leadership Impact Report, Glassdoor Research, LinkedIn B2B Institute, Sprout Social 2023 Index, and Google Ads research. Client identifying details have been withheld.";
 
 export const RBS_GUIDE_NAV = [
   { id: "two-kinds", label: "Two Kinds of Reputation Work" },
