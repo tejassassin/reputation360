@@ -515,7 +515,7 @@ export default function FreeRiskScanPage() {
   const accent = gradeAccent(letter);
 
   return (
-    <main className="relative w-full max-w-full flex-1 overflow-x-clip pt-20 md:pt-24">
+    <main className="relative w-full max-w-full flex-1 overflow-x-clip pt-32 md:pt-40">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-slate-100" aria-hidden />
       <div
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_120%_70%_at_50%_-18%,rgba(56,189,248,0.18),transparent_58%)]"
