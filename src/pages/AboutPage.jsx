@@ -1432,7 +1432,7 @@ function AboutPage() {
       <section
         ref={whoWeAreRef}
         id="who-we-are"
-        className={`relative overflow-hidden border-y border-slate-200/80 pb-20 pt-0 mt-0 md:pb-24 md:pt-0 ${aboutScrollTargetClass}`}
+        className={`relative overflow-hidden border-y border-slate-200/80 pb-20 pt-14 mt-0 md:pb-24 md:pt-20 ${aboutScrollTargetClass}`}
       >
         <div
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(125deg,#f8fafc_0%,#eef6ff_40%,#f0fdf4_100%)]"
