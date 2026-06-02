@@ -96,7 +96,7 @@ function GuidePage() {
       />
     <div className="guide-page bg-[#f9f9ff] text-[#141b2b]">
       {/* Hero - site header is fixed; pt clears it */}
-      <header className="relative overflow-hidden px-4 pb-24 pt-28 md:px-8 md:pt-32">
+      <header className="relative overflow-hidden px-4 pb-24 pt-44 md:px-8 md:pt-56">
         <div className="mx-auto flex max-w-7xl flex-col items-center text-center">
           <div className="z-10">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#2a8c3e] px-3 py-1 text-xs font-bold tracking-widest text-white uppercase">
