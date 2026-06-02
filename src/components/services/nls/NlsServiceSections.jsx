@@ -1492,6 +1492,12 @@ export function NlsFaqSection() {
           </Motion.div>
         ))}
       </div>
+      <p className="mt-6 text-sm leading-relaxed text-slate-500">
+        All statistics referenced are from credible sources: Edelman Trust Barometer, Edelman-LinkedIn B2B Thought Leadership Impact Report, Glassdoor Research, LinkedIn B2B Institute, Sprout Social 2023 Index, and Google Ads research. Client identifying details have been withheld.
+      </p>
+      <p className="mt-6 text-sm leading-relaxed text-slate-500">
+        All statistics referenced are from credible sources: Edelman Trust Barometer, Edelman-LinkedIn B2B Thought Leadership Impact Report, Glassdoor Research, LinkedIn B2B Institute, Sprout Social 2023 Index, and Google Ads research. Client identifying details have been withheld.
+      </p>
     </NlsSectionShell>
   );
 }
