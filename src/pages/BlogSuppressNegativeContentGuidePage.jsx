@@ -39,6 +39,7 @@ import {
   suppressNegativeGuideSeoTitle,
 } from "../data/blogs/suppressNegativeContentGuide.js";
 import "../styles/r360-diy-interactive.css";
+import { BlogAuthorMeta } from "../components/blog/BlogAuthorMeta.jsx";
 
 const GUIDE_NAV = [
   { id: "intro", label: "Introduction" },
@@ -461,6 +462,7 @@ export default function BlogSuppressNegativeContentGuidePage() {
           <span className="diy-hero-badge">{suppressNegativeGuideHero.badge}</span>
           <h1 className="diy-hero-title">{suppressNegativeGuideHero.title}</h1>
           <p className="diy-hero-lead">{suppressNegativeGuideHero.lead}</p>
+          <BlogAuthorMeta slug="how-to-suppress-negative-content-professionals-guide" date={suppressNegativeGuideListing.date} />
           <p className="mt-8 flex items-center justify-center gap-2 font-body text-sm text-steel">
             <Clock className="h-4 w-4 text-navy" aria-hidden />
             {suppressNegativeGuideListing.readTime} read

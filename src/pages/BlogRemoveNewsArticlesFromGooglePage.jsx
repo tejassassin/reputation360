@@ -45,6 +45,7 @@ import {
   SCROLL_SPY_ORDER,
 } from "../data/blogs/removeNewsArticlesFromGoogleInteractive.js";
 import "../styles/r360-diy-interactive.css";
+import { BlogAuthorMeta } from "../components/blog/BlogAuthorMeta.jsx";
 
 function LegalAccordion({ id, title, children, open, onToggle }) {
   return (
@@ -117,6 +118,7 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
           <span className="diy-hero-badge">{removeNewsArticlesFromGoogleHero.badge}</span>
           <h1 className="diy-hero-title">{removeNewsArticlesFromGoogleHero.title}</h1>
           <p className="diy-hero-lead">{removeNewsArticlesFromGoogleHero.lead}</p>
+          <BlogAuthorMeta slug="can-you-remove-news-articles-from-google-search" date={removeNewsArticlesFromGoogleListing.date} />
           <p className="mt-8 flex items-center justify-center gap-2 font-body text-sm text-steel">
             <Clock className="h-4 w-4 text-navy" aria-hidden />
             {removeNewsArticlesFromGoogleListing.readTime} read

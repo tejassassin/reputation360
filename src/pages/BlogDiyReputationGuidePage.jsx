@@ -59,6 +59,8 @@ import {
   StepPicker,
 } from "../components/blog/diy/DiyGuideUi.jsx";
 import "../styles/r360-diy-interactive.css";
+import { BlogAuthorMeta } from "../components/blog/BlogAuthorMeta.jsx";
+import { DIY_REPUTATION_GUIDE_SLUG } from "../data/blogs/diyReputationGuide.js";
 
 export default function BlogDiyReputationGuidePage() {
   const [readingPct, setReadingPct] = useState(0);
@@ -132,6 +134,7 @@ export default function BlogDiyReputationGuidePage() {
           <span className="diy-hero-badge">{diyReputationGuideHero.badge}</span>
           <h1 className="diy-hero-title">{diyReputationGuideHero.title}</h1>
           <p className="diy-hero-lead">{diyReputationGuideHero.lead}</p>
+          <BlogAuthorMeta slug={DIY_REPUTATION_GUIDE_SLUG} date={diyReputationGuideListing.date} />
           <div className="diy-meta-grid">
             {diyReputationGuideHero.meta.map((item) => (
               <div key={item.label}>

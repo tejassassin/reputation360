@@ -25,6 +25,7 @@ import {
   loadPack20Article,
 } from "../data/blogs/pack20/loadPack20.js";
 import "../styles/r360-diy-interactive.css";
+import { BlogAuthorMeta } from "../components/blog/BlogAuthorMeta.jsx";
 
 function Pack20ArticleFallback() {
   return <div className="min-h-[40vh] flex-1 bg-offwhite" aria-busy="true" aria-label="Loading article" />;
@@ -133,6 +134,7 @@ export default function BlogPack20ArticlePage({ slug }) {
           <span className="diy-hero-badge">{article.hero.badge}</span>
           <h1 className="diy-hero-title">{article.listing.title}</h1>
           <p className="diy-hero-lead">{article.hero.lead}</p>
+          <BlogAuthorMeta slug={slug} date={article.listing.date} />
           {article.hero.meta?.length ? (
             <div className="diy-meta-grid">
               {article.hero.meta.map((item) => (

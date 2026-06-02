@@ -58,6 +58,7 @@ import {
   StepPicker,
 } from "../components/blog/diy/DiyGuideUi.jsx";
 import "../styles/r360-diy-interactive.css";
+import { BlogAuthorMeta } from "../components/blog/BlogAuthorMeta.jsx";
 
 const SERVICES_PATH = "/services";
 const CASE_STUDIES_PATH = "/case-studies";
@@ -203,6 +204,7 @@ export default function BlogReputationRepairTimelinePage() {
           <span className="diy-hero-badge">{reputationRepairTimelineHero.badge}</span>
           <h1 className="diy-hero-title">{reputationRepairTimelineHero.title}</h1>
           <p className="diy-hero-lead">{reputationRepairTimelineHero.lead}</p>
+          <BlogAuthorMeta slug="how-long-does-it-take-to-fix-online-reputation" date={reputationRepairTimelineListing.date} />
           <div className="diy-meta-grid">
             {reputationRepairTimelineHero.meta.map((item) => (
               <div key={item.label}>

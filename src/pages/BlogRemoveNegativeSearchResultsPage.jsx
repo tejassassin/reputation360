@@ -49,6 +49,7 @@ import {
   StepPicker,
 } from "../components/blog/diy/DiyGuideUi.jsx";
 import "../styles/r360-diy-interactive.css";
+import { BlogAuthorMeta } from "../components/blog/BlogAuthorMeta.jsx";
 
 const SERVICES_PATH = "/services";
 
@@ -130,6 +131,7 @@ export default function BlogRemoveNegativeSearchResultsPage() {
           <span className="diy-hero-badge">{removeNegativeSearchResultsHero.badge}</span>
           <h1 className="diy-hero-title">{removeNegativeSearchResultsHero.title}</h1>
           <p className="diy-hero-lead">{removeNegativeSearchResultsHero.lead}</p>
+          <BlogAuthorMeta slug="remove-negative-search-results-from-google" date={removeNegativeSearchResultsListing.date} />
           <div className="diy-meta-grid">
             {removeNegativeSearchResultsHero.meta.map((item) => (
               <div key={item.label}>
