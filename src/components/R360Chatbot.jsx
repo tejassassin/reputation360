@@ -502,7 +502,7 @@ export default function R360Chatbot() {
           <X className="h-6 w-6 transform transition duration-200 rotate-0" strokeWidth={2.2} aria-hidden />
         ) : (
           <div className="relative flex items-center justify-center h-full w-full">
-            <BirdLogo />
+            <MessageSquare className="h-6 w-6 text-white" />
             {/* Red Badge '1' */}
             {!showGreeting && (
               <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#E53E3E] text-[10px] font-bold text-white border-2 border-[#1F3B64] animate-pulse">
