@@ -988,26 +988,34 @@ export function RbsBeforeAfterSection() {
                 <ul className="mt-6 space-y-4" role="list" aria-label={column.title}>
                   {column.items.map((item, index) => (
                     <li key={item}>
-                      <div className={`group relative flex gap-4 rounded-[1.4rem] px-5 py-5 ${column.itemBase}`}>
+                      <Motion.div
+                        whileHover={{ y: -3, scale: 1.008 }}
+                        transition={{ duration: 0.22, ease: rbsEase }}
+                        className={`group relative flex gap-4 rounded-[1.4rem] px-5 py-5 transition-[border-color,box-shadow,background-color] duration-200 ${column.itemBase} ${
+                          columnIndex === 0 
+                            ? "hover:border-[#d36b6b]/30 hover:bg-[#fffcfc] hover:shadow-[0_16px_30px_-20px_rgba(123,47,47,0.2)]" 
+                            : "hover:border-[#2e8f47]/30 hover:bg-[#f6fbf7] hover:shadow-[0_16px_30px_-20px_rgba(20,53,95,0.15)]"
+                        }`}
+                      >
                         <span
                           className={`pointer-events-none absolute inset-y-5 left-0 w-1 rounded-full ${column.accentClass}`}
                           aria-hidden
                         />
                         <span
-                          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-[1rem] font-heading text-base font-bold ${column.stepClass}`}
+                          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-[1rem] font-heading text-base font-bold transition-transform duration-200 group-hover:scale-105 ${column.stepClass}`}
                           aria-hidden
                         >
                           {String(index + 1).padStart(2, "0")}
                         </span>
                         <Icon
-                          className={`mt-1 h-6 w-6 shrink-0 ${column.iconClass}`}
+                          className={`mt-1 h-6 w-6 shrink-0 transition-transform duration-200 group-hover:scale-110 ${column.iconClass}`}
                           aria-hidden
                           strokeWidth={2.25}
                         />
                         <p className="min-w-0 flex-1 text-sm leading-relaxed md:text-[15px]">
                           {item}
                         </p>
-                      </div>
+                      </Motion.div>
                     </li>
                   ))}
                 </ul>
