@@ -233,7 +233,7 @@ function InsightsBlogsPage() {
       {/* Latest Articles */}
       <section
         id="latest-articles"
-        className="mx-auto max-w-7xl px-6 pt-16 pb-12 md:px-8"
+        className="mx-auto max-w-7xl px-6 py-20 md:px-8"
       >
         <div className="mb-16 flex flex-col gap-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -331,7 +331,7 @@ function InsightsBlogsPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#f9f9ff] pt-10 pb-20 md:pt-12 md:pb-24 px-6 md:px-8">
+      <section className="bg-[#f9f9ff] py-20 md:py-24 px-6 md:px-8">
         <div className="mx-auto max-w-3xl">
           <BlogGuideCtaPanel />
         </div>
