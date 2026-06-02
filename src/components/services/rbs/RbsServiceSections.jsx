@@ -977,7 +977,7 @@ export function RbsBeforeAfterSection() {
             <RbsReveal key={column.title} delay={columnIndex * 0.06}>
               <div className={`rounded-[2rem] border p-6 md:p-7 lg:p-8 ${column.panelClass}`}>
                 <div className="flex flex-wrap items-end justify-between gap-3">
-                  <h3 className={`font-heading text-[2rem] font-bold md:text-[2.15rem] ${column.titleClass}`}>
+                  <h3 className={`font-heading text-xl font-bold leading-snug md:text-2xl ${column.titleClass}`}>
                     {column.title}
                   </h3>
                   <p className={`font-heading text-xs font-semibold ${column.counterClass}`}>
