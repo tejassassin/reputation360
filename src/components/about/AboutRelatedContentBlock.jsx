@@ -87,7 +87,7 @@ export function AboutRelatedContentBlock() {
               </p>
               <h2
                 id="about-further-reading-heading"
-                className="mt-2 font-heading text-[28px] font-bold leading-[1.1] text-[#0f2e58] md:text-[34px]"
+                className="mt-2 font-heading text-[28px] font-bold leading-[1.1] text-[#0f2e58] md:text-[34px] sm:whitespace-nowrap"
               >
                 Reputation Management Guides & Insights
               </h2>

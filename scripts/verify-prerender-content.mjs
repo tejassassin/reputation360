@@ -95,7 +95,7 @@ for (const pathname of prerenderPaths()) {
 
   const hasPrerenderHeading =
     /<article[^>]*id="r360-prerender"[\s\S]*<h1[\s>]/i.test(html) ||
-    (pathname === "/" && html.includes("Reputation Management Insights & Guides")) ||
+    (pathname === "/" && html.includes("Reputation Management Guides & Insights")) ||
     (pathname === "/services" && html.includes("See It In Action")) ||
     (pathname === "/about" && html.includes("Reputation Management Case Studies"));
   if (!hasPrerenderHeading) {
@@ -157,8 +157,8 @@ for (const pathname of prerenderPaths()) {
   }
 
   if (pathname === "/") {
-    if (!html.includes("Reputation Management Insights & Guides")) {
-      console.error(`verify-prerender-content: ${rel} missing Reputation Management Insights & Guides section`);
+    if (!html.includes("Reputation Management Guides & Insights")) {
+      console.error(`verify-prerender-content: ${rel} missing Reputation Management Guides & Insights section`);
       failed = true;
     } else if (!html.includes("remove-negative-search-results-from-google")) {
       console.error(

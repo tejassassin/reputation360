@@ -136,14 +136,14 @@ export function FurtherReadingSection({
           {sectionTitleTag === "h2" ? (
             <h2
               id="further-reading-heading"
-              className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
+              className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] sm:whitespace-nowrap"
             >
               {sectionTitle}
             </h2>
           ) : (
             <h3
               id="further-reading-heading"
-              className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px]"
+              className="font-heading text-[26px] font-bold leading-[1.12] text-[#0f2e58] md:text-[32px] sm:whitespace-nowrap"
             >
               {sectionTitle}
             </h3>

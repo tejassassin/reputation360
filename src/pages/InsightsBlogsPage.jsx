@@ -92,9 +92,8 @@ function InsightsBlogsPage() {
               <BadgeCheck className="h-3.5 w-3.5 shrink-0" aria-hidden />
               <span>Expert Insights</span>
             </div>
-            <h1 className="font-insights-headline mb-8 text-5xl leading-tight font-extrabold tracking-tight text-[#02254d] md:text-6xl">
-              Online Reputation Management Insights & Guides - <br />
-              <span className="text-[#35618e]">7 Years of Expertise</span>
+            <h1 className="font-insights-headline mb-8 text-5xl leading-tight font-extrabold tracking-tight text-[#02254d] md:text-6xl sm:whitespace-nowrap">
+              Reputation Management Guides & Insights
             </h1>
             <p className="max-w-2xl text-xl leading-relaxed font-light text-[#43474e]">
               No recycled advice. No generic lists. Every article here is
@@ -238,8 +237,8 @@ function InsightsBlogsPage() {
       >
         <div className="mb-16 flex flex-col gap-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="font-insights-headline text-4xl font-extrabold tracking-tight text-[#02254d]">
-              {searchQuery ? `Results for “${searchQuery}”` : "Latest Online Reputation Management Articles & Guides"}
+            <h2 className="font-insights-headline text-4xl font-extrabold tracking-tight text-[#02254d] sm:whitespace-nowrap">
+              {searchQuery ? `Results for “${searchQuery}”` : "Reputation Management Guides & Insights"}
             </h2>
             <form
               action="/blog"

@@ -1,10 +1,11 @@
 import { useMemo, useRef } from "react";
-import { ArrowUpRight, ChevronLeft, ChevronRight, Clock3, User, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, Clock3, User, ShieldCheck, ArrowRight } from "lucide-react";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion.js";
 import { CASE_STUDIES, CASE_STUDIES_FOOTER } from "@/data/caseStudies/index.js";
 import { getOutcomeAndKeyPoints } from "@/utils/caseStudyGlimpse.js";
 import { parseEngagementMonths } from "@/utils/parseEngagement.js";
 import { internalAnchorProps } from "@/lib/internalLinkProps.js";
+import { getCaseStudyImage } from "./CaseStudyMetaPill.jsx";
 
 const GLIMPSE_COUNT = 5;
 const SCROLL_PAD = 0.86;
@@ -131,8 +132,18 @@ function CaseStudies() {
                   <a
                     href={caseStudyHref}
                     {...internalAnchorProps(caseStudyHref)}
-                    className="group/card flex h-full min-h-[22rem] flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white text-left no-underline shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#4CAF50]/30 hover:shadow-[0_20px_40px_-15px_rgba(76,175,80,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green sm:min-h-[23rem]"
+                    className="group/card flex h-full min-h-[32rem] flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white text-left no-underline shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#4CAF50]/30 hover:shadow-[0_20px_40px_-15px_rgba(76,175,80,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green sm:min-h-[33rem]"
                   >
+                    {/* Top Image */}
+                    <div className="h-40 w-full overflow-hidden bg-slate-100 border-b border-slate-100">
+                      <img
+                        src={getCaseStudyImage(study.n)}
+                        alt={study.listTitle}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover/card:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+
                     {/* Header Block with soft gradient background */}
                     <div className="bg-gradient-to-r from-[#1f3b64]/[0.03] to-[#2e5b88]/[0.03] border-b border-slate-100 p-5 sm:p-6">
                       <p className="mb-2.5 inline-flex max-w-full">
