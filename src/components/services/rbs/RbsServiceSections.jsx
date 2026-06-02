@@ -591,13 +591,9 @@ export function RbsFrameworkSection() {
                   key={scenario.audience}
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -10, scale: 1.015 }}
+                  whileHover={{ y: -6, scale: 1.01 }}
                   viewport={rbsInView}
-                  transition={{
-                    y: { type: "spring", stiffness: 340, damping: 22 },
-                    scale: { type: "spring", stiffness: 280, damping: 22 },
-                    opacity: { duration: 0.46, delay: 0.1 + index * 0.08, ease: rbsEase },
-                  }}
+                  transition={{ duration: 0.48, delay: 0.1 + index * 0.08, ease: rbsEase }}
                   className="group relative flex h-full flex-col overflow-hidden rounded-[2px] border border-[#dbe5f0] bg-[linear-gradient(180deg,#ffffff_0%,#fbfdff_100%)] px-9 py-10 shadow-[0_10px_28px_-24px_rgba(31,59,100,0.16)] transition-[box-shadow,transform,background-color,border-color,ring] duration-300 hover:border-[#1F3B64]/24 hover:bg-[linear-gradient(180deg,#ffffff_0%,#f7fbff_100%)] hover:shadow-[0_34px_72px_-30px_rgba(31,59,100,0.34)] hover:ring-1 hover:ring-[#4CAF50]/18"
                 >
                   <div
