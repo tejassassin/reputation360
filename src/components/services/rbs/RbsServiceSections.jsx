@@ -1251,6 +1251,41 @@ export function RbsProcessSection() {
 }
 
 export function RbsWhyReputation360Section() {
+  const pillars = [
+    {
+      eyebrow: "Our Standard: Quality-First",
+      title: "Reputation work should hold up under scrutiny",
+      body: RBS_WHY_R360[1],
+      Icon: BadgeCheck,
+      badgeColor: "bg-[#eef7f2] text-[#195f3a] ring-[#d6efe1]",
+      hoverBorder: "hover:border-[#4CAF50]/30",
+    },
+    {
+      eyebrow: "The Reputation Lens",
+      title: "Decisions optimized for trust",
+      body: RBS_WHY_R360[2],
+      Icon: Target,
+      badgeColor: "bg-[#eef4fb] text-[#1F3B64] ring-[#dbe5f0]",
+      hoverBorder: "hover:border-[#1F3B64]/30",
+    },
+    {
+      eyebrow: "Experience & Track Record",
+      title: "Reputation-first thinking, built through direct practice",
+      body: RBS_WHY_R360[3],
+      Icon: Briefcase,
+      badgeColor: "bg-[#fbf5ee] text-[#b45309] ring-[#fde8d0]",
+      hoverBorder: "hover:border-[#b45309]/30",
+    },
+    {
+      eyebrow: "The Outcome",
+      title: "Control, strengthen, and protect your brand",
+      body: RBS_WHY_R360[4],
+      Icon: ShieldCheck,
+      badgeColor: "bg-[#f5f3ff] text-[#5b21b6] ring-[#ede9fe]",
+      hoverBorder: "hover:border-[#5b21b6]/30",
+    },
+  ];
+
   return (
     <RbsSection
       id="why-r360"
@@ -1259,92 +1294,36 @@ export function RbsWhyReputation360Section() {
       lead="We are not a general digital marketing agency that also does reputation work. Reputation is the only thing we do."
       contentClassName="mt-10"
     >
-      <div className="mt-10">
-        <RbsReveal>
-          <div className="overflow-hidden rounded-[2rem] border border-[#dbe5f0] bg-white shadow-[0_24px_54px_-34px_rgba(20,53,95,0.18)]">
-            <div className="px-6 py-6 md:px-8 md:py-8">
-              <div className="grid items-start gap-5 xl:grid-cols-[minmax(0,1.18fr)_minmax(20rem,0.82fr)]">
-                <RbsHoverCard
-                  hoverY={-4}
-                  hoverScale={1.006}
-                  className="group rounded-[1.6rem] border border-[#dbe5f0] bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] px-6 py-6 shadow-[0_20px_42px_-30px_rgba(20,53,95,0.16)] transition-[border-color,box-shadow] duration-200 hover:border-[#c9d8ea] hover:shadow-[0_24px_50px_-30px_rgba(20,53,95,0.22)]"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Our Standard: Quality-First Reputation Building</h3>
-                      <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
-                        Our Standard: Quality-First Reputation Building
-                      </p>
-                      <h3 className="mt-3 max-w-[18ch] font-heading text-[1.45rem] font-bold leading-[1.12] text-[#14355f] md:text-[1.75rem]">
-                        Reputation work should hold up under scrutiny
-                      </h3>
-                    </div>
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[1rem] bg-[#4CAF50]/10 text-[#237340] ring-1 ring-[#4CAF50]/18 transition-transform duration-200 group-hover:scale-105">
-                      <BadgeCheck className="h-5 w-5" aria-hidden strokeWidth={2.1} />
-                    </span>
-                  </div>
-                  <p className="mt-5 text-[16px] leading-[1.82] text-slate-600 md:text-[17px]">
-                    {RBS_WHY_R360[1]}
-                  </p>
-                </RbsHoverCard>
-
-                <div className="grid gap-4">
-                  <RbsHoverCard
-                    hoverY={-3}
-                    hoverScale={1.004}
-                    className="group rounded-[1.4rem] border border-[#dbe5f0] bg-white px-5 py-5 shadow-[0_16px_34px_-28px_rgba(20,53,95,0.12)] transition-[border-color,box-shadow] duration-200 hover:border-[#cfe3d4] hover:shadow-[0_20px_40px_-28px_rgba(20,53,95,0.18)]"
-                  >
-                    <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>The Reputation Lens: Decisions Optimised for Trust</h3>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
-                      The Reputation Lens: Decisions Optimised for Trust
-                    </p>
-                    <p className="mt-3 text-[15px] leading-[1.8] text-slate-600 md:text-[16px]">
-                      {RBS_WHY_R360[2]}
-                    </p>
-                  </RbsHoverCard>
-
-                  <RbsHoverCard
-                    hoverY={-3}
-                    hoverScale={1.004}
-                    className="group rounded-[1.4rem] border border-[#dbe5f0] bg-[linear-gradient(180deg,#fbfefc_0%,#f7fbff_100%)] px-5 py-5 shadow-[0_16px_34px_-28px_rgba(20,53,95,0.12)] transition-[border-color,box-shadow] duration-200 hover:border-[#cfe3d4] hover:shadow-[0_20px_40px_-28px_rgba(20,53,95,0.18)]"
-                  >
-                    <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Outcome: Measurable Reputation Building Results</h3>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
-                      Outcome: Measurable Reputation Building Results
-                    </p>
-                    <p className="mt-3 text-[15px] leading-[1.8] text-[#14355f] md:text-[16px]">
-                      {RBS_WHY_R360[4]}
-                    </p>
-                  </RbsHoverCard>
+      <div className="mt-8 grid gap-6 md:grid-cols-2 lg:gap-8">
+        {pillars.map((pillar, index) => {
+          const Icon = pillar.Icon;
+          return (
+            <RbsHoverCard
+              key={pillar.eyebrow}
+              delay={index * 0.05}
+              hoverY={-4}
+              hoverScale={1.01}
+              className={`group flex flex-col justify-between rounded-[1.85rem] border border-[#dbe5f0] bg-white p-6 shadow-[0_12px_30px_-20px_rgba(20,53,95,0.08)] transition-[border-color,box-shadow] duration-300 ${pillar.hoverBorder} hover:shadow-[0_24px_48px_-20px_rgba(20,53,95,0.15)]`}
+            >
+              <div>
+                <div className="flex items-center justify-between gap-4">
+                  <span className={`inline-flex rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.16em] ${pillar.badgeColor} ring-1 ring-inset`}>
+                    {pillar.eyebrow}
+                  </span>
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-50 text-slate-600 transition-colors duration-300 group-hover:bg-[#14355f] group-hover:text-[#7df5b9] shadow-sm">
+                    <Icon className="h-5 w-5" aria-hidden strokeWidth={2} />
+                  </span>
                 </div>
+                <h3 className="mt-5 font-heading text-xl font-bold leading-snug text-[#14355f] md:text-2xl transition-colors duration-200 group-hover:text-[#1F3B64]">
+                  {pillar.title}
+                </h3>
+                <p className="mt-4 text-[15px] leading-relaxed text-slate-600 md:text-[15.5px]">
+                  {pillar.body}
+                </p>
               </div>
-
-              <RbsHoverCard
-                delay={0.04}
-                hoverY={-4}
-                hoverScale={1.004}
-                className="group mt-5 overflow-hidden rounded-[1.6rem] border border-[#dbe5f0] bg-white shadow-[0_20px_42px_-30px_rgba(20,53,95,0.16)] transition-[border-color,box-shadow] duration-200 hover:border-[#c9d8ea] hover:shadow-[0_24px_50px_-30px_rgba(20,53,95,0.22)]"
-              >
-                <div className="grid gap-0 md:grid-cols-[minmax(0,0.36fr)_minmax(0,1fr)]">
-                  <div className="border-b border-[#dbe5f0] bg-[linear-gradient(180deg,#f8fbff_0%,#f5faf6_100%)] px-5 py-5 md:border-b-0 md:border-r">
-                    <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Experience: 7+ Years of Specialist Reputation Building</h3>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4CAF50]">
-                      Experience: 7+ Years of Specialist Reputation Building
-                    </p>
-                    <p className="mt-3 max-w-[16ch] font-heading text-[1.2rem] font-bold leading-[1.3] text-[#14355f] md:text-[1.35rem]">
-                      Reputation-first thinking, built through direct practice
-                    </p>
-                  </div>
-                  <div className="px-5 py-5 md:px-6">
-                    <p className="text-[15px] leading-[1.82] text-slate-600 md:text-[16px]">
-                      {RBS_WHY_R360[3]}
-                    </p>
-                  </div>
-                </div>
-              </RbsHoverCard>
-            </div>
-          </div>
-        </RbsReveal>
+            </RbsHoverCard>
+          );
+        })}
       </div>
     </RbsSection>
   );
