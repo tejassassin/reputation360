@@ -295,7 +295,7 @@ export function RbsTwoKindsSection() {
       active:
         "bg-white ring-2 ring-inset ring-[#1F3B64]/25 opacity-100 [box-shadow:inset_0_0_0_1px_rgba(31,59,100,0.06),0_18px_44px_-20px_rgba(15,35,60,0.18)]",
       inactive:
-        "bg-gradient-to-br from-white to-[#f3f6fa] [box-shadow:inset_0_0_0_1px_rgba(31,59,100,0.04),0_10px_24px_-20px_rgba(15,35,60,0.12)] hover:bg-white hover:[box-shadow:inset_0_0_0_1px_rgba(31,59,100,0.08),0_18px_44px_-20px_rgba(15,35,60,0.18)]",
+        "bg-white [box-shadow:inset_0_0_0_1px_rgba(31,59,100,0.04),0_10px_24px_-20px_rgba(15,35,60,0.12)] hover:bg-white hover:[box-shadow:inset_0_0_0_1px_rgba(31,59,100,0.08),0_18px_44px_-20px_rgba(15,35,60,0.18)]",
     },
     {
       id: "deep",
