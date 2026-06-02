@@ -153,10 +153,6 @@ export default function HowReputation360Works() {
             </AnimatePresence>
           </div>
 
-          <span className="mb-3 mt-10 block text-center font-heading text-xs font-bold uppercase tracking-[0.18em] text-[#64748b]">
-            Switch phase
-          </span>
-
           <div
             className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3"
             role="tablist"
