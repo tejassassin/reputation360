@@ -64,11 +64,11 @@ export function BlogShareSection({ title, canonicalPath, className = "" }) {
   }, [copyLink, pageUrl, title]);
 
   const externalShare = [
-    { id: "linkedin", label: "LinkedIn", href: shareUrls.linkedIn, Icon: IconBrandLinkedin },
-    { id: "x", label: "X", href: shareUrls.x, Icon: IconBrandX },
-    { id: "facebook", label: "Facebook", href: shareUrls.facebook, Icon: IconBrandFacebook },
-    { id: "whatsapp", label: "WhatsApp", href: shareUrls.whatsapp, Icon: IconBrandWhatsapp },
-    { id: "email", label: "Email", href: shareUrls.email, Icon: Mail },
+    { id: "linkedin", label: "LinkedIn", href: shareUrls.linkedIn, Icon: IconBrandLinkedin, iconClass: "text-[#0a66c2]" },
+    { id: "x", label: "X", href: shareUrls.x, Icon: IconBrandX, iconClass: "text-[#0f1419]" },
+    { id: "facebook", label: "Facebook", href: shareUrls.facebook, Icon: IconBrandFacebook, iconClass: "text-[#1877f2]" },
+    { id: "whatsapp", label: "WhatsApp", href: shareUrls.whatsapp, Icon: IconBrandWhatsapp, iconClass: "text-[#25d366]" },
+    { id: "email", label: "Email", href: shareUrls.email, Icon: Mail, iconClass: "text-steel" },
   ];
 
   return (
@@ -97,7 +97,7 @@ export function BlogShareSection({ title, canonicalPath, className = "" }) {
           </button>
         ) : null}
 
-        {externalShare.map(({ id, label, href, Icon }) => (
+        {externalShare.map(({ id, label, href, Icon, iconClass }) => (
           <a
             key={id}
             href={href}
@@ -106,7 +106,7 @@ export function BlogShareSection({ title, canonicalPath, className = "" }) {
             rel={id === "email" ? undefined : "noopener noreferrer"}
             aria-label={`Share on ${label}`}
           >
-            <Icon className="h-4 w-4 shrink-0" aria-hidden />
+            <Icon className={cn("h-4 w-4 shrink-0", iconClass)} aria-hidden />
             {label}
           </a>
         ))}
