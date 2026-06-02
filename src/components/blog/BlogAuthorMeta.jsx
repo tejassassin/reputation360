@@ -37,7 +37,7 @@ export function BlogAuthorMeta({ slug, date }) {
   else if (harperBlogs.includes(slug)) author = "Harper Sullivan";
 
   return (
-    <div className="mt-8 py-5 border-y border-slate-200/80 max-w-2xl mx-auto flex flex-col sm:flex-row justify-around items-center gap-4 text-center font-body select-none">
+    <div className="my-8 py-5 border-y border-slate-200/80 max-w-2xl mx-auto flex flex-col sm:flex-row justify-around items-center gap-4 text-center font-body select-none">
       <div className="flex flex-col gap-1 px-4">
         <span className="text-xs font-bold tracking-wider text-slate-400 uppercase">Written By</span>
         <span className="text-base font-semibold text-[#1F3B64]">{author}</span>
