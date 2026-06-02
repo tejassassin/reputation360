@@ -10,7 +10,7 @@ const GLIMPSE_COUNT = 5;
 const SCROLL_PAD = 0.86;
 
 const NAV_BTN =
-  "inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white shadow-sm transition hover:border-[#4CAF50]/45 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/30 active:scale-[0.98] sm:h-12 sm:w-12";
+  "inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-[#4CAF50]/45 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/30 active:scale-[0.98] sm:h-12 sm:w-12";
 
 
 function engagementLabel(eng) {
@@ -50,15 +50,15 @@ function CaseStudies() {
 
   return (
     <section
-      className="relative overflow-hidden border-t border-slate-900/40 bg-gradient-to-b from-[#0F1E36] to-[#0A1424] text-white py-16 md:py-20"
+      className="relative overflow-hidden border-t border-slate-200/60 bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9] to-[#E2E8F0] py-16 md:py-20"
       aria-labelledby="home-glimpse-cases-heading"
     >
       <div
-        className="pointer-events-none absolute -left-32 top-0 h-72 w-72 rounded-full bg-[#4CAF50]/[0.08] blur-3xl"
+        className="pointer-events-none absolute -left-32 top-0 h-72 w-72 rounded-full bg-[#4CAF50]/[0.06] blur-3xl"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-[#1f3b64]/[0.05] blur-3xl"
+        className="pointer-events-none absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-[#1f3b64]/[0.04] blur-3xl"
         aria-hidden
       />
 
@@ -68,8 +68,8 @@ function CaseStudies() {
             id="home-glimpse-cases-heading"
             className="font-heading text-3xl font-bold tracking-tight sm:text-4xl"
           >
-            <span className="text-white">Reputation Management </span>
-            <span className="bg-gradient-to-r from-[#4CAF50] via-[#81C784] to-[#64B5F6] bg-clip-text text-transparent">
+            <span className="text-navy">Reputation Management </span>
+            <span className="bg-gradient-to-r from-[#2a6b3a] via-[#4CAF50] to-[#2E5B88] bg-clip-text text-transparent">
               Case Studies
             </span>
           </h2>
@@ -131,54 +131,54 @@ function CaseStudies() {
                   <a
                     href={caseStudyHref}
                     {...internalAnchorProps(caseStudyHref)}
-                    className="group/card flex h-full min-h-[22rem] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#162A45]/60 backdrop-blur-sm text-left no-underline shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:border-[#4CAF50]/50 hover:shadow-[0_20px_45px_rgba(76,175,80,0.15)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green sm:min-h-[23rem]"
+                    className="group/card flex h-full min-h-[22rem] flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white text-left no-underline shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#4CAF50]/30 hover:shadow-[0_20px_40px_-15px_rgba(76,175,80,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green sm:min-h-[23rem]"
                   >
-                    <div
-                      className="h-1.5 w-full bg-gradient-to-r from-[#1f3b64] via-[#4CAF50] to-[#2E5B88]"
-                      aria-hidden
-                    />
-                    <div className="flex min-h-0 flex-1 flex-col p-5 sm:p-6">
+                    {/* Header Block with soft gradient background */}
+                    <div className="bg-gradient-to-r from-[#1f3b64]/[0.03] to-[#2e5b88]/[0.03] border-b border-slate-100 p-5 sm:p-6">
                       <p className="mb-2.5 inline-flex max-w-full">
-                        <span className="rounded-full bg-[#4CAF50]/15 border border-[#4CAF50]/35 px-2.5 py-0.5 text-left text-[9px] font-bold uppercase tracking-wider text-[#4CAF50]">
+                        <span className="rounded-full bg-[#1f3b64]/5 border border-[#1f3b64]/10 px-2.5 py-0.5 text-left text-[9px] font-bold uppercase tracking-wider text-[#1f3b64]">
                           {study.industry}
                         </span>
                       </p>
-                      <h3 className="line-clamp-2 font-heading text-base font-extrabold leading-snug text-white [text-wrap:balance] sm:text-[1.05rem]">
+                      <h3 className="line-clamp-2 font-heading text-base font-extrabold leading-snug text-navy [text-wrap:balance] sm:text-[1.05rem]">
                         <span className="text-inherit">{study.listTitle}</span>
                       </h3>
+                    </div>
 
-                      <div className="mt-5 flex min-h-0 flex-1 flex-col gap-3">
+                    {/* Body Block */}
+                    <div className="flex min-h-0 flex-1 flex-col p-5 sm:p-6 bg-white">
+                      <div className="flex min-h-0 flex-1 flex-col gap-3">
                         {/* Profile Field */}
-                        <div className="flex gap-3 items-start bg-white/5 p-3 rounded-xl border border-white/5 transition-colors duration-200 hover:bg-white/10">
-                          <User className="h-4.5 w-4.5 text-[#64B5F6] mt-0.5 shrink-0" strokeWidth={2.2} />
+                        <div className="flex gap-3 items-start bg-slate-50/50 p-3 rounded-xl border border-slate-100/50 transition-colors duration-200 hover:bg-slate-50">
+                          <User className="h-4.5 w-4.5 text-[#2E5B88] mt-0.5 shrink-0" strokeWidth={2.2} />
                           <div>
                             <p className="font-heading text-[9px] font-bold uppercase tracking-[0.14em] text-slate-400">Profile</p>
-                            <p className="mt-0.5 line-clamp-2 font-body text-sm font-semibold text-slate-200 leading-relaxed">{study.profile}</p>
+                            <p className="mt-0.5 line-clamp-2 font-body text-[13px] font-semibold text-slate-800 leading-relaxed">{study.profile}</p>
                           </div>
                         </div>
 
                         {/* Duration Field */}
-                        <div className="flex gap-3 items-start bg-white/5 p-3 rounded-xl border border-white/5 transition-colors duration-200 hover:bg-white/10">
-                          <Clock3 className="h-4.5 w-4.5 text-[#64B5F6] mt-0.5 shrink-0" strokeWidth={2.2} />
+                        <div className="flex gap-3 items-start bg-slate-50/50 p-3 rounded-xl border border-slate-100/50 transition-colors duration-200 hover:bg-slate-50">
+                          <Clock3 className="h-4.5 w-4.5 text-[#2E5B88] mt-0.5 shrink-0" strokeWidth={2.2} />
                           <div>
                             <p className="font-heading text-[9px] font-bold uppercase tracking-[0.14em] text-slate-400">Duration</p>
-                            <p className="mt-0.5 font-body text-sm font-semibold text-slate-200 leading-relaxed">{hasDuration ? engText : "-"}</p>
+                            <p className="mt-0.5 font-body text-[13px] font-semibold text-slate-800 leading-relaxed">{hasDuration ? engText : "-"}</p>
                           </div>
                         </div>
 
                         {/* Outcome Field */}
-                        <div className="flex gap-3 items-start bg-[#102B24] p-3 rounded-xl border border-[#4CAF50]/20 transition-colors duration-200 hover:bg-[#16382F]">
+                        <div className="flex gap-3 items-start bg-[#f0faf4] p-3 rounded-xl border border-[#4CAF50]/15 transition-colors duration-200 hover:bg-[#e6f9ed]">
                           <ShieldCheck className="h-4.5 w-4.5 text-[#4CAF50] mt-0.5 shrink-0" strokeWidth={2.2} />
                           <div>
-                            <p className="font-heading text-[9px] font-bold uppercase tracking-[0.14em] text-[#4CAF50]">Outcome</p>
-                            <p className="mt-0.5 line-clamp-3 font-body text-sm leading-relaxed text-slate-300 [text-wrap:pretty]">{out || "-"}</p>
+                            <p className="font-heading text-[9px] font-bold uppercase tracking-[0.14em] text-[#2a6b3a]/90">Outcome</p>
+                            <p className="mt-0.5 line-clamp-3 font-body text-[13px] leading-relaxed text-slate-700 [text-wrap:pretty]">{out || "-"}</p>
                           </div>
                         </div>
                       </div>
 
-                      <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-sm font-bold text-white group-hover/card:text-[#4CAF50] transition-colors duration-200">
+                      <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-sm font-bold text-[#1f3b64] group-hover/card:text-[#4CAF50] transition-colors duration-200">
                         <span>Read case study</span>
-                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-white transition duration-200 group-hover/card:bg-[#4CAF50]">
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition duration-200 group-hover/card:bg-[#4CAF50] group-hover/card:text-white">
                           <ArrowUpRight className="h-4 w-4" strokeWidth={2.5} />
                         </span>
                       </div>
@@ -209,7 +209,7 @@ function CaseStudies() {
             <ChevronLeft className="h-5 w-5" strokeWidth={2.25} />
           </button>
           <div
-            className="mx-1 h-1 w-12 rounded-full bg-white/20"
+            className="mx-1 h-1 w-12 rounded-full bg-slate-200/90"
             aria-hidden
           />
           <button
@@ -226,7 +226,7 @@ function CaseStudies() {
           <a
             href="/case-studies"
             {...internalAnchorProps("/case-studies")}
-            className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 font-heading text-sm font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:border-[#4CAF50]/45 hover:bg-white/10 hover:shadow-lg"
+            className="group inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-gradient-to-b from-white to-slate-50/90 px-5 py-2.5 font-heading text-sm font-bold text-slate shadow-md ring-1 ring-slate-200/50 transition hover:-translate-y-0.5 hover:border-[#4CAF50]/45 hover:from-white hover:to-[#f0faf4] hover:shadow-lg hover:ring-[#4CAF50]/20"
           >
             All {total} case studies
             <ArrowUpRight
@@ -239,10 +239,10 @@ function CaseStudies() {
 
         <div
           className="mx-auto mt-4 flex w-full max-w-6xl justify-center overflow-x-auto [scrollbar-gutter:stable] [scrollbar-width:thin] sm:mt-5"
-          style={{ scrollbarColor: "rgba(255,255,255,0.2) rgba(255,255,255,0.05)" }}
+          style={{ scrollbarColor: "rgba(100,116,139,0.4) rgba(241,245,249,0.5)" }}
         >
           <p
-            className="w-max min-w-0 text-nowrap rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-center font-body text-sm text-slate-350 shadow-inner backdrop-blur-[2px] sm:px-5 sm:py-4"
+            className="w-max min-w-0 text-nowrap rounded-2xl border border-slate-200/50 bg-white/50 px-4 py-3 text-center font-body text-sm text-steel shadow-[0_1px_0_0_rgba(255,255,255,0.8)_inset] backdrop-blur-[2px] sm:px-5 sm:py-4"
           >
             {CASE_STUDIES_FOOTER}
           </p>
