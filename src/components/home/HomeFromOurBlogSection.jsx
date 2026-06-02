@@ -15,7 +15,7 @@ export function HomeFromOurBlogSection({ id = "from-our-blog", className = "" })
   return (
     <section
       id={id}
-      className={`from-our-blog relative z-10 scroll-mt-28 overflow-hidden border-t border-[#dce3ec] bg-gradient-to-b from-[#f4f8fc] via-[#f8fafc] to-[#f1f5f9] py-14 md:py-16 ${className}`.trim()}
+      className={`from-our-blog relative z-10 scroll-mt-28 overflow-hidden border-t border-[#dce3ec] bg-gradient-to-b from-[#f4f8fc] via-[#f8fafc] to-[#f1f5f9] pt-6 pb-14 md:pt-8 md:pb-16 ${className}`.trim()}
       aria-labelledby="from-our-blog-heading"
     >
       <div

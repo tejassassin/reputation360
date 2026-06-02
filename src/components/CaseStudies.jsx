@@ -65,7 +65,7 @@ function CaseStudies() {
         aria-hidden
       />
 
-      <div className="relative mx-auto w-full max-w-6xl px-4 pt-12 pb-5 sm:px-6 sm:pt-16 sm:pb-6">
+      <div className="relative mx-auto w-full max-w-6xl px-4 pt-12 pb-2 sm:px-6 sm:pt-16 sm:pb-3">
         <div className="mb-8 text-center sm:mb-10">
           <h2
             id="home-glimpse-cases-heading"
@@ -256,7 +256,7 @@ function CaseStudies() {
         </div>
 
         <div
-          className="mx-auto mt-8 flex w-full max-w-6xl justify-center overflow-x-auto [scrollbar-gutter:stable] [scrollbar-width:thin] sm:mt-10"
+          className="mx-auto mt-4 flex w-full max-w-6xl justify-center overflow-x-auto [scrollbar-gutter:stable] [scrollbar-width:thin] sm:mt-5"
           style={{ scrollbarColor: "rgba(100,116,139,0.4) rgba(241,245,249,0.5)" }}
         >
           <p
