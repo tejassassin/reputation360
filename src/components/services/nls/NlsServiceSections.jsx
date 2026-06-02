@@ -52,8 +52,8 @@ import { NLS_SCROLL_TARGET_CLASS } from "../../../data/services/negativeLinkSupp
 
 const CONTACT_PATH = "/contact";
 
-const NLS_SECTION_SPACING = "pt-16 pb-20 md:pt-20 md:pb-24";
-const NLS_FIRST_SECTION_SPACING = "pt-16 pb-20 md:pt-20 md:pb-24";
+const NLS_SECTION_SPACING = "pt-8 pb-10 md:pt-10 md:pb-12";
+const NLS_FIRST_SECTION_SPACING = "pt-8 pb-10 md:pt-10 md:pb-12";
 
 /** Shared horizontal rail with Services subnav (`max-w-6xl` + matching padding). */
 const NLS_CONTENT_RAIL = "mx-auto w-full max-w-6xl px-5 md:px-8";
@@ -1492,9 +1492,6 @@ export function NlsFaqSection() {
           </Motion.div>
         ))}
       </div>
-      <p className="mt-6 text-sm leading-relaxed text-slate-500">
-        All statistics referenced are from credible sources: Edelman Trust Barometer, Edelman-LinkedIn B2B Thought Leadership Impact Report, Glassdoor Research, LinkedIn B2B Institute, Sprout Social 2023 Index, and Google Ads research. Client identifying details have been withheld.
-      </p>
       <p className="mt-6 text-sm leading-relaxed text-slate-500">
         All statistics referenced are from credible sources: Edelman Trust Barometer, Edelman-LinkedIn B2B Thought Leadership Impact Report, Glassdoor Research, LinkedIn B2B Institute, Sprout Social 2023 Index, and Google Ads research. Client identifying details have been withheld.
       </p>
