@@ -37,17 +37,17 @@ export function BlogAuthorMeta({ slug, date }) {
   else if (harperBlogs.includes(slug)) author = "Harper Sullivan";
 
   return (
-    <div className="mt-6 flex flex-col items-center justify-center gap-1.5 text-center font-body text-[13px] text-slate-300 md:flex-row md:gap-4 md:text-sm">
+    <div className="mt-6 flex flex-col items-center justify-center gap-1.5 text-center font-body text-[13px] text-slate-500 md:flex-row md:gap-4 md:text-sm">
       <span>
-        Written by <span className="font-semibold text-white">{author}</span>
+        Written by <span className="font-semibold text-[#1F3B64]">{author}</span>
       </span>
-      <span className="hidden md:inline text-white/30">•</span>
+      <span className="hidden md:inline text-slate-300">•</span>
       <span>
-        Reviewed by: <span className="font-semibold text-white">Reputation360's Editorial Team</span>
+        Reviewed by: <span className="font-semibold text-[#1F3B64]">Reputation360's Editorial Team</span>
       </span>
-      <span className="hidden md:inline text-white/30">•</span>
+      <span className="hidden md:inline text-slate-300">•</span>
       <span>
-        Last updated: <span className="font-semibold text-white">{date}</span>
+        Last updated: <span className="font-semibold text-[#1F3B64]">{date}</span>
       </span>
     </div>
   );
