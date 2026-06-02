@@ -1155,7 +1155,7 @@ export function RbsProcessSection() {
       tone="navy"
       contentClassName="mt-10"
     >
-      <div className="rounded-[1.9rem] border border-white/14 bg-white/8 p-4 backdrop-blur-sm md:p-5">
+      <div className="rounded-[1.9rem] border border-[#dbe5f0] bg-white p-4 shadow-[0_24px_50px_-20px_rgba(20,53,95,0.15)] md:p-5">
         <div className="grid gap-2 md:grid-cols-5">
           {RBS_PROCESS_STEPS.map((item, index) => (
             <Motion.button
@@ -1164,14 +1164,14 @@ export function RbsProcessSection() {
               onClick={() => setActiveStep(index)}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.99 }}
-              className={`rounded-2xl px-4 py-3 text-left transition-all duration-300 ${
+              className={`rounded-2xl px-4 py-3 text-left transition-all duration-300 border ${
                 activeStep === index
-                  ? "bg-white text-[#14355f] shadow-[0_16px_36px_-22px_rgba(0,0,0,0.4)]"
-                  : "bg-white/6 text-white hover:bg-white/10"
+                  ? "bg-[#14355f] text-white border-[#14355f] shadow-[0_12px_28px_-12px_rgba(20,53,95,0.3)]"
+                  : "bg-[#f8fafc] text-[#14355f] border-[#e6edf4] hover:bg-[#f0f4f8] hover:border-[#dbe5f0]"
               }`}
             >
               <span className={`inline-flex rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.18em] ${
-                activeStep === index ? "bg-[#14355f] text-[#7df5b9]" : "bg-white/10 text-[#7df5b9]"
+                activeStep === index ? "bg-white/12 text-[#7df5b9]" : "bg-[#14355f]/8 text-[#14355f]/80"
               }`}>
                 Step {String(item.n).padStart(2, "0")}
               </span>
@@ -1190,31 +1190,31 @@ export function RbsProcessSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.32, ease: rbsEase }}
-            className="mt-4 rounded-[1.75rem] border border-white/14 bg-white/10 p-6 shadow-[0_18px_42px_-30px_rgba(0,0,0,0.45)]"
+            className="mt-4 rounded-[1.75rem] border border-[#e6edf4] bg-[#f8fafc] p-6 shadow-[0_12px_30px_-20px_rgba(20,53,95,0.08)]"
           >
-            <span className="inline-flex rounded-full bg-white/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[#7df5b9]">
+            <span className="inline-flex rounded-full bg-[#14355f]/8 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[#14355f]">
               Step {String(step.n).padStart(2, "0")}
             </span>
-            <p className="mt-4 font-heading text-2xl font-bold text-white">{step.title}</p>
-            <p className="mt-3 text-base leading-relaxed text-slate-100/85">{step.body}</p>
+            <p className="mt-4 font-heading text-2xl font-bold text-[#14355f]">{step.title}</p>
+            <p className="mt-3 text-base leading-relaxed text-slate-600">{step.body}</p>
           </Motion.div>
         </AnimatePresence>
       </div>
 
       <div className="mt-10">
         <RbsReveal>
-          <div className="overflow-hidden rounded-[1.75rem] border border-white/14 bg-[linear-gradient(180deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.06)_100%)] shadow-[0_20px_46px_-32px_rgba(0,0,0,0.38)] backdrop-blur-sm">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-5 py-4 md:px-6">
+          <div className="overflow-hidden rounded-[1.75rem] border border-[#dbe5f0] bg-white shadow-[0_24px_50px_-20px_rgba(20,53,95,0.15)]">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e6edf4] px-5 py-4 md:px-6">
               <div>
-                <h3 className="font-heading text-[1.4rem] font-bold text-white md:text-[1.6rem]">
+                <h3 className="font-heading text-[1.4rem] font-bold text-[#14355f] md:text-[1.6rem]">
                   What Our Reputation Building Company Doesn't Do
                 </h3>
               </div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.07] px-3 py-2">
-                <span className="font-heading text-lg font-bold text-white">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#f5dcdc] bg-[#fff5f5] px-3 py-2">
+                <span className="font-heading text-lg font-bold text-[#7b2f2f]">
                   {String(RBS_DONT_DO.length).padStart(2, "0")}
                 </span>
-                <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#ffd3d3]">
+                <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#a24444]">
                   guardrails
                 </span>
               </div>
@@ -1226,14 +1226,14 @@ export function RbsProcessSection() {
                     <Motion.div
                       whileHover={{ y: -3, scale: 1.008 }}
                       transition={{ duration: 0.22, ease: rbsEase }}
-                      className="group relative flex h-full gap-3 rounded-[1.15rem] border border-[#b85c5c]/18 bg-white/[0.05] px-4 py-4 shadow-[0_14px_28px_-22px_rgba(0,0,0,0.18)] transition-[background-color,border-color,box-shadow] duration-200 hover:border-[#d36b6b]/28 hover:bg-white/[0.08] hover:shadow-[0_24px_40px_-24px_rgba(0,0,0,0.28)]"
+                      className="group relative flex h-full gap-3 rounded-[1.15rem] border border-[#f7e6e6] bg-[#fffcfc] px-4 py-4 shadow-[0_8px_20px_-16px_rgba(123,47,47,0.12)] transition-[background-color,border-color,box-shadow] duration-200 hover:border-[#d36b6b]/30 hover:bg-[#fff7f7] hover:shadow-[0_16px_30px_-20px_rgba(123,47,47,0.2)]"
                     >
                       <div className="min-w-0 flex-1">
                         <div className="flex items-start gap-3">
-                          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-[0.9rem] bg-[#ffb3b3]/10 text-[#ffb3b3] transition-[transform,background-color,color] duration-200 group-hover:scale-105 group-hover:bg-[#7f2d2d]/28 group-hover:text-white">
+                          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-[0.9rem] bg-[#ffd3d3]/35 text-[#a24444] transition-[transform,background-color,color] duration-200 group-hover:scale-105 group-hover:bg-[#a24444] group-hover:text-white">
                             <X className="h-5 w-5" aria-hidden strokeWidth={2.2} />
                           </span>
-                          <p className="min-w-0 text-sm leading-relaxed text-slate-100/88 transition-[color,transform] duration-200 group-hover:translate-x-0.5 group-hover:text-white md:text-[15px]">
+                          <p className="min-w-0 text-sm leading-relaxed text-[#7b3a3a]/90 transition-[color,transform] duration-200 group-hover:translate-x-0.5 group-hover:text-[#7b2f2f] md:text-[15px]">
                             {item}
                           </p>
                         </div>
