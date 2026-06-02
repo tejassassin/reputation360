@@ -37,18 +37,21 @@ export function BlogAuthorMeta({ slug, date }) {
   else if (harperBlogs.includes(slug)) author = "Harper Sullivan";
 
   return (
-    <div className="mt-6 flex flex-col items-center justify-center gap-1.5 text-center font-body text-[13px] text-slate-500 md:flex-row md:gap-4 md:text-sm">
-      <span>
-        Written by <span className="font-semibold text-[#1F3B64]">{author}</span>
-      </span>
-      <span className="hidden md:inline text-slate-300">•</span>
-      <span>
-        Reviewed by: <span className="font-semibold text-[#1F3B64]">Reputation360's Editorial Team</span>
-      </span>
-      <span className="hidden md:inline text-slate-300">•</span>
-      <span>
-        Last updated: <span className="font-semibold text-[#1F3B64]">{date}</span>
-      </span>
+    <div className="mt-8 py-5 border-y border-slate-200/80 max-w-2xl mx-auto flex flex-col sm:flex-row justify-around items-center gap-4 text-center font-body select-none">
+      <div className="flex flex-col gap-1 px-4">
+        <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase">Written By</span>
+        <span className="text-sm font-semibold text-[#1F3B64]">{author}</span>
+      </div>
+      <div className="hidden sm:block h-8 w-[1px] bg-slate-200/80" />
+      <div className="flex flex-col gap-1 px-4">
+        <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase">Reviewed By</span>
+        <span className="text-sm font-semibold text-[#1F3B64]">Editorial Team</span>
+      </div>
+      <div className="hidden sm:block h-8 w-[1px] bg-slate-200/80" />
+      <div className="flex flex-col gap-1 px-4">
+        <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase">Last Updated</span>
+        <span className="text-sm font-semibold text-[#1F3B64]">{date}</span>
+      </div>
     </div>
   );
 }
