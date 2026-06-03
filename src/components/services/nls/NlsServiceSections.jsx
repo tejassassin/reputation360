@@ -822,7 +822,7 @@ export function NlsWhenSuppressionSection() {
               const selected = active === index;
               const shortLabel = nlsWhenSuppressionShortLabel(item.scenario);
               return (
-                <li key={item.scenario} className="shrink-0 sm:shrink">
+                <li key={item.scenario} className="w-full sm:w-auto sm:flex-1">
                   <button
                     type="button"
                     role="tab"
@@ -832,7 +832,7 @@ export function NlsWhenSuppressionSection() {
                     tabIndex={selected ? 0 : -1}
                     onClick={() => setActive(index)}
                     onFocus={() => setActive(index)}
-                    className={`rounded-xl border px-3.5 py-2.5 text-left outline-none transition-all duration-300 focus-visible:ring-2 focus-visible:ring-navy/30 sm:px-4 sm:py-3 ${
+                    className={`w-full h-full rounded-xl border px-3.5 py-2.5 text-left outline-none transition-all duration-300 focus-visible:ring-2 focus-visible:ring-navy/30 sm:px-4 sm:py-3 ${
                       selected
                         ? "border-navy bg-navy text-white shadow-md"
                         : "border-navy/12 bg-[#f8fafc] text-navy hover:border-[#79df86]/40 hover:bg-white hover:shadow-sm"
