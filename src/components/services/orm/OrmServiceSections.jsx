@@ -1094,7 +1094,7 @@ export function OrmWhyR360Section() {
       <OrmWhatWeDontBackground />
       <div className={`relative ${ORM_CONTENT_RAIL}`}>
         <Motion.div
-          className="mb-12 text-left md:mb-16"
+          className="mb-4 text-left md:mb-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={ormInView}
@@ -1112,7 +1112,7 @@ export function OrmWhyR360Section() {
           </p>
         </Motion.div>
 
-        <div className="pt-10 md:pt-12">
+        <div className="pt-2 md:pt-4">
           <div className="flex flex-wrap justify-center gap-5 md:gap-6">
           {WHY_R360_DIFFERENTIATORS.map((d, i) => {
             const Icon = WHY_R360_ICON_BY_ID[d.id] ?? Zap;
