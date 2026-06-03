@@ -1523,7 +1523,7 @@ export function NlsCtaSection() {
           >
             {NLS_CTA.title}
           </Motion.h2>
-          <div className="mx-auto mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-white/85 md:text-lg">
+          <div className="mx-auto mt-3 max-w-2xl space-y-4 text-base leading-relaxed text-white/85 md:text-lg">
             {NLS_CTA.paragraphs.map((p, index) => (
               <Motion.p
                 key={p.slice(0, 40)}
