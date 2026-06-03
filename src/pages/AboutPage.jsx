@@ -1393,6 +1393,7 @@ function AboutPage() {
                   consultClassName={`${headlineFont} group inline-flex items-center gap-2 rounded-xl bg-cta-consult px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-cta-consult/30 transition hover:brightness-95 md:px-8 md:text-base`}
                   freeScanClassName={`${headlineFont} inline-flex items-center gap-2 rounded-xl border border-white/25 bg-transparent px-5 py-3.5 text-sm font-semibold text-white transition hover:border-white/45 hover:bg-white/5 md:px-6`}
                   wrapperClassName="gap-3 sm:gap-4"
+                  hideServingLine={true}
                 />
                 <a
                   href="#how-it-began"
@@ -1778,6 +1779,7 @@ function AboutPage() {
                 consultLabel="Book a Free Consultation"
                 consultClassName={`${headlineFont} inline-flex rounded-xl bg-cta-consult px-10 py-4 text-base font-extrabold text-white shadow-xl shadow-cta-consult/30 transition hover:brightness-95 active:scale-[0.99] md:px-12 md:text-lg`}
                 freeScanClassName={`${headlineFont} inline-flex rounded-xl border-2 border-white/35 bg-white/10 px-10 py-4 text-base font-bold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 md:px-12 md:text-lg`}
+                hideServingLine={true}
               />
             </div>
           </Motion.div>
