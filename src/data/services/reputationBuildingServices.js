@@ -505,7 +505,7 @@ export const RBS_WHY_R360 = [
 export const RBS_FINAL_CTA = {
   title: "Ready to Go Deeper on Your Online Reputation?",
   paragraphs: [
-    "Whether you are starting from scratch, strengthening a specific layer of your digital presence, or looking to go deeper after completing an ORM campaign - Reputation360 can help you build the kind of presence that earns trust before you walk in the room.",
+    "One conversation away from a presence that works as hard as you do.",
   ],
 };
 
