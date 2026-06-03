@@ -220,7 +220,8 @@ function OrmSectionShell({
   ...rest
 }) {
   const surface = ORM_SECTION_TONES[tone] ?? ORM_SECTION_TONES.page;
-  const spacing = first ? ORM_FIRST_SECTION_SPACING : ORM_SECTION_SPACING;
+  const hasCustomPadding = className.includes("pt-") || className.includes("pb-");
+  const spacing = hasCustomPadding ? "" : (first ? ORM_FIRST_SECTION_SPACING : ORM_SECTION_SPACING);
 
   return (
     <section
@@ -1175,7 +1176,7 @@ export function OrmFaqSection() {
 
 export function OrmCtaSection() {
   return (
-    <OrmSectionShell id="start" tone="page" className="pb-20 md:pb-24">
+    <OrmSectionShell id="start" tone="page" className="pt-2 md:pt-4 pb-20 md:pb-24">
       <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-[#0f2344] via-[#1F3B64] to-[#0a1628] px-6 py-10 text-center text-white shadow-[0_32px_80px_-24px_rgba(7,20,40,0.55)] md:rounded-[3rem] md:px-12 md:py-14 lg:px-16 lg:py-16">
         <div
           className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#2E5B88]/35 blur-[100px]"
