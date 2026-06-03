@@ -22,7 +22,7 @@ Searches for his name returned:
 Clients began requesting reassignment to other partners on active matters. Two prospective mandates were withdrawn by clients citing "concerns about track record."`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, 6 of the top 10 results returned case-loss or verdict-related content. The partner had no personal professional website and a thin LinkedIn presence with no published content. His Chambers & Partners and Legal 500 profiles had not been updated in 3 years.`,
     },
     {

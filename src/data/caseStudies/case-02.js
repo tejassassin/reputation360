@@ -22,7 +22,7 @@ const caseStudy = {
 Page 1 through Page 3 of Google were dominated by regulatory and enforcement-related content. The client's own professional profiles ranked nowhere in the top 30 results. Two institutional mandates were suspended pending review.`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, 9 of the top 10 results returned regulatory or negative press content. SEC.gov and FINRA BrokerCheck entries represented immovable, high-authority URLs. The strategy was built around contextualisation and displacement - not deletion.`,
     },
     {

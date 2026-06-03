@@ -3,8 +3,8 @@ import { ConsultationCtas } from "./ConsultationCtas";
 /** Shared CTA block for case study index and detail pages. */
 export function CaseStudyPageCta() {
   return (
-    <section className="mx-auto max-w-4xl px-4 md:px-6">
-      <div className="relative overflow-hidden rounded-[1.75rem] bg-navy p-8 text-center shadow-2xl md:rounded-[2rem] md:p-14">
+    <section className="mx-auto max-w-6xl px-4 md:px-6">
+      <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
         <div
           className="pointer-events-none absolute right-0 top-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-slate/15 blur-3xl"
           aria-hidden

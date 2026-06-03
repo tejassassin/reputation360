@@ -23,7 +23,7 @@ Negative visibility was driven by:
 Pages 1 and 2 were dominated by controversy-related content, directly impacting partnership conversations, senior hiring efforts, and future fundraising discussions. One enterprise client paused contract renewal pending "further diligence."`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, 8 of the top 10 results for the company name and founder name returned controversy or speculation-linked content. The company's own website ranked 6th. There was minimal owned thought leadership content indexed anywhere online.`,
     },
     {

@@ -445,7 +445,7 @@ function RealisticTimelinePhaseLabel({
   asHeading,
 }) {
   const titleClassName = [
-    "max-w-[7.5rem] text-center font-heading text-[10px] font-bold leading-tight tracking-wide md:max-w-none md:text-[11px]",
+    "max-w-[9.5rem] text-center font-heading text-[13px] font-bold leading-tight tracking-wide md:max-w-[12rem] md:text-[15px]",
     selected ? "text-[#0f2e58]" : "text-[#5d6c80]",
   ].join(" ");
 
@@ -456,7 +456,7 @@ function RealisticTimelinePhaseLabel({
   }
 
   return (
-    <div className="mt-2 flex max-w-[7.5rem] flex-col items-center gap-1 md:max-w-none">
+    <div className="mt-2 flex max-w-[8rem] flex-col items-center gap-1 md:max-w-none">
       <h3 id={headingId} className={`m-0 ${titleClassName}`}>
         {phase.window}
       </h3>
@@ -647,8 +647,8 @@ export function IndustryRealisticTimelineSection({
         }}
         className="mt-8 max-w-5xl rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-[#1f3b64]/30 focus-visible:ring-offset-2 md:rounded-2xl"
       >
-        <div className="relative -mx-1 overflow-x-auto pb-2 pl-1 [-ms-overflow-style:none] [scrollbar-width:none] md:mx-0 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden">
-          <div className="flex min-w-[min(100%,560px)] flex-row flex-nowrap items-center px-1 md:min-w-0 md:px-0">
+        <div className="relative -mx-1 overflow-x-auto pb-2 pl-1 [-ms-overflow-style:none] [scrollbar-width:none] md:mx-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
+          <div className="flex min-w-[640px] xl:min-w-0 flex-row flex-nowrap items-center px-1 md:px-0">
             {phases.flatMap((p, i) => {
               const Icon = p.Icon;
               const selected = active === i;
@@ -674,14 +674,14 @@ export function IndustryRealisticTimelineSection({
                     className="group flex flex-col items-center outline-none transition-opacity focus-visible:ring-2 focus-visible:ring-[#1f3b64]/35 focus-visible:ring-offset-2 hover:opacity-100"
                   >
                     <span
-                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-[color,box-shadow,background-color] duration-200 md:h-11 md:w-11 ${
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-[color,box-shadow,background-color] duration-200 md:h-14 md:w-14 ${
                         selected
                           ? "bg-[#e8eef9] text-[#0f2e58] shadow-[inset_0_0_0_2px_#0f2e58]"
                           : "bg-[#f0f2f7] text-[#1f3b64]/75 group-hover:text-[#1f3b64]"
                       }`}
                     >
                       <Icon
-                        className="h-6 w-6 md:h-5 md:w-5"
+                        className="h-6 w-6 md:h-7 md:w-7"
                         aria-hidden
                         strokeWidth={selected ? 2.25 : 1.75}
                         absoluteStrokeWidth
@@ -690,7 +690,7 @@ export function IndustryRealisticTimelineSection({
                     {!railPhaseHeadings ? (
                       <>
                         <h3
-                          className={`mt-2 max-w-[7.5rem] text-center font-heading text-[10px] font-bold leading-tight tracking-wide md:max-w-none md:text-[11px] ${
+                          className={`mt-2 max-w-[9.5rem] text-center font-heading text-[13px] font-bold leading-tight tracking-wide md:max-w-[12rem] md:text-[15px] ${
                             selected ? "text-[#0f2e58]" : "text-[#5d6c80]"
                           }`}
                         >

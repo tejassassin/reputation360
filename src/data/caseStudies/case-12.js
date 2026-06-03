@@ -20,7 +20,7 @@ const caseStudy = {
 The blog indexed on Page 2 within 3 weeks and was climbing steadily. The solicitor's combined review platform average had dropped from 4.8 stars to 2.1 stars - visible directly in Google search snippets.`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, the attack blog ranked in Position 14 (Page 2) and rising. The solicitor had no personal professional website. Her Google Business Profile showed 2.1 stars. There were no owned content assets indexed on Page 1.`,
     },
     {

@@ -23,7 +23,7 @@ Negative content dominated:
 The brand's search results shifted almost entirely negative within 72 hours of the initial post going viral.`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, brand search results on Page 1 were 80% negative or controversy-linked. Social sentiment was net-negative across all monitored platforms. Two retail stockist partners had paused reorder conversations.`,
     },
     {

@@ -23,7 +23,7 @@ Additionally:
 Two further graduate recruitment processes stalled at the screening stage without clear explanation in the weeks that followed.`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, the local news article ranking in Position 3 for his full name. Social media shares of the incident visible on Page 1 and Page 2. No owned professional content anywhere in the top 20 results.`,
     },
     {

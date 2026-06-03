@@ -22,7 +22,7 @@ When prospective employers searched her name - a standard practice at the refere
 Three separate hiring processes stalled at the reference or offer stage without clear explanation over a 10-week period.`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, Glassdoor snippet containing her name visible in Position 4 Google snippet. Forum thread ranking in Position 12 (Page 2). Her outdated 2018 blog in Position 6. LinkedIn profile in Position 7 - below three pieces of third-party commentary content.`,
     },
     {

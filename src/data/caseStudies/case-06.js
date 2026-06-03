@@ -23,7 +23,7 @@ Negative visibility dominated Pages 1-4, driven by:
 Distributor confidence weakened. Inbound sales inquiry volume dropped by 41% in the 10 weeks following the initial press coverage.`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, 11 of the top 15 search results for the brand name returned negative or complaint-related content. The brand's own website ranked 4th - below three negative review or complaint pages.`,
     },
     {

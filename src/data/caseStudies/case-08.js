@@ -24,7 +24,7 @@ Negative visibility was driven by:
 Pages 1-3 for branded search queries became dominated by authenticity concerns, directly impacting conversion rates and repeat purchase behaviour. Paid campaign performance deteriorated as landing page trust signals weakened.`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, branded search queries returned authenticity-concern content in 7 of the top 10 positions. The brand's own product pages ranked below three separate complaint or allegation URLs.`,
     },
     {

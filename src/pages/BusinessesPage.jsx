@@ -699,13 +699,9 @@ function BusinessesPage() {
         />
 
         <section className="!mt-20 md:!mt-32 rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12">
-          <p className="mx-auto max-w-3xl font-heading leading-snug text-white md:leading-snug">
+          <p className="mx-auto max-w-5xl font-heading leading-snug text-white md:leading-snug">
             <span className="block text-[19px] font-semibold md:text-[23px]">
-              Your business has earned its reputation through real work and real
-              results. What people find should reflect that.
-            </span>
-            <span className="mt-2 block text-[19px] font-semibold md:text-[23px]">
-              We make sure it does.
+              Your reputation was built through real work. What people find online should prove it - we make sure it does.
             </span>
           </p>
           <ConsultationCtas

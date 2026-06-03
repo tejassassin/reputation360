@@ -24,7 +24,7 @@ Negative visibility included:
 Referrals from GP partners dropped by an estimated 35% over 8 weeks. The clinic's patient coordinator reported a consistent pattern of prospective patients going quiet after initial inquiry calls - a well-recognised sign of negative search influence at the decision stage.`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, 7 of the top 10 results for the surgeon's name returned negative or complaint-related content. His Google Business Profile was unclaimed. His professional website had not been updated in 4 years. There were no thought leadership assets indexed anywhere online.`,
     },
     {

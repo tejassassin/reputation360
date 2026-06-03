@@ -59,8 +59,8 @@ export function CaseStudyMilestoneInteractive({ items, headingForLabel = "Milest
         }}
         className="max-w-5xl rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-navy/30 focus-visible:ring-offset-2 md:rounded-2xl"
       >
-        <div className="relative -mx-1 overflow-x-auto pb-2 pl-1 [-ms-overflow-style:none] [scrollbar-width:none] md:mx-0 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden">
-          <div className="flex min-w-[min(100%,560px)] flex-row flex-nowrap items-center px-1 md:min-w-0 md:px-0">
+        <div className="relative -mx-1 overflow-x-auto pb-2 pl-1 [-ms-overflow-style:none] [scrollbar-width:none] md:mx-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
+          <div className="flex min-w-[640px] xl:min-w-0 flex-row flex-nowrap items-center px-1 md:px-0">
             {items.flatMap((p, i) => {
               const selected = active === i;
               const btn = (
@@ -70,26 +70,26 @@ export function CaseStudyMilestoneInteractive({ items, headingForLabel = "Milest
                   aria-pressed={selected}
                   aria-label={p.text ? `${p.time}. ${p.text}` : p.time}
                   onClick={() => setActive(i)}
-                  className={`group flex min-w-0 max-w-[9rem] shrink-0 flex-col items-center rounded-2xl px-1.5 py-2 outline-none transition-opacity focus-visible:ring-2 focus-visible:ring-navy/35 focus-visible:ring-offset-2 md:max-w-[11rem] md:px-2.5 md:py-2 ${
+                  className={`group flex min-w-0 max-w-[9rem] shrink-0 flex-col items-center rounded-2xl px-1.5 py-2 outline-none transition-opacity focus-visible:ring-2 focus-visible:ring-navy/35 focus-visible:ring-offset-2 md:max-w-[9.5rem] md:px-1.5 md:py-2 ${
                     selected ? "" : "opacity-[0.88] hover:opacity-100"
                   }`}
                 >
                   <span
-                    className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl transition-[color,box-shadow,background-color] duration-200 md:h-12 md:w-12 ${
+                    className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl transition-[color,box-shadow,background-color] duration-200 md:h-14 md:w-14 ${
                       selected
                         ? "bg-slate/10 text-navy ring-2 ring-navy"
                         : "bg-offwhite text-navy/75 group-hover:bg-slate/10 group-hover:text-navy"
                     }`}
                   >
                     <Calendar
-                      className="h-5 w-5 md:h-6 md:w-6"
+                      className="h-5 w-5 md:h-7 md:w-7"
                       aria-hidden
                       strokeWidth={selected ? 2.25 : 1.75}
                       absoluteStrokeWidth
                     />
                   </span>
                   <span
-                    className={`mt-1.5 break-words text-center font-mono text-[0.6rem] font-extrabold leading-tight tracking-tight sm:text-[0.65rem] ${
+                    className={`mt-2 break-words text-center font-heading text-[13px] font-bold leading-tight tracking-wide md:text-[15px] ${
                       selected ? "text-navy" : "text-steel"
                     }`}
                   >
@@ -103,7 +103,7 @@ export function CaseStudyMilestoneInteractive({ items, headingForLabel = "Milest
               const seg = (
                 <div
                   key={`m-seg-${i}`}
-                  className={`mx-0.5 h-1 min-w-4 flex-1 rounded-full transition-colors duration-300 md:mx-2.5 ${
+                  className={`mx-0.5 h-1 min-w-4 flex-1 rounded-full transition-colors duration-300 md:mx-1.5 ${
                     active > i ? "bg-gradient-to-r from-slate to-navy" : "bg-offwhite"
                   }`}
                   aria-hidden
@@ -129,7 +129,7 @@ export function CaseStudyMilestoneInteractive({ items, headingForLabel = "Milest
               <p className="text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-slate sm:text-[0.65rem]">
                 Selected period
               </p>
-              <p className="mt-0.5 font-mono text-sm font-extrabold leading-snug text-navy sm:text-base">
+              <p className="mt-1 font-heading text-lg font-bold leading-snug text-navy sm:text-xl">
                 {cur?.time}
               </p>
             </div>

@@ -19,7 +19,7 @@ const caseStudy = {
 The misattribution was causing direct, measurable harm: the practice manager reported that approximately two new patient registration inquiries per week were being turned away, with patients citing "concerns found online" as the reason.`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, the misattributed forum thread ranked in Position 4. The watchdog blog article ranked in Position 6. The GP's own GMC profile ranked 8th. She had no personal professional website and no LinkedIn presence.`,
     },
     {

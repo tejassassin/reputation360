@@ -56,7 +56,7 @@ export function servicesPageToHtml() {
 
       <section class="our-results">
         <h2>Our Results</h2>
-        <p>Every figure below comes from a completed engagement. We share them so you can walk in knowing what success looks like—and how long it realistically takes to get there.</p>
+        <p>Every figure below comes from a completed engagement. We share them so you can walk in knowing what success looks like-and how long it realistically takes to get there.</p>
         <ul>
           <li>
             <h3>Page 1</h3>
@@ -71,7 +71,7 @@ export function servicesPageToHtml() {
 
       <section class="flagship-offering">
         <h2>Online Reputation Management & Negative Link Suppression</h2>
-        <p>Our primary service. We audit everything search engines surface about you, build a content strategy that outranks harmful results, and systematically push negative links beyond page one—where virtually no one will find them.</p>
+        <p>Our primary service. We audit everything search engines surface about you, build a content strategy that outranks harmful results, and systematically push negative links beyond page one-where virtually no one will find them.</p>
         
         <h3>Example Page-One Transformations</h3>
         <div class="scenarios">
@@ -127,19 +127,19 @@ export function servicesPageToHtml() {
         <h2>How Long Does It Take?</h2>
         <ol>
           <li>
-            <strong>Phase 1: Weeks 1-4 — Audit & Launch</strong>
+            <strong>Phase 1: Weeks 1-4 - Audit & Launch</strong>
             <p>We map search results, identify authority levels, lay out content plans, and submit early removal requests.</p>
           </li>
           <li>
-            <strong>Phase 2: Months 2-4 — Early Movement</strong>
+            <strong>Phase 2: Months 2-4 - Early Movement</strong>
             <p>Your new content starts ranking. Positive results begin climbing and negative results show early movement downwards.</p>
           </li>
           <li>
-            <strong>Phase 3: Months 5-8 — Significant Shift</strong>
+            <strong>Phase 3: Months 5-8 - Significant Shift</strong>
             <p>For most clients, the main negative results drop off page one during this window while positive content solidifies its position.</p>
           </li>
           <li>
-            <strong>Phase 4: Months 8-11 — Full Transformation</strong>
+            <strong>Phase 4: Months 8-11 - Full Transformation</strong>
             <p>Unwanted content stays deep in search rankings, while page one reflects your professional priorities. Transition to ongoing defense.</p>
           </li>
         </ol>

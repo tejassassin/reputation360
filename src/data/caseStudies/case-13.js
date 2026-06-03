@@ -23,7 +23,7 @@ Searches for his name returned:
 Client redemptions increased within weeks. Three high-net-worth clients requested full account transfers. New client acquisition effectively halted for 4 months. Referral partners became cautious.`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, 8 of the top 10 results for his name returned regulatory association or negative press content. FCA and regulatory pages were identified immediately as immovable high-authority fixtures - the strategy was built entirely around contextualisation and surrounding authority, not removal attempts.`,
     },
     {

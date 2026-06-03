@@ -75,10 +75,22 @@ const TOC_OBSERVER_SUPPRESS_MS = 800;
 
 export default function CaseStudyDetailPage({ caseStudySlug }) {
   const caseStudiesSeo = useLocalizedSeo("caseStudies");
-  const { study, legacyNumeric } = useMemo(
+  const { study: rawStudy, legacyNumeric } = useMemo(
     () => resolveStudyFromPathSegment(caseStudySlug),
     [caseStudySlug],
   );
+  const study = useMemo(() => {
+    if (!rawStudy) return null;
+    return {
+      ...rawStudy,
+      sections: rawStudy.sections.map((s) => ({
+        ...s,
+        heading: s.heading.startsWith("Starting Position: ")
+          ? s.heading.replace("Starting Position: ", "")
+          : s.heading,
+      })),
+    };
+  }, [rawStudy]);
   const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState(null);
   const tocClickSuppressUntilRef = useRef(0);
@@ -337,12 +349,12 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
               On this page
             </p>
             <div className="mt-2.5 -mx-1 flex min-w-0 overflow-x-auto overflow-y-hidden pb-1 [scrollbar-width:thin] [scroll-padding-inline:0.5rem] [touch-pan-x] sm:mt-3 sm:mx-0 sm:overflow-x-visible sm:pb-0">
-              <ul className="m-0 flex w-max list-none flex-nowrap items-stretch gap-2 p-0 sm:w-full sm:min-w-0 sm:flex-wrap sm:gap-2.5 md:gap-3">
+              <ul className="m-0 flex w-max list-none flex-nowrap items-stretch gap-2 p-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:w-full sm:min-w-0 sm:gap-2.5 md:gap-3">
                 {sectionIds.map((s) => {
                   const tocActive = activeSection ?? sectionIds[0]?.id;
                   const active = tocActive === s.id;
                   return (
-                    <li key={s.id} className="m-0 shrink-0 p-0">
+                    <li key={s.id} className="m-0 shrink-0 p-0 sm:shrink">
                       <a
                         href={`#${s.id}`}
                         onClick={(e) => {
@@ -350,7 +362,7 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
                           scrollToSectionId(s.id);
                         }}
                         className={[
-                          "block w-full min-w-0 max-w-[min(20rem,90vw)] rounded-full border border-transparent px-3 py-1.5 text-left text-xs font-medium leading-snug transition sm:w-auto sm:min-w-0 sm:px-3.5 sm:py-2 sm:text-[13px]",
+                          "block w-full min-w-0 rounded-full border border-transparent px-3 py-1.5 text-left text-xs font-medium leading-snug transition sm:px-3.5 sm:py-2 sm:text-[13px] h-full",
                           active
                             ? "border-green/50 bg-gradient-to-b from-green/20 to-green/10 font-semibold text-navy shadow-sm"
                             : "border-slate-200/90 bg-offwhite/80 text-steel shadow-sm hover:border-green/30 hover:bg-green/5 hover:text-navy",

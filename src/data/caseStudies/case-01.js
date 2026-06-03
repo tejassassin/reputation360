@@ -21,7 +21,7 @@ const caseStudy = {
 Page 1 and Page 2 were dominated by critical opinion pieces. Investor calls became strained. Two board-level stakeholders privately flagged concerns about the founder's continued visibility as the company's public face.`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, 7 of the top 10 Google results for the founder's name returned negative or speculative content. The founder's own LinkedIn profile ranked 9th. There was no owned website, no published thought leadership, and no third-party credibility assets indexed anywhere on Page 1.`,
     },
     {

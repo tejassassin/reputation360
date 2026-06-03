@@ -131,11 +131,11 @@ const AUDIENCE_STATIC_CONTENT = {
     ],
     risks: "Old news articles, court listings, false forum entries, social media screenshots, or revenge pages.",
     steps: [
-      "Step 1: Complete Personal Search Audit — We catalog every result for your name and search combinations.",
-      "Step 2: Strategy & Priority Setting — We identify de-indexing candidates and suppression assets.",
-      "Step 3: Direct Removal Pursuit — We contact publishers and submit platform de-indexing requests.",
-      "Step 4: Professional Presence Building — We create and optimize high-authority personal profiles.",
-      "Step 5: Resolution & Defense — We monitor positions to ensure negative content remains displaced."
+      "Step 1: Complete Personal Search Audit - We catalog every result for your name and search combinations.",
+      "Step 2: Strategy & Priority Setting - We identify de-indexing candidates and suppression assets.",
+      "Step 3: Direct Removal Pursuit - We contact publishers and submit platform de-indexing requests.",
+      "Step 4: Professional Presence Building - We create and optimize high-authority personal profiles.",
+      "Step 5: Resolution & Defense - We monitor positions to ensure negative content remains displaced."
     ],
     faqs: PERSONAL_REPUTATION_FAQ_ITEMS
   },
@@ -148,11 +148,11 @@ const AUDIENCE_STATIC_CONTENT = {
     ],
     risks: "FINRA BrokerCheck disclosures, SEC EDGAR records, client disputes, negative reviews, or business press.",
     steps: [
-      "Step 1: Regulatory Search Audit — We run the exact due-diligence searches your clients and prospects run.",
-      "Step 2: Suppression Strategy Design — We draft a compliant blueprint to outrank regulatory disclosures.",
-      "Step 3: Presence Building — We optimize LinkedIn, industry directories, and publish expert commentary.",
-      "Step 4: Displacement — Positive assets climb, systematically pushing negative links beyond page one.",
-      "Step 5: Ongoing Maintenance — We monitor and preserve the authority of the positive search presence."
+      "Step 1: Regulatory Search Audit - We run the exact due-diligence searches your clients and prospects run.",
+      "Step 2: Suppression Strategy Design - We draft a compliant blueprint to outrank regulatory disclosures.",
+      "Step 3: Presence Building - We optimize LinkedIn, industry directories, and publish expert commentary.",
+      "Step 4: Displacement - Positive assets climb, systematically pushing negative links beyond page one.",
+      "Step 5: Ongoing Maintenance - We monitor and preserve the authority of the positive search presence."
     ],
     faqs: FINANCIAL_ADVISOR_FAQ_ITEMS
   },
@@ -165,11 +165,11 @@ const AUDIENCE_STATIC_CONTENT = {
     ],
     risks: "Litigation records, crisis news coverage, former employee criticism, product failures, or corporate disputes.",
     steps: [
-      "Step 1: Executive Footprint Audit — We analyze names, partners, company associations, and media mentions.",
-      "Step 2: Strategy & Priority — We establish a clear outline of high-priority removals and suppressions.",
-      "Step 3: Executive Presence Architecture — High-authority profiles, board-level LinkedIn optimization, and speaking hubs.",
-      "Step 4: Displacement — Strategic publications climb to outrank business news and court transcripts.",
-      "Step 5: Long-term Maintenance — Ongoing tracking to secure the executive's digital legacy."
+      "Step 1: Executive Footprint Audit - We analyze names, partners, company associations, and media mentions.",
+      "Step 2: Strategy & Priority - We establish a clear outline of high-priority removals and suppressions.",
+      "Step 3: Executive Presence Architecture - High-authority profiles, board-level LinkedIn optimization, and speaking hubs.",
+      "Step 4: Displacement - Strategic publications climb to outrank business news and court transcripts.",
+      "Step 5: Long-term Maintenance - Ongoing tracking to secure the executive's digital legacy."
     ],
     faqs: EXECUTIVE_FAQ_ITEMS
   },
@@ -182,11 +182,11 @@ const AUDIENCE_STATIC_CONTENT = {
     ],
     risks: "RateMDs complaints, Vitals, Healthgrades ratings, legal filings, malpractice listings, or local competitors.",
     steps: [
-      "Step 1: Clinical Reputation Audit — We map every directory, malpractice database, and review portal.",
-      "Step 2: Directory Optimization — We claim and fully build out profiles on major patient aggregators.",
-      "Step 3: Thought Leadership — Clinical articles, medical advice guides, and Q&As written to rank.",
-      "Step 4: Patient Review Dilution — Strategies to generate genuine patient feedback in compliance with HIPAA.",
-      "Step 5: Search Resolution — Negative review sites are pushed to page two and beyond."
+      "Step 1: Clinical Reputation Audit - We map every directory, malpractice database, and review portal.",
+      "Step 2: Directory Optimization - We claim and fully build out profiles on major patient aggregators.",
+      "Step 3: Thought Leadership - Clinical articles, medical advice guides, and Q&As written to rank.",
+      "Step 4: Patient Review Dilution - Strategies to generate genuine patient feedback in compliance with HIPAA.",
+      "Step 5: Search Resolution - Negative review sites are pushed to page two and beyond."
     ],
     faqs: DOCTOR_FAQ_ITEMS
   },
@@ -199,11 +199,11 @@ const AUDIENCE_STATIC_CONTENT = {
     ],
     risks: "Bar complaints, regulatory proceedings, court judgments, adversarial news coverage (Above the Law), or Avvo reviews.",
     steps: [
-      "Step 1: Legal Search Audit — We run search terms covering name, firm, location, and past cases.",
-      "Step 2: Directory Claiming & Optimization — Claiming and building Avvo, FindLaw, and key legal aggregators.",
-      "Step 3: Thought Leadership — Publishing authoritative case analysis and legal columns under your name.",
-      "Step 4: Ranking Displacement — Forcing news articles and court records down via premium domain links.",
-      "Step 5: Ongoing Defense — Continuous monitoring to handle new filings or client reviews early."
+      "Step 1: Legal Search Audit - We run search terms covering name, firm, location, and past cases.",
+      "Step 2: Directory Claiming & Optimization - Claiming and building Avvo, FindLaw, and key legal aggregators.",
+      "Step 3: Thought Leadership - Publishing authoritative case analysis and legal columns under your name.",
+      "Step 4: Ranking Displacement - Forcing news articles and court records down via premium domain links.",
+      "Step 5: Ongoing Defense - Continuous monitoring to handle new filings or client reviews early."
     ],
     faqs: LAWYER_FAQ_ITEMS
   },
@@ -218,11 +218,11 @@ const AUDIENCE_STATIC_CONTENT = {
     ],
     risks: "Yelp complaints, Zillow score drops, inactive profiles, outdated listings, or competitor attacks.",
     steps: [
-      "Step 1: Real Estate Search Audit — We audit name, agency, city, and common search phrases.",
-      "Step 2: Profile & Directory Optimization — Claiming and building Zillow, Realtor.com, Yelp, and Google Business.",
-      "Step 3: Local Authority Content — Local market analysis, buying guides, and neighborhood reports.",
-      "Step 4: Displacement — Pushing inactive profiles and portal complaints deep off the first page of Google.",
-      "Step 5: Local Defense — Active tracking of real estate search phrases to keep referral loops clean."
+      "Step 1: Real Estate Search Audit - We audit name, agency, city, and common search phrases.",
+      "Step 2: Profile & Directory Optimization - Claiming and building Zillow, Realtor.com, Yelp, and Google Business.",
+      "Step 3: Local Authority Content - Local market analysis, buying guides, and neighborhood reports.",
+      "Step 4: Displacement - Pushing inactive profiles and portal complaints deep off the first page of Google.",
+      "Step 5: Local Defense - Active tracking of real estate search phrases to keep referral loops clean."
     ],
     faqs: REAL_ESTATE_FAQ_ITEMS
   },
@@ -237,11 +237,11 @@ const AUDIENCE_STATIC_CONTENT = {
     ],
     risks: "Old social media posts, outdated local news stories, former employer conflicts, or Glassdoor reviews.",
     steps: [
-      "Step 1: Candidate Footprint Audit — We search your name with previous city, employer, and industry keywords.",
-      "Step 2: Priority Strategy Design — We focus on fast-displacement profiles to meet urgent hiring windows.",
-      "Step 3: Professional Presence — Optimizing LinkedIn and constructing personal bio portals.",
-      "Step 4: Displacement — Moving personal controversies or old news beyond visible search pages.",
-      "Step 5: Hiring Complete — Positive assets remain live to protect future career progressions."
+      "Step 1: Candidate Footprint Audit - We search your name with previous city, employer, and industry keywords.",
+      "Step 2: Priority Strategy Design - We focus on fast-displacement profiles to meet urgent hiring windows.",
+      "Step 3: Professional Presence - Optimizing LinkedIn and constructing personal bio portals.",
+      "Step 4: Displacement - Moving personal controversies or old news beyond visible search pages.",
+      "Step 5: Hiring Complete - Positive assets remain live to protect future career progressions."
     ],
     faqs: JOB_SEEKER_FAQ_ITEMS
   },
@@ -254,11 +254,11 @@ const AUDIENCE_STATIC_CONTENT = {
     ],
     risks: "Complaintsboard threads, Ripoff Report listings, Glassdoor ratings, viral controversies, or negative news reviews.",
     steps: [
-      "Step 1: Branded Search Audit — Mapping keywords for company name, product line, and founders.",
-      "Step 2: Brand Strategy Blueprint — Designing a removal and authority building program for corporate terms.",
-      "Step 3: Media & Authority Publishing — Press releases, executive profiling, and employer brand optimization.",
-      "Step 4: Direct Review Cleanup — Reporting reviews that violate terms of service, and diluting overall ratings.",
-      "Step 5: Brand War Room — Real-time tracking and position shields to block incoming competitor threats."
+      "Step 1: Branded Search Audit - Mapping keywords for company name, product line, and founders.",
+      "Step 2: Brand Strategy Blueprint - Designing a removal and authority building program for corporate terms.",
+      "Step 3: Media & Authority Publishing - Press releases, executive profiling, and employer brand optimization.",
+      "Step 4: Direct Review Cleanup - Reporting reviews that violate terms of service, and diluting overall ratings.",
+      "Step 5: Brand War Room - Real-time tracking and position shields to block incoming competitor threats."
     ],
     faqs: BUSINESS_FAQ_ITEMS
   }
@@ -313,7 +313,7 @@ export function whoWeServeAudiencePageToHtml(pathname) {
     <main>
       <section class="moment-of-truth">
         <h2>The Moment of Truth: Every Search Decides intake</h2>
-        <p>A prospect is deciding between three options. The credentials are identical. The fees are comparable. So they search each name on Google. In under sixty seconds, they form a judgment. Not based on track record, but entirely on what Google decided to show them. One result is clean. Two are not. The client goes to the first. The other two never find out—but it keeps happening.</p>
+        <p>A prospect is deciding between three options. The credentials are identical. The fees are comparable. So they search each name on Google. In under sixty seconds, they form a judgment. Not based on track record, but entirely on what Google decided to show them. One result is clean. Two are not. The client goes to the first. The other two never find out-but it keeps happening.</p>
       </section>
 
       <section class="value-propositions">

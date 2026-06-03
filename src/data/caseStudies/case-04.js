@@ -23,7 +23,7 @@ Negative content ranked across:
 Pages 1 and 2 returned primarily negative results for both the individual's name and the associated consultancy name. Three prospective client engagements were paused or withdrawn during the first 60 days.`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, 8 of the top 10 results for the consultant's name returned negative or controversy-linked content. The individual had no personal professional website and minimal owned content indexed anywhere online.`,
     },
     {

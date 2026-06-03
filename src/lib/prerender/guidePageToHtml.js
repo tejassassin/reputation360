@@ -3,7 +3,7 @@ export function guidePageToHtml() {
     <header class="guide-hero">
       <div class="badge">2026 Strategy Guide</div>
       <h1>The Complete Guide to Online Reputation Management in 2026</h1>
-      <p class="hero-description">Your online reputation is not something that just happens to you. It is built—either deliberately or by default. If you are not actively shaping what people find when they search your name, search engines are doing it for you. And they do not consider fairness, context, or accuracy.</p>
+      <p class="hero-description">Your online reputation is not something that just happens to you. It is built-either deliberately or by default. If you are not actively shaping what people find when they search your name, search engines are doing it for you. And they do not consider fairness, context, or accuracy.</p>
     </header>
 
     <main>
@@ -49,7 +49,7 @@ export function guidePageToHtml() {
         <ol>
           <li><strong>Audit Your Digital Presence</strong>: Perform incognito searches to map what people find, checking image and news tabs specifically.</li>
           <li><strong>Claim Your Profiles</strong>: Secure your name on LinkedIn, Twitter/X, and professional directories early.</li>
-          <li><strong>Build a Personal Website</strong>: Launch YourName.com—the most powerful tool you have to control your narrative.</li>
+          <li><strong>Build a Personal Website</strong>: Launch YourName.com-the most powerful tool you have to control your narrative.</li>
         </ol>
       </section>
 

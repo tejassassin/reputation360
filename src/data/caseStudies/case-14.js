@@ -23,7 +23,7 @@ Searches for his name returned:
 • His LinkedIn profile - outdated, last updated 3 years prior - ranking 8th`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, 7 of the top 10 results returned dismissal-related press or regulatory database content. His Employment Tribunal victory was entirely absent from the internet. The former employer's website still listed him in an archived leadership page under his previous role.`,
     },
     {

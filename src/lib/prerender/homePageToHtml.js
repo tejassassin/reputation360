@@ -39,7 +39,7 @@ export function homePageToHtml() {
           </li>
           <li>
             <h3>Negative Link Suppression</h3>
-            <p>Targeted campaigns to displace specific damaging links—such as forum complaints, outdated articles, or false reviews—by ranking credible assets above them.</p>
+            <p>Targeted campaigns to displace specific damaging links-such as forum complaints, outdated articles, or false reviews-by ranking credible assets above them.</p>
           </li>
           <li>
             <h3>Reputation Building Services</h3>
@@ -62,7 +62,7 @@ export function homePageToHtml() {
         <ol>
           <li>
             <h3>Phase 1: Deep Audit & Assessment</h3>
-            <p>We audit your current search results to identify risks, authority signals, and prioritize what to fix—so every move is grounded in data, not guesswork.</p>
+            <p>We audit your current search results to identify risks, authority signals, and prioritize what to fix-so every move is grounded in data, not guesswork.</p>
           </li>
           <li>
             <h3>Phase 2: Custom Strategy</h3>

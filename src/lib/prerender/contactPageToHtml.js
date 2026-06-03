@@ -34,39 +34,39 @@ export function contactPageToHtml() {
         <p>A transparent roadmap of your journey from first contact to a thriving digital reputation:</p>
         <ol>
           <li>
-            <strong>01 — Discovery & Assessment</strong>
-            <p>We get on a confidential call to understand your situation—the reputation damage, your goals, and everything we need to know.</p>
+            <strong>01 - Discovery & Assessment</strong>
+            <p>We get on a confidential call to understand your situation-the reputation damage, your goals, and everything we need to know.</p>
           </li>
           <li>
-            <strong>02 — Digital Audit</strong>
+            <strong>02 - Digital Audit</strong>
             <p>We conduct a thorough audit of your digital footprint, identifying exactly what needs to be addressed.</p>
           </li>
           <li>
-            <strong>03 — Tailored Strategy & Proposal</strong>
+            <strong>03 - Tailored Strategy & Proposal</strong>
             <p>We present a clear, personalised plan built around your needs and send a formal proposal for your review.</p>
           </li>
           <li>
-            <strong>04 — Contract & Onboarding</strong>
+            <strong>04 - Contract & Onboarding</strong>
             <p>Once you're happy, we sign the contract, gather everything we need, and set the foundation for your campaign.</p>
           </li>
           <li>
-            <strong>05 — Ecosystem Build</strong>
-            <p>We build or rebuild your digital presence—social media profiles, websites, and your full online ecosystem.</p>
+            <strong>05 - Ecosystem Build</strong>
+            <p>We build or rebuild your digital presence-social media profiles, websites, and your full online ecosystem.</p>
           </li>
           <li>
-            <strong>06 — Active Execution & Reporting</strong>
+            <strong>06 - Active Execution & Reporting</strong>
             <p>Your strategy goes live. We execute across all channels, manage your content, and keep you updated with regular progress reports.</p>
           </li>
           <li>
-            <strong>07 — Reputation Restored</strong>
-            <p>A stronger, cleaner, and more authoritative digital presence—and a client who moves forward with confidence.</p>
+            <strong>07 - Reputation Restored</strong>
+            <p>A stronger, cleaner, and more authoritative digital presence-and a client who moves forward with confidence.</p>
           </li>
         </ol>
       </section>
 
       <section class="confidentiality">
         <h2>Everything Is Confidential</h2>
-        <p>Everything you share with us stays with us—no exceptions. We do not discuss client situations with third parties, reference engagements publicly, or share any information you provide. Our security architecture ensures your data remains protected at all times. Your privacy is a commitment we stand behind unconditionally.</p>
+        <p>Everything you share with us stays with us-no exceptions. We do not discuss client situations with third parties, reference engagements publicly, or share any information you provide. Our security architecture ensures your data remains protected at all times. Your privacy is a commitment we stand behind unconditionally.</p>
       </section>
     </main>
   `;

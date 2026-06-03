@@ -21,7 +21,7 @@ const caseStudy = {
 Page 1 and Page 2 were dominated by adverse narratives. Patient confidence was visibly affected, with a 28% reduction in new private appointment bookings recorded in the 6 weeks following the initial coverage.`,
     },
     {
-      heading: "Starting Position: Baseline Search Results & Reputation Audit",
+      heading: "Baseline Search Results & Reputation Audit",
       body: `At the start of engagement, 8 of the top 10 search results for the physician's name returned negative or speculative content. The physician had no personal website, an incomplete medical directory presence, and an unclaimed Google Business Profile.`,
     },
     {

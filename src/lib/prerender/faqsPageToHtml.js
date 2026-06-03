@@ -33,7 +33,7 @@ export function faqsPageToHtml() {
     <header class="faqs-hero">
       <span class="badge">Honest Answers to the Questions We Hear Most</span>
       <h1>Online Reputation Management FAQs</h1>
-      <p class="hero-description">Your online reputation is not something that just happens to you. It is built—either deliberately or by default.</p>
+      <p class="hero-description">Your online reputation is not something that just happens to you. It is built-either deliberately or by default.</p>
     </header>
 
     <main>
