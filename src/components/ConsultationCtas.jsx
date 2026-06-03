@@ -93,6 +93,7 @@ export function ConsultationCtas({
   consultClassName,
   consultSuffix,
   hideServingLine = false,
+  showServingLine = false,
 }) {
   const styles = VARIANTS[variant] ?? VARIANTS.onLight;
   const consultProps = consultHref
@@ -104,6 +105,8 @@ export function ConsultationCtas({
     "flex flex-col w-full",
     variant === "inlineLight" ? "items-start" : "items-center"
   );
+  
+  const showLine = !hideServingLine && (variant === "onDark" || showServingLine);
 
   return (
     <div className={containerClass}>
@@ -125,7 +128,7 @@ export function ConsultationCtas({
           )}
         </a>
       </div>
-      {!hideServingLine && (
+      {showLine && (
         <p className={cn("w-full max-w-4xl text-pretty leading-relaxed pointer-events-none select-none", subtextClass)}>
           Serving executives, founders, professionals, and businesses across the United States, Europe, Canada, and Australia.
         </p>
