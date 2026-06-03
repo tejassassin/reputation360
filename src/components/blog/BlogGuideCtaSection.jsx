@@ -27,7 +27,7 @@ export function BlogGuideCtaPanel({
   return (
     <div
       className={cn(
-        "rounded-3xl bg-[linear-gradient(120deg,#08284f,#0f3f73)] px-6 py-10 text-center text-white shadow-lg md:px-12 md:py-12",
+        "rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-10 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-12",
         className,
       )}
     >
