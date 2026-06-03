@@ -96,7 +96,7 @@ export default function HowReputation360Works() {
           </h2>
         </div>
 
-        <div className="rounded-[1.75rem] border border-[#e5e7eb] bg-gradient-to-b from-[#f8fafc] to-white px-4 py-8 shadow-[0_24px_60px_-40px_rgba(15,35,60,0.18)] sm:px-6 md:py-10">
+        <div className="flex flex-col gap-8 rounded-[1.75rem] border border-[#e5e7eb] bg-gradient-to-b from-[#f8fafc] to-white p-6 shadow-[0_24px_60px_-40px_rgba(15,35,60,0.18)] sm:p-8 md:p-10 lg:p-12">
           {/* Detail panel first - visually distinct from the old 4-column timeline */}
           <div className="relative min-h-[13rem] md:min-h-[12rem]">
             <AnimatePresence mode="wait" initial={false}>
@@ -111,9 +111,9 @@ export default function HowReputation360Works() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                className={`rounded-2xl border border-navy/[0.08] bg-white p-5 shadow-md sm:p-6 md:p-8 ${step.panelBorder}`}
+                className={`rounded-2xl border border-navy/[0.08] bg-white p-6 shadow-md sm:p-8 md:p-10 ${step.panelBorder}`}
               >
-                <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between md:gap-8">
+                <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-8">
                   <div className="min-w-0 flex-1">
                     <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#64748b]">
                       Phase {step.num}
@@ -129,7 +129,7 @@ export default function HowReputation360Works() {
                     </p>
                   </div>
                   <div className="flex shrink-0 items-center justify-end border-t border-slate-100 pt-4 md:border-l md:border-t-0 md:pl-8 md:pt-0">
-                    <div className="flex gap-2">
+                    <div className="flex gap-3">
                       <button
                         type="button"
                         onClick={() => go("prev")}
@@ -154,7 +154,7 @@ export default function HowReputation360Works() {
           </div>
 
           <div
-            className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3"
+            className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4"
             role="tablist"
             aria-label="Engagement steps"
           >
@@ -175,7 +175,7 @@ export default function HowReputation360Works() {
                       setActive(i);
                     }
                   }}
-                  className={`flex cursor-pointer items-center justify-center gap-2 rounded-2xl border px-2 py-2.5 text-left transition-all duration-200 sm:px-3 md:py-3 ${
+                  className={`flex cursor-pointer items-center justify-center gap-3 rounded-2xl border px-3 py-3 text-left transition-all duration-200 sm:px-4 md:py-4 ${
                     selected
                       ? `border-transparent bg-white shadow-[0_12px_28px_-12px_rgba(15,35,60,0.2)] ring-2 ${s.ring} scale-[1.02]`
                       : "border-[#e5e7eb] bg-white/50 hover:border-navy/15 hover:bg-white/90"
@@ -200,7 +200,7 @@ export default function HowReputation360Works() {
           </div>
 
           <div
-            className="mt-5 flex justify-center gap-2"
+            className="flex justify-center gap-2"
             role="presentation"
             aria-hidden
           >
