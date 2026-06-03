@@ -1551,15 +1551,6 @@ export function NlsCtaSection() {
               wrapperClassName="mt-8 justify-center"
             />
           </Motion.div>
-          <Motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={nlsInView}
-            transition={{ duration: 0.45, delay: 0.36 }}
-            className="mt-5 text-sm text-white/70"
-          >
-            {NLS_CTA.trustLine}
-          </Motion.p>
         </NlsHoverLift>
       </Motion.div>
     </NlsSectionShell>

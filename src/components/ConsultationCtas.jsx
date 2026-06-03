@@ -100,13 +100,37 @@ export function ConsultationCtas({
     ? { href: consultHref, ...externalAnchorProps(consultHref), ...consultLinkProps }
     : calendlyNewTabProps;
 
-  const subtextClass = SUBTEXT_CLASSES[variant] ?? "text-slate-500/85 mt-5 text-center text-xs sm:text-sm md:text-[15px]";
+  const showLine = !hideServingLine && (variant === "onDark" || showServingLine);
+
+  if (!showLine) {
+    return (
+      <div className={cn(styles.wrapper, wrapperClassName, className)}>
+        <a {...freeScanLinkProps} className={cn(styles.freeScan, freeScanClassName)}>
+          {freeScanLabel}
+        </a>
+        <a {...consultProps} className={cn(styles.consult, consultClassName)}>
+          {styles.consultShowArrow ? (
+            <span className="flex items-center justify-center gap-2">
+              {consultLabel}
+              <ConsultArrow />
+            </span>
+          ) : (
+            <>
+              {consultLabel}
+              {consultSuffix}
+            </>
+          )}
+        </a>
+      </div>
+    );
+  }
+
   const containerClass = cn(
     "flex flex-col w-full",
     variant === "inlineLight" ? "items-start" : "items-center"
   );
   
-  const showLine = !hideServingLine && (variant === "onDark" || showServingLine);
+  const subtextClass = SUBTEXT_CLASSES[variant] ?? "text-slate-500/85 mt-5 text-center text-xs sm:text-sm md:text-[15px]";
 
   return (
     <div className={containerClass}>
@@ -128,11 +152,9 @@ export function ConsultationCtas({
           )}
         </a>
       </div>
-      {showLine && (
-        <p className={cn("w-full max-w-4xl text-pretty leading-relaxed pointer-events-none select-none", subtextClass)}>
-          Serving executives, founders, professionals, and businesses across the United States, Europe, Canada, and Australia.
-        </p>
-      )}
+      <p className={cn("w-full max-w-4xl text-pretty leading-relaxed pointer-events-none select-none", subtextClass)}>
+        Serving executives, founders, professionals, and businesses across the United States, Europe, Canada, and Australia.
+      </p>
     </div>
   );
 }
