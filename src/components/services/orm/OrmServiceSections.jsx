@@ -1207,9 +1207,6 @@ export function OrmCtaSection() {
             consultClassName="ha-pill inline-flex rounded-md bg-cta-consult px-5 py-3 text-sm font-semibold text-white shadow-md shadow-cta-consult/20 hover:brightness-95"
             freeScanClassName="ha-pill inline-flex rounded-md border-2 border-white/35 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15"
           />
-          <p className="mx-auto mt-6 w-full max-w-7xl text-center text-sm text-white/75 md:whitespace-nowrap md:text-[15px] lg:text-base">
-            {ORM_CTA.servingLine}
-          </p>
         </div>
       </div>
     </OrmSectionShell>

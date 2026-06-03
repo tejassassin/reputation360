@@ -55,6 +55,15 @@ const VARIANTS = {
   },
 };
 
+const SUBTEXT_CLASSES = {
+  hero: "text-white/75 mt-4 sm:mt-5 text-center text-xs sm:text-sm md:text-[15px] tracking-wide",
+  onDark: "text-white/75 mt-5 text-center text-xs sm:text-sm md:text-[15px] tracking-wide",
+  onLight: "text-slate-500/85 mt-5 text-center text-xs sm:text-sm md:text-[15px] tracking-wide",
+  inlineLight: "text-slate-500/85 mt-3 text-left text-xs tracking-wide",
+  inlineDarkFooter: "text-white/60 mt-3 text-center text-xs tracking-wide",
+  compact: "text-white/70 mt-3 text-center text-xs sm:text-sm tracking-wide",
+};
+
 function ConsultArrow() {
   return (
     <svg
@@ -83,30 +92,44 @@ export function ConsultationCtas({
   freeScanClassName,
   consultClassName,
   consultSuffix,
+  hideServingLine = false,
 }) {
   const styles = VARIANTS[variant] ?? VARIANTS.onLight;
   const consultProps = consultHref
     ? { href: consultHref, ...externalAnchorProps(consultHref), ...consultLinkProps }
     : calendlyNewTabProps;
 
+  const subtextClass = SUBTEXT_CLASSES[variant] ?? "text-slate-500/85 mt-5 text-center text-xs sm:text-sm md:text-[15px]";
+  const containerClass = cn(
+    "flex flex-col w-full",
+    variant === "inlineLight" ? "items-start" : "items-center"
+  );
+
   return (
-    <div className={cn(styles.wrapper, wrapperClassName, className)}>
-      <a {...freeScanLinkProps} className={cn(styles.freeScan, freeScanClassName)}>
-        {freeScanLabel}
-      </a>
-      <a {...consultProps} className={cn(styles.consult, consultClassName)}>
-        {styles.consultShowArrow ? (
-          <span className="flex items-center justify-center gap-2">
-            {consultLabel}
-            <ConsultArrow />
-          </span>
-        ) : (
-          <>
-            {consultLabel}
-            {consultSuffix}
-          </>
-        )}
-      </a>
+    <div className={containerClass}>
+      <div className={cn(styles.wrapper, wrapperClassName, className)}>
+        <a {...freeScanLinkProps} className={cn(styles.freeScan, freeScanClassName)}>
+          {freeScanLabel}
+        </a>
+        <a {...consultProps} className={cn(styles.consult, consultClassName)}>
+          {styles.consultShowArrow ? (
+            <span className="flex items-center justify-center gap-2">
+              {consultLabel}
+              <ConsultArrow />
+            </span>
+          ) : (
+            <>
+              {consultLabel}
+              {consultSuffix}
+            </>
+          )}
+        </a>
+      </div>
+      {!hideServingLine && (
+        <p className={cn("w-full max-w-4xl text-pretty leading-relaxed pointer-events-none select-none", subtextClass)}>
+          Serving executives, founders, professionals, and businesses across the United States, Europe, Canada, and Australia.
+        </p>
+      )}
     </div>
   );
 }
