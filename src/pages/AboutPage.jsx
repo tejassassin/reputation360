@@ -662,7 +662,16 @@ function WhatDrivesUsSection() {
           >
             We are driven by outcomes. Real ones.
           </p>
-          <p className="font-body mx-auto mt-5 text-balance text-base leading-relaxed text-slate-600 md:text-lg">
+          <p className="mx-auto mt-5 max-w-3xl text-center text-[15px] leading-relaxed md:text-base">
+            <span className={`${headlineFont} font-bold text-[#1F3B64]`}>
+              These are not metrics.{" "}
+            </span>
+            <span className="text-slate-600">
+              These are lives changed. And every single one of them is why we
+              show up every day.
+            </span>
+          </p>
+          <p className="font-body mx-auto mt-6 text-balance text-base leading-relaxed text-slate-600 md:text-lg">
             The peace of mind that comes with knowing{" "}
             <strong className="font-semibold text-[#1F3B64]">
               your name tells your true story
@@ -787,23 +796,6 @@ function WhatDrivesUsSection() {
         </Motion.div>
         </div>
 
-        <Motion.div
-          className="mx-auto mt-10 max-w-4xl text-center sm:mt-12 sm:text-left"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={aboutView}
-          transition={{ duration: 0.5, delay: 0.08 }}
-        >
-          <p className="mx-auto max-w-3xl text-[15px] leading-relaxed md:text-base">
-            <span className={`${headlineFont} font-bold text-[#1F3B64]`}>
-              These are not metrics.{" "}
-            </span>
-            <span className="text-slate-600">
-              These are lives changed. And every single one of them is why we
-              show up every day.
-            </span>
-          </p>
-        </Motion.div>
       </div>
     </section>
   );
