@@ -374,7 +374,7 @@ export const R360_CHATBOT_ENTRIES = [
     ],
     keywords: ["contact", "write", "message", "hello"],
     reply:
-      "Email info@thereputation360.com, tap the WhatsApp icon in this dock, or use the Contact page. Need a live conversation? Calendly is fastest for a consult.",
+      "Email hello@thereputation360.com, tap the WhatsApp icon in this dock, or use the Contact page. Need a live conversation? Calendly is fastest for a consult.",
     cta: { href: "/contact", label: "Contact page" },
   },
   {

@@ -91,7 +91,7 @@ export function homePageToHtml() {
       <section class="contact-cta">
         <h2>Take Control of Your Search Results Today</h2>
         <p>Get a comprehensive, confidential audit of your digital presence. See exactly where you stand and how we can help you rebuild trust.</p>
-        <p>Email us at info@thereputation360.com or book a consultation call to get started.</p>
+        <p>Email us at hello@thereputation360.com or book a consultation call to get started.</p>
       </section>
     </main>
   `;

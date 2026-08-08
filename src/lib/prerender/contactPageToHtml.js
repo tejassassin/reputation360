@@ -24,7 +24,7 @@ export function contactPageToHtml() {
           </li>
           <li>
             <h3>Email</h3>
-            <p>Reach out at info@thereputation360.com. Expect a detailed response within 8 hours.</p>
+            <p>Reach out at hello@thereputation360.com. Expect a detailed response within 8 hours.</p>
           </li>
         </ul>
       </section>
