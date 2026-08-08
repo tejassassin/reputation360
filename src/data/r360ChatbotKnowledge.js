@@ -32,6 +32,7 @@ export const R360_CHATBOT_ENTRIES = [
       "what is orm",
       "what do you do",
       "how can you help",
+      "how does this work",
     ],
     keywords: [
       "reputation",
@@ -437,8 +438,8 @@ export const R360_CHATBOT_ENTRIES = [
 /** Short prompts shown as chips in the chat panel. */
 export const R360_CHATBOT_QUICK_PROMPTS = [
   "Scan a person's reputation",
-  "What is ORM?",
-  "Bad reviews in Google",
+  "How does this work?",
+  "Bad reviews on Google",
   "How long until results?",
   "Book a consultation",
 ];

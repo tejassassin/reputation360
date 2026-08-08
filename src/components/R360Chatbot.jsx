@@ -25,10 +25,10 @@ const FULL_NAME_RE =
 const MATCH_THRESHOLD = 5;
 
 const FALLBACK_REPLY =
-  "For ORM and suppression FAQs I can help here. For a personalized web scan of a specific person, tap \"Scan a person's reputation\" or type their full name (for example Jane Doe), then your email - I'll search live results and summarize sentiment for that name only.";
+  "For reputation management and suppression FAQs I can help here. For a free look at what's showing up when someone's name is searched, tap \"Scan a person's reputation\" or type their full name (for example Jane Doe), then your email - I'll search live results and summarize sentiment for that name only.";
 
 function buildWelcomeMessage() {
-  return `Hey! Welcome to Reputation360. Ask about ORM, timelines, and pricing - or tap "${SCAN_START_PROMPT}" for a personalized web scan of someone's name.`;
+  return "Hey! Welcome to Reputation360. Ask me how we clean up bad search results, how long it takes, or what it costs - or tap 'Scan a reputation' below for a free look at what's showing up when someone's name is searched.";
 }
 
 function CtaLink({ cta }) {
