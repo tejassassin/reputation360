@@ -486,14 +486,14 @@ export default function R360Chatbot() {
                 }}
                 placeholder={
                   scanStep === "first"
-                    ? "First name..."
+                    ? "Ask your query or enter name..."
                     : scanStep === "last"
-                      ? "Last name..."
+                      ? "Ask your query or enter last name..."
                       : scanStep === "email"
-                        ? "Email address..."
+                        ? "Ask your query or enter email..."
                         : scanStep === "loading"
                           ? "Scan in progress..."
-                          : "Ask about ORM, pricing, or scan a name..."
+                          : "Ask your query..."
                 }
                 disabled={scanStep === "loading"}
                 enterKeyHint="send"
