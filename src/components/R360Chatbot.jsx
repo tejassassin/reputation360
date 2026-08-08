@@ -207,6 +207,34 @@ export default function R360Chatbot() {
       ]);
       setInput("");
 
+      const lower = trimmed.toLowerCase();
+
+      // Escalation / safety guardrails check
+      const legalKeywords = ["lawsuit", "defamation claim", "court order", "cease and desist", "subpoena", "suing", "sue", "legal action", "litigation"];
+      const safetyKeywords = ["threat", "harassment", "stalking", "self-harm", "suicide", "danger", "abuse", "blackmail", "extortion", "distress", "harass"];
+      const pricingKeywords = ["discount", "negotiate", "refund", "complaint", "refund policy", "negotiation"];
+      const pressKeywords = ["press inquiry", "media inquiry", "journalist", "interview request", "press release"];
+
+      if (legalKeywords.some(kw => lower.includes(kw))) {
+        pushAssistant("This sounds like an active legal matter. I cannot provide legal advice, but our team works alongside legal counsel regularly. Let me connect you directly with a specialist via hello@thereputation360.com or you can book a confidential call.", { href: CALENDLY_URL, label: "Book a call" });
+        return;
+      }
+
+      if (safetyKeywords.some(kw => lower.includes(kw))) {
+        pushAssistant("If you are facing immediate distress, harassment, or safety concerns, please know your well-being is the priority. I am handing this off to our human team immediately to assist you directly. Please reach out to hello@thereputation360.com or book a private consultation, and we will contact you as a priority.", { href: "/contact", label: "Contact Us" });
+        return;
+      }
+
+      if (pricingKeywords.some(kw => lower.includes(kw))) {
+        pushAssistant("For pricing negotiations, complaints, or contract questions, I will connect you with our accounts team. Please reach out to hello@thereputation360.com or book a consultation call.", { href: CALENDLY_URL, label: "Book a call" });
+        return;
+      }
+
+      if (pressKeywords.some(kw => lower.includes(kw))) {
+        pushAssistant("For press or media inquiries about Reputation360, please reach out to our communications team directly at hello@thereputation360.com.", { href: "/contact", label: "Contact page" });
+        return;
+      }
+
       if (trimmed === SCAN_START_PROMPT || /^scan\s*$/i.test(trimmed)) {
         startScanFlow();
         return;
