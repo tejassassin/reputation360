@@ -240,10 +240,19 @@ export default function R360Chatbot() {
         return;
       }
 
-      const inlineName = trimmed.match(FULL_NAME_RE);
-      if (inlineName && scanStep !== "loading") {
-        const firstName = inlineName[1];
-        const lastName = inlineName[2];
+      // ALWAYS check Q&A knowledge base first so questions and quick prompts answer immediately
+      const { entry, score } = matchR360ChatbotEntry(trimmed, R360_CHATBOT_ENTRIES);
+      if (entry && score >= MATCH_THRESHOLD) {
+        setScanStep(null);
+        pushAssistant(entry.reply, entry.cta);
+        return;
+      }
+
+      // Handle name input if user typed "scan <name>" or is explicitly answering the name prompt
+      const explicitScanMatch = trimmed.match(/^scan\s+([A-Za-z][\w'.-]*)\s+([A-Za-z][\w'.-]+(?:\s+[A-Za-z][\w'.-]+)*)$/i);
+      if (explicitScanMatch && scanStep !== "loading") {
+        const firstName = explicitScanMatch[1];
+        const lastName = explicitScanMatch[2];
         scanDraftRef.current = {
           ...scanDraftRef.current,
           firstName,
@@ -258,6 +267,17 @@ export default function R360Chatbot() {
       }
 
       if (scanStep === "first") {
+        // If user typed a two-word name without "scan" prefix while in first step
+        const twoWords = trimmed.match(/^([A-Za-z][\w'.-]*)\s+([A-Za-z][\w'.-]+(?:\s+[A-Za-z][\w'.-]+)*)$/i);
+        if (twoWords) {
+          const firstName = twoWords[1];
+          const lastName = twoWords[2];
+          scanDraftRef.current = { ...scanDraftRef.current, firstName, lastName };
+          setScanDraft((d) => ({ ...d, firstName, lastName }));
+          setScanStep("email");
+          pushAssistant(`Got it. What email should we associate with the scan for ${firstName} ${lastName}?`);
+          return;
+        }
         scanDraftRef.current = {
           ...scanDraftRef.current,
           firstName: trimmed,
@@ -281,7 +301,7 @@ export default function R360Chatbot() {
 
       if (scanStep === "email") {
         if (!EMAIL_RE.test(trimmed)) {
-          pushAssistant("Please enter a valid email address to continue.");
+          pushAssistant("Please enter a valid email address to continue the reputation scan, or ask me any question about our services.");
           return;
         }
         const { firstName, lastName } = scanDraftRef.current;
@@ -289,15 +309,10 @@ export default function R360Chatbot() {
         return;
       }
 
-      const { entry, score } = matchR360ChatbotEntry(trimmed, R360_CHATBOT_ENTRIES);
-      if (entry && score >= MATCH_THRESHOLD) {
-        pushAssistant(entry.reply, entry.cta);
-      } else {
-        pushAssistant(FALLBACK_REPLY, {
-          href: "/resources/faqs",
-          label: "Browse FAQs",
-        });
-      }
+      pushAssistant(FALLBACK_REPLY, {
+        href: "/resources/faqs",
+        label: "Browse FAQs",
+      });
     },
     [pushAssistant, runReputationScan, scanStep, startScanFlow],
   );
