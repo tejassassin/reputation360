@@ -1,2 +1,0 @@
-# Ignore helper modules inside api/ from being parsed as separate serverless functions
-api/lib/**

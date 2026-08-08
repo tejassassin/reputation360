@@ -46,8 +46,8 @@ function readHttpBody(req) {
  */
 function r360DevApiPlugin(mode) {
   const routes = {
-    "/api/free-scan": () => import("./api/lib/runFreeScanPipeline.js"),
-    "/api/reputation-agent": () => import("./api/lib/runReputationAgentPipeline.js"),
+    "/api/free-scan": () => import("./api/_lib/runFreeScanPipeline.js"),
+    "/api/reputation-agent": () => import("./api/_lib/runReputationAgentPipeline.js"),
     "/api/free-scan-submissions": () => import("./api/free-scan-submissions.js"),
   };
   return {

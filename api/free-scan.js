@@ -1,4 +1,4 @@
-import { runFreeScanPipeline } from "./lib/runFreeScanPipeline.js";
+import { runFreeScanPipeline } from "./_lib/runFreeScanPipeline.js";
 
 /**
  * @param {import('http').IncomingMessage} req

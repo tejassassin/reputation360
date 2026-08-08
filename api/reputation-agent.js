@@ -1,4 +1,4 @@
-import { runReputationAgentPipeline } from "./lib/runReputationAgentPipeline.js";
+import { runReputationAgentPipeline } from "./_lib/runReputationAgentPipeline.js";
 
 /**
  * @param {import('http').IncomingMessage} req
