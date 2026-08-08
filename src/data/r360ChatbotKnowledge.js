@@ -19,7 +19,7 @@ export const R360_CHATBOT_ENTRIES = [
     ],
     keywords: ["founded", "years", "experience", "leading", "agency"],
     reply:
-      "Reputation360 is a leading Online Reputation Management firm. We help individuals and brands control how they are perceived online. With 7+ years of hands-on experience, we build credible, resilient visibility in search - making positive results easier to find and harmful or misleading links far less visible. US is our primary market; we also serve Canada and Australia.",
+      "Reputation360 is a specialized online reputation management (ORM) and negative link suppression agency. We have 7+ years of hands-on experience and a track record of helping 1,100+ individuals and businesses, maintaining a 97% suppression success rate. Our primary markets are the United States, Canada, and Australia, and we also serve the UK/Europe. We use a 100% white-hat, search-engine-approved methodology (no fake reviews, no link farms, and no deceptive tactics). Confidentiality is standard and we protect all client relationships under strict discretion.",
     cta: { href: "/about", label: "About Reputation360" },
   },
   {
@@ -41,7 +41,7 @@ export const R360_CHATBOT_ENTRIES = [
       "perception",
     ],
     reply:
-      "Think of what people see when they Google you or your business. Online Reputation Management is how we shape that picture: we monitor what shows up, promote accurate positive content (profiles, articles, reviews, social proof) so it ranks well, and address harmful or outdated material - usually by suppression when direct removal is not realistic. The goal is that prospects see a fair, current version of your story.",
+      "Online Reputation Management (ORM) gives you complete control over what appears when someone searches your name or brand on Google. It systematically pushes down negative results and builds an authoritative, positive presence across profiles, content, and links. The goal is that search results accurately reflect who you are today.",
     cta: { href: "/resources/faqs", label: "Read FAQs" },
   },
   {
@@ -50,11 +50,12 @@ export const R360_CHATBOT_ENTRIES = [
       "negative link suppression",
       "suppress links",
       "bury bad results",
+      "push down links",
     ],
     keywords: ["suppress", "suppression", "buried", "page 10", "visibility"],
     reply:
-      "Negative link suppression means we reduce how visible a harmful URL is in search - often pushing it off page one (and well beyond) by earning stronger positive assets around your name. We do not rely on tricks; we use legitimate, white-hat SEO and content so good material wins the rankings. That is usually safer and more durable than chasing removals that publishers will not grant.",
-    cta: { href: "/resources/faqs#section-2", label: "Removal and suppression" },
+      "Negative Link Suppression is a targeted, surgical service. We build and rank high-authority, positive digital assets to displace specific damaging URLs (like forum complaints, outdated articles, false reviews, mugshots, or court records) on page one of Google, pushing them down to where they are no longer seen.",
+    cta: { href: "/resources/faqs#section-2", label: "How suppression works" },
   },
   {
     id: "delete-or-remove-content",
@@ -65,11 +66,12 @@ export const R360_CHATBOT_ENTRIES = [
       "delete reviews",
       "delete from google",
       "take down",
+      "erase",
     ],
-    keywords: ["delete", "removal", "remove", "takedown", "erase"],
+    keywords: ["delete", "removal", "remove", "takedown", "erase", "legal"],
     reply:
-      "We rarely \"delete\" the internet on your behalf - review platforms and news sites usually will not remove content just because it is uncomfortable. Day to day, our strength is suppression: pushing harmful links down while positive, truthful content takes the top spots. Where removal is legally or policy-based and realistic, we pursue it - but most wins come from what ranks, not from magic erasers.",
-    cta: { href: "/resources/faqs#section-2", label: "How suppression works" },
+      "We never guarantee removal of a specific piece of content, but we pursue every realistic avenue. Takedowns require source cooperation, which publishers rarely grant. Google de-indexing only applies to specific policy violations (like doxxing or non-consensual images). Legal removal (court orders, defamation, or Right to Be Forgotten) is real but slow and expensive. Therefore, we run removal and suppression in parallel—suppression is the controllable path that delivers most results.",
+    cta: { href: "/resources/faqs#section-2", label: "Removal vs. Suppression" },
   },
   {
     id: "negative-reviews",
@@ -80,7 +82,7 @@ export const R360_CHATBOT_ENTRIES = [
     ],
     keywords: ["review", "reviews", "rating", "stars", "yelp"],
     reply:
-      "Bad reviews in search is a problem we see all the time. We do not promise to delete third-party reviews - platforms usually will not allow it. Instead we suppress their visibility in search, help you earn and showcase genuine positive reviews, and strengthen assets that outrank the noise. Many clients see early movement in about 2-4 weeks; deeper cleanup depends on the source.",
+      "Bad reviews in search are a problem we see all the time. We do not promise to delete third-party reviews - platforms usually will not allow it. Instead we suppress their visibility in search, help you earn and showcase genuine positive reviews, and strengthen assets that outrank the noise. Timelines vary, but suppression assets typically go live within 2 weeks of starting.",
     cta: { href: "/case-studies", label: "Case studies" },
   },
   {
@@ -88,8 +90,23 @@ export const R360_CHATBOT_ENTRIES = [
     triggers: ["how long", "timeline", "how soon", "when will i see"],
     keywords: ["months", "weeks", "results", "time", "fast", "quick", "overnight"],
     reply:
-      "Many clients notice meaningful changes in roughly 2-4 weeks once work is underway, but every case differs - some sources are very authoritative and need a longer runway. We stay in touch with clear reporting and adjust the plan as rankings move. Your free consultation includes an honest timeline for your situation, not a one-size-fits-all promise.",
+      "Our timelines are realistic and honest: first suppression assets typically go live within 2 weeks of starting. We generally see initial movement within 60–90 days, with meaningful, lasting page-one change taking 3–6 months for most clients. Complex cases or high-authority negative content can take up to 11–12 months for a full transformation.",
     cta: { href: "/resources/faqs#section-3", label: "Timelines and results" },
+  },
+  {
+    id: "reputation-building-services",
+    triggers: [
+      "reputation building",
+      "brand building",
+      "thought leadership",
+      "personal branding",
+      "linkedin profile",
+      "employer branding",
+    ],
+    keywords: ["branding", "sub-services", "profiles", "authority"],
+    reply:
+      "For clients who want to strengthen their public presence, we offer eight Reputation Building sub-services: Personal Branding, LinkedIn Personal Branding, Employer Branding (Glassdoor/Careers pages), Thought Leadership & Editorial placement, Social Media Reputation Building, Performance Marketing, Brand Strategy, and Reputation Consultations. We recommend running a free Reputation Scan first to audit any core reputation issues.",
+    cta: { href: "/services", label: "Explore building services" },
   },
   {
     id: "who-needs-orm",
@@ -98,7 +115,7 @@ export const R360_CHATBOT_ENTRIES = [
       "business owner",
       "professional",
       "false",
-      "misleading",
+      "focus",
       "competitor",
       "outdated",
     ],
@@ -273,7 +290,7 @@ export const R360_CHATBOT_ENTRIES = [
       "ceo",
     ],
     reply:
-      "We support both individuals and companies - from financial advisors, doctors, lawyers, and executives to job seekers and brands that need a steadier search narrative. Geography-wise, the US is primary, with strong experience supporting Canada and Australia as well.",
+      "We serve a wide range of clients including Individuals, Executives & C-suite leaders, Financial advisors, Doctors & healthcare professionals, Lawyers & attorneys, Real estate agents & brokers, Job seekers, and Businesses & companies of all sizes. We tailor our examples and strategy to whichever segment matches your profile.",
     cta: { href: "/who-we-serve/individual", label: "Who we serve" },
   },
   {
@@ -357,7 +374,7 @@ export const R360_CHATBOT_ENTRIES = [
     ],
     keywords: ["contact", "write", "message", "hello"],
     reply:
-      "Email hello@thereputation360.com, tap the WhatsApp icon in this dock, or use the Contact page. Need a live conversation? Calendly is fastest for a consult.",
+      "Email info@thereputation360.com, tap the WhatsApp icon in this dock, or use the Contact page. Need a live conversation? Calendly is fastest for a consult.",
     cta: { href: "/contact", label: "Contact page" },
   },
   {
