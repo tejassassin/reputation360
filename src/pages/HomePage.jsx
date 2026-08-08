@@ -1,20 +1,23 @@
+import { lazy } from "react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { faqAdditionalJsonLdFromItems, mapQuestionAnswerFaqs } from "../data/faqPageSchema.js";
 import { HOME_FAQ_ITEMS } from "../data/homeFaqItems.js";
 import { HOME_PAGE_JSON_LD } from "../data/organizationSchema.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import Hero from "../components/Hero";
-import { HomeFromOurBlogSection } from "../components/home/HomeFromOurBlogSection.jsx";
-import WhoWeServeCards from "../components/WhoWeServeCards";
-import OurServices from "../components/OurServices";
-import CaseStudies from "../components/CaseStudies";
 import WhatWeBelieve from "../components/WhatWeBelieve";
-import WhatWeDo from "../components/WhatWeDo";
-import HowReputation360Works from "../components/HowReputation360Works";
-import WhyClientsChoose from "../components/WhyClientsChoose";
-import Contact from "../components/Contact";
-import HomeFaq from "../components/HomeFaq";
-import HomeTestimonials from "../components/HomeTestimonials.jsx";
+import LazySection from "../components/LazySection.jsx";
+
+const WhatWeDo = lazy(() => import("../components/WhatWeDo"));
+const OurServices = lazy(() => import("../components/OurServices"));
+const HomeTestimonials = lazy(() => import("../components/HomeTestimonials.jsx"));
+const WhoWeServeCards = lazy(() => import("../components/WhoWeServeCards"));
+const HowReputation360Works = lazy(() => import("../components/HowReputation360Works"));
+const WhyClientsChoose = lazy(() => import("../components/WhyClientsChoose"));
+const CaseStudies = lazy(() => import("../components/CaseStudies"));
+const HomeFromOurBlogSection = lazy(() => import("../components/home/HomeFromOurBlogSection.jsx").then(m => ({ default: m.HomeFromOurBlogSection })));
+const HomeFaq = lazy(() => import("../components/HomeFaq"));
+const Contact = lazy(() => import("../components/Contact"));
 
 function HomePage() {
   const homeSeo = useLocalizedSeo("home");
@@ -33,24 +36,44 @@ function HomePage() {
         <section>
           <WhatWeBelieve />
         </section>
-        <section>
-          <WhatWeDo />
-        </section>
-        <OurServices />
-        <section className="bg-offwhite">
-          <HomeTestimonials />
-        </section>
-        <WhoWeServeCards />
-        <section className="bg-white">
-          <HowReputation360Works />
-        </section>
-        <WhyClientsChoose />
-        <CaseStudies />
-        <HomeFromOurBlogSection id="from-our-blog" />
-        <section>
-          <HomeFaq />
-        </section>
-        <Contact />
+        <LazySection minHeight="20rem">
+          <section>
+            <WhatWeDo />
+          </section>
+        </LazySection>
+        <LazySection minHeight="24rem">
+          <OurServices />
+        </LazySection>
+        <LazySection minHeight="20rem">
+          <section className="bg-offwhite">
+            <HomeTestimonials />
+          </section>
+        </LazySection>
+        <LazySection minHeight="20rem">
+          <WhoWeServeCards />
+        </LazySection>
+        <LazySection minHeight="24rem">
+          <section className="bg-white">
+            <HowReputation360Works />
+          </section>
+        </LazySection>
+        <LazySection minHeight="20rem">
+          <WhyClientsChoose />
+        </LazySection>
+        <LazySection minHeight="20rem">
+          <CaseStudies />
+        </LazySection>
+        <LazySection minHeight="20rem">
+          <HomeFromOurBlogSection id="from-our-blog" />
+        </LazySection>
+        <LazySection minHeight="20rem">
+          <section>
+            <HomeFaq />
+          </section>
+        </LazySection>
+        <LazySection minHeight="12rem">
+          <Contact />
+        </LazySection>
       </main>
     </>
   );

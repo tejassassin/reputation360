@@ -124,15 +124,41 @@
           line-height: 1.5;
           color: rgba(255, 255, 255, 0.9);
         }
+        .r360-static-hero__ctas {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0.625rem;
+          margin-top: 0.75rem;
+          max-width: 22rem;
+        }
+        .r360-static-hero__cta-scan,
+        .r360-static-hero__cta-consult {
+          display: block;
+          width: 100%;
+          padding: 0.625rem 1.5rem;
+          border-radius: 0.75rem;
+          font-size: 0.875rem;
+          font-weight: 600;
+          text-align: center;
+          text-decoration: none;
+          line-height: 1.5;
+          box-sizing: border-box;
+        }
+        .r360-static-hero__cta-scan {
+          border: 2px solid rgba(255,255,255,0.35);
+          background: rgba(255,255,255,0.1);
+          color: #fff;
+        }
+        .r360-static-hero__cta-consult {
+          border: none;
+          background: #6cb359;
+          color: #fff;
+          box-shadow: 0 4px 14px rgba(108,179,89,0.3);
+        }
       }
     </style>
-    <link rel="icon" type="image/png" sizes="512x512" href="__R360_METADATA_BASE__/android-chrome-512x512.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="__R360_METADATA_BASE__/android-chrome-192x192.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="__R360_METADATA_BASE__/favicon-48x48.png" />
     <link rel="icon" type="image/x-icon" href="__R360_METADATA_BASE__/favicon.ico" />
-    <link rel="shortcut icon" href="__R360_METADATA_BASE__/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="__R360_METADATA_BASE__/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="__R360_METADATA_BASE__/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="__R360_METADATA_BASE__/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta
@@ -689,7 +715,13 @@
           var tpl =
             '<main id="r360-static-hero" class="r360-static-hero" aria-label="Reputation360">' +
             '<div class="r360-static-hero__inner">' +
+            '<div class="r360-static-hero__badge"><span class="r360-static-hero__dot"></span><span>Trusted by <span style="font-weight:600;color:#fff">1,100+</span> clients globally</span></div>' +
             '<h1><span>Take control of your</span><span>Online Reputation Management</span><span><mark class="r360-static-hero__hl">on your terms</mark><span class="r360-static-hero__muted">, not Google&#39;s</span></span></h1>' +
+            '<p class="r360-static-hero__sub">Because one negative result can quietly undermine years of credibility.</p>' +
+            '<div class="r360-static-hero__ctas">' +
+            '<a class="r360-static-hero__cta-scan" href="/free-reputation-scan">Free Reputation Scan</a>' +
+            '<a class="r360-static-hero__cta-consult" href="https://calendly.com/reputation360/30min" target="_blank" rel="noopener noreferrer">Book a Free Consultation →</a>' +
+            '</div>' +
             "</div></main>";
           document.currentScript.insertAdjacentHTML("beforebegin", tpl);
         })();
