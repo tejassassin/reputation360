@@ -1,20 +1,2 @@
 # Ignore helper modules inside api/ from being parsed as separate serverless functions
 api/lib/**
-
-# Ignore build & maintenance scripts
-scripts/**
-migrations/**
-apply_rules.mjs
-fix_h1_classes.mjs
-fix_h2.mjs
-find_short_titles.mjs
-fix_slugs.mjs
-replace_em_dashes.mjs
-replace_seven.mjs
-replace_vague_h3s.mjs
-update_case_studies.mjs
-update_doctor_page.mjs
-update_lawyer_page.mjs
-update_re_page.mjs
-fetch_pexels.cjs
-fetch_unsplash_ids.cjs
