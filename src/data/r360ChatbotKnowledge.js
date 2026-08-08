@@ -1,6 +1,9 @@
 /**
- * Curated answers for the on-site assistant, aligned with the Reputation360
+ * Curated answers for Maya (the on-site assistant), aligned with the Reputation360
  * chatbot training guide and published FAQs. Update when messaging changes.
+ * 
+ * VOICE INSTRUCTION: Maya uses a warm, empathetic, plain-English, conversational,
+ * down-to-earth voice everywhere across all responses, not just these 15 questions.
  */
 
 import { CALENDLY_URL } from "../constants/scheduling.js";
@@ -41,7 +44,7 @@ export const R360_CHATBOT_ENTRIES = [
       "perception",
     ],
     reply:
-      "Online Reputation Management is the process of controlling what people see when they search a name, business, or brand on Google — suppressing negative results, building and ranking positive content, managing reviews, and protecting your digital presence long term.",
+      "Think of what people see when they Google you or your business. Online Reputation Management is how we shape that picture: we keep an eye on what's out there, help honest, positive content — like your profiles, articles, and real reviews — rank well, and deal with anything harmful or outdated so it's not the first thing people see. The goal is that people find a fair, current version of your story.",
     cta: { href: "/resources/faqs", label: "Read FAQs" },
   },
   {
@@ -70,7 +73,7 @@ export const R360_CHATBOT_ENTRIES = [
     ],
     keywords: ["delete", "removal", "remove", "takedown", "erase", "legal"],
     reply:
-      "We never guarantee removal of a specific piece of content, but we pursue every realistic avenue. Takedowns require source cooperation, which publishers rarely grant. Google de-indexing only applies to specific policy violations (like doxxing or non-consensual images). Legal removal (court orders, defamation, or Right to Be Forgotten) is real but slow and expensive. Therefore, we run removal and suppression in parallel—suppression is the controllable path that delivers most results.",
+      "No, and we'll never tell you we can — that's not something anyone can honestly promise, since it depends on other websites or courts, not us. What we can promise is that we'll pursue every real option and keep building your positive presence no matter what happens with removal.",
     cta: { href: "/resources/faqs#section-2", label: "Removal vs. Suppression" },
   },
   {
@@ -82,7 +85,7 @@ export const R360_CHATBOT_ENTRIES = [
     ],
     keywords: ["review", "reviews", "rating", "stars", "yelp"],
     reply:
-      "Bad reviews in search are a problem we see all the time. We do not promise to delete third-party reviews - platforms usually will not allow it. Instead we suppress their visibility in search, help you earn and showcase genuine positive reviews, and strengthen assets that outrank the noise. Timelines vary, but suppression assets typically go live within 2 weeks of starting.",
+      "Bad reviews in search are a problem we see all the time. We do not promise to delete third-party reviews - platforms usually will not allow it. Instead we suppress their visibility in search, help you earn and showcase genuine positive reviews, and strengthen assets that outrank the noise. You'll typically see the first pieces go live within two weeks.",
     cta: { href: "/case-studies", label: "Case studies" },
   },
   {
@@ -90,7 +93,7 @@ export const R360_CHATBOT_ENTRIES = [
     triggers: ["how long", "timeline", "how soon", "when will i see"],
     keywords: ["months", "weeks", "results", "time", "fast", "quick", "overnight"],
     reply:
-      "Some improvement can be seen within 4–8 weeks; meaningful suppression of strong negative results typically takes 6–12 months, depending on the authority of the negative content and how much positive content already exists.",
+      "You'll usually notice small movement within the first month or two. The bigger shift — where the good content is clearly winning — typically takes somewhere between 6 months and a year, depending on how tough the negative content is to outrank.",
     cta: { href: "/resources/faqs#section-3", label: "Timelines and results" },
   },
   {
@@ -120,7 +123,7 @@ export const R360_CHATBOT_ENTRIES = [
       "outdated",
     ],
     reply:
-      "Anyone whose search results affect how they're perceived professionally or personally — founders, executives, doctors, lawyers, financial advisors, job seekers, and businesses where one bad result can cost a client, deal, patient, or opportunity.",
+      "Anyone who could lose something because of what shows up when their name is searched — a founder before a funding round, a doctor whose patients Google them first, someone job-hunting before an interview. Basically, if a bad search result could cost you a client, a deal, or an opportunity, this is for you.",
     cta: { href: "/services", label: "Who we serve" },
   },
   {
@@ -128,7 +131,7 @@ export const R360_CHATBOT_ENTRIES = [
     triggers: ["what if the negative", "content is true", "true but"],
     keywords: ["true", "accurate", "happened", "past"],
     reply:
-      "Yes, this is common. ORM doesn't erase the past — it ensures current achievements and character are what people find first, rather than something outdated that no longer represents who someone is.",
+      "Yes, and this comes up a lot. We can't erase the past, but we can make sure what people see first is who you are today — your current work and expertise — instead of something from years ago that doesn't reflect that anymore.",
   },
   {
     id: "social-media",
@@ -142,7 +145,7 @@ export const R360_CHATBOT_ENTRIES = [
     triggers: ["fake review", "false information", "misinformation", "lies about", "can negative google results actually be fixed", "fix negative google"],
     keywords: ["fake", "false", "lie", "defamation", "bogus", "fixed", "repair"],
     reply:
-      "Often, yes. Some content can be removed if it violates platform policy or qualifies for legal removal. When removal isn't possible, suppression pushes it down by ranking stronger positive assets above it.",
+      "In many cases, yes. Sometimes we can get something taken down completely — that happens when it breaks a platform's rules or there's a legal path for it. When taking it down isn't realistic, we build up stronger, positive content instead, so it naturally pushes the bad result further down the page.",
   },
   {
     id: "seo",
@@ -172,7 +175,7 @@ export const R360_CHATBOT_ENTRIES = [
     triggers: ["come back", "rebound", "bounce back", "temporary", "will suppressed content come back"],
     keywords: ["permanent", "again", "resurface", "compound"],
     reply:
-      "With ongoing monitoring and reinforcement, no — white-hat suppression builds genuine, lasting authority, so results compound rather than fade, unlike shortcut-based campaigns.",
+      "Not if we keep it maintained. We build things the right way from the start, so results hold up over time instead of quietly slipping back — which is what tends to happen with shortcut methods once nobody's watching them.",
     cta: { href: "/resources/faqs#section-3", label: "Durability" },
   },
   {
@@ -211,7 +214,7 @@ export const R360_CHATBOT_ENTRIES = [
     triggers: ["is this legal", "illegal", "against the law", "is negative link suppression legal and ethical"],
     keywords: ["legal", "lawful", "ethical", "scam"],
     reply:
-      "Completely — legitimate SEO and content strategy that fully complies with Google's guidelines. No deceptive, spammy, or manipulative tactics, ever.",
+      "Completely. Everything we do follows Google's own rules. We never use fake reviews, shady link schemes, or anything sketchy — it's not worth the risk, and it doesn't hold up long-term anyway.",
   },
   {
     id: "will-people-find-out",
@@ -224,7 +227,7 @@ export const R360_CHATBOT_ENTRIES = [
     ],
     keywords: ["discreet", "private", "hide that", "discretion", "confidentiality"],
     reply:
-      "Yes — complete discretion always. Client relationships are never disclosed; strict confidentiality is standard, particularly given how many clients are professionals handling sensitive situations.",
+      "Completely. We never tell anyone who our clients are or what we're working on for them. A lot of people come to us with sensitive situations, so keeping things private is just how we operate, every time.",
     cta: { href: "/resources/faqs#section-7", label: "Confidentiality FAQs" },
   },
   {
@@ -291,7 +294,7 @@ export const R360_CHATBOT_ENTRIES = [
       "ceo",
     ],
     reply:
-      "We serve a wide range of clients including Individuals, Executives & C-suite leaders, Financial advisors, Doctors & healthcare professionals, Lawyers & attorneys, Real estate agents & brokers, Job seekers, and Businesses & companies of all sizes. We tailor our examples and strategy to whichever segment matches your profile.",
+      "Anyone who could lose something because of what shows up when their name is searched — a founder before a funding round, a doctor whose patients Google them first, someone job-hunting before an interview. Basically, if a bad search result could cost you a client, a deal, or an opportunity, this is for you.",
     cta: { href: "/who-we-serve/individual", label: "Who we serve" },
   },
   {
@@ -299,7 +302,7 @@ export const R360_CHATBOT_ENTRIES = [
     triggers: ["how much", "pricing", "cost", "fee", "quote", "retainer"],
     keywords: ["price", "payment", "package"],
     reply:
-      "Pricing depends on severity, number of problem URLs, markets, and how aggressive you want to be. We build custom packages after we understand the facts - that conversation belongs with our team, not a generic chat quote.",
+      "It really depends on your situation — how many search terms we're targeting, how strong the negative content is, and the timeline you need. We don't do generic packages because two people's search results are rarely alike. The best next step is a free reputation scan or a quick consultation — either one gets you a real picture of what your case would involve and what it would cost, no obligation.",
     cta: { href: "/contact", label: "Contact for pricing" },
   },
   {
@@ -307,7 +310,7 @@ export const R360_CHATBOT_ENTRIES = [
     triggers: ["guarantee", "promise results", "100 percent", "success rate", "can reputation360 guarantee removal of specific content"],
     keywords: ["sure", "certain", "warranty", "percent", "guarantees"],
     reply:
-      "No — outcomes depend on other websites, platforms, or courts, which are outside anyone's control. What's guaranteed is pursuing every realistic removal avenue plus suppression regardless of the outcome.",
+      "No, and we'll never tell you we can — that's not something anyone can honestly promise, since it depends on other websites or courts, not us. What we can promise is that we'll pursue every real option and keep building your positive presence no matter what happens with removal.",
     cta: { href: "/resources/faqs#section-3", label: "How we measure success" },
   },
   {
@@ -325,7 +328,7 @@ export const R360_CHATBOT_ENTRIES = [
     ],
     keywords: ["consult", "meeting", "call", "appointment", "human", "live", "session"],
     reply:
-      "A structured expert session reviewing current online presence, identifying what's hurting or limiting reputation, and providing a clear, prioritized roadmap. It's the right starting point for anyone unsure which service they need.",
+      "It's a conversation where we look at your situation together and tell you honestly what's going on and what to do about it — no guesswork. It's a great place to start if you're not sure exactly what you need.",
     cta: { href: CALENDLY_URL, label: "Book on Calendly" },
   },
   {
@@ -398,7 +401,7 @@ export const R360_CHATBOT_ENTRIES = [
     triggers: ["what should i look for in a reputation management company", "how to choose ORM", "what to look for in ORM"],
     keywords: ["look for", "agency", "company", "specialization", "caution"],
     reply:
-      "Specialization in ORM (not a side service), white-hat/algorithm-compliant methods, evidence of results in similar situations, transparent reporting, and realistic timelines. Be cautious of anyone guaranteeing rankings or overnight results.",
+      "Someone who does this full-time, not as a side offering. Ask whether their methods are safe and won't get flagged by Google, ask for real examples similar to your situation, and be wary of anyone promising overnight results or guaranteed rankings — that usually means shortcuts that backfire later.",
     cta: { href: "/resources/faqs", label: "Read guides" },
   },
   {
@@ -406,28 +409,28 @@ export const R360_CHATBOT_ENTRIES = [
     triggers: ["is it possible to suppress just one or two negative results", "suppress one link", "suppress two links"],
     keywords: ["isolated", "single", "one", "two", "domain authority"],
     reply:
-      "Yes — often more straightforward than a larger volume. The key variables are the domain authority of the harmful link and how competitive the name is as a keyword. Many isolated results can move within a few months.",
+      "Yes, and that's often easier than a bigger cleanup. If it's just one or two specific links causing trouble, we can usually make real progress within a few months, depending on how established that content is.",
   },
   {
     id: "removal-vs-suppression",
     triggers: ["what is the difference between removal and suppression", "removal vs suppression", "difference between removal and suppression"],
     keywords: ["difference", "versus", "vs", "comparison", "deletes"],
     reply:
-      "Removal permanently deletes content at the source (legal action, DMCA, publisher negotiation). Suppression pushes content down by outranking it with positive content. Removal is the stronger outcome when possible; suppression is what delivers results when it isn't. Both often run together.",
+      "Removal means the bad content is gone for good, deleted at the source. Suppression means it's still out there, but buried so far down the search results that almost nobody sees it. We always try removal first when it's realistic, and use suppression to get results either way.",
   },
   {
     id: "how-quickly-begin",
     triggers: ["how quickly can suppression begin", "how fast does suppression start"],
     keywords: ["begin", "start", "weeks", "engagement"],
     reply:
-      "Within days of engagement. First assets typically go live within two weeks; meaningful ranking movement begins around 60 days, with sustained page-one improvement around 150–180 days for most cases.",
+      "We can get started within days. You'll typically see the first pieces go live within two weeks, and real movement in the rankings begins around the two-month mark.",
   },
   {
     id: "personal-branding-vs-orm",
     triggers: ["what is the difference between personal branding and ORM", "personal branding vs ORM"],
     keywords: ["difference", "branding", "orm", "personal", "reputation"],
     reply:
-      "ORM controls what appears in search results. Personal branding shapes what that presence communicates — the authority it projects and the impression it creates with the audiences that matter most.",
+      "ORM is about what shows up when people search your name. Personal branding is about what that says about you once they click through — whether it makes you look sharp and credible, or just... there. The two work best together.",
   },
 ];
 
