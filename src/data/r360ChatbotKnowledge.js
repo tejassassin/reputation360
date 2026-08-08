@@ -317,6 +317,7 @@ export const R360_CHATBOT_ENTRIES = [
   {
     id: "consultation-handoff",
     triggers: [
+      "book a consultation",
       "free consultation",
       "book a call",
       "schedule",
@@ -325,12 +326,21 @@ export const R360_CHATBOT_ENTRIES = [
       "speak to someone",
       "talk to a person",
       "sales team",
-      "what is a reputation consultation",
+      "book consultation",
+      "schedule a call",
     ],
-    keywords: ["consult", "meeting", "call", "appointment", "human", "live", "session"],
+    keywords: ["consult", "meeting", "call", "appointment", "human", "live", "session", "book", "consultation"],
+    reply:
+      "Happy to set that up — here's our booking link to grab a time that works best for you.",
+    cta: { href: CALENDLY_URL, label: "Book a consultation" },
+  },
+  {
+    id: "what-is-consultation",
+    triggers: ["what is a reputation consultation", "what is a consultation"],
+    keywords: ["consultation", "roadmap", "expert", "session"],
     reply:
       "It's a conversation where we look at your situation together and tell you honestly what's going on and what to do about it — no guesswork. It's a great place to start if you're not sure exactly what you need.",
-    cta: { href: CALENDLY_URL, label: "Book on Calendly" },
+    cta: { href: CALENDLY_URL, label: "Book a consultation" },
   },
   {
     id: "lead-capture-details",
