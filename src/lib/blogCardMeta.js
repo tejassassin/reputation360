@@ -22,6 +22,11 @@ function slugFromBlogHref(href) {
   return match ? decodeURIComponent(match[1]) : null;
 }
 
+function optimizeUnsplashImage(url) {
+  if (!url) return url;
+  return url.replace("w=1200", "w=600").replace("q=80", "q=75");
+}
+
 /**
  * Listing metadata for blog link cards (Related Readings, homepage, prerender).
  * @param {string} href
@@ -37,7 +42,7 @@ export function getBlogCardMeta(href) {
       excerpt: packArticle.listing.excerpt,
       readTime: packArticle.listing.readTime,
       category: packArticle.listing.category,
-      image: packArticle.listing.image,
+      image: optimizeUnsplashImage(packArticle.listing.image),
       imageAlt: packArticle.listing.imageAlt,
     };
   }
@@ -48,7 +53,7 @@ export function getBlogCardMeta(href) {
       excerpt: guide.excerpt,
       readTime: guide.readTime,
       category: guide.category,
-      image: guide.image,
+      image: optimizeUnsplashImage(guide.image),
       imageAlt: guide.imageAlt,
     };
   }

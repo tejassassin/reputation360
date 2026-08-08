@@ -28,26 +28,28 @@ export function buildReputationScanPdfBytes(p) {
   const margin = 36;
   const maxW = pageW - 2 * margin;
   let y = margin;
+
   const BRAND = {
-    navy: [31, 59, 100],
-    blue: [46, 91, 136],
-    sky: [65, 156, 232],
-    green: [76, 175, 80],
-    red: [190, 24, 93],
-    amber: [217, 119, 6],
-    slate: [71, 85, 105],
-    light: [245, 247, 250],
-    border: [226, 232, 240],
+    navy: [23, 37, 84],       // Dark premium navy
+    blue: [59, 130, 246],     // Accent blue
+    sky: [147, 197, 253],     // Sky blue
+    green: [34, 197, 94],     // Positive green
+    red: [239, 68, 68],       // Negative red
+    amber: [245, 158, 11],     // Warning amber
+    slate: [71, 85, 105],     // Cool slate
+    light: [248, 250, 252],   // Light bg
+    border: [226, 232, 240],  // Card border
     white: [255, 255, 255],
+    textDark: [15, 23, 42],   // Slate 900
   };
 
   /**
    * @param {number} minHeight
    */
   function ensureSpace(minHeight) {
-    if (y + minHeight <= pageH - margin) return;
+    if (y + minHeight <= pageH - margin - 24) return;
     doc.addPage();
-    y = margin;
+    y = margin + 12;
   }
 
   /**
@@ -61,7 +63,7 @@ export function buildReputationScanPdfBytes(p) {
   function roundedRect(x, y0, w, h, fill, stroke = BRAND.border) {
     doc.setFillColor(...fill);
     doc.setDrawColor(...stroke);
-    doc.roundedRect(x, y0, w, h, 14, 14, "FD");
+    doc.roundedRect(x, y0, w, h, 10, 10, "FD");
   }
 
   /**
@@ -77,7 +79,7 @@ export function buildReputationScanPdfBytes(p) {
     doc.setFillColor(...fill);
     doc.roundedRect(x, y0, w, h, h / 2, h / 2, "F");
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(10);
+    doc.setFontSize(8.5);
     doc.setTextColor(...textColor);
     doc.text(text, x + w / 2, y0 + h / 2 + 3, { align: "center" });
     doc.setTextColor(0);
@@ -105,22 +107,55 @@ export function buildReputationScanPdfBytes(p) {
    * @param {[number, number, number]} bgColor
    */
   function addInsightCard(title, body, barColor, bgColor) {
-    ensureSpace(96);
+    const textW = maxW - 36;
+    const bulletLines = String(body)
+      .split("\n")
+      .map((s) => s.trim())
+      .filter(Boolean);
+
+    let textH = 0;
+    const computedBullets = [];
+
+    for (const rawLine of bulletLines) {
+      const cleanLine = rawLine.replace(/^•\s*/, "");
+      const splitLines = doc.splitTextToSize(cleanLine, textW);
+      computedBullets.push(splitLines);
+      textH += splitLines.length * 13 + 6;
+    }
+
+    const cardH = 26 + (textH > 0 ? textH - 6 : 0) + 16;
+    ensureSpace(cardH + 12);
+
     const cardY = y;
-    roundedRect(margin, cardY, maxW, 82, bgColor);
+    roundedRect(margin, cardY, maxW, cardH, bgColor, bgColor);
+
+    // Left accent bar
     doc.setFillColor(...barColor);
-    doc.roundedRect(margin, cardY, 5, 82, 5, 5, "F");
-    doc.setTextColor(...BRAND.navy);
+    doc.roundedRect(margin, cardY, 4, cardH, 4, 4, "F");
+
+    // Title
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(12);
-    doc.text(title, margin + 16, cardY + 22);
-    doc.setTextColor(...BRAND.slate);
-    const lines = doc.splitTextToSize(body, maxW - 30);
+    doc.setFontSize(11);
+    doc.setTextColor(...BRAND.navy);
+    doc.text(title, margin + 16, cardY + 18);
+
+    // Bullets
+    let bulletY = cardY + 32;
     doc.setFont("helvetica", "normal");
-    doc.setFontSize(9);
-    doc.text(lines.slice(0, 4), margin + 16, cardY + 40);
-    doc.setTextColor(0);
-    y += 94;
+    doc.setFontSize(8.5);
+    doc.setTextColor(...BRAND.textDark);
+
+    for (const splitLines of computedBullets) {
+      doc.setFillColor(...barColor);
+      doc.circle(margin + 18, bulletY - 2.5, 2, "F");
+      for (const line of splitLines) {
+        doc.text(line, margin + 26, bulletY);
+        bulletY += 13;
+      }
+      bulletY += 6;
+    }
+
+    y += cardH + 12;
   }
 
   /**
@@ -131,37 +166,65 @@ export function buildReputationScanPdfBytes(p) {
    */
   function addResultSection(title, rows, fill, textColor) {
     if (!rows.length) return;
-    ensureSpace(46);
+    ensureSpace(60);
     doc.setFillColor(...fill);
-    doc.roundedRect(margin, y, maxW, 34, 12, 12, "F");
+    doc.roundedRect(margin, y, maxW, 30, 6, 6, "F");
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(13);
+    doc.setFontSize(11);
     doc.setTextColor(...textColor);
-    doc.text(`${title} (${rows.length})`, margin + 16, y + 22);
+    doc.text(`${title} (${rows.length})`, margin + 12, y + 19);
     doc.setTextColor(0);
-    y += 48;
+    y += 38;
 
     for (const r of sortedRows(rows)) {
-      ensureSpace(76);
-      const cardH = 64;
-      roundedRect(margin, y, maxW, cardH, BRAND.white);
+      const titleW = maxW - 32;
+      const snippetW = maxW - 32;
+      const titleLines = doc.splitTextToSize(r.title, titleW);
+      const snippetLines = doc.splitTextToSize(r.snippet, snippetW);
+      const titleH = titleLines.length * 13;
+      const snippetH = snippetLines.length * 11;
+      const cardH = 12 + 10 + titleH + 12 + snippetH + 10;
+
+      ensureSpace(cardH + 10);
+
+      roundedRect(margin, y, maxW, cardH, BRAND.white, BRAND.border);
+
+      // Sentiment accent vertical stripe
+      doc.setFillColor(...textColor);
+      doc.roundedRect(margin, y, 4, cardH, 4, 4, "F");
+
+      // Page / Rank metadata
       doc.setFont("helvetica", "bold");
-      doc.setFontSize(9);
+      doc.setFontSize(7.5);
       doc.setTextColor(...BRAND.slate);
-      doc.text(pageLabel(r), margin + 14, y + 18);
+      doc.text(pageLabel(r).toUpperCase(), margin + 16, y + 16);
+
+      // Title
       doc.setFont("helvetica", "bold");
-      doc.setFontSize(11);
+      doc.setFontSize(10);
       doc.setTextColor(...BRAND.navy);
-      const titleLines = doc.splitTextToSize(r.title, maxW - 28);
-      doc.text(titleLines.slice(0, 1), margin + 14, y + 33);
+      let currentY = y + 28;
+      for (const line of titleLines) {
+        doc.text(line, margin + 16, currentY);
+        currentY += 13;
+      }
+
+      // Link / URL
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(7.5);
+      doc.setTextColor(...BRAND.blue);
+      doc.text(r.displayLink || r.link, margin + 16, currentY);
+      currentY += 11;
+
+      // Snippet
       doc.setFont("helvetica", "normal");
       doc.setFontSize(8.5);
-      doc.setTextColor(...BRAND.blue);
-      doc.text(r.displayLink || r.link, margin + 14, y + 47);
       doc.setTextColor(...BRAND.slate);
-      const snippetLines = doc.splitTextToSize(r.snippet, maxW - 28);
-      doc.text(snippetLines.slice(0, 1), margin + 14, y + 58);
-      doc.setTextColor(0);
+      for (const line of snippetLines) {
+        doc.text(line, margin + 16, currentY);
+        currentY += 11;
+      }
+
       y += cardH + 8;
     }
   }
@@ -175,144 +238,201 @@ export function buildReputationScanPdfBytes(p) {
   if (p.reportedScore >= 72) letter = "A";
   else if (p.reportedScore >= 60) letter = "B";
   else if (p.reportedScore >= 48) letter = "C";
+  
   const accent =
     letter === "A"
       ? BRAND.green
       : letter === "B"
-        ? BRAND.sky
+        ? BRAND.blue
         : letter === "C"
           ? BRAND.amber
           : BRAND.red;
 
-  // Cover page header
-  roundedRect(margin, y, maxW, 118, BRAND.light, BRAND.light);
+  const accentLight =
+    letter === "A"
+      ? [240, 253, 244]
+      : letter === "B"
+        ? [239, 246, 255]
+        : letter === "C"
+          ? [255, 251, 235]
+          : [254, 242, 242];
+
+  // Full-bleed top banner
   doc.setFillColor(...BRAND.navy);
-  doc.roundedRect(margin, y, maxW, 40, 14, 14, "F");
+  doc.rect(0, 0, pageW, 130, "F");
+
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(19);
+  doc.setFontSize(16);
   doc.setTextColor(...BRAND.white);
-  doc.text("Reputation360 - Free Reputation Scan", margin + 18, y + 26);
-  doc.setTextColor(...BRAND.navy);
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(22);
-  doc.text(who, margin + 18, y + 68);
+  doc.text("REPUTATION360", margin, 48);
+  
   doc.setFont("helvetica", "normal");
-  doc.setFontSize(9);
-  doc.setTextColor(...BRAND.slate);
-  doc.text(p.email, margin + 18, y + 86);
-  doc.text(`Search analyzed: ${p.searchQueryUsed}`, margin + 18, y + 100);
+  doc.setFontSize(8.5);
+  doc.setTextColor(...BRAND.sky);
+  doc.text("FREE ONLINE REPUTATION REPORT", margin, 63);
 
-  const scoreBoxW = 146;
-  const scoreBoxX = pageW - margin - scoreBoxW;
-  roundedRect(scoreBoxX, y + 46, scoreBoxW, 60, BRAND.white);
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(28);
-  doc.setTextColor(...BRAND.navy);
-  doc.text(String(p.reportedScore), scoreBoxX + 18, y + 76);
-  doc.setFontSize(14);
-  doc.setTextColor(...BRAND.slate);
-  doc.text("/100", scoreBoxX + 64, y + 76);
-  pill(`Grade ${letter}`, scoreBoxX + 16, y + 84, 72, 18, accent, BRAND.white);
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(9);
-  doc.setTextColor(...BRAND.slate);
-  const presenceLines = doc.splitTextToSize(p.presenceLabel, scoreBoxW - 24);
-  doc.text(presenceLines.slice(0, 2), scoreBoxX + 16, y + 110);
-  doc.setTextColor(0);
-  y += 132;
+  // Client Profile Card (overlapping top banner)
+  const profileCardH = 120;
+  roundedRect(margin, 85, maxW, profileCardH, BRAND.white, BRAND.border);
 
-  // Metrics
-  ensureSpace(78);
-  const gap = 10;
-  const metricW = (maxW - gap * 3) / 4;
-  const metricY = y;
-  [
-    { label: "Total links", value: totalCount, color: BRAND.navy },
-    { label: "Positive", value: positiveCount, color: BRAND.green },
-    { label: "Neutral", value: neutralCount, color: BRAND.slate },
-    { label: "Negative", value: negativeCount, color: BRAND.red },
-  ].forEach((m, i) => {
-    const x = margin + i * (metricW + gap);
-    roundedRect(x, metricY, metricW, 62, BRAND.white);
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(20);
-    doc.setTextColor(...m.color);
-    doc.text(String(m.value), x + metricW / 2, metricY + 28, { align: "center" });
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(8.5);
-    doc.setTextColor(...BRAND.slate);
-    doc.text(m.label, x + metricW / 2, metricY + 46, { align: "center" });
-  });
-  doc.setTextColor(0);
-  y += 76;
-
-  // Summary card
-  ensureSpace(108);
-  roundedRect(margin, y, maxW, 94, BRAND.white);
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(12);
-  doc.setTextColor(...BRAND.navy);
-  doc.text("Executive Summary", margin + 16, y + 22);
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(9);
-  doc.setTextColor(...BRAND.slate);
-  const summaryLines = doc.splitTextToSize(p.summary, maxW - 32);
-  doc.text(summaryLines.slice(0, 5), margin + 16, y + 38);
-  doc.setTextColor(0);
-  y += 108;
-
-  const hurtingLines = String(p.hurting)
-    .split("\n")
-    .map((s) => s.trim())
-    .filter(Boolean);
-  addInsightCard(
-    "What may be hurting you",
-    hurtingLines.length === 1 && hurtingLines[0].startsWith("We did not flag")
-      ? hurtingLines[0]
-      : hurtingLines.slice(0, 4).map((line) => `• ${line}`).join("\n"),
-    BRAND.red,
-    [255, 245, 247],
-  );
-
-  const improvingLines = String(p.improving)
-    .split("\n")
-    .map((s) => s.trim())
-    .filter(Boolean);
-  addInsightCard(
-    "What can improve",
-    improvingLines.slice(0, 5).map((line) => `• ${line}`).join("\n"),
-    BRAND.green,
-    [241, 253, 244],
-  );
-
-  // Move detailed link blocks to later pages for readability.
-  doc.addPage();
-  y = margin;
-  roundedRect(margin, y, maxW, 54, BRAND.light, BRAND.light);
+  // Profile Card Left Info
   doc.setFont("helvetica", "bold");
   doc.setFontSize(18);
   doc.setTextColor(...BRAND.navy);
-  doc.text("Detailed Link Breakdown", margin + 18, y + 24);
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(10);
-  doc.setTextColor(...BRAND.slate);
-  doc.text("All categorized results from the scan are listed below in page-and-rank order.", margin + 18, y + 42);
-  doc.setTextColor(0);
-  y += 70;
+  doc.text(who, margin + 16, 118);
 
-  // Categorized link sections
-  addResultSection("Negative links", p.negative ?? [], [255, 241, 242], BRAND.red);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(9.5);
+  doc.setTextColor(...BRAND.slate);
+  doc.text(p.email, margin + 16, 135);
+
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(8.5);
+  doc.setTextColor(...BRAND.slate);
+  doc.text(`Search analyzed: ${p.searchQueryUsed}`, margin + 16, 155, { maxWidth: 280 });
+
+  // Profile Card Right Score Gauge
+  const circleX = pageW - margin - 50;
+  const circleY = 135;
+  doc.setFillColor(...accentLight);
+  doc.circle(circleX, circleY, 30, "F");
+  doc.setDrawColor(...accent);
+  doc.setLineWidth(2);
+  doc.circle(circleX, circleY, 30, "S");
+
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(16);
+  doc.setTextColor(...BRAND.navy);
+  doc.text(String(p.reportedScore), circleX, circleY + 1, { align: "center" });
+  
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(8);
+  doc.setTextColor(...BRAND.slate);
+  doc.text("/100", circleX, circleY + 11, { align: "center" });
+
+  pill(`Grade ${letter}`, circleX - 35, 175, 70, 16, accent, BRAND.white);
+
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(8);
+  doc.setTextColor(...BRAND.slate);
+  doc.text(p.presenceLabel.toUpperCase(), circleX, 201, { align: "center" });
+
+  y = 85 + profileCardH + 16;
+
+  // Dashboard Metrics Grid
+  const gap = 10;
+  const metricW = (maxW - gap * 3) / 4;
+  const metricY = y;
+  const metricH = 50;
+  [
+    { label: "TOTAL LINKS", value: totalCount, color: BRAND.navy },
+    { label: "POSITIVE", value: positiveCount, color: BRAND.green },
+    { label: "NEUTRAL", value: neutralCount, color: BRAND.slate },
+    { label: "NEGATIVE", value: negativeCount, color: BRAND.red },
+  ].forEach((m, i) => {
+    const x = margin + i * (metricW + gap);
+    roundedRect(x, metricY, metricW, metricH, BRAND.light, BRAND.border);
+    
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.setTextColor(...m.color);
+    doc.text(String(m.value), x + metricW / 2, metricY + 22, { align: "center" });
+    
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(7.5);
+    doc.setTextColor(...BRAND.slate);
+    doc.text(m.label, x + metricW / 2, metricY + 38, { align: "center" });
+  });
+
+  y += metricH + 16;
+
+  // Executive Summary Card
+  const summaryText = p.summary;
+  const summaryWidth = maxW - 32;
+  const summaryLines = doc.splitTextToSize(summaryText, summaryWidth);
+  const textH = summaryLines.length * 13;
+  const summaryCardH = 34 + textH + 12;
+
+  ensureSpace(summaryCardH + 12);
+  roundedRect(margin, y, maxW, summaryCardH, BRAND.white, BRAND.border);
+
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(11);
+  doc.setTextColor(...BRAND.navy);
+  doc.text("Executive Summary", margin + 16, y + 20);
+
+  doc.setDrawColor(...BRAND.border);
+  doc.setLineWidth(0.5);
+  doc.line(margin + 16, y + 26, margin + maxW - 16, y + 26);
+
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(8.5);
+  doc.setTextColor(...BRAND.textDark);
+  let summaryY = y + 39;
+  for (const line of summaryLines) {
+    doc.text(line, margin + 16, summaryY);
+    summaryY += 13;
+  }
+
+  y += summaryCardH + 16;
+
+  // Insight Cards
+  addInsightCard("What may be hurting you", p.hurting, BRAND.red, [254, 242, 242]);
+  addInsightCard("What can improve", p.improving, BRAND.green, [240, 253, 244]);
+
+  // Detailed breakdown title banner on next page
+  doc.addPage();
+  y = margin + 12;
+  
+  roundedRect(margin, y, maxW, 46, BRAND.light, BRAND.border);
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(14);
+  doc.setTextColor(...BRAND.navy);
+  doc.text("Detailed Link Breakdown", margin + 16, y + 20);
+  
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(8.5);
+  doc.setTextColor(...BRAND.slate);
+  doc.text("All categorized results from the scan are listed below in page-and-rank order.", margin + 16, y + 34);
+  
+  y += 58;
+
+  // Categorized result lists
+  addResultSection("Negative links", p.negative ?? [], [254, 242, 242], BRAND.red);
   addResultSection("Neutral links", p.neutral ?? [], [248, 250, 252], BRAND.slate);
   addResultSection("Positive links", p.positive ?? [], [240, 253, 244], BRAND.green);
 
-  // Footer
-  ensureSpace(30);
-  doc.setFont("helvetica", "italic");
-  doc.setFontSize(8);
-  doc.setTextColor(...BRAND.slate);
-  doc.text("thereputation360.com", margin, pageH - 18);
-  doc.text("Generated by Reputation360", pageW - margin, pageH - 18, { align: "right" });
-  doc.setTextColor(0);
+  // Two-pass dynamic page numbering and header line
+  const totalPages = doc.internal.getNumberOfPages();
+  for (let i = 1; i <= totalPages; i++) {
+    doc.setPage(i);
+
+    // Dynamic headers on pages 2+
+    if (i > 1) {
+      doc.setDrawColor(...BRAND.border);
+      doc.setLineWidth(0.5);
+      doc.line(margin, margin - 6, pageW - margin, margin - 6);
+      
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(7.5);
+      doc.setTextColor(...BRAND.slate);
+      doc.text("FREE ONLINE REPUTATION REPORT", margin, margin - 12);
+      
+      doc.setFont("helvetica", "normal");
+      doc.text(who.toUpperCase(), pageW - margin, margin - 12, { align: "right" });
+    }
+
+    // Dynamic footers on all pages
+    doc.setDrawColor(...BRAND.border);
+    doc.setLineWidth(0.5);
+    doc.line(margin, pageH - 24, pageW - margin, pageH - 24);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(7.5);
+    doc.setTextColor(...BRAND.slate);
+    doc.text("thereputation360.com", margin, pageH - 12);
+    doc.text(`Page ${i} of ${totalPages}`, pageW - margin, pageH - 12, { align: "right" });
+  }
 
   const buf = doc.output("arraybuffer");
   return new Uint8Array(buf);

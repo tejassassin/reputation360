@@ -427,7 +427,7 @@ function GuidePage() {
                 When Professional Reputation Management Help Makes Sense
               </h2>
             </div>
-            <div className="relative overflow-hidden rounded-[2.5rem] bg-[#02254d] p-12 text-white">
+            <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-[#072f5f] p-12 text-white">
               <div className="relative z-10 grid gap-12 md:grid-cols-2">
                 <div>
                   <h3 className="font-guide-headline mb-6 text-3xl font-bold">
@@ -455,7 +455,7 @@ function GuidePage() {
                         className="ha-lift flex items-center gap-4 rounded-xl bg-white/5 p-4"
                       >
                         <Icon
-                          className="h-6 w-6 shrink-0 text-[#78dc77]"
+                           className="h-6 w-6 shrink-0 text-[#78dc77]"
                           aria-hidden
                         />
                         <span>{text}</span>
@@ -463,7 +463,7 @@ function GuidePage() {
                     ))}
                   </div>
                 </div>
-                <div className="ha-lift flex flex-col items-center justify-center space-y-8 rounded-3xl border border-white/10 bg-white/10 p-10 text-center backdrop-blur-md">
+                <div className="ha-lift flex flex-col items-center justify-center space-y-8 rounded-2xl border border-white/10 bg-white/10 p-10 text-center backdrop-blur-md">
                   <h2 className="font-guide-headline text-2xl font-bold">
                     Ready to Take Control of Your Online Reputation?
                   </h2>

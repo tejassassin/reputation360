@@ -28,6 +28,11 @@ import {
 } from "../lib/blogArticleSearch.js";
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
+function optimizeUnsplashImage(url) {
+  if (!url) return url;
+  return url.replace("w=1200", "w=600").replace("q=80", "q=75");
+}
+
 const FEATURED_PACK_INSIGHTS = [
   socialPostsArticle.listing,
   crisisPlaybookArticle.listing,
@@ -148,7 +153,7 @@ function InsightsBlogsPage() {
             >
               <div className="absolute inset-0 z-0">
                 <img
-                  src={diyReputationGuideListing.image}
+                  src={optimizeUnsplashImage(diyReputationGuideListing.image)}
                   alt={diyReputationGuideListing.imageAlt}
                   className="h-full w-full object-cover opacity-40 transition-opacity duration-300 group-hover:opacity-50"
                 />
@@ -170,58 +175,40 @@ function InsightsBlogsPage() {
             {FEATURED_PACK_INSIGHTS.map((insight, index) => {
               const href = `/blog/${insight.slug}`;
               const isWide = index === 0;
-              const isCrisis = index === 1;
-
-              if (isWide) {
-                return (
-                  <a
-                    key={insight.id}
-                    href={href}
-                    {...internalAnchorProps(href)}
-                    className="glass-card group ha-lift flex flex-col justify-between rounded-xl border-none p-6 text-left no-underline transition-colors hover:bg-[#e1e8fd] md:col-span-2 outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff]"
-                  >
-                    <div>
-                      <h3 className="font-insights-headline mb-3 text-xl font-bold text-[#02254d] transition-colors group-hover:text-[#35618e]">
-                        {insight.title}
-                      </h3>
-                      <p className="line-clamp-3 text-sm text-[#43474e]">
-                        {insight.excerpt}
-                      </p>
-                    </div>
-                    <div className="mt-6 flex items-center justify-between">
-                      <span className="text-xs text-[#74777f]">{insight.readTime}</span>
-                      <ArrowRight className="h-5 w-5 text-[#35618e] opacity-0 transition-opacity group-hover:opacity-100" />
-                    </div>
-                  </a>
-                );
-              }
 
               return (
                 <a
                   key={insight.id}
                   href={href}
                   {...internalAnchorProps(href)}
-                  className={`group ha-lift flex flex-col justify-between rounded-xl border-none p-6 text-left no-underline transition-shadow hover:shadow-xl md:col-span-1 outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff] ${
-                    isCrisis ? "bg-[#f1f3ff]" : "bg-white"
-                  }`}
+                  className={cn(
+                    "group ha-lift relative flex flex-col justify-end overflow-hidden rounded-xl bg-[#02254d] p-6 text-white no-underline outline-none focus-visible:ring-2 focus-visible:ring-[#78dc77] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f1f3ff]",
+                    isWide
+                      ? "min-h-[220px] md:col-span-2 md:min-h-[240px]"
+                      : "min-h-[220px] md:col-span-1"
+                  )}
                 >
-                  <div>
-                    <h3 className="font-insights-headline mb-3 text-lg font-bold text-[#02254d] transition-colors group-hover:text-[#35618e]">
+                  <div className="absolute inset-0 z-0">
+                    <img
+                      src={optimizeUnsplashImage(insight.image)}
+                      alt={insight.imageAlt}
+                      className="h-full w-full object-cover opacity-40 transition-opacity duration-300 group-hover:opacity-50"
+                    />
+                  </div>
+                  <div className="relative z-10">
+                    <h3 className={cn(
+                      "font-insights-headline mb-4 font-bold text-white",
+                      isWide ? "text-xl md:text-2xl leading-tight" : "text-base md:text-lg leading-snug"
+                    )}>
                       {insight.title}
                     </h3>
-                    <p
-                      className={`text-sm leading-snug text-[#43474e] ${
-                        isCrisis ? "font-semibold" : "line-clamp-4"
-                      }`}
-                    >
-                      {insight.excerpt}
-                    </p>
-                  </div>
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="text-xs text-[#74777f]">
-                      {insight.date} · {insight.author}
-                    </span>
-                    <ArrowRight className="h-5 w-5 shrink-0 text-[#35618e] opacity-0 transition-opacity group-hover:opacity-100" />
+                    <div className="flex items-center justify-between gap-4 text-xs">
+                      <div>
+                        <p className="font-bold">{insight.author}</p>
+                        <p className="opacity-70">{insight.date}</p>
+                      </div>
+                      <span className="shrink-0 opacity-80">{insight.readTime}</span>
+                    </div>
                   </div>
                 </a>
               );
@@ -291,7 +278,7 @@ function InsightsBlogsPage() {
                 <>
                 <div className="ha-lift mb-6 aspect-video overflow-hidden rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
                   <img
-                    src={article.image}
+                    src={optimizeUnsplashImage(article.image)}
                     alt={article.imageAlt}
                     className="h-full w-full object-cover"
                   />
