@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { BadgeCheck, ArrowRight, Search } from "lucide-react";
+import { cn } from "../lib/utils";
 import { BlogGuideCtaPanel } from "../components/blog/BlogGuideCtaSection.jsx";
 import { CrawlableLinkIndex } from "../components/CrawlableLinkIndex.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
