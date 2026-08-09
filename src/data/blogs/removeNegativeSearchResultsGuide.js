@@ -27,10 +27,10 @@ export const removeNegativeSearchResultsListing = {
 };
 
 export const removeNegativeSearchResultsSeoTitle =
-  "Remove Negative Search Results from Google | Reputation360";
+  "How to Remove Negative Search Results From Google (2026) | Reputation360";
 
 export const removeNegativeSearchResultsMetaDescription =
-  "Proven steps to remove or suppress negative Google results: publisher outreach, Google tools, legal routes, and professional suppression - all explained.";
+  "Can a damaging article actually be removed from Google? Here's what Google's tools can do, when legal action helps, and how suppression covers the rest.";
 
 export const removeNegativeSearchResultsHero = {
   badge: "Google Reputation Management",
