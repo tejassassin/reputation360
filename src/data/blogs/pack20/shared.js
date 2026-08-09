@@ -3,6 +3,30 @@
 export const PACK20_AUTHOR = "Reputation360";
 export const PACK20_DATE = "May 23, 2026";
 
+/** Per-article last-updated dates (Aug 1–8 2026, randomly distributed). */
+export const PACK20_LAST_UPDATED = {
+  "how-to-suppress-negative-search-results-reputation360-framework":         "August 3, 2026",
+  "rank-positive-content-above-negative-results-reputation360-strategy":     "August 1, 2026",
+  "removal-vs-suppression-which-actually-works-reputation360":               "August 5, 2026",
+  "old-social-media-posts-showing-up-google-reputation360-guide":            "August 7, 2026",
+  "negative-links-cost-jobs-deals-real-cases-reputation360":                 "August 2, 2026",
+  "remove-court-records-google-reputation360":                               "August 4, 2026",
+  "crisis-management-reputation-recovery-reputation360-playbook":            "August 6, 2026",
+  "linkedin-profile-optimization-search-results-reputation360-checklist":    "August 1, 2026",
+  "what-recruiters-google-about-you-reputation360-insider-report":           "August 8, 2026",
+  "fix-reputation-before-job-interview-reputation360-guide":                 "August 3, 2026",
+  "own-your-first-page-control-google-results-reputation360":                "August 5, 2026",
+  "why-first-google-result-matters-psychology-reputation360":                "August 2, 2026",
+  "hidden-cost-ignoring-online-reputation-reputation360-analysis":           "August 7, 2026",
+  "online-reputation-management-best-practices-reputation360-methodology":   "August 4, 2026",
+  "roi-reputation-management-what-clients-see-reputation360":                "August 6, 2026",
+  "building-positive-google-presence-profile-claiming-guide-reputation360":  "August 1, 2026",
+  "monitoring-online-reputation-tools-tactics-reputation360":                "August 8, 2026",
+  "social-media-reputation-management-multi-platform-strategy-reputation360":"August 2, 2026",
+  "ai-search-changes-reputation-chatgpt-beyond-reputation360-guide":         "August 5, 2026",
+  "remove-negative-google-content-decision-framework-reputation360":         "August 3, 2026",
+};
+
 const PACK20_IMAGES = {
   suppress:
     "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",

@@ -24,6 +24,7 @@ import {
 import {
   loadPack20Article,
 } from "../data/blogs/pack20/loadPack20.js";
+import { PACK20_LAST_UPDATED } from "../data/blogs/pack20/shared.js";
 import "../styles/r360-diy-interactive.css";
 import { BlogAuthorMeta } from "../components/blog/BlogAuthorMeta.jsx";
 
@@ -134,7 +135,7 @@ export default function BlogPack20ArticlePage({ slug }) {
           <span className="diy-hero-badge">{article.hero.badge}</span>
           <h1 className="diy-hero-title">{article.listing.title}</h1>
           <p className="diy-hero-lead">{article.hero.lead}</p>
-          <BlogAuthorMeta slug={slug} date={article.listing.date} />
+          <BlogAuthorMeta slug={slug} date={PACK20_LAST_UPDATED[slug] ?? article.listing.date} />
           {article.hero.meta?.length ? (
             <div className="diy-meta-grid">
               {article.hero.meta.map((item) => (
