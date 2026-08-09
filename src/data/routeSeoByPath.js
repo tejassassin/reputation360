@@ -41,7 +41,7 @@ Object.assign(ROUTE_SEO, {
       "Most clients see page-one improvements within 60–90 days. Full transformation takes 3–12 months. See the 6 key factors that shape your timeline.",
   },
   [blogPostPath("remove-negative-search-results-from-google")]: {
-    title: "How to Remove Negative Search Results From Google (2026) | Reputation360",
+    title: "Remove Negative Search Results From Google | Reputation360",
     description:
       "Can a damaging article actually be removed from Google? Here's what Google's tools can do, when legal action helps, and how suppression covers the rest.",
   },
