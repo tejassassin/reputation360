@@ -101,7 +101,8 @@ function ServiceCard({ service, expanded, onToggle, isCore = false }) {
  */
 export function OurServicesGrid() {
   const [openId, setOpenId] = useState(null);
-  const [coreDetailsOpen, setCoreDetailsOpen] = useState(false);
+
+  const toggle = (id) => setOpenId((prev) => (prev === id ? null : id));
 
   return (
     <div className="w-full">
@@ -115,8 +116,8 @@ export function OurServicesGrid() {
           </span>
           <ServiceCard
             service={coreService}
-            expanded={coreDetailsOpen}
-            onToggle={() => setCoreDetailsOpen((v) => !v)}
+            expanded={openId === CORE_SERVICE_ID}
+            onToggle={() => toggle(CORE_SERVICE_ID)}
             isCore
           />
         </div>
@@ -132,7 +133,7 @@ export function OurServicesGrid() {
               <ServiceCard
                 service={s}
                 expanded={expanded}
-                onToggle={() => setOpenId((prev) => (prev === s.id ? null : s.id))}
+                onToggle={() => toggle(s.id)}
               />
             </li>
           );
