@@ -49,7 +49,6 @@ function Footer() {
             <p className="font-heading font-semibold mb-4">Company</p>
             <ul className="space-y-2">
               {[
-                { name: "Home", link: "/" },
                 { name: "About Us", link: "/about" },
                 { name: "Services", link: "/services" },
                 { name: "Case Studies", link: "/case-studies" },
