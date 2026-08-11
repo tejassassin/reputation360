@@ -26,7 +26,7 @@ function ReviewStars() {
         {[0, 1, 2, 3, 4].map((i) => (
           <Star
             key={i}
-            className="h-4 w-4 text-amber-500 sm:h-[1.05rem] sm:w-[1.05rem]"
+            className="h-4 w-4 text-[#4CAF50] sm:h-[1.05rem] sm:w-[1.05rem]"
             fill="currentColor"
             strokeWidth={0}
             aria-hidden
@@ -105,7 +105,7 @@ function HomeTestimonials() {
         >
           <span className="text-navy">Client Results & Reputation</span>{" "}
           <span className="relative inline-block whitespace-nowrap mt-1 sm:mt-0">
-            <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 bg-clip-text text-transparent">
+            <span className="text-[#4CAF50]">
               Management Reviews
             </span>
             <svg
@@ -130,9 +130,9 @@ function HomeTestimonials() {
                   y2="8.5"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stopColor="#F59E0B" />
-                  <stop offset="0.5" stopColor="#F97316" />
-                  <stop offset="1" stopColor="#F43F5E" />
+                  <stop stopColor="#4CAF50" />
+                  <stop offset="0.5" stopColor="#4CAF50" />
+                  <stop offset="1" stopColor="#4CAF50" />
                 </linearGradient>
               </defs>
             </svg>
