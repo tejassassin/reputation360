@@ -9,7 +9,7 @@ import {
   handleMailtoClick,
 } from "../constants/contact.js";
 import { LOGO_ALT_FOOTER } from "../constants/imageAlt.js";
-import { internalAnchorProps } from "../lib/internalLinkProps.js";
+import { externalAnchorProps, internalAnchorProps } from "../lib/internalLinkProps.js";
 
 /** All legal / policy pages shown under the Policies column. Add new documents here only. */
 const POLICY_LINKS = [
@@ -122,8 +122,7 @@ function Footer() {
                 <div className="-mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 pb-0.5 sm:gap-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                   <a
                     href={contactWhatsAppHref()}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    {...externalAnchorProps(contactWhatsAppHref())}
                     aria-label="WhatsApp Reputation360"
                     className="inline-flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full text-white/60 transition-colors hover:text-[#25D366] active:opacity-90"
                   >
@@ -139,7 +138,9 @@ function Footer() {
                   </a>
                   <a
                     href="https://www.linkedin.com/company/reputation360online/?viewAsMember=true"
-                    target="_blank"
+                    {...externalAnchorProps(
+                      "https://www.linkedin.com/company/reputation360online/?viewAsMember=true",
+                    )}
                     aria-label="LinkedIn"
                     className="inline-flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full text-white/60 transition-colors hover:text-green active:opacity-90"
                   >
@@ -154,7 +155,9 @@ function Footer() {
                   </a>
                   <a
                     href="https://www.instagram.com/reputation360_online?igsh=ZThlOHpieWVpaWF1&utm_source=qr"
-                    target="_blank"
+                    {...externalAnchorProps(
+                      "https://www.instagram.com/reputation360_online?igsh=ZThlOHpieWVpaWF1&utm_source=qr",
+                    )}
                     aria-label="Instagram"
                     className="inline-flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full text-white/60 transition-colors hover:text-green active:opacity-90"
                   >
@@ -169,7 +172,9 @@ function Footer() {
                   </a>
                   <a
                     href="https://www.facebook.com/profile.php?id=61572090900344&mibextid=ZbWKwL"
-                    target="_blank"
+                    {...externalAnchorProps(
+                      "https://www.facebook.com/profile.php?id=61572090900344&mibextid=ZbWKwL",
+                    )}
                     aria-label="Facebook"
                     className="inline-flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full text-white/60 transition-colors hover:text-green active:opacity-90"
                   >

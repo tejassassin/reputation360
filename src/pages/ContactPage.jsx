@@ -14,6 +14,7 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import { CONTACT_CALENDAR_IMAGE_ALT } from "../constants/imageAlt.js";
 import { SITE_CANONICAL_ORIGIN } from "../constants/siteUrl.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
+import { externalAnchorProps } from "../lib/internalLinkProps.js";
 
 const calendarTabletImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuA-iNftxgB4MVtLYmaJLpcpPMCdIk9bo4K2vUXyEA2ZXH-BZhmfhL-8HD6Jt2GOFScH55bygI0bbHScErBYwqc9LNb_6eQBZuMJGi1trXwBsc3cLY_Av8Z34IJp_bM6r1CbUuzjq7-RNw4S1ffC5pcP2vOKqu5G6XAyqQVOS8MtT6wy6zLz3pSH77EgfqPgBDruvU6u1_vrhBJ-BCgrYislzYdg4iPWvU41nIaZO_AVY90uuI5seopRat1VNUXWv2d1Qw5hnw5knwU";
@@ -328,8 +329,7 @@ function ContactPage() {
               </div>
               <a
                 href={whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...externalAnchorProps(whatsappHref)}
                 className="ha-pill mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#56b958] px-8 py-3.5 text-sm font-bold text-white hover:opacity-90 active:scale-[0.98] md:mt-8 md:text-base"
               >
                 Message Now

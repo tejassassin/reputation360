@@ -1,3 +1,5 @@
+import { EXTERNAL_LINK_REL } from "../lib/internalLinkProps.js";
+
 /** Calendly - scheduling / consultation CTAs open here in a new tab. */
 export const CALENDLY_URL =
   "https://calendly.com/reputation360/30min";
@@ -5,7 +7,7 @@ export const CALENDLY_URL =
 export const calendlyNewTabProps = {
   href: CALENDLY_URL,
   target: "_blank",
-  rel: "noopener noreferrer",
+  rel: EXTERNAL_LINK_REL,
 };
 
 /**

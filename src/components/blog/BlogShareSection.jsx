@@ -9,6 +9,7 @@ import {
 import { canonicalHrefFromPath } from "../../lib/canonicalHrefFromPath.js";
 import { buildBlogShareUrls } from "../../lib/blogShareUrls.js";
 import { cn } from "@/lib/utils";
+import { EXTERNAL_LINK_REL } from "../../lib/internalLinkProps.js";
 
 const SHARE_BUTTON_CLASS =
   "inline-flex items-center gap-2 rounded-full border border-[#0f2e58]/15 bg-white px-4 py-2.5 text-sm font-semibold text-[#0f2e58] shadow-sm transition hover:border-[#2e5b88]/40 hover:bg-[#f4f8fc] hover:text-[#163d6e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2e5b88]";
@@ -103,7 +104,7 @@ export function BlogShareSection({ title, canonicalPath, className = "" }) {
             href={href}
             className={SHARE_BUTTON_CLASS}
             target={id === "email" ? undefined : "_blank"}
-            rel={id === "email" ? undefined : "noopener noreferrer"}
+            rel={id === "email" ? undefined : EXTERNAL_LINK_REL}
             aria-label={`Share on ${label}`}
           >
             <Icon className={cn("h-4 w-4 shrink-0", iconClass)} aria-hidden />

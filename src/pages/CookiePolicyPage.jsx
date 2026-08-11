@@ -1,6 +1,7 @@
 import { SeoHead } from "../components/SeoHead.jsx";
 import { BulletList, Prose, Section, Subheading } from "../components/legal/LegalDocPrimitives.jsx";
 import { SEO } from "../data/seoPageMeta.js";
+import { externalAnchorProps } from "../lib/internalLinkProps.js";
 
 const toc = [
   { id: "what-are-cookies", label: "What Are Cookies?" },
@@ -276,8 +277,7 @@ export default function CookiePolicyPage() {
                 <a
                   href="https://tools.google.com/dlpage/gaoptout"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...externalAnchorProps("https://tools.google.com/dlpage/gaoptout")}
                 >
                   Google Analytics Opt-out Browser Add-on
                 </a>
@@ -286,8 +286,7 @@ export default function CookiePolicyPage() {
                 <a
                   href="https://optout.aboutads.info"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...externalAnchorProps("https://optout.aboutads.info")}
                 >
                   Digital Advertising Alliance (DAA)
                 </a>
@@ -296,8 +295,7 @@ export default function CookiePolicyPage() {
                 <a
                   href="https://optout.networkadvertising.org"
                   className="font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...externalAnchorProps("https://optout.networkadvertising.org")}
                 >
                   Network Advertising Initiative (NAI)
                 </a>

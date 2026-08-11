@@ -35,7 +35,7 @@ export function richTextToHtml(text, parts) {
       const href = escapeHtmlAttr(part.href);
       const label = escapeHtml(part.text);
       if (part.external) {
-        return `<a href="${href}" rel="noopener noreferrer">${label}</a>`;
+        return `<a href="${href}" rel="noopener noreferrer nofollow">${label}</a>`;
       }
       return `<a href="${href}">${label}</a>`;
     })

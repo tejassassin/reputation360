@@ -3,6 +3,7 @@ import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { contactWhatsAppHref } from "@/constants/contact.js";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
+import { externalAnchorProps } from "@/lib/internalLinkProps.js";
 import R360Chatbot from "./R360Chatbot.jsx";
 
 const dockBtn =
@@ -24,8 +25,7 @@ export default function GlobalContactDock() {
     >
       <a
         href={contactWhatsAppHref()}
-        target="_blank"
-        rel="noopener noreferrer"
+        {...externalAnchorProps(contactWhatsAppHref())}
         className={cn(
           dockBtn,
           "relative z-[10001] touch-manipulation border-emerald-700/30 bg-[#25D366] text-white hover:bg-[#20bd5a] hover:shadow-xl active:opacity-90",

@@ -22,6 +22,7 @@ import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { FREE_REPUTATION_SCAN_LABEL } from "../constants/freeRiskScan.js";
 import { cn } from "@/lib/utils";
+import { externalAnchorProps } from "@/lib/internalLinkProps.js";
 import { buildReputationScanPdfBytes } from "@scan/freeScanPdfBuild.js";
 import { buildOfflineFreeScanPayload } from "@/lib/freeScanClientFallback.js";
 import {
@@ -210,8 +211,7 @@ function ResultLinkCard({ item }) {
         </span>
         <a
           href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
+          {...externalAnchorProps(item.link)}
           className="max-w-full break-all text-left text-xs font-semibold text-sky-700 underline decoration-sky-600/30 underline-offset-2 hover:text-sky-900 sm:text-sm"
         >
           {item.displayLink || item.link}
@@ -739,8 +739,7 @@ export default function FreeRiskScanPage() {
             <div className="flex shrink-0 flex-wrap gap-2">
               <a
                 href={googleHref}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...externalAnchorProps(googleHref)}
                 className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-sm hover:bg-slate-50"
               >
                 <Search className="h-4 w-4" aria-hidden />

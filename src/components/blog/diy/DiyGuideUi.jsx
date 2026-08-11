@@ -12,14 +12,14 @@ import {
   X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { internalAnchorProps } from "@/lib/internalLinkProps.js";
+import { anchorTabProps } from "@/lib/internalLinkProps.js";
 
-/** In-article internal link (blue, underlined) for blog guides. */
+/** In-article link (blue, underlined) for blog guides. */
 export function DiyInternalLink({ href, children, onClick }) {
   return (
     <a
       href={href}
-      {...internalAnchorProps(href)}
+      {...anchorTabProps(href)}
       onClick={onClick}
       className="diy-internal-link font-semibold text-blue-600 underline decoration-blue-600 underline-offset-2 transition-colors hover:text-blue-800 hover:decoration-blue-800"
     >

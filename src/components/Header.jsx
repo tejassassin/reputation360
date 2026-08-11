@@ -14,7 +14,8 @@ import {
   MobileNavMenu,
 } from "./ui/resizable-navbar";
 import logo from "../assets/Logo_360.png";
-import { CALENDLY_URL } from "../constants/scheduling";
+import { externalAnchorProps, internalAnchorProps } from "../lib/internalLinkProps.js";
+import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   CONTACT_EMAIL,
   contactMailtoHref,
@@ -22,7 +23,6 @@ import {
   handleMailtoClick,
 } from "../constants/contact.js";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
-import { internalAnchorProps } from "../lib/internalLinkProps.js";
 import {
   FREE_REPUTATION_SCAN_LABEL,
   FREE_RISK_SCAN_PATH,
@@ -184,9 +184,7 @@ function Header() {
               {FREE_REPUTATION_SCAN_LABEL}
             </NavbarButton>
             <NavbarButton
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...calendlyNewTabProps}
               variant="primary"
             >
               Book a call
@@ -260,9 +258,7 @@ function Header() {
                 {FREE_REPUTATION_SCAN_LABEL}
               </NavbarButton>
               <NavbarButton
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...calendlyNewTabProps}
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
                 className="w-full"
@@ -272,8 +268,7 @@ function Header() {
               <div className="flex w-full justify-center gap-4">
                 <a
                   href={contactWhatsAppHref()}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...externalAnchorProps(contactWhatsAppHref())}
                   onClick={() => setIsMobileMenuOpen(false)}
                   aria-label="Chat on WhatsApp with Reputation360"
                   className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-emerald-500/40 bg-[#25D366]/90 text-white transition hover:bg-[#25D366]"

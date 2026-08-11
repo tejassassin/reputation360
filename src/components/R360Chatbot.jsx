@@ -14,7 +14,7 @@ import {
   FREE_RISK_SCAN_PATH,
 } from "@/constants/freeRiskScan.js";
 import { CONTACT_EMAIL } from "@/constants/contact.js";
-import { internalAnchorProps } from "@/lib/internalLinkProps.js";
+import { anchorTabProps } from "@/lib/internalLinkProps.js";
 import mayaAvatar from "../assets/maya_avatar.png";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -37,7 +37,7 @@ function CtaLink({ cta }) {
     <a
       href={cta.href}
       className="mt-2 inline-flex text-sm font-semibold text-[#1F3B64] underline decoration-[#4CAF50]/50 underline-offset-2 hover:decoration-[#4CAF50] transition"
-      {...internalAnchorProps(cta.href)}
+      {...anchorTabProps(cta.href)}
     >
       {cta.label}
     </a>

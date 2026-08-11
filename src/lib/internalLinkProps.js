@@ -6,7 +6,8 @@ const SITE_HOSTS = new Set([
   "127.0.0.1",
 ]);
 
-const NEW_TAB_REL = "noopener noreferrer";
+/** External links: new tab + nofollow. Internal links omit rel (dofollow). */
+export const EXTERNAL_LINK_REL = "noopener noreferrer nofollow";
 
 /**
  * True for same-site paths and hash links (not mailto/tel/external).
@@ -45,7 +46,7 @@ export function shouldOpenInNewTab(href) {
 }
 
 /**
- * Same-tab props for internal links (no target / rel).
+ * Same-tab props for internal links (no target / rel — dofollow).
  * @param {string | undefined | null} [_href]
  */
 export function internalAnchorProps(_href) {
@@ -53,16 +54,16 @@ export function internalAnchorProps(_href) {
 }
 
 /**
- * New-tab props for external links only.
+ * New-tab + nofollow props for external links only.
  * @param {string | undefined | null} href
  */
 export function externalAnchorProps(href) {
   if (!href || isInternalHref(href) || !shouldOpenInNewTab(href)) return {};
-  return { target: "_blank", rel: NEW_TAB_REL };
+  return { target: "_blank", rel: EXTERNAL_LINK_REL };
 }
 
 /**
- * Internal same-tab; external opens in a new tab.
+ * Internal same-tab dofollow; external opens in a new tab with nofollow.
  * @param {string | undefined | null} href
  */
 export function anchorTabProps(href) {
@@ -70,7 +71,7 @@ export function anchorTabProps(href) {
 }
 
 /**
- * Normalize in-document anchors: internal links same-tab; external links new tab.
+ * Normalize in-document anchors: internal dofollow; external new tab + nofollow.
  */
 export function applyNewTabToAnchors(root = document) {
   root.querySelectorAll("a[href]").forEach((node) => {
@@ -81,15 +82,13 @@ export function applyNewTabToAnchors(root = document) {
 
     if (isInternalHref(href)) {
       node.removeAttribute("target");
-      if (node.getAttribute("rel") === NEW_TAB_REL) {
-        node.removeAttribute("rel");
-      }
+      node.removeAttribute("rel");
       return;
     }
 
     if (shouldOpenInNewTab(href)) {
       node.target = "_blank";
-      node.rel = NEW_TAB_REL;
+      node.rel = EXTERNAL_LINK_REL;
     }
   });
 }
