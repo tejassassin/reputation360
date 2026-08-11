@@ -1,11 +1,8 @@
-import { useId, useState } from "react";
 import { createPortal } from "react-dom";
-import { Mail } from "lucide-react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
-import { CONTACT_EMAIL, contactWhatsAppHref } from "@/constants/contact.js";
+import { contactWhatsAppHref } from "@/constants/contact.js";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
-import { DockEmailComposePanel } from "@/components/DockEmailComposePanel.jsx";
 import R360Chatbot from "./R360Chatbot.jsx";
 
 const dockBtn =
@@ -13,13 +10,9 @@ const dockBtn =
 
 /**
  * Portaled to document.body so no #root overflow/transform/stacking can block hits.
- * Displays WhatsApp contact, Inline email compose panel, and the new Birdeye chatbot.
+ * Displays WhatsApp contact and the Birdeye chatbot.
  */
 export default function GlobalContactDock() {
-  const [emailOpen, setEmailOpen] = useState(false);
-  const emailPanelId = useId();
-  const emailTitleId = useId();
-
   if (typeof document === "undefined") return null;
 
   if (window.location.pathname === FREE_RISK_SCAN_PATH) return null;
@@ -45,43 +38,6 @@ export default function GlobalContactDock() {
           aria-hidden
         />
       </a>
-
-      <div className="relative z-[10003] flex flex-col items-end gap-2.5">
-        {emailOpen ? (
-          <DockEmailComposePanel
-            panelId={emailPanelId}
-            titleId={emailTitleId}
-            onClose={() => setEmailOpen(false)}
-          />
-        ) : null}
-
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            setEmailOpen((open) => !open);
-          }}
-          className={cn(
-            dockBtn,
-            "touch-manipulation border-white/70 bg-white text-navy shadow-[0_12px_28px_-8px_rgba(31,59,100,0.22)] hover:border-[#4CAF50]/50 hover:bg-slate-50 hover:shadow-xl active:opacity-90",
-            emailOpen && "border-[#4CAF50]/50 ring-2 ring-[#4CAF50]/30",
-          )}
-          aria-expanded={emailOpen}
-          aria-controls={emailOpen ? emailPanelId : undefined}
-          aria-label={
-            emailOpen
-              ? "Close email panel"
-              : `Email Reputation360 at ${CONTACT_EMAIL}`
-          }
-          title={`Email ${CONTACT_EMAIL}`}
-        >
-          <Mail
-            className="pointer-events-none h-5 w-5 shrink-0 text-[#1F3B64] sm:h-6 sm:w-6"
-            strokeWidth={2.1}
-            aria-hidden
-          />
-        </button>
-      </div>
 
       <div className="relative z-[10001] flex w-auto flex-col items-end">
         <R360Chatbot />
