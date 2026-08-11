@@ -119,8 +119,8 @@ const caseStudyImageMap = {
   1: officeCaseStudyImg,
   // 2: Portfolio manager - institutional market chart on trading monitor
   2: unsplashPhoto("photo-1590283603385-17ffb3a7f29f"),
-  // 3: Consultant physician - medical professionals in clinical practice
-  3: unsplashPhoto("photo-1666886573583-9839aafe43cf"),
+  // 3: Consultant physician - stethoscope and clinical instruments on white coat
+  3: unsplashPhoto("photo-1700832082200-af7deeb63d9b"),
   // 4: HR director dispute - collaborative workplace meeting
   4: unsplashPhoto("photo-1552664730-d307ca884978"),
   // 5: DTC fashion brand - boutique clothing retail interior
