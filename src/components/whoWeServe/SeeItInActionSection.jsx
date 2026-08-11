@@ -43,8 +43,8 @@ export function SeeItInActionStoryCard({
         {withImage && study && (
           <div className="h-48 w-full shrink-0 overflow-hidden border-b border-[#0f2e58]/5 sm:h-52">
             <img 
-              src={getCaseStudyImage(study.n)} 
-              alt="" 
+              src={getCaseStudyImage(study.n)}
+              alt={study.listTitle}
               className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
           </div>

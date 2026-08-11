@@ -54,7 +54,7 @@ export function CaseStudyListCard({ study, index }) {
           <div className="relative w-full md:w-[30%] shrink-0 overflow-hidden border-b border-green/15 md:border-b-0 md:border-r">
             <img 
               src={getCaseStudyImage(study.n)} 
-              alt="" 
+              alt={study.listTitle} 
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
             />
           </div>

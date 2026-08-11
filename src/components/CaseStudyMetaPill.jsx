@@ -1,4 +1,6 @@
 import { ProfileValueLines } from "./ProfileValueLines.jsx";
+import officeCaseStudyImg from "../assets/office_case_study.png";
+import surgeonCaseStudyImg from "../assets/surgeon_case_study.png";
 
 /**
  * @param {object} props
@@ -102,39 +104,49 @@ export const CASE_STUDY_ENGAGEMENT_PANEL =
 
 export const CASE_STUDY_HERO_BODY = "flex min-h-0 flex-1 flex-col p-6 sm:p-7 md:py-8";
 
+/** High-resolution Unsplash URL builder for case study hero imagery. */
+function unsplashPhoto(photoId, width = 1600, height = 1200) {
+  return `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=${width}&h=${height}&q=90`;
+}
+
+/** High-resolution Unsplash+ URL builder for premium stock photography. */
+function unsplashPlusPhoto(photoId, width = 1600, height = 1200) {
+  return `https://plus.unsplash.com/${photoId}?auto=format&fit=crop&w=${width}&h=${height}&q=90`;
+}
+
 const caseStudyImageMap = {
-  // 1: Exec & Founder SaaS - Modern glass corporate building facade
-  1: "https://plus.unsplash.com/premium_photo-1666788166012-2596989d747d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 2: Financial Advisor - Real stock market price chart screen
-  2: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 3: Doctor/Physician - Clean medical clinic lobby
-  3: "https://plus.unsplash.com/premium_photo-1682130157004-057c137d96d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 4: HR Dispute - Empty corporate boardroom meeting table
-  4: "https://plus.unsplash.com/premium_photo-1676495972676-57a46cb521d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 5: E-commerce Fashion - Professional boutique clothing rack
-  5: "https://plus.unsplash.com/premium_photo-1664202526559-e21e9c0fb46a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 6: Consumer Electronics - Sleek computer laptop on office desk
-  6: "https://images.unsplash.com/photo-1595303526913-c7037797ebe7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 7: Startup Reputation - Modern startup office workspace empty
-  7: "https://plus.unsplash.com/premium_photo-1661931749081-23d69ddb62d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 8: E-commerce Counterfeit - Cardboard shipping package box beside door
-  8: "https://images.unsplash.com/photo-1614018453562-77f6180ce036?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 9: Surgeon - Sterile hospital operating room lights
-  9: "https://plus.unsplash.com/premium_photo-1664476911056-ca371bb2a8c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 10: GP Partner - Medical reference textbooks and stethoscope on desk
-  10: "https://plus.unsplash.com/premium_photo-1661699540413-2390093cfb29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 11: Litigation Partner - Legal balance scale and law books on table
-  11: "https://plus.unsplash.com/premium_photo-1695449439526-9cebdbfa1a2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 12: Family Solicitor - Lawyer wooden table with legal magnifying glass
-  12: "https://plus.unsplash.com/premium_photo-1698084059730-d3784b0c467a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 13: IFA Collapsed Fund - Historic bank columns architecture
-  13: "https://images.unsplash.com/photo-1676517243531-69e3b27276e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 14: Accountant - Financial spreadsheet and calculator on office desk
-  14: "https://images.unsplash.com/photo-1707157284454-553ef0a4ed0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 15: Graduate - Academic graduation caps flying in the air
-  15: "https://plus.unsplash.com/premium_photo-1682075199505-e96c80e84e5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
-  // 16: Product Manager - Whiteboard wall with colorful sticky notes
-  16: "https://images.unsplash.com/photo-1735639013995-086e648eaa38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&auto=format&fit=crop&w=600&q=80",
+  // 1: B2B SaaS founder - modern tech company office
+  1: officeCaseStudyImg,
+  // 2: Portfolio manager - institutional market chart on trading monitor
+  2: unsplashPhoto("photo-1590283603385-17ffb3a7f29f"),
+  // 3: Consultant physician - professional doctor portrait in clinical coat
+  3: unsplashPhoto("photo-1559839734-2b71ea197ec2"),
+  // 4: HR director dispute - collaborative workplace meeting
+  4: unsplashPhoto("photo-1552664730-d307ca884978"),
+  // 5: DTC fashion brand - boutique clothing retail interior
+  5: unsplashPhoto("photo-1445205170230-053b83016050"),
+  // 6: Consumer electronics brand - premium wearable product lineup
+  6: unsplashPhoto("photo-1523275335684-37898b6baf30"),
+  // 7: VC-backed startup - team collaboration in startup workspace
+  7: unsplashPhoto("photo-1522071820081-009f0129c71c"),
+  // 8: D2C accessories counterfeit allegations - in-store customer checkout
+  8: unsplashPhoto("photo-1556742049-0cfed4f6a45d"),
+  // 9: Consultant surgeon - operating theatre during surgery
+  9: surgeonCaseStudyImg,
+  // 10: GP partner - doctor consulting patient in primary care clinic
+  10: unsplashPhoto("photo-1536064479547-7ee40b74b807"),
+  // 11: Litigation partner - lawyer reviewing contract and case law
+  11: unsplashPlusPhoto("premium_photo-1661559051049-f9e147c7a90b"),
+  // 12: Family law solicitor - attorney signing legal documents
+  12: unsplashPlusPhoto("premium_photo-1664304188384-9eb32134691f"),
+  // 13: IFA collapsed fund - financial adviser meeting with client
+  13: unsplashPhoto("photo-1517245386807-bb43f82c33c4"),
+  // 14: CFO wrongful dismissal - financial reports and calculator on desk
+  14: unsplashPhoto("photo-1707157284454-553ef0a4ed0d"),
+  // 15: Recent graduate job seeker - young professional with laptop in office
+  15: unsplashPhoto("photo-1573496359142-b8d87734a5a2"),
+  // 16: Senior product manager - product planning on whiteboard
+  16: unsplashPhoto("photo-1532619675605-1ede6c2ed2b0"),
 };
 
 export function getCaseStudyImage(n) {
