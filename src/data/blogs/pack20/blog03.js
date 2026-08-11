@@ -97,7 +97,7 @@ export const article = {
         },
         {
           type: "p",
-          text: "Open each type below to see what it requires and when it applies.",
+          text: "The three types, what each requires, and when each applies:",
         },
         {
           type: "accordion",
@@ -147,7 +147,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Removal is achievable when one of the following conditions exists. Select each scenario to understand what it involves and how long it typically takes.",
+          text: "Removal is achievable when one of the following conditions exists. Each scenario below covers what it involves and how long it typically takes:",
         },
         {
           type: "steps",

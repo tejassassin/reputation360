@@ -129,7 +129,7 @@ export const article = {
         },
         {
           type: "p",
-          text: "Select an asset type below for why it ranks, what to optimize, and how it fits a first-page ownership plan.",
+          text: "Each asset type: why it ranks, what to optimize, and how it fits a first-page ownership plan:",
         },
         {
           type: "pills",

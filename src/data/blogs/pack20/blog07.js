@@ -95,7 +95,7 @@ export const article = {
         },
         {
           type: "p",
-          text: "Select a source type below to see why it ranks strongly and what that means for your strategy.",
+          text: "Each source type, why it ranks strongly, and what that means for your strategy:",
         },
         {
           type: "pills",

@@ -124,7 +124,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Each platform handles visibility and indexing differently. Select a platform below for the highest-impact cleanup actions on your own accounts.",
+          text: "Each platform handles visibility and indexing differently. Platform-by-platform, the highest-impact cleanup actions on your own accounts:",
         },
         {
           type: "pills",
@@ -201,7 +201,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "The platform strategies above assume you control the account. A separate and increasingly common problem is negative content on accounts that are not yours - someone else's post naming you, a critical thread in a public group, a former colleague's public comment, or an anonymous account publishing damaging claims. Select each path below to see what it involves.",
+          text: "The platform strategies above assume you control the account. A separate and increasingly common problem is negative content on accounts that are not yours - someone else's post naming you, a critical thread in a public group, a former colleague's public comment, or an anonymous account publishing damaging claims. Each path and what it involves:",
         },
         {
           type: "steps",

@@ -142,7 +142,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Work through each item below. Skipping headline, About, or Experience sections leaves ranking power on the table. Select a checklist area to see what to change and why Google cares.",
+          text: "Work through each checklist area in order. Skipping headline, About, or Experience sections leaves ranking power on the table. Each area below explains what to change and why Google cares.",
         },
         {
           type: "pills",

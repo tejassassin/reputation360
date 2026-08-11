@@ -274,7 +274,7 @@ export const article = {
         },
         {
           type: "p",
-          text: "Select a phase below to see what we did and how search positions shifted.",
+          text: "Each phase, what we did, and how search positions shifted:",
         },
         {
           type: "pills",

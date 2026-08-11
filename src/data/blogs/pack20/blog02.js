@@ -134,7 +134,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Not all positive content performs equally. Over thousands of suppression campaigns, Reputation360 has identified four content types that consistently climb to page one and stay there. Select each type below to see how we deploy it.",
+          text: "Not all positive content performs equally. Over thousands of suppression campaigns, Reputation360 has identified four content types that consistently climb to page one and stay there. The four types and how we deploy each:",
         },
         {
           type: "pills",

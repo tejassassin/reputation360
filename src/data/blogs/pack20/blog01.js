@@ -156,7 +156,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Over 7 years and more than 1,100 engagements, we have refined a five-phase framework that consistently produces first-page improvements. Tap each phase below to see what it involves and how it connects to the next step.",
+          text: "Over 7 years and more than 1,100 engagements, we have refined a five-phase framework that consistently produces first-page improvements. The five phases, what each involves, and how they connect:",
         },
         {
           type: "steps",

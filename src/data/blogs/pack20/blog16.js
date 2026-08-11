@@ -63,9 +63,8 @@ export const article = {
       text: "Reputation management is an investment. Like any investment, the question that matters most is: what do you get back? At Reputation360, we have worked with more than 1,100 clients across the US, Canada, Australia, and Europe over 7 years. We have seen the results of that investment across dozens of industries and hundreds of individual situations. This is what the return actually looks like.",
     },
     {
-      type: "lead",
-      label: "What this guide covers",
-      text: "Career ROI for professionals, business ROI for brands, crisis ROI as cost avoidance, and what honest return ranges look like across engagement types.",
+      type: "p",
+      text: "What this guide covers: career ROI for professionals, business ROI for brands, crisis ROI as cost avoidance, and what honest return ranges look like across engagement types.",
     },
   ],
   toc: TOC,
@@ -150,12 +149,8 @@ export const article = {
           ],
         },
         {
-          type: "stats",
-          items: [
-            { value: "15-35%", label: "Conversion lift after first-page shift" },
-            { value: "$500K", label: "Example gain at $2M inbound revenue" },
-            { value: "12-18 months", label: "Typical payback window" },
-          ],
+          type: "p",
+          text: "Typical markers when first-page results shift from negative to positive include a 15-35% conversion lift, example annual revenue gains around $500,000 on $2M inbound revenue at a 20% close rate with a 25% improvement, and a typical payback window of 12-18 months.",
         },
         {
           type: "p",
@@ -199,32 +194,22 @@ export const article = {
           ],
         },
         {
-          type: "compare",
-          pickerKey: "crisis-roi-framing",
-          items: [
+          type: "p",
+          text: "At a tactical level, the outcome is straightforward: negative URLs move off page one and positive assets dominate visible positions.",
+        },
+        {
+          type: "p",
+          text: "At a strategic level, the outcome is containment: what could have become an existential business problem - the kind of revenue attrition, customer churn, and employee retention damage that reputation risk and its financial consequences describe when left unaddressed.",
+          parts: [
             {
-              id: "tactical",
-              title: "Tactical Reputation Outcome",
-              tone: "before",
-              body: "We improved your search results - negative URLs moved off page one, positive assets now dominate visible positions.",
+              text: "At a strategic level, the outcome is containment: what could have become an existential business problem - the kind of revenue attrition, customer churn, and employee retention damage that ",
             },
             {
-              id: "strategic",
-              title: "Strategic Reputation Outcome",
-              tone: "after",
-              body: "We contained what could have become an existential business problem - the kind of revenue attrition, customer churn, and employee retention damage that reputation risk and its financial consequences describe when left unaddressed.",
-              parts: [
-                {
-                  text: "We contained what could have become an existential business problem - the kind of revenue attrition, customer churn, and employee retention damage that ",
-                },
-                {
-                  text: "reputation risk",
-                  href: "https://hbr.org/2007/02/reputation-and-its-risks",
-                  external: true,
-                },
-                { text: " describe when left unaddressed." },
-              ],
+              text: "reputation risk",
+              href: "https://hbr.org/2007/02/reputation-and-its-risks",
+              external: true,
             },
+            { text: " and its financial consequences describe when left unaddressed." },
           ],
         },
         {
@@ -243,27 +228,11 @@ export const article = {
           text: "Not every engagement produces a 10x return. For individuals with minor reputation issues and modest career stakes, the investment may return two to three times its cost in recovered opportunity over a few years. For executives or businesses with significant reputation damage and high opportunity value, the return can be substantially higher.",
         },
         {
-          type: "pills",
-          pickerKey: "roi-return-ranges",
+          type: "bullets",
           items: [
-            {
-              id: "modest",
-              label: "Modest stakes",
-              title: "Two to three times over a few years",
-              body: "Individuals with minor reputation issues and lower career stakes often see returns in the two-to-three-times range over several years - meaningful, but not transformational overnight.",
-            },
-            {
-              id: "high-stakes",
-              label: "High stakes",
-              title: "Substantially Higher Returns from Reputation Management",
-              body: "Executives and businesses with significant reputation damage and high opportunity value - large deals, senior roles, investor scrutiny - frequently see returns that substantially exceed the engagement cost within the first year.",
-            },
-            {
-              id: "inaction",
-              label: "Doing nothing",
-              title: "Why DIY Reputation Repair is Reliably Zero or Negative",
-              body: "What is consistent across engagements in the US, Canada, Australia, and Europe is that clients who take action - even at modest scale - consistently report better outcomes than they experienced before. The return on doing nothing, by contrast, is reliably zero or negative.",
-            },
+            "Modest stakes: Individuals with minor reputation issues and lower career stakes often see returns in the two-to-three-times range over several years - meaningful, but not transformational overnight.",
+            "High stakes: Executives and businesses with significant reputation damage and high opportunity value - large deals, senior roles, investor scrutiny - frequently see returns that substantially exceed the engagement cost within the first year.",
+            "Doing nothing: What is consistent across engagements in the US, Canada, Australia, and Europe is that clients who take action - even at modest scale - consistently report better outcomes than they experienced before. The return on doing nothing, by contrast, is reliably zero or negative.",
           ],
         },
         {

@@ -99,7 +99,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Recruiters and hiring managers do not conduct a single search. They conduct a sequence of searches, each designed to answer a specific question about you. For director-level roles and above, this sequence is standard practice in HR and talent acquisition - especially at executive search firms. Select each step below to see what they look for and what can go wrong.",
+          text: "Recruiters and hiring managers do not conduct a single search. They conduct a sequence of searches, each designed to answer a specific question about you. For director-level roles and above, this sequence is standard practice in HR and talent acquisition - especially at executive search firms. Each step in the sequence, what recruiters look for, and what can go wrong:",
         },
         {
           type: "pills",

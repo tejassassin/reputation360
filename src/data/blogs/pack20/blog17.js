@@ -141,7 +141,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Open each platform below for what to claim, why it ranks, and how to optimize it. Prioritize LinkedIn and Crunchbase first if you are short on time.",
+          text: "Each platform: what to claim, why it ranks, and how to optimize it. Prioritize LinkedIn and Crunchbase first if you are short on time.",
         },
         {
           type: "accordion",

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Clock } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import {
@@ -40,9 +40,6 @@ export default function BlogPack20ArticlePage({ slug }) {
   const [article, setArticle] = useState(undefined);
   const [readingPct, setReadingPct] = useState(0);
   const [activeNavId, setActiveNavId] = useState("");
-  const [pickerState, setPickerState] = useState({});
-  const [pillState, setPillState] = useState({});
-  const [accordionState, setAccordionState] = useState({});
 
   useEffect(() => {
     let cancelled = false;
@@ -60,18 +57,6 @@ export default function BlogPack20ArticlePage({ slug }) {
       cancelled = true;
     };
   }, [slug]);
-
-  const setPicker = useCallback((key, value) => {
-    setPickerState((prev) => ({ ...prev, [key]: value }));
-  }, []);
-
-  const setPill = useCallback((key, value) => {
-    setPillState((prev) => ({ ...prev, [key]: value }));
-  }, []);
-
-  const toggleAccordion = useCallback((key) => {
-    setAccordionState((prev) => ({ ...prev, [key]: !prev[key] }));
-  }, []);
 
   useEffect(() => {
     if (!article) return undefined;
@@ -107,15 +92,6 @@ export default function BlogPack20ArticlePage({ slug }) {
   if (!article) {
     return null;
   }
-
-  const blockProps = {
-    pickerState,
-    setPickerState: setPicker,
-    pillState,
-    setPillState: setPill,
-    accordionState,
-    toggleAccordion,
-  };
 
   return (
     <>
@@ -199,16 +175,12 @@ export default function BlogPack20ArticlePage({ slug }) {
 
               {article.introBlocks?.length ? (
                 <div className="mb-16">
-                  <Pack20Blocks
-                    blocks={article.introBlocks}
-                    sectionId="intro-body"
-                    {...blockProps}
-                  />
+                  <Pack20Blocks blocks={article.introBlocks} sectionId="intro-body" />
                 </div>
               ) : null}
 
               {article.sections.map((section) => (
-                <Pack20ContentSection key={section.id} section={section} {...blockProps} />
+                <Pack20ContentSection key={section.id} section={section} />
               ))}
 
               <Pack20CtaSection
@@ -219,11 +191,7 @@ export default function BlogPack20ArticlePage({ slug }) {
                 panelLead={article.cta.panelLead}
               />
 
-              <Pack20FaqSection
-                faqs={article.faqs}
-                accordionState={accordionState}
-                toggleAccordion={toggleAccordion}
-              />
+              <Pack20FaqSection faqs={article.faqs} />
 
               <BlogShareSection
                 title={article.listing.title}

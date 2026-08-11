@@ -141,7 +141,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Select a platform below for Reputation360's recommended approach. LinkedIn is the highest priority for most professionals.",
+          text: "Platform-by-platform, Reputation360's recommended approach. LinkedIn is the highest priority for most professionals.",
         },
         {
           type: "pills",

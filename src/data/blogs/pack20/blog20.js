@@ -101,7 +101,7 @@ export const article = {
         },
         {
           type: "p",
-          text: "This process introduces three dynamics that matter for reputation management. Select each to see how it affects you.",
+          text: "This process introduces three dynamics that matter for reputation management:",
         },
         {
           type: "pills",
@@ -198,7 +198,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Our approach to AI search reputation is built on four principles. Select each to see how it applies.",
+          text: "Our approach to AI search reputation is built on four principles:",
         },
         {
           type: "pills",

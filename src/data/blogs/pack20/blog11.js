@@ -139,7 +139,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "These are the highest-leverage actions when an interview is approaching. Select each track below for timing, what to do, and what ranking movement to expect.",
+          text: "These are the highest-leverage actions when an interview is approaching. Each track covers timing, what to do, and expected ranking movement:",
         },
         {
           type: "pills",

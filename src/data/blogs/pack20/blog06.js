@@ -134,7 +134,7 @@ export const article = {
       blocks: [
         {
           type: "p",
-          text: "Select a case type below for a representative engagement: the search problem, what we built, and how positions changed over time. Names and identifying details are omitted; the mechanics are what repeat across our work.",
+          text: "Representative engagements by case type - the search problem, what we built, and how positions changed over time. Names and identifying details are omitted; the mechanics are what repeat across our work.",
         },
         {
           type: "pills",
