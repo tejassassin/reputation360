@@ -427,7 +427,7 @@ export function RbsTwoKindsSection() {
                       className="group flex items-start gap-[13px] rounded-[12px] px-2 py-2 transition-colors duration-300 hover:bg-[rgba(46,91,136,0.04)]"
                     >
                       <span
-                        className="mt-[7px] h-[7px] w-[7px] shrink-0 rounded-full bg-[#4CAF50] transition-all duration-300 group-hover:scale-[1.45] group-hover:bg-[#2E5B88] group-hover:shadow-[0_0_0_6px_rgba(76,175,80,0.12)]"
+                        className="mt-[7px] h-[7px] w-[7px] shrink-0 rounded-full bg-[#4CAF50] transition-all duration-300 group-hover:scale-[1.45] group-hover:bg-[#2E5B88]"
                         aria-hidden
                       />
                       <div className="text-[16.5px] leading-[1.65] text-[#374151] transition-colors duration-300 group-hover:text-[#2f445f]">
@@ -603,7 +603,7 @@ export function RbsFrameworkSection() {
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(76,175,80,0.09),transparent_46%),radial-gradient(circle_at_100%_100%,rgba(46,91,136,0.08),transparent_44%)]" />
                   </div>
                   <div
-                    className="absolute inset-x-0 top-0 h-1 bg-[#4CAF50] transition-all duration-300 group-hover:h-[6px] group-hover:bg-[#79df86] group-hover:shadow-[0_0_22px_rgba(76,175,80,0.36)]"
+                    className="absolute inset-x-0 top-0 h-1 bg-[#4CAF50] transition-all duration-300 group-hover:h-[6px] group-hover:bg-[#79df86]"
                     aria-hidden
                   />
                   <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.22em] text-[#4CAF50]">

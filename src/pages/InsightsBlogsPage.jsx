@@ -110,7 +110,6 @@ function InsightsBlogsPage() {
           </div>
           <div className="hidden lg:col-span-4 lg:block">
             <div className="relative">
-              <div className="absolute -inset-4 rounded-full bg-[#78dc77]/20 blur-3xl" />
               <div className="relative z-10 ha-lift overflow-hidden rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)]">
                 <img
                   src={HERO_IMG}

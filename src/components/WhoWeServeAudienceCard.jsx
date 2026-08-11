@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 const cardClassName =
-  "ha-lift group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/6 p-6 text-left no-underline shadow-[0_8px_32px_-8px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-all duration-300 sm:p-7 hover:-translate-y-0.5 hover:border-green/50 hover:from-white/18 hover:to-white/8 hover:shadow-[0_12px_40px_-10px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green/70 focus-visible:ring-offset-2 focus-visible:ring-offset-navy";
+  "ha-lift group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/6 p-6 text-left no-underline shadow-[0_8px_32px_-8px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-all duration-300 sm:p-7 hover:-translate-y-0.5 hover:border-green/50 hover:from-white/18 hover:to-white/8 hover:shadow-[0_12px_40px_-10px_rgba(31,59,100,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green/70 focus-visible:ring-offset-2 focus-visible:ring-offset-navy";
 
 /**
  * @param {object} props
@@ -28,7 +28,7 @@ export function WhoWeServeAudienceCard({
           className="pointer-events-none absolute -right-12 -top-12 h-24 w-24 rounded-bl-full bg-slate/20 transition-transform duration-500 group-hover:scale-150"
           aria-hidden
         />
-        <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-green/30 bg-navy/80 text-green shadow-sm shadow-navy/40 transition group-hover:border-green/55 group-hover:shadow-[0_0_24px_-6px_rgba(76,175,80,0.3)] sm:mb-6 sm:h-14 sm:w-14 sm:rounded-2xl">
+        <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-green/30 bg-navy/80 text-green shadow-sm shadow-navy/40 transition group-hover:border-green/55 sm:mb-6 sm:h-14 sm:w-14 sm:rounded-2xl">
           <Icon className="h-6 w-6 stroke-[1.75] sm:h-7 sm:w-7" aria-hidden />
         </div>
         <h3 className="font-heading mb-2.5 text-lg font-bold leading-snug text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:mb-3 sm:text-xl">

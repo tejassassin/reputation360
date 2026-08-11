@@ -189,7 +189,7 @@ export const R360_HOME_BOOT_CSS = `
 .r360-boot-consult {
   background: #6cb359;
   color: #fff;
-  box-shadow: 0 10px 15px -3px rgba(108, 179, 89, 0.35);
+  box-shadow: none;
 }
 .r360-boot-stats {
   display: grid;

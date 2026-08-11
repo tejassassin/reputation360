@@ -125,7 +125,7 @@ function nlsProcessStepBadgeClass(index, active) {
     return "bg-[#4CAF50] text-white shadow-md";
   }
   if (index === active) {
-    return "bg-[#1f3b64] text-white shadow-[0_0_0_4px_rgba(76,175,80,0.35)] ring-2 ring-[#4CAF50]/50";
+    return "bg-[#1f3b64] text-white ring-2 ring-[#4CAF50]/50";
   }
   return "bg-slate-200 text-navy/45 shadow-sm";
 }

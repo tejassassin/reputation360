@@ -9,7 +9,7 @@ export const BLOG_GUIDE_CTA_PANEL_LEAD =
   "We'll review your reputation and create a personalized plan to strengthen it.";
 
 const consultButtonClass = cn(
-  "ha-pill inline-flex w-full max-w-md items-center justify-center gap-2 rounded-xl px-8 py-3.5 font-heading text-sm font-bold shadow-lg shadow-cta-consult/30 transition hover:brightness-95 sm:w-auto md:px-10 md:text-base",
+  "ha-pill inline-flex w-full max-w-md items-center justify-center gap-2 rounded-xl px-8 py-3.5 font-heading text-sm font-bold transition hover:brightness-95 sm:w-auto md:px-10 md:text-base",
   calendlyCtaButtonClass,
 );
 

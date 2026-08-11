@@ -55,7 +55,7 @@ function Pricing() {
             key={idx}
             className={`rounded-2xl p-8 ${
               plan.featured
-                ? "bg-navy text-white ring-4 ring-green scale-105 transition-[box-shadow,transform] duration-200 hover:shadow-[0_22px_48px_-14px_rgba(2,37,77,0.35)] hover:ring-[3px] hover:ring-[rgba(120,220,119,0.55)]"
+                ? "bg-navy text-white ring-4 ring-green scale-105 transition-[transform] duration-200"
                 : "ha-lift border border-steel/10 bg-white"
             }`}
           >

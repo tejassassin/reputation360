@@ -95,25 +95,21 @@ function gradeAccent(letter) {
     case "A":
       return {
         bar: "from-emerald-500 via-teal-400 to-sky-400",
-        glow: "shadow-emerald-500/25",
         chip: "bg-emerald-500/15 text-emerald-900 ring-emerald-500/25",
       };
     case "B":
       return {
         bar: "from-sky-500 via-indigo-400 to-violet-400",
-        glow: "shadow-sky-500/20",
         chip: "bg-sky-500/12 text-sky-950 ring-sky-500/25",
       };
     case "C":
       return {
         bar: "from-amber-500 via-orange-400 to-rose-400",
-        glow: "shadow-amber-500/25",
         chip: "bg-amber-500/15 text-amber-950 ring-amber-500/30",
       };
     default:
       return {
         bar: "from-rose-600 via-rose-500 to-rose-400",
-        glow: "shadow-rose-600/30",
         chip: "bg-rose-500/15 text-rose-950 ring-rose-500/30",
       };
   }
@@ -270,7 +266,7 @@ function HurtingSummaryBody({ hurting }) {
         return (
           <li key={i} className="flex gap-3 rounded-xl bg-rose-50/50 p-3 text-sm leading-relaxed text-slate-700">
             <span
-              className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500 shadow-[0_0_0_3px_rgba(244,63,94,0.18)]"
+              className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500"
               aria-hidden
             />
             <span className="min-w-0 space-y-1 pt-0.5">
@@ -692,7 +688,7 @@ export default function FreeRiskScanPage() {
 
             <button
               type="submit"
-              className="ha-pill mt-5 w-full rounded-2xl bg-cta-consult py-3.5 text-base font-heading font-bold text-white shadow-lg shadow-cta-consult/25 transition hover:brightness-95"
+              className="ha-pill mt-5 w-full rounded-2xl bg-cta-consult py-3.5 text-base font-heading font-bold text-white transition hover:brightness-95"
             >
               Start my {FREE_REPUTATION_SCAN_LABEL.toLowerCase()}
             </button>
@@ -772,8 +768,7 @@ export default function FreeRiskScanPage() {
           {/* Sentiment + grade hero */}
           <div
             className={cn(
-              "relative overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-2xl ring-1 ring-slate-100/80",
-              accent.glow,
+              "relative overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-100/80",
             )}
           >
             <div className={cn("absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r", accent.bar)} />
@@ -932,7 +927,7 @@ export default function FreeRiskScanPage() {
               variant="onLight"
               consultLabel="Book a free consultation"
               wrapperClassName="justify-center"
-              consultClassName="ha-pill inline-flex min-w-[min(100%,20rem)] items-center justify-center rounded-2xl bg-cta-consult px-8 py-4 text-center text-base font-heading font-bold text-white shadow-lg"
+              consultClassName="ha-pill inline-flex min-w-[min(100%,20rem)] items-center justify-center rounded-2xl bg-cta-consult px-8 py-4 text-center text-base font-heading font-bold text-white"
               freeScanClassName="ha-pill inline-flex min-w-[min(100%,20rem)] items-center justify-center rounded-2xl border-2 border-[#02254d]/25 bg-white px-8 py-4 text-center text-base font-heading font-bold text-[#02254d] shadow-sm transition hover:border-[#02254d]/45 hover:bg-slate-50"
             />
           </div>
@@ -980,7 +975,7 @@ export default function FreeRiskScanPage() {
                       .map((line, i) => (
                         <li key={i} className="flex gap-3 text-sm leading-relaxed text-slate-700">
                           <span
-                            className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500 shadow-[0_0_0_3px_rgba(16,185,129,0.18)]"
+                            className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"
                             aria-hidden
                           />
                           <span className="min-w-0 pt-0.5">{line}</span>

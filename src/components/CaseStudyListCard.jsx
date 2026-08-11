@@ -45,7 +45,7 @@ export function CaseStudyListCard({ study, index }) {
         className={[
           CASE_STUDY_CARD_SHELL,
           "block text-left no-underline transition-shadow duration-300",
-          "hover:shadow-[0_20px_50px_-16px_rgba(31,59,100,0.22),0_0_0_1px_rgba(76,175,80,0.15),inset_0_1px_0_#fff]",
+          "hover:shadow-[0_20px_50px_-16px_rgba(31,59,100,0.22),inset_0_1px_0_#fff]",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 focus-visible:ring-offset-offwhite",
         ].join(" ")}
       >

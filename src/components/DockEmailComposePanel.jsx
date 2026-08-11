@@ -153,7 +153,7 @@ export function DockEmailComposePanel({ panelId, titleId, onClose }) {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="ha-pill shrink-0 rounded-xl bg-cta-consult px-4 py-3 text-center text-sm font-heading font-semibold text-white shadow-md shadow-cta-consult/25 transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-60"
+            className="ha-pill shrink-0 rounded-xl bg-cta-consult px-4 py-3 text-center text-sm font-heading font-semibold text-white transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {status === "sending" ? "Sending…" : "Send message"}
           </button>

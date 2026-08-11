@@ -39,7 +39,7 @@ export function RouteLoadingFallback({ label = "Loading your experience" }) {
       aria-live="polite"
     >
       <div className="relative flex items-center justify-center">
-        {/* Outer glowing ambient ring */}
+        {/* Outer ambient ring */}
         <div className="absolute h-24 w-24 animate-ping rounded-full bg-navy/5 opacity-75 duration-1000" />
         
         {/* Inner rotating gradient border */}

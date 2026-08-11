@@ -253,7 +253,7 @@ export const NavItems = ({
                     role="menuitem"
                     {...internalAnchorProps(child.link)}
                     onClick={onItemClick}
-                    className="ha-nudge block rounded-md px-3 py-2 text-sm text-white transition-colors hover:bg-white/15 hover:text-green hover:shadow-[inset_0_0_0_1px_rgba(120,220,119,0.35)]"
+                    className="ha-nudge block rounded-md px-3 py-2 text-sm text-white transition-colors hover:bg-white/15 hover:text-green"
                   >
                     {child.name}
                   </a>
@@ -407,7 +407,7 @@ export const NavbarLogo = ({
 };
 
 const buttonBase =
-  "relative z-20 cursor-pointer px-5 py-2 rounded-lg text-sm font-heading font-medium transition-all duration-200 inline-block text-center hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-cta-consult/25";
+  "relative z-20 cursor-pointer px-5 py-2 rounded-lg text-sm font-heading font-medium transition-all duration-200 inline-block text-center hover:scale-105 active:scale-95";
 
 export const NavbarButton = ({
   href,

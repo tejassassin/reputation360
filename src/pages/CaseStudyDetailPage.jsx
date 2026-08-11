@@ -290,7 +290,7 @@ export default function CaseStudyDetailPage({ caseStudySlug }) {
               animate={{ opacity: 1, y: 0 }}
               whileHover={{ y: -2, transition: { type: "spring", stiffness: 400, damping: 35 } }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className={`group/hero ${CASE_STUDY_CARD_SHELL} transition-shadow duration-300 hover:shadow-[0_20px_50px_-16px_rgba(31,59,100,0.22),0_0_0_1px_rgba(76,175,80,0.15),inset_0_1px_0_#fff]`}
+              className={`group/hero ${CASE_STUDY_CARD_SHELL} transition-shadow duration-300 hover:shadow-[0_20px_50px_-16px_rgba(31,59,100,0.22),inset_0_1px_0_#fff]`}
             >
               <div className={CASE_STUDY_CARD_BAR} aria-hidden />
               <div className="flex min-h-0 flex-col gap-0 md:flex-row md:min-h-[12rem]">

@@ -413,7 +413,6 @@ html.r360-has-breadcrumb .r360-diy-interactive .diy-hero-band {
 .r360-diy-interactive .diy-cta-btn:hover {
   background: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(76, 175, 80, 0.35);
 }
 
 .r360-diy-interactive .diy-mobile-nav {
@@ -575,9 +574,7 @@ html.r360-has-breadcrumb .r360-diy-interactive .diy-hero-band {
 .r360-diy-interactive .diy-content-picker-tile.is-selected {
   border-color: rgba(31, 59, 100, 0.35);
   background: linear-gradient(180deg, rgba(76, 175, 80, 0.1) 0%, #fff 55%);
-  box-shadow:
-    0 12px 28px -12px rgba(31, 59, 100, 0.2),
-    0 0 0 2px rgba(120, 220, 119, 0.35);
+  box-shadow: 0 12px 28px -12px rgba(31, 59, 100, 0.2);
   transform: translateY(-2px);
 }
 
@@ -646,7 +643,6 @@ html.r360-has-breadcrumb .r360-diy-interactive .diy-hero-band {
   border-radius: 0.75rem;
   background: linear-gradient(145deg, #4caf50 0%, #3d9142 100%);
   color: #fff;
-  box-shadow: 0 4px 14px -4px rgba(76, 175, 80, 0.55);
 }
 
 @media (min-width: 640px) {
@@ -873,9 +869,7 @@ html.r360-has-breadcrumb .r360-diy-interactive .diy-hero-band {
 
 .r360-diy-interactive .diy-case-compare-panel.is-focused {
   transform: translateY(-2px);
-  box-shadow:
-    0 16px 36px -14px rgba(31, 59, 100, 0.2),
-    0 0 0 2px rgba(120, 220, 119, 0.35);
+  box-shadow: 0 16px 36px -14px rgba(31, 59, 100, 0.2);
 }
 
 .r360-diy-interactive .diy-case-compare-panel.is-dimmed {

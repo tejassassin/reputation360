@@ -47,10 +47,10 @@ function WhyClientsChoose() {
                 }
               >
                 <div
-                  className="group flex h-full min-h-[8.5rem] flex-col items-center justify-start rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/6 px-3.5 py-5 text-center shadow-[0_8px_32px_-8px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-all duration-300 sm:min-h-0 sm:px-5 sm:py-6 md:py-7 hover:-translate-y-0.5 hover:border-[#4CAF50]/50 hover:from-white/18 hover:to-white/8 hover:shadow-[0_12px_40px_-10px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.12)]"
+                  className="group flex h-full min-h-[8.5rem] flex-col items-center justify-start rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/6 px-3.5 py-5 text-center shadow-[0_8px_32px_-8px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-all duration-300 sm:min-h-0 sm:px-5 sm:py-6 md:py-7 hover:-translate-y-0.5 hover:border-[#4CAF50]/50 hover:from-white/18 hover:to-white/8 hover:shadow-[0_12px_40px_-10px_rgba(31,59,100,0.45)]"
                 >
                   <div
-                    className="mb-3.5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-[#4CAF50]/30 bg-[#0f1c2c]/80 text-[#4CAF50] shadow-sm shadow-[#0d1825]/40 transition group-hover:border-[#4CAF50]/55 group-hover:shadow-[0_0_20px_-4px_rgba(76,175,80,0.35)] sm:mb-4"
+                    className="mb-3.5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-[#4CAF50]/30 bg-[#0f1c2c]/80 text-[#4CAF50] shadow-sm shadow-[#0d1825]/40 transition group-hover:border-[#4CAF50]/55 sm:mb-4"
                     aria-hidden
                   >
                     <Icon className="h-5 w-5" strokeWidth={2.25} />

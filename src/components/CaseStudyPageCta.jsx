@@ -26,7 +26,7 @@ export function CaseStudyPageCta() {
           <ConsultationCtas
             variant="onDark"
             consultLabel="Book a Free Confidential Call"
-            consultClassName="ha-pill inline-flex w-full max-w-md items-center justify-center rounded-xl bg-cta-consult px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-cta-consult/30 transition hover:brightness-95 sm:w-auto md:px-10 md:text-base lg:px-12 lg:py-4 lg:text-lg"
+            consultClassName="ha-pill inline-flex w-full max-w-md items-center justify-center rounded-xl bg-cta-consult px-8 py-3.5 text-sm font-bold text-white transition hover:brightness-95 sm:w-auto md:px-10 md:text-base lg:px-12 lg:py-4 lg:text-lg"
             freeScanClassName="ha-pill inline-flex w-full max-w-md items-center justify-center rounded-xl border-2 border-white/35 bg-white/10 px-8 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 sm:w-auto md:px-10 md:text-base lg:px-12 lg:py-4 lg:text-lg"
           />
         </div>

@@ -475,7 +475,7 @@ function GuidePage() {
                     variant="onDark"
                     consultLabel="Book your free consultation"
                     wrapperClassName="flex-col gap-4"
-                    consultClassName="font-guide-headline inline-flex items-center justify-center rounded-lg bg-cta-consult px-6 py-3 text-sm font-heading font-semibold text-white shadow-md shadow-cta-consult/20 transition hover:brightness-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#02254d]"
+                    consultClassName="font-guide-headline inline-flex items-center justify-center rounded-lg bg-cta-consult px-6 py-3 text-sm font-heading font-semibold text-white transition hover:brightness-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#02254d]"
                     freeScanClassName="font-guide-headline inline-flex items-center justify-center rounded-lg border-2 border-white/35 bg-white/10 px-6 py-3 text-sm font-heading font-semibold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#02254d]"
                   />
                 </div>

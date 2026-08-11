@@ -132,7 +132,7 @@ function CaseStudies() {
                   <a
                     href={caseStudyHref}
                     {...internalAnchorProps(caseStudyHref)}
-                    className="group/card flex h-full min-h-[32rem] flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white text-left no-underline shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#4CAF50]/30 hover:shadow-[0_20px_40px_-15px_rgba(76,175,80,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green sm:min-h-[33rem]"
+                    className="group/card flex h-full min-h-[32rem] flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white text-left no-underline shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#4CAF50]/30 hover:shadow-[0_20px_40px_-15px_rgba(31,59,100,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green sm:min-h-[33rem]"
                   >
                     {/* Top Image */}
                     <div className="h-40 w-full overflow-hidden bg-slate-100 border-b border-slate-100">

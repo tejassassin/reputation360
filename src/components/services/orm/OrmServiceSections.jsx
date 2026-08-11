@@ -253,7 +253,7 @@ function OrmSectionHeading({ title, lead, headingId, variant = "default" }) {
       <div
         className={`mt-4 h-1 rounded-full ${
           onDark
-            ? "w-16 bg-gradient-to-r from-[#4CAF50] to-cyan-300 shadow-[0_0_24px_rgba(76,175,80,0.2)]"
+            ? "w-16 bg-gradient-to-r from-[#4CAF50] to-cyan-300"
             : "w-16 bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"
         }`}
         aria-hidden
@@ -1105,7 +1105,7 @@ export function OrmWhyR360Section() {
             Why Choose Reputation360 for Online Reputation Management?
           </h2>
           <div
-            className="mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] shadow-[0_0_24px_rgba(76,175,80,0.2)]"
+            className="mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"
             aria-hidden
           />
           <p className="mt-5 max-w-none text-base leading-relaxed text-slate-100/90 md:mt-6 md:text-lg md:leading-relaxed lg:text-xl lg:leading-relaxed">
@@ -1129,7 +1129,7 @@ export function OrmWhyR360Section() {
                 <Motion.div
                   whileHover={{ y: -4, scale: 1.01 }}
                   transition={{ type: "spring", stiffness: 380, damping: 26 }}
-                  className="group h-full rounded-2xl border border-white/18 bg-gradient-to-b from-white/[0.1] to-white/[0.04] p-8 text-center shadow-[0_8px_40px_-12px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-colors duration-300 hover:border-[#4CAF50]/40 hover:from-white/[0.14] hover:to-white/[0.06] hover:shadow-[0_16px_50px_-14px_rgba(31,59,100,0.45),0_0_0_1px_rgba(76,175,80,0.1)] md:p-9"
+                  className="group h-full rounded-2xl border border-white/18 bg-gradient-to-b from-white/[0.1] to-white/[0.04] p-8 text-center shadow-[0_8px_40px_-12px_rgba(10,20,40,0.5)] ring-1 ring-inset ring-white/10 backdrop-blur-md transition-colors duration-300 hover:border-[#4CAF50]/40 hover:from-white/[0.14] hover:to-white/[0.06] hover:shadow-[0_16px_50px_-14px_rgba(31,59,100,0.45)] md:p-9"
                 >
                   <div className="mb-5 flex flex-col items-center gap-3">
                     <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/20 bg-[#0f1c2c]/85 text-[#7df5b9] shadow-inner shadow-black/20 ring-1 ring-[#4CAF50]/35">
@@ -1205,7 +1205,7 @@ export function OrmCtaSection() {
             consultHref={CONTACT_PATH}
             consultLinkProps={externalAnchorProps(CONTACT_PATH)}
             wrapperClassName="mt-7 justify-center"
-            consultClassName="ha-pill inline-flex rounded-md bg-cta-consult px-5 py-3 text-sm font-semibold text-white shadow-md shadow-cta-consult/20 hover:brightness-95"
+            consultClassName="ha-pill inline-flex rounded-md bg-cta-consult px-5 py-3 text-sm font-semibold text-white hover:brightness-95"
             freeScanClassName="ha-pill inline-flex rounded-md border-2 border-white/35 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15"
           />
         </div>
