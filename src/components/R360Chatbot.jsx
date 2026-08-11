@@ -23,6 +23,7 @@ const FULL_NAME_RE =
   /^(?:scan\s+)?([A-Za-z][\w'.-]*)\s+([A-Za-z][\w'.-]+(?:\s+[A-Za-z][\w'.-]+)*)$/i;
 
 const MATCH_THRESHOLD = 5;
+const CHATBOT_CLOSED_KEY = "r360_chatbot_closed_by_user";
 
 const FALLBACK_REPLY =
   "For reputation management and suppression FAQs I can help here. For a free look at what's showing up when someone's name is searched, tap \"Scan a person's reputation\" or type their full name (for example Jane Doe), then your email - I'll search live results and summarize sentiment for that name only.";
@@ -100,14 +101,42 @@ export default function R360Chatbot() {
     email: "",
   });
 
+  const markClosedByUser = useCallback(() => {
+    try {
+      localStorage.setItem(CHATBOT_CLOSED_KEY, "true");
+    } catch {
+      // Ignore storage errors and continue with in-memory state.
+    }
+  }, []);
+
+  const clearClosedByUser = useCallback(() => {
+    try {
+      localStorage.removeItem(CHATBOT_CLOSED_KEY);
+    } catch {
+      // Ignore storage errors and continue with in-memory state.
+    }
+  }, []);
+
+  const isClosedByUser = useCallback(() => {
+    try {
+      return localStorage.getItem(CHATBOT_CLOSED_KEY) === "true";
+    } catch {
+      return false;
+    }
+  }, []);
+
   // Delay showing the greeting card slightly on first mount if not open
   useEffect(() => {
+    if (isClosedByUser()) {
+      setShowGreeting(false);
+      return;
+    }
     const isDismissed = sessionStorage.getItem("r360_chatbot_greeting_dismissed");
     if (!isDismissed && !open) {
       const t = setTimeout(() => setShowGreeting(true), 3000);
       return () => clearTimeout(t);
     }
-  }, [open]);
+  }, [isClosedByUser, open]);
 
   useEffect(() => {
     if (!open) return;
@@ -318,6 +347,7 @@ export default function R360Chatbot() {
   );
 
   const triggerAction = (type) => {
+    clearClosedByUser();
     setShowGreeting(false);
     setOpen(true);
     if (type === "sales") {
@@ -332,6 +362,12 @@ export default function R360Chatbot() {
     setShowGreeting(false);
     sessionStorage.setItem("r360_chatbot_greeting_dismissed", "true");
   };
+
+  const closeChat = useCallback(() => {
+    setOpen(false);
+    setShowGreeting(false);
+    markClosedByUser();
+  }, [markClosedByUser]);
 
   return (
     <div className="pointer-events-none relative z-50 flex max-w-[100vw] flex-col items-end gap-3 select-none">
@@ -421,7 +457,7 @@ export default function R360Chatbot() {
             </div>
             <button
               type="button"
-              onClick={() => setOpen(false)}
+              onClick={closeChat}
               className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white/80 hover:bg-white/10 transition"
               aria-label="Close chat"
             >
@@ -519,8 +555,16 @@ export default function R360Chatbot() {
       <button
         type="button"
         onClick={() => {
-          setOpen((v) => !v);
-          setShowGreeting(false);
+          setOpen((v) => {
+            if (v) {
+              markClosedByUser();
+              setShowGreeting(false);
+              return false;
+            }
+            clearClosedByUser();
+            setShowGreeting(false);
+            return true;
+          });
         }}
         className="pointer-events-auto relative flex h-14 w-14 items-center justify-center rounded-full bg-[#1F3B64] text-white shadow-[0_10px_30px_rgba(31,59,100,0.35)] transition duration-200 hover:scale-105 hover:bg-[#152a49] active:scale-[0.97]"
         aria-expanded={open}
