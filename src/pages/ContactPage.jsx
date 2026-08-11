@@ -14,6 +14,7 @@ import { CONTACT_CALENDAR_IMAGE_ALT } from "../constants/imageAlt.js";
 import { SITE_CANONICAL_ORIGIN } from "../constants/siteUrl.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import CalendlyInlineWidget from "../components/CalendlyInlineWidget.jsx";
+import { CALENDLY_INLINE_DATA_URL } from "../constants/scheduling.js";
 
 const calendarTabletImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuA-iNftxgB4MVtLYmaJLpcpPMCdIk9bo4K2vUXyEA2ZXH-BZhmfhL-8HD6Jt2GOFScH55bygI0bbHScErBYwqc9LNb_6eQBZuMJGi1trXwBsc3cLY_Av8Z34IJp_bM6r1CbUuzjq7-RNw4S1ffC5pcP2vOKqu5G6XAyqQVOS8MtT6wy6zLz3pSH77EgfqPgBDruvU6u1_vrhBJ-BCgrYislzYdg4iPWvU41nIaZO_AVY90uuI5seopRat1VNUXWv2d1Qw5hnw5knwU";
@@ -244,6 +245,15 @@ function ContactPage() {
     }
   }, []);
 
+  useEffect(() => {
+    if (window.location.hash === "#calendly-booking") {
+      document.getElementById("calendly-booking")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, []);
+
   const whatsappHref = contactWhatsAppHref();
   const scrollToCalendly = () => {
     if (typeof window === "undefined") return;
@@ -329,9 +339,7 @@ function ContactPage() {
                     this site without being redirected.
                   </p>
                   <div className="mt-6 overflow-hidden rounded-2xl border border-[#02254d]/10 bg-[#f5f7fa] p-4 md:mt-8">
-                    <CalendlyInlineWidget
-                      dataUrl="https://calendly.com/reputation360/30min?background_color=f5f7fa&text_color=111827&primary_color=4caf50"
-                    />
+                    <CalendlyInlineWidget dataUrl={CALENDLY_INLINE_DATA_URL} />
                   </div>
                 </div>
               </div>
