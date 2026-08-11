@@ -95,7 +95,11 @@ const navItems = [
       { name: "Guide", link: "/resources/guide" },
       { name: "FAQs", link: "/resources/faqs" },
       { name: "ORM Glossary", link: ORM_GLOSSARY_PATH },
-      { name: FREE_REPUTATION_SCAN_LABEL, link: FREE_RISK_SCAN_PATH },
+      {
+        name: FREE_REPUTATION_SCAN_LABEL,
+        link: FREE_RISK_SCAN_PATH,
+        highlighted: true,
+      },
     ],
   },
 ];
@@ -175,7 +179,7 @@ function Header() {
               href={FREE_RISK_SCAN_PATH}
               {...internalAnchorProps(FREE_RISK_SCAN_PATH)}
               variant="secondary"
-              className="!px-4 !py-2 text-sm sm:!px-5 sm:text-sm"
+              className="!rounded-2xl !border !border-white/35 !bg-white/10 !px-4 !py-2 !text-sm !text-white hover:!bg-white/15 hover:!text-white sm:!px-5 sm:!py-2.5"
             >
               {FREE_REPUTATION_SCAN_LABEL}
             </NavbarButton>
@@ -235,7 +239,10 @@ function Header() {
                     href={subItem.link}
                     {...internalAnchorProps(subItem.link)}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="ha-nudge mt-2 ml-4 block rounded-md py-1 text-sm text-white/85 font-heading transition-colors hover:bg-white/10 hover:text-green"
+                    className={cn(
+                      "ha-nudge mt-2 ml-4 block rounded-md py-1 text-sm text-white/85 font-heading transition-colors hover:bg-white/10 hover:text-green",
+                      subItem.highlighted && "text-green",
+                    )}
                   >
                     {subItem.name}
                   </a>
@@ -248,7 +255,7 @@ function Header() {
                 {...internalAnchorProps(FREE_RISK_SCAN_PATH)}
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="secondary"
-                className="w-full"
+                className="w-full !rounded-2xl !border !border-white/35 !bg-white/10 !px-4 !py-2.5 !text-white hover:!bg-white/15 hover:!text-white"
               >
                 {FREE_REPUTATION_SCAN_LABEL}
               </NavbarButton>

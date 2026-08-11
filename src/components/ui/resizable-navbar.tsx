@@ -10,7 +10,7 @@ type NavItemConfig = {
   link?: string;
   /** When true (with children), the parent label is not a link; only submenu items navigate. */
   parentNonNavigable?: boolean;
-  children?: { name: string; link: string; newTab?: boolean }[];
+  children?: { name: string; link: string; newTab?: boolean; highlighted?: boolean }[];
 };
 
 /** @param {NavItemConfig} item */
@@ -253,7 +253,10 @@ export const NavItems = ({
                     role="menuitem"
                     {...internalAnchorProps(child.link)}
                     onClick={onItemClick}
-                    className="ha-nudge block rounded-md px-3 py-2 text-sm text-white transition-colors hover:bg-white/15 hover:text-green"
+                    className={cn(
+                      "ha-nudge block rounded-md px-3 py-2 text-sm text-white transition-colors hover:bg-white/15 hover:text-green",
+                      child.highlighted && "text-green",
+                    )}
                   >
                     {child.name}
                   </a>
