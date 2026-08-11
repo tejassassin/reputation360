@@ -1,4 +1,6 @@
 import { ProfileValueLines } from "./ProfileValueLines.jsx";
+import officeCaseStudyImg from "../assets/office_case_study.png";
+import surgeonCaseStudyImg from "../assets/surgeon_case_study.png";
 
 /**
  * @param {object} props
@@ -107,39 +109,44 @@ function unsplashPhoto(photoId, width = 1600, height = 1200) {
   return `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=${width}&h=${height}&q=90`;
 }
 
+/** High-resolution Unsplash+ URL builder for premium stock photography. */
+function unsplashPlusPhoto(photoId, width = 1600, height = 1200) {
+  return `https://plus.unsplash.com/${photoId}?auto=format&fit=crop&w=${width}&h=${height}&q=90`;
+}
+
 const caseStudyImageMap = {
-  // 1: B2B SaaS founder - modern empty office workspace
-  1: unsplashPhoto("photo-1497366754035-f200968a6e72"),
+  // 1: B2B SaaS founder - modern tech company office
+  1: officeCaseStudyImg,
   // 2: Portfolio manager - institutional market chart on trading monitor
   2: unsplashPhoto("photo-1590283603385-17ffb3a7f29f"),
-  // 3: Consultant physician - stethoscope on clinical coat (no face)
-  3: unsplashPhoto("photo-1532938911079-1b06ac7ceec7"),
-  // 4: HR director dispute - corporate office towers
-  4: unsplashPhoto("photo-1486406146926-c627a92ad1ab"),
+  // 3: Consultant physician - medical professionals in clinical practice
+  3: unsplashPhoto("photo-1666886573583-9839aafe43cf"),
+  // 4: HR director dispute - collaborative workplace meeting
+  4: unsplashPhoto("photo-1552664730-d307ca884978"),
   // 5: DTC fashion brand - boutique clothing retail interior
   5: unsplashPhoto("photo-1445205170230-053b83016050"),
   // 6: Consumer electronics brand - premium wearable product lineup
   6: unsplashPhoto("photo-1523275335684-37898b6baf30"),
-  // 7: VC-backed startup - glass office corridor
-  7: unsplashPhoto("photo-1560179707-f14e90ef3623"),
-  // 8: D2C accessories counterfeit allegations - delivery packages at door
-  8: unsplashPhoto("photo-1614018453562-77f6180ce036"),
-  // 9: Consultant surgeon - sterile surgical instrument tray
-  9: unsplashPhoto("photo-1690306815542-3c0e7b85e996"),
+  // 7: VC-backed startup - team collaboration in startup workspace
+  7: unsplashPhoto("photo-1522071820081-009f0129c71c"),
+  // 8: D2C accessories counterfeit allegations - in-store customer checkout
+  8: unsplashPhoto("photo-1556742049-0cfed4f6a45d"),
+  // 9: Consultant surgeon - operating theatre during surgery
+  9: surgeonCaseStudyImg,
   // 10: GP partner - stethoscope and laptop on clinic desk (hands only)
   10: unsplashPhoto("photo-1576091160550-2173dba999ef"),
-  // 11: Litigation partner - gavel beside law book
-  11: unsplashPhoto("photo-1767972463877-b64ba4283cd0"),
+  // 11: Litigation partner - lawyer reviewing contract and case law
+  11: unsplashPlusPhoto("premium_photo-1661559051049-f9e147c7a90b"),
   // 12: Family law solicitor - justice statue, gavel, and law book
   12: unsplashPhoto("photo-1774898988393-5c752e4d55e9"),
-  // 13: IFA collapsed fund - institutional banking architecture
-  13: unsplashPhoto("photo-1676517243531-69e3b27276e9"),
+  // 13: IFA collapsed fund - financial adviser meeting with client
+  13: unsplashPhoto("photo-1517245386807-bb43f82c33c4"),
   // 14: CFO wrongful dismissal - financial reports and calculator on desk
   14: unsplashPhoto("photo-1707157284454-553ef0a4ed0d"),
-  // 15: Recent graduate job seeker - friends overlooking city (backs only)
-  15: unsplashPhoto("photo-1529156069898-49953e39b3ac"),
-  // 16: Senior product manager - product planning sticky notes on whiteboard
-  16: unsplashPhoto("photo-1735639013995-086e648eaa38"),
+  // 15: Recent graduate job seeker - building professional presence on laptop and phone
+  15: unsplashPhoto("photo-1563986768609-322da13575f3"),
+  // 16: Senior product manager - product planning on whiteboard
+  16: unsplashPhoto("photo-1532619675605-1ede6c2ed2b0"),
 };
 
 export function getCaseStudyImage(n) {
