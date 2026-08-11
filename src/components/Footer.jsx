@@ -44,7 +44,7 @@ function Footer() {
             </p>
           </div>
           <div>
-            <p className="font-heading font-semibold mb-4">Company</p>
+            <p className="font-heading font-semibold mb-4">Quick Links</p>
             <ul className="space-y-2">
               {[
                 { name: "About Us", link: "/about" },
