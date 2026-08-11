@@ -14,11 +14,9 @@ import { internalAnchorProps } from "../lib/internalLinkProps.js";
 /** All legal / policy pages shown under the Policies column. Add new documents here only. */
 const POLICY_LINKS = [
   { name: "Privacy Policy", href: "/privacy-policy" },
-  { name: "Terms of Service", href: "/terms-of-service" },
-  { name: "Website Terms of Use", href: "/terms-of-use" },
+  { name: "Terms, Policies & Conditions", href: "/terms-of-service" },
   { name: "Cookie Policy", href: "/cookie-policy" },
   { name: "Refund Policy", href: "/refund-policy" },
-  { name: "Acceptable Use Policy", href: "/acceptable-use-policy" },
   { name: "DMCA / Copyright Policy", href: "/dmca-copyright-policy" },
 ];
 

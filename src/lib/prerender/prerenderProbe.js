@@ -113,8 +113,6 @@ export function getPrerenderProbeSentence(pathname) {
       "/terms-of-service",
       "/cookie-policy",
       "/refund-policy",
-      "/acceptable-use-policy",
-      "/terms-of-use",
       "/dmca-copyright-policy",
     ].includes(path)
   ) {

@@ -69,10 +69,10 @@ export const SEO = {
         "Full Privacy Policy for Reputation360: what we collect, how we use and share data, your rights (including US, Canada, and Australia), security, cookies, retention, and how to contact us.",
     },
     terms: {
-      title: "Terms of Service | Reputation360",
+      title: "Terms, Policies & Conditions | Reputation360",
       path: "/terms-of-service",
       description:
-        "Full Terms of Service for Reputation360: scope of Services, your responsibilities, fees, warranties and disclaimers, liability limits, IP, confidentiality, conduct, termination, governing law (India), and contact details.",
+        "Reputation360 Terms of Service, Acceptable Use Policy, and Website Terms of Use in one document: service scope, fees, warranties, liability, IP, conduct, security, compliance, website access, and contact details.",
     },
     cookies: {
       title: "Cookie Policy | Reputation360",
@@ -86,18 +86,8 @@ export const SEO = {
       description:
         "Reputation360 refund policy: non-refundable services, limited eligibility, 7-day request window, how to request a refund, processing timelines, chargebacks, service credit, and contact details.",
     },
-    acceptableUse: {
-      title: "Acceptable Use Policy | Reputation360",
-      path: "/acceptable-use-policy",
-      description:
-        "Reputation360 Acceptable Use Policy: prohibited conduct, account rules, content standards, IP and security, compliance, enforcement, suspension and termination, indemnification, and how to report violations.",
-    },
-    termsOfUse: {
-      title: "Website Terms of Use | Reputation360",
-      path: "/terms-of-use",
-      description:
-        "Website Terms of Use for thereputation360.com: access and eligibility, acceptable use, user content, IP, third-party content, disclaimers, liability cap, indemnification, modifications, accounts, termination, governing law (India), and contact.",
-    },
+    acceptableUse: null,
+    termsOfUse: null,
     dmcaCopyright: {
       title: "DMCA / Copyright Policy | Reputation360",
       path: "/dmca-copyright-policy",

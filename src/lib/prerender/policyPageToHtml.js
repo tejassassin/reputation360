@@ -21,24 +21,14 @@ const POLICIES = {
     desc: "At Reputation360, we believe your privacy is paramount. We have built our reputation management and negative link suppression services on the foundation of protecting your information. This Privacy Policy explains how we collect, use, protect, and manage your information when you visit our website and use our Online Reputation Management services."
   },
   "/terms-of-service": {
-    h1: "Terms of Service",
+    h1: "Terms, Policies & Conditions",
     toc: [
-      { id: "about-these-terms", label: "About These Terms" },
-      { id: "services-scope", label: "Services and Scope" },
-      { id: "authorization", label: "Your Authorization and Responsibilities" },
-      { id: "account", label: "Account Requirements" },
-      { id: "payment", label: "Payment and Fees" },
-      { id: "warranties", label: "Warranties and Disclaimers" },
-      { id: "liability", label: "Limitation of Liability" },
-      { id: "ip", label: "Intellectual Property Rights" },
-      { id: "confidentiality", label: "Confidentiality" },
-      { id: "conduct", label: "User Conduct and Prohibited Activities" },
-      { id: "termination", label: "Termination and Cancellation" },
-      { id: "dispute", label: "Dispute Resolution and Governing Law" },
-      { id: "general", label: "General Provisions" },
-      { id: "contact-info", label: "Contact information" },
+      { id: "part-a", label: "Part A - Terms of Service" },
+      { id: "part-b", label: "Part B - Acceptable Use Policy" },
+      { id: "part-c", label: "Part C - Website Terms of Use" },
+      { id: "contact-info", label: "Contact Information" },
     ],
-    desc: "By purchasing or using any Reputation360 services, you agree to be bound by these Terms of Service. These Terms govern your purchase and use of our Online Reputation Management services, access to our website, and client portal."
+    desc: "Reputation360 Terms of Service, Acceptable Use Policy, and Website Terms of Use in one document. Covers service scope, fees, warranties, liability, IP, conduct, security, compliance, website access, and contact details."
   },
   "/cookie-policy": {
     h1: "Cookie Policy",
@@ -71,45 +61,6 @@ const POLICIES = {
       { id: "policy-changes", label: "Policy Changes" },
     ],
     desc: "This Refund Policy outlines Reputation360's refund practices for services purchased through our website or through a formal Service Agreement. Please read this policy carefully to understand when refunds are available, what conditions apply, and how to request a refund."
-  },
-  "/acceptable-use-policy": {
-    h1: "Acceptable Use Policy",
-    toc: [
-      { id: "overview", label: "Policy Overview" },
-      { id: "prohibited", label: "Prohibited Activities" },
-      { id: "account", label: "Account and Authentication Rules" },
-      { id: "content", label: "Content and Communication Standards" },
-      { id: "ip", label: "Intellectual Property and Copyright" },
-      { id: "security", label: "Security and System Protection" },
-      { id: "compliance", label: "Compliance and Legal Requirements" },
-      { id: "enforcement", label: "Enforcement and Violations" },
-      { id: "suspension", label: "Account Suspension and Termination" },
-      { id: "indemnification", label: "Indemnification" },
-      { id: "final-notice", label: "Final Notice" },
-      { id: "questions", label: "Questions or Reports" },
-    ],
-    desc: "This Acceptable Use Policy establishes guidelines for acceptable use of Reputation360's services and platforms. By using our services, you agree to comply with this policy. Violation of any provision may result in account suspension, termination, or legal action."
-  },
-  "/terms-of-use": {
-    h1: "Website Terms of Use",
-    toc: [
-      { id: "access", label: "Website Access and Use" },
-      { id: "eligibility", label: "User Eligibility" },
-      { id: "acceptable-use", label: "Acceptable Use Policy" },
-      { id: "user-content", label: "User Content" },
-      { id: "ip", label: "Intellectual Property Rights" },
-      { id: "third-party", label: "Third-Party Links and Content" },
-      { id: "disclaimers", label: "Disclaimers" },
-      { id: "liability", label: "Limitation of Liability" },
-      { id: "indemnification", label: "Indemnification" },
-      { id: "modifications", label: "Website Modifications" },
-      { id: "account-security", label: "Account Security" },
-      { id: "termination", label: "Termination of Access" },
-      { id: "governing-law", label: "Governing Law and Dispute Resolution" },
-      { id: "additional", label: "Additional Provisions" },
-      { id: "contact", label: "Contact Information" },
-    ],
-    desc: "Welcome to Reputation360's website. These Website Terms of Use govern your access to and use of our website. By accessing, browsing, or using our Website, you agree to comply with these terms. If you do not agree to these terms, please do not use the Website."
   },
   "/dmca-copyright-policy": {
     h1: "DMCA / Copyright Policy",

@@ -221,16 +221,9 @@ export const SITEMAP_URL_ENTRIES = [
     priority: "0.6",
   },
   { path: "/privacy-policy", lastmod: "2026-05-15", changefreq: "yearly", priority: "0.4" },
-  { path: "/terms-of-service", lastmod: "2026-05-15", changefreq: "yearly", priority: "0.4" },
+  { path: "/terms-of-service", lastmod: "2026-08-11", changefreq: "yearly", priority: "0.4" },
   { path: "/cookie-policy", lastmod: "2026-05-15", changefreq: "yearly", priority: "0.4" },
   { path: "/refund-policy", lastmod: "2026-05-15", changefreq: "yearly", priority: "0.4" },
-  {
-    path: "/acceptable-use-policy",
-    lastmod: "2026-05-15",
-    changefreq: "yearly",
-    priority: "0.4",
-  },
-  { path: "/terms-of-use", lastmod: "2026-05-15", changefreq: "yearly", priority: "0.4" },
   {
     path: "/dmca-copyright-policy",
     lastmod: "2026-05-15",
