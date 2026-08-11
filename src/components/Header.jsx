@@ -14,7 +14,7 @@ import {
   MobileNavMenu,
 } from "./ui/resizable-navbar";
 import logo from "../assets/Logo_360.png";
-import { useCalendlyBooking } from "../context/CalendlyBookingContext.jsx";
+import { CALENDLY_URL } from "../constants/scheduling";
 import {
   CONTACT_EMAIL,
   contactMailtoHref,
@@ -106,7 +106,6 @@ const navItems = [
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { openBooking } = useCalendlyBooking();
   const logoFetchPriority =
     typeof window !== "undefined" &&
     window.matchMedia("(max-width: 767px)").matches
@@ -185,9 +184,9 @@ function Header() {
               {FREE_REPUTATION_SCAN_LABEL}
             </NavbarButton>
             <NavbarButton
-              as="button"
-              type="button"
-              onClick={openBooking}
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               variant="primary"
             >
               Book a call
@@ -261,12 +260,10 @@ function Header() {
                 {FREE_REPUTATION_SCAN_LABEL}
               </NavbarButton>
               <NavbarButton
-                as="button"
-                type="button"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  openBooking();
-                }}
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
                 className="w-full"
               >

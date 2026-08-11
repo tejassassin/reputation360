@@ -14,8 +14,6 @@ import {
   FREE_RISK_SCAN_PATH,
 } from "@/constants/freeRiskScan.js";
 import { CONTACT_EMAIL } from "@/constants/contact.js";
-import { isCalendlyExternalUrl, CALENDLY_URL } from "@/constants/scheduling.js";
-import { useCalendlyBooking } from "@/context/CalendlyBookingContext.jsx";
 import { internalAnchorProps } from "@/lib/internalLinkProps.js";
 import mayaAvatar from "../assets/maya_avatar.png";
 
@@ -35,20 +33,6 @@ function buildWelcomeMessage() {
 }
 
 function CtaLink({ cta }) {
-  const { openBooking } = useCalendlyBooking();
-
-  if (isCalendlyExternalUrl(cta.href)) {
-    return (
-      <button
-        type="button"
-        onClick={openBooking}
-        className="mt-2 inline-flex text-sm font-semibold text-[#1F3B64] underline decoration-[#4CAF50]/50 underline-offset-2 hover:decoration-[#4CAF50] transition"
-      >
-        {cta.label}
-      </button>
-    );
-  }
-
   return (
     <a
       href={cta.href}

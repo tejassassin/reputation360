@@ -1,9 +1,8 @@
-import { calendlyCtaButtonClass, isCalendlyExternalUrl } from "@/constants/scheduling";
+import { calendlyCtaButtonClass, calendlyNewTabProps } from "@/constants/scheduling";
 import {
   FREE_REPUTATION_SCAN_LABEL,
   freeScanLinkProps,
 } from "@/constants/freeRiskScan";
-import { useCalendlyBooking } from "@/context/CalendlyBookingContext.jsx";
 import { cn } from "@/lib/utils";
 import { externalAnchorProps } from "@/lib/internalLinkProps.js";
 
@@ -97,35 +96,9 @@ export function ConsultationCtas({
   showServingLine = false,
 }) {
   const styles = VARIANTS[variant] ?? VARIANTS.onLight;
-  const { openBooking } = useCalendlyBooking();
-  const useInlineBooking = !consultHref || isCalendlyExternalUrl(consultHref);
-  const consultProps = useInlineBooking
-    ? null
-    : { href: consultHref, ...externalAnchorProps(consultHref), ...consultLinkProps };
-
-  const consultControlClass = cn(styles.consult, consultClassName);
-
-  const consultContent = styles.consultShowArrow ? (
-    <span className="flex items-center justify-center gap-2">
-      {consultLabel}
-      <ConsultArrow />
-    </span>
-  ) : (
-    <>
-      {consultLabel}
-      {consultSuffix}
-    </>
-  );
-
-  const consultControl = useInlineBooking ? (
-    <button type="button" onClick={openBooking} className={consultControlClass}>
-      {consultContent}
-    </button>
-  ) : (
-    <a {...consultProps} className={consultControlClass}>
-      {consultContent}
-    </a>
-  );
+  const consultProps = consultHref
+    ? { href: consultHref, ...externalAnchorProps(consultHref), ...consultLinkProps }
+    : calendlyNewTabProps;
 
   const showLine = !hideServingLine && (variant === "onDark" || showServingLine);
 
@@ -135,7 +108,19 @@ export function ConsultationCtas({
         <a {...freeScanLinkProps} className={cn(styles.freeScan, freeScanClassName)}>
           {freeScanLabel}
         </a>
-        {consultControl}
+        <a {...consultProps} className={cn(styles.consult, consultClassName)}>
+          {styles.consultShowArrow ? (
+            <span className="flex items-center justify-center gap-2">
+              {consultLabel}
+              <ConsultArrow />
+            </span>
+          ) : (
+            <>
+              {consultLabel}
+              {consultSuffix}
+            </>
+          )}
+        </a>
       </div>
     );
   }
@@ -153,7 +138,19 @@ export function ConsultationCtas({
         <a {...freeScanLinkProps} className={cn(styles.freeScan, freeScanClassName)}>
           {freeScanLabel}
         </a>
-        {consultControl}
+        <a {...consultProps} className={cn(styles.consult, consultClassName)}>
+          {styles.consultShowArrow ? (
+            <span className="flex items-center justify-center gap-2">
+              {consultLabel}
+              <ConsultArrow />
+            </span>
+          ) : (
+            <>
+              {consultLabel}
+              {consultSuffix}
+            </>
+          )}
+        </a>
       </div>
       <p className={cn("w-full max-w-4xl text-pretty leading-relaxed pointer-events-none select-none", subtextClass)}>
         Serving executives, founders, professionals, and businesses across the United States, Europe, Canada, and Australia.

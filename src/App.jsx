@@ -5,7 +5,6 @@ import { BreadcrumbBar } from "./components/BreadcrumbBar.jsx";
 import DeferredFooter from "./components/DeferredFooter.jsx";
 import { CrawlableSiteNav } from "./components/CrawlableSiteNav.jsx";
 import DeferredGlobalContactDock from "./components/DeferredGlobalContactDock.jsx";
-import { CalendlyBookingProvider } from "./context/CalendlyBookingContext.jsx";
 import { applyNewTabToAnchors } from "./lib/internalLinkProps.js";
 
 function App({ children }) {
@@ -38,7 +37,7 @@ function App({ children }) {
   }, []);
 
   return (
-    <CalendlyBookingProvider>
+    <>
       <div className="relative flex min-h-screen min-h-[100dvh] flex-col overflow-x-clip bg-offwhite">
         <CrawlableSiteNav />
         <Header />
@@ -47,7 +46,7 @@ function App({ children }) {
         <DeferredFooter />
       </div>
       <DeferredGlobalContactDock />
-    </CalendlyBookingProvider>
+    </>
   );
 }
 

@@ -16,14 +16,6 @@ export function contactPageToHtml() {
             <h3>Book a Call</h3>
             <p>Every reputation challenge is different. Book a call with us, and we'll take the time to understand your situation, your concerns, and the outcome you're hoping to achieve.</p>
             <p>Schedule a confidential meeting directly via our calendar scheduler.</p>
-            <div style="margin-top:16px; border-radius:12px; overflow:hidden; background:#f5f7fa; padding:12px;">
-              <div
-                class="calendly-inline-widget"
-                style="min-height:700px; min-width:320px; width:100%;"
-                data-url="https://calendly.com/reputation360/30min?background_color=f5f7fa&text_color=111827&primary_color=4caf50"
-              ></div>
-            </div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
           </li>
           <li>
             <h3>WhatsApp</h3>

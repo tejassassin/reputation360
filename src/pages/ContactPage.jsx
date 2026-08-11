@@ -1,6 +1,7 @@
 import { useEffect, useId, useState } from "react";
 import { Calendar, Mail, ExternalLink, Lock } from "lucide-react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
+import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   CONTACT_EMAIL,
   CONTACT_FORM_AUTORESPONSE,
@@ -13,8 +14,6 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import { CONTACT_CALENDAR_IMAGE_ALT } from "../constants/imageAlt.js";
 import { SITE_CANONICAL_ORIGIN } from "../constants/siteUrl.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
-import CalendlyInlineWidget from "../components/CalendlyInlineWidget.jsx";
-import { CALENDLY_INLINE_DATA_URL } from "../constants/scheduling.js";
 
 const calendarTabletImage =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuA-iNftxgB4MVtLYmaJLpcpPMCdIk9bo4K2vUXyEA2ZXH-BZhmfhL-8HD6Jt2GOFScH55bygI0bbHScErBYwqc9LNb_6eQBZuMJGi1trXwBsc3cLY_Av8Z34IJp_bM6r1CbUuzjq7-RNw4S1ffC5pcP2vOKqu5G6XAyqQVOS8MtT6wy6zLz3pSH77EgfqPgBDruvU6u1_vrhBJ-BCgrYislzYdg4iPWvU41nIaZO_AVY90uuI5seopRat1VNUXWv2d1Qw5hnw5knwU";
@@ -245,22 +244,7 @@ function ContactPage() {
     }
   }, []);
 
-  useEffect(() => {
-    if (window.location.hash === "#calendly-booking") {
-      document.getElementById("calendly-booking")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }, []);
-
   const whatsappHref = contactWhatsAppHref();
-  const scrollToCalendly = () => {
-    if (typeof window === "undefined") return;
-    document
-      .getElementById("calendly-booking")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
   return (
     <>
@@ -308,13 +292,12 @@ function ContactPage() {
                   we&apos;ll take the time to understand your situation, your concerns,
                   and the outcome you&apos;re hoping to achieve.
                 </p>
-                <button
-                  type="button"
-                  onClick={scrollToCalendly}
+                <a
+                  {...calendlyNewTabProps}
                   className="ha-pill mt-5 inline-flex rounded-xl bg-cta-consult px-8 py-3.5 text-sm font-bold text-white transition hover:brightness-95 active:scale-[0.98] md:mt-6 md:text-base"
                 >
                   Schedule Meeting
-                </button>
+                </a>
               </div>
               <div className="mx-auto h-52 w-full max-w-xs overflow-hidden rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)] md:mx-0 md:h-64 md:w-64 md:max-w-none md:shrink-0">
                 <img
@@ -324,25 +307,6 @@ function ContactPage() {
                 />
               </div>
             </div>
-
-              {/* Inline booking widget */}
-              <div className="md:col-span-12">
-                <div
-                  className="mt-10 rounded-[2rem] bg-white p-6 shadow-sm md:mt-14 md:p-10"
-                  id="calendly-booking"
-                >
-                  <h2 className="font-heading text-2xl font-bold tracking-tight text-[#02254d] md:text-3xl">
-                    Book Your Confidential Consultation
-                  </h2>
-                  <p className="mt-3 text-[15px] leading-relaxed text-[#43474e] md:mt-4 md:text-[16px]">
-                    Choose a time that works for you. You can schedule directly on
-                    this site without being redirected.
-                  </p>
-                  <div className="mt-6 overflow-hidden rounded-2xl border border-[#02254d]/10 bg-[#f5f7fa] p-4 md:mt-8">
-                    <CalendlyInlineWidget dataUrl={CALENDLY_INLINE_DATA_URL} />
-                  </div>
-                </div>
-              </div>
 
             {/* WhatsApp */}
             <div className="ha-lift flex flex-col justify-between rounded-[1.75rem] border-2 border-[#78dc77]/20 bg-[#78dc77]/10 p-6 md:col-span-4 md:rounded-[2rem] md:p-10">
