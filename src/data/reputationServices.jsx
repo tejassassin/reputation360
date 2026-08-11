@@ -4,6 +4,7 @@ import {
   TrendingUp,
   Linkedin,
   MessageSquare,
+  EyeOff,
 } from "lucide-react";
 import {
   CORE_SERVICE_ID,
@@ -40,6 +41,7 @@ const SERVICE_ICONS = {
     </svg>
   ),
   "employer-branding": <ShieldCheck className="h-7 w-7" strokeWidth={1.75} />,
+  "negative-link-suppression": <EyeOff className="h-7 w-7" strokeWidth={1.75} />,
   "content-leadership": <FileText className="h-7 w-7" strokeWidth={1.75} />,
   "linkedin-branding": <Linkedin className="h-7 w-7" strokeWidth={1.75} />,
   "performance-marketing": <TrendingUp className="h-7 w-7" strokeWidth={1.75} />,
