@@ -1,7 +1,6 @@
 import { useEffect, useId, useState } from "react";
 import { Calendar, Mail, ExternalLink, Lock } from "lucide-react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
-import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   CONTACT_EMAIL,
   CONTACT_FORM_AUTORESPONSE,
@@ -246,6 +245,12 @@ function ContactPage() {
   }, []);
 
   const whatsappHref = contactWhatsAppHref();
+  const scrollToCalendly = () => {
+    if (typeof window === "undefined") return;
+    document
+      .getElementById("calendly-booking")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <>
@@ -293,12 +298,13 @@ function ContactPage() {
                   we&apos;ll take the time to understand your situation, your concerns,
                   and the outcome you&apos;re hoping to achieve.
                 </p>
-                <a
-                  {...calendlyNewTabProps}
+                <button
+                  type="button"
+                  onClick={scrollToCalendly}
                   className="ha-pill mt-5 inline-flex rounded-xl bg-cta-consult px-8 py-3.5 text-sm font-bold text-white transition hover:brightness-95 active:scale-[0.98] md:mt-6 md:text-base"
                 >
                   Schedule Meeting
-                </a>
+                </button>
               </div>
               <div className="mx-auto h-52 w-full max-w-xs overflow-hidden rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)] md:mx-0 md:h-64 md:w-64 md:max-w-none md:shrink-0">
                 <img
