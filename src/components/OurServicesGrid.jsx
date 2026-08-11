@@ -110,13 +110,22 @@ export function OurServicesGrid() {
         </div>
       </article>
 
-      <ul className="grid w-full max-w-5xl list-none grid-cols-2 items-start justify-center justify-items-stretch gap-3.5 p-0 md:mx-auto md:max-w-6xl md:grid-cols-3 md:gap-4 md:px-0 xl:max-w-6xl xl:grid-cols-4 xl:gap-5">
+      <ul className="grid w-full max-w-5xl list-none grid-cols-2 items-start justify-center justify-items-stretch gap-3.5 p-0 md:mx-auto md:max-w-6xl md:grid-cols-3 md:gap-4 md:px-0 xl:max-w-6xl xl:grid-cols-12 xl:gap-5">
         {supportingServices.map((s, cardIdx) => {
           const expanded = openId === s.id;
-          const lastRow2 =
-            cardIdx === 4 ? "xl:col-start-2" : cardIdx === 5 ? "xl:col-start-3" : "";
+          const centeredLastRowClass =
+            cardIdx === 4
+              ? "xl:col-start-2"
+              : cardIdx === 5
+                ? "xl:col-start-5"
+                : cardIdx === 6
+                  ? "xl:col-start-8"
+                  : "";
           return (
-            <li key={s.id} className={`min-w-0 max-w-full list-none self-start ${lastRow2}`}>
+            <li
+              key={s.id}
+              className={`min-w-0 max-w-full list-none self-start xl:col-span-3 ${centeredLastRowClass}`}
+            >
               <ServiceCard
                 service={s}
                 expanded={expanded}
