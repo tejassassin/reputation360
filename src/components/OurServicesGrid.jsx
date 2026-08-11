@@ -9,10 +9,6 @@ import { internalAnchorProps } from "../lib/internalLinkProps.js";
 const coreService =
   reputationServices.find((s) => s.id === CORE_SERVICE_ID) ?? reputationServices[0];
 const supportingServices = reputationServices.filter((s) => s.id !== CORE_SERVICE_ID);
-
-import { ONLINE_REPUTATION_MANAGEMENT_PATH } from "../constants/servicePaths.js";
-
-const CORE_SERVICE_HREF = ONLINE_REPUTATION_MANAGEMENT_PATH;
 const SERVICES_HREF = "/services";
 
 /** Same glass card shell as “Who we work with” (home). */
@@ -43,37 +39,28 @@ function ServiceCard({ service, expanded, onToggle, isCore = false }) {
 
   return (
     <div
-      className={`${serviceCardShell} h-full ${expanded ? "is-expanded border-green/50 from-white/18 to-white/8" : ""}`}
+      className={`${serviceCardShell} ${expanded ? "is-expanded border-green/50 from-white/18 to-white/8" : ""}`}
     >
-      <a
-        href={isCore ? CORE_SERVICE_HREF : SERVICES_HREF}
-        {...internalAnchorProps(isCore ? CORE_SERVICE_HREF : SERVICES_HREF)}
-        className="flex w-full flex-col items-center gap-2.5 rounded-lg text-center no-underline outline-none focus-visible:ring-2 focus-visible:ring-green/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy sm:gap-3"
+      <button
+        type="button"
+        id={triggerId}
+        onClick={onToggle}
+        aria-expanded={expanded}
+        aria-controls={panelId}
+        aria-label={expanded ? `Hide details for ${service.title}` : `Show details for ${service.title}`}
+        className="flex w-full cursor-pointer flex-col items-center gap-2.5 rounded-lg text-center text-inherit outline-none transition hover:text-green focus-visible:ring-2 focus-visible:ring-green/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy sm:gap-3"
       >
         <div className={`${serviceIconWrap} ${iconSize}`}>{service.icon}</div>
         <h3 id={isCore ? "core-service-heading" : undefined} className={titleClass}>
           {service.title}
         </h3>
-      </a>
-
-      <div className="flex justify-center pb-1">
-        <button
-          type="button"
-          id={triggerId}
-          className="inline-flex shrink-0 items-center justify-center rounded-lg p-1 text-white/50 outline-none transition hover:text-green focus-visible:ring-2 focus-visible:ring-green/50"
-          onClick={onToggle}
-          aria-expanded={expanded}
-          aria-controls={panelId}
-          aria-label={expanded ? `Hide details for ${service.title}` : `Show details for ${service.title}`}
-        >
-          <ChevronDown
-            className={`h-5 w-5 transition-transform duration-200 motion-reduce:transition-none ${
-              expanded ? "rotate-180 text-green" : ""
-            }`}
-            aria-hidden
-          />
-        </button>
-      </div>
+        <ChevronDown
+          className={`h-5 w-5 text-white/50 transition-transform duration-200 motion-reduce:transition-none ${
+            expanded ? "rotate-180 text-green" : ""
+          }`}
+          aria-hidden
+        />
+      </button>
 
       <div
         id={panelId}
@@ -123,13 +110,13 @@ export function OurServicesGrid() {
         </div>
       </article>
 
-      <ul className="grid w-full max-w-5xl list-none grid-cols-2 justify-center justify-items-stretch gap-3.5 p-0 md:mx-auto md:max-w-6xl md:grid-cols-3 md:gap-4 md:px-0 xl:max-w-6xl xl:grid-cols-4 xl:gap-5">
+      <ul className="grid w-full max-w-5xl list-none grid-cols-2 items-start justify-center justify-items-stretch gap-3.5 p-0 md:mx-auto md:max-w-6xl md:grid-cols-3 md:gap-4 md:px-0 xl:max-w-6xl xl:grid-cols-4 xl:gap-5">
         {supportingServices.map((s, cardIdx) => {
           const expanded = openId === s.id;
           const lastRow2 =
             cardIdx === 4 ? "xl:col-start-2" : cardIdx === 5 ? "xl:col-start-3" : "";
           return (
-            <li key={s.id} className={`min-w-0 max-w-full list-none ${lastRow2}`}>
+            <li key={s.id} className={`min-w-0 max-w-full list-none self-start ${lastRow2}`}>
               <ServiceCard
                 service={s}
                 expanded={expanded}
