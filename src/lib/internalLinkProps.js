@@ -1,5 +1,14 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
 
+/**
+ * Link rel policy for the whole site (see .cursor/rules/internal-external-links.mdc):
+ * - Internal hrefs: dofollow (no rel, same tab)
+ * - External hrefs: rel="noopener noreferrer nofollow", new tab
+ *
+ * Use anchorTabProps(href) when href may be either; externalAnchorProps / internalAnchorProps when known.
+ * Prerender and static HTML must follow the same rules. CI: npm run verify:links
+ */
+
 const SITE_HOSTS = new Set([
   new URL(METADATA_BASE).host,
   "localhost",

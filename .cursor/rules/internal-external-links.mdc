@@ -1,0 +1,53 @@
+---
+description: Internal links dofollow; external links nofollow via internalLinkProps helpers
+globs: "**/*.{jsx,tsx,js,mjs,ts,html}"
+alwaysApply: true
+---
+
+# Internal dofollow, external nofollow
+
+All site links must follow this policy:
+
+- **Internal** (paths starting with `/`, `#`, or `https://www.thereputation360.com`): **dofollow** — no `rel` attribute, same tab (no `target="_blank"`).
+- **External** (other `http(s)` URLs): **nofollow** — `target="_blank"` and `rel="noopener noreferrer nofollow"`.
+- **mailto / tel / sms**: no `target` or `rel`.
+
+## Always use `src/lib/internalLinkProps.js`
+
+| Situation | Use |
+|-----------|-----|
+| Href may be internal or external | `anchorTabProps(href)` |
+| Guaranteed internal only | `internalAnchorProps(href)` |
+| Guaranteed external only | `externalAnchorProps(href)` |
+| Calendly consultation CTA | `calendlyNewTabProps` from `scheduling.js` |
+| Constant for share / static HTML | `EXTERNAL_LINK_REL` |
+
+```jsx
+// ✅ GOOD — mixed or unknown href
+<a href={href} {...anchorTabProps(href)}>{label}</a>
+
+// ✅ GOOD — known external URL
+<a href={url} {...externalAnchorProps(url)}>{label}</a>
+
+// ✅ GOOD — known internal path
+<a href="/about" {...internalAnchorProps("/about")}>About</a>
+
+// ❌ BAD — hardcoded rel without nofollow on external links
+<a href="https://example.com" target="_blank" rel="noopener noreferrer">...</a>
+
+// ❌ BAD — nofollow on internal navigation
+<a href="/blog/foo" rel="nofollow">...</a>
+```
+
+## Blogs, prerender, and static HTML
+
+- **React rich text / in-article links**: `DiyInternalLink`, `Pack20RichText`, or spread `anchorTabProps(href)` — never hardcode `rel`.
+- **Pack20 / rich text data**: mark outbound URLs with `external: true`; prerender uses `richTextToHtml` in `src/lib/prerender/html.js`.
+- **Prerender HTML strings**: internal `<a href="/...">` with no `rel`; external must include `rel="noopener noreferrer nofollow"`.
+- **index.html / boot snippets**: external anchors use `rel="noopener noreferrer nofollow"`.
+
+`App.jsx` runs `applyNewTabToAnchors()` on the live DOM, but still use helpers in source so SSR/prerender and new code stay correct.
+
+## CI
+
+`npm run verify:links` fails if source files hardcode `rel="noopener noreferrer"` without `nofollow`.
