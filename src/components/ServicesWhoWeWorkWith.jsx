@@ -33,18 +33,6 @@ export function ServicesWhoWeWorkWith() {
         </a>
       </div>
 
-      <nav aria-label="Who we work with page links" className="sr-only">
-        <ul className="m-0 list-none p-0">
-          {WHO_WE_SERVE_AUDIENCES.map((cat) => (
-            <li key={cat.href} className="list-none">
-              <a href={cat.href} {...internalAnchorProps(cat.href)}>
-                {cat.linkLabel}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
       <ul
         className="mt-8 grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 sm:[&>li:last-child:nth-child(2n+1)]:col-start-2 lg:grid-cols-3 lg:gap-5 lg:[&>li:last-child:nth-child(2n+1)]:col-start-auto lg:[&>li:last-child:nth-child(3n+1)]:col-start-2"
         role="list"

@@ -1,6 +1,5 @@
 import BrandSectionBackdrop from "./BrandSectionBackdrop";
 import { WHO_WE_SERVE_AUDIENCES } from "../data/whoWeServeAudiences.js";
-import { internalAnchorProps } from "../lib/internalLinkProps.js";
 import { WhoWeServeAudienceCard } from "./WhoWeServeAudienceCard.jsx";
 
 export default function WhoWeServeCards() {
@@ -24,18 +23,6 @@ export default function WhoWeServeCards() {
             aria-hidden
           />
         </div>
-
-        <nav aria-label="Who we work with page links" className="sr-only">
-          <ul className="m-0 list-none p-0">
-            {WHO_WE_SERVE_AUDIENCES.map((cat) => (
-              <li key={cat.href} className="list-none">
-                <a href={cat.href} {...internalAnchorProps(cat.href)}>
-                  {cat.linkLabel}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
 
         <ul className="m-0 grid list-none grid-cols-1 items-stretch gap-5 p-0 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
           {WHO_WE_SERVE_AUDIENCES.map((cat) => (

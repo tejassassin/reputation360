@@ -84,7 +84,7 @@ function ServiceCard({ service, expanded, onToggle, isCore = false }) {
 }
 
 /**
- * Core ORM + supporting cards with crawlable links to /services.
+ * Core ORM + supporting cards with links to /services.
  */
 export function OurServicesGrid() {
   const [openId, setOpenId] = useState(null);

@@ -83,6 +83,8 @@ const HIDDEN_CSS_MARKERS = [
   { id: "clip-hide", re: /clip:\s*rect\(0,\s*0,\s*0,\s*0\)/i },
   { id: "offscreen-left", re: /left:\s*-9999px/i },
   { id: "r360-crawl-nav-class", re: /class="[^"]*r360-crawl-nav/i },
+  { id: "hidden-blog-link-index", re: /aria-label="All insights and blog posts"/i },
+  { id: "hidden-case-link-index", re: /aria-label="All case studies"/i },
 ];
 
 const LOADING_SHELL_MARKERS = [

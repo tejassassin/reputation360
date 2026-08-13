@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 import { BadgeCheck, ArrowRight, Search } from "lucide-react";
 import { cn } from "../lib/utils";
 import { BlogGuideCtaPanel } from "../components/blog/BlogGuideCtaSection.jsx";
-import { CrawlableLinkIndex } from "../components/CrawlableLinkIndex.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { BLOG_INDEX_HERO_IMAGE_ALT } from "../constants/imageAlt.js";
-import { CRAWL_BLOG_PAGES } from "../data/siteCrawlLinks.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import {
   DIY_REPUTATION_GUIDE_PATH,
@@ -61,7 +59,7 @@ function readSearchQueryFromLocation() {
   return normalizeBlogSearchQuery(new URLSearchParams(window.location.search).get("q"));
 }
 
-function InsightsBlogsPage() {
+function InsightsBlogsPage({ renderSeo = true }) {
   const [searchQuery, setSearchQuery] = useState(readSearchQueryFromLocation);
   const [searchInput, setSearchInput] = useState(readSearchQueryFromLocation);
   const seo = useLocalizedSeo("blogs");
@@ -83,13 +81,14 @@ function InsightsBlogsPage() {
 
   return (
     <>
-      <SeoHead
-        title={seo.title}
-        description={seo.description}
-        canonicalPath={seo.path}
-      />
+      {renderSeo ? (
+        <SeoHead
+          title={seo.title}
+          description={seo.description}
+          canonicalPath={seo.path}
+        />
+      ) : null}
     <main className="insights-page flex-1 bg-[#f9f9ff] pt-28 text-[#141b2b] md:pt-32">
-      <CrawlableLinkIndex title="All insights and blog posts" links={CRAWL_BLOG_PAGES} />
       {/* Hero */}
       <header className="relative mx-auto max-w-7xl overflow-hidden px-6 pb-24 pt-12 md:px-8 md:pt-16">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">

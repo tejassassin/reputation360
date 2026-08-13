@@ -80,21 +80,6 @@ function CaseStudies() {
           />
         </div>
 
-        <nav aria-label="Featured case study links" className="sr-only">
-          <ul className="m-0 list-none p-0">
-            {cards.map((study) => (
-              <li key={study.n} className="list-none">
-                <a
-                  href={`/case-studies/${study.slug}`}
-                  {...internalAnchorProps(`/case-studies/${study.slug}`)}
-                >
-                  {study.listTitle}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
         <div className="mt-0 flex min-w-0 items-stretch justify-center gap-1 sm:mt-10 sm:gap-2 md:mt-12 md:gap-3">
           <button
             type="button"
