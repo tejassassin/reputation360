@@ -33,7 +33,7 @@ import {
   ONLINE_REPUTATION_MANAGEMENT_PATH,
   REPUTATION_BUILDING_SERVICES_PATH,
 } from "../constants/servicePaths.js";
-import { ORM_GLOSSARY_PATH } from "../data/ormGlossaryData.js";
+import { ORM_GLOSSARY_PATH } from "../constants/resourcePaths.js";
 
 const navItems = [
   {

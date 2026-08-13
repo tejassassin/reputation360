@@ -4,7 +4,7 @@
  */
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
-import { ORM_GLOSSARY_PATH } from "./ormGlossaryData.js";
+import { ORM_GLOSSARY_PATH } from "../constants/resourcePaths.js";
 
 export const SEO = {
   home: {

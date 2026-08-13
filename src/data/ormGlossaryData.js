@@ -1,4 +1,4 @@
-export const ORM_GLOSSARY_PATH = "/resources/online-reputation-management-glossary";
+export { ORM_GLOSSARY_PATH } from "../constants/resourcePaths.js";
 
 export const ORM_GLOSSARY_PAGE = {
   "title": "Online Reputation Management Glossary",

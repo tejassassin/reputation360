@@ -1,26 +1,9 @@
 import { BLOG_INDEX_PATH } from "../constants/blogPaths.js";
-import { PACK20_BY_SLUG } from "../data/blogs/pack20/catalog.js";
 import {
-  DIY_REPUTATION_GUIDE_PATH,
-  diyReputationGuideHero,
-} from "../data/blogs/diyReputationGuide.js";
-import {
-  REMOVE_NEGATIVE_SEARCH_RESULTS_PATH,
-  removeNegativeSearchResultsHero,
-} from "../data/blogs/removeNegativeSearchResultsGuide.js";
-import {
-  REPUTATION_REPAIR_TIMELINE_PATH,
-  reputationRepairTimelineHero,
-} from "../data/blogs/reputationRepairTimelineGuide.js";
-import {
-  REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH,
-  removeNewsArticlesFromGoogleHero,
-} from "../data/blogs/removeNewsArticlesFromGoogleGuide.js";
-import {
-  SUPPRESS_NEGATIVE_GUIDE_PATH,
-  suppressNegativeGuideHero,
-} from "../data/blogs/suppressNegativeGuideMeta.js";
-import { getCaseStudyBySlug } from "../data/caseStudies/index.js";
+  CASE_STUDY_BREADCRUMB_TITLES_BY_SLUG,
+  PACK20_BREADCRUMB_TITLES_BY_SLUG,
+  STANDALONE_BLOG_BREADCRUMB_BY_PATH,
+} from "../data/articleBreadcrumbTitles.js";
 import { METADATA_BASE } from "../constants/siteUrl.js";
 import {
   canonicalHrefForNormalizedPath,
@@ -40,10 +23,11 @@ export function resolveArticleBreadcrumb(pathname) {
 
   const caseMatch = path.match(/^\/case-studies\/([^/]+)$/);
   if (caseMatch) {
-    const study = getCaseStudyBySlug(decodeURIComponent(caseMatch[1]));
-    if (!study) return null;
+    const slug = decodeURIComponent(caseMatch[1]);
+    const pageTitle = CASE_STUDY_BREADCRUMB_TITLES_BY_SLUG[slug];
+    if (!pageTitle) return null;
     return {
-      pageTitle: study.listTitle,
+      pageTitle,
       pagePath: path,
       sectionLabel: "Case Studies",
       sectionHref: "/case-studies",
@@ -54,55 +38,20 @@ export function resolveArticleBreadcrumb(pathname) {
   if (!blogMatch) return null;
 
   const slug = decodeURIComponent(blogMatch[1]);
-  const packArticle = PACK20_BY_SLUG.get(slug);
-  if (packArticle) {
+  const packTitle = PACK20_BREADCRUMB_TITLES_BY_SLUG[slug];
+  if (packTitle) {
     return {
-      pageTitle: packArticle.listing.title,
+      pageTitle: packTitle,
       pagePath: path,
       sectionLabel: "Blog",
       sectionHref: BLOG_INDEX_PATH,
     };
   }
 
-  if (path === SUPPRESS_NEGATIVE_GUIDE_PATH) {
+  const standaloneTitle = STANDALONE_BLOG_BREADCRUMB_BY_PATH[path];
+  if (standaloneTitle) {
     return {
-      pageTitle: suppressNegativeGuideHero.title,
-      pagePath: path,
-      sectionLabel: "Blog",
-      sectionHref: BLOG_INDEX_PATH,
-    };
-  }
-
-  if (path === DIY_REPUTATION_GUIDE_PATH) {
-    return {
-      pageTitle: diyReputationGuideHero.title,
-      pagePath: path,
-      sectionLabel: "Blog",
-      sectionHref: BLOG_INDEX_PATH,
-    };
-  }
-
-  if (path === REMOVE_NEGATIVE_SEARCH_RESULTS_PATH) {
-    return {
-      pageTitle: removeNegativeSearchResultsHero.title,
-      pagePath: path,
-      sectionLabel: "Blog",
-      sectionHref: BLOG_INDEX_PATH,
-    };
-  }
-
-  if (path === REPUTATION_REPAIR_TIMELINE_PATH) {
-    return {
-      pageTitle: reputationRepairTimelineHero.title,
-      pagePath: path,
-      sectionLabel: "Blog",
-      sectionHref: BLOG_INDEX_PATH,
-    };
-  }
-
-  if (path === REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH) {
-    return {
-      pageTitle: removeNewsArticlesFromGoogleHero.title,
+      pageTitle: standaloneTitle,
       pagePath: path,
       sectionLabel: "Blog",
       sectionHref: BLOG_INDEX_PATH,

@@ -1,5 +1,4 @@
 import "@/index.css";
-import "@/App.css";
 import { METADATA_BASE, SITE_HTML_LANG } from "@/constants/siteUrl.js";
 import { getDeploySha } from "@/lib/deploySha.js";
 import { SiteShell } from "./SiteShell.jsx";
