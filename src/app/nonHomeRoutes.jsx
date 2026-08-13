@@ -156,7 +156,6 @@ export function pageForNonHomePath(path) {
   }
   if (path === "/privacy-policy") return <PrivacyPolicyPage />;
   if (path === "/terms-of-service") return <TermsOfServicePage />;
-  if (path === "/terms-of-use" || path === "/acceptable-use-policy") return <TermsOfServicePage />;
   if (path === "/cookie-policy") return <CookiePolicyPage />;
   if (path === "/refund-policy") return <RefundPolicyPage />;
   if (path === "/dmca-copyright-policy") return <DmcaCopyrightPolicyPage />;

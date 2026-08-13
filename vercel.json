@@ -12,6 +12,15 @@
   },
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        { "type": "header", "key": "x-forwarded-proto", "value": "http" },
+        { "type": "host", "value": "thereputation360.com" }
+      ],
+      "destination": "https://www.thereputation360.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/",
       "has": [{ "type": "host", "value": "thereputation360.com" }],
       "destination": "https://www.thereputation360.com/",
@@ -34,6 +43,16 @@
       "has": [{ "type": "host", "value": "reputation360.vercel.app" }],
       "destination": "https://www.thereputation360.com/:path+",
       "permanent": true
+    },
+    {
+      "source": "/acceptable-use-policy",
+      "destination": "/terms-of-service",
+      "statusCode": 301
+    },
+    {
+      "source": "/terms-of-use",
+      "destination": "/terms-of-service",
+      "statusCode": 301
     },
     {
       "source": "/free-risk-scan",
@@ -87,101 +106,23 @@
   ],
   "headers": [
     {
-      "source": "/",
+      "source": "/(.*)",
       "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
         {
-          "key": "Cache-Control",
-          "value": "no-store, must-revalidate"
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
         }
       ]
     },
     {
-      "source": "/about",
+      "source": "/_next/static/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "no-store, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/blog",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/blog/:path*",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/contact",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/resources/:path*",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/services",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/services/:path*",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/case-studies",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/case-studies/:id*",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/who-we-serve/:path*",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, must-revalidate"
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
@@ -191,6 +132,24 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*\\.(?:jpg|jpeg|png|gif|svg|webp|ico|woff|woff2|ttf|eot))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*\\.(?:xml|txt|webmanifest))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
         }
       ]
     }

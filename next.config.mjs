@@ -22,7 +22,9 @@ const nextConfig = {
     return (vercel.redirects ?? []).map((rule) => ({
       source: rule.source,
       destination: rule.destination,
-      permanent: Boolean(rule.permanent),
+      ...(rule.statusCode
+        ? { statusCode: rule.statusCode }
+        : { permanent: Boolean(rule.permanent) }),
       ...(rule.has ? { has: rule.has } : {}),
     }));
   },

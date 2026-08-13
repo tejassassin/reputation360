@@ -2,7 +2,7 @@ import { writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { METADATA_BASE } from "../src/constants/siteUrl.js";
-import { SITEMAP_URL_ENTRIES } from "../src/constants/sitemapUrlEntries.js";
+import { buildSitemapEntries } from "../src/lib/sitemapEntries.js";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const outPath = join(root, "..", "public", "sitemap.xml");
@@ -12,15 +12,19 @@ function locHref(path) {
   return `${METADATA_BASE}${path}`;
 }
 
-const blocks = SITEMAP_URL_ENTRIES.map(
-  (e) => `
+const entries = buildSitemapEntries();
+
+const blocks = entries
+  .map((entry) => {
+    const lastmodLine = entry.lastmod ? `\n    <lastmod>${entry.lastmod}</lastmod>` : "";
+    return `
   <url>
-    <loc>${locHref(e.path)}</loc>
-    <lastmod>${e.lastmod}</lastmod>
-    <changefreq>${e.changefreq}</changefreq>
-    <priority>${e.priority}</priority>
-  </url>`,
-).join("");
+    <loc>${locHref(entry.path)}</loc>${lastmodLine}
+    <changefreq>${entry.changefreq}</changefreq>
+    <priority>${entry.priority}</priority>
+  </url>`;
+  })
+  .join("");
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${blocks}
@@ -28,4 +32,4 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 `;
 
 writeFileSync(outPath, xml, "utf8");
-console.log(`Wrote ${outPath} (${SITEMAP_URL_ENTRIES.length} URLs, base ${METADATA_BASE})`);
+console.log(`Wrote ${outPath} (${entries.length} URLs, base ${METADATA_BASE})`);

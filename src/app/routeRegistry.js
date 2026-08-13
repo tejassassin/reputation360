@@ -63,7 +63,6 @@ export function isRoutableNonHomePath(path) {
   if (path === "/resources/online-reputation-management-glossary") return true;
   if (path === "/privacy-policy") return true;
   if (path === "/terms-of-service") return true;
-  if (path === "/terms-of-use" || path === "/acceptable-use-policy") return true;
   if (path === "/cookie-policy") return true;
   if (path === "/refund-policy") return true;
   if (path === "/dmca-copyright-policy") return true;

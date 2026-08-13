@@ -9,11 +9,7 @@ import { LegacySitePage } from "@/lib/next/LegacySitePage.jsx";
 import { buildRouteMetadata } from "@/lib/next/routeMetadata.js";
 import { pathnameFromSegments, segmentsFromPathname } from "@/lib/next/pathSegments.js";
 
-const EXTRA_STATIC_PATHS = [
-  "/free-scan-admin",
-  "/terms-of-use",
-  "/acceptable-use-policy",
-];
+const EXTRA_STATIC_PATHS = ["/free-scan-admin"];
 
 export function generateStaticParams() {
   const paths = new Set([
