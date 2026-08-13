@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Clock } from "lucide-react";
 import { SeoHead } from "../components/SeoHead.jsx";
@@ -33,15 +35,25 @@ function Pack20ArticleFallback() {
 }
 
 /**
- * @param {{ slug: string }} props
+ * @param {{
+ *   slug: string;
+ *   initialArticle?: import('../data/blogs/pack20/types.js').Pack20Article;
+ *   renderSeo?: boolean;
+ * }} props
  */
-export default function BlogPack20ArticlePage({ slug }) {
+export default function BlogPack20ArticlePage({
+  slug,
+  initialArticle,
+  renderSeo = true,
+}) {
   /** @type {[import('../data/blogs/pack20/types.js').Pack20Article | null | undefined, Function]} */
-  const [article, setArticle] = useState(undefined);
+  const [article, setArticle] = useState(initialArticle ?? undefined);
   const [readingPct, setReadingPct] = useState(0);
   const [activeNavId, setActiveNavId] = useState("");
 
   useEffect(() => {
+    if (initialArticle != null) return undefined;
+
     let cancelled = false;
 
     loadPack20Article(slug).then((loaded) => {
@@ -56,7 +68,7 @@ export default function BlogPack20ArticlePage({ slug }) {
     return () => {
       cancelled = true;
     };
-  }, [slug]);
+  }, [slug, initialArticle]);
 
   useEffect(() => {
     if (!article) return undefined;
@@ -95,16 +107,18 @@ export default function BlogPack20ArticlePage({ slug }) {
 
   return (
     <>
-      <SeoHead
-        title={article.seoTitle}
-        description={article.metaDescription}
-        canonicalPath={article.path}
-        ogImage={article.listing.image}
-        additionalJsonLd={mergeAdditionalJsonLd(
-          faqAdditionalJsonLdFromItems(mapQaFaqs(article.faqs ?? [])),
-          articleAdditionalJsonLdFromInput(pack20ArticleToSchemaInput(article)),
-        )}
-      />
+      {renderSeo ? (
+        <SeoHead
+          title={article.seoTitle}
+          description={article.metaDescription}
+          canonicalPath={article.path}
+          ogImage={article.listing.image}
+          additionalJsonLd={mergeAdditionalJsonLd(
+            faqAdditionalJsonLdFromItems(mapQaFaqs(article.faqs ?? [])),
+            articleAdditionalJsonLdFromInput(pack20ArticleToSchemaInput(article)),
+          )}
+        />
+      ) : null}
 
       <div className="r360-diy-interactive scroll-smooth pb-1 font-body text-jet antialiased">
         <div className="diy-hero-band" id="intro">

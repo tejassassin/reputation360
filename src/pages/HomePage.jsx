@@ -1,3 +1,5 @@
+"use client";
+
 import { lazy } from "react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { faqAdditionalJsonLdFromItems, mapQuestionAnswerFaqs } from "../data/faqPageSchema.js";
@@ -19,18 +21,23 @@ const HomeFromOurBlogSection = lazy(() => import("../components/home/HomeFromOur
 const HomeFaq = lazy(() => import("../components/HomeFaq"));
 const Contact = lazy(() => import("../components/Contact"));
 
-function HomePage() {
+/**
+ * @param {{ renderSeo?: boolean }} props
+ */
+function HomePage({ renderSeo = true }) {
   const homeSeo = useLocalizedSeo("home");
 
   return (
     <>
-      <SeoHead
-        title={homeSeo.title}
-        description={homeSeo.description}
-        canonicalPath={homeSeo.path}
-        jsonLd={HOME_PAGE_JSON_LD}
-        additionalJsonLd={faqAdditionalJsonLdFromItems(mapQuestionAnswerFaqs(HOME_FAQ_ITEMS))}
-      />
+      {renderSeo ? (
+        <SeoHead
+          title={homeSeo.title}
+          description={homeSeo.description}
+          canonicalPath={homeSeo.path}
+          jsonLd={HOME_PAGE_JSON_LD}
+          additionalJsonLd={faqAdditionalJsonLdFromItems(mapQuestionAnswerFaqs(HOME_FAQ_ITEMS))}
+        />
+      ) : null}
       <Hero />
       <main className="flex w-full flex-col gap-12 pt-8 md:gap-16 md:pt-12 lg:gap-20 lg:pt-16">
         <section>

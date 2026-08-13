@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@scan/*": ["scan-shared/*"]
+    },
+    "jsx": "react-jsx",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "esnext"
+  },
+  "include": ["src/**/*", "app/**/*", "next.config.mjs"],
+  "exclude": ["node_modules", "dist"]
+}
