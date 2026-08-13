@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { FaqRichAnswer } from "../components/FaqRichAnswer.jsx";
@@ -47,7 +49,7 @@ const heroStatCards = [
   { end: 97, suffix: "%", label: "Success Rate" },
 ];
 
-function FaqsPage() {
+function FaqsPage({ renderSeo = true }) {
   const heroStatsRef = useRef(null);
   const [heroStatsLive, setHeroStatsLive] = useState(false);
   const [activeFaqSection, setActiveFaqSection] = useState("section-1");
@@ -116,12 +118,14 @@ function FaqsPage() {
 
   return (
     <>
+      {renderSeo ? (
       <SeoHead
         title={seo.title}
         description={seo.description}
         canonicalPath={seo.path}
         additionalJsonLd={faqAdditionalJsonLdFromItems(RESOURCES_FAQ_SCHEMA_ITEMS)}
       />
+      ) : null}
       <main className="faq-page flex-1 bg-[#F5F7FA] pt-28 text-[#1F3B64] selection:bg-[#4CAF50]/30 md:pt-32">
         <div className="mx-auto max-w-7xl px-6">
           {/* Hero */}

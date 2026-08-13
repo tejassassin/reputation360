@@ -1,3 +1,5 @@
+"use client";
+
 import { SeoHead } from "../components/SeoHead.jsx";
 import { faqAdditionalJsonLdFromItems, mapQuestionAnswerFaqs } from "../data/faqPageSchema.js";
 import { SERVICES_FAQ_ITEMS } from "../data/servicesFaqItems.js";
@@ -6,10 +8,11 @@ import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import ServicesAbout from "../components/ServicesAbout.jsx";
 import { ServicesSubnav } from "../components/services/ServicesSubnav.jsx";
 
-function ServicesPage() {
+function ServicesPage({ renderSeo = true }) {
   const seo = useLocalizedSeo("services");
   return (
     <>
+      {renderSeo ? (
       <SeoHead
         title={seo.title}
         description={seo.description}
@@ -17,6 +20,7 @@ function ServicesPage() {
         jsonLd={SERVICES_PAGE_JSON_LD}
         additionalJsonLd={faqAdditionalJsonLdFromItems(mapQuestionAnswerFaqs(SERVICES_FAQ_ITEMS))}
       />
+      ) : null}
     <main className="flex-1 bg-offwhite pt-24 md:pt-28">
       <ServicesSubnav />
       <section className="bg-offwhite">

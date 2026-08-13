@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
@@ -35,7 +37,7 @@ const guideSectionIds = toc.map((c) => c.id);
 /** Match sticky sidebar (top-28) + `scroll-mt-32` on sections. */
 const GUIDE_SCROLL_SPY_OFFSET_PX = 140;
 
-function GuidePage() {
+function GuidePage({ renderSeo = true }) {
   const [activeGuideSection, setActiveGuideSection] = useState("ch1");
   const guideScrollRafRef = useRef(0);
   const seo = useLocalizedSeo("guide");
@@ -89,11 +91,13 @@ function GuidePage() {
 
   return (
     <>
+      {renderSeo ? (
       <SeoHead
         title={seo.title}
         description={seo.description}
         canonicalPath={seo.path}
       />
+      ) : null}
     <div className="guide-page bg-[#f9f9ff] text-[#141b2b]">
       {/* Hero - site header is fixed; pt clears it */}
       <header className="relative overflow-hidden px-4 pb-24 pt-44 md:px-8 md:pt-56">

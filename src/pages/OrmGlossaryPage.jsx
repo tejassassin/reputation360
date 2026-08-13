@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { BookOpen } from "lucide-react";
@@ -111,7 +113,7 @@ const heroStatCards = [
   },
 ];
 
-export default function OrmGlossaryPage() {
+export default function OrmGlossaryPage({ renderSeo = true }) {
   const seo = useLocalizedSeo("ormGlossary");
   const heroStatsRef = useRef(null);
   const [heroStatsLive, setHeroStatsLive] = useState(false);
@@ -182,11 +184,13 @@ export default function OrmGlossaryPage() {
 
   return (
     <>
+      {renderSeo ? (
       <SeoHead
         title={seo.title}
         description={seo.description}
         canonicalPath={seo.path}
       />
+      ) : null}
       <main className="flex-1 bg-[#F5F7FA] pt-28 text-[#1F3B64] selection:bg-[#4CAF50]/30 md:pt-32">
         <div className="mx-auto max-w-7xl px-6">
           <section className="flex flex-col items-center py-24 text-center md:py-32">

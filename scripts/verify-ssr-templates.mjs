@@ -90,6 +90,8 @@ const LOADING_SHELL_MARKERS = [
   /aria-busy="true" aria-label="Loading article"/i,
 ];
 
+const JS_REQUIRED_MARKERS = [/JavaScript is required to view this site/i];
+
 /**
  * @param {string} html
  */
@@ -129,6 +131,10 @@ function auditHtml(path, html) {
 
   for (const marker of HIDDEN_CSS_MARKERS) {
     if (marker.re.test(html)) issues.push(`hidden-css:${marker.id}`);
+  }
+
+  for (const marker of JS_REQUIRED_MARKERS) {
+    if (marker.test(html)) issues.push(`js-required-fallback:${marker.source}`);
   }
 
   for (const marker of LOADING_SHELL_MARKERS) {

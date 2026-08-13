@@ -4,6 +4,7 @@ import {
   isRoutableNonHomePath,
   NEXT_SERVER_REDIRECTS,
 } from "@/app/routeRegistry.js";
+import { DEDICATED_SSR_PATHS } from "@/lib/next/dedicatedSsrPaths.js";
 import { LegacySitePage } from "@/lib/next/LegacySitePage.jsx";
 import { buildRouteMetadata } from "@/lib/next/routeMetadata.js";
 import { pathnameFromSegments, segmentsFromPathname } from "@/lib/next/pathSegments.js";
@@ -22,7 +23,12 @@ export function generateStaticParams() {
   ]);
 
   return [...paths]
-    .filter((path) => path !== "/" && !path.startsWith("/blog/"))
+    .filter(
+      (path) =>
+        path !== "/" &&
+        !path.startsWith("/blog/") &&
+        !DEDICATED_SSR_PATHS.has(path),
+    )
     .map((path) => ({ path: segmentsFromPathname(path) }));
 }
 

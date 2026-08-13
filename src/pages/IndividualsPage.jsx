@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { FaqAnswerParagraphs } from "../components/FaqAnswerParagraphs.jsx";
@@ -748,10 +750,11 @@ function IndividualsFaqSection() {
   );
 }
 
-function IndividualsPage() {
+function IndividualsPage({ renderSeo = true }) {
   const seo = useLocalizedSeo("individuals");
   return (
     <>
+      {renderSeo ? (
       <SeoHead
         title={seo.title}
         description={seo.description}
@@ -760,6 +763,7 @@ function IndividualsPage() {
           mapQuestionAnswerFaqs(INDIVIDUAL_FAQ_ITEMS),
         )}
       />
+      ) : null}
     <main className="flex-1 bg-offwhite">
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 md:px-6 md:py-14">
         <section className="relative overflow-hidden rounded-[8px] bg-[linear-gradient(110deg,#ececf8_0%,#eef3f6_70%,#edf7f3_100%)] px-3 py-6 md:grid md:grid-cols-[1.03fr_0.97fr] md:items-start md:px-4 md:py-7">
