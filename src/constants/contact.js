@@ -19,6 +19,10 @@ export const CONTACT_PAGE_EMAIL_SECTION_HREF = "/contact#email-inquiry";
  */
 export const WHATSAPP_PHONE = "919548997527";
 
+/** Visible mailing address (matches structured data PostalAddress). */
+export const BUSINESS_ADDRESS_DISPLAY =
+  "DLP Phase 2, Gurgaon, Haryana 122002, India";
+
 /** Default message prefilled in the WhatsApp compose box. */
 export const WHATSAPP_PREFILL_MESSAGE =
   "Hello, I would like to connect with Reputation360.";

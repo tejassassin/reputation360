@@ -6,6 +6,7 @@ import {
   CONTACT_EMAIL,
   CONTACT_FORM_AUTORESPONSE,
   CONTACT_FORM_SUBMIT_URL,
+  BUSINESS_ADDRESS_DISPLAY,
   contactMailtoHref,
   contactTelHref,
   contactWhatsAppHref,
@@ -344,6 +345,25 @@ function ContactPage() {
                 Message Now
                 <ExternalLink className="h-4 w-4" strokeWidth={2.25} />
               </a>
+            </div>
+
+            {/* Registered Office */}
+            <div className="ha-lift rounded-[1.75rem] bg-white p-6 shadow-sm md:col-span-12 md:rounded-[2rem] md:p-10">
+              <h3 className="font-heading text-xl font-bold text-[#02254d] md:text-2xl">
+                Registered Office
+              </h3>
+              <address className="mt-3 not-italic text-[15px] leading-relaxed text-[#43474e] md:text-lg">
+                {BUSINESS_ADDRESS_DISPLAY}
+              </address>
+              <p className="mt-3 text-[15px] leading-relaxed text-[#43474e] md:text-lg">
+                Phone:{" "}
+                <a
+                  href={contactTelHref()}
+                  className="font-semibold text-[#1F3B64] underline-offset-2 hover:underline"
+                >
+                  {formatBusinessPhoneDisplay()}
+                </a>
+              </p>
             </div>
 
             {/* Email + form */}

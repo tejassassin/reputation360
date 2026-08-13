@@ -8,6 +8,7 @@ import {
 } from "../constants/brandProfiles.js";
 import {
   CONTACT_EMAIL,
+  BUSINESS_ADDRESS_DISPLAY,
   contactMailtoHref,
   contactTelHref,
   contactWhatsAppHref,
@@ -122,12 +123,19 @@ function Footer() {
                 </a>
               </li>
               <li>
+                <span className="block text-white/80 mb-1">Phone:</span>
                 <a
                   href={contactTelHref()}
                   className="ha-nudge inline-block max-w-full break-words rounded px-0.5 transition-colors hover:text-green"
                 >
-                  Call us - {formatBusinessPhoneDisplay()}
+                  {formatBusinessPhoneDisplay()}
                 </a>
+              </li>
+              <li>
+                <span className="block text-white/80 mb-1">Registered office:</span>
+                <span className="block max-w-xs leading-relaxed">
+                  {BUSINESS_ADDRESS_DISPLAY}
+                </span>
               </li>
               <li>
                 <span className="block text-white/80 mb-2">
