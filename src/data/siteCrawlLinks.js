@@ -99,21 +99,3 @@ export const CRAWL_BLOG_PAGES = [
     label: article.listing.title,
   })),
 ];
-
-/** Flat list for static index.html injection (no duplicates). */
-export function allCrawlLinksFlat() {
-  const seen = new Set();
-  /** @type {CrawlLink[]} */
-  const out = [];
-  for (const link of [
-    ...CRAWL_MAIN_PAGES,
-    ...CRAWL_AUDIENCE_PAGES,
-    ...CRAWL_CASE_STUDY_PAGES,
-    ...CRAWL_BLOG_PAGES,
-  ]) {
-    if (seen.has(link.href)) continue;
-    seen.add(link.href);
-    out.push(link);
-  }
-  return out;
-}

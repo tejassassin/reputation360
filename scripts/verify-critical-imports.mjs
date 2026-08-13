@@ -16,7 +16,6 @@ const modules = [
   "/src/data/blogs/diyReputationGuide.js",
   "/src/data/blogs/removeNegativeSearchResultsGuide.js",
   "/src/data/blogs/pack20/catalog.js",
-  "/src/lib/prerender/getPrerenderHtmlForPath.js",
 ];
 
 const server = await createServer({
