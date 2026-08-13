@@ -144,6 +144,14 @@ function auditHtml(path, html) {
     if (marker.test(html)) issues.push(`loading-shell:${marker.source}`);
   }
 
+  const canonicalCount = (html.match(/<link[^>]+rel=["']canonical["']/gi) ?? []).length;
+  if (canonicalCount !== 1) {
+    issues.push(`canonical-count:${canonicalCount}`);
+  }
+  if (/id=["']r360-link-canonical["']/i.test(html)) {
+    issues.push("legacy:r360-link-canonical-id");
+  }
+
   const h1 = firstH1Text(html);
   if (h1.length < 8) {
     issues.push(`missing-h1:${h1 || "none"}`);

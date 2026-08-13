@@ -7,7 +7,6 @@ import {
 } from "../lib/canonicalHrefFromPath.js";
 
 const DESC_ID = "r360-meta-description";
-const CANON_ID = "r360-link-canonical";
 const JSONLD_ORG_ID = "r360-jsonld-organization";
 export const JSONLD_SERVICES_ID = "r360-jsonld-services";
 import { JSONLD_ARTICLE_ID } from "../data/articleSchema.js";
@@ -116,12 +115,32 @@ function removeExtraDescriptionMetas(canonical) {
   }
 }
 
+/** One canonical link: reuse Next metadata output; never add id="r360-link-canonical". */
+function resolveCanonicalLink() {
+  const head = document.head;
+  if (!head) return null;
+
+  document.getElementById("r360-link-canonical")?.remove();
+
+  const links = [...head.querySelectorAll('link[rel="canonical"]')];
+  const primary = links[0] ?? null;
+  for (let i = 1; i < links.length; i += 1) {
+    links[i].remove();
+  }
+
+  if (primary) return primary;
+
+  const created = document.createElement("link");
+  created.setAttribute("rel", "canonical");
+  head.appendChild(created);
+  return created;
+}
+
 /**
- * Sets document title, meta description, rel=canonical, Open Graph, and
- * Twitter Card tags (SPA). Canonical and `og:url` always follow
- * `window.location.pathname` (no query/UTM, no hash), with a trailing slash only
- * on the homepage. An inline script in `index.html` sets the same link before
- * React loads. `canonicalPath` is only a non-browser fallback when `window` is unavailable.
+ * Sets document title, meta description, Open Graph, and Twitter Card tags (SPA).
+ * Canonical is owned by Next.js `generateMetadata` on production routes; this
+ * component only updates an existing `link[rel="canonical"]` when mounted (Vite
+ * dev / client navigations). `canonicalPath` is a non-browser fallback.
  *
  * @param {object}  props
  * @param {string}  props.title          Page <title> and og:title
@@ -145,14 +164,8 @@ export function SeoHead({ title, description, canonicalPath, ogImage, jsonLd, ad
     const apply = () => {
       const href = resolveCanonicalHref();
 
-      let link = document.getElementById(CANON_ID);
-      if (!link) {
-        link = document.createElement("link");
-        link.id = CANON_ID;
-        link.setAttribute("rel", "canonical");
-        document.head.appendChild(link);
-      }
-      link.setAttribute("href", href);
+      const link = resolveCanonicalLink();
+      if (link) link.setAttribute("href", href);
 
       const text = description == null ? "" : String(description);
       const meta = resolveDescriptionMeta();
