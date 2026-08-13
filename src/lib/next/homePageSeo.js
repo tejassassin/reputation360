@@ -38,9 +38,8 @@ export function buildHomeMetadata() {
 }
 
 export function getHomeJsonLdBlocks() {
-  const faqBlock = faqAdditionalJsonLdFromItems(mapQuestionAnswerFaqs(HOME_FAQ_ITEMS));
   return [
     { id: "r360-jsonld-organization", data: HOME_PAGE_JSON_LD },
-    ...(faqBlock ? [faqBlock] : []),
+    ...faqAdditionalJsonLdFromItems(mapQuestionAnswerFaqs(HOME_FAQ_ITEMS)),
   ];
 }
