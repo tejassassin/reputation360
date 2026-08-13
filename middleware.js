@@ -1,10 +1,8 @@
 import { NextResponse } from "next/server";
-import {
-  INTERNAL_NOT_FOUND_PATH,
-  isValidSitePath,
-} from "@/lib/sitePathValidation.js";
+import { MIDDLEWARE_KNOWN_PATHS } from "@/lib/middlewareKnownPaths.js";
 
 const HTML_CACHE_CONTROL = "public, s-maxage=60, stale-while-revalidate=600";
+const INTERNAL_NOT_FOUND_PATH = "/internal-not-found";
 
 function withHtmlResponseHeaders(response) {
   response.headers.set("Vercel-Cache-Tag", "r360-site");
@@ -44,7 +42,7 @@ export function middleware(request) {
     return withHtmlResponseHeaders(NextResponse.next({ status: 404 }));
   }
 
-  if (!isValidSitePath(pathname)) {
+  if (!MIDDLEWARE_KNOWN_PATHS.has(pathname)) {
     const url = request.nextUrl.clone();
     url.pathname = INTERNAL_NOT_FOUND_PATH;
     return withHtmlResponseHeaders(NextResponse.rewrite(url, { status: 404 }));

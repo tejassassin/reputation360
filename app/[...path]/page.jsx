@@ -1,4 +1,5 @@
-import { notFound, redirect } from "next/navigation";
+import { redirect } from "next/navigation";
+import { NotFoundContent } from "@/components/NotFoundContent.jsx";
 import { SITEMAP_URL_ENTRIES } from "@/constants/sitemapUrlEntries.js";
 import {
   isRoutableNonHomePath,
@@ -9,7 +10,6 @@ import { LegacySitePage } from "@/lib/next/LegacySitePage.jsx";
 import { buildRouteMetadata } from "@/lib/next/routeMetadata.js";
 import { pathnameFromSegments, segmentsFromPathname } from "@/lib/next/pathSegments.js";
 
-export const dynamic = "force-dynamic";
 export const dynamicParams = false;
 
 const EXTRA_STATIC_PATHS = ["/free-scan-admin"];
@@ -53,7 +53,7 @@ export default async function CatchAllPage({ params }) {
   }
 
   if (!isRoutableNonHomePath(pathname)) {
-    notFound();
+    return <NotFoundContent />;
   }
 
   return <LegacySitePage pathname={pathname} />;
