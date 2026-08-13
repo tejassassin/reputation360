@@ -30,7 +30,9 @@
     "local:prod": "node scripts/dev.mjs build && node scripts/dev.mjs preview",
     "verify:live": "node scripts/verify-live-deploy.mjs",
     "verify:live:about": "node scripts/verify-live-deploy.mjs /about",
-    "verify:live:preview": "R360_LIVE_URL=https://reputation360-delta.vercel.app node scripts/verify-live-deploy.mjs"
+    "verify:live:preview": "R360_LIVE_URL=https://reputation360-delta.vercel.app node scripts/verify-live-deploy.mjs",
+    "purge:vercel-cache": "node scripts/purge-vercel-cache.mjs --yes",
+    "verify:cache-consistency": "node scripts/verify-cache-consistency.mjs"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.36.1",
