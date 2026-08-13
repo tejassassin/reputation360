@@ -1,6 +1,23 @@
 import { NextResponse } from "next/server";
+import {
+  INTERNAL_NOT_FOUND_PATH,
+  isValidSitePath,
+} from "@/lib/sitePathValidation.js";
 
 const HTML_CACHE_CONTROL = "public, s-maxage=60, stale-while-revalidate=600";
+
+function withHtmlResponseHeaders(response) {
+  response.headers.set("Vercel-Cache-Tag", "r360-site");
+  response.headers.set("Cache-Control", HTML_CACHE_CONTROL);
+  response.headers.set("X-Content-Type-Options", "nosniff");
+  response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  response.headers.set("X-Frame-Options", "SAMEORIGIN");
+  response.headers.set(
+    "Strict-Transport-Security",
+    "max-age=63072000; includeSubDomains; preload",
+  );
+  return response;
+}
 
 /**
  * Tag HTML responses so Vercel CDN purge can invalidate the full site after deploy.
@@ -23,17 +40,17 @@ export function middleware(request) {
     return NextResponse.redirect(url, 301);
   }
 
-  const response = NextResponse.next();
-  response.headers.set("Vercel-Cache-Tag", "r360-site");
-  response.headers.set("Cache-Control", HTML_CACHE_CONTROL);
-  response.headers.set("X-Content-Type-Options", "nosniff");
-  response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
-  response.headers.set("X-Frame-Options", "SAMEORIGIN");
-  response.headers.set(
-    "Strict-Transport-Security",
-    "max-age=63072000; includeSubDomains; preload",
-  );
-  return response;
+  if (pathname === INTERNAL_NOT_FOUND_PATH) {
+    return withHtmlResponseHeaders(NextResponse.next({ status: 404 }));
+  }
+
+  if (!isValidSitePath(pathname)) {
+    const url = request.nextUrl.clone();
+    url.pathname = INTERNAL_NOT_FOUND_PATH;
+    return withHtmlResponseHeaders(NextResponse.rewrite(url, { status: 404 }));
+  }
+
+  return withHtmlResponseHeaders(NextResponse.next());
 }
 
 export const config = {

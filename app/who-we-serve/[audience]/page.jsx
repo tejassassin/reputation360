@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { NotFoundContent } from "@/components/NotFoundContent.jsx";
 import { WHO_WE_SERVE_BY_SEGMENT } from "@/lib/next/dedicatedSsrRoutes.js";
 import { buildRouteMetadata } from "@/lib/next/routeMetadata.js";
 export { dynamic, revalidate } from "@/lib/next/ssrRouteConfig.js";
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
 export default async function WhoWeServeAudiencePage({ params }) {
   const { audience } = await params;
   const row = WHO_WE_SERVE_BY_SEGMENT[audience];
-  if (!row) notFound();
+  if (!row) return <NotFoundContent />;
 
   const { Page } = row;
   return <Page renderSeo={false} />;

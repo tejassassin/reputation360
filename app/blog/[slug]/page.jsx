@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { NotFoundContent } from "@/components/NotFoundContent.jsx";
 import BlogPack20ArticlePage from "@/pages/BlogPack20ArticlePage.jsx";
 import { JsonLd } from "@/components/next/JsonLd.jsx";
 import { blogPostPath } from "@/constants/blogPaths.js";
@@ -41,7 +41,7 @@ export default async function BlogPostPage({ params }) {
 
   if (PACK20_SLUGS.has(slug)) {
     const article = await loadPack20Article(slug);
-    if (!article) notFound();
+    if (!article) return <NotFoundContent />;
 
     const jsonLdBlocks = getPack20ArticleJsonLdBlocks(article);
     return (
@@ -55,7 +55,7 @@ export default async function BlogPostPage({ params }) {
   }
 
   if (!LEGACY_BLOG_SLUG_SET.has(slug)) {
-    notFound();
+    return <NotFoundContent />;
   }
 
   return <LegacyBlogPage slug={slug} />;
