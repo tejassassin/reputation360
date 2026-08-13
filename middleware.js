@@ -42,6 +42,10 @@ export function middleware(request) {
     return withHtmlResponseHeaders(NextResponse.next({ status: 404 }));
   }
 
+  if (pathname.endsWith("/opengraph-image") || pathname.endsWith("/twitter-image")) {
+    return withHtmlResponseHeaders(NextResponse.next());
+  }
+
   if (!MIDDLEWARE_KNOWN_PATHS.has(pathname)) {
     const url = request.nextUrl.clone();
     url.pathname = INTERNAL_NOT_FOUND_PATH;
