@@ -15,13 +15,11 @@ type NavItemConfig = {
 };
 
 /** @param {NavItemConfig} item */
-function isDropdownOnlyParent(item) {
-  if (!item.children?.length) return false;
-  return Boolean(
-    item.parentNonNavigable ||
-      item.link === "#" ||
-      item.link === WHO_WE_SERVE_HUB_PATH,
-  );
+function resolveNavParentHref(item: NavItemConfig) {
+  if (item.link && item.link !== "#" && item.link !== WHO_WE_SERVE_HUB_PATH) {
+    return item.link;
+  }
+  return item.children?.[0]?.link ?? "#";
 }
 
 /* Sticky pill: scroll>100 adds opaque shell + shadow. Below 2xl, desktop uses 2 rows (links then CTAs) so links never share a row with buttons. */
@@ -125,20 +123,21 @@ export const NavItems = ({
       )}
     >
       {items.map((item, h) => {
-        const parentIsDropdownOnly = isDropdownOnlyParent(item);
         const menuOpen = isMenuOpen(h);
+        const parentHref = resolveNavParentHref(item);
+        const hasChildren = Boolean(item.children?.length);
         return (
         <div
           onMouseEnter={() => setHovered(h)}
           onMouseLeave={() => setHovered(null)}
-          className="relative shrink-0"
+          className="group relative shrink-0"
           key={`link-${h}`}
         >
-          {parentIsDropdownOnly ? (
-            <span
-              role="button"
-              tabIndex={0}
-              className="group relative block w-full shrink-0 cursor-default select-none whitespace-nowrap rounded-full px-2.5 py-1.5 text-left text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
+          {hasChildren ? (
+            <a
+              href={parentHref}
+              {...internalAnchorProps(parentHref)}
+              className="group relative block w-full shrink-0 whitespace-nowrap rounded-full px-2.5 py-1.5 text-left text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
               aria-haspopup="menu"
               aria-expanded={menuOpen}
               onMouseDown={(e) => {
@@ -177,51 +176,7 @@ export const NavItems = ({
                   aria-hidden
                 />
               </span>
-            </span>
-          ) : item.children?.length ? (
-            <span
-              role="button"
-              tabIndex={0}
-              className="group relative block w-full shrink-0 cursor-default select-none whitespace-nowrap rounded-full px-2.5 py-1.5 text-left text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
-              aria-haspopup="menu"
-              aria-expanded={menuOpen}
-              onMouseDown={(e) => {
-                e.preventDefault();
-              }}
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setOpenMenu((prev) => (prev === h ? null : h));
-              }}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  setOpenMenu((prev) => (prev === h ? null : h));
-                }
-                if (e.key === "Escape") {
-                  setOpenMenu(null);
-                  setHovered(null);
-                }
-              }}
-            >
-              <span
-                className={cn(
-                  "pointer-events-none absolute inset-0 rounded-full bg-white/0 transition-colors duration-200 group-hover:bg-white/10 group-focus-visible:bg-white/10",
-                  menuOpen && "bg-white/10",
-                )}
-                aria-hidden
-              />
-              <span className="relative z-[1] inline-flex items-center gap-1 whitespace-nowrap">
-                {item.name}
-                <IconChevronDown
-                  className={cn(
-                    "h-3.5 w-3.5 shrink-0 opacity-70 transition-transform duration-200",
-                    menuOpen && "rotate-180",
-                  )}
-                  aria-hidden
-                />
-              </span>
-            </span>
+            </a>
           ) : (
             <a
               onClick={(e) => {
@@ -239,15 +194,19 @@ export const NavItems = ({
               <span className="relative z-[1] whitespace-nowrap">{item.name}</span>
             </a>
           )}
-          {item.children && item.children.length > 0 && menuOpen && (
-            /* pt-2 bridge: fills the gap under the trigger so the menu stays open while moving the cursor down */
+          {hasChildren && (
             <div
-              className="absolute left-0 top-full z-[200] min-w-52 pt-2"
+              className={cn(
+                "absolute left-0 top-full z-[200] min-w-52 pt-2 transition-opacity duration-150",
+                menuOpen
+                  ? "visible opacity-100"
+                  : "pointer-events-none invisible opacity-0 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:opacity-100",
+              )}
               role="menu"
               aria-label={`${item.name} submenu`}
             >
               <div className="rounded-lg border border-white/15 bg-navy p-2 shadow-xl backdrop-blur-md">
-                {item.children.map((child) => (
+                {item.children!.map((child) => (
                   <a
                     key={`${item.name}-${child.name}`}
                     href={child.link}
