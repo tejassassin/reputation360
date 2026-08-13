@@ -75,18 +75,30 @@ export async function generateBrandedOgImage(title) {
             backgroundColor: "#4CAF50",
           }}
         />
-        <img
-          src={logoSrc}
-          width={76}
-          height={76}
-          alt=""
+        <div
           style={{
             position: "absolute",
             top: 48,
             right: 56,
-            objectFit: "contain",
+            width: 96,
+            height: 96,
+            borderRadius: "50%",
+            backgroundColor: "#ffffff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
-        />
+        >
+          <img
+            src={logoSrc}
+            width={68}
+            height={68}
+            alt=""
+            style={{
+              objectFit: "contain",
+            }}
+          />
+        </div>
         <div
           style={{
             display: "flex",
