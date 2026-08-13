@@ -3,6 +3,11 @@ import { Mail } from "lucide-react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { BRAND_LOGO_SRC } from "../constants/brandAssets.js";
 import {
+  GOOGLE_REVIEW_URL,
+  INSTAGRAM_PROFILE_URL,
+  LINKEDIN_COMPANY_URL,
+} from "../constants/brandProfiles.js";
+import {
   CONTACT_EMAIL,
   contactMailtoHref,
   contactWhatsAppHref,
@@ -137,10 +142,8 @@ function Footer() {
                     <Mail className="h-5 w-5" strokeWidth={2} aria-hidden />
                   </a>
                   <a
-                    href="https://www.linkedin.com/company/reputation360online/?viewAsMember=true"
-                    {...externalAnchorProps(
-                      "https://www.linkedin.com/company/reputation360online/?viewAsMember=true",
-                    )}
+                    href={LINKEDIN_COMPANY_URL}
+                    {...externalAnchorProps(LINKEDIN_COMPANY_URL)}
                     aria-label="LinkedIn"
                     className="inline-flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full text-white/60 transition-colors hover:text-green active:opacity-90"
                   >
@@ -154,10 +157,8 @@ function Footer() {
                     </svg>
                   </a>
                   <a
-                    href="https://www.instagram.com/reputation360_online?igsh=ZThlOHpieWVpaWF1&utm_source=qr"
-                    {...externalAnchorProps(
-                      "https://www.instagram.com/reputation360_online?igsh=ZThlOHpieWVpaWF1&utm_source=qr",
-                    )}
+                    href={INSTAGRAM_PROFILE_URL}
+                    {...externalAnchorProps(INSTAGRAM_PROFILE_URL)}
                     aria-label="Instagram"
                     className="inline-flex h-11 w-11 shrink-0 touch-manipulation items-center justify-center rounded-full text-white/60 transition-colors hover:text-green active:opacity-90"
                   >
@@ -188,6 +189,15 @@ function Footer() {
                     </svg>
                   </a>
                 </div>
+              </li>
+              <li>
+                <a
+                  href={GOOGLE_REVIEW_URL}
+                  {...externalAnchorProps(GOOGLE_REVIEW_URL)}
+                  className="ha-nudge inline-block rounded px-0.5 transition-colors hover:text-green"
+                >
+                  Leave a Google review
+                </a>
               </li>
             </ul>
           </div>

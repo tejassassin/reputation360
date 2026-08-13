@@ -1,6 +1,12 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
 import { CONTACT_EMAIL } from "../constants/contact.js";
 import {
+  FOUNDING_YEAR,
+  GOOGLE_REVIEW_URL,
+  INSTAGRAM_PROFILE_URL,
+  LINKEDIN_COMPANY_URL,
+} from "../constants/brandProfiles.js";
+import {
   ORGANIZATION_ID,
   PROFESSIONAL_SERVICE_ENTITY,
 } from "./localBusinessSchema.js";
@@ -17,7 +23,7 @@ export const ORGANIZATION_ENTITY = {
   description:
     "Reputation360 is a trusted Online Reputation Management agency with 7+ years of experience. We help individuals and brands suppress negative search results and build credible, resilient digital reputations.",
   email: CONTACT_EMAIL,
-  foundingDate: "2018",
+  foundingDate: String(FOUNDING_YEAR),
   areaServed: {
     "@type": "Country",
     name: "United States",
@@ -29,11 +35,11 @@ export const ORGANIZATION_ENTITY = {
     "Crisis Management",
   ],
   sameAs: [
-    "https://www.linkedin.com/company/thereputation360",
+    LINKEDIN_COMPANY_URL,
     "https://x.com/Reputation360_",
-    "https://www.instagram.com/thereputation360/",
+    INSTAGRAM_PROFILE_URL,
     "https://www.youtube.com/@Reputation360",
-    "https://g.page/r/CRYmeiA2xgQBEBM/review",
+    GOOGLE_REVIEW_URL,
     "https://in.pinterest.com/reputation360/",
     "https://medium.com/@Reputation360",
     "https://reputation360online.blogspot.com/",

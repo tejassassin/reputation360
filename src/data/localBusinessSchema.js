@@ -1,5 +1,11 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
 import { CONTACT_EMAIL, WHATSAPP_PHONE } from "../constants/contact.js";
+import {
+  FOUNDING_YEAR,
+  GOOGLE_REVIEW_URL,
+  INSTAGRAM_PROFILE_URL,
+  LINKEDIN_COMPANY_URL,
+} from "../constants/brandProfiles.js";
 
 export const ORGANIZATION_ID = `${METADATA_BASE}/#organization`;
 export const PROFESSIONAL_SERVICE_ID = `${METADATA_BASE}/#professional-service`;
@@ -23,11 +29,11 @@ const KNOWS_ABOUT = [
 ];
 
 const PROFILE_SAME_AS = [
-  "https://www.linkedin.com/company/thereputation360",
+  LINKEDIN_COMPANY_URL,
   "https://x.com/Reputation360_",
-  "https://www.instagram.com/thereputation360/",
+  INSTAGRAM_PROFILE_URL,
   "https://www.youtube.com/@Reputation360",
-  "https://g.page/r/CRYmeiA2xgQBEBM/review",
+  GOOGLE_REVIEW_URL,
 ];
 
 /** E.164 for schema.org telephone (WhatsApp business line). */
@@ -48,7 +54,7 @@ export const PROFESSIONAL_SERVICE_ENTITY = {
   description: BUSINESS_DESCRIPTION,
   email: CONTACT_EMAIL,
   telephone: BUSINESS_TELEPHONE,
-  foundingDate: "2018",
+  foundingDate: String(FOUNDING_YEAR),
   parentOrganization: { "@id": ORGANIZATION_ID },
   address: {
     "@type": "PostalAddress",
@@ -56,7 +62,7 @@ export const PROFESSIONAL_SERVICE_ENTITY = {
   },
   areaServed: AREA_SERVED_COUNTRIES,
   knowsAbout: KNOWS_ABOUT,
-  hasMap: "https://g.page/r/CRYmeiA2xgQBEBM/review",
+  hasMap: GOOGLE_REVIEW_URL,
   contactPoint: [
     {
       "@type": "ContactPoint",
