@@ -28,7 +28,7 @@
     "prebuild": "npm run check:exports && npm run verify:imports && npm run verify:links",
     "build": "next build",
     "build:spa": "node scripts/dev.mjs build && node scripts/postbuild-spa-routes.mjs && node scripts/emit-spa-per-route-html.mjs && npm run verify:prerender && npm run verify:dist && node scripts/run-react-snap.mjs && node scripts/patch-dist-canonical-from-fspath.mjs && node scripts/verify-dist-html.mjs",
-    "sitemap": "node scripts/generate-sitemap.mjs && node scripts/sync-crawl-nav.mjs && node scripts/sync-home-jsonld.mjs",
+    "sitemap": "node scripts/generate-sitemap.mjs && node scripts/sync-home-jsonld.mjs",
     "lint": "eslint .",
     "preview": "node scripts/dev.mjs preview",
     "local:prod": "node scripts/dev.mjs build && node scripts/dev.mjs preview",
