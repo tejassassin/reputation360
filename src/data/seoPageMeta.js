@@ -8,13 +8,13 @@ import { ORM_GLOSSARY_PATH } from "../constants/resourcePaths.js";
 
 export const SEO = {
   home: {
-    title: "Online Reputation Management Services | Reputation360",
+    title: "Reputation360 | Trusted Online Reputation Management Since 2019",
     path: "/",
     description:
       "Negative results damaging your reputation? Reputation360 suppresses harmful links and builds a credible search presence for professionals. Get a free scan.",
   },
   services: {
-    title: "ORM & Negative Link Suppression Services | Reputation360",
+    title: "Explore Our Reputation Management Services | Reputation360",
     path: "/services",
     description:
       "From Negative Link Suppression to review management, Reputation360 builds a custom plan matched to your exact situation. See how we can help.",
