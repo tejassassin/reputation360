@@ -1,5 +1,4 @@
-import { redirect } from "next/navigation";
-import { NotFoundContent } from "@/components/NotFoundContent.jsx";
+import { notFound, redirect } from "next/navigation";
 import { SITEMAP_URL_ENTRIES } from "@/constants/sitemapUrlEntries.js";
 import {
   isRoutableNonHomePath,
@@ -51,7 +50,7 @@ export default async function CatchAllPage({ params }) {
   }
 
   if (!isRoutableNonHomePath(pathname)) {
-    return <NotFoundContent />;
+    notFound();
   }
 
   return <LegacySitePage pathname={pathname} />;

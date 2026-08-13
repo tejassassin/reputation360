@@ -62,6 +62,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    globalNotFound: true,
+  },
   async redirects() {
     const vercel = JSON.parse(
       readFileSync(path.join(__dirname, "vercel.json"), "utf8"),
