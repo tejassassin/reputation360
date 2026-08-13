@@ -3,7 +3,6 @@ import { Mail } from "lucide-react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { BRAND_LOGO_SRC } from "../constants/brandAssets.js";
 import {
-  GOOGLE_REVIEW_URL,
   INSTAGRAM_PROFILE_URL,
   LINKEDIN_COMPANY_URL,
 } from "../constants/brandProfiles.js";
@@ -189,15 +188,6 @@ function Footer() {
                     </svg>
                   </a>
                 </div>
-              </li>
-              <li>
-                <a
-                  href={GOOGLE_REVIEW_URL}
-                  {...externalAnchorProps(GOOGLE_REVIEW_URL)}
-                  className="ha-nudge inline-block rounded px-0.5 transition-colors hover:text-green"
-                >
-                  Leave a Google review
-                </a>
               </li>
             </ul>
           </div>
