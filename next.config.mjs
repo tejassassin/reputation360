@@ -29,6 +29,10 @@ const nextConfig = {
   webpack(config) {
     config.resolve.alias["@"] = path.join(__dirname, "src");
     config.resolve.alias["@scan"] = path.join(__dirname, "scan-shared");
+    config.module.rules.push({
+      resourceQuery: /raw/,
+      type: "asset/source",
+    });
     return config;
   },
 };

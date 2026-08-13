@@ -13,6 +13,10 @@ import { REPUTATION_REPAIR_TIMELINE_SLUG } from "../data/blogs/reputationRepairT
 import { REMOVE_NEWS_ARTICLES_FROM_GOOGLE_SLUG } from "../data/blogs/removeNewsArticlesFromGoogleGuide.js";
 import { PACK20_SLUGS } from "../data/blogs/pack20/slugs.js";
 import { FREE_RISK_SCAN_PATH } from "../constants/freeRiskScan.js";
+import { NEXT_SERVER_REDIRECTS } from "./routeRegistry.js";
+
+export { NEXT_SERVER_REDIRECTS } from "./routeRegistry.js";
+export { isRoutableNonHomePath } from "./routeRegistry.js";
 
 const AboutPage = lazy(() => import("../pages/AboutPage.jsx"));
 const OnlineReputationManagementPage = lazy(
