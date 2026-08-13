@@ -14,6 +14,8 @@ import { buildRouteMetadata } from "@/lib/next/routeMetadata.js";
 
 const ALL_BLOG_SLUGS = [...PACK20_SLUGS, ...LEGACY_BLOG_SLUGS];
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return ALL_BLOG_SLUGS.map((slug) => ({ slug }));
 }

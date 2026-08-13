@@ -3,6 +3,8 @@ import { WHO_WE_SERVE_BY_SEGMENT } from "@/lib/next/dedicatedSsrRoutes.js";
 import { buildRouteMetadata } from "@/lib/next/routeMetadata.js";
 export { dynamic, revalidate } from "@/lib/next/ssrRouteConfig.js";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return Object.keys(WHO_WE_SERVE_BY_SEGMENT).map((audience) => ({ audience }));
 }
