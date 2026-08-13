@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { staticImageSrc } from "@/lib/staticImageSrc.js";
 import { WHO_WE_SERVE_HUB_PATH } from "@/constants/whoWeServePaths.js";
 import { anchorTabProps, internalAnchorProps } from "@/lib/internalLinkProps";
 import { IconChevronDown, IconMenu2, IconX } from "@tabler/icons-react";
@@ -374,6 +375,7 @@ export const NavbarLogo = ({
   logoFetchPriority?: "high" | "low" | "auto";
 } = {}) => {
   const imgAlt = logoAlt ?? brandName;
+  const resolvedLogoSrc = logoSrc ? staticImageSrc(logoSrc) : "";
   return (
     <a
       href="/"
@@ -384,10 +386,10 @@ export const NavbarLogo = ({
         className,
       )}
     >
-      {logoSrc ? (
+      {resolvedLogoSrc ? (
         <div className="flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center rounded-full bg-white pl-0.5">
           <img
-            src={logoSrc}
+            src={resolvedLogoSrc}
             alt={imgAlt}
             width={36}
             height={36}

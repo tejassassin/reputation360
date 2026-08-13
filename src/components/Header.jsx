@@ -13,7 +13,7 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "./ui/resizable-navbar";
-import logo from "../assets/Logo_360.png";
+import { BRAND_LOGO_SRC } from "../constants/brandAssets.js";
 import { externalAnchorProps, internalAnchorProps } from "../lib/internalLinkProps.js";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
@@ -163,7 +163,7 @@ function Header() {
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo
-            logoSrc={logo}
+            logoSrc={BRAND_LOGO_SRC}
             brandName="Reputation360"
             logoAlt={LOGO_ALT_NAV}
             logoFetchPriority={logoFetchPriority}
@@ -196,7 +196,7 @@ function Header() {
         <MobileNav>
           <MobileNavHeader>
             <NavbarLogo
-              logoSrc={logo}
+              logoSrc={BRAND_LOGO_SRC}
               brandName="Reputation360"
               logoAlt={LOGO_ALT_NAV}
               logoFetchPriority={logoFetchPriority}

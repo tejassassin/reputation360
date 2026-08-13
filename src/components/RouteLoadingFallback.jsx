@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from "../assets/Logo_360.png";
+import { BRAND_LOGO_SRC } from "../constants/brandAssets.js";
 
 /**
  * A premium loading transition fallback.
@@ -48,7 +48,7 @@ export function RouteLoadingFallback({ label = "Loading your experience" }) {
         {/* Logo center piece with pulsing effect */}
         <div className="absolute flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md transition-transform duration-300 hover:scale-105">
           <img
-            src={logo}
+            src={BRAND_LOGO_SRC}
             alt="Reputation360 logo"
             className="h-10 w-10 animate-pulse object-contain pl-0.5"
           />

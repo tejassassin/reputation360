@@ -15,7 +15,7 @@ import {
 } from "@/constants/freeRiskScan.js";
 import { CONTACT_EMAIL } from "@/constants/contact.js";
 import { anchorTabProps } from "@/lib/internalLinkProps.js";
-import mayaAvatar from "../assets/maya_avatar.png";
+import { MAYA_AVATAR_SRC } from "@/constants/brandAssets.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const SCAN_START_PROMPT = "Scan a person's reputation";
@@ -50,7 +50,7 @@ function ChatBubble({ role, text, cta }) {
     <div className={`flex gap-2.5 ${isUser ? "justify-end" : "justify-start animate-fade-in"}`}>
       {!isUser && (
         <div className="h-8 w-8 shrink-0 overflow-hidden rounded-full border border-slate-100 shadow-sm">
-          <img src={mayaAvatar} alt="Maya" className="h-full w-full object-cover" />
+          <img src={MAYA_AVATAR_SRC} alt="Maya" className="h-full w-full object-cover" />
         </div>
       )}
       <div
@@ -382,7 +382,7 @@ export default function R360Chatbot() {
           >
             {/* Avatar */}
             <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-slate-100 shadow-sm">
-              <img src={mayaAvatar} alt="Maya" className="h-full w-full object-cover" />
+              <img src={MAYA_AVATAR_SRC} alt="Maya" className="h-full w-full object-cover" />
               <div className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border border-white bg-green-500" />
             </div>
             {/* Content */}
@@ -440,7 +440,7 @@ export default function R360Chatbot() {
           <header className="flex items-center justify-between gap-3 bg-[#1F3B64] px-4 py-3.5 text-white">
             <div className="flex items-center gap-3">
               <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-white/20 shadow-sm">
-                <img src={mayaAvatar} alt="Maya" className="h-full w-full object-cover" />
+                <img src={MAYA_AVATAR_SRC} alt="Maya" className="h-full w-full object-cover" />
                 <div className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border border-white bg-green-500" />
               </div>
               <div className="min-w-0">

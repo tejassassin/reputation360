@@ -1,7 +1,7 @@
 import React from "react";
 import { Mail } from "lucide-react";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
-import logo from "../assets/Logo_360.png";
+import { BRAND_LOGO_SRC } from "../constants/brandAssets.js";
 import {
   CONTACT_EMAIL,
   contactMailtoHref,
@@ -29,7 +29,7 @@ function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <div className="w-13 h-13 rounded-full bg-white flex items-center justify-center pl-1">
                 <img
-                  src={logo}
+                  src={BRAND_LOGO_SRC}
                   alt={LOGO_ALT_FOOTER}
                   className="w-10 h-10 object-contain"
                 />

@@ -1,6 +1,10 @@
 import { ProfileValueLines } from "./ProfileValueLines.jsx";
-import officeCaseStudyImg from "../assets/office_case_study.png";
-import surgeonCaseStudyImg from "../assets/surgeon_case_study.png";
+import officeCaseStudyImgImport from "../assets/office_case_study.png";
+import surgeonCaseStudyImgImport from "../assets/surgeon_case_study.png";
+import { staticImageSrc } from "../lib/staticImageSrc.js";
+
+const officeCaseStudyImg = staticImageSrc(officeCaseStudyImgImport);
+const surgeonCaseStudyImg = staticImageSrc(surgeonCaseStudyImgImport);
 
 /**
  * @param {object} props
