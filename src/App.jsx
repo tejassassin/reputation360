@@ -3,19 +3,11 @@ import "./App.css";
 import Header from "./components/Header";
 import { BreadcrumbBar } from "./components/BreadcrumbBar.jsx";
 import DeferredFooter from "./components/DeferredFooter.jsx";
-import { CrawlableSiteNav } from "./components/CrawlableSiteNav.jsx";
 import DeferredGlobalContactDock from "./components/DeferredGlobalContactDock.jsx";
 import { applyNewTabToAnchors } from "./lib/internalLinkProps.js";
 
 function App({ children }) {
   useEffect(() => {
-    const crawlNav = document.getElementById("r360-crawl-nav");
-    crawlNav?.querySelectorAll("a[href]").forEach((node) => {
-      if (node instanceof HTMLAnchorElement) {
-        node.tabIndex = -1;
-      }
-    });
-
     let frame = 0;
     const schedule = () => {
       cancelAnimationFrame(frame);
@@ -39,7 +31,6 @@ function App({ children }) {
   return (
     <>
       <div className="relative flex min-h-screen min-h-[100dvh] flex-col overflow-x-clip bg-offwhite">
-        <CrawlableSiteNav />
         <Header />
         <BreadcrumbBar />
         {children}

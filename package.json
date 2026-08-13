@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "node scripts/kill-vite-ports.mjs && node scripts/clear-vite-cache.mjs && node scripts/dev.mjs",
+    "dev:simple": "node scripts/dev.mjs",
     "dev:next": "next dev",
     "build:next": "next build",
     "start:next": "next start",
@@ -25,7 +26,8 @@
     "verify:build": "npm run check:exports && npm run verify:imports && npm run verify:links && npm run verify:prerender && REQUIRE_PUPPETEER_SMOKE=1 npm run verify:dist",
     "postinstall": "node scripts/ensure-puppeteer-chrome.mjs",
     "prebuild": "npm run check:exports && npm run verify:imports && npm run verify:links",
-    "build": "node scripts/dev.mjs build && node scripts/postbuild-spa-routes.mjs && node scripts/emit-spa-per-route-html.mjs && npm run verify:prerender && npm run verify:dist && node scripts/run-react-snap.mjs && node scripts/patch-dist-canonical-from-fspath.mjs && node scripts/verify-dist-html.mjs",
+    "build": "next build",
+    "build:spa": "node scripts/dev.mjs build && node scripts/postbuild-spa-routes.mjs && node scripts/emit-spa-per-route-html.mjs && npm run verify:prerender && npm run verify:dist && node scripts/run-react-snap.mjs && node scripts/patch-dist-canonical-from-fspath.mjs && node scripts/verify-dist-html.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs && node scripts/sync-crawl-nav.mjs && node scripts/sync-home-jsonld.mjs",
     "lint": "eslint .",
     "preview": "node scripts/dev.mjs preview",
