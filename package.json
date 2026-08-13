@@ -23,7 +23,7 @@
     "verify:links": "node scripts/verify-link-rel-policy.mjs",
     "verify:ssr-templates": "node scripts/verify-ssr-templates.mjs",
     "prebuild": "npm run check:exports && npm run verify:imports && npm run verify:links",
-    "build": "next build",
+    "build": "next build && node scripts/purge-vercel-cache-after-build.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs && node scripts/sync-home-jsonld.mjs",
     "lint": "eslint .",
     "preview": "node scripts/dev.mjs preview",
