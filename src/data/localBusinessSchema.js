@@ -12,11 +12,20 @@ export const PROFESSIONAL_SERVICE_ID = `${METADATA_BASE}/#professional-service`;
 
 export const AREA_SERVED_COUNTRIES = [
   { "@type": "Country", name: "United States" },
+  { "@type": "Country", name: "United Kingdom" },
   { "@type": "Country", name: "Canada" },
   { "@type": "Country", name: "Australia" },
-  { "@type": "Country", name: "United Kingdom" },
   { "@type": "Country", name: "India" },
 ];
+
+export const BUSINESS_POSTAL_ADDRESS = {
+  "@type": "PostalAddress",
+  streetAddress: "DLP Phase 2",
+  addressLocality: "Gurgaon",
+  addressRegion: "Haryana",
+  postalCode: "122002",
+  addressCountry: "IN",
+};
 
 const BUSINESS_DESCRIPTION =
   "Reputation360 provides Online Reputation Management for individuals and brands: negative search suppression, positive presence building, monitoring, and crisis recovery.";
@@ -56,10 +65,7 @@ export const PROFESSIONAL_SERVICE_ENTITY = {
   telephone: BUSINESS_TELEPHONE,
   foundingDate: String(FOUNDING_YEAR),
   parentOrganization: { "@id": ORGANIZATION_ID },
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "IN",
-  },
+  address: BUSINESS_POSTAL_ADDRESS,
   areaServed: AREA_SERVED_COUNTRIES,
   knowsAbout: KNOWS_ABOUT,
   hasMap: GOOGLE_REVIEW_URL,

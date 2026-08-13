@@ -9,7 +9,9 @@ import {
 import {
   CONTACT_EMAIL,
   contactMailtoHref,
+  contactTelHref,
   contactWhatsAppHref,
+  formatBusinessPhoneDisplay,
   handleMailtoClick,
 } from "../constants/contact.js";
 import { LOGO_ALT_FOOTER } from "../constants/imageAlt.js";
@@ -117,6 +119,14 @@ function Footer() {
                   className="ha-nudge inline-block max-w-full break-words rounded px-0.5 transition-colors"
                 >
                   Contact us - {CONTACT_EMAIL}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={contactTelHref()}
+                  className="ha-nudge inline-block max-w-full break-words rounded px-0.5 transition-colors hover:text-green"
+                >
+                  Call us - {formatBusinessPhoneDisplay()}
                 </a>
               </li>
               <li>

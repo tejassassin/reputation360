@@ -1,7 +1,9 @@
 import { CONTACT_EMAIL } from "../constants/contact.js";
+import { GOOGLE_REVIEW_URL } from "../constants/brandProfiles.js";
 import { ORGANIZATION_ENTITY } from "./organizationSchema.js";
 import {
   AREA_SERVED_COUNTRIES,
+  BUSINESS_POSTAL_ADDRESS,
   BUSINESS_TELEPHONE,
 } from "./localBusinessSchema.js";
 import { PRIMARY_SERVICES_CATALOG } from "./primaryServicesCatalog.js";
@@ -39,11 +41,8 @@ export const SERVICES_PAGE_JSON_LD = {
       additionalType: "https://schema.org/LocalBusiness",
       email: CONTACT_EMAIL,
       telephone: BUSINESS_TELEPHONE,
-      address: {
-        "@type": "PostalAddress",
-        addressCountry: "IN",
-      },
-      hasMap: "https://g.page/r/CRYmeiA2xgQBEBM/review",
+      address: BUSINESS_POSTAL_ADDRESS,
+      hasMap: GOOGLE_REVIEW_URL,
       contactPoint: [
         {
           "@type": "ContactPoint",

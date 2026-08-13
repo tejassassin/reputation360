@@ -17,7 +17,7 @@ export const CONTACT_PAGE_EMAIL_SECTION_HREF = "/contact#email-inquiry";
  * WhatsApp Business number: country code + national number, digits only (no +).
  * Update when the business line changes.
  */
-export const WHATSAPP_PHONE = "919910000000";
+export const WHATSAPP_PHONE = "919548997527";
 
 /** Default message prefilled in the WhatsApp compose box. */
 export const WHATSAPP_PREFILL_MESSAGE =
@@ -107,6 +107,19 @@ export function contactWhatsAppHref(message = WHATSAPP_PREFILL_MESSAGE) {
     text: message,
   });
   return `https://api.whatsapp.com/send?${params.toString()}`;
+}
+
+/** E.164 `tel:` href for the business WhatsApp line. */
+export function contactTelHref(phone = WHATSAPP_PHONE) {
+  return `tel:+${phone}`;
+}
+
+/** Human-readable display for the business phone number. */
+export function formatBusinessPhoneDisplay(phone = WHATSAPP_PHONE) {
+  if (phone.startsWith("91") && phone.length === 12) {
+    return `+91 ${phone.slice(2, 7)} ${phone.slice(7)}`;
+  }
+  return `+${phone}`;
 }
 
 /**

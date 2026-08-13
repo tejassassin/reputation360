@@ -7,6 +7,7 @@ import {
   LINKEDIN_COMPANY_URL,
 } from "../constants/brandProfiles.js";
 import {
+  AREA_SERVED_COUNTRIES,
   ORGANIZATION_ID,
   PROFESSIONAL_SERVICE_ENTITY,
 } from "./localBusinessSchema.js";
@@ -24,10 +25,7 @@ export const ORGANIZATION_ENTITY = {
     "Reputation360 is a trusted Online Reputation Management agency with 7+ years of experience. We help individuals and brands suppress negative search results and build credible, resilient digital reputations.",
   email: CONTACT_EMAIL,
   foundingDate: String(FOUNDING_YEAR),
-  areaServed: {
-    "@type": "Country",
-    name: "United States",
-  },
+  areaServed: AREA_SERVED_COUNTRIES,
   knowsAbout: [
     "Online Reputation Management",
     "Negative Link Suppression",

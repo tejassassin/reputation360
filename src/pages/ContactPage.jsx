@@ -7,7 +7,9 @@ import {
   CONTACT_FORM_AUTORESPONSE,
   CONTACT_FORM_SUBMIT_URL,
   contactMailtoHref,
+  contactTelHref,
   contactWhatsAppHref,
+  formatBusinessPhoneDisplay,
   handleMailtoClick,
 } from "../constants/contact.js";
 import { SeoHead } from "../components/SeoHead.jsx";
@@ -325,6 +327,13 @@ function ContactPage() {
                 <p className="mt-3 text-[15px] leading-relaxed text-[#43474e] md:mt-4 md:text-lg">
                   When something needs immediate attention, this is the fastest way
                   to reach us.
+                </p>
+                <p className="mt-3 text-[15px] leading-relaxed text-[#43474e] md:text-base">
+                  Or call{" "}
+                  <a href={contactTelHref()} className="font-semibold text-[#1F3B64] underline-offset-2 hover:underline">
+                    {formatBusinessPhoneDisplay()}
+                  </a>
+                  .
                 </p>
               </div>
               <a
