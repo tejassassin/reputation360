@@ -317,7 +317,6 @@ function FinancialAdvisorsScaleSection() {
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0a2038] text-[#8ce596] shadow-inner shadow-black/20">
                   <Icon className="h-5 w-5" aria-hidden />
                 </span>
-                <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{m.blurb}</h3>
                 <span className="mt-4 font-heading text-[28px] font-bold leading-none tracking-tight text-white tabular-nums md:text-[34px]">
                   {m.figure}
                 </span>
@@ -434,7 +433,6 @@ function FinancialAdvisorsWhyHarderSection() {
                     absoluteStrokeWidth
                   />
                 </span>
-                <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{p.label}</h3>
                 <span className="mt-3 font-heading text-[13px] font-semibold leading-tight text-[#0f2e58] md:text-sm">
                   {p.label}
                 </span>

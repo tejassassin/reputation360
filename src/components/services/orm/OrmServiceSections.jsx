@@ -933,12 +933,7 @@ export function OrmProcessSection() {
                 <span className="mt-1 block text-xs font-medium leading-snug text-navy/60 md:text-sm">
                   {p.title}
                 </span>
-                <h3
-                  style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}
-                >
-                  Phase {num}: {p.title}
-                </h3>
-              </button>
+                </button>
             );
           })}
         </div>

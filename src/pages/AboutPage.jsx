@@ -932,14 +932,7 @@ function HowWeWorkSection() {
               </p>
             </Motion.div>
           </AnimatePresence>
-          <div
-            style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}
-          >
-            {howWeWorkSteps.map((step) => (
-              <h3 key={step.n}>{step.title}</h3>
-            ))}
-          </div>
-        </div>
+</div>
       </div>
     </section>
   );

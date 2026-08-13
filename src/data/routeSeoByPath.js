@@ -1,5 +1,5 @@
 /**
- * Per-route <title> and meta description for static HTML emission (Vercel skips react-snap).
+ * Per-route <title> and meta description for Next.js route metadata.
  * Keep in sync with SeoHead on each page and blog guide data files.
  */
 import { blogPostPath } from "../constants/blogPaths.js";

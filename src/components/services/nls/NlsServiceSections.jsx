@@ -409,7 +409,6 @@ export function NlsWhyCostsSection() {
                   : "border-navy/12 bg-white text-navy hover:border-[#79df86]/40 hover:shadow-md"
               }`}
             >
-              <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{r.perspective}</h3>
               <span className="font-heading text-sm font-bold">{r.perspective}</span>
             </Motion.button>
           );
@@ -1257,7 +1256,6 @@ export function NlsTimelineSection() {
                 <span className="mt-2 block font-heading text-base font-bold text-navy md:text-lg">
                   {p.timespan}
                 </span>
-                <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Phase {num}: {p.title}</h3>
                 <p className="mt-1 block text-xs font-medium leading-snug text-navy/60 md:text-sm">
                   {p.title}
                 </p>

@@ -771,7 +771,6 @@ export function RbsSpecializedServicesSection() {
                           {String(index + 1).padStart(2, "0")}
                         </span>
                         <span className="min-w-0 flex-1">
-                          <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{service.title}</h3>
                           <span className="block font-heading text-[15px] font-semibold leading-[1.3] text-[#1F3B64] md:text-[16px]">
                             {service.title}
                           </span>
@@ -795,7 +794,6 @@ export function RbsSpecializedServicesSection() {
                 <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.15em] text-[#4CAF50]">
                   Start Here
                 </p>
-                <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>Reputation Consultation</h3>
                 <p className="mt-1 font-heading text-[13px] font-semibold text-white">Reputation Consultation</p>
                 <p className="mt-1 text-[12px] leading-[1.4] text-[#93A8C4]">
                   Not sure where to begin? Start here.
@@ -1183,7 +1181,6 @@ export function RbsProcessSection() {
               }`}>
                 Step {String(item.n).padStart(2, "0")}
               </span>
-              <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{item.title}</h3>
               <span className="mt-3 block font-heading text-base font-bold leading-snug">
                 {item.title}
               </span>
@@ -1407,7 +1404,6 @@ export function RbsWhoForSection() {
                 <p className="mt-5 text-[11px] font-bold uppercase tracking-[0.16em] text-[#4CAF50]">
                   Audience {String(index + 1).padStart(2, "0")}
                 </p>
-                <h3 style={{position:'absolute',left:'-9999px',width:'1px',height:'1px',overflow:'hidden'}}>{item}</h3>
                 <p className="mt-2 text-[15px] leading-[1.65] text-[#14355f] md:text-[16px]">
                   {item}
                 </p>
