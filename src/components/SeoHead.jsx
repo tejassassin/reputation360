@@ -121,7 +121,7 @@ function removeExtraDescriptionMetas(canonical) {
  * Twitter Card tags (SPA). Canonical and `og:url` always follow
  * `window.location.pathname` (no query/UTM, no hash), with a trailing slash only
  * on the homepage. An inline script in `index.html` sets the same link before
- * React loads. `canonicalPath` is only a non-browser fallback (e.g. prerender).
+ * React loads. `canonicalPath` is only a non-browser fallback when `window` is unavailable.
  *
  * @param {object}  props
  * @param {string}  props.title          Page <title> and og:title

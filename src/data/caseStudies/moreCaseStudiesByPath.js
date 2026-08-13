@@ -1,5 +1,5 @@
 /**
- * Related case studies shown at the bottom of each case study detail page (prerender + UI).
+ * Related case studies shown at the bottom of each case study detail page.
  * @typedef {{ href: string; label: string }} MoreCaseStudyLink
  */
 

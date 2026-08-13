@@ -1,7 +1,7 @@
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 /**
- * Screen-reader / crawler-friendly link list (always in DOM on first paint when placed outside lazy shells).
+ * Screen-reader-friendly link list on listing pages.
  *
  * @param {object} props
  * @param {string} props.title Accessible name for the nav region

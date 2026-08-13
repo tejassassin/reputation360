@@ -1,5 +1,5 @@
 /**
- * Related links for the About page prerender + UI sections.
+ * Related links for the About page UI sections.
  * @typedef {{ href: string; label: string }} RelatedLink
  */
 

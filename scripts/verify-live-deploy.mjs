@@ -50,7 +50,10 @@ for (const path of paths) {
   if (!shaOk) failed = true;
 
   const isNext = html.includes("__NEXT_DATA__") || html.includes("/_next/static/");
-  const isLegacySpa = html.includes('id="r360-crawl-nav"') || html.includes('id="root"');
+  const isLegacySpa =
+    html.includes('id="r360-crawl-nav"') ||
+    html.includes('id="r360-prerender"') ||
+    html.includes('id="r360-static-footer"');
   if (isNext) {
     console.log(`${normalized}: runtime=next OK`);
   } else if (isLegacySpa) {

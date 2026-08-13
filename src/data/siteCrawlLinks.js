@@ -1,5 +1,5 @@
 /**
- * Canonical crawl-discovery link lists (sitemap + sr-only / static HTML nav).
+ * Canonical link lists for blog and case study index pages.
  * Keep paths aligned with `sitemapUrlEntries.js` and app routes.
  */
 import { CASE_STUDIES } from "./caseStudies/index.js";

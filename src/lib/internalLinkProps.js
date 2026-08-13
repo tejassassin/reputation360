@@ -6,7 +6,7 @@ import { METADATA_BASE } from "../constants/siteUrl.js";
  * - External hrefs: rel="noopener noreferrer nofollow", new tab
  *
  * Use anchorTabProps(href) when href may be either; externalAnchorProps / internalAnchorProps when known.
- * Prerender and static HTML must follow the same rules. CI: npm run verify:links
+ * SSR HTML and client-rendered anchors must follow the same rules. CI: npm run verify:links
  */
 
 const SITE_HOSTS = new Set([

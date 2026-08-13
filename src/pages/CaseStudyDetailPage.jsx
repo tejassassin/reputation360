@@ -21,7 +21,6 @@ import {
 } from "../components/CaseStudyMetaPill.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { R360_PATHCHANGE_EVENT } from "../lib/canonicalHrefFromPath.js";
-import { CRAWL_CASE_STUDY_PAGES } from "../data/siteCrawlLinks.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 
 function metaDescriptionFromText(text, fallbackDescription) {

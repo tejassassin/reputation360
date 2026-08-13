@@ -1,5 +1,5 @@
 /**
- * Featured blog posts on the homepage "From Our Blog" section (prerender + UI).
+ * Featured blog posts on the homepage "From Our Blog" section.
  * @typedef {{ href: string; label: string }} HomeFromOurBlogLink
  */
 

@@ -11,7 +11,7 @@ import { HomeFromOurBlogCard } from "../home/HomeFromOurBlogCard.jsx";
 import { SeeItInActionStoryCard } from "../whoWeServe/SeeItInActionSection.jsx";
 
 /**
- * Case studies + blog links on /services (mirrors #r360-prerender after hydration).
+ * Case studies + blog links on /services.
  */
 export function ServicesRelatedContentBlock() {
   return (

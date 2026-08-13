@@ -1,5 +1,5 @@
 /**
- * Related links for the Services page prerender + UI sections.
+ * Related links for the Services page UI sections.
  * @typedef {{ href: string; label: string }} RelatedLink
  */
 

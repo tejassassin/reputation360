@@ -39,14 +39,13 @@ All site links must follow this policy:
 <a href="/blog/foo" rel="nofollow">...</a>
 ```
 
-## Blogs, prerender, and static HTML
+## Blogs and rich text links
 
 - **React rich text / in-article links**: `DiyInternalLink`, `Pack20RichText`, or spread `anchorTabProps(href)` — never hardcode `rel`.
-- **Pack20 / rich text data**: mark outbound URLs with `external: true`; prerender uses `richTextToHtml` in `src/lib/prerender/html.js`.
-- **Prerender HTML strings**: internal `<a href="/...">` with no `rel`; external must include `rel="noopener noreferrer nofollow"`.
+- **Pack20 / rich text data**: mark outbound URLs with `external: true`.
 - **index.html / boot snippets**: external anchors use `rel="noopener noreferrer nofollow"`.
 
-`App.jsx` runs `applyNewTabToAnchors()` on the live DOM, but still use helpers in source so SSR/prerender and new code stay correct.
+`App.jsx` runs `applyNewTabToAnchors()` on the live DOM, but still use helpers in source so SSR and client code stay correct.
 
 ## CI
 

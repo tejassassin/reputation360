@@ -1,5 +1,5 @@
 /**
- * Related blog posts at the bottom of each article detail page (prerender + UI).
+ * Related blog posts at the bottom of each article detail page.
  * @typedef {{ href: string; label: string }} FurtherReadingLink
  */
 

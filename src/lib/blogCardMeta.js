@@ -28,7 +28,7 @@ function optimizeUnsplashImage(url) {
 }
 
 /**
- * Listing metadata for blog link cards (Related Readings, homepage, prerender).
+ * Listing metadata for blog link cards (Related Readings, homepage).
  * @param {string} href
  * @returns {BlogCardMeta | null}
  */

@@ -8,7 +8,7 @@ import { internalAnchorProps } from "../../lib/internalLinkProps.js";
 import { HomeFromOurBlogCard } from "./HomeFromOurBlogCard.jsx";
 
 /**
- * Homepage featured blog posts (mirrors prerendered #r360-prerender section after hydration).
+ * Homepage featured blog posts.
  * @param {{ className?: string }} props
  */
 export function HomeFromOurBlogSection({ id = "from-our-blog", className = "" }) {

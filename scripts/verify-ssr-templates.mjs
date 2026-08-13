@@ -72,6 +72,7 @@ const TEMPLATE_SAMPLES = {
 const LEGACY_MARKERS = [
   { id: "crawl-nav", re: /id="r360-crawl-nav"/i },
   { id: "prerender-article", re: /id="r360-prerender"/i },
+  { id: "static-footer", re: /id="r360-static-footer"/i },
   { id: "vite-root", re: /id="root"/i },
   { id: "crawl-nav-comment", re: /R360_CRAWL_NAV/i },
   { id: "prerender-comment", re: /SEO prerender sits before/i },
