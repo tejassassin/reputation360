@@ -49,32 +49,21 @@ for (const path of paths) {
   console.log(`${normalized}: deploy-sha=${liveSha} local=${localSha} ${shaOk ? "OK" : "MISMATCH"}`);
   if (!shaOk) failed = true;
 
+  const isNext = html.includes("__NEXT_DATA__") || html.includes("/_next/static/");
+  const isLegacySpa = html.includes('id="r360-crawl-nav"') || html.includes('id="root"');
+  if (isNext) {
+    console.log(`${normalized}: runtime=next OK`);
+  } else if (isLegacySpa) {
+    console.log(`${normalized}: runtime=legacy-spa (expected next after cutover)`);
+    failed = true;
+  }
+
   if (expectSubstring && normalized === paths[0]) {
-    const indexJs = html.match(/src="(\/assets\/index-[^"]+\.js)"/)?.[1];
-    if (!indexJs) {
-      console.error(`${normalized}: could not find index bundle in HTML`);
-      failed = true;
-    } else {
-      const bundleRes = await fetch(`${BASE}${indexJs}`, {
-        headers: { "cache-control": "no-cache", pragma: "no-cache" },
-      });
-      const bundle = await bundleRes.text();
-      const aboutChunk = bundle.match(/page-aboutpage-[^"]+\.js/)?.[0];
-      if (!aboutChunk) {
-        console.error(`${normalized}: could not find About page chunk in index bundle`);
-        failed = true;
-      } else {
-        const chunkRes = await fetch(`${BASE}/assets/${aboutChunk}`, {
-          headers: { "cache-control": "no-cache", pragma: "no-cache" },
-        });
-        const chunk = await chunkRes.text();
-        const hasExpected = chunk.includes(expectSubstring);
-        console.log(
-          `${normalized}: content check "${expectSubstring}" ${hasExpected ? "OK" : "MISSING"}`,
-        );
-        if (!hasExpected) failed = true;
-      }
-    }
+    const hasExpected = html.includes(expectSubstring);
+    console.log(
+      `${normalized}: content check "${expectSubstring}" ${hasExpected ? "OK" : "MISSING"}`,
+    );
+    if (!hasExpected) failed = true;
   }
 }
 
@@ -85,4 +74,4 @@ if (failed) {
   process.exit(1);
 }
 
-console.log("\nLive site matches local HEAD.");
+console.log("\nLive verification passed.");

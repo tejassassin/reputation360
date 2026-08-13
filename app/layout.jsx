@@ -1,6 +1,7 @@
 import "@/index.css";
 import "@/App.css";
 import { METADATA_BASE, SITE_HTML_LANG } from "@/constants/siteUrl.js";
+import { getDeploySha } from "@/lib/deploySha.js";
 import { SiteShell } from "./SiteShell.jsx";
 
 export const metadata = {
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang={SITE_HTML_LANG}>
       <head>
+        <meta name="deploy-sha" content={getDeploySha()} />
         <meta name="theme-color" content="#1f3b64" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

@@ -48,7 +48,7 @@ function r360DevApiPlugin(mode) {
   const routes = {
     "/api/free-scan": () => import("./api/_lib/runFreeScanPipeline.js"),
     "/api/reputation-agent": () => import("./api/_lib/runReputationAgentPipeline.js"),
-    "/api/free-scan-submissions": () => import("./api/free-scan-submissions.js"),
+    "/api/free-scan-submissions": () => import("./api/_lib/freeScanSubmissionsHttp.js"),
   };
   return {
     name: "r360-dev-api",

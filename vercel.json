@@ -1,6 +1,10 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
   "cleanUrls": true,
   "trailingSlash": false,
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
   "build": {
     "env": {
       "SKIP_PUPPETEER_INSTALL": "1",

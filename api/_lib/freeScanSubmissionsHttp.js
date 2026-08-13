@@ -1,4 +1,4 @@
-import { ensureFreeScanSchema, listFreeScanSubmissions } from "./_lib/db.js";
+import { ensureFreeScanSchema, listFreeScanSubmissions } from "./db.js";
 
 function unauthorized(res) {
   res.statusCode = 401;
