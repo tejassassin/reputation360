@@ -54,7 +54,9 @@ Search results stabilised around professional credibility`,
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `Patients searching online encountered clear, accurate, and professionally rich information about the physician's expertise and clinical approach. The digital presence reinforced trust and transparency - allowing the physician to continue practising without ongoing reputational disruption.`,
+      body: `Patients searching online encountered clear, accurate, and professionally rich information about the physician's expertise and clinical approach. The digital presence reinforced trust and transparency - allowing the physician to continue practising without ongoing reputational disruption.
+
+We work with [doctors and healthcare professionals](/who-we-serve/doctors-and-healthcare-professionals) facing exactly this kind of exposure. This was resolved through the same [online reputation management](/services/online-reputation-management) engagement described here.`,
     },
   ],
 };

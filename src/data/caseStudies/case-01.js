@@ -56,7 +56,9 @@ Measurable improvement in investor and stakeholder sentiment reported directly b
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `The founder's digital presence came to reflect experience, stability, and leadership depth. Investor conversations moved away from controversy and back to business fundamentals. The personal website and LinkedIn profile - both non-existent at the start of the engagement - became the defining assets of his professional identity online.`,
+      body: `The founder's digital presence came to reflect experience, stability, and leadership depth. Investor conversations moved away from controversy and back to business fundamentals. The personal website and LinkedIn profile - both non-existent at the start of the engagement - became the defining assets of his professional identity online.
+
+We work with [executives and founders](/who-we-serve/executives-and-c-suite-leaders) facing exactly this kind of exposure. This was resolved through the same [negative link suppression](/services/negative-link-suppression) process described here.`,
     },
   ],
 };

@@ -312,6 +312,22 @@ export const article = {
             { text: " when you want additional documented outcomes." },
           ],
         },
+        {
+          type: "p",
+          text: "This multi-platform approach is part of our broader social media reputation building work.",
+          parts: [
+                    {
+                              "text": "This multi-platform approach is part of our broader "
+                    },
+                    {
+                              "text": "social media reputation building",
+                              "href": "/services/reputation-building-services"
+                    },
+                    {
+                              "text": " work."
+                    }
+          ],
+        },
       ],
     },
   ],

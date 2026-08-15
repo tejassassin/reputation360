@@ -57,7 +57,9 @@ Candidate accepted a Director of Product role at a high-growth scale-up within 7
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `Third-party commentary posted without her knowledge or consent - in the chaotic aftermath of a mass layoff - had been silently and seriously undermining her career progression. By methodically rebuilding her owned digital presence and addressing third-party content at the platform level, she entered the hiring market with a Page 1 that reflected her actual calibre and career record. Her next role represented a significant step up in both seniority and compensation.`,
+      body: `Third-party commentary posted without her knowledge or consent - in the chaotic aftermath of a mass layoff - had been silently and seriously undermining her career progression. By methodically rebuilding her owned digital presence and addressing third-party content at the platform level, she entered the hiring market with a Page 1 that reflected her actual calibre and career record. Her next role represented a significant step up in both seniority and compensation.
+
+We work with [job seekers](/who-we-serve/job-seekers) facing exactly this kind of exposure. This was resolved through the same [online reputation management](/services/online-reputation-management) engagement described here.`,
     },
   ],
 };

@@ -55,7 +55,9 @@ SEC and FINRA records remain visible as required, with search results stabilised
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `The client regained measured trust with investors and institutional stakeholders. Their digital presence came to reflect 30 years of investment expertise rather than a single regulatory episode - allowing informed stakeholders to form a balanced view based on the full professional record.`,
+      body: `The client regained measured trust with investors and institutional stakeholders. Their digital presence came to reflect 30 years of investment expertise rather than a single regulatory episode - allowing informed stakeholders to form a balanced view based on the full professional record.
+
+We work with [financial advisors](/who-we-serve/financial-advisors) facing exactly this kind of exposure. This was resolved through the same [negative link suppression](/services/negative-link-suppression) process described here.`,
     },
   ],
 };

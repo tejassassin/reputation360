@@ -59,7 +59,9 @@ Client secured two non-executive board advisory positions during the campaign pe
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `His digital presence now reflects a senior finance executive with a strong, uninterrupted track record and full regulatory clarity. The wrongful dismissal - and the absence of his vindication online - no longer defines the narrative. Hiring committees and board nomination panels now encounter a credible, comprehensive professional picture from the very first search result.`,
+      body: `His digital presence now reflects a senior finance executive with a strong, uninterrupted track record and full regulatory clarity. The wrongful dismissal - and the absence of his vindication online - no longer defines the narrative. Hiring committees and board nomination panels now encounter a credible, comprehensive professional picture from the very first search result.
+
+We work with [financial advisors](/who-we-serve/financial-advisors) facing exactly this kind of exposure. This was resolved through the same [negative link suppression](/services/negative-link-suppression) process described here.`,
     },
   ],
 };

@@ -134,6 +134,13 @@ export default function BlogDiyReputationGuidePage() {
           <span className="diy-hero-badge">{diyReputationGuideHero.badge}</span>
           <h1 className="diy-hero-title">{diyReputationGuideHero.title}</h1>
           <p className="diy-hero-lead">{diyReputationGuideHero.lead}</p>
+          <p className="mx-auto mt-6 max-w-3xl text-center font-body text-base leading-relaxed text-steel">
+            When DIY isn&apos;t enough,{" "}
+            <DiyInternalLink href="/services/online-reputation-management">
+              our full-service reputation management
+            </DiyInternalLink>{" "}
+            picks up where self-managed efforts stop.
+          </p>
           <BlogAuthorMeta slug={DIY_REPUTATION_GUIDE_SLUG} date={diyReputationGuideListing.date} />
           <div className="diy-meta-grid">
             {diyReputationGuideHero.meta.map((item) => (

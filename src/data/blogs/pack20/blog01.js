@@ -308,6 +308,22 @@ export const article = {
           label: "Where to start",
           text: "The first step is understanding your current search results. Map page one and page two for your name, note the authority behind each negative URL, and identify platforms you can claim today. That audit tells you whether suppression, removal, or both should lead your plan.",
         },
+        {
+          type: "p",
+          text: "This is the Reputation360 framework in full, the same one behind every suppression engagement we run.",
+          parts: [
+                    {
+                              "text": "This is "
+                    },
+                    {
+                              "text": "the Reputation360 framework",
+                              "href": "/services/negative-link-suppression"
+                    },
+                    {
+                              "text": " in full, the same one behind every suppression engagement we run."
+                    }
+          ],
+        },
       ],
     },
   ],

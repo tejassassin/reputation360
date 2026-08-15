@@ -269,6 +269,22 @@ export const article = {
             },
           ],
         },
+        {
+          type: "p",
+          text: "The cost of waiting only grows - acting on it now is typically far cheaper than acting later.",
+          parts: [
+                    {
+                              "text": "The cost of waiting only grows - "
+                    },
+                    {
+                              "text": "acting on it now",
+                              "href": "/services/online-reputation-management"
+                    },
+                    {
+                              "text": " is typically far cheaper than acting later."
+                    }
+          ],
+        },
       ],
     },
   ],

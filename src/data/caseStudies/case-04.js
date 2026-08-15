@@ -56,7 +56,9 @@ Client secured two new consulting contracts during the recovery period`,
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `The client's digital profile came to reflect professional depth and HR expertise rather than a single contested employment narrative. Prospective clients and employers encountered credibility, not controversy.`,
+      body: `The client's digital profile came to reflect professional depth and HR expertise rather than a single contested employment narrative. Prospective clients and employers encountered credibility, not controversy.
+
+We work with [businesses and companies](/who-we-serve/businesses-and-companies) facing exactly this kind of exposure. This was resolved through the same [negative link suppression](/services/negative-link-suppression) process described here.`,
     },
   ],
 };

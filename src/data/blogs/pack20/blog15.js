@@ -391,6 +391,38 @@ export const article = {
             },
           ],
         },
+        {
+          type: "p",
+          text: "This is our ORM methodology in practice, applied across 1,100+ client engagements.",
+          parts: [
+                    {
+                              "text": "This is "
+                    },
+                    {
+                              "text": "our ORM methodology",
+                              "href": "/services/online-reputation-management"
+                    },
+                    {
+                              "text": " in practice, applied across 1,100+ client engagements."
+                    }
+          ],
+        },
+        {
+          type: "p",
+          text: "If any ORM term in this guide is unfamiliar, our online reputation management glossary defines the vocabulary in plain language.",
+          parts: [
+                    {
+                              "text": "If any ORM term in this guide is unfamiliar, our "
+                    },
+                    {
+                              "text": "online reputation management glossary",
+                              "href": "/resources/online-reputation-management-glossary"
+                    },
+                    {
+                              "text": " defines the vocabulary in plain language."
+                    }
+          ],
+        },
       ],
     },
   ],

@@ -444,6 +444,13 @@ export default function BlogReputationRepairTimelinePage() {
                   about knowing what&apos;s happening during those months, and why some phases take longer than others.
                   Here&apos;s how a professional Online Reputation Management engagement typically unfolds:
                 </p>
+                <p className="mb-6 font-body text-lg text-steel">
+                  These timelines reflect{" "}
+                  <DiyInternalLink href="/services/online-reputation-management">
+                    a typical ORM engagement
+                  </DiyInternalLink>{" "}
+                  from audit through full transformation.
+                </p>
                 <StepPicker
                   steps={repairSteps}
                   activeStep={repairPhase}

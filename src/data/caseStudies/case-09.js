@@ -58,7 +58,9 @@ Referral volume recovered to pre-incident levels by month 8`,
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `Prospective patients now find a clear, credible, and professionally rich picture of this surgeon's clinical expertise. The single complaint that once defined his search results became statistically insignificant against a body of verified positive patient sentiment and expert-led content.`,
+      body: `Prospective patients now find a clear, credible, and professionally rich picture of this surgeon's clinical expertise. The single complaint that once defined his search results became statistically insignificant against a body of verified positive patient sentiment and expert-led content.
+
+We work with [doctors and healthcare professionals](/who-we-serve/doctors-and-healthcare-professionals) facing exactly this kind of exposure. This was resolved through the same [negative link suppression](/services/negative-link-suppression) process described here.`,
     },
   ],
 };

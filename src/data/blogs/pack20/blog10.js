@@ -313,6 +313,22 @@ export const article = {
           label: "Timing matters",
           text: "If you are planning a senior job search, we recommend beginning at least six months before you start actively applying when page-one negatives are involved.",
         },
+        {
+          type: "p",
+          text: "Knowing what recruiters see is step one - the next step is working with us to clean up what they find.",
+          parts: [
+                    {
+                              "text": "Knowing what recruiters see is step one - the next step is working with us to "
+                    },
+                    {
+                              "text": "clean up what they find",
+                              "href": "/services/online-reputation-management"
+                    },
+                    {
+                              "text": "."
+                    }
+          ],
+        },
       ],
     },
   ],

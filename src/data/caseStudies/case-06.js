@@ -55,7 +55,9 @@ Distributor confidence and inbound sales inquiries stabilised and recovered`,
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `The business regained control of its online narrative while maintaining transparency. Search results came to reflect a resolved product issue and a brand committed to quality - not a failing company - allowing the business to move forward without long-term reputational burden.`,
+      body: `The business regained control of its online narrative while maintaining transparency. Search results came to reflect a resolved product issue and a brand committed to quality - not a failing company - allowing the business to move forward without long-term reputational burden.
+
+We work with [businesses and companies](/who-we-serve/businesses-and-companies) facing exactly this kind of exposure. This was resolved through the same [online reputation management](/services/online-reputation-management) engagement described here.`,
     },
   ],
 };

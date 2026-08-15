@@ -13,6 +13,7 @@ import {
 } from "../data/faqPageSchema.js";
 import { RESOURCES_FAQ_SECTIONS } from "../data/resourcesFaqs/index.js";
 import { cn } from "@/lib/utils";
+import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 function FaqSection({ id, title, children }) {
   return (
@@ -136,10 +137,21 @@ function FaqsPage({ renderSeo = true }) {
             <h1 className="font-headline-faq mb-8 max-w-5xl text-4xl leading-[1.1] font-extrabold tracking-tighter text-[#1F3B64] md:text-6xl lg:text-7xl">
               Online Reputation Management FAQs - Your Questions Answered
             </h1>
-            <p className="font-headline-faq mb-12 max-w-3xl text-lg leading-snug font-semibold tracking-tight text-[#1F3B64] md:text-xl lg:text-2xl">
+            <p className="font-headline-faq mb-8 max-w-3xl text-lg leading-snug font-semibold tracking-tight text-[#1F3B64] md:text-xl lg:text-2xl">
               Your online reputation is not something that just happens to you.{" "}
               <span className="text-[#2E5B88]">It is built</span> - either
               deliberately or by default.
+            </p>
+            <p className="font-headline-faq mb-12 max-w-3xl text-base leading-relaxed text-[#6B7280] md:text-lg">
+              New to ORM terminology? See our{" "}
+              <a
+                href="/resources/online-reputation-management-glossary"
+                {...internalAnchorProps("/resources/online-reputation-management-glossary")}
+                className="font-semibold text-[#2E5B88] underline-offset-2 hover:underline"
+              >
+                online reputation management glossary
+              </a>{" "}
+              for plain-language definitions.
             </p>
             <div
               ref={heroStatsRef}

@@ -57,7 +57,9 @@ New client acquisition recovered to 80% of pre-incident levels by month 12`,
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `The IFA's digital presence now accurately represents his full 20-year professional record. Prospective clients encountering the FCA page in context - surrounded by two decades of advisory expertise, verified client testimonials, and published financial insight - are able to make a genuinely informed and balanced judgement.`,
+      body: `The IFA's digital presence now accurately represents his full 20-year professional record. Prospective clients encountering the FCA page in context - surrounded by two decades of advisory expertise, verified client testimonials, and published financial insight - are able to make a genuinely informed and balanced judgement.
+
+We work with [financial advisors](/who-we-serve/financial-advisors) facing exactly this kind of exposure. This was resolved through the same [negative link suppression](/services/negative-link-suppression) process described here.`,
     },
   ],
 };

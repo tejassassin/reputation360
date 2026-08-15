@@ -59,7 +59,9 @@ Candidate received two new graduate scheme offers within 6 weeks of Page 1 stabi
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `A single incident from three years ago - involving no conviction, no ongoing legal consequence, and a person who had demonstrably moved on - no longer determined this candidate's professional future. His digital presence now reflects who he is: an ambitious, articulate, professionally engaged graduate ready to begin his career. The incident is gone. The person he has become is what employers find.`,
+      body: `A single incident from three years ago - involving no conviction, no ongoing legal consequence, and a person who had demonstrably moved on - no longer determined this candidate's professional future. His digital presence now reflects who he is: an ambitious, articulate, professionally engaged graduate ready to begin his career. The incident is gone. The person he has become is what employers find.
+
+We work with [job seekers](/who-we-serve/job-seekers) facing exactly this kind of exposure. This was resolved through the same [online reputation management](/services/online-reputation-management) engagement described here.`,
     },
   ],
 };

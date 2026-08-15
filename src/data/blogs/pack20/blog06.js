@@ -252,6 +252,22 @@ export const article = {
           label: "Where to start",
           text: "Search your full name in an incognito window, list every negative URL on page one, and note the stakes attached to each (job, deal, partnership, or public role). That map is the baseline for a realistic strategy conversation.",
         },
+        {
+          type: "p",
+          text: "Every case here was resolved through the same negative link suppression process.",
+          parts: [
+                    {
+                              "text": "Every case here was resolved through the same "
+                    },
+                    {
+                              "text": "negative link suppression",
+                              "href": "/services/negative-link-suppression"
+                    },
+                    {
+                              "text": " process."
+                    }
+          ],
+        },
       ],
     },
   ],

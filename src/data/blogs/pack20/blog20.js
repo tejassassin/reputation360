@@ -341,6 +341,38 @@ export const article = {
             { text: " when you want proof that this work is already producing results." },
           ],
         },
+        {
+          type: "p",
+          text: "Our reputation management approach is increasingly built to hold up across AI search tools, not just traditional Google results.",
+          parts: [
+                    {
+                              "text": ""
+                    },
+                    {
+                              "text": "our reputation management approach",
+                              "href": "/services/online-reputation-management"
+                    },
+                    {
+                              "text": " is increasingly built to hold up across AI search tools, not just traditional Google results."
+                    }
+          ],
+        },
+        {
+          type: "p",
+          text: "If any ORM term in this guide is unfamiliar, our online reputation management glossary defines the vocabulary in plain language.",
+          parts: [
+                    {
+                              "text": "If any ORM term in this guide is unfamiliar, our "
+                    },
+                    {
+                              "text": "online reputation management glossary",
+                              "href": "/resources/online-reputation-management-glossary"
+                    },
+                    {
+                              "text": " defines the vocabulary in plain language."
+                    }
+          ],
+        },
       ],
     },
   ],

@@ -334,6 +334,13 @@ export default function BlogRemoveNegativeSearchResultsPage() {
                   is the most effective long-term strategy. Fewer than 1% of people click to page two, so content
                   off page one effectively disappears from public view.
                 </p>
+                <p className="mb-6 font-body text-lg text-steel">
+                  For results Google won&apos;t remove directly,{" "}
+                  <DiyInternalLink href="/services/negative-link-suppression">
+                    our suppression process
+                  </DiyInternalLink>{" "}
+                  pushes them off page one instead.
+                </p>
                 <div className="mb-4 flex flex-wrap gap-2">
                   {SUPPRESSION_TACTICS.map((t) => (
                     <button

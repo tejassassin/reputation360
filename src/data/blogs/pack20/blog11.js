@@ -351,6 +351,22 @@ export const article = {
             },
           ],
         },
+        {
+          type: "p",
+          text: "When time is short, a fast-turnaround engagement can still make a measurable difference before interview day.",
+          parts: [
+                    {
+                              "text": "When time is short, "
+                    },
+                    {
+                              "text": "a fast-turnaround engagement",
+                              "href": "/services/online-reputation-management"
+                    },
+                    {
+                              "text": " can still make a measurable difference before interview day."
+                    }
+          ],
+        },
       ],
     },
   ],

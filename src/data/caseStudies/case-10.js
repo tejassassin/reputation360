@@ -51,7 +51,9 @@ New patient registration complaints ceased entirely by month 6`,
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `A situation caused entirely by mistaken identity - not professional conduct - was resolved through precise identity-building and targeted content authority. The GP's digital presence now unambiguously reflects her actual record and her patients can find accurate, reassuring information when they search her name.`,
+      body: `A situation caused entirely by mistaken identity - not professional conduct - was resolved through precise identity-building and targeted content authority. The GP's digital presence now unambiguously reflects her actual record and her patients can find accurate, reassuring information when they search her name.
+
+We work with [doctors and healthcare professionals](/who-we-serve/doctors-and-healthcare-professionals) facing exactly this kind of exposure. This was resolved through the same [negative link suppression](/services/negative-link-suppression) process described here.`,
     },
   ],
 };

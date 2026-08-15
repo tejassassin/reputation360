@@ -283,6 +283,22 @@ export const article = {
             { text: " build the assets that control position one." },
           ],
         },
+        {
+          type: "p",
+          text: "Controlling that first result is the single highest-leverage move in reputation management.",
+          parts: [
+                    {
+                              "text": ""
+                    },
+                    {
+                              "text": "controlling that first result",
+                              "href": "/services/negative-link-suppression"
+                    },
+                    {
+                              "text": " is the single highest-leverage move in reputation management."
+                    }
+          ],
+        },
       ],
     },
   ],

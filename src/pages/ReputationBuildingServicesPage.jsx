@@ -1,5 +1,6 @@
 import { SeoHead } from "../components/SeoHead.jsx";
 import { ServicesSubnav } from "../components/services/ServicesSubnav.jsx";
+import { ServicePageRelatedOutcomesSection } from "../components/services/ServicePageRelatedOutcomesSection.jsx";
 import {
   RbsServiceHero,
   RBS_SECTION_COMPONENTS_BY_ID,
@@ -12,6 +13,7 @@ import {
   rbsPageSeoTitle,
   RBS_SCROLL_SPY_ORDER,
 } from "../data/services/reputationBuildingServices.js";
+import { RBS_RELATED_OUTCOMES } from "../data/servicePageOutboundLinks.js";
 
 export default function ReputationBuildingServicesPage() {
   return (
@@ -26,9 +28,15 @@ export default function ReputationBuildingServicesPage() {
       <ServicesSubnav />
       <main className="relative flex-1 bg-[#f4f6fb] text-slate-800">
         <RbsServiceHero />
-        {RBS_SCROLL_SPY_ORDER.map((sectionId) => {
+        {RBS_SCROLL_SPY_ORDER.flatMap((sectionId) => {
+          if (sectionId === "start") {
+            return [
+              <ServicePageRelatedOutcomesSection key="related-outcomes" {...RBS_RELATED_OUTCOMES} />,
+              <RBS_SECTION_COMPONENTS_BY_ID.start key="start" />,
+            ];
+          }
           const Section = RBS_SECTION_COMPONENTS_BY_ID[sectionId];
-          return Section ? <Section key={sectionId} /> : null;
+          return Section ? [<Section key={sectionId} />] : [];
         })}
       </main>
     </>

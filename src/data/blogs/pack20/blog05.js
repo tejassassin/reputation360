@@ -319,6 +319,22 @@ export const article = {
           label: "Where to start",
           text: "Search your full name in Google today, list every social URL on page one and page two, and assign each URL an action: delete, privatize, report, request removal, or outrank.",
         },
+        {
+          type: "p",
+          text: "When deletion isn't an option, we suppress it directly instead.",
+          parts: [
+                    {
+                              "text": "When deletion isn't an option, we "
+                    },
+                    {
+                              "text": "suppress it directly",
+                              "href": "/services/negative-link-suppression"
+                    },
+                    {
+                              "text": " instead."
+                    }
+          ],
+        },
       ],
     },
   ],

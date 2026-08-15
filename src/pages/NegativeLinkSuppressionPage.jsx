@@ -1,5 +1,6 @@
 import { SeoHead } from "../components/SeoHead.jsx";
 import { ServicesSubnav } from "../components/services/ServicesSubnav.jsx";
+import { ServicePageRelatedOutcomesSection } from "../components/services/ServicePageRelatedOutcomesSection.jsx";
 import {
   NlsContentTypesSection,
   NlsCtaSection,
@@ -23,6 +24,7 @@ import {
   nlsPageSeoTitle,
 } from "../data/services/negativeLinkSuppression.js";
 import { NLS_FAQS } from "../data/services/negativeLinkSuppressionContent.js";
+import { NLS_RELATED_OUTCOMES } from "../data/servicePageOutboundLinks.js";
 
 const NLS_SECTIONS_BY_ID = {
   "what-is": NlsWhatIsSection,
@@ -52,9 +54,15 @@ export default function NegativeLinkSuppressionPage() {
       <ServicesSubnav />
       <main className="relative flex-1 bg-[#f4f6fb] text-slate-800">
         <NlsServiceHero />
-        {NLS_SCROLL_SPY_ORDER.map((sectionId) => {
+        {NLS_SCROLL_SPY_ORDER.flatMap((sectionId) => {
+          if (sectionId === "start") {
+            return [
+              <ServicePageRelatedOutcomesSection key="related-outcomes" {...NLS_RELATED_OUTCOMES} />,
+              <NlsCtaSection key="start" />,
+            ];
+          }
           const Section = NLS_SECTIONS_BY_ID[sectionId];
-          return Section ? <Section key={sectionId} /> : null;
+          return Section ? [<Section key={sectionId} />] : [];
         })}
       </main>
     </>

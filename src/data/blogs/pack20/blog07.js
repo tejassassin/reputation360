@@ -351,6 +351,22 @@ export const article = {
           label: "Where to start today",
           text: "Search your full name in an incognito window and label each page-one URL by source type: aggregator, news, .gov, legal database, or social. That map tells you which removal paths are worth effort and where suppression must lead.",
         },
+        {
+          type: "p",
+          text: "This is the kind of case where our suppression work makes the practical difference, even when the record itself can't be removed.",
+          parts: [
+                    {
+                              "text": "This is the kind of case where "
+                    },
+                    {
+                              "text": "our suppression work",
+                              "href": "/services/negative-link-suppression"
+                    },
+                    {
+                              "text": " makes the practical difference, even when the record itself can't be removed."
+                    }
+          ],
+        },
       ],
     },
   ],

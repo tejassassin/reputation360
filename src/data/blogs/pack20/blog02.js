@@ -318,6 +318,22 @@ export const article = {
           label: "Where to start",
           text: "Random publishing rarely moves rankings. A ranked plan - query clusters, asset types, and link targets matched to each negative URL - beats volume alone every time.",
         },
+        {
+          type: "p",
+          text: "We apply this exact strategy as part of every full ORM engagement.",
+          parts: [
+                    {
+                              "text": "We apply "
+                    },
+                    {
+                              "text": "this exact strategy",
+                              "href": "/services/online-reputation-management"
+                    },
+                    {
+                              "text": " as part of every full ORM engagement."
+                    }
+          ],
+        },
       ],
     },
   ],

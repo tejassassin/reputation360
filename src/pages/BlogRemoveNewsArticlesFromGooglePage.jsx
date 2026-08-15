@@ -337,6 +337,13 @@ export default function BlogRemoveNewsArticlesFromGooglePage() {
                   people find - because fewer than 1% of people ever look past page one of Google.
                 </p>
                 <p className="mb-6 font-body text-lg text-steel">
+                  When removal isn&apos;t possible, a{" "}
+                  <DiyInternalLink href="/services/negative-link-suppression">
+                    suppression strategy
+                  </DiyInternalLink>{" "}
+                  is what actually moves the article off page one.
+                </p>
+                <p className="mb-6 font-body text-lg text-steel">
                   Suppression works by building enough authoritative, well-optimised positive content across
                   high-credibility platforms that it outranks the negative article for the searches that matter -
                   thought leadership, optimised profiles, press, SEO content, and strategic backlinks. When executed

@@ -1,6 +1,7 @@
 import { motion as Motion, useReducedMotion } from "motion/react";
 import { CheckCircle2, ListChecks, Target } from "lucide-react";
 import { CaseStudyMilestoneInteractive } from "./CaseStudyMilestoneInteractive.jsx";
+import { parseInlineMarkdownLinks } from "../lib/parseInlineMarkdownLinks.jsx";
 import {
   getIconListLines,
   getSectionKind,
@@ -22,7 +23,7 @@ function ProseBlock({ text, className = "" }) {
             key={j}
             className="mb-4 whitespace-pre-line last:mb-0 [text-wrap:pretty]"
           >
-            {p}
+            {parseInlineMarkdownLinks(p)}
           </p>
         ))}
       </div>
@@ -32,7 +33,7 @@ function ProseBlock({ text, className = "" }) {
     <div
       className={`whitespace-pre-line [text-wrap:pretty] text-slate-700 ${className}`.trim()}
     >
-      {text}
+      {parseInlineMarkdownLinks(text)}
     </div>
   );
 }

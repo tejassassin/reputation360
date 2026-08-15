@@ -326,6 +326,22 @@ export const article = {
             },
           ],
         },
+        {
+          type: "p",
+          text: "This checklist is the starting point for the deeper LinkedIn personal branding work we do with clients.",
+          parts: [
+                    {
+                              "text": "This checklist is the starting point for the deeper "
+                    },
+                    {
+                              "text": "LinkedIn personal branding",
+                              "href": "/services/reputation-building-services"
+                    },
+                    {
+                              "text": " work we do with clients."
+                    }
+          ],
+        },
       ],
     },
   ],

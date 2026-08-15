@@ -379,6 +379,22 @@ export const article = {
             { text: " when you want additional proof points." },
           ],
         },
+        {
+          type: "p",
+          text: "This is exactly what our page-one strategy is built to achieve.",
+          parts: [
+                    {
+                              "text": "This is exactly what "
+                    },
+                    {
+                              "text": "our page-one strategy",
+                              "href": "/services/online-reputation-management"
+                    },
+                    {
+                              "text": " is built to achieve."
+                    }
+          ],
+        },
       ],
     },
   ],

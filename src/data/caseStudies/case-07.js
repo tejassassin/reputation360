@@ -56,7 +56,9 @@ Paused enterprise contract renewed in month 8`,
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `The startup's search presence shifted from controversy to capability. Stakeholders engaging with the brand online encountered a narrative centred on growth, execution, and market relevance - allowing the company to move through a critical scaling stage without ongoing reputational drag.`,
+      body: `The startup's search presence shifted from controversy to capability. Stakeholders engaging with the brand online encountered a narrative centred on growth, execution, and market relevance - allowing the company to move through a critical scaling stage without ongoing reputational drag.
+
+We work with [executives and founders](/who-we-serve/executives-and-c-suite-leaders) facing exactly this kind of exposure. This was resolved through the same [negative link suppression](/services/negative-link-suppression) process described here.`,
     },
   ],
 };

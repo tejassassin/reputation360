@@ -321,6 +321,22 @@ export const article = {
           label: "Where to start",
           text: "Bring the URL, the publisher, and your timeline to a consultation. A clear read on removal odds plus a suppression plan beats months of chasing an impossible takedown alone.",
         },
+        {
+          type: "p",
+          text: "For most cases, our suppression service is the faster, more reliable route.",
+          parts: [
+                    {
+                              "text": "For most cases, "
+                    },
+                    {
+                              "text": "our suppression service",
+                              "href": "/services/negative-link-suppression"
+                    },
+                    {
+                              "text": " is the faster, more reliable route."
+                    }
+          ],
+        },
       ],
     },
   ],

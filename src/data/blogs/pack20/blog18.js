@@ -298,6 +298,38 @@ export const article = {
             },
           ],
         },
+        {
+          type: "p",
+          text: "Ongoing monitoring is the fourth phase of every engagement we run, not a one-time check.",
+          parts: [
+                    {
+                              "text": ""
+                    },
+                    {
+                              "text": "ongoing monitoring",
+                              "href": "/services/online-reputation-management"
+                    },
+                    {
+                              "text": " is the fourth phase of every engagement we run, not a one-time check."
+                    }
+          ],
+        },
+        {
+          type: "p",
+          text: "If any ORM term in this guide is unfamiliar, our online reputation management glossary defines the vocabulary in plain language.",
+          parts: [
+                    {
+                              "text": "If any ORM term in this guide is unfamiliar, our "
+                    },
+                    {
+                              "text": "online reputation management glossary",
+                              "href": "/resources/online-reputation-management-glossary"
+                    },
+                    {
+                              "text": " defines the vocabulary in plain language."
+                    }
+          ],
+        },
       ],
     },
   ],

@@ -1,5 +1,6 @@
 import { SeoHead } from "../components/SeoHead.jsx";
 import { ServicesSubnav } from "../components/services/ServicesSubnav.jsx";
+import { ServicePageRelatedOutcomesSection } from "../components/services/ServicePageRelatedOutcomesSection.jsx";
 import {
   OrmBeforeOutreachSection,
   OrmBenefitsSection,
@@ -22,6 +23,7 @@ import {
   ormPageSeoTitle,
 } from "../data/services/onlineReputationManagement.js";
 import { ORM_FAQS } from "../data/services/onlineReputationManagementInteractive.js";
+import { ORM_RELATED_OUTCOMES } from "../data/servicePageOutboundLinks.js";
 
 const ORM_SECTIONS_BY_ID = {
   "what-is-orm": OrmWhatIsSection,
@@ -50,9 +52,15 @@ export default function OnlineReputationManagementPage() {
       <ServicesSubnav />
       <main className="relative flex-1 bg-[#f4f6fb] text-slate-800">
         <OrmServiceHero />
-        {ORM_SCROLL_SPY_ORDER.map((sectionId) => {
+        {ORM_SCROLL_SPY_ORDER.flatMap((sectionId) => {
+          if (sectionId === "start") {
+            return [
+              <ServicePageRelatedOutcomesSection key="related-outcomes" {...ORM_RELATED_OUTCOMES} />,
+              <OrmCtaSection key="start" />,
+            ];
+          }
           const Section = ORM_SECTIONS_BY_ID[sectionId];
-          return Section ? <Section key={sectionId} /> : null;
+          return Section ? [<Section key={sectionId} />] : [];
         })}
       </main>
     </>

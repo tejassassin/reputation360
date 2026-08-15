@@ -56,7 +56,9 @@ Court reporting summary suppressed from Page 1 by month 10`,
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `Prospective clients searching his name now encounter a practitioner defined by 24 years of expertise, peer recognition, and substantive legal commentary - not a single case outcome. Two previously withdrawn mandates re-engaged within 3 months of Page 1 stabilising.`,
+      body: `Prospective clients searching his name now encounter a practitioner defined by 24 years of expertise, peer recognition, and substantive legal commentary - not a single case outcome. Two previously withdrawn mandates re-engaged within 3 months of Page 1 stabilising.
+
+We work with [lawyers and attorneys](/who-we-serve/lawyers-and-attorneys) facing exactly this kind of exposure. This was resolved through the same [negative link suppression](/services/negative-link-suppression) process described here.`,
     },
   ],
 };

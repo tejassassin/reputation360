@@ -324,6 +324,22 @@ export const article = {
             },
           ],
         },
+        {
+          type: "p",
+          text: "In an active crisis, emergency suppression support is often the first move we make.",
+          parts: [
+                    {
+                              "text": "In an active crisis, "
+                    },
+                    {
+                              "text": "emergency suppression support",
+                              "href": "/services/negative-link-suppression"
+                    },
+                    {
+                              "text": " is often the first move we make."
+                    }
+          ],
+        },
       ],
     },
   ],

@@ -273,6 +273,22 @@ export const article = {
             { text: " matters." },
           ],
         },
+        {
+          type: "p",
+          text: "Claiming these profiles is step one of what our reputation building services do at scale.",
+          parts: [
+                    {
+                              "text": "Claiming these profiles is step one of what our "
+                    },
+                    {
+                              "text": "reputation building services",
+                              "href": "/services/reputation-building-services"
+                    },
+                    {
+                              "text": " do at scale."
+                    }
+          ],
+        },
       ],
     },
   ],

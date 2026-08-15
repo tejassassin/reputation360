@@ -725,6 +725,13 @@ export default function BlogSuppressNegativeContentGuidePage() {
 
               <section className="mb-20 scroll-mt-36" id="framework">
                 <h2 className="mb-6 font-heading text-3xl font-bold text-navy">The 5-Step Framework</h2>
+                <p className="mb-6 max-w-4xl font-body text-base leading-relaxed text-steel">
+                  This is the same 5-step approach we use in our{" "}
+                  <DiyInternalLink href="/services/negative-link-suppression">
+                    negative link suppression
+                  </DiyInternalLink>{" "}
+                  engagements.
+                </p>
                 <div className="flex max-w-4xl flex-col gap-4">
                   <div className="flex flex-wrap items-center justify-center gap-y-2 sm:justify-start">
                     {STEPS.map((s, idx) => {

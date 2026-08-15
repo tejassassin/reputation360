@@ -52,7 +52,9 @@ Podcast and content assets occupying 3 further Page 1 positions`,
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `The solicitor now has a robust, multi-layered digital presence that genuinely reflects her expertise and the quality of her client relationships. The episode ultimately accelerated the development of a professional online identity she had previously neglected - turning a targeted attack into a long-term reputational asset.`,
+      body: `The solicitor now has a robust, multi-layered digital presence that genuinely reflects her expertise and the quality of her client relationships. The episode ultimately accelerated the development of a professional online identity she had previously neglected - turning a targeted attack into a long-term reputational asset.
+
+We work with [lawyers and attorneys](/who-we-serve/lawyers-and-attorneys) facing exactly this kind of exposure. This was resolved through the same [negative link suppression](/services/negative-link-suppression) process described here.`,
     },
   ],
 };

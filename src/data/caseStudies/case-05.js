@@ -55,7 +55,9 @@ Retail partner confidence restored; two new stockist agreements signed`,
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `The brand emerged from the controversy with a stronger and more defined public identity. Their digital presence shifted from reactive controversy management to proactive brand storytelling - turning a reputational low point into a reset opportunity.`,
+      body: `The brand emerged from the controversy with a stronger and more defined public identity. Their digital presence shifted from reactive controversy management to proactive brand storytelling - turning a reputational low point into a reset opportunity.
+
+We work with [businesses and companies](/who-we-serve/businesses-and-companies) facing exactly this kind of exposure. This was resolved through the same [online reputation management](/services/online-reputation-management) engagement described here.`,
     },
   ],
 };

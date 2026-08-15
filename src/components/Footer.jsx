@@ -17,6 +17,7 @@ import {
 } from "../constants/contact.js";
 import { LOGO_ALT_FOOTER } from "../constants/imageAlt.js";
 import { externalAnchorProps, internalAnchorProps } from "../lib/internalLinkProps.js";
+import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 
 /** All legal / policy pages shown under the Policies column. Add new documents here only. */
 const POLICY_LINKS = [
@@ -27,11 +28,29 @@ const POLICY_LINKS = [
   { name: "DMCA / Copyright Policy", href: "/dmca-copyright-policy" },
 ];
 
+const RESOURCES_LINKS = [
+  { name: "Insights and Blogs", href: "/blog" },
+  { name: "Reputation Management Guide", href: "/resources/guide" },
+  { name: "FAQs", href: "/resources/faqs" },
+  { name: "ORM Glossary", href: "/resources/online-reputation-management-glossary" },
+];
+
+const WHO_WE_SERVE_LINKS = [
+  { name: "Individuals", href: AUDIENCE_PATH.individuals },
+  { name: "Executives and C-Suite Leaders", href: AUDIENCE_PATH.executives },
+  { name: "Doctors and Healthcare Professionals", href: AUDIENCE_PATH.doctors },
+  { name: "Lawyers and Attorneys", href: AUDIENCE_PATH.lawyers },
+  { name: "Financial Advisors", href: AUDIENCE_PATH.financialAdvisors },
+  { name: "Real Estate Agents and Brokers", href: AUDIENCE_PATH.realEstate },
+  { name: "Job Seekers", href: AUDIENCE_PATH.jobSeekers },
+  { name: "Businesses and Companies", href: AUDIENCE_PATH.businesses },
+];
+
 function Footer() {
   return (
     <footer className="bg-charcoal text-white py-10 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-5 lg:gap-6 xl:gap-8">
+        <div className="mb-8 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-4 xl:grid-cols-7 xl:gap-6">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-13 h-13 rounded-full bg-white flex items-center justify-center pl-1">
@@ -88,6 +107,38 @@ function Footer() {
                     className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
                   >
                     {service.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="min-w-0">
+            <p className="font-heading font-semibold mb-4">Resources</p>
+            <ul className="space-y-2">
+              {RESOURCES_LINKS.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    {...internalAnchorProps(item.href)}
+                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="min-w-0">
+            <p className="font-heading font-semibold mb-4">Who We Serve</p>
+            <ul className="space-y-2">
+              {WHO_WE_SERVE_LINKS.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    {...internalAnchorProps(item.href)}
+                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
+                  >
+                    {item.name}
                   </a>
                 </li>
               ))}

@@ -57,7 +57,9 @@ Significant reduction in customer support queries related to authenticity concer
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `The brand regained control over how its products were perceived online. Search results shifted from skepticism to clarity and confidence - enabling the business to restore customer trust and resume scaling without ongoing reputational friction.`,
+      body: `The brand regained control over how its products were perceived online. Search results shifted from skepticism to clarity and confidence - enabling the business to restore customer trust and resume scaling without ongoing reputational friction.
+
+We work with [businesses and companies](/who-we-serve/businesses-and-companies) facing exactly this kind of exposure. This was resolved through the same [negative link suppression](/services/negative-link-suppression) process described here.`,
     },
   ],
 };

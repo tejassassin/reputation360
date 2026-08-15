@@ -258,7 +258,7 @@ export const article = {
             },
             {
               text: "Our reputation management services",
-              href: SERVICES_PATH,
+              href: "/services/online-reputation-management",
             },
             {
               text: " map scope, timeline, and realistic return for career, business, and crisis contexts.",
