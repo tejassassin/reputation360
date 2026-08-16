@@ -1,5 +1,6 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
 import { AUDIENCE_BREADCRUMB_LABEL_BY_PATH } from "../data/articleBreadcrumbTitles.js";
+import { getRouteSeoMeta } from "../data/routeSeoByPath.js";
 import {
   canonicalHrefForNormalizedPath,
   normalizeCanonicalPath,
@@ -9,13 +10,33 @@ import {
   resolveArticleBreadcrumb,
 } from "./articleBreadcrumb.js";
 
+export const JSONLD_BREADCRUMB_ID = "r360-jsonld-breadcrumb";
+
 /** Schema.org BreadcrumbList base URL (matches site canonical origin). */
 export const BREADCRUMB_SCHEMA_BASE = METADATA_BASE;
 
 const SEGMENT_LABELS = {
-  "who-we-serve": "Who We Serve",
+  about: "About Us",
+  blog: "Insights and Blogs",
   "case-studies": "Case Studies",
-  blog: "Blog",
+  contact: "Contact",
+  resources: "Resources",
+  services: "Services",
+  "who-we-serve": "Who We Serve",
+  "privacy-policy": "Privacy Policy",
+  "terms-of-service": "Terms of Service",
+  "cookie-policy": "Cookie Policy",
+  "refund-policy": "Refund Policy",
+  "dmca-copyright-policy": "DMCA / Copyright Policy",
+  "acceptable-use-policy": "Acceptable Use Policy",
+  "terms-of-use": "Terms of Use",
+  "free-reputation-scan": "Free Reputation Scan",
+  guide: "Reputation Management Guide",
+  faqs: "FAQs",
+  "online-reputation-management-glossary": "ORM Glossary",
+  "online-reputation-management": "Online Reputation Management",
+  "negative-link-suppression": "Negative Link Suppression",
+  "reputation-building-services": "Reputation Building Services",
 };
 
 /** Final path segment labels (do not derive from slug formatting). */
@@ -48,10 +69,14 @@ export function breadcrumbLabelForSegment(segment) {
  */
 export function shouldShowBreadcrumb(pathname) {
   const path = normalizeCanonicalPath(pathname);
-  if (/^\/who-we-serve\/[^/]+$/.test(path)) return true;
-  if (/^\/case-studies\/[^/]+$/.test(path)) return true;
-  if (/^\/blog\/[^/]+$/.test(path)) return true;
-  return false;
+  if (
+    path === "/" ||
+    path === "/internal-not-found" ||
+    path === "/free-scan-admin"
+  ) {
+    return false;
+  }
+  return true;
 }
 
 /**
@@ -86,6 +111,7 @@ export function buildBreadcrumbTrail(pathname) {
     ];
   }
 
+  const seo = getRouteSeoMeta(path);
   const segments = path.split("/").filter(Boolean);
   /** @type {BreadcrumbCrumb[]} */
   const crumbs = [{ href: "/", label: "Home" }];
@@ -94,7 +120,12 @@ export function buildBreadcrumbTrail(pathname) {
   for (let i = 0; i < segments.length; i += 1) {
     const segment = segments[i];
     href += `/${segment}`;
-    crumbs.push({ href, label: breadcrumbLabelForSegment(segment) });
+    const isLast = i === segments.length - 1;
+    let label = breadcrumbLabelForSegment(segment);
+    if (isLast && seo?.title) {
+      label = seo.title.replace(/\s*\|\s*Reputation360\s*$/i, "").trim();
+    }
+    crumbs.push({ href, label });
   }
 
   return crumbs;
@@ -129,4 +160,16 @@ export function getBreadcrumbJsonLdForPath(pathname) {
   if (!trail?.length) return null;
 
   return breadcrumbListJsonLd(trail);
+}
+
+/**
+ * @param {string} pathname
+ * @returns {{ id: string; data: Record<string, unknown> } | null}
+ */
+export function getBreadcrumbJsonLdBlock(pathname) {
+  const data = getBreadcrumbJsonLdForPath(pathname);
+  if (!data) {
+    return null;
+  }
+  return { id: JSONLD_BREADCRUMB_ID, data };
 }

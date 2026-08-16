@@ -2,8 +2,6 @@
 
 import { lazy } from "react";
 import { SeoHead } from "../components/SeoHead.jsx";
-import { faqAdditionalJsonLdFromItems, mapQuestionAnswerFaqs } from "../data/faqPageSchema.js";
-import { HOME_FAQ_ITEMS } from "../data/homeFaqItems.js";
 import { HOME_PAGE_JSON_LD } from "../data/organizationSchema.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import Hero from "../components/Hero";
@@ -35,7 +33,6 @@ function HomePage({ renderSeo = true }) {
           description={homeSeo.description}
           canonicalPath={homeSeo.path}
           jsonLd={HOME_PAGE_JSON_LD}
-          additionalJsonLd={faqAdditionalJsonLdFromItems(mapQuestionAnswerFaqs(HOME_FAQ_ITEMS))}
         />
       ) : null}
       <Hero />

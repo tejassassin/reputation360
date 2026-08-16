@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { RouteJsonLd } from "@/components/next/RouteJsonLd.jsx";
 import { WHO_WE_SERVE_BY_SEGMENT } from "@/lib/next/dedicatedSsrRoutes.js";
 import { buildRouteMetadata } from "@/lib/next/routeMetadata.js";
 export { dynamic, revalidate } from "@/lib/next/ssrRouteConfig.js";
@@ -28,5 +29,10 @@ export default async function WhoWeServeAudiencePage({ params }) {
   if (!row) notFound();
 
   const { Page } = row;
-  return <Page renderSeo={false} />;
+  return (
+    <>
+      <RouteJsonLd pathname={row.path} />
+      <Page renderSeo={false} />
+    </>
+  );
 }

@@ -1,8 +1,6 @@
 import { METADATA_BASE } from "@/constants/siteUrl.js";
 import { SEO } from "@/data/seoPageMeta.js";
 import { HOME_PAGE_JSON_LD } from "@/data/organizationSchema.js";
-import { faqAdditionalJsonLdFromItems, mapQuestionAnswerFaqs } from "@/data/faqPageSchema.js";
-import { HOME_FAQ_ITEMS } from "@/data/homeFaqItems.js";
 import { localizeSeoEntry } from "@/lib/localizeSeoForGeo.js";
 import { GEO_MARKET_DEFAULT } from "@/lib/geoMarket.js";
 
@@ -38,8 +36,5 @@ export function buildHomeMetadata() {
 }
 
 export function getHomeJsonLdBlocks() {
-  return [
-    { id: "r360-jsonld-organization", data: HOME_PAGE_JSON_LD },
-    ...faqAdditionalJsonLdFromItems(mapQuestionAnswerFaqs(HOME_FAQ_ITEMS)),
-  ];
+  return [{ id: "r360-jsonld-organization", data: HOME_PAGE_JSON_LD }];
 }

@@ -5,6 +5,7 @@ import {
   pack20ArticleToSchemaInput,
 } from "@/data/articleSchema.js";
 import { faqAdditionalJsonLdFromItems, mapQaFaqs } from "@/data/faqPageSchema.js";
+import { getBreadcrumbJsonLdBlock } from "@/lib/breadcrumbs.js";
 import { canonicalHrefFromPath } from "@/lib/canonicalHrefFromPath.js";
 
 /**
@@ -46,5 +47,9 @@ export function getPack20ArticleJsonLdBlocks(article) {
     faqAdditionalJsonLdFromItems(mapQaFaqs(article.faqs ?? [])),
     articleAdditionalJsonLdFromInput(pack20ArticleToSchemaInput(article)),
   );
+  const breadcrumb = getBreadcrumbJsonLdBlock(article.path);
+  if (breadcrumb) {
+    merged.push(breadcrumb);
+  }
   return merged ?? [];
 }

@@ -10,6 +10,7 @@ import {
   buildPack20ArticleMetadata,
   getPack20ArticleJsonLdBlocks,
 } from "@/lib/next/pack20ArticleSeo.js";
+import { getLegacyBlogJsonLdBlocks } from "@/lib/next/routeJsonLd.js";
 import { buildRouteMetadata } from "@/lib/next/routeMetadata.js";
 
 const ALL_BLOG_SLUGS = [...PACK20_SLUGS, ...LEGACY_BLOG_SLUGS];
@@ -60,5 +61,13 @@ export default async function BlogPostPage({ params }) {
     notFound();
   }
 
-  return <LegacyBlogPage slug={slug} />;
+  const jsonLdBlocks = getLegacyBlogJsonLdBlocks(slug);
+  return (
+    <>
+      {jsonLdBlocks.map((block) => (
+        <JsonLd key={block.id} id={block.id} data={block.data} />
+      ))}
+      <LegacyBlogPage slug={slug} />
+    </>
+  );
 }

@@ -7,6 +7,7 @@ import {
 } from "@/app/routeRegistry.js";
 import { DEDICATED_SSR_PATHS } from "@/lib/next/dedicatedSsrPaths.js";
 import { LegacySitePage } from "@/lib/next/LegacySitePage.jsx";
+import { RouteJsonLd } from "@/components/next/RouteJsonLd.jsx";
 import { NOINDEX_FOLLOW_PATHS } from "@/constants/noindexFollowPaths.js";
 import { buildRouteMetadata } from "@/lib/next/routeMetadata.js";
 import { pathnameFromSegments, segmentsFromPathname } from "@/lib/next/pathSegments.js";
@@ -58,5 +59,10 @@ export default async function CatchAllPage({ params }) {
     return <NotFoundContent />;
   }
 
-  return <LegacySitePage pathname={pathname} />;
+  return (
+    <>
+      <RouteJsonLd pathname={pathname} />
+      <LegacySitePage pathname={pathname} />
+    </>
+  );
 }
