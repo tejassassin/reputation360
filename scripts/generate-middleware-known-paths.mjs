@@ -1,6 +1,7 @@
 import { writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { NOINDEX_FOLLOW_PATHS } from "../src/constants/noindexFollowPaths.js";
 import { buildSitemapEntries } from "../src/lib/sitemapEntries.js";
 
 const INTERNAL_NOT_FOUND_PATH = "/internal-not-found";
@@ -12,6 +13,7 @@ const paths = new Set([
   "/",
   INTERNAL_NOT_FOUND_PATH,
   "/free-scan-admin",
+  ...NOINDEX_FOLLOW_PATHS,
   ...buildSitemapEntries().map((entry) => entry.path),
 ]);
 

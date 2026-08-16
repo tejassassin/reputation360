@@ -59,12 +59,13 @@ const BlogRemoveNewsArticlesFromGooglePage = lazy(
 const BlogPack20ArticlePage = lazy(() => import("../pages/BlogPack20ArticlePage.jsx"));
 const GuidePage = lazy(() => import("../pages/GuidePage.jsx"));
 const OrmGlossaryPage = lazy(() => import("../pages/OrmGlossaryPage.jsx"));
-// AcceptableUsePolicyPage merged into TermsOfServicePage
+// Legal policy pages (also listed in NOINDEX_FOLLOW_PATHS)
+const AcceptableUsePolicyPage = lazy(() => import("../pages/AcceptableUsePolicyPage.jsx"));
 const CookiePolicyPage = lazy(() => import("../pages/CookiePolicyPage.jsx"));
 const PrivacyPolicyPage = lazy(() => import("../pages/PrivacyPolicyPage.jsx"));
 const RefundPolicyPage = lazy(() => import("../pages/RefundPolicyPage.jsx"));
 const TermsOfServicePage = lazy(() => import("../pages/TermsOfServicePage.jsx"));
-// TermsOfUsePage merged into TermsOfServicePage
+const TermsOfUsePage = lazy(() => import("../pages/TermsOfUsePage.jsx"));
 const DmcaCopyrightPolicyPage = lazy(() => import("../pages/DmcaCopyrightPolicyPage.jsx"));
 const FreeRiskScanPage = lazy(() => import("../pages/FreeRiskScanPage.jsx"));
 const FreeScanAdminPage = lazy(() => import("../pages/FreeScanAdminPage.jsx"));
@@ -156,6 +157,8 @@ export function pageForNonHomePath(path) {
   }
   if (path === "/privacy-policy") return <PrivacyPolicyPage />;
   if (path === "/terms-of-service") return <TermsOfServicePage />;
+  if (path === "/acceptable-use-policy") return <AcceptableUsePolicyPage />;
+  if (path === "/terms-of-use") return <TermsOfUsePage />;
   if (path === "/cookie-policy") return <CookiePolicyPage />;
   if (path === "/refund-policy") return <RefundPolicyPage />;
   if (path === "/dmca-copyright-policy") return <DmcaCopyrightPolicyPage />;

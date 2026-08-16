@@ -7,6 +7,7 @@ import {
 } from "@/app/routeRegistry.js";
 import { DEDICATED_SSR_PATHS } from "@/lib/next/dedicatedSsrPaths.js";
 import { LegacySitePage } from "@/lib/next/LegacySitePage.jsx";
+import { NOINDEX_FOLLOW_PATHS } from "@/constants/noindexFollowPaths.js";
 import { buildRouteMetadata } from "@/lib/next/routeMetadata.js";
 import { pathnameFromSegments, segmentsFromPathname } from "@/lib/next/pathSegments.js";
 
@@ -18,6 +19,7 @@ export function generateStaticParams() {
   const paths = new Set([
     ...SITEMAP_URL_ENTRIES.map((entry) => entry.path),
     ...EXTRA_STATIC_PATHS,
+    ...NOINDEX_FOLLOW_PATHS,
     ...Object.keys(NEXT_SERVER_REDIRECTS),
   ]);
 

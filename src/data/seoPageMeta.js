@@ -86,8 +86,18 @@ export const SEO = {
       description:
         "Reputation360 refund policy: non-refundable services, limited eligibility, 7-day request window, how to request a refund, processing timelines, chargebacks, service credit, and contact details.",
     },
-    acceptableUse: null,
-    termsOfUse: null,
+    acceptableUse: {
+      title: "Acceptable Use Policy | Reputation360",
+      path: "/acceptable-use-policy",
+      description:
+        "Reputation360 Acceptable Use Policy: prohibited activities, account rules, content standards, security, compliance, enforcement, and contact details.",
+    },
+    termsOfUse: {
+      title: "Website Terms of Use | Reputation360",
+      path: "/terms-of-use",
+      description:
+        "Website Terms of Use for Reputation360: access rules, eligibility, acceptable use, user content, IP, disclaimers, liability, and contact information.",
+    },
     dmcaCopyright: {
       title: "DMCA / Copyright Policy | Reputation360",
       path: "/dmca-copyright-policy",

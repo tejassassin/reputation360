@@ -3,6 +3,7 @@
 export const MIDDLEWARE_KNOWN_PATHS = new Set([
   "/",
   "/about",
+  "/acceptable-use-policy",
   "/blog",
   "/blog/ai-search-changes-reputation-chatgpt-beyond-reputation360-guide",
   "/blog/building-positive-google-presence-profile-claiming-guide-reputation360",
@@ -61,6 +62,7 @@ export const MIDDLEWARE_KNOWN_PATHS = new Set([
   "/services/online-reputation-management",
   "/services/reputation-building-services",
   "/terms-of-service",
+  "/terms-of-use",
   "/who-we-serve/businesses-and-companies",
   "/who-we-serve/doctors-and-healthcare-professionals",
   "/who-we-serve/executives-and-c-suite-leaders",

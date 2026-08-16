@@ -1,4 +1,5 @@
 import { METADATA_BASE } from "@/constants/siteUrl.js";
+import { isNoindexFollowPath } from "@/constants/noindexFollowPaths.js";
 import { getRouteSeoMeta } from "@/data/routeSeoByPath.js";
 import { canonicalHrefFromPath } from "@/lib/canonicalHrefFromPath.js";
 import { hasDynamicOgImage } from "@/lib/ogImageTitleByPath.js";
@@ -24,6 +25,9 @@ export function buildRouteMetadata(pathname) {
     title: seo.title,
     description: seo.description,
     alternates: { canonical },
+    ...(isNoindexFollowPath(pathname)
+      ? { robots: { index: false, follow: true } }
+      : {}),
     openGraph: {
       type: "website",
       siteName: "Reputation360",

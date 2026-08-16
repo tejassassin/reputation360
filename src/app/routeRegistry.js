@@ -66,5 +66,7 @@ export function isRoutableNonHomePath(path) {
   if (path === "/cookie-policy") return true;
   if (path === "/refund-policy") return true;
   if (path === "/dmca-copyright-policy") return true;
+  if (path === "/acceptable-use-policy") return true;
+  if (path === "/terms-of-use") return true;
   return false;
 }

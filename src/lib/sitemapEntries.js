@@ -88,11 +88,6 @@ export function buildSitemapEntries() {
       changefreq: "monthly",
       priority: "0.6",
     },
-    { path: "/privacy-policy", changefreq: "yearly", priority: "0.4" },
-    { path: "/terms-of-service", changefreq: "yearly", priority: "0.4" },
-    { path: "/cookie-policy", changefreq: "yearly", priority: "0.4" },
-    { path: "/refund-policy", changefreq: "yearly", priority: "0.4" },
-    { path: "/dmca-copyright-policy", changefreq: "yearly", priority: "0.4" },
   ];
 
   for (const study of CASE_STUDIES) {

@@ -39,16 +39,6 @@
       "permanent": true
     },
     {
-      "source": "/acceptable-use-policy",
-      "destination": "/terms-of-service",
-      "statusCode": 301
-    },
-    {
-      "source": "/terms-of-use",
-      "destination": "/terms-of-service",
-      "statusCode": 301
-    },
-    {
       "source": "/free-risk-scan",
       "destination": "/free-reputation-scan",
       "permanent": true
