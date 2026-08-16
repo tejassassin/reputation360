@@ -15,7 +15,10 @@ import case14 from "./case-14.js";
 import case15 from "./case-15.js";
 import case16 from "./case-16.js";
 import { slugifyCaseStudyListTitle } from "../../lib/caseStudySlug.js";
+import { CASE_STUDY_LEGACY_SLUG_ALIASES } from "./legacySlugs.js";
 import { CASE_STUDY_SEO_BY_N } from "./caseStudySeo.js";
+
+export { CASE_STUDY_LEGACY_SLUG_ALIASES, LEGACY_CASE_STUDY_PATHS } from "./legacySlugs.js";
 
 /** Fixed audience verticals for filtering; each case study uses exactly one. */
 export const INDUSTRY_CATEGORIES = [
@@ -80,5 +83,9 @@ export function getCaseStudyByN(n) {
 export function getCaseStudyBySlug(slug) {
   if (typeof slug !== "string" || !slug.trim()) return null;
   const s = decodeURIComponent(slug).trim();
-  return CASE_STUDIES.find((cs) => cs.slug === s) ?? null;
+  const direct = CASE_STUDIES.find((cs) => cs.slug === s);
+  if (direct) return direct;
+  const canonicalSlug = CASE_STUDY_LEGACY_SLUG_ALIASES[s];
+  if (!canonicalSlug) return null;
+  return CASE_STUDIES.find((cs) => cs.slug === canonicalSlug) ?? null;
 }

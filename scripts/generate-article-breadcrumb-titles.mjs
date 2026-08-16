@@ -7,6 +7,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { PACK20_ARTICLES } from "../src/data/blogs/pack20/catalog.js";
 import { CASE_STUDIES } from "../src/data/caseStudies/index.js";
+import { CASE_STUDY_LEGACY_SLUG_ALIASES } from "../src/data/caseStudies/legacySlugs.js";
 import { DIY_REPUTATION_GUIDE_PATH, diyReputationGuideHero } from "../src/data/blogs/diyReputationGuide.js";
 import {
   REMOVE_NEGATIVE_SEARCH_RESULTS_PATH,
@@ -50,6 +51,17 @@ for (const value of Object.values(SEO)) {
   }
 }
 
+/** @type {Record<string, string>} */
+const CASE_STUDY_BREADCRUMB_TITLES = Object.fromEntries(
+  CASE_STUDIES.map((study) => [study.slug, study.listTitle]),
+);
+for (const [legacySlug, canonicalSlug] of Object.entries(CASE_STUDY_LEGACY_SLUG_ALIASES)) {
+  const title = CASE_STUDY_BREADCRUMB_TITLES[canonicalSlug];
+  if (title) {
+    CASE_STUDY_BREADCRUMB_TITLES[legacySlug] = title;
+  }
+}
+
 const file = `/**
  * Lightweight breadcrumb labels for layout chrome (auto-generated).
  * @generated scripts/generate-article-breadcrumb-titles.mjs
@@ -64,7 +76,7 @@ export const PACK20_BREADCRUMB_TITLES_BY_SLUG = ${JSON.stringify(
 
 /** @type {Record<string, string>} */
 export const CASE_STUDY_BREADCRUMB_TITLES_BY_SLUG = ${JSON.stringify(
-  Object.fromEntries(CASE_STUDIES.map((study) => [study.slug, study.listTitle])),
+  CASE_STUDY_BREADCRUMB_TITLES,
   null,
   2,
 )};

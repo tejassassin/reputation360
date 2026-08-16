@@ -17,6 +17,7 @@ import {
   JOB_SEEKER_FAQ_ITEMS,
   LAWYER_FAQ_ITEMS,
   PERSONAL_REPUTATION_FAQ_ITEMS,
+  REAL_ESTATE_FAQ_ITEMS,
 } from "./whoWeServeAudienceFaqs.js";
 import { DIY_FAQS } from "./blogs/diyReputationGuideInteractive.js";
 import { SUPPRESS_NEGATIVE_GUIDE_FAQS } from "./blogs/suppressNegativeGuideFaqs.js";
@@ -63,6 +64,7 @@ const FAQ_ITEMS_BY_PATH = {
   [AUDIENCE_PATH.executives]: mapQuestionAnswerFaqs(EXECUTIVE_FAQ_ITEMS),
   [AUDIENCE_PATH.doctors]: mapQuestionAnswerFaqs(DOCTOR_FAQ_ITEMS),
   [AUDIENCE_PATH.lawyers]: mapQuestionAnswerFaqs(LAWYER_FAQ_ITEMS),
+  [AUDIENCE_PATH.realEstate]: mapQuestionAnswerFaqs(REAL_ESTATE_FAQ_ITEMS),
   [AUDIENCE_PATH.jobSeekers]: mapQuestionAnswerFaqs(JOB_SEEKER_FAQ_ITEMS),
   [AUDIENCE_PATH.businesses]: mapQuestionAnswerFaqs(BUSINESS_FAQ_ITEMS),
   [DIY_REPUTATION_GUIDE_PATH]: mapQaFaqs(DIY_FAQS),

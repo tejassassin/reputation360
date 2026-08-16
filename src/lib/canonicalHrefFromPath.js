@@ -1,4 +1,5 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
+import { CASE_STUDY_LEGACY_SLUG_ALIASES } from "../data/caseStudies/legacySlugs.js";
 
 /**
  * Canonical URL helpers. Blog index is `/blog`; posts are `/blog/{slug}`.
@@ -23,6 +24,22 @@ export function normalizeCanonicalPath(pathname) {
 }
 
 /**
+ * Canonical pathname for metadata when a legacy alias still serves content.
+ * @param {string} normalizedPath
+ */
+function metadataCanonicalPath(normalizedPath) {
+  const match = normalizedPath.match(/^\/case-studies\/([^/]+)$/);
+  if (!match) {
+    return normalizedPath;
+  }
+  const canonicalSlug = CASE_STUDY_LEGACY_SLUG_ALIASES[match[1]];
+  if (!canonicalSlug) {
+    return normalizedPath;
+  }
+  return `/case-studies/${canonicalSlug}`;
+}
+
+/**
  * Absolute self-referencing canonical: trailing slash only on the homepage.
  * @param {string} normalizedPath from {@link normalizeCanonicalPath}
  */
@@ -39,7 +56,8 @@ export function canonicalHrefForNormalizedPath(normalizedPath) {
  * @param {string} canonicalPath pathname fragment
  */
 export function canonicalHrefFromPath(canonicalPath) {
-  return canonicalHrefForNormalizedPath(normalizeCanonicalPath(canonicalPath));
+  const normalized = normalizeCanonicalPath(canonicalPath);
+  return canonicalHrefForNormalizedPath(metadataCanonicalPath(normalized));
 }
 
 /**

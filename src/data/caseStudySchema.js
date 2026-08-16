@@ -11,12 +11,13 @@ const CASE_STUDY_DATE_PUBLISHED = `${FOUNDING_YEAR}-06-01`;
 
 /**
  * @param {import("./caseStudies/types.js").CaseStudy & { slug: string }} study
+ * @param {{ requestSlug?: string }} [options]
  * @returns {Record<string, unknown> | null}
  */
-export function buildCaseStudyArticleSchema(study) {
+export function buildCaseStudyArticleSchema(study, options = {}) {
   const headline = study.listTitle?.trim();
   const description = (study.metaDescription || study.summary || "").trim();
-  const slug = study.slug?.trim();
+  const slug = (options.requestSlug ?? study.slug)?.trim();
   if (!headline || !description || !slug) {
     return null;
   }
@@ -52,11 +53,12 @@ export function caseStudyArticleJsonLdBlocks(pathname) {
   if (!match) {
     return [];
   }
-  const study = getCaseStudyBySlug(decodeURIComponent(match[1]));
+  const requestSlug = decodeURIComponent(match[1]);
+  const study = getCaseStudyBySlug(requestSlug);
   if (!study) {
     return [];
   }
-  const data = buildCaseStudyArticleSchema(study);
+  const data = buildCaseStudyArticleSchema(study, { requestSlug });
   if (!data) {
     return [];
   }

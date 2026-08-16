@@ -7,6 +7,7 @@ import { PACK20_ARTICLES } from "./blogs/pack20/catalog.js";
 import { SEO } from "./seoPageMeta.js";
 import { CASE_STUDY_SEO_BY_N } from "./caseStudies/caseStudySeo.js";
 import { CASE_STUDIES } from "./caseStudies/index.js";
+import { CASE_STUDY_LEGACY_SLUG_ALIASES } from "./caseStudies/legacySlugs.js";
 
 /** @param {Record<string, unknown>} node @param {Record<string, { title: string; description: string }>} acc */
 function collectSeoEntries(node, acc) {
@@ -71,6 +72,14 @@ for (const study of CASE_STUDIES) {
     title: seo.seoTitle,
     description: seo.metaDescription,
   };
+}
+
+for (const [legacySlug, canonicalSlug] of Object.entries(CASE_STUDY_LEGACY_SLUG_ALIASES)) {
+  const canonicalPath = `/case-studies/${canonicalSlug}`;
+  const seo = ROUTE_SEO[canonicalPath];
+  if (seo) {
+    ROUTE_SEO[`/case-studies/${legacySlug}`] = seo;
+  }
 }
 
 /** @param {string} pathname */

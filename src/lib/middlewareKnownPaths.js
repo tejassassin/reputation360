@@ -41,6 +41,7 @@ export const MIDDLEWARE_KNOWN_PATHS = new Set([
   "/case-studies/the-accountant-and-the-wrongful-dismissal-headline",
   "/case-studies/the-doctor-and-the-misattributed-article",
   "/case-studies/the-family-lawyer-and-the-client-vendetta",
+  "/case-studies/the-gp-and-the-misattributed-article",
   "/case-studies/the-graduate-and-the-incident-that-followed-him-online",
   "/case-studies/the-ifa-and-the-collapsed-investment-fund",
   "/case-studies/the-litigation-partner-and-the-losing-verdict",

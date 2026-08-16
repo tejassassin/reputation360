@@ -43,7 +43,8 @@ export const CASE_STUDY_BREADCRUMB_TITLES_BY_SLUG = {
   "the-ifa-and-the-collapsed-investment-fund": "The IFA and the Collapsed Investment Fund",
   "the-accountant-and-the-wrongful-dismissal-headline": "The Accountant and the Wrongful Dismissal Headline",
   "the-graduate-and-the-incident-that-followed-him-online": "The Graduate and the Incident That Followed Him Online",
-  "the-senior-product-manager-and-the-glassdoor-problem": "The Senior Product Manager and the Glassdoor Problem"
+  "the-senior-product-manager-and-the-glassdoor-problem": "The Senior Product Manager and the Glassdoor Problem",
+  "the-gp-and-the-misattributed-article": "The Doctor and the Misattributed Article"
 };
 
 /** @type {Record<string, string>} */

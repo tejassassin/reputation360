@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { NotFoundContent } from "@/components/NotFoundContent.jsx";
 import { SITEMAP_URL_ENTRIES } from "@/constants/sitemapUrlEntries.js";
+import { LEGACY_CASE_STUDY_PATHS } from "@/data/caseStudies/index.js";
 import {
   isRoutableNonHomePath,
   NEXT_SERVER_REDIRECTS,
@@ -22,6 +23,7 @@ export function generateStaticParams() {
     ...EXTRA_STATIC_PATHS,
     ...NOINDEX_FOLLOW_PATHS,
     ...Object.keys(NEXT_SERVER_REDIRECTS),
+    ...LEGACY_CASE_STUDY_PATHS,
   ]);
 
   return [...paths]

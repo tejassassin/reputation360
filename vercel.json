@@ -81,7 +81,6 @@
     { "source": "/case-studies/9", "destination": "/case-studies/the-review-that-almost-ended-the-surgeons-career", "permanent": true },
     { "source": "/case-studies/the-surgeon-under-fire", "destination": "/case-studies/the-review-that-almost-ended-the-surgeons-career", "permanent": true },
     { "source": "/case-studies/10", "destination": "/case-studies/the-doctor-and-the-misattributed-article", "permanent": true },
-    { "source": "/case-studies/the-gp-and-the-misattributed-article", "destination": "/case-studies/the-doctor-and-the-misattributed-article", "permanent": true },
     { "source": "/case-studies/11", "destination": "/case-studies/the-litigation-partner-and-the-losing-verdict", "permanent": true },
     { "source": "/case-studies/12", "destination": "/case-studies/the-family-lawyer-and-the-client-vendetta", "permanent": true },
     { "source": "/case-studies/13", "destination": "/case-studies/the-ifa-and-the-collapsed-investment-fund", "permanent": true },
