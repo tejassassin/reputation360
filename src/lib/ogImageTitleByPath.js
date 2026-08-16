@@ -5,6 +5,13 @@ import {
   REPUTATION_BUILDING_SERVICES_PATH,
 } from "@/constants/servicePaths.js";
 import { getCaseStudyBySlug } from "@/data/caseStudies/index.js";
+import { PACK20_ARTICLES } from "@/data/blogs/pack20/catalog.js";
+import { DIY_REPUTATION_GUIDE_PATH, diyReputationGuideListing } from "@/data/blogs/diyReputationGuide.js";
+import { REMOVE_NEGATIVE_SEARCH_RESULTS_PATH, removeNegativeSearchResultsListing } from "@/data/blogs/removeNegativeSearchResultsGuide.js";
+import { REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH, removeNewsArticlesFromGoogleListing } from "@/data/blogs/removeNewsArticlesFromGoogleGuide.js";
+import { REPUTATION_REPAIR_TIMELINE_PATH, reputationRepairTimelineListing } from "@/data/blogs/reputationRepairTimelineGuide.js";
+import { SUPPRESS_NEGATIVE_GUIDE_PATH, suppressNegativeGuideListing } from "@/data/blogs/suppressNegativeGuideMeta.js";
+import { getRouteSeoMeta } from "@/data/routeSeoByPath.js";
 import { ormPageHero } from "@/data/services/onlineReputationManagement.js";
 import { nlsPageHero } from "@/data/services/negativeLinkSuppression.js";
 import { rbsPageHero } from "@/data/services/reputationBuildingServices.js";
@@ -59,6 +66,32 @@ export function getOgImageTitleForPath(pathname) {
   if (caseMatch) {
     const study = getCaseStudyBySlug(caseMatch[1]);
     return study?.listTitle ?? null;
+  }
+
+  const blogMatch = path.match(/^\/blog\/([^/]+)$/);
+  if (blogMatch) {
+    const slug = decodeURIComponent(blogMatch[1]);
+    const packArticle = PACK20_ARTICLES.find((article) => article.slug === slug);
+    if (packArticle?.listing?.title) {
+      return packArticle.listing.title;
+    }
+
+    /** @type {Record<string, string>} */
+    const legacyTitlesByPath = {
+      [DIY_REPUTATION_GUIDE_PATH]: diyReputationGuideListing.title,
+      [SUPPRESS_NEGATIVE_GUIDE_PATH]: suppressNegativeGuideListing.title,
+      [REMOVE_NEGATIVE_SEARCH_RESULTS_PATH]: removeNegativeSearchResultsListing.title,
+      [REPUTATION_REPAIR_TIMELINE_PATH]: reputationRepairTimelineListing.title,
+      [REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH]: removeNewsArticlesFromGoogleListing.title,
+    };
+    if (legacyTitlesByPath[path]) {
+      return legacyTitlesByPath[path];
+    }
+
+    const seo = getRouteSeoMeta(path);
+    if (seo?.title) {
+      return seo.title.replace(/\s*\|\s*Reputation360\s*$/i, "").trim();
+    }
   }
 
   return null;

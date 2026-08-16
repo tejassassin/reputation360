@@ -33,7 +33,7 @@ function buildCatalogServiceEntities({ pageScopedId = false } = {}) {
     description: service.description,
     provider: ORGANIZATION_PROVIDER_REF,
     areaServed: AREA_SERVED_COUNTRIES,
-    url: SERVICES_PAGE_URL,
+    url: `${METADATA_BASE}${service.url}`,
   }));
 }
 

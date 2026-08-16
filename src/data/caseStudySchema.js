@@ -1,13 +1,10 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
-import { getCaseStudyImage } from "../components/CaseStudyMetaPill.jsx";
 import { ORGANIZATION_ID } from "./localBusinessSchema.js";
-import { FOUNDING_YEAR } from "../constants/brandProfiles.js";
 import { getCaseStudyBySlug } from "./caseStudies/index.js";
+import { getCaseStudyPublishDates } from "./caseStudies/caseStudyPublishDates.js";
+import { schemaImageUrlForPath } from "../lib/schemaImageUrl.js";
 
 export const JSONLD_CASE_STUDY_ARTICLE_ID = "r360-jsonld-case-study-article";
-
-/** Stable publish date for anonymised case studies (no per-study dates in CMS). */
-const CASE_STUDY_DATE_PUBLISHED = `${FOUNDING_YEAR}-06-01`;
 
 /**
  * @param {import("./caseStudies/types.js").CaseStudy & { slug: string }} study
@@ -24,7 +21,11 @@ export function buildCaseStudyArticleSchema(study, options = {}) {
 
   const path = `/case-studies/${slug}`;
   const url = `${METADATA_BASE}${path}`;
-  const image = getCaseStudyImage(study.n);
+  const image = schemaImageUrlForPath(path);
+  const publishDates = getCaseStudyPublishDates(study.n);
+  if (!publishDates) {
+    return null;
+  }
 
   return {
     "@context": "https://schema.org",
@@ -33,8 +34,8 @@ export function buildCaseStudyArticleSchema(study, options = {}) {
     headline,
     description,
     image: [image],
-    datePublished: CASE_STUDY_DATE_PUBLISHED,
-    dateModified: CASE_STUDY_DATE_PUBLISHED,
+    datePublished: publishDates.datePublished,
+    dateModified: publishDates.dateModified,
     author: { "@id": ORGANIZATION_ID },
     publisher: { "@id": ORGANIZATION_ID },
     mainEntityOfPage: {

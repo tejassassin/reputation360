@@ -1,4 +1,5 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
+import { schemaImageUrlForPath } from "../lib/schemaImageUrl.js";
 
 export const JSONLD_ARTICLE_ID = "r360-jsonld-article";
 
@@ -118,7 +119,7 @@ export function pack20ArticleToSchemaInput(article) {
     path: article.path,
     headline: article.listing.title,
     description: article.metaDescription,
-    image: article.listing.image,
+    image: schemaImageUrlForPath(article.path),
     datePublished: article.listing.date,
     author: article.listing.author,
   };
@@ -134,7 +135,7 @@ export function guideListingToSchemaInput(path, listing, metaDescription) {
     path,
     headline: listing.title,
     description: metaDescription,
-    image: listing.image,
+    image: schemaImageUrlForPath(path),
     datePublished: listing.date,
     author: listing.author,
   };

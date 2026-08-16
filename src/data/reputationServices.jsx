@@ -66,6 +66,7 @@ const SERVICE_ICONS = {
 
 export const reputationServices = reputationServicesCatalog.map((service) => ({
   ...service,
+  href: service.url,
   icon: SERVICE_ICONS[service.id],
 }));
 
