@@ -32,8 +32,8 @@ export const WHO_WE_SERVE_SEE_IT_IN_ACTION = {
         label: "The Review That Almost Ended The Surgeon's Career",
       },
       {
-        href: "/case-studies/the-gp-and-the-misattributed-article",
-        label: "The GP and the Misattributed Article",
+        href: "/case-studies/the-doctor-and-the-misattributed-article",
+        label: "The Doctor and the Misattributed Article",
       },
       {
         href: "/case-studies/medical-and-healthcare-reputation-management",

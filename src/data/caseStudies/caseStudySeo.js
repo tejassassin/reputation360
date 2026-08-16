@@ -54,9 +54,9 @@ export const CASE_STUDY_SEO_BY_N = {
       "One review reduced this surgeon's referrals by 35%. Reputation360's suppression strategy restored patient confidence. Read the full case study.",
   },
   10: {
-    seoTitle: "GP's Reputation: Misattributed Article Removed | Reputation360",
+    seoTitle: "Doctor's Reputation: Misattributed Article Removed | Reputation360",
     metaDescription:
-      "GP's reputation damaged by misattributed article online. Reputation360 identified & removed false attribution for healthcare professionals across the US, Europe and across the world.",
+      "A doctor's reputation damaged by a misattributed article online. Reputation360 identified and removed false attribution for healthcare professionals across the US, Europe, and worldwide.",
   },
   11: {
     seoTitle: "Lawyer's Reputation: Verdict Suppressed | Reputation360",

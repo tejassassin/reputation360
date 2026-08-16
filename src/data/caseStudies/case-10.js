@@ -1,26 +1,27 @@
 /** @type {import('./types').CaseStudy} */
 const caseStudy = {
   n: 10,
-  listTitle: "The GP and the Misattributed Article",
+  listTitle: "The Doctor and the Misattributed Article",
+  slug: "the-doctor-and-the-misattributed-article",
   industry: "Doctors & Healthcare Professionals",
-  profile: "38-year-old GP Partner, multi-site practice",
+  profile: "38-year-old doctor and practice partner, multi-site practice",
   challengeType: "Misattributed negative content & online forum speculation",
   duration: "7 months",
   summary:
-    "A forum thread and watchdog mention actually referred to another doctor with a similar name, yet both ranked for this GP and cost new registrations. Clarifying misattribution and building correct identity signals was the priority.",
+    "A forum thread and watchdog mention actually referred to another doctor with a similar name, yet both ranked for this doctor and cost new registrations. Clarifying misattribution and building correct identity signals was the priority.",
   sections: [
     {
       heading: "The Reputation Management Challenge",
-      body: `A GP partner found that name-based search surfaced content that did not actually describe her practice. The situation was driven by:
+      body: `A doctor and practice partner found that name-based search surfaced content that did not actually describe her practice. The situation was driven by:
 
 • A health forum thread - written about a different practitioner with a near-identical name - indexed by Google and ranking on Page 1, containing serious allegations entirely unrelated to her work or her patients
-• A regional health watchdog blog that had incorrectly cited her name in a roundup of GP complaints in her area
+• A regional health watchdog blog that had incorrectly cited her name in a roundup of complaints against doctors in her area
 
 The misattribution was causing direct, measurable harm: the practice manager reported that approximately two new patient registration inquiries per week were being turned away, with patients citing "concerns found online" as the reason.`,
     },
     {
       heading: "Baseline Search Results & Reputation Audit",
-      body: `At the start of engagement, the misattributed forum thread ranked in Position 4. The watchdog blog article ranked in Position 6. The GP's own GMC profile ranked 8th. She had no personal professional website and no LinkedIn presence.`,
+      body: `At the start of engagement, the misattributed forum thread ranked in Position 4. The watchdog blog article ranked in Position 6. The doctor's own GMC profile ranked 8th. She had no personal professional website and no LinkedIn presence.`,
     },
     {
       heading: "Our Reputation Management Objective",
@@ -51,7 +52,7 @@ New patient registration complaints ceased entirely by month 6`,
     },
     {
       heading: "Business Impact & Reputation Management Outcome",
-      body: `A situation caused entirely by mistaken identity - not professional conduct - was resolved through precise identity-building and targeted content authority. The GP's digital presence now unambiguously reflects her actual record and her patients can find accurate, reassuring information when they search her name.
+      body: `A situation caused entirely by mistaken identity - not professional conduct - was resolved through precise identity-building and targeted content authority. The doctor's digital presence now unambiguously reflects her actual record and her patients can find accurate, reassuring information when they search her name.
 
 We work with [doctors and healthcare professionals](/who-we-serve/doctors-and-healthcare-professionals) facing exactly this kind of exposure. This was resolved through the same [negative link suppression](/services/negative-link-suppression) process described here.`,
     },

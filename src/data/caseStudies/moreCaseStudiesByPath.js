@@ -27,15 +27,15 @@ export const MORE_CASE_STUDIES_BY_PATH = {
   ],
   "/case-studies/the-review-that-almost-ended-the-surgeons-career": [
     {
-      href: "/case-studies/the-gp-and-the-misattributed-article",
-      label: "The GP and the Misattributed Article",
+      href: "/case-studies/the-doctor-and-the-misattributed-article",
+      label: "The Doctor and the Misattributed Article",
     },
     {
       href: "/case-studies/medical-and-healthcare-reputation-management",
       label: "Medical & Healthcare Reputation Management",
     },
   ],
-  "/case-studies/the-gp-and-the-misattributed-article": [
+  "/case-studies/the-doctor-and-the-misattributed-article": [
     {
       href: "/case-studies/the-review-that-almost-ended-the-surgeons-career",
       label: "The Review That Almost Ended The Surgeon's Career",
@@ -51,8 +51,8 @@ export const MORE_CASE_STUDIES_BY_PATH = {
       label: "The Review That Almost Ended The Surgeon's Career",
     },
     {
-      href: "/case-studies/the-gp-and-the-misattributed-article",
-      label: "The GP and the Misattributed Article",
+      href: "/case-studies/the-doctor-and-the-misattributed-article",
+      label: "The Doctor and the Misattributed Article",
     },
   ],
   "/case-studies/financial-professional-reputation-recovery": [

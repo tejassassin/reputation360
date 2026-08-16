@@ -137,7 +137,7 @@ const caseStudyImageMap = {
   8: unsplashPhoto("photo-1556742049-0cfed4f6a45d"),
   // 9: Consultant surgeon - operating theatre during surgery
   9: surgeonCaseStudyImg,
-  // 10: GP partner - stethoscope and laptop on clinic desk (hands only)
+  // 10: Doctor and practice partner - stethoscope and laptop on clinic desk (hands only)
   10: unsplashPhoto("photo-1576091160550-2173dba999ef"),
   // 11: Litigation partner - lawyer reviewing contract and case law
   11: unsplashPlusPhoto("premium_photo-1661559051049-f9e147c7a90b"),

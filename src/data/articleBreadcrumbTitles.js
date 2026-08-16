@@ -37,7 +37,7 @@ export const CASE_STUDY_BREADCRUMB_TITLES_BY_SLUG = {
   "startup-reputation-recovery-after-funding-controversy": "Startup Reputation Recovery After Funding Controversy Case Study",
   "e-commerce-brand-recovery-after-counterfeit-allegations": "E-commerce Brand Recovery After Counterfeit Allegations Case Study",
   "the-review-that-almost-ended-the-surgeons-career": "The Review That Almost Ended The Surgeon's Career",
-  "the-gp-and-the-misattributed-article": "The GP and the Misattributed Article",
+  "the-doctor-and-the-misattributed-article": "The Doctor and the Misattributed Article",
   "the-litigation-partner-and-the-losing-verdict": "The Litigation Partner and the Losing Verdict",
   "the-family-lawyer-and-the-client-vendetta": "The Family Lawyer and the Client Vendetta",
   "the-ifa-and-the-collapsed-investment-fund": "The IFA and the Collapsed Investment Fund",
