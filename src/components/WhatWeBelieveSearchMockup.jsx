@@ -1,11 +1,11 @@
 import { useId, useState } from "react";
 import { Search, TrendingDown, TrendingUp } from "lucide-react";
 
-/** Demo identity - US-style name for the SERP mockup in “What we believe”. */
+export { WHAT_WE_BELIEVE_SERP_MOCKUP_ALT } from "../constants/imageAlt.js";
+
+/** Demo identity for the SERP mockup in “What we believe”. */
 const DEMO_NAME = "Jordan Mercer";
 const DEMO_SLUG = "jordan-mercer";
-
-export { WHAT_WE_BELIEVE_SERP_MOCKUP_ALT } from "../constants/imageAlt.js";
 
 /** Muted “breadcrumb” style so path text does not read as hyperlinks (no link color). */
 const urlMetaClass =
@@ -22,20 +22,20 @@ function urlDisplayText(text) {
 const BEFORE_TOP = [
   {
     num: "01",
-    title: "Glassdoor - Mercer leadership reviews",
-    url: "glassdoor.com/Reviews/Mercidian-Analytics",
+    title: "SEC.gov - Administrative proceeding: executive disclosure matter",
+    url: "sec.gov/litigation/admin-proceedings/2024-042",
     badge: <TrendBadge direction="down" value="-3" />,
   },
   {
     num: "02",
-    title: "Industry forum - Founder transition thread",
-    url: "confidentialforum.net/threads/mercer-transition",
+    title: "Federal Register - Civil penalty notice, advisory firm",
+    url: "federalregister.gov/documents/enforcement-notice",
     badge: <TrendBadge direction="down" value="-2" />,
   },
   {
     num: "03",
-    title: "Legacy press - Legal notice archive",
-    url: "olddirectory.co/legal-notice-2019",
+    title: "The Guardian - Investigation raises questions over founder's financial ties",
+    url: "theguardian.com/business/investigation-financial-ties",
     badge: <TrendBadge direction="down" value="-1" />,
   },
 ];
@@ -43,14 +43,14 @@ const BEFORE_TOP = [
 const AFTER_TOP = [
   {
     num: "01",
-    title: `${DEMO_NAME} - Founder profile & work`,
-    url: `meridian-analytics.com/leadership/${DEMO_SLUG}`,
+    title: "Arcadia Capital Group - Investment leadership & insights",
+    url: "arcadiacapitalgroup.com/leadership-insights",
     badge: <TrendBadge direction="up" value="+5" />,
   },
   {
     num: "02",
-    title: "Financial Times - Advisory board announcement",
-    url: "ft.com/arcadia-advisory",
+    title: "Forbes - The new playbook for founders navigating market volatility",
+    url: "forbes.com/sites/leadership/market-volatility-playbook",
     badge: (
       <span className="font-heading text-[10px] font-bold text-slate-200 sm:text-[11px]">
         NEW
@@ -148,7 +148,11 @@ export default function WhatWeBelieveSearchMockup() {
 
         <ul className="space-y-2 sm:space-y-2.5" key={phase}>
           {(isAfter ? AFTER_TOP : BEFORE_TOP).map((row) => (
-            <SerpResultRow key={`${phase}-${row.num}`} variant={isAfter ? "positive" : "negative"} {...row} />
+            <SerpResultRow
+              key={`${phase}-${row.num}`}
+              variant={isAfter ? "positive" : "negative"}
+              {...row}
+            />
           ))}
         </ul>
 
@@ -194,7 +198,7 @@ export default function WhatWeBelieveSearchMockup() {
                   {`${DEMO_NAME} - Founder profile & work`}
                 </p>
                 <p className={`mt-0.5 ${urlMetaClass}`}>
-                  {urlDisplayText(`meridian-analytics.com/leadership/${DEMO_SLUG}`)}
+                  {urlDisplayText(`arcadiacapitalgroup.com/leadership/${DEMO_SLUG}`)}
                 </p>
                 <p className="mt-1.5 font-body text-xs leading-snug text-slate-300 sm:text-sm">
                   ~2 pages lower - most prospects never scroll that far.
