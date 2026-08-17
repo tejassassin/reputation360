@@ -152,7 +152,7 @@ function Hero() {
                     <Highlight className="max-md:!px-1 max-md:!pb-0">
                       on your terms
                     </Highlight>
-                    <span className="text-white/90">, not Google&apos;s</span>
+                    <span className="text-white/90">, not Google&apos;s or AI&apos;s</span>
                   </span>
                 </h1>
 
