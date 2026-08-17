@@ -63,7 +63,7 @@ function HeroStats({ statsInView, desktop, StatNumber }) {
             Success Rate
           </p>
           <p className="font-body text-xs text-white/60 hidden sm:block">
-            in pushing negative links off page one
+            in suppressing negative content from page one
           </p>
         </div>
       </div>
