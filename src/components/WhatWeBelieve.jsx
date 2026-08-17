@@ -6,18 +6,18 @@ import WhatWeBelieveSearchMockup, {
 const insights = [
   {
     icon: CircleUserRound,
-    title: "Accurate search results protect your professional reputation",
-    text: "Your online impression should match who you are today-not outdated, misleading, or one-sided results.",
+    title: "Accurate search results protect your professional reputation.",
+    text: "Your online impression should reflect who you are today, not an outdated, misleading, or one-sided version of you.",
   },
   {
     icon: Layers,
-    title: "Negative results compound - reputation damage grows over time",
-    text: "Ignored reputation problems compound, gain authority in search, and become harder to displace.",
+    title: "Negative results compound.",
+    text: "Left unaddressed, damaging content doesn't stay static. It gains authority in search over time and becomes harder to displace the longer it sits.",
   },
   {
     icon: Timer,
-    title: "Early reputation repair costs less than crisis management",
-    text: "Early intervention shortens timelines and total cost compared with waiting until damage spreads.",
+    title: "Early reputation repair costs less than crisis management.",
+    text: "Acting early shortens timelines and total cost. Waiting until the damage has spread almost always costs more, in time, money, and opportunity.",
   },
 ];
 
@@ -53,11 +53,22 @@ function WhatWeBelieve() {
                 className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#4CAF50]/10 blur-2xl"
                 aria-hidden
               />
-              <p className="font-heading relative text-base font-semibold leading-relaxed text-navy md:text-lg">
-                Reputation is clarity: people should see the{" "}
-                <span className="text-[#2E5B88]">full, current story</span>
-                -not a fragment left behind by old links or bad press.
-              </p>
+              <div className="relative space-y-4">
+                <p className="font-heading text-base font-semibold leading-relaxed text-navy md:text-lg">
+                  Your Google search results are your new CV.
+                </p>
+                <p className="font-body text-lg leading-relaxed text-steel">
+                  Before a client signs a contract, before an investor takes a call, before a
+                  candidate gets hired, someone searches your name. What shows up in those first ten
+                  results, in the AI overview, in the reviews sidebar, decides the story they
+                  believe. Not your résumé. Not your pitch deck. The search results.
+                </p>
+                <p className="font-body text-lg leading-relaxed text-steel">
+                  That story needs to be one you actually chose, not one an old article, a court
+                  filing, or a disgruntled review is telling on your behalf. If you&apos;re not
+                  actively managing what surfaces, you&apos;re leaving your narrative to chance.
+                </p>
+              </div>
             </div>
 
             <div className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-100/80">
@@ -96,8 +107,7 @@ function WhatWeBelieve() {
             <div className="mt-6 rounded-2xl border border-[#4CAF50]/25 bg-[#4CAF50]/[0.06] p-4 md:p-5">
               <p className="font-body text-lg font-medium leading-relaxed text-navy">
                 At <span className="font-semibold text-[#1F3B64]">Reputation360</span>, we help
-                individuals and brands <span className="font-semibold">own their narrative</span>
-                -strategically and sustainably.
+                individuals and brands own their narrative, strategically and sustainably.
               </p>
             </div>
           </div>
