@@ -48,7 +48,7 @@ export const article = {
   seoTitle:
     "What Recruiters Google About You | Reputation360",
   metaDescription:
-    "Recruiters Google every candidate. Reputation360's insider report reveals what they find, what raises red flags, and how to prepare your presence.",
+    "Recruiters Google candidates before making contact. See what they may find, what can raise concerns, and how to strengthen your online search presence.",
   hero: {
     badge: "Insider Report",
     title: "What Do Recruiters Google About You? Reputation360's Online Reputation Report",

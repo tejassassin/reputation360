@@ -48,7 +48,7 @@ export const article = {
   seoTitle:
     "Negative Links That Cost Jobs and Deals | Reputation360",
   metaDescription:
-    "Negative results cost real opportunities. Reputation360 shares the cases we solve and the results achieved for clients across the US and beyond.",
+    "Negative search results can cost jobs, deals, and opportunities. Explore Reputation360 cases and see how strategic reputation management changed the outcome.",
   hero: {
     badge: "Real Outcomes",
     title: "Online Reputation Management Case Studies: Negative Links That Cost Jobs and Deals",

@@ -50,9 +50,9 @@ export const article = {
     imageAlt: "Team planning crisis response at a conference table",
   },
   seoTitle:
-    "Crisis Management and Reputation Recovery Playbook | Reputation360",
+    "Crisis Management and Reputation Recovery Playbook",
   metaDescription:
-    "When a reputation crisis hits, the first 48 hours matter most. Reputation360's playbook shows exactly what to do - and what not to do.",
+    "When a reputation crisis hits, the first 48 hours decide everything. This Reputation360 playbook lays out exactly what to do first, and the mistakes to avoid.",
   hero: {
     badge: "Crisis Playbook",
     title:

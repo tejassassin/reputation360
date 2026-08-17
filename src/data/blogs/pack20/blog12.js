@@ -46,9 +46,9 @@ export const article = {
     imageAlt: "Professional reviewing Google search results on a laptop",
   },
   seoTitle:
-    "Own Your Google First Page: Reputation360 Strategy | Reputation360",
+    "How to Own Your First Page of Google Search",
   metaDescription:
-    "Your Google first page is your most visible asset. Reputation360's strategy shows how to claim all 10 positions with content you control.",
+    "Your Google first page is one of your most valuable assets. This strategy shows how to claim all ten positions with content that actually works in your favor.",
   hero: {
     badge: "First Page Strategy",
     title:

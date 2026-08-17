@@ -48,9 +48,9 @@ export const article = {
     imageAlt: "Professional reviewing content performance on a laptop",
   },
   seoTitle:
-    "Rank Positive Content Above Negative Results | Reputation360",
+    "How to Rank Your Positive Content Above Negative Results",
   metaDescription:
-    "Discover how to rank positive content above harmful links using Reputation360's proven strategy. Dominate page one of Google with the right assets.",
+    "Learn how strategic positive content can outrank negative search results, improve your Google presence, and help build a more credible online reputation.",
   hero: {
     badge: "Content Ranking Strategy",
     title:

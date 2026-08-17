@@ -58,7 +58,7 @@ export const article = {
   seoTitle:
     "Online Reputation Management Best Practices | Reputation360",
   metaDescription:
-    "What does excellent ORM look like? Reputation360 shares the methodology behind our 97% suppression success rate across 1,100+ clients.",
+    "What separates excellent reputation management from the rest? Inside the methodology behind a 97% suppression success rate across more than 1,100 clients.",
   hero: {
     badge: "ORM Methodology",
     title:

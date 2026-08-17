@@ -42,9 +42,10 @@ export const article = {
     image: pack20Image("roi"),
     imageAlt: "Professional reviewing return on reputation investment metrics",
   },
-  seoTitle: "ROI of Reputation Management | Reputation360",
+  seoTitle:
+    "ROI of Online Reputation Management | Reputation360",
   metaDescription:
-    "What is the ROI of reputation management? Reputation360 breaks down real results across career outcomes, business growth, and deal conversion.",
+    "Wondering if reputation management pays off? This breakdown covers the real ROI clients see across career outcomes, business growth, and deal conversion.",
   hero: {
     badge: "ROI & Results",
     title:

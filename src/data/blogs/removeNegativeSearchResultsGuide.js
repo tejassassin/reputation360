@@ -30,7 +30,7 @@ export const removeNegativeSearchResultsSeoTitle =
   "Remove Negative Search Results From Google | Reputation360";
 
 export const removeNegativeSearchResultsMetaDescription =
-  "Can a damaging article actually be removed from Google? Here's what Google's tools can do, when legal action helps, and how suppression covers the rest.";
+  "Wondering if a damaging article can actually disappear from Google? Here's what Google's tools can do, when legal action helps, and where suppression takes over.";
 
 export const removeNegativeSearchResultsHero = {
   badge: "Google Reputation Management",

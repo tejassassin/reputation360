@@ -47,9 +47,9 @@ export const article = {
     imageAlt: "Professional working on a laptop with LinkedIn branding context",
   },
   seoTitle:
-    "LinkedIn Profile Optimization for Google Search | Reputation360",
+    "How to Optimize Your LinkedIn Profile for Google Search",
   metaDescription:
-    "LinkedIn is your most powerful reputation asset. Reputation360's checklist shows how to make it rank #1 for your name and push negative results down.",
+    "LinkedIn is one of the most powerful assets in your Google search results. Learn how to make it rank first for your name and push down negative content.",
   hero: {
     badge: "LinkedIn Checklist",
     title:

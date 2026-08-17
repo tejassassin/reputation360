@@ -45,9 +45,10 @@ export const article = {
     image: pack20Image("social"),
     imageAlt: "Social media platforms representing multi-channel reputation strategy",
   },
-  seoTitle: "Social Media Reputation Management | Reputation360",
+  seoTitle:
+    "Social Media Reputation Management Guide | Reputation360",
   metaDescription:
-    "Social media is central to how reputations are built - and broken. Reputation360's multi-platform strategy covers every channel and crisis response.",
+    "Reputation isn't built on one platform anymore. This guide breaks down a multi-channel social strategy, including crisis response, across every major network.",
   hero: {
     badge: "Social Media",
     title:

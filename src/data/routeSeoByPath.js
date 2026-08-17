@@ -8,6 +8,7 @@ import { SEO } from "./seoPageMeta.js";
 import { CASE_STUDY_SEO_BY_N } from "./caseStudies/caseStudySeo.js";
 import { CASE_STUDIES } from "./caseStudies/index.js";
 import { CASE_STUDY_LEGACY_SLUG_ALIASES } from "./caseStudies/legacySlugs.js";
+import { SEO_AUDIT_BY_PATH } from "./seoAuditByPath.js";
 
 /** @param {Record<string, unknown>} node @param {Record<string, { title: string; description: string }>} acc */
 function collectSeoEntries(node, acc) {
@@ -81,6 +82,8 @@ for (const [legacySlug, canonicalSlug] of Object.entries(CASE_STUDY_LEGACY_SLUG_
     ROUTE_SEO[`/case-studies/${legacySlug}`] = seo;
   }
 }
+
+Object.assign(ROUTE_SEO, SEO_AUDIT_BY_PATH);
 
 /** @param {string} pathname */
 export function getRouteSeoMeta(pathname) {

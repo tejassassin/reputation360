@@ -27,7 +27,7 @@ export const suppressNegativeGuideSeoTitle =
   "How to Suppress Negative Content Online | Reputation360";
 
 export const suppressNegativeGuideMetaDescription =
-  "A proven 5-step framework for suppressing negative Google results used by professionals in healthcare, law & finance. Includes real case studies & timelines.";
+  "Not sure how to handle a negative search result? Follow this five-step framework to understand suppression strategies and reduce harmful content visibility.";
 
 export const suppressNegativeGuideHero = {
   badge: "Professional Guide",

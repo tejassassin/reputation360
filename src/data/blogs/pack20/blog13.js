@@ -47,9 +47,9 @@ export const article = {
     imageAlt: "Person considering search results on a laptop screen",
   },
   seoTitle:
-    "Why Your First Google Result Matters (Psychology) | Reputation360",
+    "Why Your First Google Result Matters | Reputation360",
   metaDescription:
-    "The first Google result shapes every impression. Reputation360 explains the psychology behind first results - and why controlling it is worth it.",
+    "That first Google result shapes every impression before anyone even talks to you. Here's the psychology behind it, and why controlling it is worth the effort.",
   hero: {
     badge: "Psychology Deep Dive",
     title:

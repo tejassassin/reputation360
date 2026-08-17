@@ -43,9 +43,10 @@ export const article = {
     image: pack20Image("profileClaiming"),
     imageAlt: "Professional claiming and optimizing online profiles",
   },
-  seoTitle: "Profile Claiming Guide for Google Presence | Reputation360",
+  seoTitle:
+    "How to Build Positive Presence on Google | Reputation360",
   metaDescription:
-    "Claiming the right profiles is the fastest way to own your first page. Reputation360's guide covers 12 platforms to claim immediately.",
+    "Claiming the right profiles can help you take control of your first page on Google. Explore 12 platforms worth claiming to strengthen your search presence.",
   hero: {
     badge: "Profile Strategy",
     title:

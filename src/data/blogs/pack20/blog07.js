@@ -48,9 +48,9 @@ export const article = {
     imageAlt: "Courthouse columns representing legal records and public data",
   },
   seoTitle:
-    "Remove Court Records From Google: What Works | Reputation360",
+    "How to Remove Court Records From Google | Reputation360",
   metaDescription:
-    "Court records in Google are among the hardest reputation problems. Reputation360 explains what is possible, what is not, and what actually works.",
+    "Court records are among the toughest online reputation problems to solve. Here's what's actually possible to remove, what isn't, and what works instead.",
   hero: {
     badge: "Legal Records Guide",
     title:

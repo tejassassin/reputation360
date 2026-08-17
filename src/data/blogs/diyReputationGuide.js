@@ -23,10 +23,10 @@ export const diyReputationGuideListing = {
 };
 
 export const diyReputationGuideSeoTitle =
-  "DIY Online Reputation Management Guide (2026) | Reputation360";
+  "DIY Online Reputation Management Guide (2026)";
 
 export const diyReputationGuideMetaDescription =
-  "Take control of your reputation yourself. Step-by-step guide covering Google audits, positive content strategy, review management, and suppression tactics.";
+  "Take control of your online reputation yourself with practical steps for auditing Google results, building positive content and suppressing negative content.";
 
 export const diyReputationGuideHero = {
   badge: "Complete DIY Guide",

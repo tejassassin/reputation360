@@ -48,9 +48,9 @@ export const article = {
     imageAlt: "Business professionals reviewing financial impact of reputation",
   },
   seoTitle:
-    "The Hidden Cost of Ignoring Online Reputation | Reputation360",
+    "The Hidden Cost of Ignoring Your Online Reputation",
   metaDescription:
-    "Ignoring your online reputation has a real cost. Reputation360 breaks down what inaction costs professionals and businesses - and when it's irreversible.",
+    "Ignoring a damaging search result rarely makes it disappear. Here's what inaction actually costs professionals and businesses, and when it becomes permanent.",
   hero: {
     badge: "Reputation Analysis",
     title:

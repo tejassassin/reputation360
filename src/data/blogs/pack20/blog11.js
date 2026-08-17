@@ -45,9 +45,9 @@ export const article = {
     imageAlt: "Professional preparing for a job interview on a laptop",
   },
   seoTitle:
-    "Fix Your Reputation Before a Job Interview | Reputation360",
+    "How to Fix Your Reputation Before a Job Interview",
   metaDescription:
-    "A negative Google result before a job interview can end a process. Reputation360 shows what to fix, how fast, and what to do if time is short.",
+    "A negative result surfacing before an interview can end the process early. Here's what to fix first, how fast it can move, and what to do when time is short.",
   hero: {
     badge: "Job Search Guide",
     title:

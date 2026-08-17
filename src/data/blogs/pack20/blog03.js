@@ -50,9 +50,9 @@ export const article = {
     imageAlt: "Legal scales representing removal and compliance decisions",
   },
   seoTitle:
-    "Removal vs. Suppression: Which Actually Works? | Reputation360",
+    "Removal vs. Suppression: Which Actually Works?",
   metaDescription:
-    "Should you remove or suppress a negative Google result? Reputation360 breaks down what actually works - and why most people choose the wrong option first.",
+    "Should you try to remove a negative result or suppress it instead? Here's what actually works, and why most people choose the wrong option first.",
   hero: {
     badge: "Strategy Guide",
     title:

@@ -4,92 +4,92 @@
  */
 export const CASE_STUDY_SEO_BY_N = {
   1: {
-    seoTitle: "From Reputation Crisis to Credibility | Reputation360",
+    seoTitle: "Executive & Founder Online Reputation Management Case Study",
     metaDescription:
-      "How Reputation360 helped an executive suppress damaging search results and rebuild professional credibility after a reputation crisis. Read the case study.",
+      "An executive's online reputation crisis threatened a board seat and key deals. See how Reputation360 suppressed the coverage and restored their credibility.",
   },
   2: {
-    seoTitle: "Financial Advisor Reputation Repair | Reputation360",
+    seoTitle: "Financial Professional Online Reputation Recovery Case Study",
     metaDescription:
-      "How Reputation360 suppressed negative reviews damaging a financial professional's client trust and rebuilt their online presence. Read the case study.",
+      "Negative reviews were eroding client trust in a financial professional. Discover how Reputation360 suppressed the damage and rebuilt a credible online presence.",
   },
   3: {
     seoTitle:
-      "Doctor's Reputation Management: Patient Trust Restored | Reputation360",
+      "Medical & Healthcare Reputation Management Case Study",
     metaDescription:
-      "Healthcare professional's reputation recovered after negative patient reviews. Reputation360 suppressed harmful content & rebuilt patient trust for doctors across the US, Europe and worldwide.",
+      "Patient reviews were driving business away from a doctor. See the negative link suppression strategy Reputation360 used to restore trust and protect referrals.",
   },
   4: {
     seoTitle:
-      "HR Executive Reputation: Employment Dispute Resolution | Reputation360",
+      "HR & Employment Dispute Reputation Management Case Study",
     metaDescription:
-      "HR executive's reputation repaired after employment dispute allegations spread online. Reputation360 suppressed negative content for HR leaders across the US, Europe and across the world.",
+      "An employment dispute followed an HR leader across every search result. Read how Reputation360 suppressed the negative coverage and helped rebuild reputation.",
   },
   5: {
-    seoTitle: "E-Commerce Brand Recovery: From Crisis to Growth | Reputation360",
+    seoTitle: "E-commerce Reputation Management Case Study | Reputation360",
     metaDescription:
-      "E-commerce retailer's brand recovered after negative reviews threatened sales. Reputation360 suppressed bad reviews & amplified positive feedback for retail brands across the US, Europe and worldwide.",
+      "Negative reviews were costing an e-commerce retailer real sales. See how Reputation360 suppressed the damage and amplified positive customer feedback instead.",
   },
   6: {
     seoTitle:
-      "Product Crisis Recovery: Electronics Brand Restoration | Reputation360",
+      "Consumer Electronics Reputation Management Case Study",
     metaDescription:
-      "Consumer electronics company recovered from product crisis that sparked negative PR. Reputation360 managed online narrative for tech brands across the US, Europe and across the world.",
+      "A product crisis sparked a wave of negative press for a consumer electronics brand. Learn how Reputation360 managed the online narrative and rebuilt trust.",
   },
   7: {
     seoTitle:
-      "Startup Reputation Crisis: Funding Controversy Resolved | Reputation360",
+      "Startup Reputation Recovery Case Study | Reputation360",
     metaDescription:
-      "Startup's reputation recovered after funding controversy generated negative media coverage. Reputation360 suppressed harmful articles for startups across the US, Europe and worldwide.",
+      "Funding controversy generated damaging headlines for this startup. See how Reputation360 suppressed the negative media coverage and protected its reputation.",
   },
   8: {
     seoTitle:
-      "E-Commerce Counterfeit Crisis: Brand Trust Restored | Reputation360",
+      "E-commerce Brand Recovery Case Study | Reputation360",
     metaDescription:
-      "Online retailer's brand recovered from counterfeit product allegations that damaged reputation. Reputation360 removed false claims for e-commerce brands across the US, Europe and across the world.",
+      "False counterfeit allegations threatened an online retailer's brand. Discover how Reputation360 removed the claims and restored customer confidence.",
   },
   9: {
-    seoTitle: "Surgeon's Reputation Saved: One Review | Reputation360",
+    seoTitle: "Surgeon Reputation Recovery Case Study | Reputation360",
     metaDescription:
-      "One review reduced this surgeon's referrals by 35%. Reputation360's suppression strategy restored patient confidence. Read the full case study.",
+      "One bad review cut a surgeon's referrals by 35%. See how Reputation360's suppression strategy restored patient confidence and rebuilt their online presence.",
   },
   10: {
-    seoTitle: "Doctor's Reputation: Misattributed Article Removed | Reputation360",
+    seoTitle: "Doctor & Healthcare Reputation Management Case Study",
     metaDescription:
-      "A doctor's reputation damaged by a misattributed article online. Reputation360 identified and removed false attribution for healthcare professionals across the US, Europe, and worldwide.",
+      "A negative Google result damaged a doctor’s reputation. See how Reputation360 helped suppress the false attribution and improve what appeared on google search.",
   },
   11: {
-    seoTitle: "Lawyer's Reputation: Verdict Suppressed | Reputation360",
+    seoTitle: "Litigation Partner Online Reputation Recovery Case Study",
     metaDescription:
-      "A litigation partner's losing verdict dominated Google results. Reputation360 suppressed the coverage and restored professional credibility. Full case study.",
+      "A losing verdict dominated a litigation partner’s Google results. See how Reputation360 suppressed the coverage and helped rebuild professional credibility.",
   },
   12: {
     seoTitle:
-      "Family Lawyer's Reputation: Client Vendetta Managed | Reputation360",
+      "Family Lawyer Online Reputation Recovery Case Study",
     metaDescription:
-      "Family lawyer's reputation attacked by vengeful client online. Reputation360 removed false claims & negative content for legal professionals across the US, Europe and across the world.",
+      "A vengeful former client spread false claims about a family lawyer online. Discover how Reputation360 removed the content and repaired their online reputation.",
   },
   13: {
     seoTitle:
-      "IFA's Reputation Restored: Investment Fund Crisis | Reputation360",
+      "Financial Advisor Online Reputation Recovery Case Study",
     metaDescription:
-      "Independent financial adviser's reputation damaged by collapsed investment fund. Reputation360 suppressed fund failure articles for financial advisors across the US, Europe and worldwide.",
+      "A collapsed investment fund put an independent financial adviser's name in every headline. See how Reputation360 suppressed the coverage and rebuilt trust.",
   },
   14: {
     seoTitle:
-      "Accountant's Reputation: Wrongful Dismissal Claim Managed | Reputation360",
+      "Accountant Reputation Recovery Case Study",
     metaDescription:
-      "Accountant's reputation harmed by wrongful dismissal lawsuit headlines. Reputation360 suppressed negative media coverage for CPAs across the US, Europe and across the world.",
+      "Wrongful dismissal headlines were damaging an accountant’s professional reputation. See how Reputation360 suppressed the coverage and helped rebuild credibility.",
   },
   15: {
-    seoTitle: "Job Seeker's Reputation: Old Incident Removed | Reputation360",
+    seoTitle: "Student Reputation Recovery Case Study | Reputation360",
     metaDescription:
-      "Recent graduate's job prospects threatened by old incident resurfacing in search results. Reputation360 removed harmful content & improved online presence for job seekers across the US, Europe and worldwide.",
+      "An old incident resurfaced online just as this graduate began job hunting. See how Reputation360 suppressed the content and strengthened their search presence.",
   },
   16: {
     seoTitle:
-      "Product Manager's Reputation: Negative Glassdoor Review Suppressed | Reputation360",
+      "Product Manager Reputation Recovery Case Study",
     metaDescription:
-      "Senior product manager's job prospects damaged by negative Glassdoor reviews. Reputation360 suppressed harmful reviews & improved professional profile for managers across the US, Europe and across the world.",
+      "Negative Glassdoor reviews were hurting his job search. See how Reputation360 suppressed the content and helped rebuild a stronger professional presence.",
   },
 };

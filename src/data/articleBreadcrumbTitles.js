@@ -58,12 +58,12 @@ export const STANDALONE_BLOG_BREADCRUMB_BY_PATH = {
 
 /** @type {Record<string, string>} */
 export const AUDIENCE_BREADCRUMB_LABEL_BY_PATH = {
-  "/who-we-serve/financial-advisors": "Reputation Management for Financial Advisors",
+  "/who-we-serve/financial-advisors": "Financial Advisor Reputation Management",
   "/who-we-serve/job-seekers": "Reputation Management for Job Seekers",
   "/who-we-serve/doctors-and-healthcare-professionals": "Doctor & Healthcare Reputation Management",
   "/who-we-serve/lawyers-and-attorneys": "Lawyer & Attorney Reputation Management",
   "/who-we-serve/executives-and-c-suite-leaders": "Executive Reputation Management",
   "/who-we-serve/businesses-and-companies": "Business Reputation Management Services",
-  "/who-we-serve/individual": "Personal Reputation Management Services",
-  "/who-we-serve/real-estate-agents-and-brokers": "Online Reputation Management for Real Estate Agents & Brokers"
+  "/who-we-serve/individual": "Individual Reputation Management Services",
+  "/who-we-serve/real-estate-agents-and-brokers": "Reputation Management for Real Estate Agents & Brokers"
 };

@@ -51,9 +51,9 @@ export const article = {
     imageAlt: "Analytics dashboard representing search result monitoring",
   },
   seoTitle:
-    "How to Suppress Negative Search Results: The Reputation360 Framework | Reputation360",
+    "How to Suppress Your Negative Search Results | Reputation360",
   metaDescription:
-    "Learn how to suppress negative search results with Reputation360's proven framework. Push harmful links down and reclaim your Google first page.",
+    "A practical framework for suppressing negative search results, reducing harmful link visibility, and strengthening what people see on your first page of Google.",
   hero: {
     badge: "Suppression Framework",
     title:

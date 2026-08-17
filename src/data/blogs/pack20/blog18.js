@@ -42,9 +42,10 @@ export const article = {
     image: pack20Image("monitoring"),
     imageAlt: "Dashboard showing online reputation monitoring alerts",
   },
-  seoTitle: "Monitor Your Online Reputation | Reputation360",
+  seoTitle:
+    "How to Monitor Your Online Reputation | Reputation360",
   metaDescription:
-    "You cannot protect what you cannot see. Reputation360's guide shows how to monitor your online reputation - free tools, paid tools, and when to escalate.",
+    "You can't fix what you can't see. This guide covers the free and paid tools worth using to monitor your online reputation, and when it's time to escalate.",
   hero: {
     badge: "Monitoring",
     title:

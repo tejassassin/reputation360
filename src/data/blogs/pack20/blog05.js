@@ -62,9 +62,9 @@ export const article = {
     imageAlt: "Social media apps on a smartphone screen",
   },
   seoTitle:
-    "Old Social Media Posts in Google: What to Do | Reputation360",
+    "How to Suppress Old Social Media Posts on Google",
   metaDescription:
-    "Old social media posts showing in Google? Reputation360's guide covers platform deletion, privacy settings, and when suppression is the smarter move.",
+    "Old social media posts resurfacing in Google search? This guide covers platform deletion, privacy settings, and when suppression is the smarter fix.",
   hero: {
     badge: "Social & Google",
     title:
