@@ -130,7 +130,7 @@ function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green" />
             </span>
             <span className="font-body text-xs sm:text-sm text-white/90">
-              Trusted by {badgeCount} clients globally
+              Trusted by {badgeCount} clients across the U.S.
             </span>
           </div>
 

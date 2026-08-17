@@ -10,7 +10,7 @@ export const R360_HOME_BOOT_HTML = `
     <svg class="r360-boot-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
   </header>
   <div class="r360-boot-inner">
-    <p class="r360-boot-badge"><span class="r360-boot-dot" aria-hidden="true"></span> Trusted by <strong>1,100+</strong> clients globally</p>
+    <p class="r360-boot-badge"><span class="r360-boot-dot" aria-hidden="true"></span> Trusted by <strong>1,100+</strong> clients across the U.S.</p>
     <div class="r360-boot-copy">
       <div class="r360-boot-dots" aria-hidden="true"></div>
       <div class="r360-boot-copy-inner">
