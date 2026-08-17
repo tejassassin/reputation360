@@ -72,19 +72,29 @@ function checkPort(port) {
   });
 }
 
+const p3000 = await checkPort(3000);
 const p5173 = await checkPort(5173);
+if (p3000 === "free") {
+  console.log("  ✓ Port 3000 is free (Next.js dev)");
+} else if (p3000 === "in_use") {
+  console.log(
+    "  ! Port 3000 is in use. An old Next dev server may be serving stale pages. Run `npm run dev:kill` then `npm run dev`.",
+  );
+} else {
+  console.log("  ? Could not verify port 3000:", p3000);
+}
 if (p5173 === "free") {
-  console.log("  ✓ Port 5173 is free (nothing else listening here)");
+  console.log("  ✓ Port 5173 is free (legacy Vite dev)");
 } else if (p5173 === "in_use") {
   console.log(
-    "  ! Port 5173 is in use. If multiple terminals ran `npm run dev`, the bookmarked `localhost:5173` can point at an *old* Vite in memory. Run `npm run dev:kill` then `npm run dev`, or in one step: `npm run dev:fresh` (frees 5173/4173, clears the Vite cache, starts dev).",
+    "  ! Port 5173 is in use (legacy Vite). Do not use http://localhost:5173 for the full site — use Next.js on port 3000 (`npm run dev`).",
   );
 } else {
   console.log("  ? Could not verify port 5173:", p5173);
 }
 
 console.log(
-  "\n  Start the app (leave the terminal open until you are done):\n\n      npm run dev\n\n  If “npm: command not found” in Cursor, use:\n\n      bash scripts/dev.sh\n\n  Then open the URL Vite prints (Local / Network), e.g. http://localhost:5173/\n\n  In Cursor: Command Palette → “Tasks: Run Task” → “Reputation360: dev server”\n",
+  "\n  Start the app (leave the terminal open until you are done):\n\n      npm run dev\n\n  Then open:\n\n      http://localhost:3000/\n\n  Legacy Vite SPA (incomplete routes): `npm run dev:vite` → http://localhost:5173/\n",
 );
 console.log(
   "  To match the Vercel production bundle locally (same JS/CSS as live):\n\n      npm run local:prod\n\n  Then open http://127.0.0.1:4173/ (Vite preview).\n",
@@ -93,5 +103,5 @@ console.log(
   "  Before deploy, run the same gates as CI:\n\n      npm run build\n      npm run verify:ssr-templates\n      npm run verify:live\n\n  New pack20 blogs: add `article` to `src/data/blogs/pack20/catalog.js` (sitemap follows automatically).\n",
 );
 console.log(
-  "  `npm run dev` first frees port 5173/4173 (kills a stale Vite) and clears `node_modules/.vite`, so you do not keep browsing to an old dev server in memory. If you use another app on 5173, set a different port: `npm run dev -- --port 3000` (kill script only targets 5173/4173).\n",
+  "  `npm run dev` frees ports 3000/5173/4173 and starts Next.js on http://localhost:3000/. Use a different port: `npm run dev:next -- -p 3001`.\n",
 );

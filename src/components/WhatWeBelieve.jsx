@@ -23,7 +23,7 @@ const insights = [
 
 /**
  * Typography matches What we do / About blocks: text-3xl/4xl headings, text-lg body (text-steel).
- * Section title spans full width; the SERP mockup aligns with the “Reputation is clarity” card.
+ * Full-width intro; SERP mockup sits beside the three insight pointers below.
  */
 function WhatWeBelieve() {
   return (
@@ -46,31 +46,33 @@ function WhatWeBelieve() {
           </h2>
         </div>
 
+        <div className="relative mb-10 overflow-hidden rounded-2xl border border-[#1F3B64]/12 bg-gradient-to-br from-white to-[#f0f4fa] p-5 shadow-sm ring-1 ring-slate-200/60 md:p-8 lg:mb-12">
+          <div
+            className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#4CAF50]/10 blur-2xl"
+            aria-hidden
+          />
+          <div className="relative space-y-4 md:space-y-5">
+            <p className="font-heading text-base font-semibold leading-relaxed text-navy md:text-xl">
+              Your Google search results are your new CV.
+            </p>
+            <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:gap-12">
+              <p className="font-body text-lg leading-relaxed text-steel">
+                Before a client signs a contract, before an investor takes a call, before a
+                candidate gets hired, someone searches your name. What shows up in those first ten
+                results, in the AI overview, in the reviews sidebar, decides the story they
+                believe. Not your résumé. Not your pitch deck. The search results.
+              </p>
+              <p className="font-body text-lg leading-relaxed text-steel">
+                That story needs to be one you actually chose, not one an old article, a court
+                filing, or a disgruntled review is telling on your behalf. If you&apos;re not
+                actively managing what surfaces, you&apos;re leaving your narrative to chance.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-x-12 lg:items-start">
           <div className="flex min-w-0 flex-col lg:col-span-6">
-            <div className="relative mb-6 overflow-hidden rounded-2xl border border-[#1F3B64]/12 bg-gradient-to-br from-white to-[#f0f4fa] p-5 shadow-sm ring-1 ring-slate-200/60 md:p-6">
-              <div
-                className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#4CAF50]/10 blur-2xl"
-                aria-hidden
-              />
-              <div className="relative space-y-4">
-                <p className="font-heading text-base font-semibold leading-relaxed text-navy md:text-lg">
-                  Your Google search results are your new CV.
-                </p>
-                <p className="font-body text-lg leading-relaxed text-steel">
-                  Before a client signs a contract, before an investor takes a call, before a
-                  candidate gets hired, someone searches your name. What shows up in those first ten
-                  results, in the AI overview, in the reviews sidebar, decides the story they
-                  believe. Not your résumé. Not your pitch deck. The search results.
-                </p>
-                <p className="font-body text-lg leading-relaxed text-steel">
-                  That story needs to be one you actually chose, not one an old article, a court
-                  filing, or a disgruntled review is telling on your behalf. If you&apos;re not
-                  actively managing what surfaces, you&apos;re leaving your narrative to chance.
-                </p>
-              </div>
-            </div>
-
             <div className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-100/80">
               <ul className="divide-y divide-slate-200/90">
                 {insights.map((item) => {

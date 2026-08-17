@@ -7,12 +7,13 @@
     "node": ">=20"
   },
   "scripts": {
-    "dev": "node scripts/kill-vite-ports.mjs && node scripts/clear-vite-cache.mjs && node scripts/dev.mjs",
+    "dev": "node scripts/kill-dev-ports.mjs && next dev -p 3000",
     "dev:simple": "node scripts/dev.mjs",
-    "dev:next": "next dev",
+    "dev:next": "node scripts/kill-dev-ports.mjs && next dev -p 3000",
+    "dev:vite": "node scripts/kill-vite-ports.mjs && node scripts/clear-vite-cache.mjs && node scripts/dev.mjs",
     "build:next": "next build",
     "start:next": "next start",
-    "dev:kill": "node scripts/kill-vite-ports.mjs",
+    "dev:kill": "node scripts/kill-dev-ports.mjs",
     "dev:fresh": "node scripts/kill-vite-ports.mjs && node scripts/clear-vite-cache.mjs && node scripts/dev.mjs",
     "dev:vercel": "npx vercel dev",
     "start": "npm run dev",
