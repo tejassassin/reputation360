@@ -14,7 +14,7 @@ import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 export const WHO_WE_SERVE_AUDIENCES = [
   {
     id: "individuals",
-    title: "Personal Reputation Management for Individuals",
+    title: "Individuals Reputation Management",
     description:
       "Take control of what people find when they search your name online.",
     linkLabel: "Personal Reputation Management Services",
@@ -23,63 +23,63 @@ export const WHO_WE_SERVE_AUDIENCES = [
   },
   {
     id: "financial-advisors",
-    title: "Financial Advisors",
+    title: "Financial Advisor Reputation Management",
     description:
-      "Strengthen trust and credibility when clients and regulators look you up.",
+      "Build the trust clients and regulators expect when they look you up online.",
     linkLabel: "Online Reputation Management for Financial Advisors",
     href: AUDIENCE_PATH.financialAdvisors,
     icon: Landmark,
   },
   {
     id: "executives",
-    title: "Reputation Management for Executives",
+    title: "Executives Reputation Management",
     description:
-      "Protect your leadership reputation and ensure your vision and impact come through clearly.",
+      "Make sure your leadership and impact are what people find first when they search your name.",
     linkLabel: "Executive Reputation Repair Solutions",
     href: AUDIENCE_PATH.executives,
     icon: Briefcase,
   },
   {
     id: "doctors",
-    title: "Reputation Management for Doctors & Healthcare Professionals",
+    title: "Doctor and Healthcare Professional Reputation Management",
     description:
-      "Protect your practice where patient reviews, listings, and search results meet.",
+      "Keep search results working in your favor, so your practice is represented the way it should be.",
     linkLabel: "Healthcare Reputation Management Services",
     href: AUDIENCE_PATH.doctors,
     icon: Stethoscope,
   },
   {
     id: "lawyers",
-    title: "Reputation Management for Lawyers & Attorneys",
+    title: "Lawyers and Attorneys Reputation Management",
     description:
-      "Keep your professional standing clear when legal press and records surface in search.",
+      "Keep your professional standing positive when legal press and records surface in search.",
     linkLabel: "Lawyer Reputation Management Solutions",
     href: AUDIENCE_PATH.lawyers,
     icon: Gavel,
   },
   {
     id: "real-estate",
-    title: "Real Estate Agents & Brokers",
+    title: "Real Estate Agents Reputation Management",
     description:
-      "Secure listings and build client trust by keeping your search results clean.",
+      "Build client trust by keeping your search results positive.",
     linkLabel: "Real Estate Reputation Management Solutions",
     href: AUDIENCE_PATH.realEstate,
     icon: Home,
   },
   {
     id: "job-seekers",
-    title: "Job Seekers",
+    title: "Job Seekers Reputation Management",
     description:
-      "Put your best foot forward when employers and recruiters search your background.",
+      "Put your best foot forward when employers and recruiters search you on Google.",
     linkLabel: "Personal Branding for Job Seekers",
     href: AUDIENCE_PATH.jobSeekers,
     icon: UserSearch,
   },
   {
     id: "businesses",
-    title: "Business Reputation Management Services",
+    title: "Business Reputation Management",
     description:
-      "Own your industry online through powerful branding and a strong search presence.",
+      "Make sure your business's search results reflect the reputation you've earned.",
     linkLabel: "Business Reputation Management Services",
     href: AUDIENCE_PATH.businesses,
     icon: Building,

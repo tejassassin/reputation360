@@ -59,7 +59,7 @@ export const reputationServicesCatalog = [
     title: "Performance Marketing for Reputation Growth",
     url: RBS_SERVICES_SECTION,
     description:
-      "Paid visibility that amplifies authoritative reputation assets so the right decision-makers, candidates, and clients see your strongest content.",
+      "Paid visibility that amplifies authoritative reputation assets so the right decision-makers and clients see your strongest content.",
   },
   {
     id: "consultation",

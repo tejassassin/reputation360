@@ -8,7 +8,6 @@ const cardClassName =
  * @param {object} props
  * @param {string} props.title
  * @param {string} props.description
- * @param {string} props.linkLabel
  * @param {string} props.href
  * @param {import('lucide-react').LucideIcon} props.icon
  * @param {string} [props.className]
@@ -16,7 +15,6 @@ const cardClassName =
 export function WhoWeServeAudienceCard({
   title,
   description,
-  linkLabel,
   href,
   icon: Icon,
   className = "",
@@ -37,10 +35,7 @@ export function WhoWeServeAudienceCard({
         <p className="mb-0 flex-1 text-sm font-medium leading-relaxed text-slate-100/95 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-[15px]">
           {description}
         </p>
-        <div className="mt-5 flex items-center justify-between gap-3 border-t border-white/15 pt-4 sm:mt-6 sm:pt-5">
-          <span className="min-w-0 flex-1 text-xs font-semibold leading-snug text-white/95 [text-wrap:pretty] sm:text-sm sm:leading-normal">
-            {linkLabel}
-          </span>
+        <div className="mt-5 flex items-center justify-end border-t border-white/15 pt-4 sm:mt-6 sm:pt-5">
           <span
             className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/25 bg-white/10 text-white shadow-sm transition duration-300 group-hover:scale-105 group-hover:border-green/50 group-hover:bg-green group-hover:text-navy sm:h-10 sm:w-10"
             aria-hidden
