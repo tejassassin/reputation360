@@ -6,18 +6,18 @@ import WhatWeBelieveSearchMockup, {
 const insights = [
   {
     icon: CircleUserRound,
+    title: "Everyone has a chapter they've moved past.",
+    text: "We're not in the business of hiding the truth. We're in the business of making sure it's not the only thing anyone sees.",
+  },
+  {
+    icon: Layers,
     title: "Accurate search results protect your professional reputation.",
     text: "Your online impression should reflect who you are today, not an outdated, misleading, or one-sided version of you.",
   },
   {
-    icon: Layers,
-    title: "Negative results compound.",
-    text: "Left unaddressed, damaging content doesn't stay static. It gains authority in search over time and becomes harder to displace the longer it sits.",
-  },
-  {
     icon: Timer,
-    title: "Early reputation repair costs less than crisis management.",
-    text: "Acting early shortens timelines and total cost. Waiting until the damage has spread almost always costs more, in time, money, and opportunity.",
+    title: "The longer you wait, the more it costs to fix.",
+    text: "Left unaddressed, negative content gains authority and grows harder to displace. Acting early keeps timelines shorter and costs lower.",
   },
 ];
 
