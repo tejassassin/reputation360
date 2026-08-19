@@ -146,13 +146,13 @@ function Hero() {
                     Take control of your
                   </span>
                   <span className="block max-w-[20rem] text-[1.375rem] leading-tight text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
-                    Online Reputation
-                  </span>
-                  <span className="block max-w-[21rem] text-[1.375rem] leading-snug text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
+                    Online Reputation{" "}
                     <Highlight className="max-md:!px-1 max-md:!pb-0">
                       on your terms
                     </Highlight>
-                    <span className="text-white/90">, not Google&apos;s or AI&apos;s</span>
+                  </span>
+                  <span className="block max-w-[21rem] text-[1.375rem] leading-snug text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
+                    <span className="text-white/90">not Google&apos;s or AI&apos;s</span>
                   </span>
                 </h1>
 

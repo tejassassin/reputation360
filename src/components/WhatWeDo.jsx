@@ -17,19 +17,28 @@ function WhatWeDo() {
             id="about-reputation360-heading"
             className="font-heading mb-6 text-3xl font-bold text-navy md:text-4xl"
           >
-            About Reputation360 - ORM Specialists Since 2019
+            About Reputation360 - Shaping How You Appear on Google and AI Search
           </h2>
           <p className="mb-4 font-body text-lg leading-relaxed text-steel">
             Reputation360 helps individuals and brands take control of how they
-            are perceived online. With 7 years of hands-on experience in
-            Online Reputation Management, SEO, branding, content strategy, and
-            digital marketing, we build reputations that are credible,
-            resilient, and built to last.
+            are perceived online. We build credible, resilient reputations
+            designed to strengthen trust over the long term.
+          </p>
+          <p className="mb-4 font-body text-lg leading-relaxed text-steel">
+            We care deeply about the people we work with, and that commitment
+            shapes every strategy we create, with a focus on delivering
+            meaningful, measurable improvements in how you appear across Google
+            Search and AI-powered search experiences.
+          </p>
+          <p className="mb-4 font-body text-lg leading-relaxed text-steel">
+            As the way people discover information continues to evolve, we help
+            clients manage not just traditional Google Search results, but also
+            how they are represented across AI-powered platforms.
           </p>
           <p className="font-body text-lg leading-relaxed text-steel">
-            Our focus is long-term reputation health, not quick fixes - building
-            trust, safety, and future opportunities for career growth and
-            personal confidence.
+            The result is a stronger digital presence, greater trust, and the
+            confidence to move forward in your career, your business, and your
+            future.
           </p>
         </div>
       </div>

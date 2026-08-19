@@ -24,17 +24,17 @@ export default function AboutReputationVisual() {
             </linearGradient>
           </defs>
 
-          <text x="8" y="22" fill="#64748b" fontSize="11" fontWeight="600" letterSpacing="0.08em">
+          <text x="8" y="22" fill="#dc2626" fontSize="11" fontWeight="600" letterSpacing="0.08em">
             NEGATIVE MENTIONS
           </text>
-          <rect x="8" y="38" width="112" height="8" rx="4" fill="#cbd5e1" opacity="0.85" />
-          <rect x="24" y="54" width="88" height="8" rx="4" fill="#94a3b8" opacity="0.65" />
-          <rect x="8" y="70" width="96" height="8" rx="4" fill="#cbd5e1" opacity="0.75" />
-          <rect x="32" y="86" width="72" height="8" rx="4" fill="#94a3b8" opacity="0.55" />
-          <rect x="8" y="102" width="104" height="8" rx="4" fill="#cbd5e1" opacity="0.7" />
-          <rect x="16" y="118" width="64" height="8" rx="4" fill="#94a3b8" opacity="0.5" />
-          <circle cx="128" cy="42" r="4" fill="#f59e0b" fillOpacity="0.7" />
-          <circle cx="118" cy="90" r="4" fill="#f59e0b" fillOpacity="0.5" />
+          <rect x="8" y="38" width="112" height="8" rx="4" fill="#fca5a5" opacity="0.85" />
+          <rect x="24" y="54" width="88" height="8" rx="4" fill="#ef4444" opacity="0.5" />
+          <rect x="8" y="70" width="96" height="8" rx="4" fill="#fca5a5" opacity="0.75" />
+          <rect x="32" y="86" width="72" height="8" rx="4" fill="#ef4444" opacity="0.45" />
+          <rect x="8" y="102" width="104" height="8" rx="4" fill="#fca5a5" opacity="0.7" />
+          <rect x="16" y="118" width="64" height="8" rx="4" fill="#ef4444" opacity="0.4" />
+          <circle cx="128" cy="42" r="4" fill="#ef4444" fillOpacity="0.7" />
+          <circle cx="118" cy="90" r="4" fill="#ef4444" fillOpacity="0.5" />
 
           <path
             d="M175 92h42l-10-10M217 92l-10 10"
@@ -55,7 +55,7 @@ export default function AboutReputationVisual() {
             opacity="0.65"
           />
 
-          <text x="512" y="22" fill="#1F3B64" fontSize="11" fontWeight="600" letterSpacing="0.08em" textAnchor="end">
+          <text x="512" y="22" fill="#16a34a" fontSize="11" fontWeight="600" letterSpacing="0.08em" textAnchor="end">
             POSITIVE MENTIONS
           </text>
           <rect
@@ -89,7 +89,7 @@ export default function AboutReputationVisual() {
             />
           </g>
 
-          <rect x="318" y="206" width="144" height="9" rx="2" fill="#4CAF50" fillOpacity="0.2" />
+          <rect x="318" y="206" width="144" height="9" rx="2" fill="#4CAF50" fillOpacity="0.35" />
         </svg>
       </div>
       <figcaption className="font-body px-5 pb-5 text-center text-sm leading-snug text-steel">

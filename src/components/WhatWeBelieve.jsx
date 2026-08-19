@@ -35,9 +35,6 @@ function WhatWeBelieve() {
     >
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12 lg:px-8 lg:py-16">
         <div className="mb-8 lg:mb-10">
-          <span className="font-heading mb-3 block text-xs font-bold uppercase tracking-[0.2em] text-[#4CAF50]">
-            Our philosophy
-          </span>
           <h2
             id="what-we-believe-heading"
             className="font-heading text-3xl font-bold leading-tight text-navy md:text-4xl"
