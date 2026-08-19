@@ -3,11 +3,23 @@ import { Calendar, PenTool, ShieldCheck, Lock, TrendingUp } from "lucide-react";
 import BrandSectionBackdrop from "./BrandSectionBackdrop";
 
 const items = [
-  { text: "Confidential and discreet handling", icon: Lock },
-  { text: "Clear timelines & realistic expectations", icon: Calendar },
-  { text: "100% white-hat SEO", icon: ShieldCheck },
-  { text: "Fully customized plans (no templates)", icon: PenTool },
-  { text: "Built for long-term visibility and protection", icon: TrendingUp },
+  {
+    text: "Confidential and discreet from first call to final result",
+    icon: Lock,
+  },
+  {
+    text: "Proven results across Google Search and AI-powered search",
+    icon: ShieldCheck,
+  },
+  {
+    text: "Custom-built plans, never a one-size-fits-all template",
+    icon: PenTool,
+  },
+  {
+    text: "Transparent timelines and honest expectations, no overpromising",
+    icon: Calendar,
+  },
+  { text: "Solutions designed for long-term visibility", icon: TrendingUp },
 ];
 
 function WhyClientsChoose() {
