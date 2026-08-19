@@ -20,25 +20,18 @@ function WhatWeDo() {
             About Reputation360 - Shaping How You Appear on Google and AI Search
           </h2>
           <p className="mb-4 font-body text-lg leading-relaxed text-steel">
-            Reputation360 helps individuals and brands take control of how they
-            are perceived online. We build credible, resilient reputations
-            designed to strengthen trust over the long term.
-          </p>
-          <p className="mb-4 font-body text-lg leading-relaxed text-steel">
-            We care deeply about the people we work with, and that commitment
-            shapes every strategy we create, with a focus on delivering
-            meaningful, measurable improvements in how you appear across Google
-            Search and AI-powered search experiences.
-          </p>
-          <p className="mb-4 font-body text-lg leading-relaxed text-steel">
-            As the way people discover information continues to evolve, we help
-            clients manage not just traditional Google Search results, but also
-            how they are represented across AI-powered platforms.
+            Reputation360 helps individuals and brands take control of how
+            they&apos;re perceived online. We&apos;re client-first and
+            results-driven, with every strategy designed to deliver measurable
+            improvements in how you appear across search.
           </p>
           <p className="font-body text-lg leading-relaxed text-steel">
-            The result is a stronger digital presence, greater trust, and the
-            confidence to move forward in your career, your business, and your
-            future.
+            AI-powered search has transformed how people discover and evaluate
+            information - and we&apos;ve evolved alongside it. We&apos;re
+            already delivering real, visible gains in how our clients appear
+            across Google AI Overviews and other AI-powered search experiences,
+            helping protect and strengthen their reputations wherever people are
+            searching.
           </p>
         </div>
       </div>
