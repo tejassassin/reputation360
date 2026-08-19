@@ -56,9 +56,7 @@ function WhatWeBelieve() {
               Before a client signs a contract, before an investor takes a call, before a candidate
               gets hired, someone searches your name. What shows up in those first ten results, in
               the AI overview decides the story they believe. Not your
-              résumé. Not your pitch deck. The search results. That story needs to be one you
-              actually chose, not an old article or a court filing. If you&apos;re not actively managing what surfaces, you&apos;re
-              leaving your narrative to chance.
+              résumé. Not your pitch deck. The search results.
             </p>
           </div>
         </div>
