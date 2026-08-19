@@ -55,19 +55,15 @@ function WhatWeBelieve() {
             <p className="font-heading text-base font-semibold leading-relaxed text-navy md:text-xl">
               Your Google search results are your new CV.
             </p>
-            <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:gap-12">
-              <p className="font-body text-lg leading-relaxed text-steel">
-                Before a client signs a contract, before an investor takes a call, before a
-                candidate gets hired, someone searches your name. What shows up in those first ten
-                results, in the AI overview, in the reviews sidebar, decides the story they
-                believe. Not your résumé. Not your pitch deck. The search results.
-              </p>
-              <p className="font-body text-lg leading-relaxed text-steel">
-                That story needs to be one you actually chose, not one an old article, a court
-                filing, or a disgruntled review is telling on your behalf. If you&apos;re not
-                actively managing what surfaces, you&apos;re leaving your narrative to chance.
-              </p>
-            </div>
+            <p className="font-body text-lg leading-relaxed text-steel">
+              Before a client signs a contract, before an investor takes a call, before a candidate
+              gets hired, someone searches your name. What shows up in those first ten results, in
+              the AI overview, in the reviews sidebar, decides the story they believe. Not your
+              résumé. Not your pitch deck. The search results. That story needs to be one you
+              actually chose, not one an old article, a court filing, or a disgruntled review is
+              telling on your behalf. If you&apos;re not actively managing what surfaces, you&apos;re
+              leaving your narrative to chance.
+            </p>
           </div>
         </div>
 
