@@ -43,14 +43,14 @@ const BEFORE_TOP = [
 const AFTER_TOP = [
   {
     num: "01",
-    title: "Arcadia Capital Group - Investment leadership & insights",
-    url: "arcadiacapitalgroup.com/leadership-insights",
+    title: `${DEMO_NAME} - Investment leadership & insights`,
+    url: `arcadiacapitalgroup.com/leadership/${DEMO_SLUG}`,
     badge: <TrendBadge direction="up" value="+5" />,
   },
   {
     num: "02",
-    title: "Forbes - The new playbook for founders navigating market volatility",
-    url: "forbes.com/sites/leadership/market-volatility-playbook",
+    title: `Forbes - ${DEMO_NAME} on the new playbook for navigating market volatility`,
+    url: `forbes.com/sites/leadership/${DEMO_SLUG}-market-volatility`,
     badge: (
       <span className="font-heading text-[10px] font-bold text-slate-200 sm:text-[11px]">
         NEW
@@ -155,62 +155,6 @@ export default function WhatWeBelieveSearchMockup() {
             />
           ))}
         </ul>
-
-        <div className="relative my-2.5 flex items-center gap-2 sm:my-3">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-600 to-slate-600" />
-          <span className="font-heading text-[9px] font-bold uppercase tracking-[0.18em] text-slate-400 sm:text-[10px]">
-            Page break · deeper SERP
-          </span>
-          <div className="h-px flex-1 bg-gradient-to-l from-transparent via-slate-600 to-slate-600" />
-        </div>
-
-        {isAfter ? (
-          <div className="rounded-xl border border-white/10 bg-white/[0.06] p-3 sm:p-3.5">
-            <div className="flex gap-2.5 sm:gap-3">
-              <span className="w-7 shrink-0 pt-0.5 text-right font-heading text-xs font-bold tabular-nums text-slate-400 sm:text-sm">
-                08
-              </span>
-              <div className="min-w-0 flex-1">
-                <p className="font-body text-sm leading-snug text-slate-200 sm:text-base">
-                  Outdated legal filing - 2019
-                </p>
-                <p className={`mt-0.5 ${urlMetaClass}`}>
-                  {urlDisplayText("olddirectory.co/filing-2019")}
-                </p>
-                <p className="mt-1.5 font-body text-xs leading-snug text-slate-300 sm:text-sm">
-                  ~2 pages lower - most users never scroll that far.
-                </p>
-              </div>
-              <span className="inline-flex shrink-0 items-center gap-0.5 self-start rounded border border-red-900/60 bg-red-950/50 px-2 py-1 font-heading text-[10px] font-bold text-red-300 sm:text-[11px]">
-                <TrendingDown className="h-3 w-3" aria-hidden />
-                2 pgs
-              </span>
-            </div>
-          </div>
-        ) : (
-          <div className="rounded-xl border border-white/10 bg-white/[0.06] p-3 sm:p-3.5">
-            <div className="flex gap-2.5 sm:gap-3">
-              <span className="w-7 shrink-0 pt-0.5 text-right font-heading text-xs font-bold tabular-nums text-slate-400 sm:text-sm">
-                12
-              </span>
-              <div className="min-w-0 flex-1">
-                <p className="font-body text-sm leading-snug text-slate-200 sm:text-base">
-                  {`${DEMO_NAME} - Founder profile & work`}
-                </p>
-                <p className={`mt-0.5 ${urlMetaClass}`}>
-                  {urlDisplayText(`arcadiacapitalgroup.com/leadership/${DEMO_SLUG}`)}
-                </p>
-                <p className="mt-1.5 font-body text-xs leading-snug text-slate-300 sm:text-sm">
-                  ~2 pages lower - most prospects never scroll that far.
-                </p>
-              </div>
-              <span className="inline-flex shrink-0 items-center gap-0.5 self-start rounded border border-red-900/60 bg-red-950/50 px-2 py-1 font-heading text-[10px] font-bold text-red-300 sm:text-[11px]">
-                <TrendingDown className="h-3 w-3" aria-hidden />
-                2 pgs
-              </span>
-            </div>
-          </div>
-        )}
 
         <div className="mt-3 flex items-center justify-center gap-x-2 border-t border-white/10 pt-3 text-center sm:justify-start sm:text-left">
           <span className="inline-flex items-center gap-1.5">
