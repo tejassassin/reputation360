@@ -214,19 +214,7 @@ const testimonialCarouselResponsive = {
   },
 };
 
-/** In-page navigation (one-pager anchors). IDs must match section `id`s. */
-const aboutSectionNav = [
-  { id: "how-it-began", label: "How It All Began" },
-  { id: "who-we-are", label: "Who Are We" },
-  { id: "who-we-serve", label: "Who We Serve" },
-  { id: "how-we-work", label: "How We Work" },
-  { id: "what-we-dont", label: "What We Don't Do" },
-  { id: "our-promise", label: "Our Promise to You" },
-  { id: "client-stories", label: "What Our Clients Say" },
-];
-
-const aboutScrollTargetClass =
-  "scroll-mt-36 md:scroll-mt-40";
+const aboutScrollTargetClass = "scroll-mt-28 md:scroll-mt-32";
 
 /** Default vertical padding between About page sections. */
 const aboutSectionSpacing = "pt-16 pb-20 md:pt-20 md:pb-24";
@@ -911,15 +899,10 @@ function ClientStoriesSection() {
 }
 
 function AboutPage() {
-  const [activeSectionId, setActiveSectionId] = useState(
-    () => aboutSectionNav[0]?.id ?? "",
-  );
   /** Click: only one badge stays selected (green) until another is chosen. */
   const [selectedPromiseIndex, setSelectedPromiseIndex] = useState(null);
   /** Hover / focus: temporary green on that badge. */
   const [highlightedPromiseIndex, setHighlightedPromiseIndex] = useState(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const scrollRafRef = useRef(0);
   const whoWeAreRef = useRef(null);
   const [whoWeAreStatsLive, setWhoWeAreStatsLive] = useState(false);
 
@@ -938,71 +921,6 @@ function AboutPage() {
     return () => obs.disconnect();
   }, []);
 
-  useEffect(() => {
-    const onProg = () => {
-      const el = document.documentElement;
-      const sh = el.scrollHeight - el.clientHeight;
-      setScrollProgress(sh > 0 ? Math.min(1, Math.max(0, el.scrollTop / sh)) : 0);
-    };
-    onProg();
-    window.addEventListener("scroll", onProg, { passive: true });
-    window.addEventListener("resize", onProg, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onProg);
-      window.removeEventListener("resize", onProg);
-    };
-  }, []);
-
-  useEffect(() => {
-    const syncFromHash = () => {
-      const id = window.location.hash.slice(1);
-      if (aboutSectionNav.some((s) => s.id === id)) {
-        setActiveSectionId(id);
-      }
-    };
-    syncFromHash();
-    window.addEventListener("hashchange", syncFromHash);
-    return () => window.removeEventListener("hashchange", syncFromHash);
-  }, []);
-
-  useEffect(() => {
-    const sectionIds = aboutSectionNav.map((s) => s.id);
-
-    const updateActiveFromScroll = () => {
-      if (scrollRafRef.current !== 0) return;
-      const frameId = window.requestAnimationFrame(() => {
-        scrollRafRef.current = 0;
-        const line =
-          window.innerWidth >= 768
-            ? Math.min(200, window.innerHeight * 0.22)
-            : Math.min(176, window.innerHeight * 0.2);
-        let current = sectionIds[0];
-        for (const id of sectionIds) {
-          const el = document.getElementById(id);
-          if (!el) continue;
-          const { top } = el.getBoundingClientRect();
-          if (top <= line) current = id;
-        }
-        setActiveSectionId((prev) => (prev === current ? prev : current));
-      });
-      scrollRafRef.current = frameId;
-    };
-
-    updateActiveFromScroll();
-    window.addEventListener("scroll", updateActiveFromScroll, { passive: true });
-    window.addEventListener("resize", updateActiveFromScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", updateActiveFromScroll);
-      window.removeEventListener("resize", updateActiveFromScroll);
-      if (scrollRafRef.current) {
-        window.cancelAnimationFrame(scrollRafRef.current);
-        scrollRafRef.current = 0;
-      }
-    };
-  }, []);
-
-  const scrollPct = Math.min(100, Math.max(0, Math.round(scrollProgress * 100)));
-
   return (
     <>
       <SeoHead
@@ -1010,61 +928,10 @@ function AboutPage() {
         description={seo.description}
         canonicalPath={seo.path}
       />
-    <main className="relative flex-1 bg-[#f4f6fb] pt-28 text-slate-800 md:pt-32">
-      <nav
-        aria-label="Sections on this page"
-        className="sticky top-[68px] lg:top-[72px] z-30 bg-[#070f1c]/88 shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_-1px_0_0_rgba(255,255,255,0.06)] backdrop-blur-xl"
-      >
-        <div className="relative mx-auto max-w-7xl px-3 py-2.5 pb-3 md:px-6 md:py-3 md:pb-3.5">
-          <ul className="flex gap-1.5 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] md:flex-wrap md:justify-center md:gap-2 md:overflow-x-visible [&::-webkit-scrollbar]:hidden">
-            {aboutSectionNav.map(({ id, label }) => {
-              const isActive = activeSectionId === id;
-              return (
-                <li key={id} className="shrink-0">
-                  <Motion.a
-                    href={`#${id}`}
-                    {...internalAnchorProps(`#${id}`)}
-                    aria-current={isActive ? "location" : undefined}
-                    onClick={() => setActiveSectionId(id)}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`${headlineFont} relative inline-flex rounded-full px-3 py-2 text-[11px] font-semibold transition-colors duration-200 md:px-3.5 md:text-[12px] ${
-                      isActive
-                        ? "bg-white text-[#0a1628] shadow-lg shadow-black/15"
-                        : "text-white/72 hover:bg-white/12 hover:text-white"
-                    } `}
-                  >
-                    {label}
-                  </Motion.a>
-                </li>
-              );
-            })}
-          </ul>
-          <div
-            className="mt-2 flex items-center gap-3 md:mt-2.5"
-            role="status"
-            aria-label={`Page scroll progress: ${scrollPct} percent`}
-          >
-            <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
-              <Motion.div
-                className="h-full origin-left rounded-full bg-gradient-to-r from-emerald-400 via-[#4CAF50] to-cyan-300"
-                initial={false}
-                animate={{ scaleX: scrollProgress }}
-                transition={{ type: "tween", duration: 0.12, ease: "linear" }}
-              />
-            </div>
-            <span
-              className={`${headlineFont} shrink-0 tabular-nums text-[11px] font-bold text-emerald-200/95 md:text-xs`}
-            >
-              {scrollPct}%
-            </span>
-          </div>
-        </div>
-      </nav>
-
+    <main className="relative flex-1 bg-[#f4f6fb] text-slate-800">
       <header
         id="about-hero"
-        className="relative flex min-h-[min(520px,calc(100vh-10.5rem))] flex-col overflow-hidden bg-[#050a18] pb-10 pt-10 text-white md:min-h-[min(580px,calc(100vh-11rem))] md:pb-14 md:pt-12"
+        className="relative flex min-h-[min(520px,calc(100vh-7.5rem))] flex-col overflow-hidden bg-[#050a18] pb-10 pt-10 text-white md:min-h-[min(580px,calc(100vh-8rem))] md:pb-14 md:pt-12"
       >
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_20%_-10%,rgba(76,175,80,0.18),transparent_50%),radial-gradient(ellipse_70%_50%_at_100%_0%,rgba(31,59,100,0.45),transparent_48%),linear-gradient(165deg,#050a18_0%,#1F3B64_38%,#0a1628_100%)]"
@@ -1143,6 +1010,7 @@ function AboutPage() {
                 />
                 <a
                   href="#how-it-began"
+                  {...internalAnchorProps("#how-it-began")}
                   className={`${headlineFont} inline-flex items-center gap-2 rounded-xl border border-white/25 bg-transparent px-5 py-3.5 text-sm font-semibold text-white transition hover:border-white/45 hover:bg-white/5 md:px-6`}
                 >
                   Read our story
