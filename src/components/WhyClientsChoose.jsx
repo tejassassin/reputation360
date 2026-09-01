@@ -12,14 +12,14 @@ const items = [
     icon: ShieldCheck,
   },
   {
-    text: "Custom-built plans, never a one-size-fits-all template",
+    text: "Premium reputation solutions at highly competitive prices",
     icon: PenTool,
   },
   {
     text: "Transparent timelines and honest expectations, no overpromising",
     icon: Calendar,
   },
-  { text: "Solutions designed for long-term visibility", icon: TrendingUp },
+  { text: "Custom-built plans designed for long-term visibility", icon: TrendingUp },
 ];
 
 function WhyClientsChoose() {
