@@ -3,11 +3,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { AnimatePresence, motion as Motion } from "motion/react";
 import {
-  GraduationCap,
   Stethoscope,
   BarChart3,
-  Store,
-  CircleArrowRight,
   User,
   Landmark,
   Gavel,
@@ -66,78 +63,6 @@ const heroItem = {
     transition: { duration: 0.62, ease: [0.22, 1, 0.36, 1] },
   },
 };
-
-/** What Drives Us - interactive personas (grid order: row1, row2). */
-const whatDrivesPersonas = [
-  {
-    id: "student",
-    icon: GraduationCap,
-    label: "Student",
-    cardLine: "Lands the job they worked years for",
-    panelKicker: "THE STUDENT",
-    detailSegments: [
-      {
-        text: "Recruiters kept landing on an incomplete picture. ",
-        tone: "muted",
-      },
-      {
-        text: "When the first page finally told the truth, the offer came through.",
-        tone: "navy",
-      },
-    ],
-  },
-  {
-    id: "doctor",
-    icon: Stethoscope,
-    label: "Doctor",
-    cardLine: "Brings patients back through the door",
-    panelKicker: "THE DOCTOR",
-    detailSegments: [
-      {
-        text: "Prospective patients saw a fragmented story first. ",
-        tone: "muted",
-      },
-      {
-        text: "When accurate, trustworthy context ranked first, the schedule filled again.",
-        tone: "navy",
-      },
-    ],
-  },
-  {
-    id: "executive",
-    icon: BarChart3,
-    label: "Executive",
-    cardLine: "Walks into the boardroom with confidence restored",
-    panelKicker: "THE EXECUTIVE",
-    detailSegments: [
-      {
-        text: "The moment the full story led the results, ",
-        tone: "muted",
-      },
-      {
-        text: "an old headline lost its power - and the room shifted its attention to what mattered.",
-        tone: "navy",
-      },
-    ],
-  },
-  {
-    id: "business-owner",
-    icon: Store,
-    label: "Business Owner",
-    cardLine: "Closes the deal they almost lost",
-    panelKicker: "THE BUSINESS OWNER",
-    detailSegments: [
-      {
-        text: "A deal was slipping away because of what showed up when the investor searched. ",
-        tone: "muted",
-      },
-      {
-        text: "When the right story ranked first, the deal closed.",
-        tone: "navy",
-      },
-    ],
-  },
-];
 
 const whoWeServe = [
   {
@@ -292,7 +217,6 @@ const testimonialCarouselResponsive = {
 /** In-page navigation (one-pager anchors). IDs must match section `id`s. */
 const aboutSectionNav = [
   { id: "how-it-began", label: "How It All Began" },
-  { id: "what-drives-us", label: "What Drives Us" },
   { id: "who-we-are", label: "Who Are We" },
   { id: "who-we-serve", label: "Who We Serve" },
   { id: "how-we-work", label: "How We Work" },
@@ -625,177 +549,6 @@ function HowItAllBeganStory() {
             <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
           </button>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function WhatDrivesUsSection() {
-  const [activeId, setActiveId] = useState("business-owner");
-  const active =
-    whatDrivesPersonas.find((p) => p.id === activeId) ?? whatDrivesPersonas[0];
-
-  return (
-    <section
-      id="what-drives-us"
-      className={`relative overflow-hidden pt-16 pb-0 md:pt-20 md:pb-0 ${aboutScrollTargetClass}`}
-    >
-      <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(165deg,#ffffff_0%,#f0fdf4_38%,#eff6ff_72%,#ffffff_100%)]"
-        aria-hidden
-      />
-      <div className="relative mx-auto max-w-6xl px-6">
-        <Motion.div
-          className="mx-auto mb-10 max-w-3xl text-center md:mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={aboutView}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <h2
-            className={`${headlineFont} text-3xl font-extrabold leading-tight text-[#1F3B64] md:text-[2.1rem]`}
-          >
-            Our Mission & Values as a Reputation Management Company
-          </h2>
-          <p
-            className={`${headlineFont} mx-auto mt-4 max-w-2xl text-balance text-lg font-semibold leading-snug text-[#2E5B88] md:text-xl`}
-          >
-            We are driven by outcomes. Real ones.
-          </p>
-          <p className="mx-auto mt-5 max-w-3xl text-center text-[15px] leading-relaxed md:text-base">
-            <span className={`${headlineFont} font-bold text-[#1F3B64]`}>
-              These are not metrics.{" "}
-            </span>
-            <span className="text-slate-600">
-              These are lives changed. And every single one of them is why we
-              show up every day.
-            </span>
-          </p>
-          <p className="font-body mx-auto mt-6 text-balance text-base leading-relaxed text-slate-600 md:text-lg">
-            The peace of mind that comes with knowing{" "}
-            <strong className="font-semibold text-[#1F3B64]">
-              your name tells your true story
-            </strong>{" "}
-            - the jobs secured, the clients won, the deals closed, and the
-            careers rebuilt.
-          </p>
-        </Motion.div>
-
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 sm:gap-8">
-          <div className="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-3 xl:gap-4">
-            {whatDrivesPersonas.map((persona, i) => {
-              const isActive = persona.id === activeId;
-              const Icon = persona.icon;
-              return (
-                <Motion.div
-                  key={persona.id}
-                  initial={{ opacity: 0, y: 22 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={aboutView}
-                  transition={{ duration: 0.5, delay: i * 0.07 }}
-                >
-                  <button
-                    type="button"
-                    onClick={() => setActiveId(persona.id)}
-                    aria-pressed={isActive}
-                    className={`group relative flex h-full min-h-[11rem] w-full flex-col rounded-2xl border p-4 text-left transition-[border-color,background-color,box-shadow,transform] duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 sm:min-h-[12rem] sm:p-5 lg:min-h-[13.5rem] lg:p-4 xl:p-5 ${
-                      isActive
-                        ? "border-[#1F3B64] bg-[#1F3B64] shadow-[0_20px_50px_-24px_rgba(15,35,60,0.45)] ring-1 ring-white/10"
-                        : "border-slate-200/90 bg-white/90 shadow-sm backdrop-blur-sm hover:-translate-y-1 hover:border-[#4CAF50]/35 hover:shadow-lg"
-                    }`}
-                  >
-                    {isActive ? (
-                      <div
-                        className="pointer-events-none absolute inset-x-0 top-0 h-[3px] rounded-t-2xl bg-gradient-to-r from-[#4CAF50] via-emerald-300 to-[#2E5B88]"
-                        aria-hidden
-                      />
-                    ) : null}
-                    <div
-                      className={`mb-3 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 sm:mb-4 sm:h-11 sm:w-11 ${
-                        isActive
-                          ? "bg-white/10 text-[#86efac]"
-                          : "bg-sky-100/90 text-[#2E5B88] group-hover:scale-105"
-                      }`}
-                    >
-                      {isActive ? (
-                        <CircleArrowRight className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={2} />
-                      ) : (
-                        <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2} />
-                      )}
-                    </div>
-                    <span
-                      className={`${headlineFont} mb-1.5 text-[10px] font-bold uppercase tracking-[0.16em] sm:text-[11px] sm:tracking-[0.18em] ${
-                        isActive ? "text-[#86efac]" : "text-slate-500"
-                      }`}
-                    >
-                      {persona.label}
-                    </span>
-                    <h3
-                      className={`${headlineFont} text-sm font-bold leading-snug sm:text-[15px] lg:text-sm xl:text-[15px] ${
-                        isActive ? "text-white" : "text-[#1F3B64]"
-                      }`}
-                    >
-                      {persona.cardLine}
-                    </h3>
-                  </button>
-                </Motion.div>
-              );
-            })}
-          </div>
-
-          <Motion.div
-            className="relative w-full overflow-hidden rounded-2xl border border-slate-200/80 bg-white/70 p-[1px] shadow-[0_24px_60px_-30px_rgba(31,59,100,0.2)] backdrop-blur-md"
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={aboutView}
-            transition={{ duration: 0.55, delay: 0.1 }}
-            role="region"
-            aria-live="polite"
-            aria-label={`Story: ${active.panelKicker}`}
-          >
-          <div className="rounded-[15px] bg-gradient-to-br from-[#4CAF50]/12 via-white to-[#2E5B88]/10">
-            <div className="flex min-h-[8.5rem] rounded-[14px] bg-white/95">
-              <div
-                className="w-1.5 shrink-0 bg-gradient-to-b from-[#4CAF50] to-[#1F3B64]"
-                aria-hidden
-              />
-              <div className="grid min-w-0 flex-1 grid-cols-1 grid-rows-1 px-5 py-5 sm:px-7 sm:py-6">
-                <AnimatePresence initial={false} mode="wait">
-                  <Motion.div
-                    key={active.id}
-                    initial={{ opacity: 0, x: 16 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -12 }}
-                    transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-                    className="col-start-1 row-start-1 min-w-0 max-w-full"
-                  >
-                    <p
-                      className={`${headlineFont} mb-3 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#4CAF50]`}
-                    >
-                      {active.panelKicker}
-                    </p>
-                    <p className="text-[15px] leading-relaxed text-slate-600 md:text-base">
-                      {active.detailSegments.map((seg, i) =>
-                        seg.tone === "navy" ? (
-                          <span
-                            key={i}
-                            className="font-semibold text-[#1F3B64]"
-                          >
-                            {seg.text}
-                          </span>
-                        ) : (
-                          <span key={i}>{seg.text}</span>
-                        ),
-                      )}
-                    </p>
-                  </Motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
-          </div>
-        </Motion.div>
-        </div>
-
       </div>
     </section>
   );
@@ -1411,8 +1164,6 @@ function AboutPage() {
       </header>
 
       <HowItAllBeganStory />
-
-      <WhatDrivesUsSection />
 
       {/* Who Are We */}
       <section
