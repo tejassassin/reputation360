@@ -70,13 +70,11 @@ function HomePage({ renderSeo = true }) {
         <LazySection minHeight="20rem">
           <HomeFromOurBlogSection id="from-our-blog" />
         </LazySection>
-        <LazySection minHeight="20rem">
-          <section>
+        <LazySection minHeight="32rem">
+          <div>
+            <Contact />
             <HomeFaq />
-          </section>
-        </LazySection>
-        <LazySection minHeight="12rem">
-          <Contact />
+          </div>
         </LazySection>
       </main>
     </>
