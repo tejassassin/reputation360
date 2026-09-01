@@ -1,11 +1,13 @@
 import { useId, useState } from "react";
 import { Search, TrendingDown, TrendingUp } from "lucide-react";
+import {
+  JORDAN_MERCER_AFTER_RESULTS,
+  JORDAN_MERCER_BEFORE_RESULTS,
+  JORDAN_MERCER_DEMO_NAME,
+  JORDAN_MERCER_QUERY_TAIL,
+} from "../data/jordanMercerSerpDemo.js";
 
 export { WHAT_WE_BELIEVE_SERP_MOCKUP_ALT } from "../constants/imageAlt.js";
-
-/** Demo identity for the SERP mockup in “What we believe”. */
-const DEMO_NAME = "Jordan Mercer";
-const DEMO_SLUG = "jordan-mercer";
 
 /** Muted “breadcrumb” style so path text does not read as hyperlinks (no link color). */
 const urlMetaClass =
@@ -19,51 +21,16 @@ function urlDisplayText(text) {
   return text.replace(/([./])/g, "$1\u200b");
 }
 
-const BEFORE_TOP = [
-  {
-    num: "01",
-    title: "SEC.gov - Administrative proceeding: executive disclosure matter",
-    url: "sec.gov/litigation/admin-proceedings/2024-042",
-    badge: <TrendBadge direction="down" value="-3" />,
-  },
-  {
-    num: "02",
-    title: "Federal Register - Civil penalty notice, advisory firm",
-    url: "federalregister.gov/documents/enforcement-notice",
-    badge: <TrendBadge direction="down" value="-2" />,
-  },
-  {
-    num: "03",
-    title: "The Guardian - Investigation raises questions over founder's financial ties",
-    url: "theguardian.com/business/investigation-financial-ties",
-    badge: <TrendBadge direction="down" value="-1" />,
-  },
-];
-
-const AFTER_TOP = [
-  {
-    num: "01",
-    title: `${DEMO_NAME} - Investment leadership & insights`,
-    url: `arcadiacapitalgroup.com/leadership/${DEMO_SLUG}`,
-    badge: <TrendBadge direction="up" value="+5" />,
-  },
-  {
-    num: "02",
-    title: `Forbes - ${DEMO_NAME} on the new playbook for navigating market volatility`,
-    url: `forbes.com/sites/leadership/${DEMO_SLUG}-market-volatility`,
-    badge: (
+function homeBadge(row) {
+  if (row.trend === "new") {
+    return (
       <span className="font-heading text-[10px] font-bold text-slate-200 sm:text-[11px]">
-        NEW
+        {row.value}
       </span>
-    ),
-  },
-  {
-    num: "03",
-    title: `LinkedIn - ${DEMO_NAME} · Founder`,
-    url: `linkedin.com/in/${DEMO_SLUG}`,
-    badge: <TrendBadge direction="up" value="+2" />,
-  },
-];
+    );
+  }
+  return <TrendBadge direction={row.trend} value={row.value} />;
+}
 
 /**
  * SERP mockup with Before / After toggle (decorative results only; toggle is interactive).
@@ -140,18 +107,21 @@ export default function WhatWeBelieveSearchMockup() {
         <div className="mb-3 flex items-center gap-2.5 rounded-xl border border-white/10 bg-[#0f1c30] px-3 py-2.5 sm:gap-3 sm:px-4">
           <Search className="h-4 w-4 shrink-0 text-slate-400" strokeWidth={2} aria-hidden />
           <p className="min-w-0 flex-1 text-left text-sm text-white sm:text-base">
-            <span className="font-medium">{DEMO_NAME.toLowerCase()}</span>{" "}
-            <span className="font-normal text-slate-300">founder</span>
+            <span className="font-medium">{JORDAN_MERCER_DEMO_NAME.toLowerCase()}</span>{" "}
+            <span className="font-normal text-slate-300">{JORDAN_MERCER_QUERY_TAIL}</span>
           </p>
           <span className={`shrink-0 ${urlMetaClass}`}>{urlDisplayText("google.com")}</span>
         </div>
 
         <ul className="space-y-2 sm:space-y-2.5" key={phase}>
-          {(isAfter ? AFTER_TOP : BEFORE_TOP).map((row) => (
+          {(isAfter ? JORDAN_MERCER_AFTER_RESULTS : JORDAN_MERCER_BEFORE_RESULTS).map((row) => (
             <SerpResultRow
               key={`${phase}-${row.num}`}
               variant={isAfter ? "positive" : "negative"}
-              {...row}
+              num={row.num}
+              title={row.title}
+              url={row.url}
+              badge={homeBadge(row)}
             />
           ))}
         </ul>

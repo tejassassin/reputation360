@@ -1,9 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import { Search, TrendingDown, TrendingUp } from "lucide-react";
+import {
+  JORDAN_MERCER_AFTER_BURIED,
+  JORDAN_MERCER_AFTER_DEEPER,
+  JORDAN_MERCER_AFTER_RESULTS,
+  JORDAN_MERCER_BEFORE_DEEPER,
+  JORDAN_MERCER_BEFORE_RESULTS,
+  JORDAN_MERCER_DEMO_NAME,
+  JORDAN_MERCER_QUERY_TAIL,
+} from "../data/jordanMercerSerpDemo.js";
 
-/** Placeholder name for the interactive demo (US-centric). */
-const DEMO_NAME = "Jordan Mercer";
-const QUERY_TAIL = "executive";
+/** Google-style breadcrumb display for a demo URL (not a real link). */
+function googlePath(url) {
+  return url.replace(/\//g, " › ");
+}
 
 /**
  * Interactive Google-style SERP mockup: Before (negative first page) vs After (positive first page),
@@ -20,8 +30,8 @@ export default function AboutHeroSearchMockup({ headlineFont: hf }) {
 
   const queryDisplay = (
     <>
-      <span className="font-medium text-[#202124]">{DEMO_NAME.toLowerCase()}</span>{" "}
-      <span className="text-[#70757a]">{QUERY_TAIL}</span>
+      <span className="font-medium text-[#202124]">{JORDAN_MERCER_DEMO_NAME.toLowerCase()}</span>{" "}
+      <span className="text-[#70757a]">{JORDAN_MERCER_QUERY_TAIL}</span>
     </>
   );
 
@@ -156,62 +166,22 @@ function GooglePagination() {
 }
 
 function BeforeSerp({ hf }) {
-  const bad = [
-    {
-      t: `Forum thread re: ${DEMO_NAME} - unverified claims`,
-      u: "complaintsboard.com › threads › ...",
-      s: "Anonymous posts from 2016 resurfacing in search snippets…",
-      n: -6,
-    },
-    {
-      t: `Court filing mentions ${DEMO_NAME} (dismissed case)`,
-      u: "publicrecords.io › docket › ...",
-      s: "PDF from an old matter that no longer reflects the full story.",
-      n: -5,
-    },
-    {
-      t: `${DEMO_NAME} - negative opinion piece`,
-      u: "regionalpost.com › opinion › ...",
-      s: "Editorial framing that omits later context and outcomes.",
-      n: -4,
-    },
-    {
-      t: `Scraped profile - outdated title for ${DEMO_NAME}`,
-      u: "data-agg.site › profile › ...",
-      s: "Third-party aggregator with wrong employer and year.",
-      n: -5,
-    },
-    {
-      t: `“${DEMO_NAME}” - unmoderated Q&A thread`,
-      u: "oldforum.net › archive › ...",
-      s: "Dead forum page still ranking on page one.",
-      n: -7,
-    },
-  ];
-  const page2 = [
-    {
-      t: `Alumni note mentioning ${DEMO_NAME}`,
-      u: "university.edu › alumni › ...",
-      s: "Benign but incomplete; competes with more relevant profiles.",
-      n: -2,
-    },
-    {
-      t: `Sponsored directory - duplicate listing`,
-      u: "bizlistings.co › ...",
-      s: "Low-quality citation cluttering branded queries.",
-      n: -3,
-    },
-  ];
-
   return (
     <div className="px-3 pb-2 pt-3 sm:px-4">
       <p className={`${hf} mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#70757a]`}>
         Page 1 - first screen
       </p>
       <ul className="space-y-3">
-        {bad.map((r, i) => (
-          <li key={i}>
-            <NegativeResultRow {...r} hf={hf} idx={i + 1} />
+        {JORDAN_MERCER_BEFORE_RESULTS.map((r) => (
+          <li key={r.num}>
+            <NegativeResultRow
+              t={r.title}
+              u={googlePath(r.url)}
+              s={r.snippet}
+              n={r.value}
+              hf={hf}
+              idx={r.num}
+            />
           </li>
         ))}
       </ul>
@@ -222,9 +192,16 @@ function BeforeSerp({ hf }) {
         Page 2
       </p>
       <ul className="space-y-3 pb-3">
-        {page2.map((r, i) => (
-          <li key={i}>
-            <NegativeResultRow {...r} hf={hf} idx={i + 6} />
+        {JORDAN_MERCER_BEFORE_DEEPER.map((r) => (
+          <li key={r.num}>
+            <NegativeResultRow
+              t={r.title}
+              u={googlePath(r.url)}
+              s={r.snippet}
+              n={r.value}
+              hf={hf}
+              idx={r.num}
+            />
           </li>
         ))}
       </ul>
@@ -233,53 +210,22 @@ function BeforeSerp({ hf }) {
 }
 
 function AfterSerp({ hf }) {
-  const good = [
-    {
-      t: `${DEMO_NAME} - Leadership & board roles`,
-      u: "linkedin.com › in › jordan-mercer",
-      s: "Updated headline, experience, and recommendations aligned with your narrative.",
-      tag: "+4",
-    },
-    {
-      t: `${DEMO_NAME} - Company leadership team`,
-      u: "meridian-analytics.com › leadership",
-      s: "Official bio on a domain you control, with structured data for search.",
-      tag: "NEW",
-    },
-    {
-      t: `Industry profile: ${DEMO_NAME}`,
-      u: "tradejournal.org › profiles › ...",
-      s: "Balanced coverage citing primary sources and recent milestones.",
-      tag: "+3",
-    },
-    {
-      t: `Keynote - ${DEMO_NAME} on responsible growth`,
-      u: "conference.io › agenda › ...",
-      s: "Authoritative event page with video and transcript excerpts.",
-      tag: "+2",
-    },
-    {
-      t: `Nonprofit board - ${DEMO_NAME}`,
-      u: "brightfuture.org › board",
-      s: "Mission-aligned visibility that reinforces trust signals.",
-      tag: "+2",
-    },
-  ];
-  const pushedDown = {
-    t: "Old aggregator snippet - superseded",
-    u: "data-agg.site › profile › ...",
-    s: "This result now sits far below accurate, authoritative pages.",
-  };
-
   return (
     <div className="px-3 pb-2 pt-3 sm:px-4">
       <p className={`${hf} mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#1e8e3e]`}>
         Page 1 - first screen (recovered)
       </p>
       <ul className="space-y-3">
-        {good.map((r, i) => (
-          <li key={i}>
-            <PositiveResultRow {...r} hf={hf} idx={i + 1} />
+        {JORDAN_MERCER_AFTER_RESULTS.map((r) => (
+          <li key={r.num}>
+            <PositiveResultRow
+              t={r.title}
+              u={googlePath(r.url)}
+              s={r.snippet}
+              tag={r.value}
+              hf={hf}
+              idx={r.num}
+            />
           </li>
         ))}
       </ul>
@@ -289,15 +235,35 @@ function AfterSerp({ hf }) {
       <p className={`${hf} mb-3 mt-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#70757a]`}>
         Deeper results
       </p>
+      <ul className="space-y-3 pb-2">
+        {JORDAN_MERCER_AFTER_DEEPER.map((r) => (
+          <li key={r.num}>
+            <PositiveResultRow
+              t={r.title}
+              u={googlePath(r.url)}
+              s={r.snippet}
+              tag={r.value}
+              hf={hf}
+              idx={r.num}
+            />
+          </li>
+        ))}
+      </ul>
       <div className="rounded-lg border border-dashed border-[#dadce0] bg-white/80 p-3 opacity-80">
         <div className="flex gap-2">
           <span className={`${hf} w-6 shrink-0 pt-0.5 text-right text-[11px] font-bold tabular-nums text-[#70757a]`}>
             12
           </span>
           <div className="min-w-0">
-            <p className="text-[15px] leading-snug text-[#1a0dab] line-through decoration-[#70757a]">{pushedDown.t}</p>
-            <p className="mt-0.5 truncate text-xs text-[#006621] line-through opacity-70">{pushedDown.u}</p>
-            <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-[#4d5156]">{pushedDown.s}</p>
+            <p className="text-[15px] leading-snug text-[#1a0dab] line-through decoration-[#70757a]">
+              {JORDAN_MERCER_AFTER_BURIED.title}
+            </p>
+            <p className="mt-0.5 truncate text-xs text-[#006621] line-through opacity-70">
+              {googlePath(JORDAN_MERCER_AFTER_BURIED.url)}
+            </p>
+            <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-[#4d5156]">
+              {JORDAN_MERCER_AFTER_BURIED.snippet}
+            </p>
           </div>
           <span className="inline-flex shrink-0 items-center gap-0.5 self-start rounded border border-red-200 bg-red-50 px-1.5 py-0.5 text-[10px] font-bold text-red-700">
             <TrendingDown className="h-3 w-3" aria-hidden />
