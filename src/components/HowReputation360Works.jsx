@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { staticImageSrc } from "../lib/staticImageSrc.js";
+import phase01 from "../assets/how-r360-works/phase-01.png";
+import phase02 from "../assets/how-r360-works/phase-02.png";
+import phase03 from "../assets/how-r360-works/phase-03.png";
+import phase04 from "../assets/how-r360-works/phase-04.png";
 
 /**
  * Interactive “How we work” stepper for the home page.
@@ -13,9 +18,12 @@ const STEPS = [
     text: "We assess your current search results and risks",
     detail:
       "You get a prioritized picture of what to fix first-so every later move is grounded in data, not guesswork.",
-    square: "bg-[#1d3557]",
-    ring: "ring-[#1d3557]/35",
-    panelBorder: "border-l-4 border-l-[#1d3557]",
+    square: "bg-[#1F3B64]",
+    ring: "ring-[#1F3B64]/35",
+    panelBorder: "border-l-4 border-l-[#1F3B64]",
+    image: phase01,
+    imageAlt:
+      "Illustration of a search-results audit with a navy magnifying glass and green checkmarks",
   },
   {
     num: "02",
@@ -23,9 +31,12 @@ const STEPS = [
     text: "A custom plan based on your goals and urgency",
     detail:
       "Your roadmap matches budget, timeline, and the outcomes you care about-whether that is speed, depth, or discretion.",
-    square: "bg-[#5cb85c]",
-    ring: "ring-[#5cb85c]/40",
-    panelBorder: "border-l-4 border-l-[#5cb85c]",
+    square: "bg-[#4CAF50]",
+    ring: "ring-[#4CAF50]/40",
+    panelBorder: "border-l-4 border-l-[#4CAF50]",
+    image: phase02,
+    imageAlt:
+      "Illustration of a navy strategy roadmap leading to a green destination pin",
   },
   {
     num: "03",
@@ -33,9 +44,12 @@ const STEPS = [
     text: "SEO-driven content, authority building & asset control",
     detail:
       "We publish and amplify assets search engines trust, while steering attention toward accurate, helpful narratives.",
-    square: "bg-[#1b75bb]",
-    ring: "ring-[#1b75bb]/35",
-    panelBorder: "border-l-4 border-l-[#1b75bb]",
+    square: "bg-[#2E5B88]",
+    ring: "ring-[#2E5B88]/35",
+    panelBorder: "border-l-4 border-l-[#2E5B88]",
+    image: phase03,
+    imageAlt:
+      "Illustration of content being created and published into search results",
   },
   {
     num: "04",
@@ -43,9 +57,12 @@ const STEPS = [
     text: "Ongoing tracking and adjustments",
     detail:
       "Rankings and mentions evolve-we watch the SERPs and refine tactics so gains hold and new risks do not creep back in.",
-    square: "bg-[#45b39d]",
-    ring: "ring-[#45b39d]/40",
-    panelBorder: "border-l-4 border-l-[#45b39d]",
+    square: "bg-[#6CB359]",
+    ring: "ring-[#6CB359]/40",
+    panelBorder: "border-l-4 border-l-[#6CB359]",
+    image: phase04,
+    imageAlt:
+      "Illustration of a navy shield and dashboard monitoring reputation signals",
   },
 ];
 
@@ -98,7 +115,7 @@ export default function HowReputation360Works() {
 
         <div className="flex flex-col gap-8 rounded-[1.75rem] border border-[#e5e7eb] bg-gradient-to-b from-[#f8fafc] to-white p-6 shadow-[0_24px_60px_-40px_rgba(15,35,60,0.18)] sm:p-8 md:p-10 lg:p-12">
           {/* Detail panel first - visually distinct from the old 4-column timeline */}
-          <div className="relative min-h-[13rem] md:min-h-[12rem]">
+          <div className="relative min-h-[18rem] md:min-h-[16rem]">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={step.num}
@@ -113,12 +130,32 @@ export default function HowReputation360Works() {
                 transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
                 className={`rounded-2xl border border-navy/[0.08] bg-white p-6 shadow-md sm:p-8 md:p-10 ${step.panelBorder}`}
               >
-                <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-8">
-                  <div className="min-w-0 flex-1">
-                    <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#64748b]">
-                      Phase {step.num}
-                    </p>
-                    <p className="font-heading mt-2 text-xl font-bold text-[#02254d] md:text-2xl lg:text-3xl">
+                <div className="mb-5 flex items-center justify-between gap-4">
+                  <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#64748b]">
+                    Phase {step.num}
+                  </p>
+                  <div className="flex gap-3">
+                    <button
+                      type="button"
+                      onClick={() => go("prev")}
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#e5e7eb] bg-white text-navy shadow-sm transition hover:bg-[#f8fafc] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy/30"
+                      aria-label="Previous step"
+                    >
+                      <ChevronLeft className="h-5 w-5" aria-hidden />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => go("next")}
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#e5e7eb] bg-white text-navy shadow-sm transition hover:bg-[#f8fafc] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy/30"
+                      aria-label="Next step"
+                    >
+                      <ChevronRight className="h-5 w-5" aria-hidden />
+                    </button>
+                  </div>
+                </div>
+                <div className="grid items-center gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,22rem)] lg:gap-10">
+                  <div className="min-w-0">
+                    <p className="font-heading text-xl font-bold text-[#02254d] md:text-2xl lg:text-3xl">
                       {step.label}
                     </p>
                     <p className="font-body mt-4 text-base font-semibold leading-relaxed text-[#43474e] md:text-lg">
@@ -128,26 +165,16 @@ export default function HowReputation360Works() {
                       {step.detail}
                     </p>
                   </div>
-                  <div className="flex shrink-0 items-center justify-end border-t border-slate-100 pt-4 md:border-l md:border-t-0 md:pl-8 md:pt-0">
-                    <div className="flex gap-3">
-                      <button
-                        type="button"
-                        onClick={() => go("prev")}
-                        className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#e5e7eb] bg-white text-navy shadow-sm transition hover:bg-[#f8fafc] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy/30"
-                        aria-label="Previous step"
-                      >
-                        <ChevronLeft className="h-5 w-5" aria-hidden />
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => go("next")}
-                        className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#e5e7eb] bg-white text-navy shadow-sm transition hover:bg-[#f8fafc] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy/30"
-                        aria-label="Next step"
-                      >
-                        <ChevronRight className="h-5 w-5" aria-hidden />
-                      </button>
-                    </div>
-                  </div>
+                  <figure className="m-0 overflow-hidden rounded-xl bg-[#F5F7FA] ring-1 ring-[#1F3B64]/10">
+                    <img
+                      src={staticImageSrc(step.image)}
+                      alt={step.imageAlt}
+                      width={1536}
+                      height={1024}
+                      decoding="async"
+                      className="h-auto w-full object-cover"
+                    />
+                  </figure>
                 </div>
               </motion.div>
             </AnimatePresence>
