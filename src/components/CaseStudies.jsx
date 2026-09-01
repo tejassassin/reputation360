@@ -69,7 +69,7 @@ function CaseStudies() {
             id="home-glimpse-cases-heading"
             className="font-heading text-3xl font-bold tracking-tight sm:text-4xl"
           >
-            <span className="text-navy">Reputation Management </span>
+            <span className="text-navy">Online Reputation Management </span>
             <span className="bg-gradient-to-r from-[#2a6b3a] via-[#4CAF50] to-[#2E5B88] bg-clip-text text-transparent">
               Case Studies
             </span>
@@ -136,7 +136,7 @@ function CaseStudies() {
                           {study.industry}
                         </span>
                       </p>
-                      <h3 className="line-clamp-2 font-heading text-base font-extrabold leading-snug text-navy [text-wrap:balance] sm:text-[1.05rem]">
+                      <h3 className="min-h-[4.2em] font-heading text-base font-extrabold leading-snug text-navy sm:text-[1.05rem]">
                         <span className="text-inherit">{study.listTitle}</span>
                       </h3>
                     </div>
