@@ -50,17 +50,20 @@ function Footer() {
   return (
     <footer className="bg-charcoal text-white py-10 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-4 xl:grid-cols-7 xl:gap-6">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-13 h-13 rounded-full bg-white flex items-center justify-center pl-1">
+        <div className="mb-8 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-4 xl:grid-cols-8 xl:gap-6">
+          <div className="min-w-0 xl:col-span-2">
+            <div className="mb-4 flex min-w-0 items-center gap-2">
+              <div className="flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center overflow-hidden rounded-full bg-white pl-0.5">
                 <img
                   src={BRAND_LOGO_SRC}
                   alt={LOGO_ALT_FOOTER}
-                  className="w-10 h-10 object-contain"
+                  width={36}
+                  height={36}
+                  decoding="async"
+                  className="ml-1 object-contain"
                 />
               </div>
-              <span className="font-heading font-bold text-lg">
+              <span className="font-heading shrink-0 font-bold text-lg">
                 Reputation360
               </span>
             </div>
