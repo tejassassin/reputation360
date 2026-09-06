@@ -95,13 +95,6 @@ function WhatWeBelieve() {
                 })}
               </ul>
             </div>
-
-            <div className="mt-6 rounded-2xl border border-[#4CAF50]/25 bg-[#4CAF50]/[0.06] p-4 md:p-5">
-              <p className="font-body text-lg font-medium leading-relaxed text-navy">
-                At <span className="font-semibold text-[#1F3B64]">Reputation360</span>, we help
-                individuals and brands own their narrative, strategically and sustainably.
-              </p>
-            </div>
           </div>
 
           <div className="flex w-full min-w-0 justify-center lg:col-span-6 lg:justify-end">
