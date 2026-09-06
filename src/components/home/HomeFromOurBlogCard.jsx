@@ -14,10 +14,10 @@ export function HomeFromOurBlogCard({ href, label }) {
       <a
         href={href}
         {...internalAnchorProps(href)}
-        className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-[#0f2e58]/10 bg-white text-left no-underline shadow-[0_16px_48px_-24px_rgba(15,46,88,0.28)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#2e5b88]/30 hover:shadow-[0_28px_60px_-22px_rgba(15,46,88,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2e5b88] focus-visible:ring-offset-2"
+        className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white text-left no-underline shadow-[0_16px_48px_-24px_rgba(31,59,100,0.28)] transition-all duration-300 hover:-translate-y-1.5 hover:border-green/30 hover:shadow-[0_28px_60px_-22px_rgba(31,59,100,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2"
       >
         {meta?.image ? (
-          <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#e8edf3]">
+          <div className="relative aspect-[16/10] w-full overflow-hidden bg-offwhite">
             <img
               src={meta.image}
               alt={meta.imageAlt ?? label}
@@ -30,33 +30,33 @@ export function HomeFromOurBlogCard({ href, label }) {
           </div>
         ) : (
           <div
-            className="relative aspect-[16/10] w-full bg-gradient-to-br from-[#0f2e58] via-[#1a4a7a] to-[#2e5b88]"
+            className="relative aspect-[16/10] w-full bg-navy"
             aria-hidden
           />
         )}
 
         <div className="flex flex-1 flex-col p-6 md:p-7">
-          <h3 className="font-heading text-[19px] font-bold leading-snug text-[#0f2e58] transition-colors group-hover:text-[#163d6e] md:text-[21px] md:leading-[1.25]">
+          <h3 className="font-heading text-[19px] font-bold leading-snug text-navy transition-colors group-hover:text-navy md:text-[21px] md:leading-[1.25]">
             {label}
           </h3>
 
           {meta?.excerpt ? (
-            <p className="mt-3 line-clamp-3 flex-1 text-[15px] leading-[1.65] text-[#4a5d75] md:text-base md:leading-[1.7]">
+            <p className="mt-3 line-clamp-3 flex-1 text-[15px] leading-[1.65] text-steel md:text-base md:leading-[1.7]">
               {meta.excerpt}
             </p>
           ) : null}
 
-          <div className="mt-5 flex items-center justify-between gap-3 border-t border-[#e8edf3] pt-4">
+          <div className="mt-5 flex items-center justify-between gap-3 border-t border-navy/10 pt-4">
             {meta?.readTime ? (
-              <span className="text-[12px] font-semibold uppercase tracking-[0.12em] text-[#7a8ca3]">
+              <span className="text-[12px] font-semibold uppercase tracking-[0.12em] text-steel">
                 {meta.readTime} read
               </span>
             ) : (
-              <span className="text-[12px] text-[#7a8ca3]" aria-hidden>
+              <span className="text-[12px] text-steel" aria-hidden>
                 &nbsp;
               </span>
             )}
-            <span className="inline-flex items-center gap-1 text-[14px] font-semibold text-[#2e5b88] md:text-[15px]">
+            <span className="inline-flex items-center gap-1 text-[14px] font-semibold text-navy md:text-[15px]">
               Read article
               <ArrowRight
                 className="h-4 w-4 stroke-[2.25] transition-transform group-hover:translate-x-0.5"

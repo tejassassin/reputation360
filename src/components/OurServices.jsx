@@ -6,7 +6,7 @@ function OurServices() {
   return (
     <section
       id="r3-home-our-services-root"
-      className="relative w-full overflow-hidden border-y border-white/[0.06] py-14 text-white md:py-20 lg:py-24"
+      className="relative w-full overflow-hidden bg-navy border-y border-white/[0.06] py-14 text-white md:py-20 lg:py-24"
       aria-labelledby="our-services-heading"
     >
       <BrandSectionBackdrop />
@@ -20,7 +20,7 @@ function OurServices() {
             Online Reputation Management Services
           </h2>
           <div
-            className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"
+            className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
             aria-hidden
           />
           <p className="mx-auto mt-5 max-w-4xl px-2 font-body text-base font-medium leading-relaxed text-white/85 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:mt-6 sm:text-lg sm:leading-relaxed">

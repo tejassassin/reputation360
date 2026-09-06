@@ -43,7 +43,7 @@ function WhatWeBelieve() {
           </h2>
         </div>
 
-        <div className="relative mb-10 overflow-hidden rounded-2xl border border-[#1F3B64]/12 bg-gradient-to-br from-white to-[#f0f4fa] p-5 shadow-sm ring-1 ring-slate-200/60 md:p-8 lg:mb-12">
+        <div className="relative mb-10 overflow-hidden rounded-2xl border border-navy/12 bg-gradient-to-br from-white to-offwhite p-5 shadow-sm ring-1 ring-slate-200/60 md:p-8 lg:mb-12">
           <div
             className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#4CAF50]/10 blur-2xl"
             aria-hidden
@@ -73,7 +73,7 @@ function WhatWeBelieve() {
                         className="group relative flex gap-4 border-l-[3px] border-transparent p-5 transition-all duration-300 ease-out motion-reduce:transition-none sm:gap-5 sm:p-6 motion-reduce:hover:translate-y-0 hover:-translate-y-0.5 hover:border-[#4CAF50] hover:bg-gradient-to-r hover:from-[#4CAF50]/[0.08] hover:to-transparent hover:shadow-[0_8px_24px_-8px_rgba(31,59,100,0.15)]"
                       >
                         <div
-                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#f0f4fa] text-[#1F3B64] ring-1 ring-[#1F3B64]/10 transition-all duration-300 ease-out group-hover:scale-105 group-hover:bg-[#4CAF50]/15 group-hover:ring-[#4CAF50]/35 motion-reduce:group-hover:scale-100"
+                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-offwhite text-navy ring-1 ring-navy/10 transition-all duration-300 ease-out group-hover:scale-105 group-hover:bg-[#4CAF50]/15 group-hover:ring-[#4CAF50]/35 motion-reduce:group-hover:scale-100"
                           aria-hidden
                         >
                           <Icon
@@ -82,7 +82,7 @@ function WhatWeBelieve() {
                           />
                         </div>
                         <div className="min-w-0 pt-0.5">
-                          <h3 className="font-heading text-lg font-bold leading-snug text-navy transition-colors duration-300 group-hover:text-[#152f52]">
+                          <h3 className="font-heading text-lg font-bold leading-snug text-navy">
                             {item.title}
                           </h3>
                           <p className="font-body mt-2 text-lg leading-relaxed text-steel transition-colors duration-300 group-hover:text-slate-600">
@@ -101,7 +101,7 @@ function WhatWeBelieve() {
             {/* Same hover motion as About Reputation360 image: .ha-lift (smooth scale + shadow ring). */}
             <div className="relative isolate w-full max-w-none">
               <div
-                className="pointer-events-none absolute -inset-3 rounded-[1.75rem] bg-gradient-to-br from-[#4CAF50]/10 via-transparent to-[#2E5B88]/18 blur-xl sm:-inset-4"
+                className="pointer-events-none absolute -inset-3 rounded-[1.75rem] bg-gradient-to-br from-[#4CAF50]/10 via-transparent to-navy/18 blur-xl sm:-inset-4"
                 aria-hidden
               />
               <div

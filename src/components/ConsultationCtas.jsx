@@ -28,14 +28,14 @@ const VARIANTS = {
   onLight: {
     wrapper: "flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center",
     freeScan:
-      "ha-pill inline-flex items-center justify-center rounded-xl border-2 border-[#02254d]/25 bg-white px-6 py-3 text-sm font-bold text-[#02254d] shadow-sm transition hover:border-[#02254d]/45 hover:bg-slate-50 md:px-8 md:py-4 md:text-base",
+      "ha-pill inline-flex items-center justify-center rounded-xl border-2 border-navy/25 bg-white px-6 py-3 text-sm font-bold text-navy shadow-sm transition hover:border-navy/45 hover:bg-offwhite md:px-8 md:py-4 md:text-base",
     consult:
       "ha-pill inline-flex items-center justify-center rounded-xl bg-cta-consult px-8 py-3 text-sm font-bold text-white transition hover:brightness-95 md:px-10 md:py-4 md:text-base",
   },
   inlineLight: {
     wrapper: "flex flex-wrap items-center gap-3",
     freeScan:
-      "ha-pill inline-flex items-center gap-2 rounded-[8px] border-2 border-cta-consult/50 bg-white px-5 py-3 text-sm font-semibold text-[#02254d] shadow-sm transition hover:bg-cta-consult/10",
+      "ha-pill inline-flex items-center gap-2 rounded-[8px] border-2 border-cta-consult/50 bg-white px-5 py-3 text-sm font-semibold text-navy shadow-sm transition hover:bg-cta-consult/10",
     consult:
       "ha-pill inline-flex items-center gap-2 rounded-[8px] bg-cta-consult px-5 py-3 text-sm font-semibold text-white transition hover:brightness-95",
   },
@@ -44,7 +44,7 @@ const VARIANTS = {
     freeScan:
       "ha-pill inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white/35 bg-white/10 px-5 py-3 text-sm font-heading font-medium text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15",
     consult:
-      "ha-pill inline-flex items-center justify-center gap-2 rounded-lg bg-cta-consult px-5 py-3 text-sm font-heading font-medium text-white transition-all duration-200 hover:brightness-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#072f5f]",
+      "ha-pill inline-flex items-center justify-center gap-2 rounded-lg bg-cta-consult px-5 py-3 text-sm font-heading font-medium text-white transition-all duration-200 hover:brightness-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-navy",
   },
   compact: {
     wrapper: "flex flex-col gap-4 sm:flex-row sm:items-center",

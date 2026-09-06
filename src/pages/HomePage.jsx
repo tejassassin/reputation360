@@ -6,13 +6,13 @@ import { HOME_PAGE_JSON_LD } from "../data/organizationSchema.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import Hero from "../components/Hero";
 import WhatWeBelieve from "../components/WhatWeBelieve";
+import WhoWeServeCards from "../components/WhoWeServeCards";
+import WhyClientsChoose from "../components/WhyClientsChoose";
 import LazySection from "../components/LazySection.jsx";
 
 const WhatWeDo = lazy(() => import("../components/WhatWeDo"));
 const OurServices = lazy(() => import("../components/OurServices"));
 const HomeTestimonials = lazy(() => import("../components/HomeTestimonials.jsx"));
-const WhoWeServeCards = lazy(() => import("../components/WhoWeServeCards"));
-const WhyClientsChoose = lazy(() => import("../components/WhyClientsChoose"));
 const CaseStudies = lazy(() => import("../components/CaseStudies"));
 const HomeFromOurBlogSection = lazy(() => import("../components/home/HomeFromOurBlogSection.jsx").then(m => ({ default: m.HomeFromOurBlogSection })));
 const HomeFaq = lazy(() => import("../components/HomeFaq"));
@@ -52,12 +52,10 @@ function HomePage({ renderSeo = true }) {
             <HomeTestimonials />
           </section>
         </LazySection>
-        <LazySection minHeight="20rem">
+        <div>
           <WhoWeServeCards />
-        </LazySection>
-        <LazySection minHeight="20rem">
           <WhyClientsChoose />
-        </LazySection>
+        </div>
         <LazySection minHeight="20rem">
           <CaseStudies />
         </LazySection>

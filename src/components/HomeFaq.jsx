@@ -18,7 +18,7 @@ function HomeFaq() {
             Frequently Asked Questions
           </h2>
           <div
-            className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"
+            className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
             aria-hidden
           />
         </div>
@@ -34,7 +34,7 @@ function HomeFaq() {
             </FaqAccordion>
           ))}
         </div>
-      <p className="mt-6 text-sm leading-relaxed text-slate-500">
+      <p className="mt-6 text-sm leading-relaxed text-steel">
         All statistics referenced are from credible sources: Edelman Trust Barometer, Edelman-LinkedIn B2B Thought Leadership Impact Report, Glassdoor Research, LinkedIn B2B Institute, Sprout Social 2023 Index, and Google Ads research. Client identifying details have been withheld.
       </p>
       </div>

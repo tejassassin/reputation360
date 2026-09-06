@@ -51,7 +51,7 @@ function CaseStudies() {
 
   return (
     <section
-      className="relative overflow-hidden border-t border-slate-200/60 bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9] to-[#E2E8F0] pt-4 pb-16 md:pt-6 md:pb-20"
+      className="relative overflow-hidden border-t border-navy/10 bg-offwhite pt-4 pb-16 md:pt-6 md:pb-20"
       aria-labelledby="home-glimpse-cases-heading"
     >
       <div
@@ -70,12 +70,12 @@ function CaseStudies() {
             className="font-heading text-3xl font-bold tracking-tight sm:text-4xl"
           >
             <span className="text-navy">Online Reputation Management </span>
-            <span className="bg-gradient-to-r from-[#2a6b3a] via-[#4CAF50] to-[#2E5B88] bg-clip-text text-transparent">
+            <span className="text-green">
               Case Studies
             </span>
           </h2>
           <div
-            className="mx-auto mt-4 h-0.5 w-20 max-w-full rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88] sm:mt-5"
+            className="mx-auto mt-4 h-0.5 w-20 max-w-full rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64] sm:mt-5"
             aria-hidden
           />
         </div>
@@ -130,9 +130,9 @@ function CaseStudies() {
                     </div>
 
                     {/* Header Block with soft gradient background */}
-                    <div className="bg-gradient-to-r from-[#1f3b64]/[0.03] to-[#2e5b88]/[0.03] border-b border-slate-100 p-5 sm:p-6">
+                    <div className="border-b border-slate-100 bg-navy/[0.03] p-5 sm:p-6">
                       <p className="mb-2.5 inline-flex max-w-full">
-                        <span className="rounded-full bg-[#1f3b64]/5 border border-[#1f3b64]/10 px-2.5 py-0.5 text-left text-[9px] font-bold uppercase tracking-wider text-[#1f3b64]">
+                        <span className="rounded-full bg-navy/5 border border-navy/10 px-2.5 py-0.5 text-left text-[9px] font-bold uppercase tracking-wider text-navy">
                           {study.industry}
                         </span>
                       </p>
@@ -146,7 +146,7 @@ function CaseStudies() {
                       <div className="flex min-h-0 flex-1 flex-col gap-3">
                         {/* Profile Field */}
                         <div className="flex gap-3 items-start bg-slate-50/50 p-3 rounded-xl border border-slate-100/50 transition-colors duration-200 hover:bg-slate-50">
-                          <User className="h-4.5 w-4.5 text-[#2E5B88] mt-0.5 shrink-0" strokeWidth={2.2} />
+                          <User className="h-4.5 w-4.5 text-navy mt-0.5 shrink-0" strokeWidth={2.2} />
                           <div>
                             <p className="font-heading text-[9px] font-bold uppercase tracking-[0.14em] text-slate-400">Profile</p>
                             <p className="mt-0.5 line-clamp-2 font-body text-[13px] font-semibold text-slate-800 leading-relaxed">{study.profile}</p>
@@ -155,7 +155,7 @@ function CaseStudies() {
 
                         {/* Duration Field */}
                         <div className="flex gap-3 items-start bg-slate-50/50 p-3 rounded-xl border border-slate-100/50 transition-colors duration-200 hover:bg-slate-50">
-                          <Clock3 className="h-4.5 w-4.5 text-[#2E5B88] mt-0.5 shrink-0" strokeWidth={2.2} />
+                          <Clock3 className="h-4.5 w-4.5 text-navy mt-0.5 shrink-0" strokeWidth={2.2} />
                           <div>
                             <p className="font-heading text-[9px] font-bold uppercase tracking-[0.14em] text-slate-400">Duration</p>
                             <p className="mt-0.5 font-body text-[13px] font-semibold text-slate-800 leading-relaxed">{hasDuration ? engText : "-"}</p>
@@ -172,7 +172,7 @@ function CaseStudies() {
                         </div>
                       </div>
 
-                      <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-sm font-bold text-[#1f3b64] group-hover/card:text-[#4CAF50] transition-colors duration-200">
+                      <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 text-sm font-bold text-navy group-hover/card:text-[#4CAF50] transition-colors duration-200">
                         <span>Read case study</span>
                         <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition duration-200 group-hover/card:bg-[#4CAF50] group-hover/card:text-white">
                           <ArrowUpRight className="h-4 w-4" strokeWidth={2.5} />
@@ -222,7 +222,7 @@ function CaseStudies() {
           <a
             href="/case-studies"
             {...internalAnchorProps("/case-studies")}
-            className="group inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-gradient-to-b from-white to-slate-50/90 px-5 py-2.5 font-heading text-sm font-bold text-slate shadow-md ring-1 ring-slate-200/50 transition hover:-translate-y-0.5 hover:border-[#4CAF50]/45 hover:from-white hover:to-[#f0faf4] hover:shadow-lg hover:ring-[#4CAF50]/20"
+            className="group inline-flex items-center gap-2 rounded-full border border-navy/15 bg-white px-5 py-2.5 font-heading text-sm font-bold text-navy shadow-md ring-1 ring-navy/10 transition hover:-translate-y-0.5 hover:border-[#4CAF50]/45 hover:bg-offwhite hover:shadow-lg hover:ring-[#4CAF50]/20"
           >
             All {total} case studies
             <ArrowUpRight

@@ -8,7 +8,7 @@ export default function AboutReputationVisual() {
   const gradId = `abtr-arrow-${useId().replace(/:/g, "")}`;
 
   return (
-    <figure className="m-0 flex w-full flex-col overflow-hidden bg-gradient-to-br from-[#eef3fb] via-[#f8faf9] to-[#e5edf7]">
+    <figure className="m-0 flex w-full flex-col overflow-hidden bg-offwhite">
       <div className="relative min-h-[220px] w-full px-4 pt-5 pb-2 sm:min-h-[260px] sm:px-6 sm:pt-6">
         <svg
           className="mx-auto h-full max-h-[240px] w-full max-w-[520px]"
@@ -20,7 +20,7 @@ export default function AboutReputationVisual() {
           <defs>
             <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="0">
               <stop stopColor="#4CAF50" />
-              <stop offset="1" stopColor="#2E5B88" />
+              <stop offset="1" stopColor="#1F3B64" />
             </linearGradient>
           </defs>
 
@@ -43,7 +43,7 @@ export default function AboutReputationVisual() {
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <text x="196" y="128" fill="#475569" fontSize="10" fontWeight="600" textAnchor="middle">
+          <text x="196" y="128" fill="#6B7280" fontSize="10" fontWeight="600" textAnchor="middle">
             strategy + craft
           </text>
           <path
@@ -55,7 +55,7 @@ export default function AboutReputationVisual() {
             opacity="0.65"
           />
 
-          <text x="512" y="22" fill="#16a34a" fontSize="11" fontWeight="600" letterSpacing="0.08em" textAnchor="end">
+          <text x="512" y="22" fill="#4CAF50" fontSize="11" fontWeight="600" letterSpacing="0.08em" textAnchor="end">
             POSITIVE MENTIONS
           </text>
           <rect
@@ -70,18 +70,18 @@ export default function AboutReputationVisual() {
             strokeOpacity="0.12"
             strokeWidth="1.5"
           />
-          <circle cx="390" cy="88" r="32" fill="#dce7f3" />
-          <circle cx="390" cy="88" r="32" stroke="#2E5B88" strokeOpacity="0.2" strokeWidth="1" />
+          <circle cx="390" cy="88" r="32" fill="#F5F7FA" />
+          <circle cx="390" cy="88" r="32" stroke="#1F3B64" strokeOpacity="0.2" strokeWidth="1" />
           <rect x="318" y="132" width="144" height="10" rx="3" fill="#1F3B64" fillOpacity="0.88" />
-          <rect x="330" y="150" width="96" height="7" rx="2" fill="#64748b" fillOpacity="0.55" />
-          <rect x="318" y="168" width="120" height="7" rx="2" fill="#94a3b8" fillOpacity="0.4" />
-          <rect x="318" y="184" width="88" height="7" rx="2" fill="#94a3b8" fillOpacity="0.35" />
+          <rect x="330" y="150" width="96" height="7" rx="2" fill="#6B7280" fillOpacity="0.55" />
+          <rect x="318" y="168" width="120" height="7" rx="2" fill="#6B7280" fillOpacity="0.4" />
+          <rect x="318" y="184" width="88" height="7" rx="2" fill="#6B7280" fillOpacity="0.35" />
 
           <g transform="translate(448 58)">
             <circle r="18" fill="#4CAF50" fillOpacity="0.15" />
             <path
               d="M-6 2l5 5 10-12"
-              stroke="#2a8c3e"
+              stroke="#4CAF50"
               strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"

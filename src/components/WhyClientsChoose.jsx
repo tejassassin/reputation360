@@ -25,7 +25,7 @@ function WhyClientsChoose() {
   return (
     <section
       id="WhyClientsChoose"
-      className="relative w-full overflow-hidden border-y border-slate-200/80 bg-white py-14 text-navy md:py-20 lg:py-24"
+      className="relative w-full overflow-hidden bg-white py-14 text-navy md:py-20 lg:py-24"
       aria-labelledby="why-clients-heading"
     >
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
@@ -37,7 +37,7 @@ function WhyClientsChoose() {
             Why Clients Choose Reputation360 as Their ORM Company
           </h2>
           <div
-            className="mx-auto mt-4 h-0.5 w-16 max-w-full rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"
+            className="mx-auto mt-4 h-0.5 w-16 max-w-full rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
             aria-hidden
           />
         </div>

@@ -434,7 +434,7 @@ export default function R360Chatbot() {
           role="dialog"
           aria-modal="true"
           aria-labelledby={panelTitleId}
-          className="pointer-events-auto flex h-[min(38rem,calc(100dvh-7.5rem))] w-[min(24rem,calc(100vw-1.5rem))] flex-col overflow-hidden rounded-2xl border border-slate-100 bg-[#F8FAFC] shadow-[0_15px_50px_-10px_rgba(31,59,100,0.22)] sm:w-96 animate-fade-in"
+          className="pointer-events-auto flex h-[min(38rem,calc(100dvh-7.5rem))] w-[min(24rem,calc(100vw-1.5rem))] flex-col overflow-hidden rounded-2xl border border-slate-100 bg-offwhite shadow-[0_15px_50px_-10px_rgba(31,59,100,0.22)] sm:w-96 animate-fade-in"
         >
           {/* Header */}
           <header className="flex items-center justify-between gap-3 bg-[#1F3B64] px-4 py-3.5 text-white">
@@ -537,7 +537,7 @@ export default function R360Chatbot() {
               />
               <button
                 type="submit"
-                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1F3B64] text-white shadow-sm hover:bg-[#1a3255] transition disabled:opacity-40 disabled:hover:bg-[#1F3B64]"
+                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy text-white shadow-sm hover:bg-navy/90 transition disabled:opacity-40 disabled:hover:bg-navy"
                 aria-label="Send message"
                 disabled={!input.trim()}
               >
@@ -566,7 +566,7 @@ export default function R360Chatbot() {
             return true;
           });
         }}
-        className="pointer-events-auto relative flex h-14 w-14 items-center justify-center rounded-full bg-[#1F3B64] text-white shadow-[0_10px_30px_rgba(31,59,100,0.35)] transition duration-200 hover:scale-105 hover:bg-[#152a49] active:scale-[0.97]"
+        className="pointer-events-auto relative flex h-14 w-14 items-center justify-center rounded-full bg-navy text-white shadow-[0_10px_30px_rgba(31,59,100,0.35)] transition duration-200 hover:scale-105 hover:bg-navy/90 active:scale-[0.97]"
         aria-expanded={open}
         aria-controls={open ? panelDialogId : undefined}
         aria-label={open ? "Close Reputation360 assistant" : "Open Reputation360 assistant"}

@@ -104,7 +104,7 @@ function HomeTestimonials() {
           Client Results and Online Reputation Management Reviews
         </h2>
         <div
-          className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"
+          className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
           aria-hidden
         />
         <p className="mx-auto mt-3 max-w-2xl font-body text-base leading-relaxed text-slate-600 sm:mt-4 sm:text-lg">
