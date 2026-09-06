@@ -13,8 +13,6 @@ import LazySection from "../components/LazySection.jsx";
 const WhatWeDo = lazy(() => import("../components/WhatWeDo"));
 const OurServices = lazy(() => import("../components/OurServices"));
 const HomeTestimonials = lazy(() => import("../components/HomeTestimonials.jsx"));
-const CaseStudies = lazy(() => import("../components/CaseStudies"));
-const HomeFromOurBlogSection = lazy(() => import("../components/home/HomeFromOurBlogSection.jsx").then(m => ({ default: m.HomeFromOurBlogSection })));
 const HomeFaq = lazy(() => import("../components/HomeFaq"));
 const Contact = lazy(() => import("../components/Contact"));
 
@@ -56,12 +54,6 @@ function HomePage({ renderSeo = true }) {
           <WhoWeServeCards />
           <WhyClientsChoose />
         </div>
-        <LazySection minHeight="20rem">
-          <CaseStudies />
-        </LazySection>
-        <LazySection minHeight="20rem">
-          <HomeFromOurBlogSection id="from-our-blog" />
-        </LazySection>
         <LazySection minHeight="32rem">
           <div>
             <Contact />
