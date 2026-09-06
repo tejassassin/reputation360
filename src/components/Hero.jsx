@@ -38,17 +38,17 @@ function HeroStats({ statsInView, desktop, StatNumber }) {
   };
 
   return (
-    <div className="mx-auto grid w-full max-w-4xl shrink-0 grid-cols-3 gap-1.5 max-md:mt-6 md:mt-0 sm:gap-4 lg:gap-6">
+    <div className="mx-auto grid w-full max-w-6xl shrink-0 grid-cols-3 gap-1.5 max-md:mt-6 md:mt-0 sm:gap-4 lg:max-w-7xl lg:gap-6">
       <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 max-md:backdrop-blur-none backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
         <div className="absolute inset-0 rounded-lg bg-linear-to-br from-green/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100 sm:rounded-2xl" />
         <div className="relative">
-          <p className="mb-0.5 font-heading text-lg font-bold text-green sm:mb-0.5 sm:text-3xl lg:mb-1 lg:text-5xl">
+          <p className="mb-1 font-heading text-2xl font-bold text-green sm:mb-1 sm:text-4xl lg:mb-1.5 lg:text-6xl">
             {statValue({ end: 7, static: "7" })}
           </p>
-          <p className="mb-0 font-heading text-[0.625rem] font-semibold uppercase leading-tight tracking-wide text-white sm:mb-0.5 sm:text-xs lg:text-sm">
+          <p className="mb-0.5 font-heading text-xs font-semibold uppercase leading-tight tracking-wide text-white sm:mb-1 sm:text-sm lg:text-base">
             Years of Experience
           </p>
-          <p className="font-body text-xs text-white/60 hidden sm:block">
+          <p className="font-body hidden whitespace-nowrap text-sm text-white/70 sm:block sm:text-base">
             in Online Reputation Management
           </p>
         </div>
@@ -56,13 +56,13 @@ function HeroStats({ statsInView, desktop, StatNumber }) {
       <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 max-md:backdrop-blur-none backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
         <div className="absolute inset-0 rounded-lg bg-linear-to-br from-green/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100 sm:rounded-2xl" />
         <div className="relative">
-          <p className="mb-0.5 font-heading text-lg font-bold text-green sm:mb-0.5 sm:text-3xl lg:mb-1 lg:text-5xl">
+          <p className="mb-1 font-heading text-2xl font-bold text-green sm:mb-1 sm:text-4xl lg:mb-1.5 lg:text-6xl">
             {statValue({ end: 97, suffix: "%", static: "97%" })}
           </p>
-          <p className="mb-0 font-heading text-[0.625rem] font-semibold uppercase leading-tight tracking-wide text-white sm:mb-0.5 sm:text-xs lg:text-sm">
+          <p className="mb-0.5 font-heading text-xs font-semibold uppercase leading-tight tracking-wide text-white sm:mb-1 sm:text-sm lg:text-base">
             Success Rate
           </p>
-          <p className="font-body text-xs text-white/60 hidden sm:block">
+          <p className="font-body hidden whitespace-nowrap text-sm text-white/70 sm:block sm:text-base">
             in suppressing negative content from page one
           </p>
         </div>
@@ -70,13 +70,13 @@ function HeroStats({ statsInView, desktop, StatNumber }) {
       <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 max-md:backdrop-blur-none backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
         <div className="absolute inset-0 rounded-lg bg-linear-to-br from-green/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100 sm:rounded-2xl" />
         <div className="relative">
-          <p className="mb-0.5 font-heading text-lg font-bold text-green sm:mb-0.5 sm:text-3xl lg:mb-1 lg:text-5xl">
+          <p className="mb-1 font-heading text-2xl font-bold text-green sm:mb-1 sm:text-4xl lg:mb-1.5 lg:text-6xl">
             {statValue({ end: 1100, suffix: "+", static: "1,100+" })}
           </p>
-          <p className="mb-0 font-heading text-[0.625rem] font-semibold uppercase leading-tight tracking-wide text-white sm:mb-0.5 sm:text-xs lg:text-sm">
+          <p className="mb-0.5 font-heading text-xs font-semibold uppercase leading-tight tracking-wide text-white sm:mb-1 sm:text-sm lg:text-base">
             Happy Clients
           </p>
-          <p className="font-body text-xs text-white/60 hidden sm:block">
+          <p className="font-body hidden whitespace-nowrap text-sm text-white/70 sm:block sm:text-base">
             with successful suppression outcomes
           </p>
         </div>
@@ -129,34 +129,34 @@ function Hero() {
               <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-75 max-md:hidden animate-ping" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green" />
             </span>
-            <span className="font-body text-xs sm:text-sm text-white/90">
+            <span className="font-body text-sm sm:text-base text-white/90">
               Trusted by {badgeCount} clients across the U.S.
             </span>
           </div>
 
-          <div className="relative w-full max-w-[22rem] overflow-hidden px-2 py-4 sm:max-w-xl md:max-w-4xl md:px-6 md:py-5">
+          <div className="relative w-full max-w-[22rem] overflow-hidden px-2 py-4 sm:max-w-xl md:max-w-5xl md:px-6 md:py-5 lg:max-w-6xl">
             <div
               className="r360-hero-dot-grid pointer-events-none absolute inset-0 z-0 opacity-[0.38] md:opacity-[0.42]"
               aria-hidden
             />
             <div className="relative z-10 flex flex-col items-center gap-3 md:gap-4">
               <HeroHighlightLite containerClassName="h-auto bg-transparent dark:bg-transparent">
-                <h1 className="mx-auto flex w-full flex-col items-center gap-1 text-center font-heading font-bold tracking-tight md:mx-4 md:my-3 md:max-w-none md:gap-0 md:text-balance md:text-4xl md:leading-[1.3] lg:text-5xl">
-                  <span className="block max-w-[20rem] text-[1.375rem] leading-tight text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
+                <h1 className="mx-auto flex w-full flex-col items-center gap-1 text-center font-heading font-bold tracking-tight md:mx-4 md:my-3 md:max-w-none md:gap-0 md:text-balance md:text-5xl md:leading-[1.25] lg:text-6xl">
+                  <span className="block max-w-[20rem] text-2xl leading-tight text-white md:max-w-none md:text-5xl md:leading-[1.25] lg:text-6xl lg:leading-[1.2]">
                     Take control of your
                   </span>
-                  <span className="block max-w-[20rem] text-[1.375rem] leading-tight text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
+                  <span className="block max-w-[20rem] text-2xl leading-tight text-white md:max-w-none md:text-5xl md:leading-[1.25] lg:text-6xl lg:leading-[1.2]">
                     Online Reputation{" "}
                     <Highlight className="max-md:!px-1 max-md:!pb-0">
                       on your terms
                     </Highlight>
                   </span>
-                  <span className="block max-w-[21rem] text-[1.375rem] leading-snug text-white md:max-w-none md:text-4xl md:leading-[1.35] lg:text-5xl lg:leading-[1.3]">
+                  <span className="block max-w-[21rem] text-2xl leading-snug text-white md:max-w-none md:text-5xl md:leading-[1.25] lg:text-6xl lg:leading-[1.2]">
                     <span className="text-white/90">not Google&apos;s or AI&apos;s</span>
                   </span>
                 </h1>
 
-                <p className="mx-auto mb-0 max-w-[20rem] text-pretty font-body text-sm leading-relaxed text-white/90 max-md:mb-0 max-md:mt-4 md:mx-4 md:mb-0 md:mt-3 md:max-w-none md:whitespace-nowrap md:text-lg">
+                <p className="mx-auto mb-0 max-w-[20rem] text-pretty font-body text-base leading-relaxed text-white/90 max-md:mb-0 max-md:mt-4 md:mx-4 md:mb-0 md:mt-4 md:max-w-3xl md:text-xl lg:max-w-none lg:whitespace-nowrap">
                   Because one negative result can quietly undermine years of credibility.
                 </p>
               </HeroHighlightLite>

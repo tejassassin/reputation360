@@ -11,9 +11,9 @@ const VARIANTS = {
     wrapper:
       "flex w-full max-w-md shrink-0 flex-col items-stretch justify-center gap-2.5 px-0 max-md:mt-2 sm:max-w-none sm:flex-row sm:items-center sm:gap-3 sm:px-0 md:mt-0",
     freeScan:
-      "ha-pill w-full rounded-xl border-2 border-white/35 bg-white/10 px-6 py-2.5 text-center text-sm font-heading font-semibold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 sm:w-auto sm:px-8 sm:py-4 sm:text-lg",
+      "ha-pill w-full rounded-xl border-2 border-white/35 bg-white/10 px-6 py-3 text-center text-base font-heading font-semibold text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 sm:w-auto sm:px-8 sm:py-4 sm:text-xl",
     consult:
-      "ha-pill group relative w-full cursor-pointer rounded-xl bg-cta-consult px-6 py-2.5 text-center text-sm font-heading font-semibold text-white transition-all duration-300 hover:brightness-95 sm:w-auto sm:px-8 sm:py-4 sm:text-lg",
+      "ha-pill group relative w-full cursor-pointer rounded-xl bg-cta-consult px-6 py-3 text-center text-base font-heading font-semibold text-white transition-all duration-300 hover:brightness-95 sm:w-auto sm:px-8 sm:py-4 sm:text-xl",
     consultShowArrow: true,
   },
   onDark: {
