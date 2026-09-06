@@ -43,7 +43,7 @@ export default function WhatWeBelieveSearchMockup() {
 
   return (
     <div
-      className="relative flex h-full min-h-full flex-col overflow-hidden rounded-2xl border border-[#1e3a5f]/80 bg-[#0a1220] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.45)]"
+      className="relative flex h-full min-h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0A111B] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.45)]"
       data-r360-serp-mockup=""
     >
       <div
@@ -61,7 +61,7 @@ export default function WhatWeBelieveSearchMockup() {
           id={tablistId}
           role="tablist"
           aria-label="Compare search results before and after the engagement"
-          className="flex rounded-full border border-white/20 bg-[#0f1c30]/95 p-0.5 shadow-md backdrop-blur-sm"
+          className="flex rounded-full border border-white/15 bg-[#111827]/95 p-0.5 shadow-md backdrop-blur-sm"
         >
           <button
             type="button"
@@ -73,7 +73,7 @@ export default function WhatWeBelieveSearchMockup() {
             className={[
               "min-h-[2.25rem] rounded-full px-2.5 py-1.5 font-heading text-[9px] font-bold uppercase tracking-wide transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] sm:min-h-0 sm:px-3 sm:text-[10px]",
               !isAfter
-                ? "bg-white text-[#1F3B64] shadow"
+                ? "bg-white text-[#0A111B] shadow"
                 : "text-slate-300 hover:bg-white/10 hover:text-white",
             ].join(" ")}
           >
@@ -89,7 +89,7 @@ export default function WhatWeBelieveSearchMockup() {
             className={[
               "min-h-[2.25rem] rounded-full px-2.5 py-1.5 font-heading text-[9px] font-bold uppercase tracking-wide transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] sm:min-h-0 sm:px-3 sm:text-[10px]",
               isAfter
-                ? "bg-white text-[#1F3B64] shadow"
+                ? "bg-white text-[#0A111B] shadow"
                 : "text-slate-300 hover:bg-white/10 hover:text-white",
             ].join(" ")}
           >
@@ -104,7 +104,7 @@ export default function WhatWeBelieveSearchMockup() {
         aria-labelledby={isAfter ? `${tablistId}-after` : `${tablistId}-before`}
         className="relative flex flex-1 flex-col px-4 pb-4 pt-12 sm:px-5 sm:pb-5 sm:pt-14"
       >
-        <div className="mb-3 flex items-center gap-2.5 rounded-xl border border-white/10 bg-[#0f1c30] px-3 py-2.5 sm:gap-3 sm:px-4">
+        <div className="mb-3 flex items-center gap-2.5 rounded-xl border border-white/[0.08] bg-[#17212F] px-3 py-2.5 sm:gap-3 sm:px-4">
           <Search className="h-4 w-4 shrink-0 text-slate-400" strokeWidth={2} aria-hidden />
           <p className="min-w-0 flex-1 text-left text-sm text-white sm:text-base">
             <span className="font-medium">{JORDAN_MERCER_DEMO_NAME.toLowerCase()}</span>{" "}
@@ -169,8 +169,8 @@ function SerpResultRow({ variant, num, title, url, badge }) {
       <div
         className={
           positive
-            ? "rounded-xl border border-emerald-500/25 bg-[#0d1829]/90 px-3 py-2.5 shadow-sm ring-1 ring-emerald-500/10 sm:px-3.5"
-            : "rounded-xl border border-red-500/25 bg-[#0d1829]/90 px-3 py-2.5 shadow-sm ring-1 ring-red-500/10 sm:px-3.5"
+            ? "rounded-xl border border-[#1B2E2A] bg-[#141C2B] px-3 py-2.5 shadow-sm sm:px-3.5"
+            : "rounded-xl border border-red-500/25 bg-[#141C2B] px-3 py-2.5 shadow-sm ring-1 ring-red-500/10 sm:px-3.5"
         }
       >
         <div className="flex gap-2.5 sm:gap-3">

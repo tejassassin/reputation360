@@ -101,11 +101,11 @@ function WhatWeBelieve() {
             {/* Same hover motion as About Reputation360 image: .ha-lift (smooth scale + shadow ring). */}
             <div className="relative isolate w-full max-w-none">
               <div
-                className="pointer-events-none absolute -inset-3 rounded-[1.75rem] bg-gradient-to-br from-[#4CAF50]/10 via-transparent to-navy/18 blur-xl sm:-inset-4"
+                className="pointer-events-none absolute -inset-3 rounded-[1.75rem] bg-gradient-to-br from-[#4CAF50]/10 via-transparent to-[#0A111B]/25 blur-xl sm:-inset-4"
                 aria-hidden
               />
               <div
-                className="ha-lift relative z-10 transform-gpu rounded-2xl border border-slate-200/90 bg-slate-950/5 p-1 ring-1 ring-slate-900/5 shadow-[0_28px_80px_-28px_rgba(0,0,0,0.5),0_14px_36px_-12px_rgba(31,59,100,0.28),0_25px_50px_-12px_rgba(0,0,0,0.22)]"
+                className="ha-lift relative z-10 transform-gpu rounded-2xl border border-slate-200/90 bg-slate-950/5 p-1 ring-1 ring-slate-900/5 shadow-[0_28px_80px_-28px_rgba(0,0,0,0.5),0_14px_36px_-12px_rgba(10,17,27,0.35),0_25px_50px_-12px_rgba(0,0,0,0.22)]"
               >
                 <figure className="relative flex w-full flex-col overflow-hidden rounded-[0.875rem] bg-transparent">
                   <div
@@ -113,7 +113,7 @@ function WhatWeBelieve() {
                     aria-hidden
                   />
                   <div
-                    className="pointer-events-none absolute -bottom-12 -left-12 h-32 w-32 rounded-full bg-[#1F3B64]/10 blur-3xl"
+                    className="pointer-events-none absolute -bottom-12 -left-12 h-32 w-32 rounded-full bg-[#0A111B]/20 blur-3xl"
                     aria-hidden
                   />
                   <img
