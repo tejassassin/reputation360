@@ -218,145 +218,38 @@ const aboutScrollTargetClass = "scroll-mt-28 md:scroll-mt-32";
 
 /** Default vertical padding between About page sections. */
 const aboutSectionSpacing = "pt-16 pb-20 md:pt-20 md:pb-24";
-/** First story block after the hero. */
-const aboutFirstContentSpacing = "pt-28 pb-20 md:pt-36 md:pb-24";
 
-const howItBeganSteps = [
+const storyChapters = [
   {
-    id: "before-2019",
-    timelineLabel: "BEFORE 2019",
-    timelineSubtitle: "A world with answers that weren't working",
-    panelKicker: "BEFORE US - THE GAP",
-    headline: "A world with answers that weren't working",
-    body: "Reputation issues were not new. Other companies existed. But they weren't doing a great job - suppressing results without telling a story, pushing content without strategy, offering band-aids instead of solutions. People in crisis deserved better than that.",
-    tags: [],
+    id: "since-2019",
+    tab: "Since 2019",
+    heading: "Building and Protecting Reputations Since 2019",
+    paragraphs: [
+      "A single outdated article or misleading review can shape how someone is perceived online, even when it does not reflect the complete truth. Reputation360 was founded in 2019 to help individuals and businesses take control of that narrative.",
+      "We began by helping individuals improve what appeared when their names were searched on Google. As our experience and capabilities grew, we expanded our work to support executives, high-net-worth individuals, public figures, professionals and businesses facing complex reputation challenges across the United States.",
+      "Today, we have helped more than 1,100 clients build, protect and restore their online reputations. We offer customized solutions, competitive pricing and honest guidance, with every strategy designed around the client's specific situation and goals.",
+    ],
   },
   {
-    id: "y2019",
-    timelineLabel: "2019",
-    timelineSubtitle: "A financial leader's call that changed everything",
-    panelKicker: "2019 - THE BEGINNING",
-    headline: "A financial leader's call that changed everything",
-    body: "He had done nothing wrong. But online, that didn't matter - yet. A seasoned financial leader with thirty years of an unblemished career came to us in distress. A wrongful case had been filed against him - and while the court ultimately acquitted him, the damaging stories remained online. The truth didn't rank. We got to work. In nine months, we transformed his search results and built the narrative he had always deserved to tell.",
-    tags: ["9 months to results", "First success story"],
-  },
-  {
-    id: "y2019-2021",
-    timelineLabel: "2019-2021",
-    timelineSubtitle: "Helping individuals rebuild their truth",
-    panelKicker: "2019-2021 - INDIVIDUALS",
-    headline: "Helping individuals rebuild their truth",
-    body: "Word spread fast. One case became ten. Ten became hundreds. We focused entirely on helping individuals - executives, professionals, and public figures - reclaim their narratives. Working closely with them taught us something important: reputation crises don't wait for business hours.",
-    tags: ["Individuals only", "100+ cases resolved"],
-  },
-  {
-    id: "methodology",
-    timelineLabel: "THE METHODOLOGY",
-    timelineSubtitle: "Making the truth louder than the noise",
-    panelKicker: "OUR PHILOSOPHY - WHAT WE STAND FOR",
-    headline: "Making the truth louder than the noise",
-    body: "Along the way, we developed something no one else had: a methodology built not on suppression, but on amplification. We realised reputation management wasn't just about pushing content - it was about making the truth louder than the noise. That principle became the foundation of everything we do.",
-    tags: ["Proprietary methodology"],
-  },
-  {
-    id: "y2022",
-    timelineLabel: "2022",
-    timelineSubtitle: "Expanding to serve businesses too",
-    panelKicker: "2022 - BUSINESSES",
-    headline: "Expanding to serve businesses too",
-    body: "As our work with individuals deepened, we saw the same crisis playing out at scale inside companies. Brands with great products were being defined by a handful of misleading reviews or news stories. We expanded our services to businesses, and assembled teams across multiple countries to provide round-the-clock coverage. Because reputation doesn't sleep - and neither do we.",
-    tags: ["Teams in 5+ countries", "24/7 coverage"],
-  },
-  {
-    id: "y2024",
-    timelineLabel: "2024",
-    timelineSubtitle: "Winning in the age of AI search",
-    panelKicker: "2024 - AI SEARCH",
-    headline: "Winning in the age of AI search",
-    body: "In 2024, the search landscape changed forever. AI-powered results began summarising, judging, and ranking people and businesses before a single link was clicked. What the AI said about you became as important as what Google showed. We adapted immediately - building expertise in AI search reputation so our clients could be represented accurately and powerfully wherever people were searching.",
-    tags: ["AI search ready", "First movers in AI reputation"],
-  },
-  {
-    id: "today",
-    timelineLabel: "TODAY",
-    timelineSubtitle: "1,100+ individuals and businesses helped",
-    panelKicker: "TODAY - OUR IMPACT",
-    headline: "1,100+ individuals and businesses helped",
-    body: "CEOs, doctors, entrepreneurs, families - people who deserved a fair shot at how their story is told. More than 1,100 individuals and businesses now trust Reputation360 to protect and restore what matters most - their name. 1,100+ stories rewritten. Not by us - by the truth, finally given a chance to rank.",
-    tags: ["1,100+ clients", "Global reach"],
-  },
-  {
-    id: "next",
-    timelineLabel: "WHAT'S NEXT",
-    timelineSubtitle: "The next chapter is already being written",
-    panelKicker: "THE FUTURE - WHAT'S AHEAD",
-    headline: "The next chapter is already being written",
-    body: "The world is searching differently. AI is not just a tool - it is becoming the first impression. As large language models shape how people are discovered and judged, we are building the next generation of reputation intelligence to ensure our clients are seen accurately across every platform, every AI, every search. We are just getting started.",
-    tags: ["AI-first reputation", "New markets ahead"],
+    id: "age-of-ai",
+    tab: "Age of AI",
+    heading: "Built for Google and the Age of AI",
+    paragraphs: [
+      "Online reputations are no longer shaped by Google alone. AI-powered platforms now summarize information, answer questions and influence perceptions, often before someone visits a website or clicks a search result.",
+      "Reputation360 has evolved alongside this changing search landscape. Our strategies help clients improve how they are discovered, understood and represented across Google and AI-powered search platforms.",
+      "By combining reputation management with strategic digital authority building, we help clients create stronger, more accurate and credible online identities for the future of search.",
+    ],
   },
 ];
 
 function HowItAllBeganStory() {
-  const [activeStep, setActiveStep] = useState(0);
-  const sectionRef = useRef(null);
-  /** Drives the keyboard layer; must stay in sync with the observer (not React state) so the key handler always sees the latest value. */
-  const sectionInViewRef = useRef(false);
-  const lastIndex = howItBeganSteps.length - 1;
-  const step = howItBeganSteps[activeStep];
-  const progress = ((activeStep + 1) / howItBeganSteps.length) * 100;
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return undefined;
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        // Any visible overlap counts - strict ratio checks broke keys at many scroll positions.
-        sectionInViewRef.current = !!e?.isIntersecting;
-      },
-      { rootMargin: "0px 0px -6% 0px", threshold: [0, 0.01, 0.05, 0.1, 0.25] },
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const onKey = (e) => {
-      if (!sectionInViewRef.current) return;
-      const isPrev =
-        e.key === "ArrowLeft" ||
-        e.key === "ArrowUp" ||
-        e.code === "ArrowLeft" ||
-        e.code === "ArrowUp";
-      const isNext =
-        e.key === "ArrowRight" ||
-        e.key === "ArrowDown" ||
-        e.code === "ArrowRight" ||
-        e.code === "ArrowDown";
-      if (!isPrev && !isNext) return;
-      const t = e.target;
-      if (t instanceof Element) {
-        if (t.closest("input, textarea, select, [contenteditable=true]")) {
-          return;
-        }
-      }
-      e.preventDefault();
-      e.stopPropagation();
-      if (isPrev) {
-        setActiveStep((x) => Math.max(0, x - 1));
-      } else {
-        setActiveStep((x) => Math.min(lastIndex, x + 1));
-      }
-    };
-    // Capture: default browser action for ArrowUp/Down is scroll; prevent it when we handle the key.
-    window.addEventListener("keydown", onKey, { capture: true });
-    return () => window.removeEventListener("keydown", onKey, { capture: true });
-  }, [lastIndex]);
+  const [chapterIndex, setChapterIndex] = useState(0);
+  const chapter = storyChapters[chapterIndex];
 
   return (
     <section
-      ref={sectionRef}
       id="how-it-began"
-      className={`relative overflow-hidden border-y border-slate-200/60 ${aboutFirstContentSpacing} ${aboutScrollTargetClass}`}
+      className={`relative overflow-hidden border-y border-slate-200/60 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
     >
       <div
         className="pointer-events-none absolute inset-0 bg-[#f0f4f2]"
@@ -365,177 +258,49 @@ function HowItAllBeganStory() {
       <div className="pointer-events-none absolute -right-24 top-0 h-64 w-64 rounded-full bg-[#4CAF50]/[0.08] blur-3xl" aria-hidden />
       <div className="pointer-events-none absolute -left-20 bottom-0 h-56 w-56 rounded-full bg-[#2E5B88]/[0.06] blur-3xl" aria-hidden />
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <Motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={aboutView}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-[#4CAF50]">
-            OUR STORY
-          </p>
-          <h2 className="font-heading mt-2 text-3xl font-bold tracking-tight text-navy md:text-4xl">
-            Our Story: 7+ Years in Online Reputation Management
-          </h2>
-          <div
-            className="mt-5 h-1.5 w-full max-w-3xl overflow-hidden rounded-full bg-slate-200/90"
-            role="progressbar"
-            aria-valuenow={activeStep + 1}
-            aria-valuemin={1}
-            aria-valuemax={howItBeganSteps.length}
-            aria-label={`Story step ${activeStep + 1} of ${howItBeganSteps.length}`}
-          >
-            <div
-              className="h-full rounded-full bg-[#4CAF50] transition-[width] duration-500 ease-out"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-        </Motion.div>
-
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
+        <p className={`${headlineFont} text-xs font-semibold uppercase tracking-[0.2em] text-[#4CAF50]`}>
+          OUR STORY
+        </p>
         <div
-          className="mt-10 flex flex-col gap-10 lg:mt-12 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,20rem)] lg:items-start lg:gap-12"
-          role="list"
-          aria-label="Our story - eight steps; use the timeline, Prev, Next, or arrow keys to navigate"
+          className="mt-5 flex gap-6 border-b border-slate-200/80"
+          role="tablist"
+          aria-label="Our story"
         >
-          {/* Main detail card (left on desktop) */}
-          <div className="order-1 lg:order-1">
-            <Motion.div
-              className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_20px_50px_-32px_rgba(15,35,60,0.22),0_8px_20px_-12px_rgba(0,0,0,0.1)] sm:p-8"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={aboutView}
-              transition={{ duration: 0.45, delay: 0.04 }}
-            >
-              <p className="font-heading text-xs font-semibold uppercase leading-snug tracking-[0.18em] text-[#4CAF50] sm:tracking-[0.2em]">
-                {step.panelKicker}
-              </p>
-          <p className="font-heading mt-2 text-xl font-bold leading-snug text-navy sm:text-2xl">
-            {step.headline}
-          </p>
-              <AnimatePresence mode="wait">
-                <Motion.p
-                  key={step.id}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="font-body mt-4 text-base leading-relaxed text-steel md:text-lg"
-                >
-                  {step.body}
-                </Motion.p>
-              </AnimatePresence>
-              {step.tags.length > 0 ? (
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {step.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="font-body inline-flex items-center rounded-full border border-[#4CAF50]/30 bg-[#f0faf2] px-3 py-1.5 text-sm font-semibold text-[#2e7d32]"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              ) : null}
-            </Motion.div>
-          </div>
-
-          {/* Timeline rail (right on desktop) */}
-          <div className="order-2 lg:order-2" role="presentation">
-            {howItBeganSteps.map((s, i) => {
-              const isActive = i === activeStep;
-              const isPast = i < activeStep;
-              const isLast = i === lastIndex;
-              return (
-                <Motion.div
-                  key={s.id}
-                  className="flex gap-3.5"
-                  role="listitem"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={aboutView}
-                  transition={{ duration: 0.4, delay: i * 0.04 }}
-                >
-                  <div className="flex w-9 shrink-0 flex-col items-center sm:w-10">
-                    <button
-                      type="button"
-                      aria-pressed={isActive}
-                      aria-label={`${s.timelineLabel}: ${s.timelineSubtitle}`}
-                      onClick={() => setActiveStep(i)}
-                      className={`relative z-[1] flex h-3.5 w-3.5 items-center justify-center rounded-full border-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] sm:h-4 sm:w-4 ${
-                        isActive
-                          ? "scale-110 border-[#4CAF50] bg-[#4CAF50]"
-                          : isLast && !isActive
-                            ? "border-2 border-dashed border-slate-300 bg-white"
-                            : isPast
-                              ? "border-[#4CAF50] bg-white"
-                              : "border-slate-300 bg-white"
-                      }`}
-                    />
-                    {i < lastIndex ? (
-                      <div
-                        className={`mt-0.5 w-[2px] min-h-[2.5rem] flex-1 rounded-full ${
-                          i < activeStep
-                            ? "bg-[#4CAF50]"
-                            : i === activeStep
-                              ? "bg-gradient-to-b from-[#4CAF50] to-slate-200"
-                              : "bg-slate-200"
-                        }`}
-                        aria-hidden
-                      />
-                    ) : null}
-                  </div>
-                  <button
-                    type="button"
-                    aria-pressed={isActive}
-                    onClick={() => setActiveStep(i)}
-                    className="min-w-0 flex-1 border-b border-slate-200/70 pb-6 text-left last:border-0 sm:pb-7"
-                  >
-                    <p
-                      className={`font-heading text-[10px] font-semibold uppercase tracking-[0.14em] sm:text-xs sm:tracking-[0.16em] ${
-                        isActive ? "text-[#4CAF50]" : "text-slate-400"
-                      }`}
-                    >
-                      {s.timelineLabel}
-                    </p>
-                    <p
-                      className={`font-body mt-1.5 text-sm leading-snug sm:text-base ${
-                        isActive
-                          ? "font-semibold text-navy"
-                          : "font-normal text-steel"
-                      }`}
-                    >
-                      {s.timelineSubtitle}
-                    </p>
-                  </button>
-                </Motion.div>
-              );
-            })}
-          </div>
+          {storyChapters.map((item, i) => {
+            const isActive = i === chapterIndex;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setChapterIndex(i)}
+                className={`${headlineFont} relative pb-3 text-sm font-semibold transition md:text-base ${
+                  isActive ? "text-[#1F3B64]" : "text-slate-400 hover:text-[#1F3B64]"
+                }`}
+              >
+                {item.tab}
+                {isActive ? (
+                  <span
+                    className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-[#4CAF50]"
+                    aria-hidden
+                  />
+                ) : null}
+              </button>
+            );
+          })}
         </div>
 
-        <div className="mt-10 flex w-full min-w-0 items-center justify-between gap-2 border-t border-slate-200/70 pt-6 sm:mt-12 sm:gap-4">
-          <button
-            type="button"
-            disabled={activeStep === 0}
-            onClick={() => setActiveStep((x) => Math.max(0, x - 1))}
-            className="font-heading inline-flex min-w-0 items-center justify-center gap-1 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-600 shadow-sm transition hover:border-slate-300 hover:shadow sm:px-5 sm:pl-4 disabled:pointer-events-none disabled:opacity-35"
-          >
-            <ChevronLeft className="h-4 w-4 shrink-0" aria-hidden />
-            Prev
-          </button>
-          <p className="font-body shrink-0 text-sm tabular-nums text-steel">
-            {activeStep + 1} / {howItBeganSteps.length}
-          </p>
-          <button
-            type="button"
-            disabled={activeStep === lastIndex}
-            onClick={() => setActiveStep((x) => Math.min(lastIndex, x + 1))}
-            className="font-heading inline-flex min-w-0 items-center justify-center gap-1 rounded-full bg-navy px-4 py-2.5 pl-3 text-sm font-semibold text-white shadow-md transition hover:bg-slate-800 sm:px-6 sm:pl-4 disabled:pointer-events-none disabled:opacity-35"
-          >
-            Next
-            <ChevronRight className="h-4 w-4 shrink-0" aria-hidden />
-          </button>
+        <div className="mt-8 max-w-3xl lg:mt-10" role="tabpanel" aria-label={chapter.heading}>
+          <h2 className={`${headlineFont} text-3xl font-extrabold leading-tight tracking-tight text-[#1F3B64] md:text-4xl lg:text-[2.5rem] lg:leading-[1.08]`}>
+            {chapter.heading}
+          </h2>
+          <div className="font-body mt-6 space-y-5 text-base leading-relaxed text-slate-600 md:mt-8 md:text-lg">
+            {chapter.paragraphs.map((paragraph) => (
+              <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -1008,14 +773,6 @@ function AboutPage() {
                   wrapperClassName="gap-3 sm:gap-4"
                   hideServingLine={true}
                 />
-                <a
-                  href="#how-it-began"
-                  {...internalAnchorProps("#how-it-began")}
-                  className={`${headlineFont} inline-flex items-center gap-2 rounded-xl border border-white/25 bg-transparent px-5 py-3.5 text-sm font-semibold text-white transition hover:border-white/45 hover:bg-white/5 md:px-6`}
-                >
-                  Read our story
-                  <ArrowRight className="h-4 w-4 opacity-80" aria-hidden />
-                </a>
               </Motion.div>
             </Motion.div>
 
@@ -1032,116 +789,6 @@ function AboutPage() {
       </header>
 
       <HowItAllBeganStory />
-
-      {/* Who Are We */}
-      <section
-        ref={whoWeAreRef}
-        id="who-we-are"
-        className={`relative overflow-hidden border-y border-slate-200/80 pb-20 pt-14 mt-0 md:pb-24 md:pt-20 ${aboutScrollTargetClass}`}
-      >
-        <div
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(125deg,#f8fafc_0%,#eef6ff_40%,#f0fdf4_100%)]"
-          aria-hidden
-        />
-        <div className="relative mx-auto max-w-6xl px-6">
-          <Motion.div
-            className="mb-10 text-center md:mb-14"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={aboutView}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <h2
-              className={`${headlineFont} text-3xl font-extrabold text-[#1F3B64] md:text-[2.1rem]`}
-            >
-              Meet the Reputation360 Team
-            </h2>
-            <p className="font-body mx-auto mt-3 max-w-2xl text-slate-600">
-              One team. Global coverage. Obsessive about outcomes.
-            </p>
-          </Motion.div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
-            {whoWeAreStats.map((row, i) => {
-              const { head, countEnd, countSuffix, partA, partB, Icon } = row;
-              return (
-                <Motion.div
-                  key={partA + partB}
-                  className="group flex cursor-default items-center gap-4 rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm transition-shadow duration-300 ease-out hover:border-[#4CAF50]/40 hover:shadow-lg hover:shadow-slate-900/10 will-change-transform md:p-6"
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={aboutView}
-                  transition={{ duration: 0.45, delay: i * 0.05 }}
-                  whileHover={{ y: -4, transition: { type: "spring", stiffness: 420, damping: 28 } }}
-                >
-                  <span
-                    className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#4CAF50]/12 text-[#2d8a3e] ring-1 ring-[#4CAF50]/20 transition-all duration-300 will-change-transform group-hover:scale-105 group-hover:bg-[#4CAF50]/20 group-hover:ring-[#4CAF50]/40"
-                    aria-hidden
-                  >
-                    <Icon className="h-6 w-6" strokeWidth={1.75} />
-                  </span>
-                  <div className="min-w-0 flex-1 text-left">
-                    <p
-                      className={`${headlineFont} text-2xl font-extrabold text-[#4CAF50] tabular-nums sm:text-[1.75rem]`}
-                    >
-                      {countEnd != null ? (
-                        <StatNumber
-                          className="inline"
-                          end={countEnd}
-                          suffix={countSuffix}
-                          start={whoWeAreStatsLive}
-                        />
-                      ) : (
-                        head
-                      )}
-                    </p>
-                    <p className="text-[12px] leading-tight text-slate-600 md:text-[13px]">
-                      <span className="font-extrabold uppercase tracking-wider text-slate-600">
-                        {partA}
-                      </span>{" "}
-                      <span className="font-medium text-slate-500">{partB}</span>
-                    </p>
-                  </div>
-                </Motion.div>
-              );
-            })}
-          </div>
-
-          <Motion.div
-            className="mt-10 overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_20px_50px_-32px_rgba(15,35,60,0.14)] md:mt-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={aboutView}
-            transition={{ duration: 0.5, delay: 0.08 }}
-          >
-            <div className="grid grid-cols-1 divide-y divide-slate-200/80 md:grid-cols-3 md:divide-x md:divide-y-0">
-              {whoWeAreStatRow.map((s) => (
-                <Motion.div
-                  key={s.label}
-                  className="relative flex cursor-default flex-col items-center rounded-2xl px-5 py-7 text-center transition-shadow duration-300 will-change-transform hover:bg-gradient-to-b hover:from-white hover:to-[#f0fdf4] hover:shadow-md hover:ring-1 hover:ring-inset hover:ring-[#4CAF50]/20 md:px-3 md:py-9"
-                  whileHover={{ y: -2 }}
-                  transition={{ type: "spring", stiffness: 420, damping: 30 }}
-                >
-                  <p
-                    className={`${headlineFont} text-4xl font-extrabold tabular-nums text-[#4CAF50] transition-colors duration-200 md:text-[2.75rem]`}
-                  >
-                    <StatNumber
-                      className="inline"
-                      end={s.end}
-                      suffix={s.suffix}
-                      start={whoWeAreStatsLive}
-                    />
-                  </p>
-                  <p
-                    className={`${headlineFont} mt-2 text-xs font-bold uppercase tracking-[0.14em] text-[#1F3B64] md:text-[13px]`}
-                  >
-                    {s.label}
-                  </p>
-                </Motion.div>
-              ))}
-            </div>
-          </Motion.div>
-        </div>
-      </section>
 
       {/* Who We Serve */}
       <section
@@ -1349,6 +996,116 @@ function AboutPage() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Who Are We */}
+      <section
+        ref={whoWeAreRef}
+        id="who-we-are"
+        className={`relative overflow-hidden border-y border-slate-200/80 pb-20 pt-14 md:pb-24 md:pt-20 ${aboutScrollTargetClass}`}
+      >
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(125deg,#f8fafc_0%,#eef6ff_40%,#f0fdf4_100%)]"
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-6xl px-6">
+          <Motion.div
+            className="mb-10 text-center md:mb-14"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={aboutView}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <h2
+              className={`${headlineFont} text-3xl font-extrabold text-[#1F3B64] md:text-[2.1rem]`}
+            >
+              Meet the Reputation360 Team
+            </h2>
+            <p className="font-body mx-auto mt-3 max-w-2xl text-slate-600">
+              One team. Global coverage. Obsessive about outcomes.
+            </p>
+          </Motion.div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+            {whoWeAreStats.map((row, i) => {
+              const { head, countEnd, countSuffix, partA, partB, Icon } = row;
+              return (
+                <Motion.div
+                  key={partA + partB}
+                  className="group flex cursor-default items-center gap-4 rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm transition-shadow duration-300 ease-out hover:border-[#4CAF50]/40 hover:shadow-lg hover:shadow-slate-900/10 will-change-transform md:p-6"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={aboutView}
+                  transition={{ duration: 0.45, delay: i * 0.05 }}
+                  whileHover={{ y: -4, transition: { type: "spring", stiffness: 420, damping: 28 } }}
+                >
+                  <span
+                    className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#4CAF50]/12 text-[#2d8a3e] ring-1 ring-[#4CAF50]/20 transition-all duration-300 will-change-transform group-hover:scale-105 group-hover:bg-[#4CAF50]/20 group-hover:ring-[#4CAF50]/40"
+                    aria-hidden
+                  >
+                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                  </span>
+                  <div className="min-w-0 flex-1 text-left">
+                    <p
+                      className={`${headlineFont} text-2xl font-extrabold text-[#4CAF50] tabular-nums sm:text-[1.75rem]`}
+                    >
+                      {countEnd != null ? (
+                        <StatNumber
+                          className="inline"
+                          end={countEnd}
+                          suffix={countSuffix}
+                          start={whoWeAreStatsLive}
+                        />
+                      ) : (
+                        head
+                      )}
+                    </p>
+                    <p className="text-[12px] leading-tight text-slate-600 md:text-[13px]">
+                      <span className="font-extrabold uppercase tracking-wider text-slate-600">
+                        {partA}
+                      </span>{" "}
+                      <span className="font-medium text-slate-500">{partB}</span>
+                    </p>
+                  </div>
+                </Motion.div>
+              );
+            })}
+          </div>
+
+          <Motion.div
+            className="mt-10 overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_20px_50px_-32px_rgba(15,35,60,0.14)] md:mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={aboutView}
+            transition={{ duration: 0.5, delay: 0.08 }}
+          >
+            <div className="grid grid-cols-1 divide-y divide-slate-200/80 md:grid-cols-3 md:divide-x md:divide-y-0">
+              {whoWeAreStatRow.map((s) => (
+                <Motion.div
+                  key={s.label}
+                  className="relative flex cursor-default flex-col items-center rounded-2xl px-5 py-7 text-center transition-shadow duration-300 will-change-transform hover:bg-gradient-to-b hover:from-white hover:to-[#f0fdf4] hover:shadow-md hover:ring-1 hover:ring-inset hover:ring-[#4CAF50]/20 md:px-3 md:py-9"
+                  whileHover={{ y: -2 }}
+                  transition={{ type: "spring", stiffness: 420, damping: 30 }}
+                >
+                  <p
+                    className={`${headlineFont} text-4xl font-extrabold tabular-nums text-[#4CAF50] transition-colors duration-200 md:text-[2.75rem]`}
+                  >
+                    <StatNumber
+                      className="inline"
+                      end={s.end}
+                      suffix={s.suffix}
+                      start={whoWeAreStatsLive}
+                    />
+                  </p>
+                  <p
+                    className={`${headlineFont} mt-2 text-xs font-bold uppercase tracking-[0.14em] text-[#1F3B64] md:text-[13px]`}
+                  >
+                    {s.label}
+                  </p>
+                </Motion.div>
+              ))}
+            </div>
+          </Motion.div>
         </div>
       </section>
 
