@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 import {
   CORE_SERVICE_ID,
   reputationServices,
@@ -9,6 +7,8 @@ import { internalAnchorProps } from "../lib/internalLinkProps.js";
 const coreService =
   reputationServices.find((s) => s.id === CORE_SERVICE_ID) ?? reputationServices[0];
 const supportingServices = reputationServices.filter((s) => s.id !== CORE_SERVICE_ID);
+const rowTwoServices = supportingServices.filter((s) => s.id !== "reputation-building");
+const reputationBuildingService = supportingServices.find((s) => s.id === "reputation-building");
 const SERVICES_HREF = "/services";
 
 /** Same glass card shell as “Who we work with” (home). */
@@ -20,77 +20,43 @@ const serviceIconWrap =
 
 /**
  * @param {object} props
- * @param {{ id: string; title: string; description: string; icon: import('react').ReactNode }} props.service
- * @param {boolean} props.expanded
- * @param {() => void} props.onToggle
+ * @param {{ id: string; title: string; href: string; icon: import('react').ReactNode }} props.service
  * @param {boolean} [props.isCore]
+ * @param {boolean} [props.large]
  */
-function ServiceCard({ service, expanded, onToggle, isCore = false }) {
-  const titleClass = isCore
+function ServiceCard({ service, isCore = false, large = false }) {
+  const big = isCore || large;
+  const titleClass = big
     ? "r3-supporting-service-title w-full max-w-4xl px-1 font-heading text-lg font-bold leading-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-xl md:text-2xl"
     : "r3-supporting-service-title w-full px-0.5 font-heading text-[15px] font-bold leading-snug text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-base md:text-lg";
 
-  const iconSize = isCore
+  const iconSize = big
     ? "h-12 w-12 sm:h-[52px] sm:w-[52px] sm:[&_svg]:h-[22px] sm:[&_svg]:w-[22px] md:[&_svg]:h-6 md:[&_svg]:w-6"
     : "h-10 w-10 sm:h-11 sm:w-11 sm:[&_svg]:h-5 sm:[&_svg]:w-5 md:[&_svg]:h-6 md:[&_svg]:w-6";
 
-  const panelId = isCore ? "core-service-details-panel" : `service-expand-${service.id}`;
-  const triggerId = isCore ? "core-service-details-trigger" : `service-trigger-${service.id}`;
-
   return (
-    <div
-      className={`${serviceCardShell} ${expanded ? "is-expanded border-green/50 from-white/18 to-white/8" : ""}`}
+    <a
+      href={service.href}
+      {...internalAnchorProps(service.href)}
+      className={`${serviceCardShell} no-underline`}
     >
-      <button
-        type="button"
-        id={triggerId}
-        onClick={onToggle}
-        aria-expanded={expanded}
-        aria-controls={panelId}
-        aria-label={expanded ? `Hide details for ${service.title}` : `Show details for ${service.title}`}
-        className="flex w-full cursor-pointer flex-col items-center gap-2.5 rounded-lg text-center text-inherit outline-none transition hover:text-green focus-visible:ring-2 focus-visible:ring-green/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy sm:gap-3"
-      >
-        <div className={`${serviceIconWrap} ${iconSize}`}>{service.icon}</div>
-        <h3 id={isCore ? "core-service-heading" : undefined} className={titleClass}>
+      <span className="flex w-full flex-col items-center gap-2.5 text-center text-inherit sm:gap-3">
+        <span className={`${serviceIconWrap} ${iconSize}`}>{service.icon}</span>
+        <h3
+          id={isCore ? "core-service-heading" : undefined}
+          className={titleClass}
+        >
           {service.title}
         </h3>
-        <ChevronDown
-          className={`h-5 w-5 text-white/50 transition-transform duration-200 motion-reduce:transition-none ${
-            expanded ? "rotate-180 text-green" : ""
-          }`}
-          aria-hidden
-        />
-      </button>
-
-      <div
-        id={panelId}
-        role="region"
-        aria-labelledby={triggerId}
-        aria-hidden={!expanded}
-        className={`grid transition-[grid-template-rows] duration-200 motion-reduce:transition-none ${
-          expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-        }`}
-      >
-        <div className="min-h-0 overflow-hidden">
-          <div className={isCore ? "pt-1 pb-3" : "px-1 pb-2.5 pt-0"}>
-            <p className="text-center font-body text-[15px] font-medium leading-relaxed text-slate-100 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-base sm:leading-relaxed">
-              {service.description}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+      </span>
+    </a>
   );
 }
 
 /**
- * Core ORM + supporting cards with links to /services.
+ * Core ORM + supporting cards with links to service pages.
  */
 export function OurServicesGrid() {
-  const [openId, setOpenId] = useState(null);
-
-  const toggle = (id) => setOpenId((prev) => (prev === id ? null : id));
-
   return (
     <div className="w-full">
       <article
@@ -101,40 +67,23 @@ export function OurServicesGrid() {
           <span className="r3-our-services-core-label mb-2.5 block text-center font-heading text-xs font-bold uppercase tracking-[0.22em] text-white/50 sm:text-[13px]">
             Core service
           </span>
-          <ServiceCard
-            service={coreService}
-            expanded={openId === CORE_SERVICE_ID}
-            onToggle={() => toggle(CORE_SERVICE_ID)}
-            isCore
-          />
+          <ServiceCard service={coreService} isCore />
         </div>
       </article>
 
-      <ul className="grid w-full max-w-5xl list-none grid-cols-2 items-start justify-center justify-items-stretch gap-3.5 p-0 md:mx-auto md:max-w-6xl md:grid-cols-3 md:gap-4 md:px-0 xl:max-w-6xl xl:grid-cols-12 xl:gap-5">
-        {supportingServices.map((s, cardIdx) => {
-          const expanded = openId === s.id;
-          const centeredLastRowClass =
-            cardIdx === 4
-              ? "xl:col-start-2"
-              : cardIdx === 5
-                ? "xl:col-start-5"
-                : cardIdx === 6
-                  ? "xl:col-start-8"
-                  : "";
-          return (
-            <li
-              key={s.id}
-              className={`min-w-0 max-w-full list-none self-start xl:col-span-3 ${centeredLastRowClass}`}
-            >
-              <ServiceCard
-                service={s}
-                expanded={expanded}
-                onToggle={() => toggle(s.id)}
-              />
-            </li>
-          );
-        })}
+      <ul className="mx-auto grid w-full max-w-5xl list-none grid-cols-1 items-stretch justify-center gap-3.5 p-0 sm:grid-cols-3 md:max-w-6xl md:gap-4 xl:max-w-6xl xl:gap-5">
+        {rowTwoServices.map((s) => (
+          <li key={s.id} className="min-w-0 max-w-full list-none">
+            <ServiceCard service={s} />
+          </li>
+        ))}
       </ul>
+
+      {reputationBuildingService ? (
+        <div className="relative mx-auto mt-3.5 w-full max-w-3xl md:mt-4 xl:mt-5">
+          <ServiceCard service={reputationBuildingService} large />
+        </div>
+      ) : null}
 
       <p className="r3-our-services-more mt-8 text-center font-body text-sm text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] md:mt-10 md:text-base">
         <a

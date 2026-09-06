@@ -1,11 +1,4 @@
-import {
-  ShieldCheck,
-  FileText,
-  TrendingUp,
-  Linkedin,
-  MessageSquare,
-  EyeOff,
-} from "lucide-react";
+import { EyeOff, Layers, Share2, Sparkles } from "lucide-react";
 import {
   CORE_SERVICE_ID,
   reputationServicesCatalog,
@@ -13,7 +6,6 @@ import {
 
 /**
  * Single source for home “Our Services” and footer service links.
- * Descriptions match the approved client copy (shown under each title).
  */
 
 /** Intro paragraph under the “Our Services” heading on the home page. */
@@ -39,28 +31,10 @@ const SERVICE_ICONS = {
       <circle cx="12" cy="15" r="3" />
     </svg>
   ),
-  "employer-branding": <ShieldCheck className="h-7 w-7" strokeWidth={1.75} />,
   "negative-link-suppression": <EyeOff className="h-7 w-7" strokeWidth={1.75} />,
-  "content-leadership": <FileText className="h-7 w-7" strokeWidth={1.75} />,
-  "linkedin-branding": <Linkedin className="h-7 w-7" strokeWidth={1.75} />,
-  "performance-marketing": <TrendingUp className="h-7 w-7" strokeWidth={1.75} />,
-  consultation: <MessageSquare className="h-7 w-7" strokeWidth={1.75} />,
-  branding: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="30"
-      height="30"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
-      <path d="M7.828 13.07A3 3 0 0 1 12 8.764a3 3 0 0 1 5.004 2.224 3 3 0 0 1-.832 2.083l-3.447 3.62a1 1 0 0 1-1.45-.001z" />
-    </svg>
-  ),
+  "social-media": <Share2 className="h-7 w-7" strokeWidth={1.75} />,
+  "ai-orm": <Sparkles className="h-7 w-7" strokeWidth={1.75} />,
+  "reputation-building": <Layers className="h-7 w-7" strokeWidth={1.75} />,
 };
 
 export const reputationServices = reputationServicesCatalog.map((service) => ({

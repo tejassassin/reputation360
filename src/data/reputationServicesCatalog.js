@@ -30,52 +30,28 @@ export const reputationServicesCatalog = [
       "We systematically displace damaging, misleading, and outdated links from page one of Google and replace them with an accurate, authoritative search presence",
   },
   {
-    id: "employer-branding",
-    navLabel: "Employer brand",
-    title: "Employer Branding & Talent Reputation",
+    id: "social-media",
+    navLabel: "Social media ORM",
+    title: "Social Media Online Reputation Management",
     url: RBS_SERVICES_SECTION,
     description:
-      "We build an authentic employer narrative that reflects your culture, values, and leadership so people trust what they see before they ever speak to you.",
+      "We shape how you appear across social platforms so the profile, posts, and proof people find there match the reputation you want to own.",
   },
   {
-    id: "content-leadership",
-    navLabel: "Content & thought leadership",
-    title: "Thought Leadership & Editorial Visibility",
-    url: RBS_SERVICES_SECTION,
+    id: "ai-orm",
+    navLabel: "AI ORM",
+    title: "AI Online Reputation Management",
+    url: ONLINE_REPUTATION_MANAGEMENT_PATH,
     description:
-      "Strategic content that builds authority, educates your audience, and positions you as a credible voice in your industry.",
+      "We strengthen how you appear in AI Overviews and other AI-powered search experiences, not only classic Google results.",
   },
   {
-    id: "linkedin-branding",
-    navLabel: "LinkedIn branding",
-    title: "LinkedIn Personal Branding",
-    url: RBS_SERVICES_SECTION,
+    id: "reputation-building",
+    navLabel: "Reputation building",
+    title: "Reputation Building Services",
+    url: REPUTATION_BUILDING_SERVICES_PATH,
     description:
-      "Building authority and visibility through strategic storytelling, consistent high-quality content, and thought leadership that resonates with the right audience.",
-  },
-  {
-    id: "performance-marketing",
-    navLabel: "Performance marketing",
-    title: "Performance Marketing for Reputation Growth",
-    url: RBS_SERVICES_SECTION,
-    description:
-      "Paid visibility that amplifies authoritative reputation assets so the right decision-makers and clients see your strongest content.",
-  },
-  {
-    id: "consultation",
-    navLabel: "Consultation",
-    title: "Reputation Consultation",
-    url: "/contact",
-    description:
-      "Strategic reputation consultation built on experience, not theory - offering clarity, course correction, and measurable impact.",
-  },
-  {
-    id: "branding",
-    navLabel: "Branding",
-    title: "Brand Strategy & Reputation Positioning",
-    url: RBS_SERVICES_SECTION,
-    description:
-      "We help your audience recognize your brand the way you intend - building connection, trust, and momentum for growth.",
+      "Personal branding, LinkedIn authority, social presence, and positioning that strengthen how you are perceived beyond search results.",
   },
 ];
 
