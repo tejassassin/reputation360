@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { testimonialPortraitAlt } from "../constants/imageAlt.js";
 import { homeTestimonials } from "../data/homeTestimonials.js";
@@ -79,8 +79,6 @@ function HomeTestimonials() {
     return () => mq.removeEventListener("change", sync);
   }, []);
   const scrollerRef = useRef(null);
-  const baseId = useId().replace(/[^a-z0-9_-]/gi, "x");
-  const underlineId = `r360-testimonials-underline-${baseId}`;
 
   const scroll = (dir) => {
     const el = scrollerRef.current;
@@ -98,46 +96,17 @@ function HomeTestimonials() {
       className="relative border-y border-slate-200/80 bg-offwhite py-12 sm:py-16"
       aria-labelledby="testimonials-heading"
     >
-      <div className="relative z-[1] mx-auto max-w-3xl px-4 text-center sm:px-5">
+      <div className="relative z-[1] mx-auto max-w-4xl px-4 text-center sm:px-5">
         <h2
           id="testimonials-heading"
-          className="font-heading text-balance text-3xl font-bold leading-tight sm:text-4xl md:text-5xl"
+          className="font-heading text-balance text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-5xl"
         >
-          <span className="text-navy">Client Results & Reputation</span>{" "}
-          <span className="relative inline-block whitespace-nowrap mt-1 sm:mt-0">
-            <span className="text-[#4CAF50]">
-              Management Reviews
-            </span>
-            <svg
-              className="absolute -bottom-1.5 left-0 w-full"
-              viewBox="0 0 200 12"
-              fill="none"
-              aria-hidden
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2 8.5C50 2.5 150 2.5 198 8.5"
-                stroke={`url(#${underlineId})`}
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-              <defs>
-                <linearGradient
-                  id={underlineId}
-                  x1="2"
-                  y1="8.5"
-                  x2="198"
-                  y2="8.5"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stopColor="#4CAF50" />
-                  <stop offset="0.5" stopColor="#4CAF50" />
-                  <stop offset="1" stopColor="#4CAF50" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </span>
+          Client Results and Online Reputation Management Reviews
         </h2>
+        <div
+          className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#2E5B88]"
+          aria-hidden
+        />
         <p className="mx-auto mt-3 max-w-2xl font-body text-base leading-relaxed text-slate-600 sm:mt-4 sm:text-lg">
           Honest feedback from people who trusted us with their reputation.
         </p>
