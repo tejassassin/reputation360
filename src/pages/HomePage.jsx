@@ -12,7 +12,6 @@ const WhatWeDo = lazy(() => import("../components/WhatWeDo"));
 const OurServices = lazy(() => import("../components/OurServices"));
 const HomeTestimonials = lazy(() => import("../components/HomeTestimonials.jsx"));
 const WhoWeServeCards = lazy(() => import("../components/WhoWeServeCards"));
-const HowReputation360Works = lazy(() => import("../components/HowReputation360Works"));
 const WhyClientsChoose = lazy(() => import("../components/WhyClientsChoose"));
 const CaseStudies = lazy(() => import("../components/CaseStudies"));
 const HomeFromOurBlogSection = lazy(() => import("../components/home/HomeFromOurBlogSection.jsx").then(m => ({ default: m.HomeFromOurBlogSection })));
@@ -55,11 +54,6 @@ function HomePage({ renderSeo = true }) {
         </LazySection>
         <LazySection minHeight="20rem">
           <WhoWeServeCards />
-        </LazySection>
-        <LazySection minHeight="24rem">
-          <section className="bg-white">
-            <HowReputation360Works />
-          </section>
         </LazySection>
         <LazySection minHeight="20rem">
           <WhyClientsChoose />
