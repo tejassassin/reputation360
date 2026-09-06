@@ -5,7 +5,7 @@ import { WhoWeServeAudienceCard } from "./WhoWeServeAudienceCard.jsx";
 export default function WhoWeServeCards() {
   return (
     <section
-      className="relative overflow-hidden bg-navy py-14 text-white md:py-20 lg:py-24"
+      className="relative overflow-hidden border-t border-white/[0.06] py-14 text-white md:py-20 lg:py-24"
       aria-labelledby="who-we-serve-heading"
     >
       <BrandSectionBackdrop />
@@ -19,12 +19,12 @@ export default function WhoWeServeCards() {
             Who We Help: Reputation Management for Professionals & Businesses
           </h2>
           <div
-            className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-green to-navy"
+            className="mx-auto mt-4 h-1 w-16 rounded-full bg-green"
             aria-hidden
           />
         </div>
 
-        <ul className="m-0 grid list-none grid-cols-1 items-stretch gap-5 p-0 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 lg:auto-rows-fr lg:gap-7">
+        <ul className="m-0 grid list-none grid-cols-1 items-stretch gap-5 p-0 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {WHO_WE_SERVE_AUDIENCES.map((cat) => (
             <WhoWeServeAudienceCard key={cat.href} {...cat} />
           ))}

@@ -6,7 +6,7 @@ function OurServices() {
   return (
     <section
       id="r3-home-our-services-root"
-      className="relative w-full overflow-hidden bg-navy border-y border-white/[0.06] py-14 text-white md:py-20 lg:py-24"
+      className="relative w-full overflow-hidden border-y border-white/[0.06] py-14 text-white md:py-20 lg:py-24"
       aria-labelledby="our-services-heading"
     >
       <BrandSectionBackdrop />
