@@ -71,23 +71,29 @@ function HeroTrustPoints({ statsInView, desktop, StatNumber }) {
   };
 
   return (
-    <div className="mt-5 grid max-w-3xl grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:mt-6">
-      {HERO_TRUST_POINTS.map((point) => (
-        <div
-          key={point.title}
-          className="rounded-xl border border-white/15 bg-white/10 px-3 py-2.5 backdrop-blur-sm sm:px-3.5 sm:py-3"
-        >
-          <p className="font-heading text-xl font-bold leading-none text-green sm:text-2xl">
-            {statValue(point)}
-          </p>
-          <p className="mt-1 font-heading text-xs font-semibold uppercase leading-tight tracking-wide text-white sm:text-sm">
-            {point.title}
-          </p>
-          <p className="mt-0.5 font-body text-xs leading-snug text-white/70 sm:text-sm">
-            {point.detail}
-          </p>
-        </div>
-      ))}
+    <div className="mt-6 border-t border-white/20 pt-6 lg:mt-7 lg:pt-7">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-5 lg:gap-8">
+        {HERO_TRUST_POINTS.map((point, index) => (
+          <div
+            key={point.title}
+            className={
+              index > 0
+                ? "border-t border-white/15 pt-6 sm:border-t-0 sm:border-l sm:pl-5 sm:pt-0 lg:pl-8"
+                : undefined
+            }
+          >
+            <p className="font-heading text-[2.35rem] font-bold leading-none text-green sm:text-4xl lg:text-[2.75rem]">
+              {statValue(point)}
+            </p>
+            <p className="mt-2 font-heading text-[13px] font-semibold uppercase leading-snug tracking-[0.1em] text-white sm:text-sm">
+              {point.title}
+            </p>
+            <p className="mt-1 font-body text-[13px] leading-relaxed text-white/75 sm:text-sm sm:whitespace-nowrap">
+              {point.detail}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
