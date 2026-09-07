@@ -87,7 +87,7 @@ function HomeContactLeadForm({ compact = false }) {
             Get a Free Reputation Analysis
           </p>
           <p className="mt-1 font-body text-sm text-steel">
-            Free · Confidential · 1 business hour
+            A specialist responds within 2 business hours
           </p>
         </div>
       </div>
