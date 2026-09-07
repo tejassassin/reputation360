@@ -33,7 +33,7 @@ function HomePage({ renderSeo = true }) {
         />
       ) : null}
       <Hero />
-      <main className="flex w-full flex-col gap-12 pt-8 md:gap-16 md:pt-12 lg:gap-20 lg:pt-16">
+      <main className="flex w-full flex-col gap-12 pt-0 md:gap-16 lg:gap-20">
         <section>
           <WhatWeBelieve />
         </section>

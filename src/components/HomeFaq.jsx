@@ -5,12 +5,12 @@ function HomeFaq() {
   return (
     <section
       id="home-faqs"
-      className="border-t border-slate-200/80 bg-gradient-to-b from-offwhite to-white pt-6 pb-10 md:pt-8 md:pb-12 lg:pb-16"
+      className="border-t border-slate-200/80 bg-gradient-to-b from-offwhite to-white py-14 md:py-20 lg:py-24"
       aria-labelledby="home-faqs-heading"
       data-r360-section="home-faqs"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 text-center md:mb-10">
+        <div className="mb-10 text-center md:mb-12">
           <h2
             id="home-faqs-heading"
             className="font-heading text-3xl font-bold leading-tight text-navy md:text-4xl"

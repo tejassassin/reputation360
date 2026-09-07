@@ -28,7 +28,7 @@ function ServiceCard({ service, isCore = false, large = false }) {
   const big = isCore || large;
   const titleClass = big
     ? "r3-supporting-service-title w-full max-w-4xl px-1 font-heading text-lg font-bold leading-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-xl md:text-2xl"
-    : "r3-supporting-service-title w-full px-0.5 font-heading text-[15px] font-bold leading-snug text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-base md:text-lg";
+    : "r3-supporting-service-title w-full px-0.5 font-heading text-[15px] font-bold leading-snug tracking-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.2)] sm:text-base lg:whitespace-nowrap lg:text-[15px] xl:text-base";
 
   const iconSize = big
     ? "h-12 w-12 sm:h-[52px] sm:w-[52px] sm:[&_svg]:h-[22px] sm:[&_svg]:w-[22px] md:[&_svg]:h-6 md:[&_svg]:w-6"
@@ -71,7 +71,7 @@ export function OurServicesGrid() {
         </div>
       </article>
 
-      <ul className="mx-auto grid w-full max-w-5xl list-none grid-cols-1 items-stretch justify-center gap-3.5 p-0 sm:grid-cols-3 md:max-w-6xl md:gap-4 xl:max-w-6xl xl:gap-5">
+      <ul className="mx-auto grid w-full max-w-7xl list-none grid-cols-1 items-stretch justify-center gap-3.5 p-0 sm:grid-cols-3 md:gap-4 xl:gap-5">
         {rowTwoServices.map((s) => (
           <li key={s.id} className="min-w-0 max-w-full list-none">
             <ServiceCard service={s} />

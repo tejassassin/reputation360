@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ConsultationCtas } from "@/components/ConsultationCtas";
-import { Highlight } from "@/components/ui/hero-highlight-mark";
-import { HeroHighlightLite } from "@/components/ui/hero-highlight-lite";
+import HomeContactLeadForm from "@/components/HomeContactLeadForm.jsx";
+import {
+  FREE_REPUTATION_SCAN_LABEL,
+  freeScanLinkProps,
+} from "@/constants/freeRiskScan";
 
 function useDesktopStats() {
   const [desktop, setDesktop] = useState(false);
@@ -29,58 +31,63 @@ function useDesktopStats() {
   return { desktop, StatNumber };
 }
 
-function HeroStats({ statsInView, desktop, StatNumber }) {
+const HERO_TRUST_POINTS = [
+  {
+    end: 7,
+    suffix: "",
+    static: "7",
+    title: "Years of Experience",
+    detail: "in Online Reputation Management",
+  },
+  {
+    end: 97,
+    suffix: "%",
+    static: "97%",
+    title: "Success Rate",
+    detail: "in suppressing negative content from page one",
+  },
+  {
+    end: 1100,
+    suffix: "+",
+    static: "1,100+",
+    title: "Happy Clients",
+    detail: "with successful suppression outcomes",
+  },
+];
+
+function HeroTrustPoints({ statsInView, desktop, StatNumber }) {
   const statValue = (node) => {
     if (!desktop || !StatNumber) {
       return node.static;
     }
-    return <StatNumber end={node.end} suffix={node.suffix} start={statsInView} />;
+    return (
+      <StatNumber
+        className="font-bold tabular-nums text-green"
+        end={node.end}
+        suffix={node.suffix}
+        start={statsInView}
+      />
+    );
   };
 
   return (
-    <div className="mx-auto grid w-full max-w-6xl shrink-0 grid-cols-3 gap-1.5 max-md:mt-6 md:mt-0 sm:gap-4 lg:max-w-7xl lg:gap-6">
-      <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 max-md:backdrop-blur-none backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
-        <div className="absolute inset-0 rounded-lg bg-linear-to-br from-green/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100 sm:rounded-2xl" />
-        <div className="relative">
-          <p className="mb-1 font-heading text-2xl font-bold text-green sm:mb-1 sm:text-4xl lg:mb-1.5 lg:text-6xl">
-            {statValue({ end: 7, static: "7" })}
+    <div className="mt-5 grid max-w-3xl grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:mt-6">
+      {HERO_TRUST_POINTS.map((point) => (
+        <div
+          key={point.title}
+          className="rounded-xl border border-white/15 bg-white/10 px-3 py-2.5 backdrop-blur-sm sm:px-3.5 sm:py-3"
+        >
+          <p className="font-heading text-xl font-bold leading-none text-green sm:text-2xl">
+            {statValue(point)}
           </p>
-          <p className="mb-0.5 font-heading text-xs font-semibold uppercase leading-tight tracking-wide text-white sm:mb-1 sm:text-sm lg:text-base">
-            Years of Experience
+          <p className="mt-1 font-heading text-xs font-semibold uppercase leading-tight tracking-wide text-white sm:text-sm">
+            {point.title}
           </p>
-          <p className="font-body hidden whitespace-nowrap text-sm text-white/70 sm:block sm:text-base">
-            in Online Reputation Management
-          </p>
-        </div>
-      </div>
-      <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 max-md:backdrop-blur-none backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
-        <div className="absolute inset-0 rounded-lg bg-linear-to-br from-green/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100 sm:rounded-2xl" />
-        <div className="relative">
-          <p className="mb-1 font-heading text-2xl font-bold text-green sm:mb-1 sm:text-4xl lg:mb-1.5 lg:text-6xl">
-            {statValue({ end: 97, suffix: "%", static: "97%" })}
-          </p>
-          <p className="mb-0.5 font-heading text-xs font-semibold uppercase leading-tight tracking-wide text-white sm:mb-1 sm:text-sm lg:text-base">
-            Success Rate
-          </p>
-          <p className="font-body hidden whitespace-nowrap text-sm text-white/70 sm:block sm:text-base">
-            in suppressing negative content from page one
+          <p className="mt-0.5 font-body text-xs leading-snug text-white/70 sm:text-sm">
+            {point.detail}
           </p>
         </div>
-      </div>
-      <div className="group relative rounded-lg border border-white/10 bg-white/5 p-2 max-md:backdrop-blur-none backdrop-blur-sm transition-all duration-300 hover:border-green/30 hover:bg-white/10 sm:rounded-2xl sm:p-4 lg:p-5">
-        <div className="absolute inset-0 rounded-lg bg-linear-to-br from-green/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100 sm:rounded-2xl" />
-        <div className="relative">
-          <p className="mb-1 font-heading text-2xl font-bold text-green sm:mb-1 sm:text-4xl lg:mb-1.5 lg:text-6xl">
-            {statValue({ end: 1100, suffix: "+", static: "1,100+" })}
-          </p>
-          <p className="mb-0.5 font-heading text-xs font-semibold uppercase leading-tight tracking-wide text-white sm:mb-1 sm:text-sm lg:text-base">
-            Happy Clients
-          </p>
-          <p className="font-body hidden whitespace-nowrap text-sm text-white/70 sm:block sm:text-base">
-            with successful suppression outcomes
-          </p>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }
@@ -108,69 +115,77 @@ function Hero() {
   const badgeCount =
     desktop && StatNumber ? (
       <StatNumber
-        className="inline font-semibold tabular-nums text-white"
+        className="inline font-semibold tabular-nums text-green"
         end={1100}
         suffix="+"
         start={statsInView}
       />
     ) : (
-      <span className="inline font-semibold tabular-nums text-white">1,100+</span>
+      <span className="inline font-semibold tabular-nums text-green">1,100+</span>
     );
+
+  const headlineLine =
+    "block text-[1.85rem] leading-[1.15] text-white md:text-[2.5rem] lg:text-[3rem] xl:text-[3.35rem]";
 
   return (
     <section
       ref={sectionRef}
-      className="flex flex-col overflow-hidden bg-linear-to-br from-navy via-slate to-navy text-white max-md:min-h-0 max-md:pb-6 max-md:pt-[calc(env(safe-area-inset-top)+5.25rem)] md:min-h-[100dvh] md:pt-[calc(env(safe-area-inset-top)+7.25rem)] lg:pt-[calc(env(safe-area-inset-top)+8.5rem)]"
+      className="r360-hero-bg flex max-h-[100dvh] min-h-[100dvh] flex-col overflow-hidden text-white max-md:pt-[calc(env(safe-area-inset-top)+5rem)] md:pt-[calc(env(safe-area-inset-top)+6.5rem)] lg:pt-[calc(env(safe-area-inset-top)+7rem)]"
     >
-      <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 pb-2 pt-0 text-center max-md:gap-3 md:min-h-0 md:flex-1 md:justify-evenly md:gap-0 md:px-6 md:py-[2vh] lg:px-8">
-        <div className="flex shrink-0 flex-col items-center justify-center gap-3 md:gap-[1.8vh]">
-          <div className="inline-flex w-fit items-center gap-2 self-center rounded-full border border-white/20 bg-white/10 px-3 py-1.5 max-md:mb-2 max-md:mt-6 max-md:backdrop-blur-none backdrop-blur-sm sm:px-4 sm:py-2 md:mb-0 md:mt-0">
-            <span className="flex h-2 w-2 relative max-md:static">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-75 max-md:hidden animate-ping" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green" />
-            </span>
-            <span className="font-body text-sm sm:text-base text-white/90">
-              Trusted by {badgeCount} clients across the U.S.
-            </span>
+      <div className="relative mx-auto flex w-full max-w-[calc(100vw-4rem)] flex-1 items-center px-5 py-4 text-left sm:max-w-[calc(100vw-6rem)] sm:px-6 md:max-w-[calc(100vw-9rem)] md:px-8 lg:max-w-[calc(100vw-12rem)] lg:px-10 xl:max-w-[calc(100vw-16rem)] xl:px-12 2xl:max-w-[calc(100vw-20rem)] 2xl:px-14">
+        <div className="grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_30rem] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_32rem] xl:gap-12">
+          <div className="min-w-0">
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 sm:px-4 sm:py-2">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-75 max-md:hidden animate-ping" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-green" />
+              </span>
+              <span className="font-body text-sm font-medium text-green sm:text-base">
+                Trusted by {badgeCount} clients across the U.S.
+              </span>
+            </div>
+
+            <div className="relative mt-4 overflow-hidden md:mt-5">
+              <div
+                className="r360-hero-dot-grid pointer-events-none absolute inset-0 z-0 opacity-[0.38] md:opacity-[0.42]"
+                aria-hidden
+              />
+              <h1 className="relative z-10 text-left font-heading font-bold tracking-tight">
+                <span className={headlineLine}>Take control of your</span>
+                <span className={`mt-1.5 block ${headlineLine} md:mt-2 lg:whitespace-nowrap`}>
+                  Online Reputation{" "}
+                  <span className="inline rounded-md bg-[#6d5bd0] px-2.5 py-0.5 text-white md:px-3 md:py-1">
+                    on your terms
+                  </span>
+                </span>
+                <span className={`mt-1.5 ${headlineLine} text-white/90 md:mt-2`}>
+                  not Google&apos;s or AI&apos;s
+                </span>
+              </h1>
+            </div>
+
+            <p className="mb-0 mt-3 max-w-2xl font-body text-lg leading-relaxed text-white/90 md:mt-4 md:text-xl">
+              Because one negative result can quietly undermine years of credibility.
+            </p>
+
+            <a
+              {...freeScanLinkProps}
+              className="ha-pill mt-4 inline-flex w-full max-w-md items-center justify-center rounded-xl bg-green px-8 py-3 text-center font-heading text-lg font-semibold text-white shadow-sm transition hover:brightness-95 sm:mt-5 sm:w-auto sm:px-9 sm:py-3.5"
+            >
+              {FREE_REPUTATION_SCAN_LABEL}
+            </a>
+
+            <HeroTrustPoints
+              statsInView={statsInView}
+              desktop={desktop}
+              StatNumber={StatNumber}
+            />
           </div>
 
-          <div className="relative w-full max-w-[22rem] overflow-hidden px-2 py-4 sm:max-w-xl md:max-w-5xl md:px-6 md:py-5 lg:max-w-6xl">
-            <div
-              className="r360-hero-dot-grid pointer-events-none absolute inset-0 z-0 opacity-[0.38] md:opacity-[0.42]"
-              aria-hidden
-            />
-            <div className="relative z-10 flex flex-col items-center gap-3 md:gap-4">
-              <HeroHighlightLite containerClassName="h-auto bg-transparent dark:bg-transparent">
-                <h1 className="mx-auto flex w-full flex-col items-center gap-1 text-center font-heading font-bold tracking-tight md:mx-4 md:my-3 md:max-w-none md:gap-0 md:text-balance md:text-5xl md:leading-[1.25] lg:text-6xl">
-                  <span className="block max-w-[20rem] text-2xl leading-tight text-white md:max-w-none md:text-5xl md:leading-[1.25] lg:text-6xl lg:leading-[1.2]">
-                    Take control of your
-                  </span>
-                  <span className="block max-w-[20rem] text-2xl leading-tight text-white md:max-w-none md:text-5xl md:leading-[1.25] lg:text-6xl lg:leading-[1.2]">
-                    Online Reputation{" "}
-                    <Highlight className="max-md:!px-1 max-md:!pb-0">
-                      on your terms
-                    </Highlight>
-                  </span>
-                  <span className="block max-w-[21rem] text-2xl leading-snug text-white md:max-w-none md:text-5xl md:leading-[1.25] lg:text-6xl lg:leading-[1.2]">
-                    <span className="text-white/90">not Google&apos;s or AI&apos;s</span>
-                  </span>
-                </h1>
-
-                <p className="mx-auto mb-0 max-w-[20rem] text-pretty font-body text-base leading-relaxed text-white/90 max-md:mb-0 max-md:mt-4 md:mx-4 md:mb-0 md:mt-4 md:max-w-3xl md:text-xl lg:max-w-none lg:whitespace-nowrap">
-                  Because one negative result can quietly undermine years of credibility.
-                </p>
-              </HeroHighlightLite>
-
-              <ConsultationCtas variant="hero" />
-            </div>
+          <div className="min-w-0 lg:justify-self-end lg:pr-0">
+            <HomeContactLeadForm />
           </div>
         </div>
-
-        <HeroStats
-          statsInView={statsInView}
-          desktop={desktop}
-          StatNumber={StatNumber}
-        />
       </div>
     </section>
   );

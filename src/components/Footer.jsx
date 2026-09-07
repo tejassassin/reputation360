@@ -50,7 +50,7 @@ function Footer() {
   return (
     <footer className="bg-charcoal text-white py-10 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-4 xl:grid-cols-8 xl:gap-6">
+        <div className="mb-8 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-3 xl:grid-cols-7 xl:gap-6">
           <div className="min-w-0 xl:col-span-2">
             <div className="mb-4 flex min-w-0 items-center gap-2">
               <div className="flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center overflow-hidden rounded-full bg-white pl-0.5">
@@ -71,99 +71,7 @@ function Footer() {
               Your trusted partner in building and protecting online reputation
               since 2019.
             </p>
-          </div>
-          <div>
-            <p className="font-heading font-semibold mb-4">Quick Links</p>
-            <ul className="space-y-2">
-              {[
-                { name: "About Us", link: "/about" },
-                { name: "Services", link: "/services" },
-                { name: "Case Studies", link: "/case-studies" },
-                { name: "Insights and Blogs", link: "/blog" },
-                { name: "Free Reputation Scan", link: "/free-reputation-scan" },
-                { name: "Contact", link: "/contact" },
-              ].map((item, idx) => (
-                <li key={idx}>
-                  <a
-                    href={item.link}
-                    {...internalAnchorProps(item.link)}
-                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="min-w-0">
-            <p className="font-heading font-semibold mb-4">Services</p>
-            <ul className="space-y-2">
-              {[
-                { name: "Online Reputation Management", href: "/services/online-reputation-management" },
-                { name: "Negative Link Suppression", href: "/services/negative-link-suppression" },
-                { name: "Reputation Building Services", href: "/services/reputation-building-services" },
-              ].map((service) => (
-                <li key={service.name}>
-                  <a
-                    href={service.href}
-                    {...internalAnchorProps(service.href)}
-                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
-                  >
-                    {service.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="min-w-0">
-            <p className="font-heading font-semibold mb-4">Resources</p>
-            <ul className="space-y-2">
-              {RESOURCES_LINKS.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    {...internalAnchorProps(item.href)}
-                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="min-w-0">
-            <p className="font-heading font-semibold mb-4">Who We Serve</p>
-            <ul className="space-y-2">
-              {WHO_WE_SERVE_LINKS.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    {...internalAnchorProps(item.href)}
-                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="min-w-0">
-            <p className="font-heading font-semibold mb-4">Policies</p>
-            <ul className="space-y-2">
-              {POLICY_LINKS.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    {...internalAnchorProps(item.href)}
-                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="min-w-0">
+            <div className="mt-8 min-w-0">
             <p className="font-heading font-semibold mb-4">Contact</p>
             <ul className="space-y-3 font-body text-white/60 text-sm">
               <li>
@@ -261,6 +169,98 @@ function Footer() {
                   </a>
                 </div>
               </li>
+            </ul>
+            </div>
+          </div>
+          <div>
+            <p className="font-heading font-semibold mb-4">Quick Links</p>
+            <ul className="space-y-2">
+              {[
+                { name: "About Us", link: "/about" },
+                { name: "Services", link: "/services" },
+                { name: "Case Studies", link: "/case-studies" },
+                { name: "Insights and Blogs", link: "/blog" },
+                { name: "Free Reputation Scan", link: "/free-reputation-scan" },
+                { name: "Contact", link: "/contact" },
+              ].map((item, idx) => (
+                <li key={idx}>
+                  <a
+                    href={item.link}
+                    {...internalAnchorProps(item.link)}
+                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="min-w-0">
+            <p className="font-heading font-semibold mb-4">Services</p>
+            <ul className="space-y-2">
+              {[
+                { name: "Online Reputation Management", href: "/services/online-reputation-management" },
+                { name: "Negative Link Suppression", href: "/services/negative-link-suppression" },
+                { name: "Reputation Building Services", href: "/services/reputation-building-services" },
+              ].map((service) => (
+                <li key={service.name}>
+                  <a
+                    href={service.href}
+                    {...internalAnchorProps(service.href)}
+                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
+                  >
+                    {service.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="min-w-0">
+            <p className="font-heading font-semibold mb-4">Resources</p>
+            <ul className="space-y-2">
+              {RESOURCES_LINKS.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    {...internalAnchorProps(item.href)}
+                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="min-w-0">
+            <p className="font-heading font-semibold mb-4">Who We Serve</p>
+            <ul className="space-y-2">
+              {WHO_WE_SERVE_LINKS.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    {...internalAnchorProps(item.href)}
+                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="min-w-0">
+            <p className="font-heading font-semibold mb-4">Policies</p>
+            <ul className="space-y-2">
+              {POLICY_LINKS.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    {...internalAnchorProps(item.href)}
+                    className="ha-nudge inline-block rounded px-1 font-body text-sm text-white/60 transition-colors hover:text-green"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
