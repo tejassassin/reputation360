@@ -133,6 +133,9 @@ function Hero() {
   const headlineLine =
     "block text-[1.85rem] leading-[1.15] text-white md:text-[2.5rem] lg:text-[3rem] xl:text-[3.35rem]";
 
+  const headlineLineReputation =
+    "block text-[1.85rem] leading-[1.15] text-white md:text-[2.5rem] lg:whitespace-nowrap lg:text-[2.35rem] xl:text-[2.65rem] 2xl:text-[2.85rem]";
+
   return (
     <section
       ref={sectionRef}
@@ -156,9 +159,9 @@ function Hero() {
                 className="r360-hero-dot-grid pointer-events-none absolute inset-0 z-0 opacity-[0.38] md:opacity-[0.42]"
                 aria-hidden
               />
-              <h1 className="relative z-10 text-left font-heading font-bold tracking-tight">
+              <h1 className="relative z-10 max-w-full text-left font-heading font-bold tracking-tight">
                 <span className={headlineLine}>Take control of your</span>
-                <span className={`mt-1.5 block ${headlineLine} md:mt-2 lg:whitespace-nowrap`}>
+                <span className={`mt-1.5 max-w-full md:mt-2 ${headlineLineReputation}`}>
                   Online Reputation{" "}
                   <span className="inline rounded-md bg-[#6d5bd0] px-2.5 py-0.5 text-white md:px-3 md:py-1">
                     on your terms
