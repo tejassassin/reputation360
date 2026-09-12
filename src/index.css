@@ -289,15 +289,10 @@
     container-type: inline-size;
     container-name: hero-copy;
     max-width: 100%;
-    overflow-x: clip;
   }
 
   .r360-hero-headline-line {
-    font-size: clamp(1.4rem, 6.1cqw, 2.6rem);
-  }
-
-  .r360-hero-reputation-line {
-    white-space: nowrap;
+    font-size: clamp(2.15rem, 5.8cqw, 3.15rem);
   }
 }
 

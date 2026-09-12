@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { Search } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import { submitContactInquiry } from "../constants/contact.js";
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
 import { FREE_REPUTATION_SCAN_LABEL } from "../constants/freeRiskScan.js";
@@ -16,12 +16,12 @@ const PHONE_COUNTRIES = [
 ];
 
 const fieldClass =
-  "w-full rounded-xl border bg-white px-4 py-[1.125rem] text-base text-charcoal outline-none transition placeholder:text-slate-400 focus:border-green focus:ring-2 focus:ring-green/25";
+  "w-full rounded-lg border border-slate-200 bg-white px-3.5 py-3 text-[15px] text-charcoal outline-none transition placeholder:text-slate-400 focus:border-green focus:ring-2 focus:ring-green/20";
 
 const labelClass =
-  "mb-2.5 block font-heading text-sm font-bold uppercase tracking-[0.08em] text-navy";
+  "mb-1.5 block font-heading text-[11px] font-bold uppercase tracking-[0.07em] text-navy";
 
-function HomeContactLeadForm({ compact = false }) {
+function HomeContactLeadForm() {
   const baseId = useId().replace(/[^a-zA-Z0-9_-]/g, "x");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -73,27 +73,25 @@ function HomeContactLeadForm({ compact = false }) {
   }
 
   return (
-    <div className="w-full overflow-hidden rounded-3xl bg-white shadow-[0_32px_90px_-28px_rgba(8,18,36,0.72)] ring-2 ring-white/20">
-      <div
-        className={`flex items-start gap-4 border-b border-slate-100 sm:px-9 ${compact ? "px-5 py-4" : "px-8 py-7"}`}
-      >
-        <span className="mt-0.5 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-green text-white shadow-[0_8px_20px_-6px_rgba(76,175,80,0.55)]">
-          <Search className="h-6 w-6" strokeWidth={2.25} aria-hidden />
-        </span>
-        <div>
-          <p
-            className={`font-heading font-bold text-navy ${compact ? "text-lg leading-snug" : "text-[1.85rem] leading-snug sm:text-3xl"}`}
-          >
-            Get a Free Reputation Analysis
-          </p>
-          <p className="mt-2 font-body text-base text-steel sm:text-[17px]">
-            A specialist responds within 2 business hours
-          </p>
+    <div className="w-full min-w-0 overflow-hidden rounded-2xl bg-white shadow-[0_20px_50px_-16px_rgba(0,0,0,0.45)] ring-1 ring-black/5">
+      <div className="border-b-2 border-green px-5 pb-4 pt-5 sm:px-6 sm:pb-5 sm:pt-6">
+        <div className="flex items-start gap-3">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-green text-white sm:h-12 sm:w-12">
+            <Search className="h-5 w-5" strokeWidth={2.25} aria-hidden />
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="font-heading text-lg font-bold leading-snug text-navy sm:text-xl">
+              Free Reputation Analysis
+            </p>
+            <p className="mt-0.5 font-body text-xs text-steel sm:text-sm">
+              Free · Confidential · 2 business hours
+            </p>
+          </div>
         </div>
       </div>
 
       {sent ? (
-        <div className="px-6 py-10 text-center sm:px-8" role="status">
+        <div className="px-5 py-10 text-center sm:px-6" role="status">
           <p className="font-heading text-lg font-bold text-navy">
             Thanks - we received your request.
           </p>
@@ -112,10 +110,10 @@ function HomeContactLeadForm({ compact = false }) {
       ) : (
         <form
           onSubmit={onSubmit}
-          className={compact ? "px-5 py-5 sm:px-6 sm:py-5" : "px-8 py-9 sm:px-10 sm:py-10"}
+          className="flex min-h-[22.5rem] flex-col px-5 py-5 sm:min-h-[23.5rem] sm:px-6 sm:py-6"
         >
-          <div className={`grid grid-cols-1 sm:grid-cols-2 ${compact ? "gap-3" : "gap-5"}`}>
-            <div>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="min-w-0">
               <label className={labelClass} htmlFor={`${baseId}-fn`}>
                 First name <span className="text-red-600">*</span>
               </label>
@@ -127,10 +125,10 @@ function HomeContactLeadForm({ compact = false }) {
                 placeholder="John"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className={`${fieldClass} border-slate-200`}
+                className={fieldClass}
               />
             </div>
-            <div>
+            <div className="min-w-0">
               <label className={labelClass} htmlFor={`${baseId}-ln`}>
                 Last name <span className="text-red-600">*</span>
               </label>
@@ -142,12 +140,12 @@ function HomeContactLeadForm({ compact = false }) {
                 placeholder="Smith"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className={`${fieldClass} border-slate-200`}
+                className={fieldClass}
               />
             </div>
           </div>
 
-          <div className={compact ? "mt-3" : "mt-5"}>
+          <div className="mt-3.5">
             <label className={labelClass} htmlFor={`${baseId}-em`}>
               Email address <span className="text-red-600">*</span>
             </label>
@@ -160,15 +158,15 @@ function HomeContactLeadForm({ compact = false }) {
               placeholder="john@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`${fieldClass} border-slate-200`}
+              className={fieldClass}
             />
           </div>
 
-          <div className={compact ? "mt-3" : "mt-5"}>
+          <div className="mt-3.5">
             <label className={labelClass} htmlFor={`${baseId}-ph`}>
               Phone number <span className="text-red-600">*</span>
             </label>
-            <div className="flex gap-2">
+            <div className="flex min-w-0 gap-2">
               <label className="sr-only" htmlFor={`${baseId}-cc`}>
                 Country code
               </label>
@@ -176,7 +174,7 @@ function HomeContactLeadForm({ compact = false }) {
                 id={`${baseId}-cc`}
                 value={countryIdx}
                 onChange={(e) => setCountryIdx(e.target.value)}
-                className={`${fieldClass} w-[6.75rem] shrink-0 border-slate-200 px-2`}
+                className="w-[5.5rem] shrink-0 rounded-lg border border-slate-200 bg-white px-2 py-3 text-[15px] text-charcoal outline-none focus:border-green focus:ring-2 focus:ring-green/20"
               >
                 {PHONE_COUNTRIES.map((c, i) => (
                   <option key={c.id ?? `${c.label}-${c.code}`} value={String(i)}>
@@ -193,7 +191,7 @@ function HomeContactLeadForm({ compact = false }) {
                 placeholder="(201) 555-0123"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className={`${fieldClass} border-slate-200`}
+                className={`${fieldClass} min-w-0 flex-1`}
               />
             </div>
           </div>
@@ -201,7 +199,7 @@ function HomeContactLeadForm({ compact = false }) {
           {error ? (
             <p
               role="alert"
-              className="mt-4 rounded-lg border border-red-200 bg-red-50 px-3 py-2.5 text-sm text-red-800"
+              className="mt-3 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800"
             >
               {error}
             </p>
@@ -210,34 +208,11 @@ function HomeContactLeadForm({ compact = false }) {
           <button
             type="submit"
             disabled={submitting}
-            className={`ha-pill w-full rounded-xl bg-green font-heading text-lg font-bold text-white shadow-[0_10px_28px_-8px_rgba(76,175,80,0.55)] transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70 ${compact ? "mt-4 py-3 text-[15px]" : "mt-7 py-5 text-xl"}`}
+            className="ha-pill mt-auto flex w-full items-center justify-center gap-2 rounded-lg bg-green py-3.5 font-heading text-base font-bold text-white shadow-[0_8px_22px_-6px_rgba(76,175,80,0.55)] transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70 sm:text-lg"
           >
             {submitting ? "Sending..." : "Get My Free Analysis"}
+            {!submitting ? <ArrowRight className="h-5 w-5" aria-hidden /> : null}
           </button>
-
-          <p className="mt-4 text-center font-body text-sm font-medium text-navy sm:text-base">
-            No obligation consultation · 100% confidential
-          </p>
-
-          <p className="mt-3 text-center font-body text-xs leading-relaxed text-steel sm:text-sm">
-            By submitting you agree to our{" "}
-            <a
-              href="/terms-of-service"
-              {...internalAnchorProps("/terms-of-service")}
-              className="font-semibold text-green underline underline-offset-2"
-            >
-              Terms of Service
-            </a>{" "}
-            and{" "}
-            <a
-              href="/privacy-policy"
-              {...internalAnchorProps("/privacy-policy")}
-              className="font-semibold text-green underline underline-offset-2"
-            >
-              Privacy Policy
-            </a>
-            .
-          </p>
         </form>
       )}
     </div>
