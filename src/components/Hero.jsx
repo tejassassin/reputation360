@@ -139,7 +139,7 @@ function Hero() {
       className="r360-hero-bg flex max-h-[100dvh] min-h-[100dvh] flex-col overflow-hidden text-white max-md:pt-[calc(env(safe-area-inset-top)+5rem)] md:pt-[calc(env(safe-area-inset-top)+6.5rem)] lg:pt-[calc(env(safe-area-inset-top)+7rem)]"
     >
       <div className="relative mx-auto flex w-full max-w-[calc(100vw-4rem)] flex-1 items-center px-5 py-4 text-left sm:max-w-[calc(100vw-6rem)] sm:px-6 md:max-w-[calc(100vw-9rem)] md:px-8 lg:max-w-[calc(100vw-12rem)] lg:px-10 xl:max-w-[calc(100vw-16rem)] xl:px-12 2xl:max-w-[calc(100vw-20rem)] 2xl:px-14">
-        <div className="grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_30rem] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_32rem] xl:gap-12">
+        <div className="grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_36rem] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_42rem] xl:gap-12 2xl:grid-cols-[minmax(0,1fr)_44rem]">
           <div className="min-w-0">
             <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 sm:px-4 sm:py-2">
               <span className="relative flex h-2 w-2">
@@ -151,7 +151,7 @@ function Hero() {
               </span>
             </div>
 
-            <div className="relative mt-4 overflow-hidden md:mt-5">
+            <div className="relative mt-4 md:mt-5">
               <div
                 className="r360-hero-dot-grid pointer-events-none absolute inset-0 z-0 opacity-[0.38] md:opacity-[0.42]"
                 aria-hidden

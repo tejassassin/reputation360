@@ -16,10 +16,10 @@ const PHONE_COUNTRIES = [
 ];
 
 const fieldClass =
-  "w-full rounded-lg border bg-white px-4 py-3.5 text-base text-charcoal outline-none transition placeholder:text-slate-400 focus:border-green focus:ring-2 focus:ring-green/25";
+  "w-full rounded-xl border bg-white px-4 py-[1.125rem] text-base text-charcoal outline-none transition placeholder:text-slate-400 focus:border-green focus:ring-2 focus:ring-green/25";
 
 const labelClass =
-  "mb-2 block font-heading text-xs font-bold uppercase tracking-[0.08em] text-navy";
+  "mb-2.5 block font-heading text-sm font-bold uppercase tracking-[0.08em] text-navy";
 
 function HomeContactLeadForm({ compact = false }) {
   const baseId = useId().replace(/[^a-zA-Z0-9_-]/g, "x");
@@ -73,20 +73,20 @@ function HomeContactLeadForm({ compact = false }) {
   }
 
   return (
-    <div className="w-full overflow-hidden rounded-2xl bg-white shadow-[0_24px_56px_-20px_rgba(8,18,36,0.55)] ring-1 ring-navy/10">
+    <div className="w-full overflow-hidden rounded-3xl bg-white shadow-[0_32px_90px_-28px_rgba(8,18,36,0.72)] ring-2 ring-white/20">
       <div
-        className={`flex items-start gap-3 border-b border-slate-100 sm:px-7 ${compact ? "px-5 py-4" : "px-6 py-5"}`}
+        className={`flex items-start gap-4 border-b border-slate-100 sm:px-9 ${compact ? "px-5 py-4" : "px-8 py-7"}`}
       >
-        <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-green text-white">
-          <Search className="h-5 w-5" strokeWidth={2.25} aria-hidden />
+        <span className="mt-0.5 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-green text-white shadow-[0_8px_20px_-6px_rgba(76,175,80,0.55)]">
+          <Search className="h-6 w-6" strokeWidth={2.25} aria-hidden />
         </span>
         <div>
           <p
-            className={`font-heading font-bold text-navy ${compact ? "text-lg leading-snug" : "text-xl leading-snug sm:text-2xl"}`}
+            className={`font-heading font-bold text-navy ${compact ? "text-lg leading-snug" : "text-[1.85rem] leading-snug sm:text-3xl"}`}
           >
             Get a Free Reputation Analysis
           </p>
-          <p className="mt-1 font-body text-sm text-steel">
+          <p className="mt-2 font-body text-base text-steel sm:text-[17px]">
             A specialist responds within 2 business hours
           </p>
         </div>
@@ -112,9 +112,9 @@ function HomeContactLeadForm({ compact = false }) {
       ) : (
         <form
           onSubmit={onSubmit}
-          className={compact ? "px-5 py-5 sm:px-6 sm:py-5" : "px-6 py-7 sm:px-8 sm:py-8"}
+          className={compact ? "px-5 py-5 sm:px-6 sm:py-5" : "px-8 py-9 sm:px-10 sm:py-10"}
         >
-          <div className={`grid grid-cols-1 sm:grid-cols-2 ${compact ? "gap-3" : "gap-4"}`}>
+          <div className={`grid grid-cols-1 sm:grid-cols-2 ${compact ? "gap-3" : "gap-5"}`}>
             <div>
               <label className={labelClass} htmlFor={`${baseId}-fn`}>
                 First name <span className="text-red-600">*</span>
@@ -147,7 +147,7 @@ function HomeContactLeadForm({ compact = false }) {
             </div>
           </div>
 
-          <div className={compact ? "mt-3" : "mt-4"}>
+          <div className={compact ? "mt-3" : "mt-5"}>
             <label className={labelClass} htmlFor={`${baseId}-em`}>
               Email address <span className="text-red-600">*</span>
             </label>
@@ -164,7 +164,7 @@ function HomeContactLeadForm({ compact = false }) {
             />
           </div>
 
-          <div className={compact ? "mt-3" : "mt-4"}>
+          <div className={compact ? "mt-3" : "mt-5"}>
             <label className={labelClass} htmlFor={`${baseId}-ph`}>
               Phone number <span className="text-red-600">*</span>
             </label>
@@ -210,16 +210,16 @@ function HomeContactLeadForm({ compact = false }) {
           <button
             type="submit"
             disabled={submitting}
-            className={`ha-pill w-full rounded-lg bg-green font-heading font-bold text-white shadow-sm transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70 ${compact ? "mt-4 py-3 text-[15px]" : "mt-6 py-4 text-lg"}`}
+            className={`ha-pill w-full rounded-xl bg-green font-heading text-lg font-bold text-white shadow-[0_10px_28px_-8px_rgba(76,175,80,0.55)] transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70 ${compact ? "mt-4 py-3 text-[15px]" : "mt-7 py-5 text-xl"}`}
           >
             {submitting ? "Sending..." : "Get My Free Analysis"}
           </button>
 
-          <p className="mt-3 text-center font-body text-sm font-medium text-navy">
+          <p className="mt-4 text-center font-body text-sm font-medium text-navy sm:text-base">
             No obligation consultation · 100% confidential
           </p>
 
-          <p className="mt-3 text-center font-body text-xs leading-relaxed text-steel">
+          <p className="mt-3 text-center font-body text-xs leading-relaxed text-steel sm:text-sm">
             By submitting you agree to our{" "}
             <a
               href="/terms-of-service"

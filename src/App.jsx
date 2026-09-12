@@ -3,7 +3,6 @@ import "./App.css";
 import Header from "./components/Header";
 import { BreadcrumbBar } from "./components/BreadcrumbBar.jsx";
 import DeferredFooter from "./components/DeferredFooter.jsx";
-import DeferredGlobalContactDock from "./components/DeferredGlobalContactDock.jsx";
 import { applyNewTabToAnchors } from "./lib/internalLinkProps.js";
 
 function App({ children }) {
@@ -36,7 +35,6 @@ function App({ children }) {
         {children}
         <DeferredFooter />
       </div>
-      <DeferredGlobalContactDock />
     </>
   );
 }
