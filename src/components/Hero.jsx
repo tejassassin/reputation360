@@ -131,10 +131,7 @@ function Hero() {
     );
 
   const headlineLine =
-    "block text-[1.85rem] leading-[1.15] text-white md:text-[2.5rem] lg:text-[3rem] xl:text-[3.35rem]";
-
-  const headlineLineReputation =
-    "block text-[1.85rem] leading-[1.15] text-white md:text-[2.5rem] lg:whitespace-nowrap lg:text-[2.35rem] xl:text-[2.65rem] 2xl:text-[2.85rem]";
+    "r360-hero-headline-line block max-w-full leading-[1.15] text-white max-lg:text-[1.85rem] md:max-lg:text-[2.5rem]";
 
   return (
     <section
@@ -143,7 +140,7 @@ function Hero() {
     >
       <div className="relative mx-auto flex w-full max-w-[calc(100vw-4rem)] flex-1 items-center px-5 py-4 text-left sm:max-w-[calc(100vw-6rem)] sm:px-6 md:max-w-[calc(100vw-9rem)] md:px-8 lg:max-w-[calc(100vw-12rem)] lg:px-10 xl:max-w-[calc(100vw-16rem)] xl:px-12 2xl:max-w-[calc(100vw-20rem)] 2xl:px-14">
         <div className="grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_36rem] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_42rem] xl:gap-12 2xl:grid-cols-[minmax(0,1fr)_44rem]">
-          <div className="min-w-0">
+          <div className="r360-hero-copy-column min-w-0">
             <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 sm:px-4 sm:py-2">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-75 max-md:hidden animate-ping" />
@@ -161,9 +158,9 @@ function Hero() {
               />
               <h1 className="relative z-10 max-w-full text-left font-heading font-bold tracking-tight">
                 <span className={headlineLine}>Take control of your</span>
-                <span className={`mt-1.5 max-w-full md:mt-2 ${headlineLineReputation}`}>
+                <span className={`${headlineLine} r360-hero-reputation-line mt-1.5 md:mt-2`}>
                   Online Reputation{" "}
-                  <span className="inline rounded-md bg-[#6d5bd0] px-2.5 py-0.5 text-white md:px-3 md:py-1">
+                  <span className="inline whitespace-nowrap rounded-md bg-[#6d5bd0] px-2 py-0.5 text-white md:px-2.5 md:py-1 lg:px-2 xl:px-2.5">
                     on your terms
                   </span>
                 </span>
@@ -191,7 +188,7 @@ function Hero() {
             />
           </div>
 
-          <div className="min-w-0 lg:justify-self-end lg:pr-0">
+          <div className="relative z-20 min-w-0 lg:justify-self-end lg:pr-0">
             <HomeContactLeadForm />
           </div>
         </div>
