@@ -129,8 +129,8 @@ function Header() {
       : "high";
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex h-[var(--r360-header-height)] items-center bg-navy shadow-[0_10px_36px_rgba(0,0,0,0.2)]">
-      <div className="r360-site-container flex h-full w-full min-w-0 items-center">
-        <Navbar className="relative w-full">
+      <div className="r360-site-container r360-header-inner flex h-full min-w-0 items-center">
+        <Navbar className="relative min-w-0 w-full max-w-full">
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo
@@ -143,7 +143,7 @@ function Header() {
           <div
             className={cn(
               "relative z-20 flex shrink-0 items-center justify-end gap-2 sm:gap-3",
-              "lg:col-start-3 lg:row-start-1 lg:border-l lg:border-white/20 lg:pl-6",
+              "lg:col-start-3 lg:row-start-1 lg:border-l lg:border-white/20 lg:pl-4",
             )}
           >
             <NavbarButton

@@ -1,8 +1,7 @@
 import { useId, useState } from "react";
-import { Search, TrendingDown, TrendingUp } from "lucide-react";
+import { Search, TrendingUp } from "lucide-react";
 import {
   JORDAN_MERCER_AFTER_RESULTS,
-  JORDAN_MERCER_BEFORE_RESULTS,
   JORDAN_MERCER_DEMO_NAME,
   JORDAN_MERCER_QUERY_TAIL,
 } from "../data/jordanMercerSerpDemo.js";
@@ -33,7 +32,7 @@ function homeBadge(row) {
 }
 
 /**
- * SERP mockup with Before / After toggle (decorative results only; toggle is interactive).
+ * SERP mockup with Before / After control (decorative; results stay the positive set).
  */
 export default function WhatWeBelieveSearchMockup() {
   const [phase, setPhase] = useState("after");
@@ -43,7 +42,7 @@ export default function WhatWeBelieveSearchMockup() {
 
   return (
     <div
-      className="relative flex h-full min-h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0A111B] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.45)]"
+      className="r360-serp-mockup relative flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0A111B] shadow-[0_16px_32px_-12px_rgba(0,0,0,0.4)]"
       data-r360-serp-mockup=""
     >
       <div
@@ -56,12 +55,12 @@ export default function WhatWeBelieveSearchMockup() {
         aria-hidden
       />
 
-      <div className="absolute right-3 top-3 z-20 sm:right-4 sm:top-4">
+      <div className="absolute right-2.5 top-2.5 z-20 sm:right-3 sm:top-3">
         <div
           id={tablistId}
           role="tablist"
-          aria-label="Compare search results before and after the engagement"
-          className="flex rounded-full border border-white/15 bg-[#111827]/95 p-0.5 shadow-md backdrop-blur-sm"
+          aria-label="Compare search results before and after"
+          className="flex rounded-full border border-white/15 bg-[#111827]/95 p-0.5 shadow-sm backdrop-blur-sm"
         >
           <button
             type="button"
@@ -71,7 +70,7 @@ export default function WhatWeBelieveSearchMockup() {
             aria-controls={`${tablistId}-panel`}
             onClick={() => setPhase("before")}
             className={[
-              "min-h-[2.25rem] rounded-full px-2.5 py-1.5 font-heading text-[9px] font-bold uppercase tracking-wide transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] sm:min-h-0 sm:px-3 sm:text-[10px]",
+              "min-h-[2rem] rounded-full px-2 py-1 font-heading text-[9px] font-bold uppercase tracking-wide transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] sm:min-h-0 sm:px-2.5 sm:py-1 sm:text-[10px]",
               !isAfter
                 ? "bg-white text-[#0A111B] shadow"
                 : "text-slate-300 hover:bg-white/10 hover:text-white",
@@ -87,13 +86,13 @@ export default function WhatWeBelieveSearchMockup() {
             aria-controls={`${tablistId}-panel`}
             onClick={() => setPhase("after")}
             className={[
-              "min-h-[2.25rem] rounded-full px-2.5 py-1.5 font-heading text-[9px] font-bold uppercase tracking-wide transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] sm:min-h-0 sm:px-3 sm:text-[10px]",
+              "min-h-[2rem] rounded-full px-2 py-1 font-heading text-[9px] font-bold uppercase tracking-wide transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4CAF50] sm:min-h-0 sm:px-2.5 sm:py-1 sm:text-[10px]",
               isAfter
                 ? "bg-white text-[#0A111B] shadow"
                 : "text-slate-300 hover:bg-white/10 hover:text-white",
             ].join(" ")}
           >
-            After · 11 months
+            After
           </button>
         </div>
       </div>
@@ -102,9 +101,9 @@ export default function WhatWeBelieveSearchMockup() {
         id={`${tablistId}-panel`}
         role="tabpanel"
         aria-labelledby={isAfter ? `${tablistId}-after` : `${tablistId}-before`}
-        className="relative flex flex-1 flex-col px-4 pb-4 pt-12 sm:px-5 sm:pb-5 sm:pt-14"
+        className="r360-serp-mockup-panel relative flex min-h-0 flex-1 flex-col px-3.5 pb-3 pt-9 sm:px-4 sm:pb-3.5 sm:pt-10 lg:px-4 lg:pb-3 lg:pt-9"
       >
-        <div className="mb-3 flex items-center gap-2.5 rounded-xl border border-white/[0.08] bg-[#17212F] px-3 py-2.5 sm:gap-3 sm:px-4">
+        <div className="mb-2 flex items-center gap-2 rounded-xl border border-white/[0.08] bg-[#17212F] px-3 py-2 sm:gap-2.5 sm:px-3.5 lg:py-1.5">
           <Search className="h-4 w-4 shrink-0 text-slate-400" strokeWidth={2} aria-hidden />
           <p className="min-w-0 flex-1 text-left text-sm text-white sm:text-base">
             <span className="font-medium">{JORDAN_MERCER_DEMO_NAME.toLowerCase()}</span>{" "}
@@ -113,11 +112,10 @@ export default function WhatWeBelieveSearchMockup() {
           <span className={`shrink-0 ${urlMetaClass}`}>{urlDisplayText("google.com")}</span>
         </div>
 
-        <ul className="space-y-2 sm:space-y-2.5" key={phase}>
-          {(isAfter ? JORDAN_MERCER_AFTER_RESULTS : JORDAN_MERCER_BEFORE_RESULTS).map((row) => (
+        <ul className="space-y-1.5 sm:space-y-2 lg:space-y-1.5">
+          {JORDAN_MERCER_AFTER_RESULTS.map((row) => (
             <SerpResultRow
-              key={`${phase}-${row.num}`}
-              variant={isAfter ? "positive" : "negative"}
+              key={row.num}
               num={row.num}
               title={row.title}
               url={row.url}
@@ -126,7 +124,7 @@ export default function WhatWeBelieveSearchMockup() {
           ))}
         </ul>
 
-        <div className="mt-3 flex items-center justify-center gap-x-2 border-t border-white/10 pt-3 text-center sm:justify-start sm:text-left">
+        <div className="mt-2 flex items-center justify-center gap-x-2 border-t border-white/10 pt-2 text-center sm:justify-start sm:text-left lg:mt-1.5 lg:pt-2">
           <span className="inline-flex items-center gap-1.5">
             <span
               className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-[#4CAF50] motion-reduce:animate-none"
@@ -143,44 +141,20 @@ export default function WhatWeBelieveSearchMockup() {
 }
 
 function TrendBadge({ direction, value }) {
-  const up = direction === "up";
   return (
-    <span
-      className={
-        up
-          ? "inline-flex items-center gap-0.5 rounded-md border border-emerald-500/35 bg-emerald-500/10 px-1.5 py-1 font-heading text-[10px] font-bold text-emerald-300 sm:text-[11px]"
-          : "inline-flex items-center gap-0.5 rounded-md border border-red-500/40 bg-red-950/40 px-1.5 py-1 font-heading text-[10px] font-bold text-red-200 sm:text-[11px]"
-      }
-    >
-      {up ? (
-        <TrendingUp className="h-3 w-3 sm:h-3.5 sm:w-3.5" aria-hidden />
-      ) : (
-        <TrendingDown className="h-3 w-3 sm:h-3.5 sm:w-3.5" aria-hidden />
-      )}
+    <span className="inline-flex items-center gap-0.5 rounded-md border border-emerald-500/35 bg-emerald-500/10 px-1.5 py-1 font-heading text-[10px] font-bold text-emerald-300 sm:text-[11px]">
+      <TrendingUp className="h-3 w-3 sm:h-3.5 sm:w-3.5" aria-hidden />
       {value}
     </span>
   );
 }
 
-function SerpResultRow({ variant, num, title, url, badge }) {
-  const positive = variant === "positive";
+function SerpResultRow({ num, title, url, badge }) {
   return (
     <li>
-      <div
-        className={
-          positive
-            ? "rounded-xl border border-[#1B2E2A] bg-[#141C2B] px-3 py-2.5 shadow-sm sm:px-3.5"
-            : "rounded-xl border border-red-500/25 bg-[#141C2B] px-3 py-2.5 shadow-sm ring-1 ring-red-500/10 sm:px-3.5"
-        }
-      >
+      <div className="rounded-xl border border-[#1B2E2A] bg-[#141C2B] px-3 py-2.5 shadow-sm sm:px-3.5 lg:py-2">
         <div className="flex gap-2.5 sm:gap-3">
-          <span
-            className={
-              positive
-                ? "w-7 shrink-0 pt-0.5 text-right font-heading text-xs font-bold tabular-nums text-[#4CAF50] sm:text-sm"
-                : "w-7 shrink-0 pt-0.5 text-right font-heading text-xs font-bold tabular-nums text-red-400 sm:text-sm"
-            }
-          >
+          <span className="w-7 shrink-0 pt-0.5 text-right font-heading text-xs font-bold tabular-nums text-[#4CAF50] sm:text-sm">
             {num}
           </span>
           <div className="min-w-0 flex-1">

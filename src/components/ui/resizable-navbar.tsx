@@ -67,9 +67,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
 function scrolledNavShellClass(visible: boolean) {
   return cn(
     "transition-[box-shadow,background-color] duration-300 ease-out",
-    /* Opaque bar after scroll so hero/content never bleeds through gaps (was read as overlap). */
-    visible &&
-      "bg-navy shadow-[0_16px_68px_rgba(47,48,55,0.12),0_0_0_1px_rgba(255,255,255,0.08)]",
+    visible && "bg-navy shadow-[0_16px_68px_rgba(47,48,55,0.12)]",
   );
 }
 
@@ -77,9 +75,8 @@ export const NavBody = ({ children, className, visible = false }: NavBodyProps) 
   return (
     <div
       className={cn(
-        "relative z-[60] mx-auto hidden w-full min-w-0 max-w-none items-center gap-x-4 gap-y-0 self-start rounded-full bg-transparent px-0 py-1 sm:px-1",
-        /* lg+: logo | nav links | CTAs on one row */
-        "lg:grid lg:grid-cols-[auto_minmax(max-content,1fr)_auto] lg:grid-rows-1 lg:items-center lg:gap-x-7 lg:py-2 xl:gap-x-8 2xl:gap-x-10",
+        "relative z-[60] mx-auto hidden w-full min-w-0 max-w-none items-center gap-x-4 gap-y-0 self-start bg-transparent px-0 py-1 sm:px-1",
+        "lg:grid lg:grid-cols-[auto_minmax(max-content,1fr)_auto] lg:grid-rows-1 lg:items-center lg:gap-x-5 lg:py-2 xl:gap-x-6 2xl:gap-x-7",
         scrolledNavShellClass(visible),
         className,
       )}

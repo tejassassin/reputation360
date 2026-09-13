@@ -6,18 +6,18 @@ import WhatWeBelieveSearchMockup, {
 const insights = [
   {
     icon: CircleUserRound,
-    title: "Everyone has a chapter they've moved past.",
-    text: "We're not in the business of hiding the truth. We're in the business of making sure it's not the only thing anyone sees.",
+    title: "Your past shouldn't be the only story people see.",
+    text: "Reputation management helps ensure that outdated or one-sided information does not overshadow who you are today.",
   },
   {
     icon: Layers,
-    title: "Accurate search results protect your professional reputation.",
-    text: "Your online impression should reflect who you are today, not an outdated, misleading, or one-sided version of you.",
+    title: "Balanced search results protect your professional reputation.",
+    text: "Your online presence should reflect who you are today, not an outdated, misleading or one-sided version of you.",
   },
   {
     icon: Timer,
-    title: "The longer you wait, the more it costs to fix.",
-    text: "Left unaddressed, negative content gains authority and grows harder to displace. Acting early keeps timelines shorter and costs lower.",
+    title: "The longer you wait, the harder it becomes to change.",
+    text: "Left unaddressed, negative content can gain authority and become more difficult to displace. Acting early can shorten the path to stronger results.",
   },
 ];
 
@@ -28,64 +28,59 @@ const insights = [
 function WhatWeBelieve() {
   return (
     <section
-      className="border-t border-slate-200/80 bg-gradient-to-b from-offwhite to-white"
+      className="r360-what-we-believe-section border-t border-slate-200/80 bg-gradient-to-b from-offwhite to-white"
       data-r360-section="what-we-believe"
       data-r360-visual="serp-mockup"
       aria-labelledby="what-we-believe-heading"
     >
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12 lg:px-8 lg:py-16">
-        <div className="mb-8 lg:mb-10">
+      <div className="r360-site-container r360-what-we-believe-shell">
+        <div className="r360-what-we-believe-title-wrap">
           <h2
             id="what-we-believe-heading"
-            className="font-heading text-3xl font-bold leading-tight text-navy md:text-4xl"
+            className="r360-what-we-believe-title font-heading font-bold text-navy"
           >
             Why Online Reputation Management Matters
           </h2>
         </div>
 
-        <div className="relative mb-10 overflow-hidden rounded-2xl border border-navy/12 bg-gradient-to-br from-white to-offwhite p-5 shadow-sm ring-1 ring-slate-200/60 md:p-8 lg:mb-12">
+        <div className="r360-what-we-believe-intro relative overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-[0_1px_3px_rgba(31,59,100,0.06)]">
           <div
-            className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#4CAF50]/10 blur-2xl"
+            className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-[#4CAF50]/8 blur-2xl"
             aria-hidden
           />
-          <div className="relative space-y-4 md:space-y-5">
-            <p className="font-heading text-base font-semibold leading-relaxed text-navy md:text-xl">
-              Your Google search results are your new CV.
+          <div className="relative r360-what-we-believe-intro-inner">
+            <p className="r360-what-we-believe-intro-lead font-heading font-semibold text-navy">
+              Your Google search results are your new résumé.
             </p>
-            <p className="font-body text-lg leading-relaxed text-steel">
-              Before a client signs a contract, before an investor takes a call, before a candidate
-              gets hired, someone searches your name. What shows up in those first ten results, in
-              the AI overview decides the story they believe. Not your
-              résumé. Not your pitch deck. The search results.
+            <p className="r360-what-we-believe-intro-body font-body text-steel">
+              Before a client signs a contract, an investor takes a call, or an employer makes a
+              decision, they search your name. What appears in the first ten results and in
+              Google&apos;s AI Overviews shapes the story they believe. Not your résumé. Not your
+              pitch deck. Your search results.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-x-12 lg:items-start">
-          <div className="flex min-w-0 flex-col lg:col-span-6">
-            <div className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-100/80">
-              <ul className="divide-y divide-slate-200/90">
+        <div className="r360-what-we-believe-columns grid grid-cols-1 lg:items-start">
+          <div className="flex min-w-0 flex-col">
+            <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_1px_3px_rgba(15,23,42,0.05)]">
+              <ul className="divide-y divide-slate-200/80">
                 {insights.map((item) => {
                   const Icon = item.icon;
                   return (
                     <li key={item.title}>
-                      <div
-                        className="group relative flex gap-4 border-l-[3px] border-transparent p-5 transition-all duration-300 ease-out motion-reduce:transition-none sm:gap-5 sm:p-6 motion-reduce:hover:translate-y-0 hover:-translate-y-0.5 hover:border-[#4CAF50] hover:bg-gradient-to-r hover:from-[#4CAF50]/[0.08] hover:to-transparent hover:shadow-[0_8px_24px_-8px_rgba(31,59,100,0.15)]"
-                      >
+                      <div className="r360-what-we-believe-point group relative flex border-l-[3px] border-transparent transition-colors duration-300 ease-out motion-reduce:transition-none hover:border-[#4CAF50] hover:bg-[#4CAF50]/[0.06]">
                         <div
-                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-offwhite text-navy ring-1 ring-navy/10 transition-all duration-300 ease-out group-hover:scale-105 group-hover:bg-[#4CAF50]/15 group-hover:ring-[#4CAF50]/35 motion-reduce:group-hover:scale-100"
+                          className="r360-what-we-believe-point-icon flex shrink-0 items-center justify-center rounded-2xl bg-offwhite text-navy ring-1 ring-navy/10 transition-colors duration-300 group-hover:bg-[#4CAF50]/15 group-hover:ring-[#4CAF50]/35"
                           aria-hidden
                         >
-                          <Icon
-                            className="h-5 w-5 transition-transform duration-300 group-hover:rotate-3 motion-reduce:group-hover:rotate-0"
-                            strokeWidth={1.75}
-                          />
+                          <Icon className="h-[1.125rem] w-[1.125rem]" strokeWidth={1.75} />
                         </div>
-                        <div className="min-w-0 pt-0.5">
-                          <h3 className="font-heading text-lg font-bold leading-snug text-navy">
+                        <div className="min-w-0 flex-1">
+                          <h3 className="r360-what-we-believe-point-title font-heading font-bold text-navy">
                             {item.title}
                           </h3>
-                          <p className="font-body mt-2 text-lg leading-relaxed text-steel transition-colors duration-300 group-hover:text-slate-600">
+                          <p className="r360-what-we-believe-point-text font-body text-steel">
                             {item.text}
                           </p>
                         </div>
@@ -97,25 +92,12 @@ function WhatWeBelieve() {
             </div>
           </div>
 
-          <div className="flex w-full min-w-0 justify-center lg:col-span-6 lg:justify-end">
-            {/* Same hover motion as About Reputation360 image: .ha-lift (smooth scale + shadow ring). */}
-            <div className="relative isolate w-full max-w-none">
+          <div className="flex w-full min-w-0 justify-center lg:justify-end">
+            <div className="r360-what-we-believe-visual relative isolate w-full max-w-none">
               <div
-                className="pointer-events-none absolute -inset-3 rounded-[1.75rem] bg-gradient-to-br from-[#4CAF50]/10 via-transparent to-[#0A111B]/25 blur-xl sm:-inset-4"
-                aria-hidden
-              />
-              <div
-                className="ha-lift relative z-10 transform-gpu rounded-2xl border border-slate-200/90 bg-slate-950/5 p-1 ring-1 ring-slate-900/5 shadow-[0_28px_80px_-28px_rgba(0,0,0,0.5),0_14px_36px_-12px_rgba(10,17,27,0.35),0_25px_50px_-12px_rgba(0,0,0,0.22)]"
+                className="ha-lift relative z-10 rounded-2xl border border-slate-200/70 bg-slate-950/5 p-0.5 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.35)]"
               >
                 <figure className="relative flex w-full flex-col overflow-hidden rounded-[0.875rem] bg-transparent">
-                  <div
-                    className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-[#4CAF50]/15 blur-3xl"
-                    aria-hidden
-                  />
-                  <div
-                    className="pointer-events-none absolute -bottom-12 -left-12 h-32 w-32 rounded-full bg-[#0A111B]/20 blur-3xl"
-                    aria-hidden
-                  />
                   <img
                     id="what-we-believe-serp-alt"
                     src="/what-we-believe-serp-mockup.png"
@@ -126,7 +108,7 @@ function WhatWeBelieve() {
                     className="sr-only"
                   />
                   <div
-                    className="relative flex min-h-0 flex-1 flex-col"
+                    className="relative flex min-h-0 flex-col"
                     role="group"
                     aria-labelledby="what-we-believe-serp-alt"
                     onClickCapture={(e) => {
@@ -139,8 +121,8 @@ function WhatWeBelieve() {
                   >
                     <WhatWeBelieveSearchMockup />
                   </div>
-                  <figcaption className="relative border-t border-slate-200/80 bg-white/90 px-4 py-3 text-center font-body text-sm leading-relaxed text-slate-700 backdrop-blur-sm sm:px-5 sm:text-left">
-                    How you appear in search is the first impression many people trust - it should match
+                  <figcaption className="r360-what-we-believe-caption relative border-t border-slate-200/70 bg-white px-3.5 py-2 text-center font-body text-sm leading-snug text-slate-700 sm:px-4 sm:text-left">
+                    How you appear in search is often the first impression people trust. It should reflect
                     who you are today.
                   </figcaption>
                 </figure>

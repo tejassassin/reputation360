@@ -24,8 +24,12 @@ const PHONE_COUNTRIES = [
   { code: "+", label: "Other", flag: "🌐", id: "other" },
 ];
 
-const fieldClass =
-  "r360-form-field w-full border border-slate-200 bg-white text-charcoal outline-none transition placeholder:text-slate-400 focus:border-green focus:ring-2 focus:ring-green/20";
+const fieldClass = "r360-form-field w-full min-w-0";
+
+const phoneCountryClass =
+  "r360-form-field r360-form-field-select r360-phone-country w-[5.75rem] shrink-0";
+
+const phoneInputClass = "r360-form-field r360-phone-input min-w-0 flex-1";
 
 const labelClass =
   "mb-2 block font-heading text-[11px] font-bold uppercase tracking-[0.07em] text-navy";
@@ -86,10 +90,13 @@ function HomeContactLeadForm() {
       id={FREE_CONSULTATION_ID}
       className="r360-hero-lead-form min-w-0 overflow-hidden bg-white"
     >
-      <div className="r360-form-header-wrap border-b-2 border-green">
+      <div className="r360-form-header-wrap">
         <div className="flex items-start gap-3.5 sm:gap-4">
-          <span className="r360-form-icon shrink-0" aria-hidden>
-            <Search strokeWidth={2.15} className="r360-form-icon-search" />
+          <span className="r360-form-icon shrink-0" aria-hidden="true">
+            <span className="r360-form-icon-pulse" aria-hidden="true"></span>
+            <span className="r360-form-icon-core">
+              <Search strokeWidth={2.3} />
+            </span>
           </span>
           <div className="min-w-0 flex-1">
             <p
@@ -100,10 +107,11 @@ function HomeContactLeadForm() {
               Get a Free Consultation
             </p>
             <p className="r360-form-header-sub mt-1 font-body text-steel">
-              Free · Confidential · 15-minute consultation
+              Free · Confidential · 15 minutes
             </p>
           </div>
         </div>
+        <hr className="r360-form-header-divider" />
       </div>
 
       {sent ? (
@@ -135,7 +143,7 @@ function HomeContactLeadForm() {
                 name="firstName"
                 autoComplete="given-name"
                 required
-                placeholder="John"
+                placeholder="Michael"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 className={fieldClass}
@@ -150,7 +158,7 @@ function HomeContactLeadForm() {
                 name="lastName"
                 autoComplete="family-name"
                 required
-                placeholder="Smith"
+                placeholder="Carter"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 className={fieldClass}
@@ -168,7 +176,7 @@ function HomeContactLeadForm() {
               type="email"
               autoComplete="email"
               required
-              placeholder="john@example.com"
+              placeholder="michael.carter@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className={fieldClass}
@@ -179,7 +187,7 @@ function HomeContactLeadForm() {
             <label className={labelClass} htmlFor={`${baseId}-ph`}>
               Phone number <span className="text-red-600">*</span>
             </label>
-            <div className="flex min-w-0 gap-2">
+            <div className="r360-phone-group flex min-w-0 gap-2">
               <label className="sr-only" htmlFor={`${baseId}-cc`}>
                 Country code
               </label>
@@ -187,7 +195,7 @@ function HomeContactLeadForm() {
                 id={`${baseId}-cc`}
                 value={countryIdx}
                 onChange={(e) => setCountryIdx(e.target.value)}
-                className="r360-form-field-select w-[5.75rem] shrink-0 border border-slate-200 bg-white text-charcoal outline-none focus:border-green focus:ring-2 focus:ring-green/20"
+                className={phoneCountryClass}
               >
                 {PHONE_COUNTRIES.map((c, i) => (
                   <option key={c.id ?? `${c.label}-${c.code}`} value={String(i)}>
@@ -201,10 +209,10 @@ function HomeContactLeadForm() {
                 type="tel"
                 autoComplete="tel"
                 required
-                placeholder="(201) 555-0123"
+                placeholder="(212) 555-0147"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className={`${fieldClass} min-w-0 flex-1`}
+                className={phoneInputClass}
               />
             </div>
           </div>
@@ -221,7 +229,7 @@ function HomeContactLeadForm() {
           <button
             type="submit"
             disabled={submitting}
-            className="r360-form-submit ha-pill r360-form-field-group mt-2 flex w-full items-center justify-center gap-2 bg-green font-heading font-bold text-white shadow-[0_10px_28px_-8px_rgba(76,175,80,0.55)] transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70"
+            className="r360-form-submit ha-pill r360-form-field-group mt-0 flex w-full items-center justify-center gap-2 bg-green font-heading font-bold text-white shadow-[0_10px_28px_-8px_rgba(76,175,80,0.55)] transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {submitting ? "Sending..." : "Request My Free Consultation"}
             {!submitting ? <ArrowRight className="h-5 w-5 shrink-0" aria-hidden /> : null}
@@ -229,17 +237,38 @@ function HomeContactLeadForm() {
 
           <div className="r360-form-benefits-footer">
             <ul className="r360-form-benefits">
-              <li className="r360-form-benefit-item">
-                <Search className="r360-form-benefit-icon" strokeWidth={2} aria-hidden />
-                <span>Search Results Review</span>
+              <li className="r360-form-benefit">
+                <Search strokeWidth={2} aria-hidden="true" />
+                <span className="r360-form-benefit-label">
+                  <span aria-hidden="true">
+                    Search Results
+                    <br />
+                    Review
+                  </span>
+                  <span className="sr-only">Search Results Review</span>
+                </span>
               </li>
-              <li className="r360-form-benefit-item">
-                <ClipboardCheck className="r360-form-benefit-icon" strokeWidth={2} aria-hidden />
-                <span>Practical Recommendations</span>
+              <li className="r360-form-benefit">
+                <ClipboardCheck strokeWidth={2} aria-hidden="true" />
+                <span className="r360-form-benefit-label">
+                  <span aria-hidden="true">
+                    Practical
+                    <br />
+                    Recommendations
+                  </span>
+                  <span className="sr-only">Practical Recommendations</span>
+                </span>
               </li>
-              <li className="r360-form-benefit-item">
-                <Route className="r360-form-benefit-icon" strokeWidth={2} aria-hidden />
-                <span>Clear Action Plan</span>
+              <li className="r360-form-benefit">
+                <Route strokeWidth={2} aria-hidden="true" />
+                <span className="r360-form-benefit-label">
+                  <span aria-hidden="true">
+                    Clear Action
+                    <br />
+                    Plan
+                  </span>
+                  <span className="sr-only">Clear Action Plan</span>
+                </span>
               </li>
             </ul>
           </div>

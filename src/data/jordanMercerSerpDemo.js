@@ -35,24 +35,24 @@ export const JORDAN_MERCER_BEFORE_RESULTS = [
 export const JORDAN_MERCER_AFTER_RESULTS = [
   {
     num: "01",
-    title: `${JORDAN_MERCER_DEMO_NAME} - Investment leadership & insights`,
-    url: `arcadiacapitalgroup.com/leadership/${JORDAN_MERCER_DEMO_SLUG}`,
+    title: "Jordan Mercer: Investment Leadership and Insights",
+    url: `example.com/${JORDAN_MERCER_DEMO_SLUG}`,
     snippet: "Founder bio and leadership profile on a domain you control.",
     trend: "up",
     value: "+5",
   },
   {
     num: "02",
-    title: `Forbes - ${JORDAN_MERCER_DEMO_NAME} on the new playbook for navigating market volatility`,
-    url: `forbes.com/sites/leadership/${JORDAN_MERCER_DEMO_SLUG}-market-volatility`,
+    title: "Industry Journal: Jordan Mercer on Navigating Market Volatility",
+    url: `industryjournal.example/${JORDAN_MERCER_DEMO_SLUG}`,
     snippet: "Byline and thought leadership on navigating market volatility.",
     trend: "new",
     value: "NEW",
   },
   {
     num: "03",
-    title: `LinkedIn - ${JORDAN_MERCER_DEMO_NAME} · Founder`,
-    url: `linkedin.com/in/${JORDAN_MERCER_DEMO_SLUG}`,
+    title: "LinkedIn: Jordan Mercer, Founder",
+    url: `profile.example/${JORDAN_MERCER_DEMO_SLUG}`,
     snippet:
       "Updated headline, experience, and recommendations aligned with your narrative.",
     trend: "up",
