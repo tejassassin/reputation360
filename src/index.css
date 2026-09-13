@@ -756,7 +756,8 @@
   .r360-site-container.r360-what-we-believe-shell,
   .r360-site-container.r360-what-we-do-shell,
   .r360-site-container.r360-our-services-shell,
-  .r360-site-container.r360-home-testimonials-shell {
+  .r360-site-container.r360-home-testimonials-shell,
+  .r360-site-container.r360-who-we-serve-shell {
     width: calc(100% - var(--r360-layout-inline-inset));
     max-width: var(--r360-home-inner-max-width);
     margin-inline: auto;
@@ -1462,4 +1463,53 @@
 
 .r360-home-testimonials-track .react-multi-carousel-item > * {
   width: 100%;
+}
+
+/* Home - Who We Help audience cards */
+.r360-who-we-serve-heading {
+  text-wrap: balance;
+}
+
+.r360-who-we-serve-card {
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease,
+    background 220ms ease;
+}
+
+.r360-who-we-serve-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(76, 175, 80, 0.45);
+  box-shadow:
+    0 14px 42px -10px rgba(31, 59, 100, 0.5),
+    0 10px 36px -8px rgba(8, 18, 36, 0.55);
+}
+
+.r360-who-we-serve-card:focus-visible {
+  outline: 2px solid rgba(76, 175, 80, 0.75);
+  outline-offset: 3px;
+}
+
+.r360-who-we-serve-card-arrow {
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease,
+    color 220ms ease;
+}
+
+.r360-who-we-serve-card:hover .r360-who-we-serve-card-arrow {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .r360-who-we-serve-card,
+  .r360-who-we-serve-card:hover {
+    transform: none;
+  }
+
+  .r360-who-we-serve-card:hover .r360-who-we-serve-card-arrow {
+    transform: none;
+  }
 }

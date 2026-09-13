@@ -14,7 +14,7 @@ import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 export const WHO_WE_SERVE_AUDIENCES = [
   {
     id: "individuals",
-    title: "Individuals Reputation Management",
+    title: "Individual Reputation Management",
     description:
       "Take control of what people find when they search your name online.",
     linkLabel: "Personal Reputation Management Services",
@@ -32,7 +32,7 @@ export const WHO_WE_SERVE_AUDIENCES = [
   },
   {
     id: "executives",
-    title: "Executives Reputation Management",
+    title: "Executive Reputation Management",
     description:
       "Make sure your leadership and impact are what people find first when they search your name.",
     linkLabel: "Executive Reputation Repair Solutions",
@@ -41,7 +41,7 @@ export const WHO_WE_SERVE_AUDIENCES = [
   },
   {
     id: "doctors",
-    title: "Doctor and Healthcare Professional Reputation Management",
+    title: "Reputation Management for Doctors",
     description:
       "Keep search results working in your favor, so your practice is represented the way it should be.",
     linkLabel: "Healthcare Reputation Management Services",
@@ -50,7 +50,7 @@ export const WHO_WE_SERVE_AUDIENCES = [
   },
   {
     id: "lawyers",
-    title: "Lawyers and Attorneys Reputation Management",
+    title: "Reputation Management for Lawyers",
     description:
       "Keep your professional standing positive when legal press and records surface in search.",
     linkLabel: "Lawyer Reputation Management Solutions",
@@ -59,7 +59,7 @@ export const WHO_WE_SERVE_AUDIENCES = [
   },
   {
     id: "real-estate",
-    title: "Real Estate Agents Reputation Management",
+    title: "Real Estate Agent Reputation Management",
     description:
       "Build client trust by keeping your search results positive.",
     linkLabel: "Real Estate Reputation Management Solutions",
@@ -68,7 +68,7 @@ export const WHO_WE_SERVE_AUDIENCES = [
   },
   {
     id: "job-seekers",
-    title: "Job Seekers Reputation Management",
+    title: "Reputation Management for Job Seekers",
     description:
       "Put your best foot forward when employers and recruiters search you on Google.",
     linkLabel: "Personal Branding for Job Seekers",
