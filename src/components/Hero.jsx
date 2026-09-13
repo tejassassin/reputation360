@@ -68,18 +68,15 @@ function Hero() {
             <div className="relative r360-hero-headline-block">
               <div className="r360-hero-dot-grid pointer-events-none absolute inset-0 z-0" aria-hidden />
               <h1 className="r360-hero-headline relative z-10 text-left font-heading">
-                <span className={headlineLine}>Take control of your</span>
-                <span className={`${headlineLine} r360-hero-headline-line--reputation`}>
-                  <span className="r360-hero-headline-reputation-row">
-                    Online Reputation{" "}
-                    <Highlight className="r360-hero-headline-terms max-md:!px-1 max-md:!pb-0">
-                      on your terms
-                    </Highlight>
-                  </span>
+                <span className={headlineLine}>Take Control of Your</span>
+                <span className={headlineLine}>Online Reputation</span>
+                <span className={headlineLine}>
+                  <Highlight className="r360-hero-headline-terms max-md:!px-1 max-md:!pb-0">
+                    on Your Terms
+                  </Highlight>
+                  ,
                 </span>
-                <span className={`${headlineLine} text-white/90`}>
-                  not Google&apos;s or AI&apos;s
-                </span>
+                <span className={headlineLine}>Not Google&apos;s or AI&apos;s</span>
               </h1>
             </div>
 

@@ -9,16 +9,18 @@ export function BreadcrumbBar() {
 
   const normalized = pathname.replace(/\/+$/, "") || "/";
   const isAbout = normalized === "/about";
+  const isContact = normalized === "/contact";
+  const heroUnderNavBreadcrumb = isAbout || isContact;
 
   return (
     <div
       className={
-        isAbout
+        heroUnderNavBreadcrumb
           ? "r360-breadcrumb-bar r360-breadcrumb-bar--about w-full shrink-0"
           : "r360-breadcrumb-bar w-full shrink-0 pt-28 md:pt-32"
       }
     >
-      <Breadcrumb pathname={pathname} compact={isAbout} />
+      <Breadcrumb pathname={pathname} compact={heroUnderNavBreadcrumb} />
     </div>
   );
 }

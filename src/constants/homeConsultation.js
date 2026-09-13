@@ -25,6 +25,11 @@ export const ABOUT_BOTTOM_CONSULTATION_ID = "about-bottom-consultation";
 
 export const ABOUT_BOTTOM_CONSULTATION_HEADING_ID = "about-bottom-consultation-heading";
 
+/** Contact page hero lead form. */
+export const CONTACT_HERO_CONSULTATION_ID = "contact-hero-consultation";
+
+export const CONTACT_HERO_CONSULTATION_HEADING_ID = "contact-hero-consultation-heading";
+
 export function isHomePath() {
   if (typeof window === "undefined") return false;
   return (window.location.pathname.replace(/\/+$/, "") || "/") === "/";

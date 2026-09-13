@@ -20,6 +20,8 @@ import {
   ABOUT_HERO_CONSULTATION_ID,
   ABOUT_BOTTOM_CONSULTATION_HEADING_ID,
   ABOUT_BOTTOM_CONSULTATION_ID,
+  CONTACT_HERO_CONSULTATION_HEADING_ID,
+  CONTACT_HERO_CONSULTATION_ID,
 } from "../constants/homeConsultation.js";
 import { trackHomeLeadFormSubmit } from "../lib/conversionAnalytics.js";
 
@@ -44,13 +46,15 @@ const labelClass =
 
 /**
  * @param {object} props
- * @param {"hero" | "home_closing" | "about-hero" | "about-bottom"} [props.instance]
+ * @param {"hero" | "home_closing" | "about-hero" | "about-bottom" | "contact-hero"} [props.instance]
  * @param {boolean} [props.showHeader]
  * @param {string} [props.submitLabel]
  * @param {boolean} [props.showBenefitsFooter]
+ * @param {"default" | "wide"} [props.layout]
  */
 function HomeContactLeadForm({
   instance = "hero",
+  layout = "default",
   showHeader = true,
   submitLabel,
   showBenefitsFooter = true,
@@ -60,6 +64,7 @@ function HomeContactLeadForm({
     home_closing: "r360-home-closing-lead",
     "about-hero": "r360-about-hero-lead",
     "about-bottom": "r360-about-bottom-lead",
+    "contact-hero": "r360-contact-hero-lead",
   };
   const baseId = stableBaseIdByInstance[instance] ?? reactGeneratedBaseId;
   const successRef = useRef(null);
@@ -76,6 +81,8 @@ function HomeContactLeadForm({
   const isClosing = instance === "home_closing";
   const isAboutHero = instance === "about-hero";
   const isAboutBottom = instance === "about-bottom";
+  const isContactHero = instance === "contact-hero";
+  const isWideLayout = layout === "wide";
   const phoneCountryClassName = isClosing
     ? "r360-form-field r360-form-field-select r360-phone-country r360-phone-country--closing shrink-0"
     : phoneCountryClass;
@@ -85,38 +92,51 @@ function HomeContactLeadForm({
       ? ABOUT_HERO_CONSULTATION_ID
       : isAboutBottom
         ? ABOUT_BOTTOM_CONSULTATION_ID
-        : FREE_CONSULTATION_ID;
+        : isContactHero
+          ? CONTACT_HERO_CONSULTATION_ID
+          : FREE_CONSULTATION_ID;
   const headerHeadingId = isClosing
     ? HOME_CLOSING_LEAD_HEADING_ID
     : isAboutHero
       ? ABOUT_HERO_CONSULTATION_HEADING_ID
       : isAboutBottom
         ? ABOUT_BOTTOM_CONSULTATION_HEADING_ID
-        : FREE_CONSULTATION_HEADING_ID;
+        : isContactHero
+          ? CONTACT_HERO_CONSULTATION_HEADING_ID
+          : FREE_CONSULTATION_HEADING_ID;
   const statusHeadingId = isClosing
     ? HOME_CLOSING_LEAD_HEADING_ID
     : isAboutHero
       ? `${ABOUT_HERO_CONSULTATION_ID}-status`
       : isAboutBottom
         ? `${ABOUT_BOTTOM_CONSULTATION_ID}-status`
-        : FREE_CONSULTATION_HEADING_ID;
+        : isContactHero
+          ? `${CONTACT_HERO_CONSULTATION_ID}-status`
+          : FREE_CONSULTATION_HEADING_ID;
   const formId = `${baseId}-lead-form`;
   const buttonLabel =
     submitLabel ?? "Request My Free Consultation";
+  const formHeaderSubline = isContactHero
+    ? "Confidential · 15 minutes · No obligation"
+    : "Free · Confidential · 15 minutes";
   const inquirySubject = isClosing
     ? "Homepage lower consultation form - free consultation request"
     : isAboutHero
       ? "About page hero - free consultation request"
       : isAboutBottom
         ? "About page consultation form - free consultation request"
-        : "Homepage reputation analysis request";
+        : isContactHero
+          ? "Contact page hero - free consultation request"
+          : "Homepage reputation analysis request";
   const sourceLine = isClosing
     ? "Source: Homepage lower consultation form (homepage_lower_consultation_form)"
     : isAboutHero
       ? "Source: About page hero consultation form (about-page-hero)"
       : isAboutBottom
         ? "Source: About page bottom consultation form (about-page-bottom)"
-        : "Source: Homepage contact form";
+        : isContactHero
+          ? "Source: Contact page hero consultation form (contact-page-hero)"
+          : "Source: Homepage contact form";
 
   const country = PHONE_COUNTRIES[Number(countryIdx)] ?? PHONE_COUNTRIES[0];
 
@@ -169,7 +189,7 @@ function HomeContactLeadForm({
   return (
     <div
       id={wrapperId}
-      className={`r360-hero-lead-form min-w-0 bg-white ${isClosing ? "r360-home-closing-lead-form overflow-hidden" : "overflow-hidden"}`}
+      className={`r360-hero-lead-form min-w-0 bg-white ${isWideLayout ? "r360-hero-lead-form--wide" : ""} ${isClosing ? "r360-home-closing-lead-form overflow-hidden" : "overflow-hidden"}`}
     >
       {showHeader ? (
         <div className="r360-form-header-wrap">
@@ -189,7 +209,7 @@ function HomeContactLeadForm({
                 Get a Free Consultation
               </p>
               <p className="r360-form-header-sub mt-1 font-body text-steel">
-                Free · Confidential · 15 minutes
+                {formHeaderSubline}
               </p>
             </div>
           </div>
@@ -234,7 +254,7 @@ function HomeContactLeadForm({
         <form
           id={formId}
           onSubmit={onSubmit}
-          className={`r360-form-body flex flex-col ${isClosing ? "r360-form-body--closing" : ""}`}
+          className={`r360-form-body flex flex-col ${isClosing ? "r360-form-body--closing" : ""} ${isWideLayout ? "r360-form-body--wide" : ""}`}
           noValidate
         >
           {isClosing ? (
@@ -251,6 +271,112 @@ function HomeContactLeadForm({
               </span>
             </p>
           ) : null}
+          {isWideLayout ? (
+            <>
+              <div className="r360-form-wide-row r360-form-wide-row--names">
+                <div className="r360-form-wide-field min-w-0">
+                  <label className={labelClass} htmlFor={`${baseId}-fn`}>
+                    First name <span className="text-red-600">*</span>
+                  </label>
+                  <input
+                    id={`${baseId}-fn`}
+                    name="firstName"
+                    autoComplete="given-name"
+                    required
+                    placeholder="Michael"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    className={fieldClass}
+                  />
+                </div>
+                <div className="r360-form-wide-field min-w-0">
+                  <label className={labelClass} htmlFor={`${baseId}-ln`}>
+                    Last name <span className="text-red-600">*</span>
+                  </label>
+                  <input
+                    id={`${baseId}-ln`}
+                    name="lastName"
+                    autoComplete="family-name"
+                    required
+                    placeholder="Carter"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    className={fieldClass}
+                  />
+                </div>
+              </div>
+
+              <div className="r360-form-wide-row r360-form-wide-row--email">
+                <div className="r360-form-wide-field min-w-0">
+                  <label className={labelClass} htmlFor={`${baseId}-em`}>
+                    Email address <span className="text-red-600">*</span>
+                  </label>
+                  <input
+                    id={`${baseId}-em`}
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    placeholder="michael.carter@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className={fieldClass}
+                  />
+                </div>
+              </div>
+
+              <div className="r360-form-wide-row r360-form-wide-row--contact">
+                <div className="r360-form-wide-field min-w-0">
+                  <label className={labelClass} htmlFor={`${baseId}-ph`}>
+                    Phone number <span className="text-red-600">*</span>
+                  </label>
+                  <div className="r360-phone-group flex min-w-0 gap-2">
+                    <label className="sr-only" htmlFor={`${baseId}-cc`}>
+                      Country code
+                    </label>
+                    <select
+                      id={`${baseId}-cc`}
+                      value={countryIdx}
+                      onChange={(e) => setCountryIdx(e.target.value)}
+                      className={phoneCountryClassName}
+                    >
+                      {PHONE_COUNTRIES.map((c, i) => (
+                        <option key={c.id ?? `${c.label}-${c.code}`} value={String(i)}>
+                          {c.flag} {c.code}
+                        </option>
+                      ))}
+                    </select>
+                    <input
+                      id={`${baseId}-ph`}
+                      name="phone"
+                      type="tel"
+                      autoComplete="tel"
+                      required
+                      placeholder="(212) 555-0147"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className={phoneInputClass}
+                    />
+                  </div>
+                </div>
+                <div className="r360-form-wide-field min-w-0">
+                  <label className={labelClass} htmlFor={`${baseId}-msg`}>
+                    Message <span className="text-[#64748b]">(optional)</span>
+                  </label>
+                  <textarea
+                    id={`${baseId}-msg`}
+                    name="message"
+                    rows={2}
+                    placeholder="Tell us briefly about your situation."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="r360-form-field r360-form-textarea r360-form-textarea--wide-compact w-full min-w-0"
+                  />
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
           <div
             className={`r360-form-field-grid grid ${isClosing ? "grid-cols-1 md:grid-cols-2" : "grid-cols-2"}`}
           >
@@ -368,6 +494,8 @@ function HomeContactLeadForm({
               />
             </div>
           )}
+            </>
+          )}
 
           {error ? (
             <p
@@ -420,34 +548,61 @@ function HomeContactLeadForm({
                 <li className="r360-form-benefit">
                   <Search strokeWidth={2} aria-hidden="true" />
                   <span className="r360-form-benefit-label">
-                    <span aria-hidden="true">
-                      Search Results
-                      <br />
-                      Review
-                    </span>
-                    <span className="sr-only">Search Results Review</span>
+                    {isWideLayout ? (
+                      <>
+                        <span aria-hidden="true">Search Results Review</span>
+                        <span className="sr-only">Search Results Review</span>
+                      </>
+                    ) : (
+                      <>
+                        <span aria-hidden="true">
+                          Search Results
+                          <br />
+                          Review
+                        </span>
+                        <span className="sr-only">Search Results Review</span>
+                      </>
+                    )}
                   </span>
                 </li>
                 <li className="r360-form-benefit">
                   <ClipboardCheck strokeWidth={2} aria-hidden="true" />
                   <span className="r360-form-benefit-label">
-                    <span aria-hidden="true">
-                      Practical
-                      <br />
-                      Recommendations
-                    </span>
-                    <span className="sr-only">Practical Recommendations</span>
+                    {isWideLayout ? (
+                      <>
+                        <span aria-hidden="true">Practical Recommendations</span>
+                        <span className="sr-only">Practical Recommendations</span>
+                      </>
+                    ) : (
+                      <>
+                        <span aria-hidden="true">
+                          Practical
+                          <br />
+                          Recommendations
+                        </span>
+                        <span className="sr-only">Practical Recommendations</span>
+                      </>
+                    )}
                   </span>
                 </li>
                 <li className="r360-form-benefit">
                   <Route strokeWidth={2} aria-hidden="true" />
                   <span className="r360-form-benefit-label">
-                    <span aria-hidden="true">
-                      Clear Action
-                      <br />
-                      Plan
-                    </span>
-                    <span className="sr-only">Clear Action Plan</span>
+                    {isWideLayout ? (
+                      <>
+                        <span aria-hidden="true">Clear Action Plan</span>
+                        <span className="sr-only">Clear Action Plan</span>
+                      </>
+                    ) : (
+                      <>
+                        <span aria-hidden="true">
+                          Clear Action
+                          <br />
+                          Plan
+                        </span>
+                        <span className="sr-only">Clear Action Plan</span>
+                      </>
+                    )}
                   </span>
                 </li>
               </ul>

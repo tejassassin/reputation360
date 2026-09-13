@@ -1,24 +1,16 @@
 import { useEffect, useId, useState } from "react";
-import { Calendar, Mail, ExternalLink, Lock } from "lucide-react";
-import { calendlyNewTabProps } from "../constants/scheduling";
+import { Mail, Lock } from "lucide-react";
 import {
   CONTACT_EMAIL,
   CONTACT_FORM_AUTORESPONSE,
   CONTACT_FORM_SUBMIT_URL,
-  BUSINESS_ADDRESS_DISPLAY,
   contactMailtoHref,
-  contactTelHref,
-  formatBusinessPhoneDisplay,
   handleMailtoClick,
 } from "../constants/contact.js";
+import { ContactHero } from "../components/contact/ContactHero.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
-import { CONTACT_CALENDAR_IMAGE_ALT } from "../constants/imageAlt.js";
 import { SITE_CANONICAL_ORIGIN } from "../constants/siteUrl.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
-import { externalAnchorProps } from "../lib/internalLinkProps.js";
-
-const calendarTabletImage =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuA-iNftxgB4MVtLYmaJLpcpPMCdIk9bo4K2vUXyEA2ZXH-BZhmfhL-8HD6Jt2GOFScH55bygI0bbHScErBYwqc9LNb_6eQBZuMJGi1trXwBsc3cLY_Av8Z34IJp_bM6r1CbUuzjq7-RNw4S1ffC5pcP2vOKqu5G6XAyqQVOS8MtT6wy6zLz3pSH77EgfqPgBDruvU6u1_vrhBJ-BCgrYislzYdg4iPWvU41nIaZO_AVY90uuI5seopRat1VNUXWv2d1Qw5hnw5knwU";
 
 const CONTACT_FORM_THANKS_PATH = "/contact?thanks=1";
 
@@ -253,80 +245,12 @@ function ContactPage() {
         description={seo.description}
         canonicalPath={seo.path}
       />
-    <main className="flex-1 bg-[#f9f9ff] pt-28 md:pt-32">
-      {/* How to Reach Us */}
-      <section
-        id="contact-form"
-        className="scroll-mt-28 px-4 pt-14 pb-14 md:px-8 md:pt-18 md:pb-20"
-      >
+    <main className="flex-1 bg-[#f9f9ff]">
+      <ContactHero />
+
+      <section className="scroll-mt-28 px-4 py-14 md:px-8 md:py-16 md:scroll-mt-32">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-10 md:mb-12">
-            <h1 className="font-heading text-[34px] font-bold leading-[1.02] tracking-tight text-[#02254d] md:text-5xl lg:text-6xl">
-              Contact Reputation360 - Online Reputation Management Experts
-            </h1>
-            <p className="mt-2 text-base font-medium text-[#1F3B64] md:text-lg">
-              How to reach us
-            </p>
-            <p className="mt-3 text-[15px] text-[#43474e] md:text-[16px]">
-              Reach out through whichever channel feels most convenient to you.
-            </p>
-          </div>
-          <h2 className="font-heading text-2xl font-bold tracking-tight text-[#1F3B64] md:text-3xl">
-            Contact Our Reputation Management Team
-          </h2>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-6">
-            {/* Book a Call */}
-            <div className="group ha-lift flex flex-col items-stretch gap-8 rounded-[1.75rem] bg-white p-6 shadow-sm md:col-span-12 md:flex-row md:items-center md:justify-between md:rounded-[2rem] md:p-10">
-              <div className="min-w-0 flex-1">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#02254d]/5 md:mb-6 md:h-14 md:w-14">
-                  <Calendar
-                    className="h-6 w-6 text-[#02254d] md:h-7 md:w-7"
-                    strokeWidth={2}
-                  />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-[#02254d] md:text-2xl lg:text-3xl">
-                  Book a Call
-                </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-[#43474e] md:mt-4 md:text-lg">
-                  Every reputation challenge is different. Book a call with us, and
-                  we&apos;ll take the time to understand your situation, your concerns,
-                  and the outcome you&apos;re hoping to achieve.
-                </p>
-                <a
-                  {...calendlyNewTabProps}
-                  className="ha-pill mt-5 inline-flex rounded-xl bg-cta-consult px-8 py-3.5 text-sm font-bold text-white transition hover:brightness-95 active:scale-[0.98] md:mt-6 md:text-base"
-                >
-                  Schedule Meeting
-                </a>
-              </div>
-              <div className="mx-auto h-52 w-full max-w-xs overflow-hidden rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35),0_12px_24px_-8px_rgba(0,0,0,0.2)] md:mx-0 md:h-64 md:w-64 md:max-w-none md:shrink-0">
-                <img
-                  alt={CONTACT_CALENDAR_IMAGE_ALT}
-                  className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
-                  src={calendarTabletImage}
-                />
-              </div>
-            </div>
-
-            {/* Registered Office */}
-            <div className="ha-lift rounded-[1.75rem] bg-white p-6 shadow-sm md:col-span-12 md:rounded-[2rem] md:p-10">
-              <h3 className="font-heading text-xl font-bold text-[#02254d] md:text-2xl">
-                Registered Office
-              </h3>
-              <address className="mt-3 not-italic text-[15px] leading-relaxed text-[#43474e] md:text-lg">
-                {BUSINESS_ADDRESS_DISPLAY}
-              </address>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#43474e] md:text-lg">
-                Phone:{" "}
-                <a
-                  href={contactTelHref()}
-                  className="font-semibold text-[#1F3B64] underline-offset-2 hover:underline"
-                >
-                  {formatBusinessPhoneDisplay()}
-                </a>
-              </p>
-            </div>
-
             {/* Email + form */}
             <div
               id="email-inquiry"
