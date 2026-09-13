@@ -10,12 +10,9 @@ function HomeFaq() {
     >
       <div className="r360-site-container r360-home-faq-shell">
         <div className="r360-home-faq-intro text-center">
-          <p className="r360-home-faq-eyebrow font-heading text-[11px] font-bold uppercase tracking-[0.2em] text-[#2E7D32] sm:text-xs">
-            COMMON QUESTIONS
-          </p>
           <h2
             id="home-faqs-heading"
-            className="r360-home-faq-heading mt-2 font-heading text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-4xl"
+            className="r360-home-faq-heading font-heading text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-4xl"
           >
             Frequently Asked Questions
           </h2>
