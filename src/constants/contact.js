@@ -14,18 +14,14 @@ export const CONTACT_FORM_AUTORESPONSE =
 export const CONTACT_PAGE_EMAIL_SECTION_HREF = "/contact#email-inquiry";
 
 /**
- * WhatsApp Business number: country code + national number, digits only (no +).
+ * Business phone: country code + national number, digits only (no +).
  * Update when the business line changes.
  */
-export const WHATSAPP_PHONE = "919548997527";
+export const BUSINESS_PHONE = "919548997527";
 
 /** Visible mailing address (matches structured data PostalAddress). */
 export const BUSINESS_ADDRESS_DISPLAY =
   "DLP Phase 2, Gurgaon, Haryana 122002, India";
-
-/** Default message prefilled in the WhatsApp compose box. */
-export const WHATSAPP_PREFILL_MESSAGE =
-  "Hello, I would like to connect with Reputation360.";
 
 export function contactMailtoHref(
   email = CONTACT_EMAIL,
@@ -101,25 +97,13 @@ export function handleMailtoClick(e, email = CONTACT_EMAIL) {
   openMailClient(email);
 }
 
-/**
- * @param {string} [message]
- * @returns {string}
- */
-export function contactWhatsAppHref(message = WHATSAPP_PREFILL_MESSAGE) {
-  const params = new URLSearchParams({
-    phone: WHATSAPP_PHONE,
-    text: message,
-  });
-  return `https://api.whatsapp.com/send?${params.toString()}`;
-}
-
-/** E.164 `tel:` href for the business WhatsApp line. */
-export function contactTelHref(phone = WHATSAPP_PHONE) {
+/** E.164 `tel:` href for the business phone line. */
+export function contactTelHref(phone = BUSINESS_PHONE) {
   return `tel:+${phone}`;
 }
 
 /** Human-readable display for the business phone number. */
-export function formatBusinessPhoneDisplay(phone = WHATSAPP_PHONE) {
+export function formatBusinessPhoneDisplay(phone = BUSINESS_PHONE) {
   if (phone.startsWith("91") && phone.length === 12) {
     return `+91 ${phone.slice(2, 7)} ${phone.slice(7)}`;
   }

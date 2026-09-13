@@ -1,6 +1,5 @@
 import { useEffect, useId, useState } from "react";
 import { Calendar, Mail, ExternalLink, Lock } from "lucide-react";
-import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   CONTACT_EMAIL,
@@ -9,7 +8,6 @@ import {
   BUSINESS_ADDRESS_DISPLAY,
   contactMailtoHref,
   contactTelHref,
-  contactWhatsAppHref,
   formatBusinessPhoneDisplay,
   handleMailtoClick,
 } from "../constants/contact.js";
@@ -248,8 +246,6 @@ function ContactPage() {
     }
   }, []);
 
-  const whatsappHref = contactWhatsAppHref();
-
   return (
     <>
       <SeoHead
@@ -280,7 +276,7 @@ function ContactPage() {
           </h2>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-6">
             {/* Book a Call */}
-            <div className="group ha-lift flex flex-col items-stretch gap-8 rounded-[1.75rem] bg-white p-6 shadow-sm md:col-span-8 md:flex-row md:items-center md:justify-between md:rounded-[2rem] md:p-10">
+            <div className="group ha-lift flex flex-col items-stretch gap-8 rounded-[1.75rem] bg-white p-6 shadow-sm md:col-span-12 md:flex-row md:items-center md:justify-between md:rounded-[2rem] md:p-10">
               <div className="min-w-0 flex-1">
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#02254d]/5 md:mb-6 md:h-14 md:w-14">
                   <Calendar
@@ -310,41 +306,6 @@ function ContactPage() {
                   src={calendarTabletImage}
                 />
               </div>
-            </div>
-
-            {/* WhatsApp */}
-            <div className="ha-lift flex flex-col justify-between rounded-[1.75rem] border-2 border-[#78dc77]/20 bg-[#78dc77]/10 p-6 md:col-span-4 md:rounded-[2rem] md:p-10">
-              <div>
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#78dc77] md:mb-6 md:h-14 md:w-14">
-                  <IconBrandWhatsapp
-                    className="h-7 w-7 text-white md:h-8 md:w-8"
-                    stroke={1.25}
-                    aria-hidden
-                  />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-[#56b958] md:text-2xl">
-                  WhatsApp
-                </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-[#43474e] md:mt-4 md:text-lg">
-                  When something needs immediate attention, this is the fastest way
-                  to reach us.
-                </p>
-                <p className="mt-3 text-[15px] leading-relaxed text-[#43474e] md:text-base">
-                  Or call{" "}
-                  <a href={contactTelHref()} className="font-semibold text-[#1F3B64] underline-offset-2 hover:underline">
-                    {formatBusinessPhoneDisplay()}
-                  </a>
-                  .
-                </p>
-              </div>
-              <a
-                href={whatsappHref}
-                {...externalAnchorProps(whatsappHref)}
-                className="ha-pill mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-[#56b958] px-8 py-3.5 text-sm font-bold text-white hover:opacity-90 active:scale-[0.98] md:mt-8 md:text-base"
-              >
-                Message Now
-                <ExternalLink className="h-4 w-4" strokeWidth={2.25} />
-              </a>
             </div>
 
             {/* Registered Office */}

@@ -353,7 +353,7 @@ export const R360_CHATBOT_ENTRIES = [
     ],
     keywords: ["email", "phone", "number", "callback"],
     reply:
-      "I cannot store personal details inside this chat. Please send your name, best email, and phone through the Contact page or WhatsApp, or book a Calendly slot so the team can follow up securely.",
+      "I cannot store personal details inside this chat. Please send your name, best email, and phone through the Contact page, or book a Calendly slot so the team can follow up securely.",
     cta: { href: "/contact", label: "Go to Contact" },
   },
   {
@@ -384,13 +384,12 @@ export const R360_CHATBOT_ENTRIES = [
     triggers: [
       "reach you",
       "get in touch",
-      "whatsapp",
       "what is your email",
       "how do i contact",
     ],
     keywords: ["contact", "write", "message", "hello"],
     reply:
-      "Email hello@thereputation360.com, tap the WhatsApp icon in this dock, or use the Contact page. Need a live conversation? Calendly is fastest for a consult.",
+      "Email hello@thereputation360.com or use the Contact page. Need a live conversation? Calendly is fastest for a consult.",
     cta: { href: "/contact", label: "Contact page" },
   },
   {

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Mail } from "lucide-react";
-import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import {
   Navbar,
@@ -18,7 +17,6 @@ import { externalAnchorProps, internalAnchorProps } from "../lib/internalLinkPro
 import {
   CONTACT_EMAIL,
   contactMailtoHref,
-  contactWhatsAppHref,
   handleMailtoClick,
 } from "../constants/contact.js";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
@@ -254,16 +252,7 @@ function Header() {
               >
                 {FREE_CONSULTATION_NAV_LABEL}
               </NavbarButton>
-              <div className="flex w-full justify-center gap-4">
-                <a
-                  href={contactWhatsAppHref()}
-                  {...externalAnchorProps(contactWhatsAppHref())}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  aria-label="Chat on WhatsApp with Reputation360"
-                  className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-emerald-500/40 bg-[#25D366]/90 text-white transition hover:bg-[#25D366]"
-                >
-                  <IconBrandWhatsapp className="h-6 w-6 shrink-0" stroke={1.5} aria-hidden />
-                </a>
+              <div className="flex w-full justify-center">
                 <a
                   href={contactMailtoHref()}
                   onClick={(e) => {

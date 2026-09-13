@@ -4,7 +4,6 @@ import {
   IconBrandLinkedin,
   IconBrandX,
   IconBrandFacebook,
-  IconBrandWhatsapp,
 } from "@tabler/icons-react";
 import { canonicalHrefFromPath } from "../../lib/canonicalHrefFromPath.js";
 import { buildBlogShareUrls } from "../../lib/blogShareUrls.js";
@@ -68,7 +67,6 @@ export function BlogShareSection({ title, canonicalPath, className = "" }) {
     { id: "linkedin", label: "LinkedIn", href: shareUrls.linkedIn, Icon: IconBrandLinkedin, iconClass: "text-[#0a66c2]" },
     { id: "x", label: "X", href: shareUrls.x, Icon: IconBrandX, iconClass: "text-[#0f1419]" },
     { id: "facebook", label: "Facebook", href: shareUrls.facebook, Icon: IconBrandFacebook, iconClass: "text-[#1877f2]" },
-    { id: "whatsapp", label: "WhatsApp", href: shareUrls.whatsapp, Icon: IconBrandWhatsapp, iconClass: "text-[#25d366]" },
     { id: "email", label: "Email", href: shareUrls.email, Icon: Mail, iconClass: "text-steel" },
   ];
 

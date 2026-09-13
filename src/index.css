@@ -964,16 +964,30 @@
 }
 
 @media (min-width: 1024px) {
+  .r360-hero-copy-column {
+    container-type: inline-size;
+  }
+
   .r360-hero-headline-line {
     font-size: clamp(2.75rem, 3vw, 3.375rem);
     line-height: 1.1;
+  }
+
+  .r360-hero-headline-line--reputation {
+    font-size: min(2.875rem, 6.75cqw);
+  }
+
+  .r360-hero-headline-line--reputation .r360-hero-headline-reputation-row {
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
   }
 }
 
 .r360-hero-headline .r360-hero-headline-terms {
   display: inline;
   position: static;
-  white-space: normal;
+  white-space: nowrap;
   color: #ffffff;
   border-radius: 0.5rem;
   padding-inline: 0.25rem;
@@ -1067,6 +1081,12 @@
 @media (min-width: 1024px) and (max-width: 1439px) {
   .r360-hero-headline-line {
     font-size: clamp(2.875rem, 2.85vw, 3.125rem);
+  }
+}
+
+@media (min-width: 1440px) {
+  .r360-hero-headline-line--reputation {
+    font-size: min(3.375rem, 6.75cqw);
   }
 }
 
