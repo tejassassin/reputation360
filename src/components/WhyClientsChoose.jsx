@@ -1,78 +1,171 @@
-import React from "react";
-import { Calendar, PenTool, ShieldCheck, Lock, TrendingUp } from "lucide-react";
+import {
+  CalendarClock,
+  CircleDollarSign,
+  Lock,
+  SlidersHorizontal,
+} from "lucide-react";
 
-const items = [
+const SUPPORTING_BENEFITS = [
   {
-    text: "Confidential and discreet from first call to final result",
+    id: "confidential",
+    title: "Confidential and Discreet",
+    description:
+      "Your privacy is protected from the first conversation through every stage of the engagement.",
     icon: Lock,
   },
   {
-    text: "Proven results across Google Search and AI-powered search",
-    icon: ShieldCheck,
+    id: "pricing",
+    title: "Exceptional Service at Competitive Prices",
+    description:
+      "High-quality reputation management delivered by experienced specialists at highly competitive rates.",
+    icon: CircleDollarSign,
   },
   {
-    text: "Premium reputation solutions at highly competitive prices",
-    icon: PenTool,
+    id: "timelines",
+    title: "Clear Timelines and Honest Expectations",
+    description:
+      "Straightforward guidance on what can be improved, how the process works and what results are realistic.",
+    icon: CalendarClock,
   },
   {
-    text: "Transparent timelines and honest expectations, no overpromising",
-    icon: Calendar,
+    id: "personalized",
+    title: "Personalized for Your Reputation",
+    description:
+      "A focused strategy shaped around your search results, priorities and long-term visibility goals.",
+    icon: SlidersHorizontal,
   },
-  { text: "Custom-built plans designed for long-term visibility", icon: TrendingUp },
 ];
+
+function WhyChooseSerpIllustration() {
+  return (
+    <div className="r360-why-choose-serp" aria-hidden>
+      <div className="r360-why-choose-serp-ai">
+        <div className="r360-why-choose-serp-ai-head">
+          <span className="r360-why-choose-serp-title">AI Overview</span>
+          <span className="r360-why-choose-serp-check" aria-hidden>
+            <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none">
+              <path
+                d="M2 6l3 3 5-6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+        </div>
+        <span className="r360-why-choose-serp-line r360-why-choose-serp-line--green" />
+        <span className="r360-why-choose-serp-line r360-why-choose-serp-line--blue" />
+        <span className="r360-why-choose-serp-line r360-why-choose-serp-line--neutral" />
+      </div>
+      <div className="r360-why-choose-serp-google">
+        <div className="r360-why-choose-serp-google-head">
+          <span className="r360-why-choose-serp-title">Google Search</span>
+          <span className="r360-why-choose-serp-check r360-why-choose-serp-check--lg" aria-hidden>
+            <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none">
+              <path
+                d="M2 6l3 3 5-6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+        </div>
+        <span className="r360-why-choose-serp-line r360-why-choose-serp-line--blue r360-why-choose-serp-line--wide" />
+        <span className="r360-why-choose-serp-line r360-why-choose-serp-line--green" />
+        <span className="r360-why-choose-serp-line r360-why-choose-serp-line--neutral" />
+        <span className="r360-why-choose-serp-line r360-why-choose-serp-line--blue-soft" />
+      </div>
+      <div className="r360-why-choose-serp-trend">
+        <svg viewBox="0 0 48 20" className="r360-why-choose-serp-trend-icon" fill="none" aria-hidden>
+          <path
+            d="M2 16l12-10 10 6 14-12"
+            stroke="#4CAF50"
+            strokeWidth="2.25"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M34 4l6-2v6"
+            stroke="#4CAF50"
+            strokeWidth="2.25"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        <span className="r360-why-choose-serp-trend-label">Stronger visibility</span>
+      </div>
+    </div>
+  );
+}
+
+function SupportingBenefitCard({ benefit }) {
+  const Icon = benefit.icon;
+  return (
+    <div className="r360-why-choose-support-card flex h-full min-h-0 flex-col text-left">
+      <div
+        className="mb-2.5 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#4CAF50]/30 bg-[#eef6ff] text-[#2E7D32] shadow-sm"
+        aria-hidden
+      >
+        <Icon className="h-5 w-5 stroke-[2.25]" />
+      </div>
+      <h3 className="font-heading text-[0.98rem] font-bold leading-snug text-navy sm:text-base">
+        {benefit.title}
+      </h3>
+      <p className="mt-1.5 flex-1 font-body text-sm leading-snug text-slate-600">{benefit.description}</p>
+    </div>
+  );
+}
 
 function WhyClientsChoose() {
   return (
     <section
       id="WhyClientsChoose"
-      className="relative w-full overflow-hidden bg-white py-14 text-navy md:py-20 lg:py-24"
+      className="r360-why-choose-section relative w-full overflow-hidden border-b border-slate-200/80 py-9 text-navy md:py-11 lg:py-12"
       aria-labelledby="why-clients-heading"
     >
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-        <div className="mb-12 text-center md:mb-14">
+      <div className="r360-site-container r360-why-choose-shell relative">
+        <div className="mb-4 text-center md:mb-5">
           <h2
             id="why-clients-heading"
-            className="font-heading mx-auto max-w-[22rem] text-balance text-3xl font-bold leading-tight tracking-tight text-navy sm:max-w-none md:text-4xl"
+            className="r360-why-choose-heading mx-auto max-w-4xl font-heading text-2xl font-bold leading-tight tracking-tight text-navy sm:text-3xl lg:text-4xl"
           >
-            Why Clients Choose Reputation360 as Their ORM Company
+            Why Choose Reputation360 for Online Reputation Management
           </h2>
           <div
-            className="mx-auto mt-4 h-0.5 w-16 max-w-full rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
+            className="mx-auto mt-2.5 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
             aria-hidden
           />
+          <p className="r360-why-choose-subtitle mx-auto mt-3 font-body text-base leading-snug text-slate-600 sm:text-[1.05rem]">
+            Specialist support, clear expectations and strategies built for lasting visibility
+            across Google and AI Search.
+          </p>
         </div>
 
-        <ul className="mx-auto grid w-full list-none max-w-5xl grid-cols-2 grid-rows-1 items-stretch justify-items-stretch gap-3.5 p-0 sm:gap-5 md:max-w-6xl md:gap-5 lg:max-w-none lg:grid-cols-5 lg:gap-4">
-          {items.map(({ text, icon: Icon }, i) => {
-            const oddLastInTwoCol =
-              i === items.length - 1 && items.length % 2 === 1;
-            return (
-              <li
-                key={text}
-                className={
-                  oddLastInTwoCol
-                    ? "col-span-2 mx-auto w-full max-w-sm list-none justify-self-center lg:col-span-1 lg:max-w-none"
-                    : "min-w-0 list-none"
-                }
-              >
-                <div
-                  className="group flex h-full min-h-[8.5rem] flex-col items-center justify-start rounded-2xl border border-slate-200/90 bg-white px-3.5 py-5 text-center shadow-sm transition-all duration-300 sm:min-h-0 sm:px-5 sm:py-6 md:py-7 hover:-translate-y-0.5 hover:border-[#4CAF50]/45 hover:shadow-md"
-                >
-                  <div
-                    className="mb-3.5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-[#4CAF50]/30 bg-[#f6fdf3] text-[#4CAF50] transition group-hover:border-[#4CAF50]/55 sm:mb-4"
-                    aria-hidden
-                  >
-                    <Icon className="h-5 w-5" strokeWidth={2.25} />
-                  </div>
-                  <p
-                    className="font-body text-[15px] font-medium leading-relaxed text-navy [text-wrap:balance] sm:text-base sm:leading-relaxed"
-                  >
-                    {text}
-                  </p>
-                </div>
-              </li>
-            );
-          })}
+        <div className="r360-why-choose-featured">
+          <div className="r360-why-choose-featured-copy">
+            <p className="r360-why-choose-featured-label font-heading text-[11px] font-bold uppercase tracking-[0.18em] text-[#8fd99a] sm:text-xs">
+              BUILT FOR GOOGLE AND AI SEARCH
+            </p>
+            <h3 className="mt-2 font-heading text-xl font-bold leading-snug text-white sm:text-2xl">
+              Proven Across Google and AI Search
+            </h3>
+            <p className="r360-why-choose-featured-desc mt-2 max-w-xl font-body text-sm leading-relaxed sm:text-[0.95rem]">
+              Strategies designed to strengthen how you appear in traditional search results and
+              AI-powered experiences.
+            </p>
+          </div>
+          <WhyChooseSerpIllustration />
+        </div>
+
+        <ul className="r360-why-choose-benefits-grid grid list-none grid-cols-1 gap-3 p-0 sm:grid-cols-2 sm:gap-3.5 lg:grid-cols-4 lg:gap-4">
+          {SUPPORTING_BENEFITS.map((benefit) => (
+            <li key={benefit.id} className="flex min-w-0">
+              <SupportingBenefitCard benefit={benefit} />
+            </li>
+          ))}
         </ul>
       </div>
     </section>

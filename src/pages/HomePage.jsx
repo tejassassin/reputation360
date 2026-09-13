@@ -71,7 +71,7 @@ function HomePage({ renderSeo = true }) {
           <WhoWeServeCards />
           <WhyClientsChoose />
         </div>
-        <LazySection minHeight="32rem">
+        <LazySection minHeight="12rem">
           <div>
             <Contact />
             <HomeFaq />

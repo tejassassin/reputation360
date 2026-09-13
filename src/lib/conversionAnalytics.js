@@ -11,12 +11,25 @@ export function trackFreeReputationScanClick(source) {
   }
 }
 
-/** @param {string} source - e.g. header, header_mobile */
+/** @param {string} source - e.g. header, header_mobile, hero */
 export function trackFreeConsultationClick(source) {
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
     window.gtag("event", "free_consultation_click", {
       event_category: "conversion",
       source,
+    });
+  }
+}
+
+/** @param {"hero" | "home_closing"} instance */
+export function trackHomeLeadFormSubmit(instance) {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    const form_location =
+      instance === "home_closing" ? "homepage_lower_consultation_form" : "homepage_hero_consultation_form";
+    window.gtag("event", "home_lead_form_submit", {
+      event_category: "conversion",
+      form_instance: instance,
+      form_location,
     });
   }
 }

@@ -10,6 +10,11 @@ export const FREE_CONSULTATION_NAV_LABEL = "Free Consultation";
 /** Hero primary scan CTA (distinct from nav label). */
 export const HERO_FREE_REPUTATION_SCAN_CTA = "Get Your Free Reputation Scan";
 
+/** Lower homepage lead form (after Why Choose). */
+export const HOME_CLOSING_LEAD_ID = "home-closing-lead-form";
+
+export const HOME_CLOSING_LEAD_HEADING_ID = "home-closing-lead-heading";
+
 export function isHomePath() {
   if (typeof window === "undefined") return false;
   return (window.location.pathname.replace(/\/+$/, "") || "/") === "/";
