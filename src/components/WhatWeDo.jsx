@@ -12,7 +12,7 @@ function WhatWeDo() {
           <div className="r360-what-we-do-copy order-1 min-w-0 lg:order-2">
             <h2
               id="about-reputation360-heading"
-              className="r360-what-we-do-heading font-heading font-bold text-navy"
+              className="r360-what-we-do-heading font-heading text-2xl font-bold leading-[1.15] tracking-tight text-navy sm:text-3xl lg:text-4xl"
             >
               About Reputation360: Building Stronger Reputations Across Google and AI Search
             </h2>

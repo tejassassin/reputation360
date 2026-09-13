@@ -123,7 +123,7 @@ function WhyClientsChoose() {
   return (
     <section
       id="WhyClientsChoose"
-      className="r360-why-choose-section relative w-full overflow-hidden border-b border-slate-200/80 py-9 text-navy md:py-11 lg:py-12"
+      className="r360-why-choose-section relative w-full overflow-hidden border-b border-slate-200/80 text-navy"
       aria-labelledby="why-clients-heading"
     >
       <div className="r360-site-container r360-why-choose-shell relative">

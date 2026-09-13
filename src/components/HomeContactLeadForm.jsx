@@ -295,7 +295,22 @@ function HomeContactLeadForm({
                 className="r360-form-field r360-form-textarea w-full min-w-0 resize-y"
               />
             </div>
-          ) : null}
+          ) : (
+            <div className="r360-form-field-group">
+              <label className={labelClass} htmlFor={`${baseId}-msg`}>
+                Message <span className="text-[#64748b]">(optional)</span>
+              </label>
+              <textarea
+                id={`${baseId}-msg`}
+                name="message"
+                rows={3}
+                placeholder="Tell us briefly about your situation."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className="r360-form-field r360-form-textarea r360-form-textarea--hero w-full min-w-0"
+              />
+            </div>
+          )}
 
           {error ? (
             <p

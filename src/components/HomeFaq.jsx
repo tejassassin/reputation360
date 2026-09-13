@@ -1,42 +1,31 @@
-import { FaqAccordion } from "./FaqAccordion";
-import { HOME_FAQ_ITEMS } from "../data/homeFaqItems.js";
+import HomeFaqAccordionList from "./HomeFaqAccordionList.jsx";
 
 function HomeFaq() {
   return (
     <section
       id="home-faqs"
-      className="border-t border-slate-200/80 bg-gradient-to-b from-offwhite to-white py-14 md:py-20 lg:py-24"
+      className="r360-home-faq-section border-t border-slate-200/80 bg-gradient-to-b from-offwhite to-white"
       aria-labelledby="home-faqs-heading"
       data-r360-section="home-faqs"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 text-center md:mb-12">
+      <div className="r360-site-container r360-home-faq-shell">
+        <div className="r360-home-faq-intro text-center">
+          <p className="r360-home-faq-eyebrow font-heading text-[11px] font-bold uppercase tracking-[0.2em] text-[#2E7D32] sm:text-xs">
+            COMMON QUESTIONS
+          </p>
           <h2
             id="home-faqs-heading"
-            className="font-heading text-3xl font-bold leading-tight text-navy md:text-4xl"
+            className="r360-home-faq-heading mt-2 font-heading text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-4xl"
           >
             Frequently Asked Questions
           </h2>
           <div
-            className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
+            className="mx-auto mt-3 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
             aria-hidden
           />
         </div>
 
-        <div className="mx-auto max-w-4xl space-y-4">
-          {HOME_FAQ_ITEMS.map((item, index) => (
-            <FaqAccordion
-              key={item.id}
-              question={item.question}
-              defaultOpen={index === 0}
-            >
-              <p className="text-[15px] leading-relaxed">{item.answer}</p>
-            </FaqAccordion>
-          ))}
-        </div>
-      <p className="mt-6 text-sm leading-relaxed text-steel">
-        All statistics referenced are from credible sources: Edelman Trust Barometer, Edelman-LinkedIn B2B Thought Leadership Impact Report, Glassdoor Research, LinkedIn B2B Institute, Sprout Social 2023 Index, and Google Ads research. Client identifying details have been withheld.
-      </p>
+        <HomeFaqAccordionList />
       </div>
     </section>
   );

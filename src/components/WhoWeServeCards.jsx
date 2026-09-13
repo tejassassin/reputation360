@@ -5,7 +5,7 @@ import { WhoWeServeAudienceCard } from "./WhoWeServeAudienceCard.jsx";
 export default function WhoWeServeCards() {
   return (
     <section
-      className="relative overflow-hidden border-t border-white/[0.06] py-10 text-white md:py-12 lg:py-14"
+      className="r360-who-we-serve-section relative overflow-hidden border-t border-white/[0.06] text-white"
       aria-labelledby="who-we-serve-heading"
     >
       <BrandSectionBackdrop />
