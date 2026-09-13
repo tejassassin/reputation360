@@ -367,7 +367,7 @@ function HomeContactLeadForm({
                 className="r360-form-field r360-form-textarea w-full min-w-0 resize-y"
               />
             </div>
-          ) : (
+          ) : isAboutBottom ? null : (
             <div className="r360-form-field-group">
               <label className={labelClass} htmlFor={`${baseId}-msg`}>
                 Message <span className="text-[#64748b]">(optional)</span>

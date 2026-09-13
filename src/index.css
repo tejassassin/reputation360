@@ -1749,27 +1749,32 @@
 
 @media (min-width: 960px) {
   .r360-about-final-consultation-grid {
-    grid-template-columns: minmax(0, 44%) minmax(0, 52%);
-    column-gap: clamp(4rem, 5.5vw, 5.5rem);
-    align-items: start;
+    grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+    column-gap: 1.875rem;
+    align-items: stretch;
   }
 }
 
 .r360-about-final-consultation-copy {
-  max-width: 41rem;
+  max-width: 36.25rem;
   min-width: 0;
   text-align: left;
 }
 
 @media (min-width: 960px) {
   .r360-about-final-consultation-copy {
-    margin-top: 0.75rem;
-    align-self: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: start;
+    align-self: stretch;
+    width: 100%;
+    max-width: 36.25rem;
   }
 }
 
 .r360-about-final-consultation-eyebrow {
-  margin-bottom: 1rem;
+  margin-bottom: 0.875rem;
 }
 
 .r360-about-final-consultation-heading {
@@ -1780,19 +1785,42 @@
   text-wrap: balance;
 }
 
-.r360-about-final-consultation-lead {
-  margin-top: 1.5rem;
-  font-size: clamp(1rem, 1.05vw, 1.125rem);
-  line-height: 1.6;
-  max-width: 41rem;
-  text-wrap: pretty;
+.r360-about-final-consultation-heading-divider {
+  margin-top: 1.125rem;
+  width: clamp(4.5rem, 12vw, 5.625rem);
+  height: 0.1875rem;
+  border-radius: 999px;
+  background-color: #4caf50;
 }
 
 .r360-about-final-consultation-reassurance {
-  margin-top: 1.875rem;
+  margin-top: 1.625rem;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.875rem, 1.2vw, 1.125rem);
+  align-items: flex-start;
+  gap: clamp(1rem, 2vw, 1.375rem);
+}
+
+.r360-about-final-consultation-reassurance-text {
+  font-size: clamp(1rem, 1.02vw, 1.0625rem);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.r360-about-final-consultation-check {
+  width: 1.375rem;
+  height: 1.375rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: #4caf50;
+  color: #ffffff;
+}
+
+.r360-about-final-consultation-check svg {
+  width: 0.8125rem;
+  height: 0.8125rem;
+  stroke: currentColor;
 }
 
 .r360-about-final-consultation-form-column {
@@ -1834,6 +1862,10 @@
   }
 }
 
+#about-bottom-consultation .r360-form-submit {
+  margin-bottom: 1.625rem;
+}
+
 @media (min-width: 1440px) {
   .r360-site-container.r360-about-final-consultation-inner {
     display: block;
@@ -1856,20 +1888,13 @@
   width: 100%;
   box-sizing: border-box;
   padding-top: clamp(3rem, 4vw, 3.5rem);
-  padding-bottom: clamp(2.5rem, 4vw, 3.25rem);
+  padding-bottom: clamp(3rem, 4vw, 3.5rem);
 }
 
 @media (min-width: 768px) {
   .r360-contact-hero-inner--wide {
     padding-top: clamp(4rem, 5vw, 5rem);
-    padding-bottom: clamp(3rem, 4.5vw, 3.75rem);
-  }
-}
-
-@media (min-width: 1024px) {
-  .r360-contact-hero-inner--wide {
-    padding-top: clamp(3rem, 4vw, 3.5rem);
-    padding-bottom: clamp(3rem, 4vw, 3.5rem);
+    padding-bottom: clamp(4rem, 5vw, 5rem);
   }
 }
 
@@ -1885,18 +1910,28 @@
     display: grid;
     grid-template-columns: minmax(0, 42%) minmax(0, 58%);
     column-gap: 1.875rem;
-    align-items: center;
+    align-items: stretch;
   }
 }
 
 .r360-contact-hero-copy {
-  max-width: 100%;
+  max-width: 36.25rem;
   min-width: 0;
   text-align: left;
 }
 
+@media (min-width: 960px) {
+  .r360-contact-hero-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
+    max-width: min(36.25rem, 100%);
+  }
+}
+
 .r360-contact-hero-eyebrow {
-  margin-bottom: 1rem;
+  margin-bottom: 0.875rem;
 }
 
 .r360-contact-hero-headline-block {
@@ -1917,23 +1952,49 @@
   }
 }
 
+.r360-contact-hero-heading-divider {
+  margin-top: 1.125rem;
+  width: clamp(4.5rem, 12vw, 5.625rem);
+  height: 0.1875rem;
+  border-radius: 999px;
+  background-color: #4caf50;
+}
+
 .r360-contact-hero-lead {
-  margin-top: 1.375rem;
-  font-size: clamp(1.0625rem, 1.05vw, 1.2rem);
+  margin-top: 1.25rem;
+  max-width: 34rem;
+  font-size: clamp(1.0625rem, 1.05vw, 1.125rem);
   line-height: 1.55;
 }
 
-.r360-contact-hero-body {
-  margin-top: 1.125rem;
-  font-size: clamp(0.9375rem, 0.95vw, 1.0625rem);
-  line-height: 1.6;
-}
-
 .r360-contact-hero-reassurance {
-  margin-top: 1.75rem;
+  margin-top: 1.625rem;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.875rem, 1.2vw, 1.125rem);
+  align-items: flex-start;
+  gap: clamp(1rem, 2vw, 1.375rem);
+}
+
+.r360-contact-hero-reassurance-text {
+  font-size: clamp(1rem, 1.02vw, 1.0625rem);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.r360-contact-hero-check {
+  width: 1.375rem;
+  height: 1.375rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: #4caf50;
+  color: #ffffff;
+}
+
+.r360-contact-hero-check svg {
+  width: 0.8125rem;
+  height: 0.8125rem;
+  stroke: currentColor;
 }
 
 .r360-contact-hero-form-column {

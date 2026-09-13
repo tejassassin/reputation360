@@ -25,28 +25,26 @@ export function AboutFinalConsultationSection() {
             <p className="r360-about-final-consultation-eyebrow mb-0 font-heading text-[11px] font-bold uppercase tracking-[0.2em] text-[#4CAF50] sm:text-xs">
               LET&apos;S TALK
             </p>
+
             <h2
               id="about-final-consultation-heading"
               className="r360-about-final-consultation-heading mb-0 font-heading text-white"
             >
               Take the Next Step Toward a Stronger Online Reputation
             </h2>
-            <p className="r360-about-final-consultation-lead mb-0 font-body text-white/70">
-              Every reputation situation is different. Share a few details with our team, and we will
-              help you understand the available options, realistic timelines and a suitable path forward.
-            </p>
+
+            <div className="r360-about-final-consultation-heading-divider" aria-hidden="true" />
+
             <ul className="r360-about-final-consultation-reassurance mb-0 list-none p-0">
               {reassurancePoints.map((point) => (
                 <li
                   key={point}
-                  className="r360-about-final-consultation-reassurance-item flex items-start gap-2.5 font-body text-white"
+                  className="r360-about-final-consultation-reassurance-item flex items-center gap-3 font-body text-white"
                 >
-                  <Check
-                    className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-[#4CAF50]"
-                    strokeWidth={2.5}
-                    aria-hidden="true"
-                  />
-                  <span>{point}</span>
+                  <span className="r360-about-final-consultation-check shrink-0" aria-hidden="true">
+                    <Check strokeWidth={3} />
+                  </span>
+                  <span className="r360-about-final-consultation-reassurance-text">{point}</span>
                 </li>
               ))}
             </ul>
@@ -54,7 +52,7 @@ export function AboutFinalConsultationSection() {
 
           <div className="r360-about-final-consultation-form-column min-w-0">
             <div className="r360-hero-form-wrap">
-              <HomeContactLeadForm instance="about-bottom" />
+              <HomeContactLeadForm instance="about-bottom" showBenefitsFooter={false} />
             </div>
           </div>
         </div>
