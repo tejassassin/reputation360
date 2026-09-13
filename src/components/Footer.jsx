@@ -26,47 +26,76 @@ const FACEBOOK_PROFILE_URL =
 
 /** All legal / policy pages shown under the Policies column. */
 const POLICY_LINKS = [
-  { name: "Privacy Policy", href: "/privacy-policy" },
-  { name: "Terms and Conditions", href: "/terms-of-service" },
-  { name: "Cookie Policy", href: "/cookie-policy" },
-  { name: "Refund Policy", href: "/refund-policy" },
-  { name: "DMCA / Copyright Policy", href: "/dmca-copyright-policy" },
+  { id: "policy-privacy", name: "Privacy Policy", href: "/privacy-policy" },
+  { id: "policy-terms", name: "Terms and Conditions", href: "/terms-of-service" },
+  { id: "policy-cookie", name: "Cookie Policy", href: "/cookie-policy" },
+  { id: "policy-refund", name: "Refund Policy", href: "/refund-policy" },
+  { id: "policy-dmca", name: "DMCA / Copyright Policy", href: "/dmca-copyright-policy" },
 ];
 
 const QUICK_LINKS = [
-  { name: "About Us", href: "/about" },
-  { name: "Case Studies", href: "/case-studies" },
-  { name: "Contact", href: "/contact" },
-  { name: "Free Reputation Scan", href: "/free-reputation-scan" },
+  { id: "quick-about", name: "About Us", href: "/about" },
+  { id: "quick-case-studies", name: "Case Studies", href: "/case-studies" },
+  { id: "quick-contact", name: "Contact", href: "/contact" },
+  { id: "quick-free-scan", name: "Free Reputation Scan", href: "/free-reputation-scan" },
 ];
 
 const SERVICES_LINKS = [
-  { name: "Online Reputation Management", href: ONLINE_REPUTATION_MANAGEMENT_PATH },
-  { name: "Negative Link Suppression", href: NEGATIVE_LINK_SUPPRESSION_PATH },
   {
+    id: "service-online-reputation-management",
+    name: "Online Reputation Management",
+    href: ONLINE_REPUTATION_MANAGEMENT_PATH,
+  },
+  {
+    id: "service-negative-link-suppression",
+    name: "Negative Link Suppression",
+    href: NEGATIVE_LINK_SUPPRESSION_PATH,
+  },
+  {
+    id: "service-social-media-reputation-management",
     name: "Social Media Reputation Management",
     href: `${REPUTATION_BUILDING_SERVICES_PATH}#services`,
   },
-  { name: "AI Reputation Management", href: ONLINE_REPUTATION_MANAGEMENT_PATH },
-  { name: "Reputation Building Services", href: REPUTATION_BUILDING_SERVICES_PATH },
+  {
+    id: "service-ai-reputation-management",
+    name: "AI Reputation Management",
+    href: ONLINE_REPUTATION_MANAGEMENT_PATH,
+  },
+  {
+    id: "service-reputation-building",
+    name: "Reputation Building Services",
+    href: REPUTATION_BUILDING_SERVICES_PATH,
+  },
 ];
 
 const RESOURCES_LINKS = [
-  { name: "Insights and Blogs", href: "/blog" },
-  { name: "Reputation Management Guide", href: "/resources/guide" },
-  { name: "FAQs", href: "/resources/faqs" },
-  { name: "ORM Glossary", href: "/resources/online-reputation-management-glossary" },
+  { id: "resource-blog", name: "Insights and Blogs", href: "/blog" },
+  { id: "resource-guide", name: "Reputation Management Guide", href: "/resources/guide" },
+  { id: "resource-faqs", name: "FAQs", href: "/resources/faqs" },
+  {
+    id: "resource-glossary",
+    name: "ORM Glossary",
+    href: "/resources/online-reputation-management-glossary",
+  },
 ];
 
 const WHO_WE_SERVE_LINKS = [
-  { name: "Individuals", href: AUDIENCE_PATH.individuals },
-  { name: "Executives and C-Suite Leaders", href: AUDIENCE_PATH.executives },
-  { name: "Doctors and Healthcare Professionals", href: AUDIENCE_PATH.doctors },
-  { name: "Lawyers and Attorneys", href: AUDIENCE_PATH.lawyers },
-  { name: "Financial Advisors", href: AUDIENCE_PATH.financialAdvisors },
-  { name: "Real Estate Agents and Brokers", href: AUDIENCE_PATH.realEstate },
-  { name: "Job Seekers", href: AUDIENCE_PATH.jobSeekers },
-  { name: "Businesses and Companies", href: AUDIENCE_PATH.businesses },
+  { id: "audience-individuals", name: "Individuals", href: AUDIENCE_PATH.individuals },
+  { id: "audience-executives", name: "Executives and C-Suite Leaders", href: AUDIENCE_PATH.executives },
+  {
+    id: "audience-doctors",
+    name: "Doctors and Healthcare Professionals",
+    href: AUDIENCE_PATH.doctors,
+  },
+  { id: "audience-lawyers", name: "Lawyers and Attorneys", href: AUDIENCE_PATH.lawyers },
+  { id: "audience-financial-advisors", name: "Financial Advisors", href: AUDIENCE_PATH.financialAdvisors },
+  {
+    id: "audience-real-estate",
+    name: "Real Estate Agents and Brokers",
+    href: AUDIENCE_PATH.realEstate,
+  },
+  { id: "audience-job-seekers", name: "Job Seekers", href: AUDIENCE_PATH.jobSeekers },
+  { id: "audience-businesses", name: "Businesses and Companies", href: AUDIENCE_PATH.businesses },
 ];
 
 const FOOTER_NAV_GROUPS = [
@@ -86,7 +115,7 @@ function FooterLinkList({ links }) {
   return (
     <ul className="space-y-2.5">
       {links.map((item) => (
-        <li key={item.href}>
+        <li key={item.id}>
           <a href={item.href} {...internalAnchorProps(item.href)} className={linkClassName}>
             {item.name}
           </a>
