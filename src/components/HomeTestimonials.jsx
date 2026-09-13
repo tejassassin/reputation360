@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import { testimonialPortraitAlt } from "../constants/imageAlt.js";
 import { homeTestimonials } from "../data/homeTestimonials.js";
 import { testimonialPortraitUrl } from "../data/testimonialPortraits.js";
@@ -17,11 +17,9 @@ function getInitials(fullName) {
   return (parts[0]?.slice(0, 2) ?? "?").toUpperCase();
 }
 
-const SCROLL_PAD = 0.9;
-
 function ReviewStars() {
   return (
-    <div className="flex w-full justify-center" role="img" aria-label="5 out of 5 stars">
+    <div className="flex w-full justify-start" role="img" aria-label="5 out of 5 stars">
       <div className="inline-flex items-center gap-0.5">
         {[0, 1, 2, 3, 4].map((i) => (
           <Star
@@ -47,7 +45,7 @@ function TestimonialAvatar({ id, name, portraitUrl }) {
   if (useFallback) {
     return (
       <div
-        className="grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-slate-100 text-xs font-semibold text-slate-600 sm:h-11 sm:w-11 sm:text-sm"
+        className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-slate-100 text-xs font-semibold text-slate-600 sm:h-11 sm:w-11 sm:text-sm"
         aria-hidden
       >
         {getInitials(name)}
@@ -55,7 +53,7 @@ function TestimonialAvatar({ id, name, portraitUrl }) {
     );
   }
   return (
-    <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-full border border-slate-200/90 bg-slate-100 sm:h-11 sm:w-11">
+    <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-slate-200/90 bg-slate-100 sm:h-11 sm:w-11">
       <img
         src={src}
         alt={testimonialPortraitAlt(name)}
@@ -69,8 +67,96 @@ function TestimonialAvatar({ id, name, portraitUrl }) {
   );
 }
 
+function chunkTestimonialPages(items, cardsPerPage) {
+  const pages = [];
+  for (let i = 0; i < items.length; i += cardsPerPage) {
+    pages.push(items.slice(i, i + cardsPerPage));
+  }
+  return pages;
+}
+
+function useHomeTestimonialCardsPerPage() {
+  const [cardsPerPage, setCardsPerPage] = useState(3);
+
+  useEffect(() => {
+    const mqDesktop = window.matchMedia("(min-width: 1024px)");
+    const mqTablet = window.matchMedia("(min-width: 640px)");
+
+    const sync = () => {
+      if (mqDesktop.matches) setCardsPerPage(3);
+      else if (mqTablet.matches) setCardsPerPage(2);
+      else setCardsPerPage(1);
+    };
+
+    sync();
+    mqDesktop.addEventListener("change", sync);
+    mqTablet.addEventListener("change", sync);
+    return () => {
+      mqDesktop.removeEventListener("change", sync);
+      mqTablet.removeEventListener("change", sync);
+    };
+  }, []);
+
+  return cardsPerPage;
+}
+
+/**
+ * @param {{ testimonial: { id: string; quote: string; name: string; role: string; portrait?: string } }} props
+ */
+function TestimonialCard({ testimonial: t }) {
+  return (
+    <article className="flex h-full min-h-0 w-full min-w-0 flex-col overflow-hidden rounded-lg border border-slate-200/90 bg-white text-left shadow-sm">
+      <div className="flex h-full flex-col p-4 sm:p-5 md:p-5">
+        <ReviewStars />
+        <h3 className="sr-only">Client review: {t.name}</h3>
+        <blockquote className="mt-3 flex min-h-0 flex-1 gap-2 border-none p-0">
+          <Quote
+            className="mt-0.5 h-4 w-4 shrink-0 text-[#4CAF50]/55"
+            strokeWidth={2}
+            aria-hidden
+          />
+          <p className="min-w-0 flex-1 font-body text-[0.98rem] leading-[1.65] text-slate-800 [text-wrap:pretty] sm:text-base sm:leading-[1.62]">
+            {t.quote}
+          </p>
+        </blockquote>
+        <div className="mt-auto flex flex-col pt-4">
+          <div className="h-px w-full bg-slate-200/90" aria-hidden />
+          <footer className="flex w-full min-w-0 items-start gap-3 pt-4 sm:items-center sm:gap-3.5">
+            <TestimonialAvatar id={t.id} name={t.name} portraitUrl={t.portrait} />
+            <div className="min-w-0 flex-1 text-left">
+              <p className="font-heading text-sm font-bold leading-tight text-navy sm:text-[0.98rem]">
+                {t.name}
+              </p>
+              <p className="mt-0.5 text-pretty text-sm leading-snug text-slate-600">{t.role}</p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </article>
+  );
+}
+
 function HomeTestimonials() {
+  const testimonials = useMemo(() => {
+    const seen = new Set();
+    return homeTestimonials.filter((t) => {
+      if (seen.has(t.id)) return false;
+      seen.add(t.id);
+      return true;
+    });
+  }, []);
+
+  const cardsPerPage = useHomeTestimonialCardsPerPage();
+  const pages = useMemo(
+    () => chunkTestimonialPages(testimonials, cardsPerPage),
+    [testimonials, cardsPerPage],
+  );
+  const pageCount = pages.length;
+
+  const [currentPage, setCurrentPage] = useState(0);
   const [reduce, setReduce] = useState(false);
+  const touchStartRef = useRef({ x: 0, y: 0 });
+
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     const sync = () => setReduce(mq.matches);
@@ -78,131 +164,162 @@ function HomeTestimonials() {
     mq.addEventListener("change", sync);
     return () => mq.removeEventListener("change", sync);
   }, []);
-  const scrollerRef = useRef(null);
 
-  const scroll = (dir) => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const step = Math.min(el.clientWidth * SCROLL_PAD, 520);
-    el.scrollBy({ left: dir * step, behavior: reduce ? "auto" : "smooth" });
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [cardsPerPage]);
+
+  useEffect(() => {
+    if (currentPage >= pageCount) {
+      setCurrentPage(Math.max(0, pageCount - 1));
+    }
+  }, [currentPage, pageCount]);
+
+  const goToPage = useCallback(
+    (pageIndex) => {
+      if (pageCount <= 0) return;
+      const next = ((pageIndex % pageCount) + pageCount) % pageCount;
+      setCurrentPage(next);
+    },
+    [pageCount],
+  );
+
+  const goNext = useCallback(() => {
+    goToPage(currentPage + 1);
+  }, [currentPage, goToPage]);
+
+  const goPrev = useCallback(() => {
+    goToPage(currentPage - 1);
+  }, [currentPage, goToPage]);
+
+  const onCarouselKeyDown = (event) => {
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      goNext();
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      goPrev();
+    }
+  };
+
+  const onTouchStart = (event) => {
+    const touch = event.touches[0];
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+  };
+
+  const onTouchEnd = (event) => {
+    const touch = event.changedTouches[0];
+    const dx = touch.clientX - touchStartRef.current.x;
+    const dy = touch.clientY - touchStartRef.current.y;
+    if (Math.abs(dx) <= Math.abs(dy) || Math.abs(dx) < 48) return;
+    if (dx < 0) goNext();
+    else goPrev();
   };
 
   const navClass =
-    "inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300/90 bg-white text-slate-700 shadow-sm transition hover:border-slate-400 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400/50 active:scale-[0.98] sm:h-12 sm:w-12";
+    "r360-home-testimonials-nav inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-300/90 bg-white text-slate-700 shadow-sm transition hover:border-[#4CAF50]/45 hover:text-[#1F3B64] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/50 active:scale-[0.98] sm:h-12 sm:w-12";
+
+  const pageItems = pages[currentPage] ?? [];
+  const isDesktopPair =
+    cardsPerPage === 3 && pageItems.length === 2 && currentPage === pageCount - 1;
+
+  const pageGridClass = isDesktopPair
+    ? "r360-home-testimonials-page r360-home-testimonials-page--pair"
+    : cardsPerPage === 3
+      ? "r360-home-testimonials-page grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3"
+      : cardsPerPage === 2
+        ? "r360-home-testimonials-page grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4"
+        : "r360-home-testimonials-page grid grid-cols-1 gap-3";
 
   return (
     <section
       id="testimonials"
-      className="relative border-y border-slate-200/80 bg-offwhite py-12 sm:py-16"
+      className="relative border-y border-slate-200/80 bg-offwhite py-8 sm:py-9 md:py-10"
       aria-labelledby="testimonials-heading"
     >
-      <div className="relative z-[1] mx-auto max-w-4xl px-4 text-center sm:px-5">
+      <div className="r360-site-container r360-home-testimonials-shell relative z-[1] text-center">
         <h2
           id="testimonials-heading"
-          className="font-heading text-balance text-3xl font-bold leading-tight text-navy sm:text-4xl md:text-5xl"
+          className="r360-home-testimonials-heading mx-auto max-w-4xl font-heading text-balance text-3xl font-bold leading-tight text-navy sm:text-4xl lg:text-[2.65rem] lg:leading-tight"
         >
-          Client Results and Online Reputation Management Reviews
+          Online Reputation Management Results and Reviews
         </h2>
         <div
-          className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
+          className="mx-auto mt-3 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
           aria-hidden
         />
-        <p className="mx-auto mt-3 max-w-2xl font-body text-base leading-relaxed text-slate-600 sm:mt-4 sm:text-lg">
+        <p className="mx-auto mt-3 max-w-2xl font-body text-base leading-snug text-slate-600 sm:text-[1.05rem]">
           Honest feedback from people who trusted us with their reputation.
         </p>
       </div>
 
-      <div className="relative z-[1] mx-auto mt-8 max-w-7xl px-3 sm:mt-10 sm:px-5">
-        <div className="flex items-center justify-center gap-1 sm:gap-2 md:gap-3">
+      <div className="r360-site-container r360-home-testimonials-shell relative z-[1] mt-4 sm:mt-5">
+        <div className="r360-home-testimonials-carousel relative">
           <button
             type="button"
-            onClick={() => scroll(-1)}
-            className={`${navClass} hidden flex-shrink-0 md:inline-flex`}
-            aria-label="Show previous testimonials"
+            onClick={goPrev}
+            className={`${navClass} absolute left-0 top-1/2 z-10 -translate-y-1/2`}
+            aria-label="Previous testimonials"
           >
-            <ChevronLeft className="h-5 w-5" strokeWidth={2.25} />
+            <ChevronLeft className="h-5 w-5" strokeWidth={2.25} aria-hidden />
           </button>
-          <ul
-            ref={scrollerRef}
-            className="mx-auto flex min-w-0 flex-1 list-none items-stretch gap-3 overflow-x-auto overflow-y-visible overscroll-x-contain scroll-px-4 [scrollbar-width:none] snap-x snap-proximity sm:gap-4 sm:px-0 md:px-0 [&::-webkit-scrollbar]:hidden"
-            style={{
-              paddingLeft: "max(1.25rem, env(safe-area-inset-left))",
-              paddingRight: "max(1.25rem, env(safe-area-inset-right))",
-            }}
-            role="list"
-            aria-label="Testimonials, scroll horizontally"
-          >
-            {homeTestimonials.map((t) => (
-              <li
-                key={t.id}
-                className="w-[min(30rem,calc(100vw-2.5rem))] max-w-full shrink-0 snap-start pl-0 pr-1 last:pr-0 md:max-w-none md:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-3rem)/4)]"
+
+          <div className="min-w-0 overflow-x-hidden px-9 sm:px-10 md:px-11">
+            <div
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Client testimonials"
+              tabIndex={0}
+              onKeyDown={onCarouselKeyDown}
+              onTouchStart={onTouchStart}
+              onTouchEnd={onTouchEnd}
+            >
+              <div
+                key={`${cardsPerPage}-${currentPage}`}
+                className={`${pageGridClass}${reduce ? "" : " r360-home-testimonials-page--transition"}`}
               >
-                <article className="flex w-full min-w-0 max-w-full flex-1 flex-col overflow-hidden rounded-lg border border-slate-200/90 bg-white text-left shadow-sm transition hover:shadow">
-                  <div className="flex flex-1 flex-col p-4 sm:p-5 sm:px-6 sm:py-5 md:p-4 md:px-5 md:py-5 lg:px-4 lg:py-4">
-                    <div className="flex w-full flex-col items-center text-center">
-                      {t.label ? (
-                        <span className="inline-flex max-w-full rounded border border-slate-200/90 bg-slate-50/90 px-2.5 py-0.5 text-xs font-medium text-slate-600 sm:text-[0.8rem]">
-                          {t.label}
-                        </span>
-                      ) : null}
-                      <div className={t.label ? "mt-2.5 w-full sm:mt-3" : "w-full"}>
-                        <ReviewStars />
-                      </div>
-                    </div>
-                    <h3 className="sr-only">Client review: {t.name}</h3>
-                    <blockquote className="min-w-0 border-none pt-3 sm:pt-3.5">
-                      <p className="font-body text-[0.98rem] leading-[1.72] text-slate-800 [text-wrap:pretty] sm:text-base sm:leading-[1.7]">
-                        {t.quote}
-                      </p>
-                    </blockquote>
-                    <div className="my-5 h-px w-full bg-slate-200/90" aria-hidden />
-                    <footer className="flex w-full min-w-0 items-start gap-3 sm:items-center sm:gap-3.5">
-                      <TestimonialAvatar id={t.id} name={t.name} portraitUrl={t.portrait} />
-                      <div className="min-w-0 flex-1">
-                        <p className="font-heading text-sm font-bold leading-tight text-navy sm:text-[0.98rem]">
-                          {t.name}
-                        </p>
-                        <p className="mt-0.5 min-w-0 break-words text-sm leading-relaxed text-slate-600">
-                          {t.role}
-                        </p>
-                      </div>
-                    </footer>
-                  </div>
-                </article>
-              </li>
-            ))}
-          </ul>
+                {pageItems.map((t) => (
+                  <TestimonialCard key={t.id} testimonial={t} />
+                ))}
+              </div>
+            </div>
+          </div>
+
           <button
             type="button"
-            onClick={() => scroll(1)}
-            className={`${navClass} hidden flex-shrink-0 md:inline-flex`}
-            aria-label="Show next testimonials"
+            onClick={goNext}
+            className={`${navClass} absolute right-0 top-1/2 z-10 -translate-y-1/2`}
+            aria-label="Next testimonials"
           >
-            <ChevronRight className="h-5 w-5" strokeWidth={2.25} />
+            <ChevronRight className="h-5 w-5" strokeWidth={2.25} aria-hidden />
           </button>
         </div>
 
-        <div className="mt-4 flex items-center justify-center gap-2 md:mt-5 md:hidden">
-          <button
-            type="button"
-            onClick={() => scroll(-1)}
-            className={navClass}
-            aria-label="Show previous testimonials"
-          >
-            <ChevronLeft className="h-5 w-5" strokeWidth={2.25} />
-          </button>
-          <div className="mx-1 h-1 w-12 rounded-full bg-slate-200/90" aria-hidden />
-          <button
-            type="button"
-            onClick={() => scroll(1)}
-            className={navClass}
-            aria-label="Show next testimonials"
-          >
-            <ChevronRight className="h-5 w-5" strokeWidth={2.25} />
-          </button>
+        <div
+          className="mt-4 flex flex-wrap items-center justify-center gap-2 pb-0.5"
+          role="tablist"
+          aria-label="Testimonial carousel pages"
+        >
+          {Array.from({ length: pageCount }, (_, pageIndex) => {
+            const isActive = pageIndex === currentPage;
+            return (
+              <button
+                key={pageIndex}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-label={`Show testimonials page ${pageIndex + 1} of ${pageCount}`}
+                onClick={() => goToPage(pageIndex)}
+                className={`h-2 w-2 rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]/55 focus-visible:ring-offset-2 ${
+                  isActive ? "bg-[#4CAF50]" : "bg-slate-300/90 hover:bg-slate-400/90"
+                }`}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
+
 export default HomeTestimonials;
