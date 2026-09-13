@@ -1,6 +1,7 @@
 import { blogPostPath } from "../constants/blogPaths.js";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import { PACK20_FAQ_SCHEMA_BY_PATH } from "./blogs/pack20/pack20FaqRegistry.js";
+import { ABOUT_FAQ_ITEMS } from "./aboutFaqItems.js";
 import { HOME_FAQ_ITEMS } from "./homeFaqItems.js";
 import { SERVICES_FAQ_ITEMS } from "./servicesFaqItems.js";
 import {
@@ -54,6 +55,7 @@ const REMOVE_NEWS_ARTICLES_FROM_GOOGLE_PATH = blogPostPath(
 /** @type {Record<string, { question: string, answer: string }[]>} */
 const FAQ_ITEMS_BY_PATH = {
   "/": mapQuestionAnswerFaqs(HOME_FAQ_ITEMS),
+  "/about": mapQuestionAnswerFaqs(ABOUT_FAQ_ITEMS),
   "/services": mapQuestionAnswerFaqs(SERVICES_FAQ_ITEMS),
   [ORM_PAGE_PATH]: mapQaFaqs(ORM_FAQS),
   [NLS_PAGE_PATH]: mapQaFaqs(NLS_FAQS),

@@ -4,9 +4,15 @@ import { useCallback, useId, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { HOME_FAQ_ITEMS } from "../data/homeFaqItems.js";
 
-export default function HomeFaqAccordionList() {
-  const baseId = useId().replace(/[^a-zA-Z0-9_-]/g, "x");
-  const [openId, setOpenId] = useState(HOME_FAQ_ITEMS[0]?.id ?? null);
+/**
+ * @param {object} props
+ * @param {typeof HOME_FAQ_ITEMS} [props.items]
+ * @param {string} [props.idPrefix] Stable prefix for button/panel IDs (SSR-safe when set).
+ */
+export default function HomeFaqAccordionList({ items = HOME_FAQ_ITEMS, idPrefix }) {
+  const reactGeneratedId = useId().replace(/[^a-zA-Z0-9_-]/g, "x");
+  const baseId = idPrefix ?? reactGeneratedId;
+  const [openId, setOpenId] = useState(items[0]?.id ?? null);
 
   const toggle = useCallback((id) => {
     setOpenId((current) => (current === id ? null : id));
@@ -14,7 +20,7 @@ export default function HomeFaqAccordionList() {
 
   return (
     <div className="r360-home-faq-accordion">
-      {HOME_FAQ_ITEMS.map((item) => {
+      {items.map((item) => {
         const isOpen = openId === item.id;
         const buttonId = `${baseId}-${item.id}-btn`;
         const panelId = `${baseId}-${item.id}-panel`;
@@ -34,7 +40,7 @@ export default function HomeFaqAccordionList() {
                 onClick={() => toggle(item.id)}
               >
                 <span className="r360-home-faq-question">{item.question}</span>
-                <ChevronDown className="r360-home-faq-chevron shrink-0" aria-hidden />
+                <ChevronDown className="r360-home-faq-chevron shrink-0" aria-hidden="true" />
               </button>
             </h3>
             <div

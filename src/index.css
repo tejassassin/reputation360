@@ -1770,7 +1770,7 @@
 
 @media (min-width: 960px) {
   .r360-about-final-consultation-copy {
-    margin-top: -2.25rem;
+    margin-top: 0.75rem;
     align-self: start;
   }
 }
@@ -3041,6 +3041,29 @@
 
 .r360-home-faq-heading {
   text-wrap: balance;
+}
+
+.r360-home-faq-heading--after-eyebrow {
+  margin-top: 1rem;
+}
+
+.r360-home-faq-supporting {
+  max-width: 40rem;
+  margin-inline: auto;
+  text-wrap: balance;
+}
+
+@media (min-width: 1280px) {
+  .r360-home-faq-supporting {
+    max-width: 52rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .r360-home-faq-supporting {
+    max-width: none;
+    white-space: nowrap;
+  }
 }
 
 .r360-home-faq-accordion {

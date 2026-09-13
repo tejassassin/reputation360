@@ -11,6 +11,7 @@ import { AboutWhoWeServeSection } from "../components/about/AboutWhoWeServeSecti
 import { AboutHowWeWorkSection } from "../components/about/AboutHowWeWorkSection.jsx";
 import { AboutOurStandardsSection } from "../components/about/AboutOurStandardsSection.jsx";
 import { AboutClientExperiencesSection } from "../components/about/AboutClientExperiencesSection.jsx";
+import { AboutFaqSection } from "../components/about/AboutFaqSection.jsx";
 import { AboutFinalConsultationSection } from "../components/about/AboutFinalConsultationSection.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
@@ -187,6 +188,8 @@ function AboutPage() {
       <AboutClientExperiencesSection />
 
       <AboutFinalConsultationSection />
+
+      <AboutFaqSection />
     </main>
     </>
   );
