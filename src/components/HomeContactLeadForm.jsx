@@ -1,10 +1,19 @@
 "use client";
 
 import { useId, useState } from "react";
-import { ArrowRight, Search } from "lucide-react";
+import {
+  ArrowRight,
+  ClipboardCheck,
+  Route,
+  Search,
+} from "lucide-react";
 import { submitContactInquiry } from "../constants/contact.js";
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
 import { FREE_REPUTATION_SCAN_LABEL } from "../constants/freeRiskScan.js";
+import {
+  FREE_CONSULTATION_HEADING_ID,
+  FREE_CONSULTATION_ID,
+} from "../constants/homeConsultation.js";
 
 const PHONE_COUNTRIES = [
   { code: "+1", label: "US", flag: "🇺🇸" },
@@ -16,10 +25,10 @@ const PHONE_COUNTRIES = [
 ];
 
 const fieldClass =
-  "w-full rounded-lg border border-slate-200 bg-white px-3.5 py-3 text-[15px] text-charcoal outline-none transition placeholder:text-slate-400 focus:border-green focus:ring-2 focus:ring-green/20";
+  "r360-form-field w-full border border-slate-200 bg-white text-charcoal outline-none transition placeholder:text-slate-400 focus:border-green focus:ring-2 focus:ring-green/20";
 
 const labelClass =
-  "mb-1.5 block font-heading text-[11px] font-bold uppercase tracking-[0.07em] text-navy";
+  "mb-2 block font-heading text-[11px] font-bold uppercase tracking-[0.07em] text-navy";
 
 function HomeContactLeadForm() {
   const baseId = useId().replace(/[^a-zA-Z0-9_-]/g, "x");
@@ -73,25 +82,32 @@ function HomeContactLeadForm() {
   }
 
   return (
-    <div className="w-full min-w-0 overflow-hidden rounded-2xl bg-white shadow-[0_20px_50px_-16px_rgba(0,0,0,0.45)] ring-1 ring-black/5">
-      <div className="border-b-2 border-green px-5 pb-4 pt-5 sm:px-6 sm:pb-5 sm:pt-6">
-        <div className="flex items-start gap-3">
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-green text-white sm:h-12 sm:w-12">
-            <Search className="h-5 w-5" strokeWidth={2.25} aria-hidden />
+    <div
+      id={FREE_CONSULTATION_ID}
+      className="r360-hero-lead-form min-w-0 overflow-hidden bg-white"
+    >
+      <div className="r360-form-header-wrap border-b-2 border-green">
+        <div className="flex items-start gap-3.5 sm:gap-4">
+          <span className="r360-form-icon shrink-0" aria-hidden>
+            <Search strokeWidth={2.15} className="r360-form-icon-search" />
           </span>
           <div className="min-w-0 flex-1">
-            <p className="font-heading text-lg font-bold leading-snug text-navy sm:text-xl">
-              Free Reputation Analysis
+            <p
+              id={FREE_CONSULTATION_HEADING_ID}
+              tabIndex={-1}
+              className="r360-form-header-title font-heading font-bold text-navy outline-none"
+            >
+              Get a Free Consultation
             </p>
-            <p className="mt-0.5 font-body text-xs text-steel sm:text-sm">
-              Free · Confidential · 2 business hours
+            <p className="r360-form-header-sub mt-1 font-body text-steel">
+              Free · Confidential · 15-minute consultation
             </p>
           </div>
         </div>
       </div>
 
       {sent ? (
-        <div className="px-5 py-10 text-center sm:px-6" role="status">
+        <div className="r360-form-body text-center" role="status">
           <p className="font-heading text-lg font-bold text-navy">
             Thanks - we received your request.
           </p>
@@ -108,11 +124,8 @@ function HomeContactLeadForm() {
           </p>
         </div>
       ) : (
-        <form
-          onSubmit={onSubmit}
-          className="flex min-h-[22.5rem] flex-col px-5 py-5 sm:min-h-[23.5rem] sm:px-6 sm:py-6"
-        >
-          <div className="grid grid-cols-2 gap-3">
+        <form onSubmit={onSubmit} className="r360-form-body flex flex-col">
+          <div className="r360-form-field-grid grid grid-cols-2">
             <div className="min-w-0">
               <label className={labelClass} htmlFor={`${baseId}-fn`}>
                 First name <span className="text-red-600">*</span>
@@ -145,7 +158,7 @@ function HomeContactLeadForm() {
             </div>
           </div>
 
-          <div className="mt-3.5">
+          <div className="r360-form-field-group">
             <label className={labelClass} htmlFor={`${baseId}-em`}>
               Email address <span className="text-red-600">*</span>
             </label>
@@ -162,7 +175,7 @@ function HomeContactLeadForm() {
             />
           </div>
 
-          <div className="mt-3.5">
+          <div className="r360-form-field-group">
             <label className={labelClass} htmlFor={`${baseId}-ph`}>
               Phone number <span className="text-red-600">*</span>
             </label>
@@ -174,7 +187,7 @@ function HomeContactLeadForm() {
                 id={`${baseId}-cc`}
                 value={countryIdx}
                 onChange={(e) => setCountryIdx(e.target.value)}
-                className="w-[5.5rem] shrink-0 rounded-lg border border-slate-200 bg-white px-2 py-3 text-[15px] text-charcoal outline-none focus:border-green focus:ring-2 focus:ring-green/20"
+                className="r360-form-field-select w-[5.75rem] shrink-0 border border-slate-200 bg-white text-charcoal outline-none focus:border-green focus:ring-2 focus:ring-green/20"
               >
                 {PHONE_COUNTRIES.map((c, i) => (
                   <option key={c.id ?? `${c.label}-${c.code}`} value={String(i)}>
@@ -199,7 +212,7 @@ function HomeContactLeadForm() {
           {error ? (
             <p
               role="alert"
-              className="mt-3 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800"
+              className="r360-form-field-group rounded-lg border border-red-200 bg-red-50 px-3 py-2.5 text-sm text-red-800"
             >
               {error}
             </p>
@@ -208,11 +221,28 @@ function HomeContactLeadForm() {
           <button
             type="submit"
             disabled={submitting}
-            className="ha-pill mt-auto flex w-full items-center justify-center gap-2 rounded-lg bg-green py-3.5 font-heading text-base font-bold text-white shadow-[0_8px_22px_-6px_rgba(76,175,80,0.55)] transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70 sm:text-lg"
+            className="r360-form-submit ha-pill r360-form-field-group mt-2 flex w-full items-center justify-center gap-2 bg-green font-heading font-bold text-white shadow-[0_10px_28px_-8px_rgba(76,175,80,0.55)] transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70"
           >
-            {submitting ? "Sending..." : "Get My Free Analysis"}
-            {!submitting ? <ArrowRight className="h-5 w-5" aria-hidden /> : null}
+            {submitting ? "Sending..." : "Request My Free Consultation"}
+            {!submitting ? <ArrowRight className="h-5 w-5 shrink-0" aria-hidden /> : null}
           </button>
+
+          <div className="r360-form-benefits-footer">
+            <ul className="r360-form-benefits">
+              <li className="r360-form-benefit-item">
+                <Search className="r360-form-benefit-icon" strokeWidth={2} aria-hidden />
+                <span>Search Results Review</span>
+              </li>
+              <li className="r360-form-benefit-item">
+                <ClipboardCheck className="r360-form-benefit-icon" strokeWidth={2} aria-hidden />
+                <span>Practical Recommendations</span>
+              </li>
+              <li className="r360-form-benefit-item">
+                <Route className="r360-form-benefit-icon" strokeWidth={2} aria-hidden />
+                <span>Clear Action Plan</span>
+              </li>
+            </ul>
+          </div>
         </form>
       )}
     </div>

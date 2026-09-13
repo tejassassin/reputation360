@@ -1,10 +1,15 @@
 "use client";
 
+import { useEffect } from "react";
 import { lazy } from "react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { HOME_PAGE_JSON_LD } from "../data/organizationSchema.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import Hero from "../components/Hero";
+import {
+  FREE_CONSULTATION_ID,
+  scrollToFreeConsultation,
+} from "../constants/homeConsultation.js";
 import WhatWeBelieve from "../components/WhatWeBelieve";
 import WhoWeServeCards from "../components/WhoWeServeCards";
 import WhyClientsChoose from "../components/WhyClientsChoose";
@@ -21,6 +26,18 @@ const Contact = lazy(() => import("../components/Contact"));
  */
 function HomePage({ renderSeo = true }) {
   const homeSeo = useLocalizedSeo("home");
+
+  useEffect(() => {
+    function onHash() {
+      if (window.location.hash !== `#${FREE_CONSULTATION_ID}`) return;
+      requestAnimationFrame(() => {
+        scrollToFreeConsultation();
+      });
+    }
+    onHash();
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
 
   return (
     <>

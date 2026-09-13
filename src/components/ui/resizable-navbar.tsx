@@ -56,7 +56,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   }, []);
 
   return (
-    <div className={cn("sticky inset-x-0 top-0 z-40 w-full lg:top-20", className)}>
+    <div className={cn("relative z-40 w-full", className)}>
       {Children.map(children, (child) =>
         isValidElement(child) ? cloneElement(child, { visible } as WithVisible) : child,
       )}
@@ -77,9 +77,9 @@ export const NavBody = ({ children, className, visible = false }: NavBodyProps) 
   return (
     <div
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl min-w-0 items-center gap-x-4 gap-y-0 self-start rounded-full bg-transparent px-3 py-2 sm:px-4",
+        "relative z-[60] mx-auto hidden w-full min-w-0 max-w-none items-center gap-x-4 gap-y-0 self-start rounded-full bg-transparent px-0 py-1 sm:px-1",
         /* lg+: logo | nav links | CTAs on one row */
-        "lg:grid lg:grid-cols-[auto_minmax(max-content,1fr)_auto] lg:grid-rows-1 lg:items-center lg:gap-x-6 lg:py-2.5 xl:gap-x-8 2xl:gap-x-8",
+        "lg:grid lg:grid-cols-[auto_minmax(max-content,1fr)_auto] lg:grid-rows-1 lg:items-center lg:gap-x-7 lg:py-2 xl:gap-x-8 2xl:gap-x-10",
         scrolledNavShellClass(visible),
         className,
       )}
@@ -118,7 +118,7 @@ export const NavItems = ({
         }
       }}
       className={cn(
-        "relative z-10 mx-0 hidden min-h-0 w-full flex-row flex-nowrap items-center justify-start gap-x-2 text-[13px] font-medium text-white transition-colors duration-200 hover:text-green font-heading sm:gap-x-2.5 sm:text-sm lg:col-start-2 lg:row-start-1 lg:flex lg:w-auto lg:max-w-none lg:gap-x-2 xl:gap-x-3",
+        "relative z-10 mx-0 hidden min-h-0 w-full flex-row flex-nowrap items-center justify-start gap-x-2 text-[13px] font-medium text-white transition-colors duration-200 hover:text-green font-heading sm:gap-x-2.5 sm:text-sm lg:col-start-2 lg:row-start-1 lg:flex lg:w-auto lg:max-w-none lg:gap-x-2.5 xl:gap-x-3.5 xl:text-[15px]",
         className,
       )}
     >
@@ -241,7 +241,7 @@ export const MobileNav = ({ children, className, visible = false }: MobileNavPro
   return (
     <div
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent py-2 lg:hidden",
+        "relative z-50 mx-auto flex w-full max-w-none flex-col items-center justify-between bg-transparent py-1 lg:hidden",
         visible ? "rounded-md px-3" : "rounded-full px-0",
         scrolledNavShellClass(visible),
         className,

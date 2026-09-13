@@ -15,7 +15,6 @@ import {
 } from "./ui/resizable-navbar";
 import { BRAND_LOGO_SRC } from "../constants/brandAssets.js";
 import { externalAnchorProps, internalAnchorProps } from "../lib/internalLinkProps.js";
-import { calendlyNewTabProps } from "../constants/scheduling";
 import {
   CONTACT_EMAIL,
   contactMailtoHref,
@@ -27,6 +26,16 @@ import {
   FREE_REPUTATION_SCAN_LABEL,
   FREE_RISK_SCAN_PATH,
 } from "../constants/freeRiskScan.js";
+import {
+  FREE_CONSULTATION_HREF,
+  FREE_CONSULTATION_NAV_LABEL,
+  isHomePath,
+  scrollToFreeConsultation,
+} from "../constants/homeConsultation.js";
+import {
+  trackFreeConsultationClick,
+  trackFreeReputationScanClick,
+} from "../lib/conversionAnalytics.js";
 import { LOGO_ALT_NAV } from "../constants/imageAlt.js";
 import {
   NEGATIVE_LINK_SUPPRESSION_PATH,
@@ -103,6 +112,14 @@ const navItems = [
   },
 ];
 
+function handleConsultationNavClick(e, source) {
+  trackFreeConsultationClick(source);
+  if (isHomePath()) {
+    e.preventDefault();
+    scrollToFreeConsultation();
+  }
+}
+
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const logoFetchPriority =
@@ -111,54 +128,9 @@ function Header() {
       ? "low"
       : "high";
   return (
-    <header className="min-h-0 overflow-visible text-white fixed inset-x-0 top-0 z-50 bg-navy shadow-lg">
-      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-2">
-            <div className="w-13 h-13 rounded-full bg-white flex items-center justify-center pl-1">
-              <img
-                src={logo}
-                alt="Reputation360 logo"
-                className="w-10 h-10 object-contain"
-              />
-            </div>
-            <span className="font-heading font-bold text-xl">
-              Reputation360
-            </span>
-          </div>
-          <nav className="hidden md:flex items-center gap-8">
-            <a
-              href="/"
-              className="font-heading font-medium text-sm hover:text-green transition-colors"
-            >
-              Home
-            </a>
-            <a
-              href="#about"
-              className="font-heading font-medium text-sm hover:text-green transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="#services"
-              className="font-heading font-medium text-sm hover:text-green transition-colors"
-            >
-              Services
-            </a>
-            <a
-              href="#contact"
-              className="font-heading font-medium text-sm hover:text-green transition-colors"
-            >
-              Contact
-            </a>
-          </nav>
-          <button className="bg-green hover:bg-green/90 text-white font-heading font-medium px-5 py-2 rounded-lg transition-colors">
-            Get Started
-          </button>
-        </div>
-      </div> */}
-
-      <Navbar>
+    <header className="fixed inset-x-0 top-0 z-50 flex h-[var(--r360-header-height)] items-center bg-navy shadow-[0_10px_36px_rgba(0,0,0,0.2)]">
+      <div className="r360-site-container flex h-full w-full min-w-0 items-center">
+        <Navbar className="relative w-full">
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo
@@ -177,16 +149,20 @@ function Header() {
             <NavbarButton
               href={FREE_RISK_SCAN_PATH}
               {...internalAnchorProps(FREE_RISK_SCAN_PATH)}
-              variant="secondary"
-              className="!rounded-2xl !border !border-white/35 !bg-white/10 !px-4 !py-2 !text-sm !text-white hover:!bg-white/15 hover:!text-white sm:!px-5 sm:!py-2.5"
+              variant="primary"
+              onClick={() => trackFreeReputationScanClick("header")}
+              className="!rounded-2xl !border-0 !bg-green !px-4 !py-2 !text-sm !text-white hover:!brightness-95 sm:!px-5 sm:!py-2.5"
             >
               {FREE_REPUTATION_SCAN_LABEL}
             </NavbarButton>
             <NavbarButton
-              {...calendlyNewTabProps}
-              variant="primary"
+              href={FREE_CONSULTATION_HREF}
+              {...internalAnchorProps(FREE_CONSULTATION_HREF)}
+              variant="secondary"
+              onClick={(e) => handleConsultationNavClick(e, "header")}
+              className="!rounded-2xl !border !border-white/35 !bg-transparent !px-4 !py-2 !text-sm !text-white hover:!bg-white/10 hover:!text-white sm:!px-5 sm:!py-2.5"
             >
-              Book a call
+              {FREE_CONSULTATION_NAV_LABEL}
             </NavbarButton>
           </div>
         </NavBody>
@@ -251,19 +227,26 @@ function Header() {
               <NavbarButton
                 href={FREE_RISK_SCAN_PATH}
                 {...internalAnchorProps(FREE_RISK_SCAN_PATH)}
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="secondary"
-                className="w-full !rounded-2xl !border !border-white/35 !bg-white/10 !px-4 !py-2.5 !text-white hover:!bg-white/15 hover:!text-white"
+                onClick={() => {
+                  trackFreeReputationScanClick("header_mobile");
+                  setIsMobileMenuOpen(false);
+                }}
+                variant="primary"
+                className="w-full !rounded-2xl !border-0 !bg-green !px-4 !py-2.5 !text-white hover:!brightness-95"
               >
                 {FREE_REPUTATION_SCAN_LABEL}
               </NavbarButton>
               <NavbarButton
-                {...calendlyNewTabProps}
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
+                href={FREE_CONSULTATION_HREF}
+                {...internalAnchorProps(FREE_CONSULTATION_HREF)}
+                onClick={(e) => {
+                  handleConsultationNavClick(e, "header_mobile");
+                  setIsMobileMenuOpen(false);
+                }}
+                variant="secondary"
+                className="w-full !rounded-2xl !border !border-white/35 !bg-transparent !px-4 !py-2.5 !text-white hover:!bg-white/10 hover:!text-white"
               >
-                Book a call
+                {FREE_CONSULTATION_NAV_LABEL}
               </NavbarButton>
               <div className="flex w-full justify-center gap-4">
                 <a
@@ -290,7 +273,8 @@ function Header() {
             </div>
           </MobileNavMenu>
         </MobileNav>
-      </Navbar>
+        </Navbar>
+      </div>
     </header>
   );
 }
