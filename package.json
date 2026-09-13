@@ -7,12 +7,12 @@
     "node": ">=20"
   },
   "scripts": {
-    "dev": "node scripts/kill-dev-ports.mjs && node scripts/ensure-next-dev-cache.mjs && next dev -p 3000",
+    "dev": "node scripts/kill-dev-ports.mjs && R360_NEXT_DIST_DIR=.next-dev node scripts/ensure-next-dev-cache.mjs && R360_NEXT_DIST_DIR=.next-dev next dev -p 3000",
     "dev:simple": "node scripts/dev.mjs",
-    "dev:next": "node scripts/kill-dev-ports.mjs && node scripts/ensure-next-dev-cache.mjs && next dev -p 3000",
-    "dev:next:reset": "node scripts/kill-dev-ports.mjs && node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && npm run dev:next",
+    "dev:next": "node scripts/kill-dev-ports.mjs && R360_NEXT_DIST_DIR=.next-dev node scripts/ensure-next-dev-cache.mjs && R360_NEXT_DIST_DIR=.next-dev next dev -p 3000",
+    "dev:next:reset": "node scripts/kill-dev-ports.mjs && node -e \"require('fs').rmSync('.next-dev',{recursive:true,force:true})\" && npm run dev:next",
     "dev:vite": "node scripts/kill-vite-ports.mjs && node scripts/clear-vite-cache.mjs && node scripts/dev.mjs",
-    "build:next": "next build && node scripts/mark-next-production-build.mjs",
+    "build:next": "next build && node scripts/mark-next-production-build.mjs && node scripts/post-next-build-dev-hint.mjs",
     "start:next": "next start",
     "dev:kill": "node scripts/kill-dev-ports.mjs",
     "dev:fresh": "node scripts/kill-vite-ports.mjs && node scripts/clear-vite-cache.mjs && node scripts/dev.mjs",

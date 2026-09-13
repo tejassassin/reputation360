@@ -16,6 +16,10 @@ import {
   FREE_CONSULTATION_ID,
   HOME_CLOSING_LEAD_HEADING_ID,
   HOME_CLOSING_LEAD_ID,
+  ABOUT_HERO_CONSULTATION_HEADING_ID,
+  ABOUT_HERO_CONSULTATION_ID,
+  ABOUT_BOTTOM_CONSULTATION_HEADING_ID,
+  ABOUT_BOTTOM_CONSULTATION_ID,
 } from "../constants/homeConsultation.js";
 import { trackHomeLeadFormSubmit } from "../lib/conversionAnalytics.js";
 
@@ -40,7 +44,7 @@ const labelClass =
 
 /**
  * @param {object} props
- * @param {"hero" | "home_closing" | "about_hero"} [props.instance]
+ * @param {"hero" | "home_closing" | "about-hero" | "about-bottom"} [props.instance]
  * @param {boolean} [props.showHeader]
  * @param {string} [props.submitLabel]
  * @param {boolean} [props.showBenefitsFooter]
@@ -51,7 +55,13 @@ function HomeContactLeadForm({
   submitLabel,
   showBenefitsFooter = true,
 }) {
-  const baseId = useId().replace(/[^a-zA-Z0-9_-]/g, "x");
+  const reactGeneratedBaseId = useId().replace(/[^a-zA-Z0-9_-]/g, "x");
+  const stableBaseIdByInstance = {
+    home_closing: "r360-home-closing-lead",
+    "about-hero": "r360-about-hero-lead",
+    "about-bottom": "r360-about-bottom-lead",
+  };
+  const baseId = stableBaseIdByInstance[instance] ?? reactGeneratedBaseId;
   const successRef = useRef(null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -64,12 +74,32 @@ function HomeContactLeadForm({
   const [sent, setSent] = useState(false);
 
   const isClosing = instance === "home_closing";
-  const isAboutHero = instance === "about_hero";
+  const isAboutHero = instance === "about-hero";
+  const isAboutBottom = instance === "about-bottom";
   const phoneCountryClassName = isClosing
     ? "r360-form-field r360-form-field-select r360-phone-country r360-phone-country--closing shrink-0"
     : phoneCountryClass;
-  const wrapperId = isClosing ? HOME_CLOSING_LEAD_ID : FREE_CONSULTATION_ID;
-  const statusHeadingId = isClosing ? HOME_CLOSING_LEAD_HEADING_ID : FREE_CONSULTATION_HEADING_ID;
+  const wrapperId = isClosing
+    ? HOME_CLOSING_LEAD_ID
+    : isAboutHero
+      ? ABOUT_HERO_CONSULTATION_ID
+      : isAboutBottom
+        ? ABOUT_BOTTOM_CONSULTATION_ID
+        : FREE_CONSULTATION_ID;
+  const headerHeadingId = isClosing
+    ? HOME_CLOSING_LEAD_HEADING_ID
+    : isAboutHero
+      ? ABOUT_HERO_CONSULTATION_HEADING_ID
+      : isAboutBottom
+        ? ABOUT_BOTTOM_CONSULTATION_HEADING_ID
+        : FREE_CONSULTATION_HEADING_ID;
+  const statusHeadingId = isClosing
+    ? HOME_CLOSING_LEAD_HEADING_ID
+    : isAboutHero
+      ? `${ABOUT_HERO_CONSULTATION_ID}-status`
+      : isAboutBottom
+        ? `${ABOUT_BOTTOM_CONSULTATION_ID}-status`
+        : FREE_CONSULTATION_HEADING_ID;
   const formId = `${baseId}-lead-form`;
   const buttonLabel =
     submitLabel ?? "Request My Free Consultation";
@@ -77,12 +107,16 @@ function HomeContactLeadForm({
     ? "Homepage lower consultation form - free consultation request"
     : isAboutHero
       ? "About page hero - free consultation request"
-      : "Homepage reputation analysis request";
+      : isAboutBottom
+        ? "About page consultation form - free consultation request"
+        : "Homepage reputation analysis request";
   const sourceLine = isClosing
     ? "Source: Homepage lower consultation form (homepage_lower_consultation_form)"
     : isAboutHero
-      ? "Source: About page hero consultation form (about_hero_consultation_form)"
-      : "Source: Homepage contact form";
+      ? "Source: About page hero consultation form (about-page-hero)"
+      : isAboutBottom
+        ? "Source: About page bottom consultation form (about-page-bottom)"
+        : "Source: Homepage contact form";
 
   const country = PHONE_COUNTRIES[Number(countryIdx)] ?? PHONE_COUNTRIES[0];
 
@@ -148,7 +182,7 @@ function HomeContactLeadForm({
             </span>
             <div className="min-w-0 flex-1">
               <p
-                id={FREE_CONSULTATION_HEADING_ID}
+                id={headerHeadingId}
                 tabIndex={-1}
                 className="r360-form-header-title font-heading font-bold text-navy outline-none"
               >

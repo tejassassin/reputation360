@@ -66,7 +66,7 @@ export function AboutHero() {
 
           <div className="r360-hero-form-column relative z-20 order-2 min-w-0 lg:order-none">
             <div className="r360-hero-form-wrap">
-              <HomeContactLeadForm instance="about_hero" />
+              <HomeContactLeadForm instance="about-hero" />
             </div>
           </div>
         </div>

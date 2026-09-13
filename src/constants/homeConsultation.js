@@ -15,6 +15,16 @@ export const HOME_CLOSING_LEAD_ID = "home-closing-lead-form";
 
 export const HOME_CLOSING_LEAD_HEADING_ID = "home-closing-lead-heading";
 
+/** About page hero lead form (distinct from homepage #free-consultation). */
+export const ABOUT_HERO_CONSULTATION_ID = "about-hero-consultation";
+
+export const ABOUT_HERO_CONSULTATION_HEADING_ID = "about-hero-consultation-heading";
+
+/** About page lower consultation form. */
+export const ABOUT_BOTTOM_CONSULTATION_ID = "about-bottom-consultation";
+
+export const ABOUT_BOTTOM_CONSULTATION_HEADING_ID = "about-bottom-consultation-heading";
+
 export function isHomePath() {
   if (typeof window === "undefined") return false;
   return (window.location.pathname.replace(/\/+$/, "") || "/") === "/";

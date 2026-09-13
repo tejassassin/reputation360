@@ -3,8 +3,11 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+/** Dev (`R360_NEXT_DIST_DIR=.next-dev`) and production builds use separate output dirs. */
+const distDir = process.env.R360_NEXT_DIST_DIR || ".next";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  distDir,
   reactStrictMode: true,
   poweredByHeader: false,
   outputFileTracingRoot: path.join(__dirname),

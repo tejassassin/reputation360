@@ -137,14 +137,46 @@ function TestimonialCard({ testimonial: t }) {
 }
 
 function HomeTestimonials() {
+  return <TestimonialsSection />;
+}
+
+/**
+ * Shared homepage / About testimonials carousel. Defaults match the homepage section exactly.
+ *
+ * @param {{
+ *   id?: string;
+ *   headingId?: string;
+ *   eyebrow?: string;
+ *   heading?: string;
+ *   subheading?: string;
+ *   showAccentLine?: boolean;
+ *   testimonials?: Array<{ id: string; quote: string; name: string; role: string; portrait?: string }>;
+ *   sectionClassName?: string;
+ *   compactPadding?: boolean;
+ *   subheadingClassName?: string;
+ * }} props
+ */
+export function TestimonialsSection({
+  id = "testimonials",
+  headingId = "testimonials-heading",
+  eyebrow,
+  heading = "Online Reputation Management Results and Reviews",
+  subheading = "Honest feedback from people who trusted us with their reputation.",
+  showAccentLine = true,
+  testimonials: testimonialsProp,
+  sectionClassName = "",
+  compactPadding = true,
+  subheadingClassName = "mx-auto mt-3 max-w-2xl font-body text-base leading-snug text-slate-600 sm:text-[1.05rem]",
+}) {
   const testimonials = useMemo(() => {
+    const source = testimonialsProp ?? homeTestimonials;
     const seen = new Set();
-    return homeTestimonials.filter((t) => {
+    return source.filter((t) => {
       if (seen.has(t.id)) return false;
       seen.add(t.id);
       return true;
     });
-  }, []);
+  }, [testimonialsProp]);
 
   const cardsPerPage = useHomeTestimonialCardsPerPage();
   const pages = useMemo(
@@ -231,26 +263,35 @@ function HomeTestimonials() {
         ? "r360-home-testimonials-page grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4"
         : "r360-home-testimonials-page grid grid-cols-1 gap-3";
 
+  const paddingClass = compactPadding ? "py-8 sm:py-9 md:py-10" : "";
+
   return (
     <section
-      id="testimonials"
-      className="relative border-y border-slate-200/80 bg-offwhite py-8 sm:py-9 md:py-10"
-      aria-labelledby="testimonials-heading"
+      id={id}
+      className={`relative border-y border-slate-200/80 bg-offwhite ${paddingClass} ${sectionClassName}`.trim()}
+      aria-labelledby={headingId}
     >
       <div className="r360-site-container r360-home-testimonials-shell relative z-[1] text-center">
+        {eyebrow ? (
+          <p className="mb-0 font-heading text-xs font-semibold uppercase tracking-[0.2em] text-[#4CAF50]">
+            {eyebrow}
+          </p>
+        ) : null}
         <h2
-          id="testimonials-heading"
-          className="r360-home-testimonials-heading mx-auto max-w-4xl font-heading text-balance text-3xl font-bold leading-tight text-navy sm:text-4xl lg:text-[2.65rem] lg:leading-tight"
+          id={headingId}
+          className={`r360-home-testimonials-heading mx-auto max-w-4xl font-heading text-balance text-3xl font-bold leading-tight text-navy sm:text-4xl lg:text-[2.65rem] lg:leading-tight${
+            eyebrow ? " mt-[0.9375rem]" : ""
+          }`}
         >
-          Online Reputation Management Results and Reviews
+          {heading}
         </h2>
-        <div
-          className="mx-auto mt-3 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
-          aria-hidden
-        />
-        <p className="mx-auto mt-3 max-w-2xl font-body text-base leading-snug text-slate-600 sm:text-[1.05rem]">
-          Honest feedback from people who trusted us with their reputation.
-        </p>
+        {showAccentLine ? (
+          <div
+            className="mx-auto mt-3 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
+            aria-hidden
+          />
+        ) : null}
+        <p className={subheadingClassName}>{subheading}</p>
       </div>
 
       <div className="r360-site-container r360-home-testimonials-shell relative z-[1] mt-4 sm:mt-5">

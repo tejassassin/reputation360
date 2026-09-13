@@ -6,7 +6,7 @@
 import { existsSync, readFileSync, readdirSync, rmSync, statSync } from "node:fs";
 import { join } from "node:path";
 
-const NEXT_DIR = ".next";
+const NEXT_DIR = process.env.R360_NEXT_DIST_DIR || ".next-dev";
 const APP_PAGE = join(NEXT_DIR, "server/app/[...path]/page.js");
 const VENDOR_DIR = join(NEXT_DIR, "server/vendor-chunks");
 const PRODUCTION_MARKER = join(NEXT_DIR, ".r360-production-build");
