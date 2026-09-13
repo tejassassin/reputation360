@@ -7,9 +7,18 @@ export function BreadcrumbBar() {
   const pathname = useDocumentPathname();
   if (!shouldShowBreadcrumb(pathname)) return null;
 
+  const normalized = pathname.replace(/\/+$/, "") || "/";
+  const isAbout = normalized === "/about";
+
   return (
-    <div className="r360-breadcrumb-bar w-full shrink-0 pt-28 md:pt-32">
-      <Breadcrumb pathname={pathname} />
+    <div
+      className={
+        isAbout
+          ? "r360-breadcrumb-bar r360-breadcrumb-bar--about w-full shrink-0"
+          : "r360-breadcrumb-bar w-full shrink-0 pt-28 md:pt-32"
+      }
+    >
+      <Breadcrumb pathname={pathname} compact={isAbout} />
     </div>
   );
 }

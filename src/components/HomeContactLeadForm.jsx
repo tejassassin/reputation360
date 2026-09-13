@@ -40,7 +40,7 @@ const labelClass =
 
 /**
  * @param {object} props
- * @param {"hero" | "home_closing"} [props.instance]
+ * @param {"hero" | "home_closing" | "about_hero"} [props.instance]
  * @param {boolean} [props.showHeader]
  * @param {string} [props.submitLabel]
  * @param {boolean} [props.showBenefitsFooter]
@@ -64,6 +64,7 @@ function HomeContactLeadForm({
   const [sent, setSent] = useState(false);
 
   const isClosing = instance === "home_closing";
+  const isAboutHero = instance === "about_hero";
   const phoneCountryClassName = isClosing
     ? "r360-form-field r360-form-field-select r360-phone-country r360-phone-country--closing shrink-0"
     : phoneCountryClass;
@@ -74,10 +75,14 @@ function HomeContactLeadForm({
     submitLabel ?? "Request My Free Consultation";
   const inquirySubject = isClosing
     ? "Homepage lower consultation form - free consultation request"
-    : "Homepage reputation analysis request";
+    : isAboutHero
+      ? "About page hero - free consultation request"
+      : "Homepage reputation analysis request";
   const sourceLine = isClosing
     ? "Source: Homepage lower consultation form (homepage_lower_consultation_form)"
-    : "Source: Homepage contact form";
+    : isAboutHero
+      ? "Source: About page hero consultation form (about_hero_consultation_form)"
+      : "Source: Homepage contact form";
 
   const country = PHONE_COUNTRIES[Number(countryIdx)] ?? PHONE_COUNTRIES[0];
 

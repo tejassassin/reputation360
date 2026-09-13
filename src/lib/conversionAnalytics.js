@@ -21,11 +21,15 @@ export function trackFreeConsultationClick(source) {
   }
 }
 
-/** @param {"hero" | "home_closing"} instance */
+/** @param {"hero" | "home_closing" | "about_hero"} instance */
 export function trackHomeLeadFormSubmit(instance) {
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
     const form_location =
-      instance === "home_closing" ? "homepage_lower_consultation_form" : "homepage_hero_consultation_form";
+      instance === "home_closing"
+        ? "homepage_lower_consultation_form"
+        : instance === "about_hero"
+          ? "about_hero_consultation_form"
+          : "homepage_hero_consultation_form";
     window.gtag("event", "home_lead_form_submit", {
       event_category: "conversion",
       form_instance: instance,

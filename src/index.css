@@ -824,6 +824,7 @@
 /* Desktop horizontal layout: hero + second fold share the same outer width as header (1440+). */
 @media (min-width: 1440px) {
   .r360-site-container.r360-hero-inner,
+  .r360-site-container.r360-about-hero-inner,
   .r360-site-container.r360-what-we-believe-shell,
   .r360-site-container.r360-what-we-do-shell {
     display: block;
@@ -865,14 +866,16 @@
     box-sizing: border-box;
   }
 
-  .r360-site-container.r360-hero-inner {
+  .r360-site-container.r360-hero-inner,
+  .r360-site-container.r360-about-hero-inner {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(520px, 620px);
     column-gap: clamp(4rem, 5vw, 5rem);
     align-items: stretch;
   }
 
-  .r360-hero-inner > .r360-hero-grid {
+  .r360-hero-inner > .r360-hero-grid,
+  .r360-about-hero-inner > .r360-hero-grid {
     display: contents;
   }
 
@@ -895,6 +898,11 @@
     width: 100%;
     max-width: 500px;
     box-sizing: border-box;
+  }
+
+  .r360-about-hero-inner .r360-hero-copy-column,
+  .r360-about-hero-inner .r360-hero-form-column {
+    align-self: center;
   }
 
   .r360-hero-lead-form:not(.r360-home-closing-lead-form) {
@@ -1596,6 +1604,355 @@
 
 .r360-breadcrumb-separator {
   color: #9ca3af;
+}
+
+.r360-breadcrumb-bar--about {
+  padding-top: var(--r360-header-height);
+}
+
+.r360-breadcrumb--compact {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+
+/* About page hero - navy gradient, homepage-aligned two-column layout (no viewport min-height) */
+.r360-about-hero-section {
+  box-sizing: border-box;
+  display: block;
+}
+
+.r360-about-hero-bg {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+      ellipse 90% 60% at 20% -10%,
+      rgba(76, 175, 80, 0.18),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 100% 0%,
+      rgba(31, 59, 100, 0.45),
+      transparent 48%
+    ),
+    linear-gradient(165deg, #050a18 0%, #1f3b64 38%, #0a1628 100%);
+}
+
+.r360-about-hero-grid-overlay {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.r360-about-hero-inner {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: clamp(3rem, 4vw, 3.5rem);
+  padding-bottom: clamp(3rem, 4vw, 3.5rem);
+}
+
+@media (min-width: 768px) {
+  .r360-about-hero-inner {
+    padding-top: clamp(4rem, 5vw, 5rem);
+    padding-bottom: clamp(4rem, 5vw, 5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .r360-about-hero-inner .r360-hero-grid {
+    align-items: center;
+  }
+
+  .r360-about-hero-inner .r360-hero-form-column {
+    align-self: center;
+  }
+}
+
+.r360-about-hero-headline {
+  font-size: clamp(1.5rem, 4.8vw, 2.35rem);
+  line-height: 1.12;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .r360-about-hero-headline {
+    font-size: clamp(1.75rem, 4.2vw, 2.35rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .r360-about-hero-headline {
+    font-size: clamp(1.85rem, 2.1vw, 2.65rem);
+    line-height: 1.1;
+  }
+}
+
+.r360-about-hero-copy {
+  max-width: 37.5rem;
+}
+
+.r360-about-hero-headline-block {
+  margin-top: 1.125rem;
+}
+
+.r360-about-hero-lead {
+  margin-top: 1.375rem;
+  font-size: clamp(1.0625rem, 1.05vw, 1.2rem);
+  line-height: 1.55;
+}
+
+.r360-about-hero-body {
+  margin-top: 1.125rem;
+  font-size: clamp(0.9375rem, 0.95vw, 1.0625rem);
+  line-height: 1.6;
+}
+
+.r360-about-hero-story-link-wrap {
+  margin-top: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .r360-about-hero-inner .r360-about-hero-copy {
+    margin-top: -1.5rem;
+  }
+}
+
+/* About page - Our Story (two visible chapters, no tabs) */
+.r360-about-our-story-inner {
+  padding-top: clamp(4rem, 5vw, 5rem);
+  padding-bottom: clamp(4rem, 5vw, 6rem);
+}
+
+.r360-about-our-story-heading {
+  margin-top: 1rem;
+}
+
+.r360-about-our-story-intro {
+  margin-top: 1.375rem;
+  max-width: 47.5rem;
+}
+
+@media (min-width: 1024px) {
+  .r360-about-our-story-intro {
+    max-width: none;
+  }
+}
+
+.r360-about-our-story-cards {
+  margin-top: 2.25rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.r360-about-our-story-connector {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .r360-about-our-story-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 2vw, 2rem);
+    margin-top: 2.375rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .r360-about-our-story-cards {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    column-gap: clamp(1.25rem, 1.75vw, 2rem);
+    row-gap: 2.25rem;
+    margin-top: 2.125rem;
+  }
+
+  .r360-about-our-story-connector {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: clamp(3.5rem, 5vw, 5rem);
+    min-width: 0;
+    align-self: center;
+  }
+
+  .r360-about-our-story-connector-line {
+    display: block;
+    height: 1px;
+    flex: 1 1 0;
+    min-width: 0.625rem;
+    background: rgba(46, 91, 136, 0.38);
+  }
+
+  .r360-about-our-story-connector-line--right {
+    background: linear-gradient(90deg, rgba(46, 91, 136, 0.34), rgba(76, 175, 80, 0.55));
+  }
+
+  .r360-about-our-story-connector-icon {
+    display: flex;
+    shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-inline: 0.25rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(46, 91, 136, 0.2);
+    background: rgba(255, 255, 255, 0.85);
+  }
+}
+
+.r360-about-our-story-card {
+  height: 100%;
+}
+
+.r360-about-our-story-card-body {
+  box-sizing: border-box;
+  padding: 1.375rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .r360-about-our-story-card-body {
+    padding: 1.5rem 1.5rem 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .r360-about-our-story-card-body {
+    padding: 2rem 2rem 1.125rem;
+  }
+}
+
+/* About page - Who We Serve */
+.r360-about-who-we-serve-section {
+  box-sizing: border-box;
+}
+
+.r360-about-who-we-serve-inner {
+  padding-top: clamp(4rem, 5vw, 5rem);
+  padding-bottom: clamp(4rem, 5vw, 6rem);
+}
+
+.r360-about-who-we-serve-heading {
+  margin-top: 1rem;
+}
+
+.r360-about-who-we-serve-lead {
+  margin-top: 1.375rem;
+  max-width: 47.5rem;
+  margin-inline: auto;
+}
+
+.r360-about-who-we-serve-grid {
+  margin-top: clamp(2rem, 3.5vw, 2.125rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .r360-about-who-we-serve-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.125rem;
+    margin-top: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .r360-about-who-we-serve-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-top: 2.125rem;
+  }
+}
+
+.r360-about-who-we-serve-card {
+  min-height: 0;
+  padding: 1.375rem 1.25rem 1.25rem;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .r360-about-who-we-serve-card {
+    padding: 1.5rem 1.375rem 1.375rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .r360-about-who-we-serve-card {
+    padding: 1.75rem 1.625rem 1.5rem;
+  }
+}
+
+.r360-about-who-we-serve-card-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 1rem;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.r360-about-who-we-serve-card-heading {
+  margin: 0 0 0.625rem;
+}
+
+.r360-about-who-we-serve-card-desc {
+  flex: 1 1 auto;
+}
+
+.r360-about-who-we-serve-card-link {
+  padding-top: 1rem;
+}
+
+.r360-about-who-we-serve-card-link-text {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.r360-about-who-we-serve-card:hover,
+.r360-about-who-we-serve-card:focus-visible {
+  border-color: rgba(76, 175, 80, 0.45);
+  background-color: rgba(76, 175, 80, 0.06);
+  box-shadow: 0 10px 28px -22px rgba(31, 59, 100, 0.35);
+  outline: none;
+}
+
+.r360-about-who-we-serve-card:focus-visible {
+  box-shadow:
+    0 10px 28px -22px rgba(31, 59, 100, 0.35),
+    0 0 0 2px rgba(76, 175, 80, 0.45);
+}
+
+.r360-about-who-we-serve-card:hover .r360-about-who-we-serve-card-icon,
+.r360-about-who-we-serve-card:focus-visible .r360-about-who-we-serve-card-icon {
+  color: #4caf50;
+  background-color: rgba(76, 175, 80, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(76, 175, 80, 0.25);
+}
+
+.r360-about-who-we-serve-card:hover .r360-about-who-we-serve-card-link-text,
+.r360-about-who-we-serve-card:focus-visible .r360-about-who-we-serve-card-link-text {
+  transform: translateX(0.25rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .r360-about-who-we-serve-card,
+  .r360-about-who-we-serve-card-icon,
+  .r360-about-who-we-serve-card-link-text {
+    transition: none;
+  }
+
+  .r360-about-who-we-serve-card:hover .r360-about-who-we-serve-card-link-text,
+  .r360-about-who-we-serve-card:focus-visible .r360-about-who-we-serve-card-link-text {
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -3,12 +3,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { AnimatePresence, motion as Motion } from "motion/react";
 import {
-  Stethoscope,
-  BarChart3,
-  User,
-  Landmark,
-  Gavel,
-  Building2,
   XCircle,
   Star,
   ChevronLeft,
@@ -20,15 +14,16 @@ import {
   MapPinned,
 } from "lucide-react";
 import { AboutRelatedContentBlock } from "../components/about/AboutRelatedContentBlock.jsx";
+import { AboutHero } from "../components/about/AboutHero.jsx";
+import { AboutOurStorySection } from "../components/about/AboutOurStorySection.jsx";
+import { AboutWhoWeServeSection } from "../components/about/AboutWhoWeServeSection.jsx";
 import { ConsultationCtas } from "../components/ConsultationCtas";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
-import AboutHeroSearchMockup from "../components/AboutHeroSearchMockup.jsx";
 import { StatNumber } from "../components/StatNumber.jsx";
 import { testimonialPortraitAlt } from "../constants/imageAlt.js";
 import { homeTestimonials } from "../data/homeTestimonials.js";
 import { testimonialPortraitUrl } from "../data/testimonialPortraits.js";
-import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
 
 const whoWeAreStats = [
@@ -46,62 +41,6 @@ const whoWeAreStatRow = [
 const headlineFont = "font-[Manrope,Inter,sans-serif]";
 
 const aboutView = { once: true, amount: 0.22, margin: "0px 0px -8% 0px" };
-
-const heroStagger = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.11, delayChildren: 0.06 },
-  },
-};
-
-const heroItem = {
-  hidden: { opacity: 0, y: 28 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.62, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const whoWeServe = [
-  {
-    icon: User,
-    title: "Personal Reputation Management for Individuals",
-    text: "Anyone whose online presence does not reflect who they truly are",
-    href: AUDIENCE_PATH.individuals,
-  },
-  {
-    icon: Landmark,
-    title: "Online Reputation Management for Financial Advisors & Leaders",
-    text: "Executives and advisors protecting decades of professional credibility",
-    href: AUDIENCE_PATH.financialAdvisors,
-  },
-  {
-    icon: Stethoscope,
-    title: "Reputation Management for Doctors & Healthcare Professionals",
-    text: "Physicians and healthcare professionals managing their digital standing",
-    href: AUDIENCE_PATH.doctors,
-  },
-  {
-    icon: Gavel,
-    title: "Reputation Management for Lawyers & Attorneys",
-    text: "Legal professionals maintaining the trust their practice depends on",
-    href: AUDIENCE_PATH.lawyers,
-  },
-  {
-    icon: BarChart3,
-    title: "Executive Reputation Management for C-Suite Leaders",
-    text: "Leaders ensuring their influence and legacy are represented accurately online",
-    href: AUDIENCE_PATH.executives,
-  },
-  {
-    icon: Building2,
-    title: "Business Reputation Management Services",
-    text: "E-commerce, manufacturing, and consumer brands protecting their market reputation",
-    href: AUDIENCE_PATH.businesses,
-  },
-];
 
 const howWeWorkSteps = [
   {
@@ -218,94 +157,6 @@ const aboutScrollTargetClass = "scroll-mt-28 md:scroll-mt-32";
 
 /** Default vertical padding between About page sections. */
 const aboutSectionSpacing = "pt-16 pb-20 md:pt-20 md:pb-24";
-
-const storyChapters = [
-  {
-    id: "since-2019",
-    tab: "Since 2019",
-    heading: "Building and Protecting Reputations Since 2019",
-    paragraphs: [
-      "A single outdated article or misleading review can shape how someone is perceived online, even when it does not reflect the complete truth. Reputation360 was founded in 2019 to help individuals and businesses take control of that narrative.",
-      "We began by helping individuals improve what appeared when their names were searched on Google. As our experience and capabilities grew, we expanded our work to support executives, high-net-worth individuals, public figures, professionals and businesses facing complex reputation challenges across the United States.",
-      "Today, we have helped more than 1,100 clients build, protect and restore their online reputations. We offer customized solutions, competitive pricing and honest guidance, with every strategy designed around the client's specific situation and goals.",
-    ],
-  },
-  {
-    id: "age-of-ai",
-    tab: "Age of AI",
-    heading: "Built for Google and the Age of AI",
-    paragraphs: [
-      "Online reputations are no longer shaped by Google alone. AI-powered platforms now summarize information, answer questions and influence perceptions, often before someone visits a website or clicks a search result.",
-      "Reputation360 has evolved alongside this changing search landscape. Our strategies help clients improve how they are discovered, understood and represented across Google and AI-powered search platforms.",
-      "By combining reputation management with strategic digital authority building, we help clients create stronger, more accurate and credible online identities for the future of search.",
-    ],
-  },
-];
-
-function HowItAllBeganStory() {
-  const [chapterIndex, setChapterIndex] = useState(0);
-  const chapter = storyChapters[chapterIndex];
-
-  return (
-    <section
-      id="how-it-began"
-      className={`relative overflow-hidden border-y border-slate-200/60 ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
-    >
-      <div
-        className="pointer-events-none absolute inset-0 bg-[#f0f4f2]"
-        aria-hidden
-      />
-      <div className="pointer-events-none absolute -right-24 top-0 h-64 w-64 rounded-full bg-[#4CAF50]/[0.08] blur-3xl" aria-hidden />
-      <div className="pointer-events-none absolute -left-20 bottom-0 h-56 w-56 rounded-full bg-[#2E5B88]/[0.06] blur-3xl" aria-hidden />
-
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
-        <p className={`${headlineFont} text-xs font-semibold uppercase tracking-[0.2em] text-[#4CAF50]`}>
-          OUR STORY
-        </p>
-        <div
-          className="mt-5 flex gap-6 border-b border-slate-200/80"
-          role="tablist"
-          aria-label="Our story"
-        >
-          {storyChapters.map((item, i) => {
-            const isActive = i === chapterIndex;
-            return (
-              <button
-                key={item.id}
-                type="button"
-                role="tab"
-                aria-selected={isActive}
-                onClick={() => setChapterIndex(i)}
-                className={`${headlineFont} relative pb-3 text-sm font-semibold transition md:text-base ${
-                  isActive ? "text-[#1F3B64]" : "text-slate-400 hover:text-[#1F3B64]"
-                }`}
-              >
-                {item.tab}
-                {isActive ? (
-                  <span
-                    className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-[#4CAF50]"
-                    aria-hidden
-                  />
-                ) : null}
-              </button>
-            );
-          })}
-        </div>
-
-        <div className="mt-8 max-w-3xl lg:mt-10" role="tabpanel" aria-label={chapter.heading}>
-          <h2 className={`${headlineFont} text-3xl font-extrabold leading-tight tracking-tight text-[#1F3B64] md:text-4xl lg:text-[2.5rem] lg:leading-[1.08]`}>
-            {chapter.heading}
-          </h2>
-          <div className="font-body mt-6 space-y-5 text-base leading-relaxed text-slate-600 md:mt-8 md:text-lg">
-            {chapter.paragraphs.map((paragraph) => (
-              <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function HowWeWorkSection() {
   const [activeStep, setActiveStep] = useState(0);
@@ -694,164 +545,11 @@ function AboutPage() {
         canonicalPath={seo.path}
       />
     <main className="relative flex-1 bg-[#f4f6fb] text-slate-800">
-      <header
-        id="about-hero"
-        className="relative flex min-h-[min(520px,calc(100vh-7.5rem))] flex-col overflow-hidden bg-[#050a18] pb-10 pt-10 text-white md:min-h-[min(580px,calc(100vh-8rem))] md:pb-14 md:pt-12"
-      >
-        <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_20%_-10%,rgba(76,175,80,0.18),transparent_50%),radial-gradient(ellipse_70%_50%_at_100%_0%,rgba(31,59,100,0.45),transparent_48%),linear-gradient(165deg,#050a18_0%,#1F3B64_38%,#0a1628_100%)]"
-          aria-hidden
-        />
-        <Motion.div
-          className="pointer-events-none absolute -left-24 top-32 h-80 w-80 rounded-full bg-[#4CAF50]/22 blur-[100px]"
-          aria-hidden
-          animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <Motion.div
-          className="pointer-events-none absolute -right-20 bottom-32 h-72 w-72 rounded-full bg-[#2E5B88]/28 blur-[90px]"
-          aria-hidden
-          animate={{ x: [0, -24, 0], y: [0, -16, 0] }}
-          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:48px_48px]"
-          aria-hidden
-        />
+      <AboutHero />
 
-        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 lg:px-8">
-          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-14 xl:gap-16">
-            <Motion.div
-              variants={heroStagger}
-              initial="hidden"
-              animate="show"
-              className="max-w-xl lg:max-w-none"
-            >
-              <Motion.p
-                variants={heroItem}
-                className={`${headlineFont} mb-4 inline-flex items-center gap-2 rounded-full border border-[#4CAF50]/35 bg-[#4CAF50]/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-200/95 md:text-[11px]`}
-              >
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#4CAF50]" />
-                Since 2019 · Global
-              </Motion.p>
-              <Motion.div variants={heroItem}>
-                <h1
-                  className={`${headlineFont} text-[1.6rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[2.5rem] lg:leading-[1.08]`}
-                >
-                  About Reputation360 | Online Reputation Management Company
-                </h1>
-              </Motion.div>
-              <Motion.p
-                variants={heroItem}
-                className="mt-4 max-w-2xl text-lg font-semibold leading-snug text-white/95 sm:text-xl md:text-2xl"
-              >
-                Your reputation defines your future. We make sure it{" "}
-                <span className="text-[#7df5b9]">reflects your truth.</span>
-              </Motion.p>
-              <Motion.p
-                variants={heroItem}
-                className="mt-5 max-w-lg text-[15px] leading-relaxed text-slate-300/90 md:text-base"
-              >
-                Protecting reputations globally - with the discretion, craft, and persistence modern search
-                demands.
-              </Motion.p>
-              <Motion.div
-                variants={heroItem}
-                className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4"
-              >
-                <ConsultationCtas
-                  variant="onDark"
-                  consultLabel="Book a free consultation"
-                  consultSuffix={
-                    <ArrowRight
-                      className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                      aria-hidden
-                    />
-                  }
-                  consultClassName={`${headlineFont} group inline-flex items-center gap-2 rounded-xl bg-cta-consult px-6 py-3.5 text-sm font-bold text-white transition hover:brightness-95 md:px-8 md:text-base`}
-                  freeScanClassName={`${headlineFont} inline-flex items-center gap-2 rounded-xl border border-white/25 bg-transparent px-5 py-3.5 text-sm font-semibold text-white transition hover:border-white/45 hover:bg-white/5 md:px-6`}
-                  wrapperClassName="gap-3 sm:gap-4"
-                  hideServingLine={true}
-                />
-              </Motion.div>
-            </Motion.div>
+      <AboutOurStorySection />
 
-            <Motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="mx-auto w-full max-w-md justify-self-end lg:mx-0 lg:max-w-none"
-            >
-              <AboutHeroSearchMockup headlineFont={headlineFont} />
-            </Motion.div>
-          </div>
-        </div>
-      </header>
-
-      <HowItAllBeganStory />
-
-      {/* Who We Serve */}
-      <section
-        id="who-we-serve"
-        className={`relative bg-white ${aboutSectionSpacing} ${aboutScrollTargetClass}`}
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <Motion.div
-            className="mb-10 text-center md:mb-14"
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={aboutView}
-            transition={{ duration: 0.5 }}
-          >
-            <h2
-              className={`${headlineFont} text-3xl font-extrabold text-[#1F3B64] md:text-[2.1rem]`}
-            >
-              Who We Serve: Reputation Management for Professionals & Businesses
-            </h2>
-          </Motion.div>
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
-            {whoWeServe.map((row, i) => {
-              const Icon = row.icon;
-              const { title, text, wide, href } = row;
-              return (
-              <Motion.div
-                key={title}
-                className={`${wide ? "lg:col-span-3" : ""}`}
-                initial={{ opacity: 0, y: 22 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={aboutView}
-                transition={{ duration: 0.45, delay: i * 0.06 }}
-              >
-                <Motion.a
-                  href={href}
-                  {...internalAnchorProps(href)}
-                  whileHover={{ y: -6 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                  className={`group flex h-full flex-col items-start rounded-2xl border border-slate-200/90 bg-gradient-to-br from-slate-50 to-white p-8 text-left no-underline shadow-sm transition-shadow duration-300 hover:border-green/25 hover:shadow-[0_24px_50px_-28px_rgba(31,59,100,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green/50 focus-visible:ring-offset-2 ${wide ? "lg:flex-row lg:items-center lg:gap-10 lg:p-10" : ""}`}
-                >
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-navy/[0.06] text-navy ring-1 ring-navy/10 transition-all duration-300 group-hover:scale-105 group-hover:bg-green/12 group-hover:text-green group-hover:ring-green/25">
-                    <Icon className="h-7 w-7" strokeWidth={2} aria-hidden />
-                  </div>
-                  <div className={`min-w-0 flex-1 ${wide ? "lg:text-left" : ""}`}>
-                    <h3
-                      className={`${headlineFont} mb-2 text-lg font-extrabold text-navy ${wide ? "lg:text-xl" : ""}`}
-                    >
-                      {title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-slate-600 md:text-[15px]">
-                      {text}
-                    </p>
-                    <span className={`${headlineFont} mt-4 inline-flex text-sm font-bold text-green`}>
-                      Learn about {title}
-                    </span>
-                  </div>
-                </Motion.a>
-              </Motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <AboutWhoWeServeSection />
 
       <HowWeWorkSection />
 

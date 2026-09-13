@@ -33,9 +33,9 @@ function upsertJsonLdScript(id, data) {
 
 /**
  * Breadcrumb trail for second- and third-level audience, case study, and blog pages.
- * @param {{ pathname?: string }} props
+ * @param {{ pathname?: string; compact?: boolean }} props
  */
-export function Breadcrumb({ pathname }) {
+export function Breadcrumb({ pathname, compact = false }) {
   const path =
     pathname ??
     (typeof window !== "undefined" ? window.location.pathname : "/");
@@ -63,7 +63,11 @@ export function Breadcrumb({ pathname }) {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="r360-breadcrumb w-full border-b border-[#E5E7EB] bg-[#F9FAFB] px-5 py-2.5"
+      className={
+        compact
+          ? "r360-breadcrumb r360-breadcrumb--compact w-full border-b border-[#E5E7EB] bg-[#F9FAFB] px-5"
+          : "r360-breadcrumb w-full border-b border-[#E5E7EB] bg-[#F9FAFB] px-5 py-2.5"
+      }
     >
       <ol className="m-0 flex list-none flex-wrap items-center gap-0 p-0">
         {crumbs.map((crumb, index) => {
