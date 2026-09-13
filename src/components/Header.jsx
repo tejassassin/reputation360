@@ -142,10 +142,15 @@ function Header() {
           <NavItems items={navItems} />
           <div
             className={cn(
-              "relative z-20 flex shrink-0 items-center justify-end gap-2 sm:gap-3",
-              "lg:col-start-3 lg:row-start-1 lg:border-l lg:border-white/20 lg:pl-4",
+              "r360-header-desktop-ctas relative z-20 flex w-max max-w-full shrink-0 items-stretch",
+              "lg:col-start-3 lg:row-start-1 lg:justify-self-end lg:gap-5 xl:gap-6",
             )}
           >
+            <span
+              className="r360-header-desktop-ctas__divider hidden shrink-0 lg:block"
+              aria-hidden
+            />
+            <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             <NavbarButton
               href={FREE_RISK_SCAN_PATH}
               {...internalAnchorProps(FREE_RISK_SCAN_PATH)}
@@ -164,6 +169,7 @@ function Header() {
             >
               {FREE_CONSULTATION_NAV_LABEL}
             </NavbarButton>
+            </div>
           </div>
         </NavBody>
 
