@@ -45,9 +45,12 @@ export default function AboutReputationVisual() {
   const captionId = `${uid}-caption`;
 
   const labelSize = 15.4;
+  const challengeTitleSize = 11;
   const strategyTitleSize = 12.5;
   const cardTitleSize = 15.4;
   const footerSize = 12.65;
+  const checkInset = 13;
+  const checkR = 10;
 
   const panel1X = 4;
   const panel1W = 148;
@@ -91,6 +94,37 @@ export default function AboutReputationVisual() {
   const gridRow1Y = 146;
   const gridRow2Y = 188;
 
+  const aiCardX = panel3X + 14;
+  const aiCardY = 42;
+  const aiCardW = panel3W - 28;
+  const aiCardH = 68;
+  const aiCheckCx = aiCardX + aiCardW - checkInset - checkR;
+  const aiCheckCy = aiCardY + checkInset + checkR;
+
+  const googleCardX = panel3X + 14;
+  const googleCardY = 120;
+  const googleCardW = panel3W - 28;
+  const googleCardH = 86;
+  const googleCheckCx = googleCardX + googleCardW - checkInset - checkR;
+  const googleCheckCy = googleCardY + checkInset + checkR;
+  const googleCardBottom = googleCardY + googleCardH;
+  const balancedLabelY = googleCardBottom + 18;
+
+  function ResultCheckBadge({ cx, cy, r = checkR }) {
+    return (
+      <>
+        <circle cx={cx} cy={cy} r={r} fill="#4CAF50" fillOpacity="0.4" />
+        <path
+          d={`M${cx - 5} ${cy + 0.5} l4 4 7-8`}
+          stroke="#4CAF50"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    );
+  }
+
   return (
     <figure className="r360-about-reputation-visual m-0 flex w-full flex-col" aria-labelledby={captionId}>
       <div className="r360-about-reputation-visual-inner relative w-full px-2 py-3 sm:px-3 sm:py-3.5">
@@ -129,7 +163,14 @@ export default function AboutReputationVisual() {
             stroke="#FECACA"
             strokeWidth="1.25"
           />
-          <text x="14" y="32" fill="#BE123C" fontSize={labelSize} fontWeight="800">
+          <text
+            x={panel1X + panel1W / 2}
+            y="32"
+            fill="#BE123C"
+            fontSize={challengeTitleSize}
+            fontWeight="800"
+            textAnchor="middle"
+          >
             Reputation Challenges
           </text>
           <rect x="14" y="44" width="118" height="28" rx="6" fill="#FFFFFF" stroke="#F87171" strokeWidth="1.5" />
@@ -199,10 +240,10 @@ export default function AboutReputationVisual() {
           </text>
 
           <rect
-            x={panel3X + 14}
-            y="42"
-            width={panel3W - 28}
-            height="72"
+            x={aiCardX}
+            y={aiCardY}
+            width={aiCardW}
+            height={aiCardH}
             rx="10"
             fill="#FFFFFF"
             stroke="#2E5B88"
@@ -215,20 +256,13 @@ export default function AboutReputationVisual() {
           <rect x={panel3X + 28} y="70" width="152" height="9" rx="2" fill="#2E5B88" fillOpacity="0.9" />
           <rect x={panel3X + 28} y="84" width="132" height="8" rx="2" fill="#1F3B64" fillOpacity="0.52" />
           <rect x={panel3X + 28} y="96" width="118" height="8" rx="2" fill="#6B7280" fillOpacity="0.42" />
-          <circle cx={panel3X + panel3W - 18} cy="54" r="13" fill="#4CAF50" fillOpacity="0.4" />
-          <path
-            d={`M${panel3X + panel3W - 25} 54l6 6 11-12`}
-            stroke="#4CAF50"
-            strokeWidth="2.85"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+          <ResultCheckBadge cx={aiCheckCx} cy={aiCheckCy} />
 
           <rect
-            x={panel3X + 14}
-            y="120"
-            width={panel3W - 28}
-            height="106"
+            x={googleCardX}
+            y={googleCardY}
+            width={googleCardW}
+            height={googleCardH}
             rx="10"
             fill="#FFFFFF"
             stroke="#1F3B64"
@@ -241,20 +275,11 @@ export default function AboutReputationVisual() {
           <rect x={panel3X + 28} y="146" width="138" height="9" rx="2" fill="#1F3B64" fillOpacity="0.95" />
           <rect x={panel3X + 28} y="158" width="118" height="7" rx="2" fill="#2E5B88" fillOpacity="0.55" />
           <rect x={panel3X + 28} y="168" width="128" height="7" rx="2" fill="#6B7280" fillOpacity="0.42" />
-          <rect x={panel3X + 28} y="182" width="122" height="8" rx="2" fill="#1F3B64" fillOpacity="0.72" />
-          <rect x={panel3X + 28} y="194" width="108" height="7" rx="2" fill="#2E5B88" fillOpacity="0.48" />
-          <rect x={panel3X + 28} y="204" width="116" height="7" rx="2" fill="#6B7280" fillOpacity="0.38" />
-          <rect x={panel3X + 28} y="214" width="98" height="7" rx="2" fill="#6B7280" fillOpacity="0.32" />
-          <circle cx={panel3X + panel3W - 18} cy="132" r="12" fill="#4CAF50" fillOpacity="0.35" />
-          <path
-            d={`M${panel3X + panel3W - 24} 132l5 5 10-11`}
-            stroke="#4CAF50"
-            strokeWidth="2.75"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+          <rect x={panel3X + 28} y="180" width="122" height="8" rx="2" fill="#1F3B64" fillOpacity="0.72" />
+          <rect x={panel3X + 28} y="192" width="108" height="7" rx="2" fill="#2E5B88" fillOpacity="0.48" />
+          <ResultCheckBadge cx={googleCheckCx} cy={googleCheckCy} />
 
-          <text x={panel3X + 28} y="234" fill="#14532D" fontSize={footerSize} fontWeight="800">
+          <text x={panel3X + 28} y={balancedLabelY} fill="#14532D" fontSize={footerSize} fontWeight="800">
             Balanced, current results
           </text>
 
@@ -290,7 +315,7 @@ export default function AboutReputationVisual() {
             </linearGradient>
           </defs>
           <rect x="8" y="8" width="304" height="118" rx="12" fill="#FFF1F2" stroke="#FECACA" strokeWidth="1.25" />
-          <text x="20" y="30" fill="#BE123C" fontSize={labelSize} fontWeight="800">
+          <text x="160" y="30" fill="#BE123C" fontSize={challengeTitleSize} fontWeight="800" textAnchor="middle">
             Reputation Challenges
           </text>
           <rect x="20" y="40" width="200" height="10" rx="2" fill="#FCA5A5" />
@@ -337,10 +362,9 @@ export default function AboutReputationVisual() {
           </text>
           <rect x="32" y="416" width="168" height="8" rx="2" fill="#2E5B88" fillOpacity="0.88" />
           <rect x="32" y="428" width="142" height="7" rx="2" fill="#1F3B64" fillOpacity="0.45" />
-          <circle cx="284" cy="402" r="10" fill="#4CAF50" fillOpacity="0.4" />
-          <path d="M278 402l5 5 10-11" stroke="#4CAF50" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <ResultCheckBadge cx={277} cy={413} r={10} />
 
-          <rect x="20" y="448" width="280" height="78" rx="10" fill="#FFFFFF" stroke="#1F3B64" strokeOpacity="0.28" strokeWidth="1.5" />
+          <rect x="20" y="448" width="280" height="66" rx="10" fill="#FFFFFF" stroke="#1F3B64" strokeOpacity="0.28" strokeWidth="1.5" />
           <text x="32" y="466" fill="#1F3B64" fontSize={cardTitleSize} fontWeight="800">
             Google Search
           </text>
@@ -348,18 +372,16 @@ export default function AboutReputationVisual() {
           <rect x="32" y="486" width="132" height="7" rx="2" fill="#2E5B88" fillOpacity="0.5" />
           <rect x="32" y="496" width="118" height="7" rx="2" fill="#6B7280" fillOpacity="0.4" />
           <rect x="32" y="506" width="140" height="7" rx="2" fill="#1F3B64" fillOpacity="0.65" />
-          <rect x="32" y="516" width="120" height="7" rx="2" fill="#6B7280" fillOpacity="0.35" />
-          <circle cx="284" cy="462" r="10" fill="#4CAF50" fillOpacity="0.35" />
-          <path d="M279 462l4 4 9-10" stroke="#4CAF50" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" />
+          <ResultCheckBadge cx={277} cy={471} r={10} />
 
-          <text x="32" y="538" fill="#14532D" fontSize={footerSize} fontWeight="800">
+          <text x="32" y="528" fill="#14532D" fontSize={footerSize} fontWeight="800">
             Balanced, current results
           </text>
         </svg>
       </div>
       <figcaption
         id={captionId}
-        className="r360-about-reputation-visual-caption border-t border-slate-200/60 bg-slate-50/90 px-3 py-1.5 text-center font-body leading-snug sm:px-4 sm:text-left"
+        className="r360-about-reputation-visual-caption border-t border-slate-200/60 bg-slate-50/90 font-body leading-snug"
       >
         Building stronger visibility across Google and AI-powered search.
       </figcaption>
