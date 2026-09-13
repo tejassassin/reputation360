@@ -1845,7 +1845,7 @@
   }
 }
 
-/* Contact page - hero (two-column copy + wide lead form) */
+/* Contact page - hero (two-column copy + default lead form) */
 .r360-contact-hero-section {
   box-sizing: border-box;
   display: block;
@@ -1942,6 +1942,13 @@
   box-sizing: border-box;
 }
 
+.r360-contact-hero-form-column .r360-hero-form-wrap {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
 .r360-contact-hero-form-column .r360-hero-lead-form {
   width: 100%;
   max-width: none;
@@ -1955,142 +1962,18 @@
     align-items: stretch;
   }
 
+  .r360-contact-hero-form-column .r360-hero-form-wrap {
+    width: 100%;
+    max-width: 500px;
+    margin-inline-start: auto;
+    box-sizing: border-box;
+  }
+
   .r360-contact-hero-form-column .r360-hero-lead-form {
     width: 100%;
-    max-width: 48.75rem;
-    margin-inline-start: auto;
-    margin-inline-end: 0;
+    max-width: 500px;
+    box-sizing: border-box;
   }
-}
-
-/* Contact page - wide consultation form layout (hero only) */
-.r360-hero-lead-form--wide {
-  width: 100%;
-  max-width: none;
-  box-sizing: border-box;
-}
-
-.r360-hero-lead-form--wide .r360-form-header-wrap {
-  padding: clamp(1rem, 1.25vw, 1.25rem) clamp(1.5rem, 2vw, 1.75rem)
-    clamp(0.625rem, 0.85vw, 0.75rem);
-}
-
-.r360-hero-lead-form--wide .r360-form-header-wrap .flex {
-  gap: 0.875rem;
-  align-items: center;
-}
-
-.r360-hero-lead-form--wide .r360-form-icon {
-  width: 56px;
-  height: 56px;
-  flex: 0 0 56px;
-}
-
-.r360-hero-lead-form--wide .r360-form-icon::before {
-  width: 44px;
-  height: 44px;
-  margin-top: -22px;
-  margin-left: -22px;
-}
-
-.r360-hero-lead-form--wide .r360-form-icon-core {
-  width: 44px;
-  height: 44px;
-}
-
-.r360-hero-lead-form--wide .r360-form-icon-core svg {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-.r360-hero-lead-form--wide .r360-form-header-title {
-  font-size: clamp(1.125rem, 1.15vw, 1.25rem);
-  line-height: 1.25;
-}
-
-.r360-hero-lead-form--wide .r360-form-header-sub {
-  font-size: 0.875rem;
-  line-height: 1.35;
-  margin-top: 0.125rem;
-}
-
-.r360-hero-lead-form--wide .r360-form-header-divider {
-  margin-top: 0.625rem;
-}
-
-.r360-hero-lead-form--wide .r360-form-body--wide {
-  padding: clamp(0.875rem, 1.1vw, 1rem) clamp(1.5rem, 2vw, 1.75rem) 0;
-}
-
-.r360-hero-lead-form--wide .r360-form-wide-row {
-  display: grid;
-  gap: clamp(0.875rem, 1.2vw, 1rem);
-  min-width: 0;
-}
-
-.r360-hero-lead-form--wide .r360-form-wide-row + .r360-form-wide-row {
-  margin-top: clamp(0.875rem, 1.2vw, 1rem);
-}
-
-.r360-hero-lead-form--wide .r360-form-wide-row--names {
-  grid-template-columns: minmax(0, 1fr);
-}
-
-.r360-hero-lead-form--wide .r360-form-wide-row--email {
-  grid-template-columns: minmax(0, 1fr);
-}
-
-.r360-hero-lead-form--wide .r360-form-wide-row--contact {
-  grid-template-columns: minmax(0, 1fr);
-}
-
-@media (min-width: 640px) {
-  .r360-hero-lead-form--wide .r360-form-wide-row--names {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 960px) {
-  .r360-hero-lead-form--wide .r360-form-wide-row--contact {
-    grid-template-columns: minmax(0, 21fr) minmax(0, 29fr);
-    align-items: start;
-  }
-}
-
-.r360-hero-lead-form--wide .r360-form-wide-field > label {
-  margin-bottom: 0.375rem;
-}
-
-.r360-hero-lead-form--wide .r360-form-field,
-.r360-hero-lead-form--wide .r360-form-field-select {
-  min-height: 3.25rem;
-}
-
-.r360-hero-lead-form--wide .r360-form-textarea--wide-compact {
-  min-height: 3.25rem;
-  max-height: 5rem;
-  padding: 0.5625rem 0.875rem;
-  line-height: 1.4;
-  resize: vertical;
-}
-
-.r360-hero-lead-form--wide .r360-form-body > [role="alert"] {
-  margin-top: clamp(0.875rem, 1.2vw, 1rem);
-}
-
-.r360-hero-lead-form--wide .r360-form-submit {
-  margin-top: clamp(0.875rem, 1.2vw, 1rem);
-}
-
-.r360-hero-lead-form--wide .r360-form-benefits-footer {
-  margin-top: 0.75rem;
-  padding-top: 0.875rem;
-  padding-bottom: clamp(1rem, 1.2vw, 1.125rem);
-}
-
-.r360-hero-lead-form--wide .r360-form-benefit-label {
-  max-width: none;
-  white-space: normal;
 }
 
 /* About page - Our Story (two visible chapters, no tabs) */

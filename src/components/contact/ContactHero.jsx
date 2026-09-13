@@ -55,8 +55,10 @@ export function ContactHero() {
             </ul>
           </div>
 
-          <div className="r360-contact-hero-form-column relative z-20 min-w-0">
-            <HomeContactLeadForm instance="contact-hero" layout="wide" />
+          <div className="r360-hero-form-column r360-contact-hero-form-column relative z-20 min-w-0">
+            <div className="r360-hero-form-wrap">
+              <HomeContactLeadForm instance="contact-hero" />
+            </div>
           </div>
         </div>
       </div>
