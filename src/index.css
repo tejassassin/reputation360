@@ -734,7 +734,8 @@
 @media (min-width: 1440px) {
   .r360-site-container.r360-hero-inner,
   .r360-site-container.r360-what-we-believe-shell,
-  .r360-site-container.r360-what-we-do-shell {
+  .r360-site-container.r360-what-we-do-shell,
+  .r360-site-container.r360-our-services-shell {
     width: calc(100% - var(--r360-layout-inline-inset));
     max-width: var(--r360-home-inner-max-width);
     margin-inline: auto;
