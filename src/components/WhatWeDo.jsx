@@ -8,7 +8,7 @@ function WhatWeDo() {
       aria-labelledby="about-reputation360-heading"
     >
       <div className="r360-site-container r360-what-we-do-shell">
-        <div className="r360-what-we-do-grid grid grid-cols-1 items-start">
+        <div className="r360-what-we-do-grid grid grid-cols-1 items-start lg:items-center">
           <div className="r360-what-we-do-copy order-1 min-w-0 lg:order-2">
             <h2
               id="about-reputation360-heading"

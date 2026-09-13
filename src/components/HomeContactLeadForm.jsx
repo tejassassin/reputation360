@@ -4,6 +4,7 @@ import { useId, useRef, useState } from "react";
 import {
   ArrowRight,
   ClipboardCheck,
+  Lock,
   Route,
   Search,
 } from "lucide-react";
@@ -63,6 +64,9 @@ function HomeContactLeadForm({
   const [sent, setSent] = useState(false);
 
   const isClosing = instance === "home_closing";
+  const phoneCountryClassName = isClosing
+    ? "r360-form-field r360-form-field-select r360-phone-country r360-phone-country--closing shrink-0"
+    : phoneCountryClass;
   const wrapperId = isClosing ? HOME_CLOSING_LEAD_ID : FREE_CONSULTATION_ID;
   const statusHeadingId = isClosing ? HOME_CLOSING_LEAD_HEADING_ID : FREE_CONSULTATION_HEADING_ID;
   const formId = `${baseId}-lead-form`;
@@ -194,8 +198,22 @@ function HomeContactLeadForm({
           className={`r360-form-body flex flex-col ${isClosing ? "r360-form-body--closing" : ""}`}
           noValidate
         >
+          {isClosing ? (
+            <p className="r360-closing-lead-trust font-body" role="note">
+              <span className="r360-closing-lead-trust-line">
+                <Lock className="r360-closing-lead-trust-icon shrink-0" strokeWidth={2} aria-hidden />
+                <span>
+                  100% Confidential{" "}
+                  <span className="r360-closing-lead-trust-dot" aria-hidden="true">
+                    ·
+                  </span>{" "}
+                  Free 15-Minute Consultation
+                </span>
+              </span>
+            </p>
+          ) : null}
           <div
-            className={`r360-form-field-grid grid ${isClosing ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-2"}`}
+            className={`r360-form-field-grid grid ${isClosing ? "grid-cols-1 md:grid-cols-2" : "grid-cols-2"}`}
           >
             <div className="min-w-0">
               <label className={labelClass} htmlFor={`${baseId}-fn`}>
@@ -258,7 +276,7 @@ function HomeContactLeadForm({
                 id={`${baseId}-cc`}
                 value={countryIdx}
                 onChange={(e) => setCountryIdx(e.target.value)}
-                className={phoneCountryClass}
+                className={phoneCountryClassName}
               >
                 {PHONE_COUNTRIES.map((c, i) => (
                   <option key={c.id ?? `${c.label}-${c.code}`} value={String(i)}>

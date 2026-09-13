@@ -51,17 +51,19 @@ function HomePage({ renderSeo = true }) {
       ) : null}
       <Hero />
       <main className="flex w-full flex-col gap-12 pt-0 md:gap-16 lg:gap-20">
-        <section>
-          <WhatWeBelieve />
-        </section>
-        <LazySection minHeight="20rem">
-          <section>
-            <WhatWeDo />
-          </section>
-        </LazySection>
-        <LazySection minHeight="24rem">
-          <OurServices />
-        </LazySection>
+        <div className="r360-home-believe-about-services-continuity">
+          <div className="r360-home-believe-about-stack">
+            <section>
+              <WhatWeBelieve />
+            </section>
+            <LazySection minHeight="1px">
+              <WhatWeDo />
+            </LazySection>
+          </div>
+          <LazySection minHeight="24rem">
+            <OurServices />
+          </LazySection>
+        </div>
         <LazySection minHeight="20rem">
           <section className="bg-offwhite">
             <HomeTestimonials />

@@ -100,45 +100,24 @@ html body section#r3-home-our-services-root {
   border-width: 1px;
 }
 
-.r3-service-icon--orm-suppression {
+.r3-service-icon--orm-suppression,
+.r3-service-icon--negative-link-suppression,
+.r3-service-icon--social-media,
+.r3-service-icon--ai-orm,
+.r3-service-icon--reputation-building {
   border-color: rgba(76, 175, 80, 0.55);
   color: #4caf50;
   background: linear-gradient(180deg, rgba(31, 59, 100, 0.92) 0%, rgba(15, 30, 51, 0.88) 100%);
   box-shadow: 0 0 0 1px rgba(76, 175, 80, 0.15);
 }
 
-.r3-service-icon--negative-link-suppression {
-  border-color: rgba(46, 91, 136, 0.55);
-  color: #7eb8e8;
-  background: rgba(31, 59, 100, 0.82);
-}
-
-.r3-service-icon--social-media {
-  border-color: rgba(56, 142, 120, 0.5);
-  color: #6ecfae;
-  background: rgba(28, 52, 78, 0.85);
-}
-
-.r3-service-icon--ai-orm {
-  border-color: rgba(76, 175, 80, 0.4);
-  color: #8fd99a;
-  background: rgba(24, 48, 72, 0.88);
-}
-
-.r3-service-icon--reputation-building {
-  border-color: rgba(56, 105, 152, 0.58);
-  color: #6eb5e8;
-  background: linear-gradient(
-    180deg,
-    rgba(28, 52, 82, 0.92) 0%,
-    rgba(18, 36, 58, 0.9) 100%
-  );
-  box-shadow: 0 0 0 1px rgba(70, 130, 185, 0.12);
-}
-
+.r3-supporting-service-card:hover .r3-service-icon--orm-suppression,
+.r3-supporting-service-card:hover .r3-service-icon--negative-link-suppression,
+.r3-supporting-service-card:hover .r3-service-icon--social-media,
+.r3-supporting-service-card:hover .r3-service-icon--ai-orm,
 .r3-supporting-service-card:hover .r3-service-icon--reputation-building {
-  border-color: rgba(72, 130, 178, 0.62);
-  color: #85c4f0;
+  border-color: rgba(76, 175, 80, 0.65);
+  color: #4caf50;
 }
 
 @media (prefers-reduced-motion: reduce) {
