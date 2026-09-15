@@ -1393,48 +1393,43 @@
   color: #1f3b64;
 }
 
-/* Consultation form - post-submit success state */
+/* Consultation form - post-submit success state (HomeContactLeadForm only) */
 .r360-hero-lead-form.r360-hero-lead-form--submitted {
   display: flex;
   flex-direction: column;
 }
 
-.r360-form-success {
+.r360-hero-lead-form .successState {
   box-sizing: border-box;
   display: flex;
   flex: 1 1 auto;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  max-width: 35rem;
   min-height: 41.5rem;
+  margin-inline: auto;
   padding: clamp(2rem, 2.5vw, 2.5rem) clamp(1.5rem, 1.75vw, 1.75rem);
   text-align: center;
 }
 
-.r360-form-success--closing {
+.r360-hero-lead-form .successState--closing {
   min-height: 36rem;
 }
 
-.r360-form-success-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 35rem;
-  margin-inline: auto;
-}
-
-.r360-form-success-icon {
+.r360-hero-lead-form .successIcon {
   position: relative;
-  width: 76px;
-  height: 76px;
-  flex: 0 0 76px;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
   display: grid;
   place-items: center;
   isolation: isolate;
   margin-bottom: 1.25rem;
 }
 
-.r360-form-success-icon-ring {
+.r360-hero-lead-form .successIconRing {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -1444,11 +1439,11 @@
   pointer-events: none;
 }
 
-.r360-form-success-icon-core {
+.r360-hero-lead-form .successIconCore {
   position: relative;
   z-index: 2;
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -1457,16 +1452,16 @@
   box-shadow:
     0 0 0 4px #ffffff,
     0 0 0 6px rgba(76, 175, 80, 0.16);
-  animation: r360-form-success-icon-in 0.45s ease-out both;
+  animation: r360-lead-form-success-icon-in 0.45s ease-out both;
 }
 
-.r360-form-success-icon-core svg {
+.r360-hero-lead-form .successIconCore svg {
   width: 1.375rem;
   height: 1.375rem;
   stroke: currentColor;
 }
 
-@keyframes r360-form-success-icon-in {
+@keyframes r360-lead-form-success-icon-in {
   0% {
     transform: scale(0.84);
     opacity: 0.7;
@@ -1478,31 +1473,32 @@
   }
 }
 
-.r360-form-success-title {
+.r360-hero-lead-form .successState > h2 {
   max-width: 100%;
   margin-bottom: 0.875rem;
+  color: #1f3b64;
   text-wrap: balance;
 }
 
-.r360-form-success-copy {
+.r360-hero-lead-form .successState > p {
   max-width: 35rem;
   font-size: clamp(0.9375rem, 0.9vw, 1rem);
   line-height: 1.55;
+  color: #6b7280;
   text-wrap: pretty;
 }
 
-.r360-form-success-secondary-copy {
+.r360-hero-lead-form .successState .secondaryText {
   margin-top: 1.5rem;
   max-width: 32rem;
   font-size: clamp(0.875rem, 0.85vw, 0.9375rem);
   line-height: 1.5;
-  text-wrap: pretty;
 }
 
-.r360-form-success-scan-cta {
+.r360-hero-lead-form .successState .scanButton {
   display: inline-flex;
   box-sizing: border-box;
-  width: clamp(17.5rem, 28vw, 21.25rem);
+  width: clamp(18.75rem, 30vw, 21.25rem);
   max-width: 100%;
   min-height: 2.75rem;
   margin-top: 1rem;
@@ -1520,50 +1516,50 @@
     background-color 160ms ease;
 }
 
-.r360-form-success-scan-cta:hover {
+.r360-hero-lead-form .successState .scanButton:hover {
   border-color: #4caf50;
   background-color: rgba(76, 175, 80, 0.06);
 }
 
-.r360-form-success-scan-cta:focus-visible {
+.r360-hero-lead-form .successState .scanButton:focus-visible {
   outline: 2px solid #4caf50;
   outline-offset: 2px;
 }
 
 @media (max-width: 639px) {
-  .r360-form-success {
+  .r360-hero-lead-form .successState {
     min-height: 34rem;
     padding: 1.75rem 1.375rem;
   }
 
-  .r360-form-success--closing {
+  .r360-hero-lead-form .successState--closing {
     min-height: 30rem;
   }
 
-  .r360-form-success-icon {
+  .r360-hero-lead-form .successIcon {
     width: 64px;
     height: 64px;
     flex-basis: 64px;
     margin-bottom: 1rem;
   }
 
-  .r360-form-success-icon-core {
-    width: 44px;
-    height: 44px;
+  .r360-hero-lead-form .successIconCore {
+    width: 42px;
+    height: 42px;
   }
 
-  .r360-form-success-icon-core svg {
+  .r360-hero-lead-form .successIconCore svg {
     width: 1.25rem;
     height: 1.25rem;
   }
 
-  .r360-form-success-scan-cta {
+  .r360-hero-lead-form .successState .scanButton {
     width: 100%;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .r360-form-success-icon-core {
+  .r360-hero-lead-form .successIconCore {
     animation: none;
   }
 }

@@ -180,40 +180,39 @@ function HomeContactLeadForm({
     >
       {sent ? (
         <div
-          className={`r360-form-success ${isClosing ? "r360-form-success--closing" : ""}`}
+          className={`successState${isClosing ? " successState--closing" : ""}`}
           role="status"
           aria-live="polite"
         >
-          <div className="r360-form-success-inner">
-            <span className="r360-form-success-icon shrink-0" aria-hidden="true">
-              <span className="r360-form-success-icon-ring" aria-hidden="true" />
-              <span className="r360-form-success-icon-core">
-                <Check strokeWidth={2.5} aria-hidden="true" />
-              </span>
+          <div className="successIcon" aria-hidden="true">
+            <span className="successIconRing" aria-hidden="true" />
+            <span className="successIconCore">
+              <Check strokeWidth={2.5} aria-hidden="true" />
             </span>
-            <h2
-              ref={successRef}
-              id={statusHeadingId}
-              tabIndex={-1}
-              className="r360-form-success-title r360-form-header-title mb-0 font-heading font-bold text-[#1F3B64] outline-none"
-            >
-              Thank You for Reaching Out
-            </h2>
-            <p className="r360-form-success-copy mb-0 font-body text-[#6B7280]">
-              We&apos;ve received your consultation request. A Reputation360 specialist will review
-              your details and contact you shortly.
-            </p>
-            <p className="r360-form-success-secondary-copy mb-0 font-body text-[#6B7280]">
-              While you wait, you can also get a free analysis of your current Google search results.
-            </p>
-            <a
-              href="/free-reputation-scan"
-              {...internalAnchorProps("/free-reputation-scan")}
-              className="r360-form-success-scan-cta ha-pill font-heading font-semibold"
-            >
-              Start Your Free Reputation Scan
-            </a>
           </div>
+          <h2
+            ref={successRef}
+            id={statusHeadingId}
+            tabIndex={-1}
+            className="r360-form-header-title mb-0 font-heading font-bold outline-none"
+          >
+            Thank You for Reaching Out
+          </h2>
+          <p className="mb-0 font-body">
+            We&apos;ve received your consultation request. A Reputation360 specialist will review
+            your details and contact you shortly.
+          </p>
+          <p className="secondaryText mb-0 font-body">
+            While you wait, you can also request a free analysis of your current Google search
+            results.
+          </p>
+          <a
+            href="/free-reputation-scan"
+            {...internalAnchorProps("/free-reputation-scan")}
+            className="scanButton ha-pill font-heading font-semibold"
+          >
+            Start Your Free Reputation Scan
+          </a>
         </div>
       ) : (
         <>
