@@ -23,6 +23,7 @@ import {
   ABOUT_BOTTOM_CONSULTATION_ID,
   CONTACT_HERO_CONSULTATION_HEADING_ID,
   CONTACT_HERO_CONSULTATION_ID,
+  HERO_FREE_REPUTATION_SCAN_CTA,
 } from "../constants/homeConsultation.js";
 import { trackHomeLeadFormSubmit } from "../lib/conversionAnalytics.js";
 
@@ -207,16 +208,16 @@ function HomeContactLeadForm({
               tabIndex={-1}
               className="r360-form-success-title mb-0 font-heading font-bold text-navy outline-none"
             >
-              Thank You. We&apos;ve Received Your Request.
+              Your Consultation Request Is Confirmed
             </h2>
             <p className="r360-form-success-lead mb-0 font-body text-steel">
-              A Reputation360 specialist will review your details and contact you shortly to
-              discuss your situation and the available next steps.
+              Thank you for reaching out. A Reputation360 specialist will review your details and
+              contact you shortly to discuss your situation and suitable next steps.
             </p>
           </div>
-          <hr className="r360-form-header-divider r360-form-success-divider" aria-hidden="true" />
-          <div className="r360-form-success-body">
-            <p className="r360-form-success-steps-label mb-0 font-heading text-[11px] font-bold uppercase tracking-[0.12em] text-navy">
+          <div className="r360-form-success-accent" aria-hidden="true" />
+          <div className="r360-form-success-panel">
+            <p className="r360-form-success-panel-heading mb-0 font-heading text-[10px] font-bold uppercase tracking-[0.14em] text-navy">
               What happens next
             </p>
             <ol className="r360-form-success-steps mb-0 list-none p-0">
@@ -234,15 +235,18 @@ function HomeContactLeadForm({
                 </li>
               ))}
             </ol>
+          </div>
+          <div className="r360-form-success-footer">
             <a
               href="/free-reputation-scan"
               {...internalAnchorProps("/free-reputation-scan")}
               className="r360-form-success-scan-cta ha-pill font-heading font-bold"
             >
-              Start Your Free Reputation Scan
+              {HERO_FREE_REPUTATION_SCAN_CTA}
             </a>
             <p className="r360-form-success-reassurance mb-0 font-body text-steel">
-              Your information will be handled discreetly.
+              <Lock className="r360-form-success-reassurance-icon shrink-0" strokeWidth={2} aria-hidden="true" />
+              <span>Your information will be handled discreetly.</span>
             </p>
           </div>
         </div>
