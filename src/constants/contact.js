@@ -1,6 +1,9 @@
 /** Primary inbox (FormSubmit, footer, quick contact). */
 export const CONTACT_EMAIL = "hello@thereputation360.com";
 
+/** CC inbox for consultation and contact form submissions (FormSubmit _cc). */
+export const CONTACT_INQUIRY_CC_EMAIL = "hello@reputation360.in";
+
 export const CONTACT_FORM_SUBMIT_URL = `https://formsubmit.co/${CONTACT_EMAIL}`;
 export const CONTACT_FORM_SUBMIT_AJAX_URL = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
 
@@ -133,6 +136,7 @@ export async function submitContactInquiry({
       _subject: subject,
       _template: "table",
       _captcha: "false",
+      _cc: CONTACT_INQUIRY_CC_EMAIL,
       _autoresponse: CONTACT_FORM_AUTORESPONSE,
     }),
   });

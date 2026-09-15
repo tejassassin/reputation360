@@ -4,6 +4,7 @@ import {
   CONTACT_EMAIL,
   CONTACT_FORM_AUTORESPONSE,
   CONTACT_FORM_SUBMIT_URL,
+  CONTACT_INQUIRY_CC_EMAIL,
   contactMailtoHref,
   handleMailtoClick,
 } from "../constants/contact.js";
@@ -286,6 +287,11 @@ function ContactPage() {
                     defaultValue="Contact inquiry - Reputation360"
                   />
                   <input type="hidden" name="_template" defaultValue="table" />
+                  <input
+                    type="hidden"
+                    name="_cc"
+                    defaultValue={CONTACT_INQUIRY_CC_EMAIL}
+                  />
                   <input
                     type="hidden"
                     name="_next"
