@@ -3,14 +3,15 @@
 import { useId, useRef, useState } from "react";
 import {
   ArrowRight,
+  Check,
   ClipboardCheck,
   Lock,
+  Phone,
   Route,
   Search,
 } from "lucide-react";
 import { submitContactInquiry } from "../constants/contact.js";
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
-import { FREE_REPUTATION_SCAN_LABEL } from "../constants/freeRiskScan.js";
 import {
   FREE_CONSULTATION_HEADING_ID,
   FREE_CONSULTATION_ID,
@@ -43,6 +44,12 @@ const phoneInputClass = "r360-form-field r360-phone-input min-w-0 flex-1";
 
 const labelClass =
   "mb-2 block font-heading text-[11px] font-bold uppercase tracking-[0.07em] text-navy";
+
+const SUCCESS_NEXT_STEPS = [
+  { step: "01", label: "We review your request", Icon: ClipboardCheck },
+  { step: "02", label: "A specialist contacts you", Icon: Phone },
+  { step: "03", label: "We discuss suitable next steps", Icon: Route },
+];
 
 /**
  * @param {object} props
@@ -176,8 +183,71 @@ function HomeContactLeadForm({
   return (
     <div
       id={wrapperId}
-      className={`r360-hero-lead-form min-w-0 bg-white ${isClosing ? "r360-home-closing-lead-form overflow-hidden" : "overflow-hidden"}`}
+      className={`r360-hero-lead-form min-w-0 bg-white ${isClosing ? "r360-home-closing-lead-form overflow-hidden" : "overflow-hidden"} ${sent ? "r360-hero-lead-form--submitted" : ""}`}
     >
+      {sent ? (
+        <div
+          className={`r360-form-success ${isClosing ? "r360-form-success--closing" : ""}`}
+          role="status"
+          aria-live="polite"
+        >
+          <div className="r360-form-success-header">
+            <span className="r360-form-success-icon shrink-0" aria-hidden="true">
+              <span className="r360-form-success-icon-ring" aria-hidden="true" />
+              <span className="r360-form-success-icon-core">
+                <Check strokeWidth={2.5} aria-hidden="true" />
+              </span>
+            </span>
+            <p className="r360-form-success-eyebrow mb-0 font-heading text-[11px] font-bold uppercase tracking-[0.2em] text-[#4CAF50] sm:text-xs">
+              Request received
+            </p>
+            <h2
+              ref={successRef}
+              id={statusHeadingId}
+              tabIndex={-1}
+              className="r360-form-success-title mb-0 font-heading font-bold text-navy outline-none"
+            >
+              Thank You. We&apos;ve Received Your Request.
+            </h2>
+            <p className="r360-form-success-lead mb-0 font-body text-steel">
+              A Reputation360 specialist will review your details and contact you shortly to
+              discuss your situation and the available next steps.
+            </p>
+          </div>
+          <hr className="r360-form-header-divider r360-form-success-divider" aria-hidden="true" />
+          <div className="r360-form-success-body">
+            <p className="r360-form-success-steps-label mb-0 font-heading text-[11px] font-bold uppercase tracking-[0.12em] text-navy">
+              What happens next
+            </p>
+            <ol className="r360-form-success-steps mb-0 list-none p-0">
+              {SUCCESS_NEXT_STEPS.map(({ step, label, Icon }) => (
+                <li key={step} className="r360-form-success-step">
+                  <span className="r360-form-success-step-icon" aria-hidden="true">
+                    <Icon strokeWidth={2} />
+                  </span>
+                  <span className="r360-form-success-step-copy">
+                    <span className="r360-form-success-step-num font-heading font-bold text-[#4CAF50]">
+                      {step}
+                    </span>
+                    <span className="r360-form-success-step-text font-body text-navy">{label}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+            <a
+              href="/free-reputation-scan"
+              {...internalAnchorProps("/free-reputation-scan")}
+              className="r360-form-success-scan-cta ha-pill font-heading font-bold"
+            >
+              Start Your Free Reputation Scan
+            </a>
+            <p className="r360-form-success-reassurance mb-0 font-body text-steel">
+              Your information will be handled discreetly.
+            </p>
+          </div>
+        </div>
+      ) : (
+        <>
       {showHeader ? (
         <div className="r360-form-header-wrap">
           <div className="flex items-start gap-3.5 sm:gap-4">
@@ -204,40 +274,6 @@ function HomeContactLeadForm({
         </div>
       ) : null}
 
-      {sent ? (
-        <div
-          className={`r360-form-body text-center ${isClosing ? "r360-form-body--closing-success" : ""}`}
-          role="status"
-        >
-          <p
-            ref={successRef}
-            id={statusHeadingId}
-            tabIndex={-1}
-            className={
-              isClosing
-                ? "font-body text-base leading-relaxed text-navy outline-none sm:text-[1.05rem]"
-                : "font-heading text-lg font-bold text-navy outline-none"
-            }
-          >
-            {isClosing
-              ? "Thank you. Your consultation request has been received, and a member of our team will contact you shortly."
-              : "Thanks - we received your request."}
-          </p>
-          {!isClosing ? (
-            <p className="mt-2 font-body text-sm leading-relaxed text-steel">
-              A specialist will follow up shortly. You can also start a{" "}
-              <a
-                href="/free-reputation-scan"
-                {...internalAnchorProps("/free-reputation-scan")}
-                className="font-semibold text-green underline underline-offset-2"
-              >
-                {FREE_REPUTATION_SCAN_LABEL}
-              </a>{" "}
-              while you wait.
-            </p>
-          ) : null}
-        </div>
-      ) : (
         <form
           id={formId}
           onSubmit={onSubmit}
@@ -461,6 +497,7 @@ function HomeContactLeadForm({
             </div>
           ) : null}
         </form>
+        </>
       )}
     </div>
   );

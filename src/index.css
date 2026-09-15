@@ -1393,6 +1393,238 @@
   color: #1f3b64;
 }
 
+/* Consultation form - post-submit success state */
+.r360-form-success {
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.r360-form-success-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(1.75rem, 2vw, 2rem) clamp(1.75rem, 2vw, 2rem) 0;
+}
+
+.r360-form-success-icon {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  margin-bottom: 1rem;
+}
+
+.r360-form-success-icon-ring {
+  position: absolute;
+  inset: 3px;
+  z-index: 0;
+  border: 2px solid rgba(76, 175, 80, 0.28);
+  border-radius: 50%;
+  background: rgba(76, 175, 80, 0.04);
+  pointer-events: none;
+}
+
+.r360-form-success-icon-core {
+  position: relative;
+  z-index: 2;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: #4caf50;
+  color: #ffffff;
+  box-shadow:
+    0 0 0 5px #ffffff,
+    0 0 0 7px rgba(76, 175, 80, 0.22),
+    0 6px 16px rgba(76, 175, 80, 0.2);
+  animation: r360-form-success-icon-in 0.45s ease-out both;
+}
+
+.r360-form-success-icon-core svg {
+  width: 1.625rem;
+  height: 1.625rem;
+  stroke: currentColor;
+}
+
+@keyframes r360-form-success-icon-in {
+  0% {
+    transform: scale(0.82);
+    opacity: 0.65;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.r360-form-success-eyebrow {
+  margin-bottom: 0.625rem;
+}
+
+.r360-form-success-title {
+  max-width: 22rem;
+  font-size: clamp(1.25rem, 1.2vw, 1.4375rem);
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.r360-form-success-lead {
+  margin-top: 0.75rem;
+  max-width: 26rem;
+  font-size: clamp(0.875rem, 0.9vw, 0.9375rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.r360-form-success-divider {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.r360-form-success-body {
+  padding: clamp(1.125rem, 1.35vw, 1.25rem) clamp(1.75rem, 2vw, 2rem)
+    clamp(1.5rem, 1.75vw, 1.625rem);
+}
+
+.r360-form-success-steps-label {
+  margin-bottom: 0.875rem;
+}
+
+.r360-form-success-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem 0.625rem;
+  text-align: center;
+}
+
+.r360-form-success-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4375rem;
+  min-width: 0;
+}
+
+.r360-form-success-step-icon {
+  display: grid;
+  place-items: center;
+  color: #4caf50;
+}
+
+.r360-form-success-step-icon svg {
+  width: 1.0625rem;
+  height: 1.0625rem;
+  stroke-width: 2;
+}
+
+.r360-form-success-step-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.r360-form-success-step-num {
+  font-size: 0.6875rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.r360-form-success-step-text {
+  font-size: 0.6875rem;
+  line-height: 1.35;
+  max-width: 7.5rem;
+}
+
+.r360-form-success-scan-cta {
+  display: inline-flex;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 1.125rem;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #1f3b64;
+  border-radius: 0.625rem;
+  background-color: #ffffff;
+  color: #1f3b64;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+.r360-form-success-scan-cta:hover {
+  border-color: #4caf50;
+  color: #1f3b64;
+  background-color: rgba(76, 175, 80, 0.06);
+}
+
+.r360-form-success-scan-cta:focus-visible {
+  outline: 2px solid #4caf50;
+  outline-offset: 2px;
+}
+
+.r360-form-success-reassurance {
+  margin-top: 0.875rem;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 639px) {
+  .r360-form-success-icon {
+    width: 64px;
+    height: 64px;
+    flex-basis: 64px;
+  }
+
+  .r360-form-success-icon-core {
+    width: 50px;
+    height: 50px;
+  }
+
+  .r360-form-success-icon-core svg {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
+
+  .r360-form-success-steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.625rem;
+    text-align: left;
+  }
+
+  .r360-form-success-step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.625rem;
+  }
+
+  .r360-form-success-step-copy {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .r360-form-success-step-text {
+    max-width: none;
+    font-size: 0.8125rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .r360-form-success-icon-core {
+    animation: none;
+  }
+}
+
 @media (max-width: 639px) {
   .r360-form-benefits {
     column-gap: 10px;
