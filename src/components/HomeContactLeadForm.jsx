@@ -6,7 +6,6 @@ import {
   Check,
   ClipboardCheck,
   Lock,
-  Phone,
   Route,
   Search,
 } from "lucide-react";
@@ -23,7 +22,6 @@ import {
   ABOUT_BOTTOM_CONSULTATION_ID,
   CONTACT_HERO_CONSULTATION_HEADING_ID,
   CONTACT_HERO_CONSULTATION_ID,
-  HERO_FREE_REPUTATION_SCAN_CTA,
 } from "../constants/homeConsultation.js";
 import { trackHomeLeadFormSubmit } from "../lib/conversionAnalytics.js";
 
@@ -45,12 +43,6 @@ const phoneInputClass = "r360-form-field r360-phone-input min-w-0 flex-1";
 
 const labelClass =
   "mb-2 block font-heading text-[11px] font-bold uppercase tracking-[0.07em] text-navy";
-
-const SUCCESS_NEXT_STEPS = [
-  { step: "01", label: "We review your request", Icon: ClipboardCheck },
-  { step: "02", label: "A specialist contacts you", Icon: Phone },
-  { step: "03", label: "We discuss suitable next steps", Icon: Route },
-];
 
 /**
  * @param {object} props
@@ -192,62 +184,35 @@ function HomeContactLeadForm({
           role="status"
           aria-live="polite"
         >
-          <div className="r360-form-success-header">
+          <div className="r360-form-success-inner">
             <span className="r360-form-success-icon shrink-0" aria-hidden="true">
               <span className="r360-form-success-icon-ring" aria-hidden="true" />
               <span className="r360-form-success-icon-core">
                 <Check strokeWidth={2.5} aria-hidden="true" />
               </span>
             </span>
-            <p className="r360-form-success-eyebrow mb-0 font-heading text-[11px] font-bold uppercase tracking-[0.2em] text-[#4CAF50] sm:text-xs">
-              Request received
-            </p>
             <h2
               ref={successRef}
               id={statusHeadingId}
               tabIndex={-1}
-              className="r360-form-success-title mb-0 font-heading font-bold text-navy outline-none"
+              className="r360-form-success-title r360-form-header-title mb-0 font-heading font-bold text-[#1F3B64] outline-none"
             >
-              Your Consultation Request Is Confirmed
+              Thank You for Reaching Out
             </h2>
-            <p className="r360-form-success-lead mb-0 font-body text-steel">
-              Thank you for reaching out. A Reputation360 specialist will review your details and
-              contact you shortly to discuss your situation and suitable next steps.
+            <p className="r360-form-success-copy mb-0 font-body text-[#6B7280]">
+              We&apos;ve received your consultation request. A Reputation360 specialist will review
+              your details and contact you shortly.
             </p>
-          </div>
-          <div className="r360-form-success-accent" aria-hidden="true" />
-          <div className="r360-form-success-panel">
-            <p className="r360-form-success-panel-heading mb-0 font-heading text-[10px] font-bold uppercase tracking-[0.14em] text-navy">
-              What happens next
+            <p className="r360-form-success-secondary-copy mb-0 font-body text-[#6B7280]">
+              While you wait, you can also get a free analysis of your current Google search results.
             </p>
-            <ol className="r360-form-success-steps mb-0 list-none p-0">
-              {SUCCESS_NEXT_STEPS.map(({ step, label, Icon }) => (
-                <li key={step} className="r360-form-success-step">
-                  <span className="r360-form-success-step-icon" aria-hidden="true">
-                    <Icon strokeWidth={2} />
-                  </span>
-                  <span className="r360-form-success-step-copy">
-                    <span className="r360-form-success-step-num font-heading font-bold text-[#4CAF50]">
-                      {step}
-                    </span>
-                    <span className="r360-form-success-step-text font-body text-navy">{label}</span>
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </div>
-          <div className="r360-form-success-footer">
             <a
               href="/free-reputation-scan"
               {...internalAnchorProps("/free-reputation-scan")}
-              className="r360-form-success-scan-cta ha-pill font-heading font-bold"
+              className="r360-form-success-scan-cta ha-pill font-heading font-semibold"
             >
-              {HERO_FREE_REPUTATION_SCAN_CTA}
+              Start Your Free Reputation Scan
             </a>
-            <p className="r360-form-success-reassurance mb-0 font-body text-steel">
-              <Lock className="r360-form-success-reassurance-icon shrink-0" strokeWidth={2} aria-hidden="true" />
-              <span>Your information will be handled discreetly.</span>
-            </p>
           </div>
         </div>
       ) : (
