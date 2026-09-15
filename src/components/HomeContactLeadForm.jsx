@@ -114,15 +114,7 @@ function HomeContactLeadForm({
   const buttonLabel =
     submitLabel ?? "Request My Free Consultation";
   const formHeaderSubline = "Free · Confidential · 15 minutes";
-  const inquirySubject = isClosing
-    ? "Homepage lower consultation form - free consultation request"
-    : isAboutHero
-      ? "About page hero - free consultation request"
-      : isAboutBottom
-        ? "About page consultation form - free consultation request"
-        : isContactHero
-          ? "Contact page hero - free consultation request"
-          : "Homepage reputation analysis request";
+  const inquirySubject = "Free Consultation Request";
   const sourceLine = isClosing
     ? "Source: Homepage lower consultation form (homepage_lower_consultation_form)"
     : isAboutHero
