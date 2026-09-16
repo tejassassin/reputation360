@@ -750,8 +750,7 @@
 .r360-hero-section {
   box-sizing: border-box;
   display: block;
-  min-height: 100dvh;
-  min-height: 100svh;
+  height: auto;
   padding-top: var(--r360-header-height);
 }
 
@@ -765,14 +764,15 @@
 
 @media (min-width: 1024px) {
   .r360-hero-inner {
-    padding-top: clamp(3.5625rem, calc(5.75vw - 1.75rem), 4.5rem);
+    padding-top: 4.5rem;
+    padding-bottom: 4.0625rem;
   }
 }
 
 @media (max-height: 820px) and (min-width: 1024px) {
   .r360-hero-inner {
-    padding-top: clamp(2.625rem, calc(5vw - 1.75rem), 3.5625rem);
-    padding-bottom: clamp(2.75rem, 3.5vw, 3.75rem);
+    padding-top: 3.5625rem;
+    padding-bottom: 3.75rem;
   }
 }
 
@@ -804,7 +804,7 @@
   }
 
   .r360-hero-copy-column {
-    max-width: 100%;
+    max-width: min(100%, 38rem);
     min-width: 0;
   }
 
@@ -873,6 +873,13 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(520px, 620px);
     column-gap: clamp(4rem, 5vw, 5rem);
+  }
+
+  .r360-site-container.r360-hero-inner {
+    align-items: center;
+  }
+
+  .r360-site-container.r360-about-hero-inner {
     align-items: stretch;
   }
 
@@ -883,7 +890,7 @@
 
   .r360-hero-copy-column {
     width: 100%;
-    max-width: 100%;
+    max-width: min(100%, 38rem);
     min-width: 0;
     align-self: center;
   }

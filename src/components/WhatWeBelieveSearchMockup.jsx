@@ -1,7 +1,8 @@
 import { useId, useState } from "react";
-import { Search, TrendingUp } from "lucide-react";
+import { Search, TrendingDown, TrendingUp } from "lucide-react";
 import {
   JORDAN_MERCER_AFTER_RESULTS,
+  JORDAN_MERCER_BEFORE_RESULTS,
   JORDAN_MERCER_DEMO_NAME,
   JORDAN_MERCER_QUERY_TAIL,
 } from "../data/jordanMercerSerpDemo.js";
@@ -28,17 +29,18 @@ function homeBadge(row) {
       </span>
     );
   }
-  return <TrendBadge direction={row.trend} value={row.value} />;
+  return <TrendBadge direction={row.trend === "down" ? "down" : "up"} value={row.value} />;
 }
 
 /**
- * SERP mockup with Before / After control (decorative; results stay the positive set).
+ * SERP mockup with Before / After control (homepage second fold).
  */
 export default function WhatWeBelieveSearchMockup() {
   const [phase, setPhase] = useState("after");
   const tablistId = useId();
 
   const isAfter = phase === "after";
+  const results = isAfter ? JORDAN_MERCER_AFTER_RESULTS : JORDAN_MERCER_BEFORE_RESULTS;
 
   return (
     <div
@@ -112,10 +114,11 @@ export default function WhatWeBelieveSearchMockup() {
           <span className={`shrink-0 ${urlMetaClass}`}>{urlDisplayText("google.com")}</span>
         </div>
 
-        <ul className="space-y-1.5 sm:space-y-2 lg:space-y-1.5">
-          {JORDAN_MERCER_AFTER_RESULTS.map((row) => (
+        <ul className="space-y-1.5 sm:space-y-2 lg:space-y-1.5" key={phase}>
+          {results.map((row) => (
             <SerpResultRow
-              key={row.num}
+              key={`${phase}-${row.num}`}
+              variant={isAfter ? "positive" : "negative"}
               num={row.num}
               title={row.title}
               url={row.url}
@@ -141,20 +144,44 @@ export default function WhatWeBelieveSearchMockup() {
 }
 
 function TrendBadge({ direction, value }) {
+  const up = direction === "up";
   return (
-    <span className="inline-flex items-center gap-0.5 rounded-md border border-emerald-500/35 bg-emerald-500/10 px-1.5 py-1 font-heading text-[10px] font-bold text-emerald-300 sm:text-[11px]">
-      <TrendingUp className="h-3 w-3 sm:h-3.5 sm:w-3.5" aria-hidden />
+    <span
+      className={
+        up
+          ? "inline-flex items-center gap-0.5 rounded-md border border-emerald-500/35 bg-emerald-500/10 px-1.5 py-1 font-heading text-[10px] font-bold text-emerald-300 sm:text-[11px]"
+          : "inline-flex items-center gap-0.5 rounded-md border border-red-500/40 bg-red-950/40 px-1.5 py-1 font-heading text-[10px] font-bold text-red-200 sm:text-[11px]"
+      }
+    >
+      {up ? (
+        <TrendingUp className="h-3 w-3 sm:h-3.5 sm:w-3.5" aria-hidden />
+      ) : (
+        <TrendingDown className="h-3 w-3 sm:h-3.5 sm:w-3.5" aria-hidden />
+      )}
       {value}
     </span>
   );
 }
 
-function SerpResultRow({ num, title, url, badge }) {
+function SerpResultRow({ variant = "positive", num, title, url, badge }) {
+  const positive = variant === "positive";
   return (
     <li>
-      <div className="rounded-xl border border-[#1B2E2A] bg-[#141C2B] px-3 py-2.5 shadow-sm sm:px-3.5 lg:py-2">
+      <div
+        className={
+          positive
+            ? "rounded-xl border border-[#1B2E2A] bg-[#141C2B] px-3 py-2.5 shadow-sm sm:px-3.5 lg:py-2"
+            : "rounded-xl border border-red-500/30 bg-[#141C2B] px-3 py-2.5 shadow-sm ring-1 ring-red-500/10 sm:px-3.5 lg:py-2"
+        }
+      >
         <div className="flex gap-2.5 sm:gap-3">
-          <span className="w-7 shrink-0 pt-0.5 text-right font-heading text-xs font-bold tabular-nums text-[#4CAF50] sm:text-sm">
+          <span
+            className={
+              positive
+                ? "w-7 shrink-0 pt-0.5 text-right font-heading text-xs font-bold tabular-nums text-[#4CAF50] sm:text-sm"
+                : "w-7 shrink-0 pt-0.5 text-right font-heading text-xs font-bold tabular-nums text-red-400 sm:text-sm"
+            }
+          >
             {num}
           </span>
           <div className="min-w-0 flex-1">
