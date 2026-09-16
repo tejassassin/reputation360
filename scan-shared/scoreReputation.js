@@ -14,6 +14,51 @@
 
 import { FREE_SCAN_GOOGLE_PAGES, FREE_SCAN_LINK_LIMIT } from "./freeScanConstants.js";
 
+/** Penalty model ceiling (not shown directly to scan users). */
+export const REPUTATION_INTERNAL_SCORE_MAX = 80;
+
+/** Public free-scan score scale. */
+export const REPUTATION_PUBLIC_SCORE_MAX = 100;
+
+/**
+ * Public score bands for the free reputation scan (0-100).
+ * @type {ReadonlyArray<{ minScore: number; label: string; rangeLabel: string }>}
+ */
+export const REPUTATION_PUBLIC_BANDS = [
+  { minScore: 70, label: "Good", rangeLabel: "70-100" },
+  { minScore: 40, label: "Mixed", rangeLabel: "40-69" },
+  { minScore: 0, label: "At Risk", rangeLabel: "0-39" },
+];
+
+/**
+ * Map internal penalty score (0-80) to the public /100 score.
+ * @param {number} internalScore
+ */
+export function internalScoreToPublicScore(internalScore) {
+  const s = Math.max(0, Math.min(REPUTATION_INTERNAL_SCORE_MAX, internalScore));
+  return Math.round((s / REPUTATION_INTERNAL_SCORE_MAX) * REPUTATION_PUBLIC_SCORE_MAX);
+}
+
+/**
+ * @param {number} publicScore 0-100
+ */
+export function publicBandForPublicScore(publicScore) {
+  const s = Math.max(0, Math.min(REPUTATION_PUBLIC_SCORE_MAX, publicScore));
+  for (const band of REPUTATION_PUBLIC_BANDS) {
+    if (s >= band.minScore) return band;
+  }
+  return REPUTATION_PUBLIC_BANDS[REPUTATION_PUBLIC_BANDS.length - 1];
+}
+
+/**
+ * @param {number} publicScore 0-100
+ * @returns {{ label: string; bandLabel: string; rangeLabel: string }}
+ */
+export function reputationPublicBandBundle(publicScore) {
+  const band = publicBandForPublicScore(publicScore);
+  return { label: band.label, bandLabel: band.rangeLabel, rangeLabel: band.rangeLabel };
+}
+
 /**
  * High-to-low tiers. First matching `minScore` wins. Grade D applies to reported scores 0-47 (below 48).
  * @type {ReadonlyArray<{ minScore: number; letter: string; presenceLabel: string }>}
@@ -79,12 +124,14 @@ export function computeReputationScore(rows) {
     else raw -= 5;
   }
 
-  raw = Math.max(0, Math.min(80, raw));
-  const reportedScore = raw;
-  const presenceLabel = presenceLabelForReportedScore(reportedScore);
+  raw = Math.max(0, Math.min(REPUTATION_INTERNAL_SCORE_MAX, raw));
+  const internalScore = raw;
+  const reportedScore = internalScoreToPublicScore(internalScore);
+  const presenceLabel = publicBandForPublicScore(reportedScore).label;
 
   return {
-    rawScore: raw,
+    rawScore: internalScore,
+    internalScore,
     reportedScore,
     presenceLabel,
     strongPositiveCount,
@@ -100,11 +147,11 @@ export function buildScanSummary(rows, score) {
   const nNeu = rows.filter((r) => r.sentiment === "neutral").length;
   const nNeg = rows.filter((r) => r.sentiment === "negative").length;
 
-  const letter = letterGradeForReportedScore(score.reportedScore);
+  const band = publicBandForPublicScore(score.reportedScore);
   return [
     `We analyzed the first ${FREE_SCAN_GOOGLE_PAGES} pages of Google-style results for your name (${rows.length} links found, up to ${FREE_SCAN_LINK_LIMIT}).`,
     `We tagged ${nPos} positive, ${nNeu} neutral, and ${nNeg} negative results based on public perception impact.`,
-    `Penalty-based reputation score: ${score.reportedScore} / 80 (${letter} grade). ${score.presenceLabel}`,
+    `Reputation score: ${score.reportedScore} / 100 (${band.label}, ${band.rangeLabel}).`,
   ].join("\n");
 }
 
@@ -256,7 +303,7 @@ function pushUnique(lines, line) {
 
 /**
  * @param {import('./classifySerp.js').ClassifiedResult[]} rows
- * @param {number} reportedScore 0-80; below 48 (grades C and D) we add the authority-profile emphasis line
+ * @param {number} reportedScore public 0-100; below 40 (At Risk) we add the authority-profile emphasis line
  */
 export function buildImprovingSection(rows, reportedScore) {
   const sorted = [...rows].sort((a, b) => a.rank - b.rank);
@@ -309,12 +356,12 @@ export function buildImprovingSection(rows, reportedScore) {
     );
   }
 
-  if (reportedScore < 48) {
+  if (reportedScore < 40) {
     pushUnique(
       lines,
       "This score needs urgent attention: start with the highest-ranking risk above, then build a small group of stronger positive assets before adding lower-priority directory listings.",
     );
-  } else if (reportedScore < 60) {
+  } else if (reportedScore < 70) {
     pushUnique(
       lines,
       "This score is workable but vulnerable: prioritize the first-page issue and strengthen two or three authoritative profiles before expanding into broader content.",

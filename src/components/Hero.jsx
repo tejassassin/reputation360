@@ -1,8 +1,5 @@
 import HomeContactLeadForm from "@/components/HomeContactLeadForm.jsx";
 import { Highlight } from "@/components/ui/hero-highlight-mark";
-import { HERO_FREE_REPUTATION_SCAN_CTA } from "@/constants/homeConsultation.js";
-import { freeScanLinkProps } from "@/constants/freeRiskScan";
-import { trackFreeReputationScanClick } from "@/lib/conversionAnalytics.js";
 
 const HERO_STATS = [
   { value: "7", label: "Years of Experience", detail: "in Online Reputation Management" },
@@ -50,9 +47,6 @@ function HeroStatsRow({ compact = false }) {
 function Hero() {
   const headlineLine = "r360-hero-headline-line text-white";
 
-  const scanButtonClass =
-    "r360-hero-cta ha-pill inline-flex w-full items-center justify-center rounded-xl bg-green px-7 text-center font-heading text-white shadow-[0_8px_24px_-8px_rgba(76,175,80,0.55)] transition hover:brightness-95 sm:w-auto";
-
   return (
     <section className="r360-hero-bg r360-hero-section overflow-x-clip text-white">
       <div className="r360-site-container r360-hero-inner">
@@ -84,16 +78,6 @@ function Hero() {
               Because one negative result can quietly undermine years of credibility.
             </p>
 
-            <div className="r360-hero-cta-wrap hidden lg:block">
-              <a
-                {...freeScanLinkProps}
-                onClick={() => trackFreeReputationScanClick("hero")}
-                className={scanButtonClass}
-              >
-                {HERO_FREE_REPUTATION_SCAN_CTA}
-              </a>
-            </div>
-
             <div className="r360-hero-stats-block hidden border-t border-white/15 lg:block">
               <HeroStatsRow />
             </div>
@@ -105,14 +89,7 @@ function Hero() {
             </div>
           </div>
 
-          <div className="order-3 flex w-full min-w-0 flex-col gap-6 border-t border-white/15 pt-6 lg:hidden">
-            <a
-              {...freeScanLinkProps}
-              onClick={() => trackFreeReputationScanClick("hero_mobile")}
-              className={scanButtonClass}
-            >
-              {HERO_FREE_REPUTATION_SCAN_CTA}
-            </a>
+          <div className="order-3 w-full min-w-0 border-t border-white/15 pt-6 lg:hidden">
             <HeroStatsRow compact />
           </div>
         </div>

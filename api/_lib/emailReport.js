@@ -230,8 +230,8 @@ function resultListHtml(items) {
  * @param {string} p.searchQueryUsed
  * @param {number} p.reportedScore
  * @param {string} p.presenceLabel
- * @param {string} p.letterGrade
- * @param {string} p.reputationStatus
+ * @param {string} p.scoreBand
+ * @param {string} p.scoreBandLabel
  * @param {number | null} p.scanId
  * @param {number | null} p.userId
  * @param {string} p.summary
@@ -280,8 +280,7 @@ export async function sendFreeScanLeadNotificationEmail(p) {
           <h2 style="font-size:16px;margin:0 0 10px;color:#1F3B64;">Scan result</h2>
           <div style="border-radius:12px;background:#f0fdf4;border:1px solid #bbf7d0;padding:16px;margin-bottom:18px;">
             <div style="font-size:34px;font-weight:800;color:#15803d;line-height:1.1;">${p.reportedScore}<span style="font-size:16px;color:#64748b;font-weight:600;"> / 100</span></div>
-            <div style="margin-top:6px;font-size:14px;color:#334155;"><strong>Grade:</strong> ${escapeHtml(p.letterGrade)} - ${escapeHtml(p.reputationStatus)}</div>
-            <div style="margin-top:6px;font-size:14px;color:#334155;"><strong>Presence:</strong> ${escapeHtml(p.presenceLabel)}</div>
+            <div style="margin-top:6px;font-size:14px;color:#334155;"><strong>Score band:</strong> ${escapeHtml(p.scoreBand ?? p.presenceLabel)} (${escapeHtml(p.scoreBandLabel ?? "")})</div>
             <div style="margin-top:6px;font-size:14px;color:#334155;"><strong>Query:</strong> ${escapeHtml(p.searchQueryUsed)}</div>
           </div>
 

@@ -11,6 +11,7 @@ import {
   scrollToFreeConsultation,
 } from "../constants/homeConsultation.js";
 import WhatWeBelieve from "../components/WhatWeBelieve";
+import HomeFreeReputationScoreSection from "../components/home/HomeFreeReputationScoreSection.jsx";
 import WhoWeServeCards from "../components/WhoWeServeCards";
 import WhyClientsChoose from "../components/WhyClientsChoose";
 import LazySection from "../components/LazySection.jsx";
@@ -56,6 +57,7 @@ function HomePage({ renderSeo = true }) {
             <section>
               <WhatWeBelieve />
             </section>
+            <HomeFreeReputationScoreSection />
             <LazySection minHeight="1px">
               <WhatWeDo />
             </LazySection>

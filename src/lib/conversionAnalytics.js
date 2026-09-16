@@ -26,7 +26,7 @@ export function trackHomeLeadFormSubmit(instance) {
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
     const form_location =
       instance === "home_closing"
-        ? "homepage_lower_consultation_form"
+        ? "homepage_lower_consultation"
         : instance === "about-hero"
           ? "about-page-hero"
           : instance === "about-bottom"

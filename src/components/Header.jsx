@@ -34,6 +34,10 @@ import {
   trackFreeConsultationClick,
   trackFreeReputationScanClick,
 } from "../lib/conversionAnalytics.js";
+import {
+  R360_CTA_CONSULTATION_NAV,
+  R360_CTA_REPUTATION_SCAN_NAV,
+} from "../lib/ctaVariants.js";
 import { LOGO_ALT_NAV } from "../constants/imageAlt.js";
 import {
   NEGATIVE_LINK_SUPPRESSION_PATH,
@@ -152,18 +156,18 @@ function Header() {
             <NavbarButton
               href={FREE_RISK_SCAN_PATH}
               {...internalAnchorProps(FREE_RISK_SCAN_PATH)}
-              variant="primary"
+              variant="reputationScan"
               onClick={() => trackFreeReputationScanClick("header")}
-              className="!rounded-2xl !border-0 !bg-green !px-4 !py-2 !text-sm !text-white hover:!brightness-95 sm:!px-5 sm:!py-2.5"
+              className={`${R360_CTA_REPUTATION_SCAN_NAV} !rounded-2xl !border-0 !px-4 !py-2 !text-sm !text-white sm:!px-5 sm:!py-2.5`}
             >
               {FREE_REPUTATION_SCAN_LABEL}
             </NavbarButton>
             <NavbarButton
               href={FREE_CONSULTATION_HREF}
               {...internalAnchorProps(FREE_CONSULTATION_HREF)}
-              variant="secondary"
+              variant="consultation"
               onClick={(e) => handleConsultationNavClick(e, "header")}
-              className="!rounded-2xl !border !border-white/35 !bg-transparent !px-4 !py-2 !text-sm !text-white hover:!bg-white/10 hover:!text-white sm:!px-5 sm:!py-2.5"
+              className={`${R360_CTA_CONSULTATION_NAV} !rounded-2xl !border-0 !px-4 !py-2 !text-sm !text-white sm:!px-5 sm:!py-2.5`}
             >
               {FREE_CONSULTATION_NAV_LABEL}
             </NavbarButton>
@@ -235,8 +239,8 @@ function Header() {
                   trackFreeReputationScanClick("header_mobile");
                   setIsMobileMenuOpen(false);
                 }}
-                variant="primary"
-                className="w-full !rounded-2xl !border-0 !bg-green !px-4 !py-2.5 !text-white hover:!brightness-95"
+                variant="reputationScan"
+                className={`w-full ${R360_CTA_REPUTATION_SCAN_NAV} !rounded-2xl !border-0 !px-4 !py-2.5 !text-white`}
               >
                 {FREE_REPUTATION_SCAN_LABEL}
               </NavbarButton>
@@ -247,8 +251,8 @@ function Header() {
                   handleConsultationNavClick(e, "header_mobile");
                   setIsMobileMenuOpen(false);
                 }}
-                variant="secondary"
-                className="w-full !rounded-2xl !border !border-white/35 !bg-transparent !px-4 !py-2.5 !text-white hover:!bg-white/10 hover:!text-white"
+                variant="consultation"
+                className={`w-full ${R360_CTA_CONSULTATION_NAV} !rounded-2xl !border-0 !px-4 !py-2.5 !text-white`}
               >
                 {FREE_CONSULTATION_NAV_LABEL}
               </NavbarButton>

@@ -3,9 +3,9 @@
 import { useId, useRef, useState } from "react";
 import {
   ArrowRight,
+  Calendar,
   Check,
   ClipboardCheck,
-  Lock,
   Route,
   Search,
 } from "lucide-react";
@@ -25,6 +25,7 @@ import {
 } from "../constants/homeConsultation.js";
 import { trackHomeLeadFormSubmit } from "../lib/conversionAnalytics.js";
 import { validateConsultationLead } from "../lib/consultationLeadValidation.js";
+import { R360_CTA_CONSULTATION_SOLID } from "../lib/ctaVariants.js";
 
 const FIELD_ORDER = ["firstName", "lastName", "email", "phone", "message"];
 
@@ -114,7 +115,7 @@ function HomeContactLeadForm({
           ? CONTACT_HERO_CONSULTATION_HEADING_ID
           : FREE_CONSULTATION_HEADING_ID;
   const statusHeadingId = isClosing
-    ? HOME_CLOSING_LEAD_HEADING_ID
+    ? `${HOME_CLOSING_LEAD_ID}-status`
     : isAboutHero
       ? `${ABOUT_HERO_CONSULTATION_ID}-status`
       : isAboutBottom
@@ -128,7 +129,7 @@ function HomeContactLeadForm({
   const formHeaderSubline = "Free · Confidential · 15 minutes";
   const inquirySubject = "Free Consultation Request";
   const sourceLine = isClosing
-    ? "Source: Homepage lower consultation form (homepage_lower_consultation_form)"
+    ? "Source: Homepage lower consultation form (homepage_lower_consultation)"
     : isAboutHero
       ? "Source: About page hero consultation form (about-page-hero)"
       : isAboutBottom
@@ -246,7 +247,7 @@ function HomeContactLeadForm({
   return (
     <div
       id={wrapperId}
-      className={`r360-hero-lead-form min-w-0 bg-white ${isClosing ? "r360-home-closing-lead-form overflow-hidden" : "overflow-hidden"} ${sent ? "r360-hero-lead-form--submitted" : ""}`}
+      className={`r360-hero-lead-form min-w-0 bg-white ${isClosing ? "r360-home-closing-lead-form r360-home-closing-lead-form--compact overflow-hidden" : "overflow-hidden"} ${sent ? "r360-hero-lead-form--submitted" : ""}`}
     >
       {sent ? (
         <div
@@ -292,7 +293,7 @@ function HomeContactLeadForm({
             <span className="r360-form-icon shrink-0" aria-hidden="true">
               <span className="r360-form-icon-pulse" aria-hidden="true"></span>
               <span className="r360-form-icon-core">
-                <Search strokeWidth={2.3} />
+                <Calendar strokeWidth={2.3} />
               </span>
             </span>
             <div className="min-w-0 flex-1">
@@ -318,20 +319,6 @@ function HomeContactLeadForm({
           className={`r360-form-body flex flex-col ${isClosing ? "r360-form-body--closing" : ""}`}
           noValidate
         >
-          {isClosing ? (
-            <p className="r360-closing-lead-trust font-body" role="note">
-              <span className="r360-closing-lead-trust-line">
-                <Lock className="r360-closing-lead-trust-icon shrink-0" strokeWidth={2} aria-hidden />
-                <span>
-                  100% Confidential{" "}
-                  <span className="r360-closing-lead-trust-dot" aria-hidden="true">
-                    ·
-                  </span>{" "}
-                  Free 15-Minute Consultation
-                </span>
-              </span>
-            </p>
-          ) : null}
           <div
             className={`r360-form-field-grid grid ${isClosing ? "grid-cols-1 md:grid-cols-2" : "grid-cols-2"}`}
           >
@@ -459,13 +446,13 @@ function HomeContactLeadForm({
           {isClosing ? (
             <div className="r360-form-field-group">
               <label className={labelClass} htmlFor={`${baseId}-msg`}>
-                Message
+                Message <span className="text-[#64748b]">(optional)</span>
               </label>
               <textarea
                 id={`${baseId}-msg`}
                 ref={messageRef}
                 name="message"
-                rows={4}
+                rows={3}
                 maxLength={4000}
                 placeholder="Tell us briefly about your situation."
                 value={message}
@@ -473,7 +460,7 @@ function HomeContactLeadForm({
                   setMessage(e.target.value);
                   clearFieldError("message");
                 }}
-                className="r360-form-field r360-form-textarea w-full min-w-0 resize-y"
+                className="r360-form-field r360-form-textarea r360-form-textarea--closing-compact w-full min-w-0 resize-y"
                 aria-invalid={fieldErrors.message ? "true" : undefined}
                 aria-describedby={
                   fieldErrors.message ? `${baseId}-msg-error` : undefined
@@ -520,7 +507,7 @@ function HomeContactLeadForm({
           <button
             type="submit"
             disabled={submitting}
-            className={`r360-form-submit ha-pill r360-form-field-group mt-0 flex w-full items-center justify-center gap-2.5 bg-green font-heading font-bold text-white transition disabled:cursor-not-allowed disabled:opacity-70 ${isClosing ? "r360-form-submit--closing" : "shadow-[0_10px_28px_-8px_rgba(76,175,80,0.55)] hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green"}`}
+            className={`r360-form-submit ${R360_CTA_CONSULTATION_SOLID} ha-pill r360-form-field-group mt-0 flex w-full items-center justify-center gap-2.5 font-heading font-bold text-white transition disabled:cursor-not-allowed disabled:opacity-70 ${isClosing ? "r360-form-submit--closing" : ""}`}
           >
             {submitting ? "Sending..." : buttonLabel}
             {!submitting ? (

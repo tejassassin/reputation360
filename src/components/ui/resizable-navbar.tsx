@@ -382,7 +382,7 @@ export const NavbarButton = ({
   as?: ElementType;
   children: ReactNode;
   className?: string;
-  variant?: "primary" | "secondary" | "dark" | "gradient";
+  variant?: "primary" | "secondary" | "dark" | "gradient" | "consultation" | "reputationScan";
 } & (
   | ComponentPropsWithoutRef<"a">
   | ComponentPropsWithoutRef<"button">
@@ -392,6 +392,8 @@ export const NavbarButton = ({
     secondary: "bg-transparent text-white hover:text-green",
     dark: "bg-black text-white",
     gradient: "bg-gradient-to-b from-blue-500 to-blue-700 text-white",
+    consultation: "text-white",
+    reputationScan: "text-white",
   };
 
   const newTabProps = href ? anchorTabProps(href) : {};

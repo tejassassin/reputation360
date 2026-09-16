@@ -29,7 +29,7 @@ import {
   FREE_SCAN_GOOGLE_PAGES,
   FREE_SCAN_LINK_LIMIT,
 } from "@scan/freeScanConstants.js";
-import { letterGradeForReportedScore, reputationGradeBundle } from "@scan/scoreReputation.js";
+import { reputationPublicBandBundle } from "@scan/scoreReputation.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -68,7 +68,7 @@ const SCAN_STAGES = [
   "Connecting to Google Programmable Search",
   "Retrieving the first 3 pages of results (up to 30 links)",
   "Classifying each URL for sentiment signals",
-  "Computing your reputation score and letter grade",
+  "Computing your reputation score",
 ];
 
 function freeScanEndpoint() {
@@ -89,21 +89,16 @@ function splitFullName(raw) {
 }
 
 /**
- * @param {string} letter
+ * @param {string} band Good | Mixed | At Risk
  */
-function gradeAccent(letter) {
-  switch (letter) {
-    case "A":
+function scoreBandAccent(band) {
+  switch (band) {
+    case "Good":
       return {
         bar: "from-emerald-500 via-teal-400 to-sky-400",
         chip: "bg-emerald-500/15 text-emerald-900 ring-emerald-500/25",
       };
-    case "B":
-      return {
-        bar: "from-sky-500 via-indigo-400 to-violet-400",
-        chip: "bg-sky-500/12 text-sky-950 ring-sky-500/25",
-      };
-    case "C":
+    case "Mixed":
       return {
         bar: "from-amber-500 via-orange-400 to-rose-400",
         chip: "bg-amber-500/15 text-amber-950 ring-amber-500/30",
@@ -503,12 +498,12 @@ export default function FreeRiskScanPage() {
   }, [scanPayload]);
 
   const reported = scanPayload?.reportedScore ?? 0;
-  const letter =
-    scanPayload?.letterGrade ?? letterGradeForReportedScore(reported);
-  const statusLine =
-    scanPayload?.reputationStatus ??
-    reputationGradeBundle(reported).label;
-  const accent = gradeAccent(letter);
+  const bandBundle = reputationPublicBandBundle(reported);
+  const scoreBand =
+    scanPayload?.scoreBand ?? scanPayload?.presenceLabel ?? bandBundle.label;
+  const scoreBandLabel = scanPayload?.scoreBandLabel ?? bandBundle.bandLabel;
+  const statusLine = scanPayload?.reputationStatus ?? scoreBand;
+  const accent = scoreBandAccent(scoreBand);
 
   return (
     <main className="relative w-full max-w-full flex-1 overflow-x-clip pt-32 md:pt-40">
@@ -803,7 +798,7 @@ export default function FreeRiskScanPage() {
                     accent.chip,
                   )}
                 >
-                  Grade {letter} - {statusLine}
+                  {scoreBand} {scoreBandLabel}
                 </p>
                 <div className="mt-5 h-3 w-full max-w-[12rem] overflow-hidden rounded-full bg-slate-200/90">
                   <Motion.div
@@ -841,7 +836,7 @@ export default function FreeRiskScanPage() {
               { label: "Positive", value: counts.positive, className: "text-emerald-700" },
               { label: "Neutral", value: counts.neutral, className: "text-slate-700" },
               { label: "Negative", value: counts.negative, className: "text-rose-700" },
-              { label: "Letter grade", value: letter, className: "text-[#2E5B88]" },
+              { label: "Score band", value: scoreBand, className: "text-[#2E5B88]" },
               { label: "Pages scanned", value: String(scanPayload.googlePagesAnalyzed ?? FREE_SCAN_GOOGLE_PAGES), className: "text-slate-800" },
             ].map((m) => (
               <div

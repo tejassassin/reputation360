@@ -1,6 +1,6 @@
 import { buildFallbackSerpItems } from "@scan/fallbackSerp.js";
 import { assembleScanResponse } from "@scan/assembleScanResponse.js";
-import { reputationGradeBundle } from "@scan/scoreReputation.js";
+import { reputationPublicBandBundle } from "@scan/scoreReputation.js";
 import { FREE_SCAN_GOOGLE_PAGES, FREE_SCAN_LINK_LIMIT } from "@scan/freeScanConstants.js";
 
 const COUNTRY_HINT = {
@@ -35,7 +35,7 @@ export function buildOfflineFreeScanPayload(input) {
   const items = buildFallbackSerpItems(fn, ln, country, hint);
   const searchQueryUsed = hint ? `${full} (${hint})` : full;
   const base = assembleScanResponse(items, searchQueryUsed, "client_offline_fallback");
-  const grade = reputationGradeBundle(base.reportedScore);
+  const band = reputationPublicBandBundle(base.reportedScore);
   const totalLinksScanned =
     base.positive.length + base.neutral.length + base.negative.length;
   return {
@@ -43,9 +43,10 @@ export function buildOfflineFreeScanPayload(input) {
     googlePagesAnalyzed: FREE_SCAN_GOOGLE_PAGES,
     linksCap: FREE_SCAN_LINK_LIMIT,
     totalLinksScanned,
-    letterGrade: grade.letter,
-    reputationStatus: grade.label,
-    scoreBandLabel: grade.bandLabel,
+    letterGrade: band.label,
+    reputationStatus: band.label,
+    scoreBand: band.label,
+    scoreBandLabel: band.bandLabel,
     offlineDemoScan: true,
     scanId: null,
     userId: null,

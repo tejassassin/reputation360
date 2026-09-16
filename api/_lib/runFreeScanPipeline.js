@@ -5,7 +5,7 @@ import {
   FREE_SCAN_LINK_LIMIT,
 } from "../../scan-shared/freeScanConstants.js";
 import { assembleScanResponse } from "../../scan-shared/assembleScanResponse.js";
-import { reputationGradeBundle } from "../../scan-shared/scoreReputation.js";
+import { reputationPublicBandBundle } from "../../scan-shared/scoreReputation.js";
 import { ensureFreeScanSchema, insertUserAndScan } from "./db.js";
 import {
   sendFreeScanLeadNotificationEmail,
@@ -288,7 +288,7 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
   }
 
   const base = assembleScanResponse(merged, searchQueryUsed, dataSource);
-  const grade = reputationGradeBundle(base.reportedScore);
+  const band = reputationPublicBandBundle(base.reportedScore);
   const totalLinksScanned =
     base.positive.length + base.neutral.length + base.negative.length;
 
@@ -385,8 +385,10 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
         searchQueryUsed: base.searchQueryUsed,
         reportedScore: base.reportedScore,
         presenceLabel: base.presenceLabel,
-        letterGrade: grade.letter,
-        reputationStatus: grade.label,
+        scoreBand: band.label,
+        scoreBandLabel: band.bandLabel,
+        letterGrade: band.label,
+        reputationStatus: band.label,
         scanId,
         userId,
         summary: base.summary,
@@ -413,9 +415,10 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
       googlePagesAnalyzed: FREE_SCAN_GOOGLE_PAGES,
       linksCap: FREE_SCAN_LINK_LIMIT,
       totalLinksScanned,
-      letterGrade: grade.letter,
-      reputationStatus: grade.label,
-      scoreBandLabel: grade.bandLabel,
+      letterGrade: band.label,
+      reputationStatus: band.label,
+      scoreBand: band.label,
+      scoreBandLabel: band.bandLabel,
       offlineDemoScan: dataSource === "dev_offline_serp_fallback",
       scanId,
       userId,

@@ -1,37 +1,69 @@
+import { Check } from "lucide-react";
 import HomeContactLeadForm from "./HomeContactLeadForm.jsx";
+import { HOME_LOWER_CONSULTATION_SECTION_HEADING_ID } from "../constants/homeConsultation.js";
+
+const trustPoints = [
+  "Free and confidential",
+  "Clear, realistic guidance",
+  "No obligation to proceed",
+];
 
 function Contact() {
   return (
     <section
       id="contact"
-      className="r360-home-lower-consultation relative w-full overflow-hidden border-b border-slate-200/70 text-navy"
-      aria-labelledby="home-closing-lead-heading"
+      className="r360-home-lower-consultation relative overflow-x-clip text-white"
+      aria-labelledby={HOME_LOWER_CONSULTATION_SECTION_HEADING_ID}
     >
-      <div className="r360-site-container r360-home-lower-consultation-shell relative">
-        <div className="r360-home-lower-consultation-stack">
-          <div className="r360-home-lower-consultation-intro text-center">
-            <h2
-              id="home-closing-lead-heading"
-              className="r360-home-closing-lead-heading font-heading text-2xl font-bold leading-tight text-navy sm:text-3xl lg:text-4xl"
-            >
-              Get a Free Consultation Today
-            </h2>
-            <div
-              className="mx-auto mt-3 h-0.5 w-16 rounded-full bg-gradient-to-r from-[#4CAF50] to-[#1F3B64]"
-              aria-hidden
-            />
-            <p className="r360-home-lower-consultation-subtitle mx-auto mt-3 font-body text-base leading-relaxed text-slate-600 sm:text-[1.05rem]">
-              Speak with a reputation specialist and discover how you can strengthen your presence
-              across Google and AI Search.
+      <div className="r360-about-hero-bg" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.35] r360-about-hero-grid-overlay"
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 r360-site-container r360-home-lower-consultation-inner">
+        <div className="r360-home-lower-consultation-grid">
+          <div className="r360-home-lower-consultation-copy min-w-0">
+            <p className="r360-home-lower-consultation-eyebrow mb-0 font-heading text-[11px] font-bold uppercase tracking-[0.2em] text-[#4CAF50] sm:text-xs">
+              FREE CONSULTATION
             </p>
+
+            <h2
+              id={HOME_LOWER_CONSULTATION_SECTION_HEADING_ID}
+              className="r360-home-lower-consultation-heading mb-0 font-heading text-white"
+            >
+              Your reputation is too important to leave to chance.
+            </h2>
+
+            <div className="r360-home-lower-consultation-heading-divider" aria-hidden="true" />
+
+            <p className="r360-home-lower-consultation-supporting mb-0 font-body">
+              Talk to a strategist today and discover how we can transform your online presence.
+            </p>
+
+            <ul className="r360-home-lower-consultation-trust mb-0 list-none p-0">
+              {trustPoints.map((point) => (
+                <li
+                  key={point}
+                  className="r360-home-lower-consultation-trust-item flex items-center gap-3 font-body"
+                >
+                  <span className="r360-home-lower-consultation-check shrink-0" aria-hidden="true">
+                    <Check strokeWidth={3} />
+                  </span>
+                  <span className="r360-home-lower-consultation-trust-text">{point}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="r360-home-lower-consultation-form-wrap">
-            <HomeContactLeadForm
-              instance="home_closing"
-              showHeader={false}
-              showBenefitsFooter={false}
-            />
+          <div className="r360-home-lower-consultation-form-column min-w-0">
+            <div className="r360-hero-form-wrap">
+              <HomeContactLeadForm
+                instance="home_closing"
+                showHeader
+                showBenefitsFooter={false}
+              />
+            </div>
           </div>
         </div>
       </div>

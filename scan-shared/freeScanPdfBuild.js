@@ -1,4 +1,5 @@
 import { jsPDF } from "jspdf";
+import { publicBandForPublicScore } from "./scoreReputation.js";
 
 /**
  * @typedef {{ rank: number; title: string; link: string; displayLink: string; snippet: string; sentiment: string }} ScanPdfRow
@@ -234,28 +235,21 @@ export function buildReputationScanPdfBytes(p) {
   const neutralCount = (p.neutral ?? []).length;
   const positiveCount = (p.positive ?? []).length;
   const totalCount = negativeCount + neutralCount + positiveCount;
-  let letter = "D";
-  if (p.reportedScore >= 72) letter = "A";
-  else if (p.reportedScore >= 60) letter = "B";
-  else if (p.reportedScore >= 48) letter = "C";
-  
+  const band = publicBandForPublicScore(p.reportedScore);
+
   const accent =
-    letter === "A"
+    band.label === "Good"
       ? BRAND.green
-      : letter === "B"
-        ? BRAND.blue
-        : letter === "C"
-          ? BRAND.amber
-          : BRAND.red;
+      : band.label === "Mixed"
+        ? BRAND.amber
+        : BRAND.red;
 
   const accentLight =
-    letter === "A"
+    band.label === "Good"
       ? [240, 253, 244]
-      : letter === "B"
-        ? [239, 246, 255]
-        : letter === "C"
-          ? [255, 251, 235]
-          : [254, 242, 242];
+      : band.label === "Mixed"
+        ? [255, 251, 235]
+        : [254, 242, 242];
 
   // Full-bleed top banner
   doc.setFillColor(...BRAND.navy);
@@ -310,12 +304,12 @@ export function buildReputationScanPdfBytes(p) {
   doc.setTextColor(...BRAND.slate);
   doc.text("/100", circleX, circleY + 11, { align: "center" });
 
-  pill(`Grade ${letter}`, circleX - 35, 175, 70, 16, accent, BRAND.white);
+  pill(`${band.label} ${band.rangeLabel}`, circleX - 42, 175, 84, 16, accent, BRAND.white);
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(8);
   doc.setTextColor(...BRAND.slate);
-  doc.text(p.presenceLabel.toUpperCase(), circleX, 201, { align: "center" });
+  doc.text(band.label.toUpperCase(), circleX, 201, { align: "center" });
 
   y = 85 + profileCardH + 16;
 

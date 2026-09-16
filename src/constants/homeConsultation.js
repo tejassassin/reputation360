@@ -15,6 +15,10 @@ export const HOME_CLOSING_LEAD_ID = "home-closing-lead-form";
 
 export const HOME_CLOSING_LEAD_HEADING_ID = "home-closing-lead-heading";
 
+/** Lower homepage consultation section heading (left column). */
+export const HOME_LOWER_CONSULTATION_SECTION_HEADING_ID =
+  "home-lower-consultation-section-heading";
+
 /** About page hero lead form (distinct from homepage #free-consultation). */
 export const ABOUT_HERO_CONSULTATION_ID = "about-hero-consultation";
 
