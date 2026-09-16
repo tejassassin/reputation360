@@ -24,6 +24,9 @@ import {
   CONTACT_HERO_CONSULTATION_ID,
 } from "../constants/homeConsultation.js";
 import { trackHomeLeadFormSubmit } from "../lib/conversionAnalytics.js";
+import { validateConsultationLead } from "../lib/consultationLeadValidation.js";
+
+const FIELD_ORDER = ["firstName", "lastName", "email", "phone", "message"];
 
 const PHONE_COUNTRIES = [
   { code: "+1", label: "US", flag: "🇺🇸" },
@@ -66,6 +69,12 @@ function HomeContactLeadForm({
   };
   const baseId = stableBaseIdByInstance[instance] ?? reactGeneratedBaseId;
   const successRef = useRef(null);
+  const firstNameRef = useRef(null);
+  const lastNameRef = useRef(null);
+  const emailRef = useRef(null);
+  const phoneRef = useRef(null);
+  const messageRef = useRef(null);
+  const submitLockRef = useRef(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -74,6 +83,9 @@ function HomeContactLeadForm({
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState(
+    /** @type {Partial<Record<string, string>>} */ ({}),
+  );
   const [sent, setSent] = useState(false);
 
   const isClosing = instance === "home_closing";
@@ -127,35 +139,68 @@ function HomeContactLeadForm({
 
   const country = PHONE_COUNTRIES[Number(countryIdx)] ?? PHONE_COUNTRIES[0];
 
+  const fieldRefMap = {
+    firstName: firstNameRef,
+    lastName: lastNameRef,
+    email: emailRef,
+    phone: phoneRef,
+    message: messageRef,
+  };
+
+  function clearFieldError(field) {
+    setFieldErrors((prev) => {
+      if (!prev[field]) return prev;
+      const next = { ...prev };
+      delete next[field];
+      return next;
+    });
+  }
+
+  function focusFirstInvalid(errors) {
+    for (const field of FIELD_ORDER) {
+      if (errors[field]) {
+        fieldRefMap[field]?.current?.focus();
+        break;
+      }
+    }
+  }
+
   async function onSubmit(e) {
     e.preventDefault();
+    if (submitLockRef.current || submitting) return;
+
     setError("");
-    const fn = firstName.trim();
-    const ln = lastName.trim();
-    const em = email.trim();
-    const ph = phone.trim();
-    const note = message.trim();
-    if (!fn || !ln || !em || !ph) {
-      setError("Please fill in your name, email, and phone number.");
+    const validation = validateConsultationLead(
+      {
+        firstName,
+        lastName,
+        email,
+        phone,
+        message,
+      },
+      { countryCode: country.code },
+    );
+
+    if (!validation.ok) {
+      setFieldErrors(validation.errors);
+      focusFirstInvalid(validation.errors);
       return;
     }
+
+    setFieldErrors({});
+    submitLockRef.current = true;
     setSubmitting(true);
     try {
-      const dial = country.code === "+" ? "" : `${country.code} `;
-      const bodyLines = [
-        `Name: ${fn} ${ln}`,
-        `Email: ${em}`,
-        `Phone: ${dial}${ph}`,
-      ];
-      if (note) {
-        bodyLines.push("", "Message:", note);
-      }
-      bodyLines.push("", sourceLine);
+      const { data } = validation;
       await submitContactInquiry({
-        name: `${fn} ${ln}`,
-        from: em,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        countryCode: country.code,
+        phone,
+        message: data.message,
         subject: inquirySubject,
-        message: bodyLines.join("\n"),
+        sourceLine,
       });
       trackHomeLeadFormSubmit(instance);
       setSent(true);
@@ -163,14 +208,39 @@ function HomeContactLeadForm({
         successRef.current?.focus({ preventScroll: true });
       });
     } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "Could not send your request. Please try again.",
-      );
+      const fieldErrs =
+        err &&
+        typeof err === "object" &&
+        "fieldErrors" in err &&
+        err.fieldErrors &&
+        typeof err.fieldErrors === "object"
+          ? /** @type {Partial<Record<string, string>>} */ (err.fieldErrors)
+          : null;
+      if (fieldErrs) {
+        setFieldErrors(fieldErrs);
+        focusFirstInvalid(fieldErrs);
+        setError("");
+      } else {
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Could not send your request. Please try again.",
+        );
+      }
     } finally {
       setSubmitting(false);
+      submitLockRef.current = false;
     }
+  }
+
+  function renderFieldError(fieldKey, errorId) {
+    const msg = fieldErrors[fieldKey];
+    if (!msg) return null;
+    return (
+      <p id={errorId} className="r360-form-field-error mb-0 font-body" role="alert">
+        {msg}
+      </p>
+    );
   }
 
   return (
@@ -271,14 +341,24 @@ function HomeContactLeadForm({
               </label>
               <input
                 id={`${baseId}-fn`}
+                ref={firstNameRef}
                 name="firstName"
                 autoComplete="given-name"
                 required
+                maxLength={50}
                 placeholder="Michael"
                 value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                onChange={(e) => {
+                  setFirstName(e.target.value);
+                  clearFieldError("firstName");
+                }}
                 className={fieldClass}
+                aria-invalid={fieldErrors.firstName ? "true" : undefined}
+                aria-describedby={
+                  fieldErrors.firstName ? `${baseId}-fn-error` : undefined
+                }
               />
+              {renderFieldError("firstName", `${baseId}-fn-error`)}
             </div>
             <div className="min-w-0">
               <label className={labelClass} htmlFor={`${baseId}-ln`}>
@@ -286,14 +366,24 @@ function HomeContactLeadForm({
               </label>
               <input
                 id={`${baseId}-ln`}
+                ref={lastNameRef}
                 name="lastName"
                 autoComplete="family-name"
                 required
+                maxLength={50}
                 placeholder="Carter"
                 value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                onChange={(e) => {
+                  setLastName(e.target.value);
+                  clearFieldError("lastName");
+                }}
                 className={fieldClass}
+                aria-invalid={fieldErrors.lastName ? "true" : undefined}
+                aria-describedby={
+                  fieldErrors.lastName ? `${baseId}-ln-error` : undefined
+                }
               />
+              {renderFieldError("lastName", `${baseId}-ln-error`)}
             </div>
           </div>
 
@@ -303,15 +393,24 @@ function HomeContactLeadForm({
             </label>
             <input
               id={`${baseId}-em`}
+              ref={emailRef}
               name="email"
               type="email"
+              inputMode="email"
               autoComplete="email"
               required
+              maxLength={254}
               placeholder="michael.carter@example.com"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                clearFieldError("email");
+              }}
               className={fieldClass}
+              aria-invalid={fieldErrors.email ? "true" : undefined}
+              aria-describedby={fieldErrors.email ? `${baseId}-em-error` : undefined}
             />
+            {renderFieldError("email", `${baseId}-em-error`)}
           </div>
 
           <div className="r360-form-field-group">
@@ -336,16 +435,25 @@ function HomeContactLeadForm({
               </select>
               <input
                 id={`${baseId}-ph`}
+                ref={phoneRef}
                 name="phone"
                 type="tel"
-                autoComplete="tel"
+                inputMode="tel"
+                autoComplete="tel-national"
                 required
+                maxLength={24}
                 placeholder="(212) 555-0147"
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={(e) => {
+                  setPhone(e.target.value);
+                  clearFieldError("phone");
+                }}
                 className={phoneInputClass}
+                aria-invalid={fieldErrors.phone ? "true" : undefined}
+                aria-describedby={fieldErrors.phone ? `${baseId}-ph-error` : undefined}
               />
             </div>
+            {renderFieldError("phone", `${baseId}-ph-error`)}
           </div>
 
           {isClosing ? (
@@ -355,13 +463,23 @@ function HomeContactLeadForm({
               </label>
               <textarea
                 id={`${baseId}-msg`}
+                ref={messageRef}
                 name="message"
                 rows={4}
+                maxLength={4000}
                 placeholder="Tell us briefly about your situation."
                 value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                  clearFieldError("message");
+                }}
                 className="r360-form-field r360-form-textarea w-full min-w-0 resize-y"
+                aria-invalid={fieldErrors.message ? "true" : undefined}
+                aria-describedby={
+                  fieldErrors.message ? `${baseId}-msg-error` : undefined
+                }
               />
+              {renderFieldError("message", `${baseId}-msg-error`)}
             </div>
           ) : isAboutBottom ? null : (
             <div className="r360-form-field-group">
@@ -370,13 +488,23 @@ function HomeContactLeadForm({
               </label>
               <textarea
                 id={`${baseId}-msg`}
+                ref={messageRef}
                 name="message"
                 rows={3}
+                maxLength={4000}
                 placeholder="Tell us briefly about your situation."
                 value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                  clearFieldError("message");
+                }}
                 className="r360-form-field r360-form-textarea r360-form-textarea--hero w-full min-w-0"
+                aria-invalid={fieldErrors.message ? "true" : undefined}
+                aria-describedby={
+                  fieldErrors.message ? `${baseId}-msg-error` : undefined
+                }
               />
+              {renderFieldError("message", `${baseId}-msg-error`)}
             </div>
           )}
 

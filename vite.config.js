@@ -49,6 +49,7 @@ function r360DevApiPlugin(mode) {
     "/api/free-scan": () => import("./api/_lib/runFreeScanPipeline.js"),
     "/api/reputation-agent": () => import("./api/_lib/runReputationAgentPipeline.js"),
     "/api/free-scan-submissions": () => import("./api/_lib/freeScanSubmissionsHttp.js"),
+    "/api/contact-inquiry": () => import("./api/_lib/contactInquiryHttp.js"),
   };
   return {
     name: "r360-dev-api",
@@ -112,7 +113,9 @@ function r360DevApiPlugin(mode) {
           const run =
             pathname === "/api/free-scan"
               ? mod.runFreeScanPipeline
-              : mod.runReputationAgentPipeline;
+              : pathname === "/api/contact-inquiry"
+                ? mod.runContactInquiryPipeline
+                : mod.runReputationAgentPipeline;
           const raw = await readHttpBody(req);
           let body = {};
           try {

@@ -114,30 +114,43 @@ export function formatBusinessPhoneDisplay(phone = BUSINESS_PHONE) {
 }
 
 /**
- * Sends a contact message via FormSubmit AJAX (stays on the page).
- * @param {{ from: string; message: string; name?: string; subject?: string }} payload
+ * Sends a validated consultation inquiry via the site API (server validates before email).
+ * @param {{
+ *   firstName: string;
+ *   lastName: string;
+ *   email: string;
+ *   countryCode: string;
+ *   phone: string;
+ *   message?: string;
+ *   subject?: string;
+ *   sourceLine?: string;
+ * }} payload
  */
 export async function submitContactInquiry({
-  from,
-  message,
-  name = "",
+  firstName,
+  lastName,
+  email,
+  countryCode,
+  phone,
+  message = "",
   subject = "Contact inquiry - Reputation360",
+  sourceLine = "",
 }) {
-  const res = await fetch(CONTACT_FORM_SUBMIT_AJAX_URL, {
+  const res = await fetch("/api/contact-inquiry", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
     body: JSON.stringify({
-      name: name.trim() || "Website visitor",
-      email: from.trim(),
-      message: message.trim(),
-      _subject: subject,
-      _template: "table",
-      _captcha: "false",
-      _cc: CONTACT_INQUIRY_CC_EMAIL,
-      _autoresponse: CONTACT_FORM_AUTORESPONSE,
+      firstName,
+      lastName,
+      email,
+      countryCode,
+      phone,
+      message,
+      subject,
+      sourceLine,
     }),
   });
 
@@ -148,17 +161,20 @@ export async function submitContactInquiry({
     data = {};
   }
 
-  const ok =
-    res.ok &&
-    (data.success === true ||
-      data.success === "true" ||
-      (typeof data.message === "string" &&
-        data.message.toLowerCase().includes("success")));
+  if (res.status === 400 && data.errors && typeof data.errors === "object") {
+    const err = new Error(
+      typeof data.error === "string"
+        ? data.error
+        : "Please correct the highlighted fields.",
+    );
+    err.fieldErrors = data.errors;
+    throw err;
+  }
 
-  if (!ok) {
+  if (!res.ok || data.ok === false) {
     throw new Error(
-      typeof data.message === "string"
-        ? data.message
+      typeof data.error === "string"
+        ? data.error
         : "Could not send your message. Please try again.",
     );
   }
