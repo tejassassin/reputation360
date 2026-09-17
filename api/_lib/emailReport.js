@@ -139,7 +139,7 @@ export async function sendReputationReportEmail(p) {
         </td></tr>
         <tr><td style="padding:28px 24px;">
           <p style="margin:0 0 12px;font-size:16px;">Hi ${escapeHtml(p.firstName)},</p>
-          <p style="margin:0 0 20px;line-height:1.55;font-size:15px;">Thank you for running a free reputation scan with Reputation360. Below is a concise summary based on up to ${FREE_SCAN_LINK_LIMIT} live Google search results we analyzed for your name.</p>
+          <p style="margin:0 0 20px;line-height:1.55;font-size:15px;">Thank you for running a free reputation scan with Reputation360. Your score and link breakdown were ready on screen in about 30 seconds. Below is the same concise summary based on up to ${FREE_SCAN_LINK_LIMIT} live Google search results we analyzed for your name.</p>
 
           <div style="border-radius:12px;background:#f0fdf4;border:1px solid #bbf7d0;padding:18px;margin-bottom:20px;">
             <div style="font-size:12px;font-weight:600;color:#166534;text-transform:uppercase;letter-spacing:0.04em;">Reputation score</div>
@@ -162,7 +162,7 @@ export async function sendReputationReportEmail(p) {
           <h2 style="font-size:15px;margin:0 0 8px;color:#15803d;">What can improve</h2>
           <div style="margin:0 0 24px;">${improvingHtml}</div>
 
-          <p style="margin:0;line-height:1.55;font-size:13px;color:#64748b;">A PDF copy of this report is attached when your message supports attachments. This is an automated, educational scan - not legal, employment, or financial advice. If you would like a human-led audit and remediation plan, reply to this email or book a consultation on thereputation360.com.</p>
+          <p style="margin:0;line-height:1.55;font-size:13px;color:#64748b;">When your email provider supports attachments, a downloadable copy of this report is included. This is an automated, educational scan - not legal, employment, or financial advice. If you would like a human-led audit and remediation plan, reply to this email or book a consultation on thereputation360.com.</p>
         </td></tr>
         <tr><td style="padding:16px 24px;background:#f8fafc;font-size:12px;color:#94a3b8;text-align:center;">
           Reputation360 &middot; You received this because you requested a free reputation scan for ${escapeHtml(name)}.

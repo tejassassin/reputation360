@@ -26,6 +26,7 @@ import {
 import { trackHomeLeadFormSubmit } from "../lib/conversionAnalytics.js";
 import { validateConsultationLead } from "../lib/consultationLeadValidation.js";
 import { R360_CTA_CONSULTATION_SOLID } from "../lib/ctaVariants.js";
+import ConsultationFormLegalConsent from "./ConsultationFormLegalConsent.jsx";
 
 const FIELD_ORDER = ["firstName", "lastName", "email", "phone", "message"];
 
@@ -90,6 +91,8 @@ function HomeContactLeadForm({
   const [sent, setSent] = useState(false);
 
   const isClosing = instance === "home_closing";
+  const isHero = instance === "hero";
+  const showLegalConsent = isHero || isClosing;
   const isAboutHero = instance === "about-hero";
   const isAboutBottom = instance === "about-bottom";
   const isContactHero = instance === "contact-hero";
@@ -247,7 +250,7 @@ function HomeContactLeadForm({
   return (
     <div
       id={wrapperId}
-      className={`r360-hero-lead-form min-w-0 bg-white ${isClosing ? "r360-home-closing-lead-form r360-home-closing-lead-form--compact overflow-hidden" : "overflow-hidden"} ${sent ? "r360-hero-lead-form--submitted" : ""}`}
+      className={`r360-hero-lead-form min-w-0 bg-white ${isClosing ? "r360-home-closing-lead-form r360-home-closing-lead-form--compact overflow-hidden" : isHero ? "r360-hero-lead-form--homepage-hero" : "overflow-hidden"} ${sent ? "r360-hero-lead-form--submitted" : ""}`}
     >
       {sent ? (
         <div
@@ -477,7 +480,7 @@ function HomeContactLeadForm({
                 id={`${baseId}-msg`}
                 ref={messageRef}
                 name="message"
-                rows={3}
+                rows={isHero ? 2 : 3}
                 maxLength={4000}
                 placeholder="Tell us briefly about your situation."
                 value={message}
@@ -518,26 +521,8 @@ function HomeContactLeadForm({
             ) : null}
           </button>
 
-          {isClosing ? (
-            <p className="r360-form-consent r360-form-field-group mb-0 text-center font-body text-xs leading-relaxed text-slate-500 sm:text-[0.8125rem]">
-              By submitting this form, you agree to our{" "}
-              <a
-                href="/terms-of-service"
-                {...internalAnchorProps("/terms-of-service")}
-                className="font-medium text-navy underline decoration-slate-300 underline-offset-2 transition hover:text-green hover:decoration-green/40"
-              >
-                Terms of Service
-              </a>{" "}
-              and{" "}
-              <a
-                href="/privacy-policy"
-                {...internalAnchorProps("/privacy-policy")}
-                className="font-medium text-navy underline decoration-slate-300 underline-offset-2 transition hover:text-green hover:decoration-green/40"
-              >
-                Privacy Policy
-              </a>
-              .
-            </p>
+          {showLegalConsent ? (
+            <ConsultationFormLegalConsent variant={isHero ? "hero" : "default"} />
           ) : null}
 
           {showBenefitsFooter ? (

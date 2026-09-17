@@ -115,7 +115,7 @@ export const SEO = {
     title: "Free Reputation Scan | See What Google Shows About You",
     path: FREE_RISK_SCAN_PATH,
     description:
-      "Find out what appears when people Google your name. Reputation360's free scan identifies negative search results and shows how they can be addressed.",
+      "Find out what appears when people Google your name. Get your reputation score and initial results in approximately 30 seconds.",
   },
   freeScanAdmin: {
     title: "Free Reputation Scan Admin | Reputation360",

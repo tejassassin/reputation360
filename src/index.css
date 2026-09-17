@@ -517,8 +517,7 @@
 
 .r360-home-reputation-score-shell {
   padding-top: 3rem;
-  /* ~80px below the bottom benefit row; content-driven (no viewport height). */
-  padding-bottom: 5rem;
+  padding-bottom: 0;
 }
 
 .r360-home-reputation-score-gauge-arc {
@@ -562,6 +561,29 @@
 
   .r360-home-reputation-score-heading {
     max-width: 56rem;
+  }
+}
+
+/* Checklist to About (What We Do): stack gap + this padding (not shell padding-bottom). */
+.r360-home-reputation-score-section + .r360-what-we-do-section {
+  padding-top: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .r360-home-reputation-score-section + .r360-what-we-do-section {
+    padding-top: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .r360-home-reputation-score-section + .r360-what-we-do-section {
+    padding-top: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .r360-home-reputation-score-section + .r360-what-we-do-section {
+    padding-top: 2rem;
   }
 }
 
@@ -827,6 +849,9 @@
   box-sizing: border-box;
   display: block;
   height: auto;
+  min-height: 0;
+  overflow-x: clip;
+  overflow-y: visible;
   padding-top: var(--r360-header-height);
 }
 
@@ -845,7 +870,14 @@
   }
 }
 
-@media (max-height: 820px) and (min-width: 1024px) {
+@media (min-width: 1200px) {
+  .r360-hero-inner {
+    padding-top: 4.5rem;
+    padding-bottom: 4.0625rem;
+  }
+}
+
+@media (max-height: 820px) and (min-width: 1200px) {
   .r360-hero-inner {
     padding-top: 3.5625rem;
     padding-bottom: 3.75rem;
@@ -866,27 +898,23 @@
   min-width: 0;
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+/* Two-column hero from 1200px viewport width (width only; never stack on height). */
+@media (min-width: 1200px) {
   .r360-hero-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(1.5rem, 3vw, 2rem);
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 1439px) {
-  .r360-hero-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(520px, 620px);
-    gap: clamp(4rem, 5vw, 5rem);
+    grid-template-columns: minmax(0, 1fr) minmax(560px, 680px);
+    gap: clamp(2.5rem, 4vw, 5rem);
+    align-items: stretch;
   }
 
   .r360-hero-copy-column {
     max-width: min(100%, 38rem);
     min-width: 0;
+    align-self: center;
   }
 
   .r360-hero-form-wrap {
     width: 100%;
-    max-width: 540px;
+    max-width: 500px;
     justify-self: end;
   }
 
@@ -894,6 +922,20 @@
     justify-self: end;
     align-self: start;
     min-width: 0;
+  }
+
+  .r360-hero-headline-block {
+    margin-top: 0;
+  }
+
+  .r360-hero-copy-column .r360-hero-lead {
+    margin-top: 1.875rem;
+  }
+
+  .r360-hero-stats-block {
+    margin-top: 2rem;
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
   }
 }
 
@@ -955,12 +997,12 @@
   .r360-site-container.r360-hero-inner,
   .r360-site-container.r360-about-hero-inner {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(520px, 620px);
-    column-gap: clamp(4rem, 5vw, 5rem);
+    grid-template-columns: minmax(0, 1fr) minmax(560px, 680px);
+    column-gap: clamp(2.5rem, 4vw, 5rem);
   }
 
   .r360-site-container.r360-hero-inner {
-    align-items: center;
+    align-items: stretch;
   }
 
   .r360-site-container.r360-about-hero-inner {
@@ -1005,7 +1047,7 @@
   }
 
   .r360-hero-headline-block {
-    margin-top: 2.75rem;
+    margin-top: 0;
   }
 
   .r360-hero-copy-column .r360-hero-lead {
@@ -1015,7 +1057,7 @@
   .r360-hero-stats-block {
     margin-top: 2rem;
     padding-top: 1.75rem;
-    padding-bottom: 3.75rem;
+    padding-bottom: 1.75rem;
   }
 
   .r360-hero-headline {
@@ -1024,6 +1066,36 @@
     position: relative;
     z-index: 2;
     overflow-wrap: normal;
+  }
+}
+
+/* Short desktop viewports: compact vertical spacing only (keep two columns). */
+@media (min-width: 1200px) and (max-height: 860px) {
+  .r360-hero-inner {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+
+  .r360-hero-headline-block {
+    margin-top: 0;
+  }
+
+  .r360-hero-copy-column .r360-hero-lead {
+    margin-top: 1.5rem;
+  }
+
+  .r360-hero-stats-block {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .r360-hero-lead-form:not(.r360-home-closing-lead-form) .r360-form-field-group {
+    margin-top: 0.75rem;
+  }
+
+  .r360-hero-lead-form:not(.r360-home-closing-lead-form) .r360-form-benefits-footer {
+    padding-bottom: clamp(0.875rem, 1.05vw, 1rem);
   }
 }
 
@@ -1185,7 +1257,7 @@ button.r360-hero-cta.r360-cta-reputation-scan--hero:focus-visible {
   padding-bottom: 2rem;
 }
 
-@media (min-width: 1024px) and (max-width: 1439px) {
+@media (min-width: 1024px) and (max-width: 1199px) {
   .r360-hero-headline-block {
     margin-top: 2rem;
   }
@@ -1215,6 +1287,14 @@ button.r360-hero-cta.r360-cta-reputation-scan--hero:focus-visible {
   flex-direction: column;
   height: auto;
   min-height: 0;
+}
+
+.r360-hero-lead-form--homepage-hero {
+  overflow: visible;
+}
+
+.r360-hero-lead-form--homepage-hero.r360-hero-lead-form--submitted {
+  overflow: hidden;
 }
 
 .r360-hero-form-column {
@@ -1702,6 +1782,11 @@ button.r360-hero-cta.r360-cta-reputation-scan--hero:focus-visible {
   }
 }
 
+.r360-hero-lead-form:not(.r360-home-closing-lead-form) .r360-form-consent {
+  margin-top: 0.5625rem;
+  margin-bottom: 0;
+}
+
 /* Hero lead form: compact desktop layout (fits optional message without growing card) */
 @media (min-width: 1024px) {
   .r360-hero-lead-form:not(.r360-home-closing-lead-form) .r360-form-header-wrap {
@@ -1738,8 +1823,9 @@ button.r360-hero-cta.r360-cta-reputation-scan--hero:focus-visible {
     min-height: 3.5rem;
   }
 
+  /* ~22px shorter than pre-consent desktop min-height to make room for legal line */
   .r360-hero-lead-form:not(.r360-home-closing-lead-form) .r360-form-textarea--hero {
-    min-height: 4.75rem;
+    min-height: 3.375rem;
     max-height: 7rem;
     padding: 0.5625rem 0.875rem;
     line-height: 1.4;
@@ -1751,9 +1837,15 @@ button.r360-hero-cta.r360-cta-reputation-scan--hero:focus-visible {
     padding-block: 0.625rem;
   }
 
+  .r360-hero-lead-form:not(.r360-home-closing-lead-form) .r360-form-consent {
+    font-size: 11px;
+    line-height: 1.4;
+    color: #64748b;
+  }
+
   .r360-hero-lead-form:not(.r360-home-closing-lead-form) .r360-form-benefits-footer {
-    margin-top: 0.625rem;
-    padding-top: 0.75rem;
+    margin-top: 0.5625rem;
+    padding-top: 0.5rem;
     padding-bottom: clamp(1rem, 1.2vw, 1.125rem);
   }
 
@@ -1770,6 +1862,12 @@ button.r360-hero-cta.r360-cta-reputation-scan--hero:focus-visible {
   .r360-hero-lead-form:not(.r360-home-closing-lead-form) .r360-form-benefit-label {
     font-size: 11px;
     line-height: 1.3;
+  }
+}
+
+@media (min-width: 1280px) {
+  .r360-hero-lead-form:not(.r360-home-closing-lead-form) .r360-form-consent {
+    font-size: 12px;
   }
 }
 

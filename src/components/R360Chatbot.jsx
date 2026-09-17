@@ -193,7 +193,7 @@ export default function R360Chatbot() {
       }
       setScanStep("loading");
       pushAssistant(
-        `Researching ${first} ${last} on the web now. This usually takes 30-90 seconds...`,
+        `Researching ${first} ${last} on the web now. This usually takes about 30 seconds...`,
       );
       try {
         const data = await fetchReputationAgentReport({

@@ -25,7 +25,7 @@ function HeroStatsRow({ compact = false }) {
                 ? "min-w-[7.5rem] shrink-0 border-l border-white/15 pl-4 sm:min-w-[8.5rem]"
                 : "min-w-[7.5rem] shrink-0 sm:min-w-[8.5rem]"
               : index > 0
-                ? "min-w-0 border-l border-white/15 pl-4 lg:pl-5"
+                ? "min-w-0 border-l border-white/15 pl-4 min-[1200px]:pl-5"
                 : "min-w-0"
           }
         >
@@ -48,7 +48,7 @@ function Hero() {
   const headlineLine = "r360-hero-headline-line text-white";
 
   return (
-    <section className="r360-hero-bg r360-hero-section overflow-x-clip text-white">
+    <section className="r360-hero-bg r360-hero-section text-white">
       <div className="r360-site-container r360-hero-inner">
         <div className="r360-hero-grid">
           <div className="r360-hero-copy-column order-1 flex min-w-0 flex-col lg:order-none">
@@ -71,7 +71,7 @@ function Hero() {
               Because one negative result can quietly undermine years of credibility.
             </p>
 
-            <div className="r360-hero-stats-block hidden border-t border-white/15 lg:block">
+            <div className="r360-hero-stats-block hidden border-t border-white/15 min-[1200px]:block">
               <HeroStatsRow />
             </div>
           </div>
@@ -82,7 +82,7 @@ function Hero() {
             </div>
           </div>
 
-          <div className="order-3 w-full min-w-0 border-t border-white/15 pt-6 lg:hidden">
+          <div className="order-3 w-full min-w-0 border-t border-white/15 pt-6 min-[1200px]:hidden">
             <HeroStatsRow compact />
           </div>
         </div>

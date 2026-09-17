@@ -222,6 +222,6 @@ export const REAL_ESTATE_FAQ_ITEMS = [
   faq(
     "re-how-to-start",
     "How do I get started with Reputation360?",
-    "Start with a free reputation scan. We will review your current search presence across all relevant platforms, identify every result of concern, and give you an honest picture of where you stand. From there, we walk you through what a programme would look like for your specific situation - timeline, scope, and expected outcomes. There is no obligation, and no pressure to proceed.",
+    "Start with a free reputation scan. You get your reputation score and initial results in approximately 30 seconds. From there, you can book a consultation for a more detailed review of your situation - timeline, scope, and expected outcomes. There is no obligation, and no pressure to proceed.",
   ),
 ];

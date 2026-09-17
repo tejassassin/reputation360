@@ -2,6 +2,7 @@ import {
   REPUTATION_PUBLIC_BANDS,
   REPUTATION_PUBLIC_SCORE_MAX,
 } from "../../scan-shared/scoreReputation.js";
+import { FREE_SCAN_RESULTS_TIMING_SHORT } from "../constants/freeRiskScan.js";
 
 /** Homepage Free Reputation Score preview (public 0-100 scale). */
 export const HOME_REPUTATION_SCORE_DISPLAY = 89;
@@ -31,7 +32,7 @@ export const HOME_REPUTATION_SCORE_PREVIEW = {
 
 export const HOME_REPUTATION_SCORE_TRUST_POINTS = [
   "Free",
-  "Results in 30 seconds",
+  FREE_SCAN_RESULTS_TIMING_SHORT,
   "Confidential",
   "Complimentary Consultation",
 ];

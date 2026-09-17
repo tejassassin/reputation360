@@ -20,7 +20,12 @@ import { useReducedMotion } from "motion/react";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { ConsultationCtas } from "../components/ConsultationCtas";
-import { FREE_REPUTATION_SCAN_LABEL } from "../constants/freeRiskScan.js";
+import {
+  FREE_REPUTATION_SCAN_LABEL,
+  FREE_SCAN_INSTANT_SCORE_WITH_CONSULTATION,
+  FREE_SCAN_RESULTS_TIMING_PROMISE,
+  FREE_SCAN_RESULTS_TIMING_SENTENCE,
+} from "../constants/freeRiskScan.js";
 import { cn } from "@/lib/utils";
 import { externalAnchorProps } from "@/lib/internalLinkProps.js";
 import { buildReputationScanPdfBytes } from "@scan/freeScanPdfBuild.js";
@@ -172,7 +177,7 @@ function ScanGeneratingScreen({ progress, stageIndex, factIndex }) {
           <Shield className="mt-0.5 h-4 w-4 shrink-0 text-[#2E5B88]" aria-hidden />
           <p>
             We request up to {FREE_SCAN_LINK_LIMIT} ranked URLs from Google (first {FREE_SCAN_GOOGLE_PAGES} pages) for
-            the exact name and country context you provided. Typical runtime is 30-90 seconds including quality checks.
+            the exact name and country context you provided. Most scans finish in approximately 30 seconds.
           </p>
         </div>
 
@@ -529,7 +534,7 @@ export default function FreeRiskScanPage() {
               Free Online Reputation Scan - See What Google Says About You
             </h1>
             <p className="mx-auto mt-3 w-full text-pretty text-sm leading-relaxed text-slate-600 md:mx-0 md:text-base">
-              We analyse the first 3 pages of Google search results for your name, classify each URL as negative, neutral, or positive, and email you a detailed PDF report - so you know exactly where you stand before deciding what to do next.
+            We analyse the first 3 pages of Google search results for your name, classify each URL as negative, neutral, or positive, and show your reputation score on screen. {FREE_SCAN_RESULTS_TIMING_PROMISE}
             </p>
 
             {/* Premium Interactive Accordion */}
@@ -539,19 +544,19 @@ export default function FreeRiskScanPage() {
                   id: "includes",
                   title: "What Your Free Scan Includes",
                   icon: Shield,
-                  content: "Your scan covers up to 30 links across the first three pages of Google results for your name and country. Each result is classified as negative, neutral, or positive - with a clear breakdown of what's working in your favour, what's being ignored, and what may be actively costing you opportunities. You'll receive the full analysis as a PDF report by email, usually within one business day."
+                  content: `Your scan covers up to 30 links across the first three pages of Google results for your name and country. Each result is classified as negative, neutral, or positive - with a clear breakdown of what's working in your favour, what's being ignored, and what may be actively costing you opportunities. ${FREE_SCAN_RESULTS_TIMING_SENTENCE}`,
                 },
                 {
                   id: "who",
                   title: "Who Should Run a Scan?",
                   icon: Users,
-                  content: "If you're a founder, executive, professional, doctor, lawyer, financial advisor, job seeker, or business owner - and someone could Google your name before a meeting, interview, investment, or client decision - this scan is for you. It takes 30 seconds to request and gives you a clear, honest picture of what people are finding when they search for you."
+                  content: "If you're a founder, executive, professional, doctor, lawyer, financial advisor, job seeker, or business owner - and someone could Google your name before a meeting, interview, investment, or client decision - this scan is for you. Most scans finish in approximately 30 seconds and give you a clear, honest picture of what people are finding when they search for you."
                 },
                 {
                   id: "after",
                   title: "What Happens After Your Scan?",
                   icon: TrendingUp,
-                  content: "You'll receive your PDF reputation report by email. If anything concerning appears, you can book a free consultation with the Reputation360 team to walk through your results and understand your options - whether that's content removal, negative link suppression, or building a stronger positive presence. There's no obligation and no sales pressure."
+                  content: `${FREE_SCAN_INSTANT_SCORE_WITH_CONSULTATION} If anything concerning appears, you can book a free consultation with the Reputation360 team to walk through your results and understand your options - whether that's content removal, negative link suppression, or building a stronger positive presence. There's no obligation and no sales pressure.`
                 }
               ].map((sec) => {
                 const isOpen = activeSection === sec.id;
@@ -632,7 +637,7 @@ export default function FreeRiskScanPage() {
 
             <div className="mt-4">
               <label className="mb-2 block text-sm font-bold text-slate-900" htmlFor={`${baseId}-em`}>
-                Get your detailed reputation report at:
+                Email for your scan summary copy:
               </label>
               <input
                 id={`${baseId}-em`}
@@ -645,7 +650,9 @@ export default function FreeRiskScanPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-500/15"
               />
-              <p className="mt-2 text-xs text-slate-500">We will send your PDF summary here.</p>
+              <p className="mt-2 text-xs text-slate-500">
+                Your score appears on this page in about 30 seconds. We can also email a copy of your summary here.
+              </p>
             </div>
 
             <label className="mt-5 flex cursor-pointer gap-3 rounded-2xl border border-slate-100 bg-slate-50/60 px-4 py-2.5 text-sm leading-relaxed text-slate-600">
@@ -823,7 +830,7 @@ export default function FreeRiskScanPage() {
               {scanPayload.emailError ? (
                 <>
                   {" "}
-                  and you can download the PDF - but we could not deliver email: {scanPayload.emailError}
+                  and you can download a copy from this page - but we could not deliver email: {scanPayload.emailError}
                 </>
               ) : null}
             </p>
