@@ -12,7 +12,7 @@ import { HOME_FAQ_ITEMS } from "../data/homeFaqItems.js";
 export default function HomeFaqAccordionList({ items = HOME_FAQ_ITEMS, idPrefix }) {
   const reactGeneratedId = useId().replace(/[^a-zA-Z0-9_-]/g, "x");
   const baseId = idPrefix ?? reactGeneratedId;
-  const [openId, setOpenId] = useState(items[0]?.id ?? null);
+  const [openId, setOpenId] = useState(null);
 
   const toggle = useCallback((id) => {
     setOpenId((current) => (current === id ? null : id));

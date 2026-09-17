@@ -19,22 +19,22 @@ function HeroStatsRow({ compact = false }) {
       {HERO_STATS.map((stat, index) => (
         <div
           key={stat.label}
-          className={
+          className={`r360-hero-stat-cell ${
             compact
               ? index > 0
                 ? "min-w-[7.5rem] shrink-0 border-l border-white/15 pl-4 sm:min-w-[8.5rem]"
                 : "min-w-[7.5rem] shrink-0 sm:min-w-[8.5rem]"
               : index > 0
-                ? "min-w-0 border-l border-white/15 pl-4 min-[1200px]:pl-5"
+                ? "min-w-0 min-[1200px]:border-l min-[1200px]:border-white/15 min-[1200px]:pl-5"
                 : "min-w-0"
-          }
+          }`}
         >
           <p className="r360-hero-stat-value font-heading text-green">{stat.value}</p>
-          <p className="mt-1.5 font-heading text-[10px] font-semibold uppercase leading-snug tracking-[0.08em] text-white sm:text-[11px]">
+          <p className="r360-hero-stat-label mt-1.5 font-heading text-[10px] font-semibold uppercase leading-snug tracking-[0.08em] text-white sm:text-[11px]">
             {stat.label}
           </p>
           {!compact ? (
-            <p className="mt-1 font-body text-[11px] leading-snug text-white/70 sm:text-xs">
+            <p className="r360-hero-stat-detail mt-1 font-body text-[11px] leading-snug text-white/70 sm:text-xs">
               {stat.detail}
             </p>
           ) : null}
@@ -51,7 +51,7 @@ function Hero() {
     <section className="r360-hero-bg r360-hero-section text-white">
       <div className="r360-site-container r360-hero-inner">
         <div className="r360-hero-grid">
-          <div className="r360-hero-copy-column order-1 flex min-w-0 flex-col lg:order-none">
+          <div className="r360-hero-copy-column order-1 flex min-w-0 flex-col max-[1199px]:order-1 lg:order-none">
             <div className="relative r360-hero-headline-block">
               <div className="r360-hero-dot-grid pointer-events-none absolute inset-0 z-0" aria-hidden />
               <h1 className="r360-hero-headline relative z-10 text-left font-heading">
@@ -71,18 +71,18 @@ function Hero() {
               Because one negative result can quietly undermine years of credibility.
             </p>
 
-            <div className="r360-hero-stats-block hidden border-t border-white/15 min-[1200px]:block">
+            <div className="r360-hero-stats-block hidden border-t border-white/15 min-[600px]:block">
               <HeroStatsRow />
             </div>
           </div>
 
-          <div className="r360-hero-form-column relative z-20 order-2 min-w-0 lg:order-none">
+          <div className="r360-hero-form-column relative z-20 order-2 min-w-0 max-[599px]:order-3 min-[1200px]:order-none">
             <div className="r360-hero-form-wrap">
               <HomeContactLeadForm />
             </div>
           </div>
 
-          <div className="order-3 w-full min-w-0 border-t border-white/15 pt-6 min-[1200px]:hidden">
+          <div className="order-2 hidden w-full min-w-0 border-t border-white/15 pt-6 max-[599px]:block min-[600px]:hidden">
             <HeroStatsRow compact />
           </div>
         </div>

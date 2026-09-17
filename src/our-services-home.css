@@ -17,9 +17,66 @@ html body section#r3-home-our-services-root {
   color: rgba(255, 255, 255, 0.84);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .r3-our-services-supporting {
     white-space: nowrap;
+  }
+}
+
+/* Home services - unified grid (mobile stack, tablet 2-col, desktop 3-col) */
+.r3-home-services-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  min-width: 0;
+}
+
+.r3-home-services-grid-item {
+  display: flex;
+  min-width: 0;
+}
+
+.r3-home-services-grid-item > .r3-supporting-service-card {
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 640px) and (max-width: 1199px) {
+  .r3-home-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.875rem;
+  }
+
+  .r3-home-services-grid-item--core,
+  .r3-home-services-grid-item--span-full {
+    grid-column: 1 / -1;
+  }
+
+  .r3-home-services-grid-item--span-full > .r3-supporting-service-card {
+    width: 100%;
+    max-width: min(100%, 42rem);
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .r3-home-services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.875rem;
+  }
+
+  .r3-home-services-grid-item--core {
+    grid-column: 1 / -1;
+    max-width: 48rem;
+    width: 100%;
+    justify-self: center;
+  }
+
+  .r3-home-services-grid-item--span-full {
+    grid-column: 1 / -1;
+    max-width: 42rem;
+    width: 100%;
+    justify-self: center;
   }
 }
 

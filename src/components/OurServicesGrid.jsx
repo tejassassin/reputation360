@@ -84,27 +84,28 @@ function ServiceCard({ service, isCore = false, isBottom = false }) {
  */
 export function OurServicesGrid() {
   return (
-    <div className="w-full">
-      <article
-        className="relative mx-auto mb-4 w-full max-w-3xl sm:mb-4 md:max-w-3xl"
+    <ul
+      className="r3-home-services-grid mx-auto w-full max-w-7xl list-none grid-cols-1 items-stretch gap-3 p-0 md:gap-3.5 xl:gap-4"
+      aria-label="Reputation management services"
+    >
+      <li
+        className="r3-home-services-grid-item r3-home-services-grid-item--core min-w-0 list-none"
         aria-labelledby="core-service-heading"
       >
         <ServiceCard service={coreService} isCore />
-      </article>
+      </li>
 
-      <ul className="mx-auto grid w-full max-w-7xl list-none grid-cols-1 items-stretch justify-center gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3 md:gap-3.5 xl:gap-4">
-        {rowTwoServices.map((s) => (
-          <li key={s.id} className="min-w-0 max-w-full list-none">
-            <ServiceCard service={s} />
-          </li>
-        ))}
-      </ul>
+      {rowTwoServices.map((s) => (
+        <li key={s.id} className="r3-home-services-grid-item min-w-0 max-w-full list-none">
+          <ServiceCard service={s} />
+        </li>
+      ))}
 
       {reputationBuildingService ? (
-        <div className="relative mx-auto mt-3 w-full max-w-2xl md:mt-3.5">
+        <li className="r3-home-services-grid-item r3-home-services-grid-item--span-full min-w-0 list-none">
           <ServiceCard service={reputationBuildingService} isBottom />
-        </div>
+        </li>
       ) : null}
-    </div>
+    </ul>
   );
 }
