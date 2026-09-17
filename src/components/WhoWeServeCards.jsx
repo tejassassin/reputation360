@@ -21,7 +21,7 @@ export default function WhoWeServeCards() {
           <div className="mx-auto mt-2.5 h-1 w-16 rounded-full bg-green" aria-hidden />
         </div>
 
-        <ul className="m-0 grid list-none grid-cols-1 items-stretch gap-3 p-0 sm:grid-cols-2 sm:gap-4 min-[1200px]:grid-cols-4 min-[1200px]:gap-4">
+        <ul className="m-0 grid list-none grid-cols-1 items-stretch gap-3 p-0 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-4">
           {WHO_WE_SERVE_AUDIENCES.map((cat) => (
             <WhoWeServeAudienceCard key={cat.href} {...cat} />
           ))}
