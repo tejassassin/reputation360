@@ -52,13 +52,6 @@ function Hero() {
       <div className="r360-site-container r360-hero-inner">
         <div className="r360-hero-grid">
           <div className="r360-hero-copy-column order-1 flex min-w-0 flex-col lg:order-none">
-            <div className="inline-flex w-fit max-w-full items-center gap-2 rounded-full border border-green/35 bg-green/10 px-3 py-1.5 text-[13px] font-medium text-white sm:px-4 sm:py-2 sm:text-sm">
-              <span aria-hidden className="text-white">
-                ★
-              </span>
-              Trusted by 1,100+ clients across the U.S.
-            </div>
-
             <div className="relative r360-hero-headline-block">
               <div className="r360-hero-dot-grid pointer-events-none absolute inset-0 z-0" aria-hidden />
               <h1 className="r360-hero-headline relative z-10 text-left font-heading">

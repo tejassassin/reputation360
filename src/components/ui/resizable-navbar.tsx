@@ -3,8 +3,24 @@ import { staticImageSrc } from "@/lib/staticImageSrc.js";
 import { WHO_WE_SERVE_HUB_PATH } from "@/constants/whoWeServePaths.js";
 import { anchorTabProps, internalAnchorProps } from "@/lib/internalLinkProps";
 import { IconChevronDown, IconMenu2, IconX } from "@tabler/icons-react";
-import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
-import { Children, cloneElement, isValidElement, useEffect, useState } from "react";
+import type { ComponentPropsWithoutRef, ElementType, ReactNode, Ref } from "react";
+import {
+  Children,
+  cloneElement,
+  forwardRef,
+  isValidElement,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
+/** Match Tailwind `min-[1440px]:` — full desktop nav only at this width and above. */
+export const R360_DESKTOP_NAV_MIN_WIDTH_PX = 1440;
+
+export const R360_MOBILE_NAV_MENU_ID = "r360-mobile-nav-menu";
+
+export const R360_MOBILE_NAV_INERT_SELECTOR =
+  "main, footer, .r360-breadcrumb-bar, .r360-mobile-nav-header";
 
 type NavItemConfig = {
   name: string;
@@ -22,7 +38,7 @@ function resolveNavParentHref(item: NavItemConfig) {
   return item.children?.[0]?.link ?? "#";
 }
 
-/* Sticky pill: scroll>100 adds opaque shell + shadow. Below 2xl, desktop uses 2 rows (links then CTAs) so links never share a row with buttons. */
+/* Sticky pill: scroll>100 adds opaque shell + shadow. Below 1440px, use mobile navigation. */
 
 interface NavbarProps {
   children: ReactNode;
@@ -56,7 +72,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   }, []);
 
   return (
-    <div className={cn("relative z-40 w-full", className)}>
+    <div className={cn("relative z-40 w-full min-w-0", className)}>
       {Children.map(children, (child) =>
         isValidElement(child) ? cloneElement(child, { visible } as WithVisible) : child,
       )}
@@ -75,8 +91,8 @@ export const NavBody = ({ children, className, visible = false }: NavBodyProps) 
   return (
     <div
       className={cn(
-        "relative z-[60] mx-auto hidden w-full min-w-0 max-w-none items-center gap-x-4 gap-y-0 self-start bg-transparent px-0 py-1 sm:px-1",
-        "lg:grid lg:grid-cols-[auto_minmax(max-content,1fr)_auto] lg:grid-rows-1 lg:items-center lg:gap-x-5 lg:py-2 xl:gap-x-6 2xl:gap-x-7",
+        "relative z-[60] mx-auto hidden w-full min-w-0 max-w-full items-center gap-x-3 gap-y-0 self-start bg-transparent px-0 py-1 sm:px-1",
+        "min-[1440px]:grid min-[1440px]:grid-cols-[auto_minmax(0,1fr)_minmax(0,auto)] min-[1440px]:grid-rows-1 min-[1440px]:items-center min-[1440px]:gap-x-4 min-[1440px]:py-2 xl:gap-x-5 2xl:gap-x-6",
         scrolledNavShellClass(visible),
         className,
       )}
@@ -115,7 +131,7 @@ export const NavItems = ({
         }
       }}
       className={cn(
-        "relative z-10 mx-0 hidden min-h-0 w-full flex-row flex-nowrap items-center justify-start gap-x-2 text-[13px] font-medium text-white transition-colors duration-200 hover:text-green font-heading sm:gap-x-2.5 sm:text-sm lg:col-start-2 lg:row-start-1 lg:flex lg:w-auto lg:max-w-none lg:gap-x-2.5 xl:gap-x-3.5 xl:text-[15px]",
+        "relative z-10 mx-0 hidden min-h-0 min-w-0 w-full flex-row flex-nowrap items-center justify-start gap-x-1.5 text-[13px] font-medium text-white transition-colors duration-200 hover:text-green font-heading min-[1440px]:flex min-[1440px]:gap-x-2 xl:gap-x-2.5 xl:text-[14px] 2xl:gap-x-3.5 2xl:text-[15px]",
         className,
       )}
     >
@@ -134,7 +150,7 @@ export const NavItems = ({
             <a
               href={parentHref}
               {...internalAnchorProps(parentHref)}
-              className="group relative block w-full shrink-0 whitespace-nowrap rounded-full px-2.5 py-1.5 text-left text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
+              className="group relative block w-full shrink-0 whitespace-nowrap rounded-full px-2 py-1.5 text-left text-white transition-colors duration-200 hover:text-green min-[1440px]:px-2.5 xl:px-3 2xl:px-3.5 2xl:py-2"
               aria-haspopup="menu"
               aria-expanded={menuOpen}
               onMouseDown={(e) => {
@@ -180,7 +196,7 @@ export const NavItems = ({
                 if (!item.link || item.link === "#") e.preventDefault();
                 onItemClick?.();
               }}
-              className="group relative block shrink-0 whitespace-nowrap rounded-full px-2.5 py-1.5 text-white transition-colors duration-200 hover:text-green xl:px-3.5 xl:py-2"
+              className="group relative block shrink-0 whitespace-nowrap rounded-full px-2 py-1.5 text-white transition-colors duration-200 hover:text-green min-[1440px]:px-2.5 xl:px-3 2xl:px-3.5 2xl:py-2"
               href={item.link ?? "#"}
               {...internalAnchorProps(item.link ?? "#")}
             >
@@ -238,7 +254,7 @@ export const MobileNav = ({ children, className, visible = false }: MobileNavPro
   return (
     <div
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-none flex-col items-center justify-between bg-transparent py-1 lg:hidden",
+        "relative z-50 mx-auto flex w-full min-w-0 max-w-full flex-col items-stretch justify-between bg-transparent py-1 min-[1440px]:hidden",
         visible ? "rounded-md px-3" : "rounded-full px-0",
         scrolledNavShellClass(visible),
         className,
@@ -259,7 +275,7 @@ export const MobileNavHeader = ({
   return (
     <div
       className={cn(
-        "flex w-full flex-row items-center justify-between",
+        "r360-mobile-nav-header flex w-full min-w-0 flex-row items-center justify-between gap-2",
         className,
       )}
     >
@@ -267,53 +283,173 @@ export const MobileNavHeader = ({
     </div>
   );
 };
+
+function getDialogFocusables(panel: HTMLElement): HTMLElement[] {
+  const focusableSelector =
+    'a[href], button:not([disabled]):not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])';
+  return Array.from(panel.querySelectorAll<HTMLElement>(focusableSelector)).filter(
+    (el) => el.getAttribute("aria-hidden") !== "true",
+  );
+}
 
 export const MobileNavMenu = ({
   children,
   className,
   isOpen,
-  onClose: _onClose,
+  onClose,
+  menuId = R360_MOBILE_NAV_MENU_ID,
 }: {
   children: React.ReactNode;
   className?: string;
   isOpen: boolean;
   onClose: () => void;
+  menuId?: string;
 }) => {
-  void _onClose;
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const inertedElements = Array.from(
+      document.querySelectorAll(R360_MOBILE_NAV_INERT_SELECTOR),
+    );
+    inertedElements.forEach((el) => {
+      el.setAttribute("inert", "");
+    });
+
+    const panel = document.getElementById(menuId);
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+        return;
+      }
+
+      if (event.key !== "Tab" || !panel) return;
+
+      const cycle = getDialogFocusables(panel);
+      if (cycle.length === 0) return;
+
+      const active = document.activeElement as HTMLElement | null;
+      const activeIndex = active ? cycle.indexOf(active) : -1;
+
+      if (activeIndex === -1) {
+        event.preventDefault();
+        (event.shiftKey ? cycle[cycle.length - 1] : cycle[0]).focus();
+        return;
+      }
+
+      if (event.shiftKey) {
+        if (activeIndex <= 0) {
+          event.preventDefault();
+          cycle[cycle.length - 1].focus();
+        }
+      } else if (activeIndex >= cycle.length - 1) {
+        event.preventDefault();
+        cycle[0].focus();
+      }
+    };
+
+    const onFocusIn = (event: FocusEvent) => {
+      if (!panel) return;
+      const target = event.target as Node | null;
+      if (target && panel.contains(target)) return;
+      const cycle = getDialogFocusables(panel);
+      queueMicrotask(() => {
+        cycle[0]?.focus({ preventScroll: true });
+      });
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    document.addEventListener("focusin", onFocusIn);
+
+    const focusFrame = requestAnimationFrame(() => {
+      closeButtonRef.current?.focus({ preventScroll: true });
+    });
+
+    return () => {
+      cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousOverflow;
+      inertedElements.forEach((el) => {
+        el.removeAttribute("inert");
+      });
+      window.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("focusin", onFocusIn);
+    };
+  }, [isOpen, onClose, menuId]);
+
   if (!isOpen) return null;
+
   return (
-    <div
-      className={cn(
-        "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-navy px-4 py-8 text-white shadow-lg transition-opacity duration-200",
-        className,
-      )}
-    >
-      {children}
-    </div>
+    <>
+      <button
+        type="button"
+        tabIndex={-1}
+        aria-hidden="true"
+        className="r360-mobile-nav-backdrop fixed inset-x-0 bottom-0 top-[var(--r360-header-height)] z-[45] bg-navy/55"
+        onClick={onClose}
+      />
+      <div
+        id={menuId}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+        className={cn(
+          "r360-mobile-nav-panel fixed inset-x-0 top-[var(--r360-header-height)] z-[55] flex w-full min-w-0 flex-col items-stretch gap-3 overflow-x-hidden overflow-y-auto overscroll-contain border-t border-white/10 bg-navy px-4 pb-4 pt-2 text-white shadow-lg",
+          className,
+        )}
+      >
+        <div className="sticky top-0 z-10 -mx-4 flex shrink-0 justify-end border-b border-white/10 bg-navy px-4 py-2">
+          <button
+            ref={closeButtonRef}
+            type="button"
+            onClick={onClose}
+            aria-label="Close navigation menu"
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+          >
+            <IconX className="h-6 w-6" strokeWidth={2} aria-hidden />
+          </button>
+        </div>
+        {children}
+      </div>
+    </>
   );
 };
 
-export const MobileNavToggle = ({
-  isOpen,
-  onClick,
-}: {
-  isOpen: boolean;
-  onClick: () => void;
-}) => {
-  return isOpen ? (
-    <IconX
-      className="h-6 w-6 cursor-pointer text-white"
+export const MobileNavToggle = forwardRef(function MobileNavToggle(
+  {
+    isOpen,
+    onClick,
+    controlsId = R360_MOBILE_NAV_MENU_ID,
+  }: {
+    isOpen: boolean;
+    onClick: () => void;
+    controlsId?: string;
+  },
+  ref: Ref<HTMLButtonElement>,
+) {
+  return (
+    <button
+      ref={ref}
+      type="button"
       onClick={onClick}
-      aria-label="Close menu"
-    />
-  ) : (
-    <IconMenu2
-      className="h-6 w-6 cursor-pointer text-white"
-      onClick={onClick}
-      aria-label="Open menu"
-    />
+      tabIndex={isOpen ? -1 : 0}
+      aria-expanded={isOpen}
+      aria-controls={controlsId}
+      aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+      className="r360-mobile-nav-toggle inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+    >
+      {isOpen ? (
+        <IconX className="h-6 w-6" strokeWidth={2} aria-hidden />
+      ) : (
+        <IconMenu2 className="h-6 w-6" strokeWidth={2} aria-hidden />
+      )}
+    </button>
   );
-};
+});
 
 export const NavbarLogo = ({
   logoSrc,
@@ -337,13 +473,12 @@ export const NavbarLogo = ({
       href="/"
       {...internalAnchorProps("/")}
       className={cn(
-        "relative z-20 flex shrink-0 items-center gap-2.5 py-1 pr-2 text-xl font-bold text-white font-heading transition-transform duration-200 hover:scale-[1.02] sm:gap-3 sm:pr-3",
-        "lg:self-center lg:pr-4 2xl:pr-2",
+        "relative z-20 flex min-w-0 shrink items-center gap-2 py-1 pr-1 text-lg font-bold text-white font-heading transition-transform duration-200 hover:scale-[1.02] sm:gap-2.5 sm:pr-2 sm:text-xl min-[1440px]:gap-3 min-[1440px]:pr-3 2xl:pr-2",
         className,
       )}
     >
       {resolvedLogoSrc ? (
-        <div className="flex h-[3.25rem] w-[3.25rem] shrink-0 items-center justify-center rounded-full bg-white pl-0.5">
+        <div className="flex h-[3rem] w-[3rem] shrink-0 items-center justify-center rounded-full bg-white pl-0.5 sm:h-[3.25rem] sm:w-[3.25rem]">
           <img
             src={resolvedLogoSrc}
             alt={imgAlt}
@@ -362,7 +497,7 @@ export const NavbarLogo = ({
           height={30}
         />
       )}
-      <span>{brandName}</span>
+      <span className="truncate">{brandName}</span>
     </a>
   );
 };
@@ -404,7 +539,7 @@ export const NavbarButton = ({
       className={cn(
         buttonBase,
         variantStyles[variant],
-        "shrink-0",
+        "shrink min-w-0 max-w-full",
         className,
       )}
       {...newTabProps}

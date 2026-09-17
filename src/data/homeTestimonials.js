@@ -1,10 +1,6 @@
 /* @refresh reset */
 /**
- * Home page - synthetic testimonial copy (fictional names/roles; not real clients). Optional
- * `portrait` overrides the mapped URL in `testimonialPortraits.js`. Those URLs use
- * RandomUser’s pre-generated “fake” avatars: https://randomuser.me/photos
- * (see also https://randomuser.me/copyright) - for production, swap in licensed/approved
- * headshots; do not imply a stock photo is a real named client.
+ * Home page - synthetic testimonial copy (fictional names/roles; not real clients).
  */
 export const homeTestimonials = [
   {

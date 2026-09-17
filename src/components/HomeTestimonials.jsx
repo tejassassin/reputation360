@@ -1,21 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
-import { testimonialPortraitAlt } from "../constants/imageAlt.js";
 import { homeTestimonials } from "../data/homeTestimonials.js";
-import { testimonialPortraitUrl } from "../data/testimonialPortraits.js";
-
-function getInitials(fullName) {
-  const n = fullName
-    .replace(/^(dr\.?|prof\.?|mr\.?|mrs\.?|ms\.?)\s+/i, "")
-    .trim();
-  const parts = n.split(/\s+/).filter(Boolean);
-  if (parts.length >= 2) {
-    const a = parts[0][0];
-    const b = parts[parts.length - 1][0];
-    return (a + b).toUpperCase();
-  }
-  return (parts[0]?.slice(0, 2) ?? "?").toUpperCase();
-}
 
 function ReviewStars() {
   return (
@@ -31,38 +16,6 @@ function ReviewStars() {
           />
         ))}
       </div>
-    </div>
-  );
-}
-
-function TestimonialAvatar({ id, name, portraitUrl }) {
-  const [useFallback, setUseFallback] = useState(false);
-  const explicit =
-    typeof portraitUrl === "string" && portraitUrl.trim() !== "" ? portraitUrl : null;
-  const mapped = testimonialPortraitUrl(id);
-  const src = explicit || mapped || `https://i.pravatar.cc/200?u=${encodeURIComponent(id)}`;
-
-  if (useFallback) {
-    return (
-      <div
-        className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-slate-100 text-xs font-semibold text-slate-600 sm:h-11 sm:w-11 sm:text-sm"
-        aria-hidden
-      >
-        {getInitials(name)}
-      </div>
-    );
-  }
-  return (
-    <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full border border-slate-200/90 bg-slate-100 sm:h-11 sm:w-11">
-      <img
-        src={src}
-        alt={testimonialPortraitAlt(name)}
-        className="h-full w-full object-cover object-top"
-        loading="lazy"
-        decoding="async"
-        onError={() => setUseFallback(true)}
-        referrerPolicy="no-referrer"
-      />
     </div>
   );
 }
@@ -101,7 +54,7 @@ function useHomeTestimonialCardsPerPage() {
 }
 
 /**
- * @param {{ testimonial: { id: string; quote: string; name: string; role: string; portrait?: string } }} props
+ * @param {{ testimonial: { id: string; quote: string; name: string; role: string } }} props
  */
 function TestimonialCard({ testimonial: t }) {
   return (
@@ -121,14 +74,11 @@ function TestimonialCard({ testimonial: t }) {
         </blockquote>
         <div className="mt-auto flex flex-col pt-4">
           <div className="h-px w-full bg-slate-200/90" aria-hidden />
-          <footer className="flex w-full min-w-0 items-start gap-3 pt-4 sm:items-center sm:gap-3.5">
-            <TestimonialAvatar id={t.id} name={t.name} portraitUrl={t.portrait} />
-            <div className="min-w-0 flex-1 text-left">
-              <p className="font-heading text-sm font-bold leading-tight text-navy sm:text-[0.98rem]">
-                {t.name}
-              </p>
-              <p className="mt-0.5 text-pretty text-sm leading-snug text-slate-600">{t.role}</p>
-            </div>
+          <footer className="w-full min-w-0 pt-3.5 text-left sm:pt-4">
+            <p className="font-heading text-sm font-bold leading-tight text-navy sm:text-[0.98rem]">
+              {t.name}
+            </p>
+            <p className="mt-0.5 text-pretty text-sm leading-snug text-slate-600">{t.role}</p>
           </footer>
         </div>
       </div>
@@ -150,7 +100,7 @@ function HomeTestimonials() {
  *   heading?: string;
  *   subheading?: string;
  *   showAccentLine?: boolean;
- *   testimonials?: Array<{ id: string; quote: string; name: string; role: string; portrait?: string }>;
+ *   testimonials?: Array<{ id: string; quote: string; name: string; role: string }>;
  *   sectionClassName?: string;
  *   compactPadding?: boolean;
  *   subheadingClassName?: string;

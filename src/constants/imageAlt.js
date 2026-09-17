@@ -16,7 +16,3 @@ export const CONTACT_CALENDAR_IMAGE_ALT =
 export const BLOG_INDEX_HERO_IMAGE_ALT =
   "Reputation360 team of reputation management consultants in a strategy session";
 
-/** @param {string} reviewerName */
-export function testimonialPortraitAlt(reviewerName) {
-  return `Headshot of ${reviewerName}, Reputation360 client`;
-}
