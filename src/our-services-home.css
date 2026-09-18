@@ -103,13 +103,41 @@ html body section#r3-home-our-services-root {
 }
 
 .r3-service-title-row {
-  display: inline-flex;
-  max-width: 100%;
-  flex-wrap: nowrap;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(10px, 2.5vw, 12px);
-  vertical-align: middle;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.r3-supporting-service-title {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  padding-inline: 0.25rem;
+  font-family: var(--font-heading, inherit);
+  font-size: clamp(1.25rem, 1.35vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: normal;
+  color: #ffffff;
+  text-align: center;
+  text-wrap: balance;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.r3-service-title-text {
+  min-width: 0;
+  flex: 0 1 auto;
+  max-width: 100%;
+  text-align: center;
 }
 
 .r3-service-card-arrow {
@@ -121,6 +149,25 @@ html body section#r3-home-our-services-root {
   transition:
     transform 200ms ease,
     color 200ms ease;
+}
+
+@media (min-width: 640px) {
+  .r3-supporting-service-card-inner--middle-row {
+    display: grid;
+    width: 100%;
+    grid-template-rows: auto minmax(3.5rem, auto);
+    align-items: center;
+    justify-items: center;
+    row-gap: 0.625rem;
+  }
+
+  .r3-supporting-service-card-inner--middle-row .r3-supporting-service-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 3.5rem;
+  }
 }
 
 @media (min-width: 400px) {
