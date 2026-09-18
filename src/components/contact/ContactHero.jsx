@@ -1,7 +1,5 @@
-import { Search } from "lucide-react";
 import HomeContactLeadForm from "@/components/HomeContactLeadForm.jsx";
 import { CONTACT_PAGE_H1_LINES, CONTACT_PAGE_SUBHEAD_LINES } from "@/constants/contact.js";
-import { internalAnchorProps } from "@/lib/internalLinkProps.js";
 
 export function ContactHero() {
   return (
@@ -37,23 +35,6 @@ export function ContactHero() {
             </div>
           </div>
         </div>
-
-        <a
-          href="/free-reputation-scan"
-          {...internalAnchorProps("/free-reputation-scan")}
-          className="r360-contact-page-scan-cta mt-6 flex items-center gap-4 rounded-2xl bg-[#1f3b64] px-5 py-4 text-white shadow-lg transition hover:brightness-110 md:mt-8 md:rounded-[1.25rem] md:px-7 md:py-5"
-        >
-          <span
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/10"
-            aria-hidden
-          >
-            <Search className="h-5 w-5 text-[#78dc77]" strokeWidth={2} />
-          </span>
-          <span className="font-heading text-[14px] leading-snug md:text-[15px]">
-            Looking for an easier first step?{" "}
-            <span className="font-bold text-[#78dc77]">Start with a free reputation scan.</span>
-          </span>
-        </a>
       </div>
     </header>
   );

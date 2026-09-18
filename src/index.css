@@ -1132,10 +1132,6 @@
     display: contents;
   }
 
-  .r360-contact-page-hero-inner > .r360-contact-page-scan-cta {
-    grid-column: 1 / -1;
-  }
-
   .r360-hero-copy-column {
     width: 100%;
     max-width: min(100%, 38rem);
@@ -1158,10 +1154,16 @@
   }
 
   .r360-about-hero-inner .r360-hero-copy-column,
-  .r360-about-hero-inner .r360-hero-form-column,
-  .r360-contact-page-hero-inner .r360-hero-copy-column,
-  .r360-contact-page-hero-inner .r360-hero-form-column {
+  .r360-about-hero-inner .r360-hero-form-column {
     align-self: center;
+  }
+
+  .r360-contact-page-hero-inner .r360-hero-form-column {
+    align-self: start;
+  }
+
+  .r360-contact-page-hero-inner .r360-hero-copy-column {
+    align-self: start;
   }
 
   .r360-hero-lead-form:not(.r360-home-closing-lead-form):not(.r360-contact-page-lead-form) {
@@ -2622,19 +2624,19 @@ button.r360-cta-reputation-scan--nav-solid:focus-visible {
 
 /* Contact page - light hero + card form (mockup layout) */
 .r360-contact-page-hero-inner {
-  padding-top: clamp(1.75rem, 3.5vw, 2rem);
+  padding-top: clamp(1.375rem, 3vw, 1.75rem);
   padding-bottom: clamp(1.75rem, 3vw, 2.5rem);
 }
 
 @media (min-width: 768px) {
   .r360-contact-page-hero-inner {
-    padding-top: 2.5rem;
+    padding-top: 2.125rem;
   }
 }
 
 @media (min-width: 1024px) {
   .r360-contact-page-hero-inner {
-    padding-top: clamp(3rem, 4vw, 3.5rem);
+    padding-top: clamp(2.5rem, 3.5vw, 3rem);
   }
 }
 
@@ -2678,11 +2680,17 @@ button.r360-cta-reputation-scan--nav-solid:focus-visible {
 
 @media (min-width: 1024px) {
   .r360-contact-page-hero-inner .r360-hero-grid {
-    align-items: center;
+    align-items: start;
   }
 
   .r360-contact-page-hero-inner .r360-hero-form-column {
-    align-self: center;
+    align-self: start;
+  }
+
+  .r360-contact-page-hero-inner .r360-contact-page-copy {
+    align-self: start;
+    /* Align copy with form field block (just above first-name row). */
+    padding-top: clamp(5.625rem, 7vw, 7.5rem);
   }
 }
 
