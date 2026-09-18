@@ -535,7 +535,7 @@
 
 .r360-home-reputation-score-shell {
   padding-top: 3rem;
-  padding-bottom: 0;
+  padding-bottom: 1.25rem;
 }
 
 .r360-home-reputation-score-gauge-arc {
@@ -555,12 +555,14 @@
 @media (min-width: 768px) {
   .r360-home-reputation-score-shell {
     padding-top: 4rem;
+    padding-bottom: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .r360-home-reputation-score-shell {
     padding-top: 4.5rem;
+    padding-bottom: 1.75rem;
   }
 
   .r360-home-reputation-score-inner {
@@ -582,26 +584,26 @@
   }
 }
 
-/* Checklist to About (What We Do): stack gap + this padding (not shell padding-bottom). */
-.r360-home-reputation-score-section + .r360-what-we-do-section {
-  padding-top: 1.25rem;
+/* Free score trust row → About (What We Do): stack gap + shell padding-bottom + this margin. */
+.r360-home-believe-about-stack .r360-home-reputation-score-section ~ .r360-what-we-do-section {
+  margin-top: 0.75rem;
 }
 
 @media (min-width: 768px) {
-  .r360-home-reputation-score-section + .r360-what-we-do-section {
-    padding-top: 1.25rem;
+  .r360-home-believe-about-stack .r360-home-reputation-score-section ~ .r360-what-we-do-section {
+    margin-top: 1rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .r360-home-reputation-score-section + .r360-what-we-do-section {
-    padding-top: 1.5rem;
+  .r360-home-believe-about-stack .r360-home-reputation-score-section ~ .r360-what-we-do-section {
+    margin-top: 1.25rem;
   }
 }
 
 @media (min-width: 1280px) {
-  .r360-home-reputation-score-section + .r360-what-we-do-section {
-    padding-top: 2rem;
+  .r360-home-believe-about-stack .r360-home-reputation-score-section ~ .r360-what-we-do-section {
+    margin-top: 1.5rem;
   }
 }
 
@@ -647,6 +649,92 @@
   .r360-home-believe-about-stack {
     gap: 2.5rem;
   }
+}
+
+/* Homepage: rely on section spacing, not full-width horizontal rules. */
+.r360-home-page-main .r360-what-we-believe-section,
+.r360-home-page-main .r360-home-reputation-score-section,
+.r360-home-page-main #testimonials,
+.r360-home-page-main #r3-home-our-services-root,
+.r360-home-page-main .r360-who-we-serve-section,
+.r360-home-page-main .r360-why-choose-section,
+.r360-home-page-main .r360-home-faq-section {
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
+
+/* Homepage: one rhythm for gaps between blocks and vertical section padding. */
+.r360-home-page-main {
+  --r360-home-section-gap: 2.5rem;
+  --r360-home-section-pad: 2.25rem;
+  gap: var(--r360-home-section-gap);
+}
+
+@media (min-width: 768px) {
+  .r360-home-page-main {
+    --r360-home-section-gap: 2.75rem;
+    --r360-home-section-pad: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .r360-home-page-main {
+    --r360-home-section-gap: 3rem;
+    --r360-home-section-pad: 2.75rem;
+  }
+}
+
+.r360-home-page-main .r360-home-believe-about-services-continuity,
+.r360-home-page-main .r360-home-believe-about-stack {
+  gap: var(--r360-home-section-gap);
+}
+
+.r360-home-page-main .r360-home-believe-about-stack .r360-home-reputation-score-section ~ .r360-what-we-do-section {
+  margin-top: 0;
+}
+
+.r360-home-page-main .r360-what-we-believe-shell {
+  padding-top: var(--r360-home-section-pad);
+  padding-bottom: calc(var(--r360-home-section-pad) * 0.85);
+}
+
+.r360-home-page-main .r360-home-reputation-score-shell {
+  padding-top: var(--r360-home-section-pad);
+  padding-bottom: calc(var(--r360-home-section-pad) * 0.65);
+}
+
+.r360-home-page-main .r360-what-we-do-section {
+  padding-top: var(--r360-home-section-pad);
+  padding-bottom: var(--r360-home-section-pad);
+}
+
+.r360-home-page-main #r3-home-our-services-root {
+  padding-top: var(--r360-home-section-pad);
+  padding-bottom: var(--r360-home-section-pad);
+}
+
+.r360-home-page-main #testimonials {
+  padding-top: var(--r360-home-section-pad);
+  padding-bottom: var(--r360-home-section-pad);
+}
+
+.r360-home-page-main .r360-who-we-serve-section {
+  padding-top: var(--r360-home-section-pad);
+  padding-bottom: calc(var(--r360-home-section-pad) * 1.35);
+}
+
+.r360-home-page-main .r360-who-we-serve-section + .r360-why-choose-section {
+  padding-top: calc(var(--r360-home-section-pad) * 1.35);
+}
+
+.r360-home-page-main .r360-why-choose-section {
+  padding-top: calc(var(--r360-home-section-pad) * 0.5);
+  padding-bottom: var(--r360-home-section-pad);
+}
+
+.r360-home-page-main .r360-home-faq-section {
+  padding-top: 0;
+  padding-bottom: var(--r360-home-section-pad);
 }
 
 /* Tall desktop: typography only (no viewport min-height or vertical centring). */
@@ -4298,7 +4386,7 @@ button.r360-cta-reputation-scan--nav-solid:focus-visible {
   box-sizing: border-box;
   background-color: #ffffff;
   padding-top: 0.75rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2.5rem;
   width: calc(100% - 3rem);
   max-width: none;
   margin-inline: auto;
@@ -4308,7 +4396,7 @@ button.r360-cta-reputation-scan--nav-solid:focus-visible {
 @media (min-width: 768px) {
   .r360-consultation-bottom-cta-shell {
     padding-top: 1rem;
-    padding-bottom: 1.25rem;
+    padding-bottom: 3rem;
     width: calc(100% - 4.5rem);
   }
 }
@@ -4317,6 +4405,7 @@ button.r360-cta-reputation-scan--nav-solid:focus-visible {
   .r360-site-container.r360-consultation-bottom-cta-shell {
     width: calc(100% - 7rem);
     max-width: min(1300px, calc(100% - 7rem));
+    padding-bottom: 3.5rem;
   }
 }
 
@@ -4324,6 +4413,7 @@ button.r360-cta-reputation-scan--nav-solid:focus-visible {
   .r360-site-container.r360-consultation-bottom-cta-shell {
     width: calc(100% - 9rem);
     max-width: min(1240px, calc(100% - 9rem));
+    padding-bottom: 4rem;
   }
 }
 

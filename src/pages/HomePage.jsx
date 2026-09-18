@@ -52,7 +52,7 @@ function HomePage({ renderSeo = true }) {
         />
       ) : null}
       <Hero />
-      <main className="flex w-full flex-col gap-12 pt-0 md:gap-16 lg:gap-20">
+      <main className="r360-home-page-main flex w-full flex-col pt-0">
         <div className="r360-home-believe-about-services-continuity">
           <div className="r360-home-believe-about-stack">
             <section>
