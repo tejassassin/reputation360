@@ -12,8 +12,13 @@ import { AboutHowWeWorkSection } from "../components/about/AboutHowWeWorkSection
 import { AboutOurStandardsSection } from "../components/about/AboutOurStandardsSection.jsx";
 import { AboutClientExperiencesSection } from "../components/about/AboutClientExperiencesSection.jsx";
 import { AboutFaqSection } from "../components/about/AboutFaqSection.jsx";
-import { AboutFinalConsultationSection } from "../components/about/AboutFinalConsultationSection.jsx";
+import { ConsultationBottomCta } from "../components/ConsultationBottomCta.jsx";
 import { LegalEntityAboutDisclosure } from "../components/legal/LegalEntityAboutDisclosure.jsx";
+import {
+  CONSULTATION_FORM_ID,
+  scrollToFreeConsultation,
+} from "../constants/homeConsultation.js";
+import { trackConsultationFormScrollSuccess } from "../lib/conversionAnalytics.js";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { StatNumber } from "../components/StatNumber.jsx";
@@ -41,6 +46,18 @@ function AboutPage() {
   const [whoWeAreStatsLive, setWhoWeAreStatsLive] = useState(false);
 
   const seo = useLocalizedSeo("about");
+
+  useEffect(() => {
+    function onHash() {
+      if (window.location.hash !== `#${CONSULTATION_FORM_ID}`) return;
+      requestAnimationFrame(() => {
+        scrollToFreeConsultation({ onSuccess: trackConsultationFormScrollSuccess });
+      });
+    }
+    onHash();
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
 
   useEffect(() => {
     const el = whoWeAreRef.current;
@@ -192,9 +209,10 @@ function AboutPage() {
         <LegalEntityAboutDisclosure />
       </div>
 
-      <AboutFinalConsultationSection />
-
-      <AboutFaqSection />
+      <div className="bg-white">
+        <AboutFaqSection />
+        <ConsultationBottomCta />
+      </div>
     </main>
     </>
   );

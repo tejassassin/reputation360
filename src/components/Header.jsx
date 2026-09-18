@@ -28,12 +28,14 @@ import {
   FREE_RISK_SCAN_PATH,
 } from "../constants/freeRiskScan.js";
 import {
+  CONSULTATION_FORM_ID,
   FREE_CONSULTATION_HREF,
   FREE_CONSULTATION_NAV_LABEL,
   isHomePath,
   scrollToFreeConsultation,
 } from "../constants/homeConsultation.js";
 import {
+  trackConsultationFormScrollSuccess,
   trackFreeConsultationClick,
   trackFreeReputationScanClick,
 } from "../lib/conversionAnalytics.js";
@@ -115,9 +117,10 @@ const navItems = [
 
 function handleConsultationNavClick(e, source) {
   trackFreeConsultationClick(source);
-  if (isHomePath()) {
+  const hasForm = typeof document !== "undefined" && document.getElementById(CONSULTATION_FORM_ID);
+  if (hasForm && (isHomePath() || window.location.pathname.replace(/\/+$/, "") === "/about")) {
     e.preventDefault();
-    scrollToFreeConsultation();
+    scrollToFreeConsultation({ onSuccess: trackConsultationFormScrollSuccess });
   }
 }
 

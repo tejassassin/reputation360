@@ -1,9 +1,14 @@
+/** Primary consultation lead form anchor (hero sections). */
+export const CONSULTATION_FORM_ID = "consultation-form";
+
+export const CONTACT_CONSULTATION_FORM_HREF = "/contact#consultation-form";
+
 /** Homepage consultation form anchor (hero lead form). */
-export const FREE_CONSULTATION_ID = "free-consultation";
+export const FREE_CONSULTATION_ID = CONSULTATION_FORM_ID;
 
 export const FREE_CONSULTATION_HEADING_ID = "free-consultation-heading";
 
-export const FREE_CONSULTATION_HREF = "/#free-consultation";
+export const FREE_CONSULTATION_HREF = "/#consultation-form";
 
 export const FREE_CONSULTATION_NAV_LABEL = "Free Consultation";
 
@@ -19,7 +24,7 @@ export const HOME_CLOSING_LEAD_HEADING_ID = "home-closing-lead-heading";
 export const HOME_LOWER_CONSULTATION_SECTION_HEADING_ID =
   "home-lower-consultation-section-heading";
 
-/** About page hero lead form (distinct from homepage #free-consultation). */
+/** About page hero lead form. */
 export const ABOUT_HERO_CONSULTATION_ID = "about-hero-consultation";
 
 export const ABOUT_HERO_CONSULTATION_HEADING_ID = "about-hero-consultation-heading";
@@ -39,10 +44,33 @@ export function isHomePath() {
   return (window.location.pathname.replace(/\/+$/, "") || "/") === "/";
 }
 
-/** @param {{ focusHeading?: boolean }} [options] */
-export function scrollToFreeConsultation(options = {}) {
-  const { focusHeading = true } = options;
-  const target = document.getElementById(FREE_CONSULTATION_ID);
+/**
+ * @param {HTMLElement} container
+ */
+export function focusFirstConsultationFormField(container) {
+  const fields = container.querySelectorAll(
+    'input:not([type="hidden"]):not([disabled]), textarea:not([disabled]), select:not([disabled])',
+  );
+  for (const el of fields) {
+    if (!("value" in el)) continue;
+    if (!String(el.value).trim()) {
+      el.focus({ preventScroll: true });
+      return;
+    }
+  }
+  const first = fields[0];
+  if (first instanceof HTMLElement) {
+    first.focus({ preventScroll: true });
+  }
+}
+
+/**
+ * Scroll to `#consultation-form` and focus the first empty field (or first field).
+ * @param {{ onSuccess?: () => void }} [options]
+ */
+export function scrollToConsultationForm(options = {}) {
+  const { onSuccess } = options;
+  const target = document.getElementById(CONSULTATION_FORM_ID);
   if (!target) return false;
 
   const reduced =
@@ -54,13 +82,18 @@ export function scrollToFreeConsultation(options = {}) {
     block: "start",
   });
 
-  if (focusHeading) {
+  requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      document.getElementById(FREE_CONSULTATION_HEADING_ID)?.focus({
-        preventScroll: true,
-      });
+      focusFirstConsultationFormField(target);
+      onSuccess?.();
     });
-  }
+  });
 
   return true;
+}
+
+/** @param {{ focusHeading?: boolean; onSuccess?: () => void }} [options] */
+export function scrollToFreeConsultation(options = {}) {
+  void options.focusHeading;
+  return scrollToConsultationForm({ onSuccess: options.onSuccess });
 }

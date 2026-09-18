@@ -6,10 +6,12 @@ import { SeoHead } from "../components/SeoHead.jsx";
 import { HOME_PAGE_JSON_LD } from "../data/organizationSchema.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import Hero from "../components/Hero";
+import { ConsultationBottomCta } from "../components/ConsultationBottomCta.jsx";
 import {
-  FREE_CONSULTATION_ID,
+  CONSULTATION_FORM_ID,
   scrollToFreeConsultation,
 } from "../constants/homeConsultation.js";
+import { trackConsultationFormScrollSuccess } from "../lib/conversionAnalytics.js";
 import WhatWeBelieve from "../components/WhatWeBelieve";
 import HomeFreeReputationScoreSection from "../components/home/HomeFreeReputationScoreSection.jsx";
 import WhoWeServeCards from "../components/WhoWeServeCards";
@@ -20,7 +22,6 @@ const WhatWeDo = lazy(() => import("../components/WhatWeDo"));
 const OurServices = lazy(() => import("../components/OurServices"));
 const HomeTestimonials = lazy(() => import("../components/HomeTestimonials.jsx"));
 const HomeFaq = lazy(() => import("../components/HomeFaq"));
-const Contact = lazy(() => import("../components/Contact"));
 
 /**
  * @param {{ renderSeo?: boolean }} props
@@ -30,9 +31,9 @@ function HomePage({ renderSeo = true }) {
 
   useEffect(() => {
     function onHash() {
-      if (window.location.hash !== `#${FREE_CONSULTATION_ID}`) return;
+      if (window.location.hash !== `#${CONSULTATION_FORM_ID}`) return;
       requestAnimationFrame(() => {
-        scrollToFreeConsultation();
+        scrollToFreeConsultation({ onSuccess: trackConsultationFormScrollSuccess });
       });
     }
     onHash();
@@ -75,12 +76,12 @@ function HomePage({ renderSeo = true }) {
           <WhoWeServeCards />
           <WhyClientsChoose />
         </div>
-        <LazySection minHeight="12rem">
-          <div>
-            <Contact />
+        <div className="bg-white">
+          <LazySection minHeight="12rem">
             <HomeFaq />
-          </div>
-        </LazySection>
+          </LazySection>
+          <ConsultationBottomCta />
+        </div>
       </main>
     </>
   );

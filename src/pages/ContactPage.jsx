@@ -11,6 +11,11 @@ import {
   handleMailtoClick,
 } from "../constants/contact.js";
 import { ContactHero } from "../components/contact/ContactHero.jsx";
+import {
+  CONSULTATION_FORM_ID,
+  scrollToFreeConsultation,
+} from "../constants/homeConsultation.js";
+import { trackConsultationFormScrollSuccess } from "../lib/conversionAnalytics.js";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { SITE_CANONICAL_ORIGIN } from "../constants/siteUrl.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
@@ -239,6 +244,18 @@ function ContactPage() {
     if (new URLSearchParams(window.location.search).get("thanks") === "1") {
       window.history.replaceState({}, "", "/contact");
     }
+  }, []);
+
+  useEffect(() => {
+    function onHash() {
+      if (window.location.hash !== `#${CONSULTATION_FORM_ID}`) return;
+      requestAnimationFrame(() => {
+        scrollToFreeConsultation({ onSuccess: trackConsultationFormScrollSuccess });
+      });
+    }
+    onHash();
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
   return (

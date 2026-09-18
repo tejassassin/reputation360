@@ -13,7 +13,7 @@ import { submitContactInquiry } from "../constants/contact.js";
 import { internalAnchorProps } from "../lib/internalLinkProps.js";
 import {
   FREE_CONSULTATION_HEADING_ID,
-  FREE_CONSULTATION_ID,
+  CONSULTATION_FORM_ID,
   HOME_CLOSING_LEAD_HEADING_ID,
   HOME_CLOSING_LEAD_ID,
   ABOUT_HERO_CONSULTATION_HEADING_ID,
@@ -96,18 +96,17 @@ function HomeContactLeadForm({
   const isAboutHero = instance === "about-hero";
   const isAboutBottom = instance === "about-bottom";
   const isContactHero = instance === "contact-hero";
+  const isPrimaryHeroForm = isHero || isAboutHero || isContactHero;
   const phoneCountryClassName = isClosing
     ? "r360-form-field r360-form-field-select r360-phone-country r360-phone-country--closing shrink-0"
     : phoneCountryClass;
-  const wrapperId = isClosing
-    ? HOME_CLOSING_LEAD_ID
-    : isAboutHero
-      ? ABOUT_HERO_CONSULTATION_ID
+  const wrapperId = isPrimaryHeroForm
+    ? CONSULTATION_FORM_ID
+    : isClosing
+      ? HOME_CLOSING_LEAD_ID
       : isAboutBottom
         ? ABOUT_BOTTOM_CONSULTATION_ID
-        : isContactHero
-          ? CONTACT_HERO_CONSULTATION_ID
-          : FREE_CONSULTATION_ID;
+        : CONSULTATION_FORM_ID;
   const headerHeadingId = isClosing
     ? HOME_CLOSING_LEAD_HEADING_ID
     : isAboutHero
@@ -250,7 +249,7 @@ function HomeContactLeadForm({
   return (
     <div
       id={wrapperId}
-      className={`r360-hero-lead-form min-w-0 bg-white ${isClosing ? "r360-home-closing-lead-form r360-home-closing-lead-form--compact overflow-hidden" : isHero ? "r360-hero-lead-form--homepage-hero" : "overflow-hidden"} ${sent ? "r360-hero-lead-form--submitted" : ""}`}
+      className={`r360-hero-lead-form min-w-0 bg-white ${isPrimaryHeroForm ? "scroll-mt-28 md:scroll-mt-32" : ""} ${isClosing ? "r360-home-closing-lead-form r360-home-closing-lead-form--compact overflow-hidden" : isHero ? "r360-hero-lead-form--homepage-hero" : "overflow-hidden"} ${sent ? "r360-hero-lead-form--submitted" : ""}`}
     >
       {sent ? (
         <div

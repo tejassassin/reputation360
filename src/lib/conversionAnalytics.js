@@ -21,6 +21,34 @@ export function trackFreeConsultationClick(source) {
   }
 }
 
+/** @param {string} source - e.g. bottom_cta, header */
+export function trackBottomCtaConsultationClick(source = "bottom_cta") {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", "bottom_cta_consultation_click", {
+      event_category: "conversion",
+      source,
+    });
+  }
+}
+
+/** @param {string} source - e.g. bottom_cta, header */
+export function trackBottomCtaReputationScanClick(source = "bottom_cta") {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", "bottom_cta_reputation_scan_click", {
+      event_category: "conversion",
+      source,
+    });
+  }
+}
+
+export function trackConsultationFormScrollSuccess() {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", "consultation_form_scroll_success", {
+      event_category: "conversion",
+    });
+  }
+}
+
 /** @param {"hero" | "home_closing" | "about-hero" | "about-bottom" | "contact-hero"} instance */
 export function trackHomeLeadFormSubmit(instance) {
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
