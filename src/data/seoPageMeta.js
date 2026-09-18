@@ -106,7 +106,7 @@ export const SEO = {
     },
   },
   contact: {
-    title: "Contact Reputation360 | Book a Confidential Consultation",
+    title: "Talk to Someone Who Understands Online Reputation | Reputation360",
     path: "/contact",
     description:
       "Book a free, confidential consultation with Reputation360 to discuss your concerns, understand your options, and get a clear path forward for your reputation.",

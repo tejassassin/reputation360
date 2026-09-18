@@ -13,7 +13,6 @@ import { AboutOurStandardsSection } from "../components/about/AboutOurStandardsS
 import { AboutClientExperiencesSection } from "../components/about/AboutClientExperiencesSection.jsx";
 import { AboutFaqSection } from "../components/about/AboutFaqSection.jsx";
 import { ConsultationBottomCta } from "../components/ConsultationBottomCta.jsx";
-import { LegalEntityAboutDisclosure } from "../components/legal/LegalEntityAboutDisclosure.jsx";
 import {
   CONSULTATION_FORM_ID,
   scrollToFreeConsultation,
@@ -85,8 +84,6 @@ function AboutPage() {
       <AboutOurStorySection />
 
       <AboutWhoWeServeSection />
-
-      <AboutHowWeWorkSection />
 
       <AboutOurStandardsSection />
 
@@ -203,11 +200,9 @@ function AboutPage() {
         </div>
       </section>
 
-      <AboutClientExperiencesSection />
+      <AboutHowWeWorkSection />
 
-      <div className="r360-about-legal-entity-disclosure-wrap px-4 pb-10 pt-2 md:px-8 md:pb-12">
-        <LegalEntityAboutDisclosure />
-      </div>
+      <AboutClientExperiencesSection />
 
       <div className="bg-white">
         <AboutFaqSection />

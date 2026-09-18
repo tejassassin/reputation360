@@ -49,7 +49,7 @@ export function trackConsultationFormScrollSuccess() {
   }
 }
 
-/** @param {"hero" | "home_closing" | "about-hero" | "about-bottom" | "contact-hero"} instance */
+/** @param {"hero" | "home_closing" | "about-hero" | "about-bottom" | "contact-hero" | "contact-page"} instance */
 export function trackHomeLeadFormSubmit(instance) {
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
     const form_location =
@@ -61,7 +61,9 @@ export function trackHomeLeadFormSubmit(instance) {
             ? "about-page-bottom"
             : instance === "contact-hero"
               ? "contact-page-hero"
-              : "homepage_hero_consultation_form";
+              : instance === "contact-page"
+                ? "contact-page-message"
+                : "homepage_hero_consultation_form";
     window.gtag("event", "home_lead_form_submit", {
       event_category: "conversion",
       form_instance: instance,

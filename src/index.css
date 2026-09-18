@@ -1049,6 +1049,7 @@
 @media (min-width: 1440px) {
   .r360-site-container.r360-hero-inner,
   .r360-site-container.r360-about-hero-inner,
+  .r360-site-container.r360-contact-page-hero-inner,
   .r360-site-container.r360-about-final-consultation-inner,
   .r360-site-container.r360-contact-hero-inner--wide,
   .r360-site-container.r360-what-we-believe-shell,
@@ -1109,7 +1110,8 @@
   }
 
   .r360-site-container.r360-hero-inner,
-  .r360-site-container.r360-about-hero-inner {
+  .r360-site-container.r360-about-hero-inner,
+  .r360-site-container.r360-contact-page-hero-inner {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(560px, 680px);
     column-gap: clamp(2.5rem, 4vw, 5rem);
@@ -1119,13 +1121,19 @@
     align-items: stretch;
   }
 
-  .r360-site-container.r360-about-hero-inner {
+  .r360-site-container.r360-about-hero-inner,
+  .r360-site-container.r360-contact-page-hero-inner {
     align-items: stretch;
   }
 
   .r360-hero-inner > .r360-hero-grid,
-  .r360-about-hero-inner > .r360-hero-grid {
+  .r360-about-hero-inner > .r360-hero-grid,
+  .r360-contact-page-hero-inner > .r360-hero-grid {
     display: contents;
+  }
+
+  .r360-contact-page-hero-inner > .r360-contact-page-scan-cta {
+    grid-column: 1 / -1;
   }
 
   .r360-hero-copy-column {
@@ -1150,11 +1158,13 @@
   }
 
   .r360-about-hero-inner .r360-hero-copy-column,
-  .r360-about-hero-inner .r360-hero-form-column {
+  .r360-about-hero-inner .r360-hero-form-column,
+  .r360-contact-page-hero-inner .r360-hero-copy-column,
+  .r360-contact-page-hero-inner .r360-hero-form-column {
     align-self: center;
   }
 
-  .r360-hero-lead-form:not(.r360-home-closing-lead-form) {
+  .r360-hero-lead-form:not(.r360-home-closing-lead-form):not(.r360-contact-page-lead-form) {
     width: 100%;
     max-width: 500px;
     box-sizing: border-box;
@@ -2610,7 +2620,244 @@ button.r360-cta-reputation-scan--nav-solid:focus-visible {
   }
 }
 
-/* Contact page - hero (two-column copy + default lead form) */
+/* Contact page - light hero + card form (mockup layout) */
+.r360-contact-page-hero-inner {
+  padding-top: clamp(1.75rem, 3.5vw, 2rem);
+  padding-bottom: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+@media (min-width: 768px) {
+  .r360-contact-page-hero-inner {
+    padding-top: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .r360-contact-page-hero-inner {
+    padding-top: clamp(3rem, 4vw, 3.5rem);
+  }
+}
+
+.r360-contact-page-copy {
+  max-width: min(100%, 38rem);
+}
+
+@media (min-width: 1200px) {
+  .r360-contact-page-hero-inner .r360-contact-page-copy {
+    max-width: min(100%, 42rem);
+    padding-inline-start: clamp(1.75rem, 3.5vw, 3.75rem);
+    box-sizing: border-box;
+  }
+}
+
+.r360-contact-page-eyebrow {
+  margin-bottom: 0.5rem;
+}
+
+.r360-contact-page-headline {
+  font-size: clamp(2.125rem, 4.2vw + 0.35rem, 2.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.r360-contact-page-headline-line {
+  display: block;
+}
+
+.r360-contact-page-subhead {
+  margin-top: 0.625rem;
+  max-width: 36rem;
+  font-size: clamp(0.9375rem, 1.05vw + 0.65rem, 1.0625rem);
+  line-height: 1.45;
+}
+
+.r360-contact-page-subhead-line {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .r360-contact-page-hero-inner .r360-hero-grid {
+    align-items: center;
+  }
+
+  .r360-contact-page-hero-inner .r360-hero-form-column {
+    align-self: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .r360-contact-page-headline {
+    font-size: clamp(2.625rem, 3.2vw + 0.5rem, 3rem);
+    line-height: 1.12;
+  }
+
+  .r360-contact-page-subhead {
+    margin-top: 0.75rem;
+    font-size: 1.0625rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .r360-contact-page-copy .r360-contact-page-headline {
+    font-size: clamp(2.25rem, 1.85vw + 1.1rem, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .r360-contact-page-headline-line {
+    white-space: nowrap;
+  }
+
+  .r360-contact-page-copy .r360-contact-page-eyebrow {
+    font-size: 0.8125rem;
+    letter-spacing: 0.22em;
+  }
+
+  .r360-contact-page-subhead {
+    margin-top: 0.875rem;
+    font-size: 1.1875rem;
+    line-height: 1.5;
+    max-width: 32rem;
+  }
+
+  .r360-contact-page-subhead-line {
+    white-space: nowrap;
+  }
+}
+
+.r360-contact-testimonial-section {
+  background-color: #f9f9ff;
+}
+
+.r360-contact-testimonial-quote {
+  font-size: clamp(1rem, 0.95vw + 0.85rem, 1.25rem);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+#contact-faqs.r360-home-faq-section {
+  padding-top: clamp(2rem, 3vw, 2.75rem);
+  padding-bottom: clamp(2rem, 3vw, 2.75rem);
+  border-top-color: rgb(226 232 240 / 0.65);
+}
+
+#contact-faqs .r360-home-faq-intro {
+  margin-bottom: clamp(1.125rem, 2vw, 1.5rem);
+}
+
+#contact-faqs .r360-home-faq-heading--after-eyebrow {
+  margin-top: 0.625rem;
+}
+
+#contact-faqs .r360-home-faq-heading {
+  font-size: clamp(1.75rem, 2.5vw + 0.5rem, 2.25rem);
+  font-weight: 800;
+  color: #1f3b64;
+}
+
+@media (min-width: 768px) {
+  #contact-faqs .r360-home-faq-heading {
+    font-size: clamp(1.875rem, 2vw + 0.75rem, 2.05rem);
+  }
+}
+
+.r360-contact-confidentiality-section {
+  background-color: #f9f9ff;
+}
+
+.r360-contact-page-form-grid {
+  display: grid;
+  gap: 0.875rem 1.125rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .r360-contact-page-form-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.875rem 1.125rem;
+  }
+
+  .r360-contact-page-message-cell {
+    grid-column: 3;
+    grid-row: 2;
+  }
+}
+
+.r360-contact-page-lead-form.r360-hero-lead-form {
+  width: 100%;
+  max-width: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.r360-contact-page-lead-form .r360-form-body {
+  gap: 0.875rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.r360-contact-page-form-actions {
+  display: grid;
+  width: 100%;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.r360-contact-page-form-actions-error {
+  grid-column: 1 / -1;
+}
+
+.r360-contact-page-form-actions-inner {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 28rem;
+  margin-inline: auto;
+}
+
+.r360-contact-page-form-submit {
+  width: 100%;
+  max-width: none;
+  margin-top: 0;
+}
+
+.r360-contact-page-form-secure {
+  justify-content: center;
+  text-align: center;
+}
+
+.r360-contact-page-lead-form .r360-form-consent {
+  text-align: center;
+  margin-top: 0;
+}
+
+.r360-contact-page-lead-form .r360-form-textarea--contact-page {
+  min-height: 3.625rem;
+  height: 3.625rem;
+  resize: vertical;
+  overflow: auto;
+  padding-inline: 0.875rem;
+  line-height: 1.35;
+}
+
+.r360-contact-page-lead-form .r360-form-textarea--contact-page:placeholder-shown:not(:focus) {
+  line-height: 3.625rem;
+  padding-block: 0;
+}
+
+.r360-contact-page-lead-form .r360-form-textarea--contact-page:focus,
+.r360-contact-page-lead-form .r360-form-textarea--contact-page:not(:placeholder-shown) {
+  line-height: 1.35;
+  padding-block: 0.875rem;
+  height: auto;
+  min-height: 3.625rem;
+}
+
+/* Contact page - hero (legacy two-column; kept for reference) */
 .r360-contact-hero-section {
   box-sizing: border-box;
   display: block;
@@ -2767,6 +3014,44 @@ button.r360-cta-reputation-scan--nav-solid:focus-visible {
     width: 100%;
     max-width: 500px;
     box-sizing: border-box;
+  }
+}
+
+/* Shared winding-road authority roadmap (About + legacy contact hooks) */
+.r360-authority-roadmap-section--about {
+  padding-top: clamp(2.5rem, 4vw, 3.25rem);
+  padding-bottom: clamp(2rem, 3.5vw, 2.75rem);
+}
+
+.r360-authority-roadmap-section--contact {
+  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding-bottom: clamp(1rem, 2vw, 1.25rem);
+}
+
+.r360-authority-roadmap-mobile-item:last-child > div {
+  padding-bottom: 0;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .r360-authority-roadmap-mobile {
+    max-width: 36rem;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .r360-authority-roadmap-section--about .r360-authority-roadmap-wrap {
+    margin-top: -3.75rem;
+  }
+
+  .r360-authority-roadmap-section--about .r360-authority-roadmap-wrap > div {
+    margin-bottom: -2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .r360-authority-roadmap-section--about .r360-authority-roadmap-wrap {
+    margin-top: -4.25rem;
   }
 }
 

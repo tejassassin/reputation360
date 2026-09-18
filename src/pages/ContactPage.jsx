@@ -1,33 +1,15 @@
-import { useEffect, useId, useState } from "react";
-import { Mail, Lock } from "lucide-react";
-import {
-  CONTACT_EMAIL,
-  CONTACT_FORM_AUTORESPONSE,
-  CONTACT_FORM_SUBMIT_URL,
-  CONTACT_INQUIRY_CC_EMAIL,
-  contactMailtoHref,
-  contactTelHref,
-  formatBusinessPhoneDisplay,
-  handleMailtoClick,
-} from "../constants/contact.js";
+import { useEffect, useId } from "react";
+import { Lock } from "lucide-react";
 import { ContactHero } from "../components/contact/ContactHero.jsx";
+import { ContactPageFaqSection } from "../components/contact/ContactPageFaqSection.jsx";
+import { ContactPageTestimonial } from "../components/contact/ContactPageTestimonial.jsx";
 import {
   CONSULTATION_FORM_ID,
   scrollToFreeConsultation,
 } from "../constants/homeConsultation.js";
 import { trackConsultationFormScrollSuccess } from "../lib/conversionAnalytics.js";
 import { SeoHead } from "../components/SeoHead.jsx";
-import { SITE_CANONICAL_ORIGIN } from "../constants/siteUrl.js";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
-
-const CONTACT_FORM_THANKS_PATH = "/contact?thanks=1";
-
-function contactFormReturnUrl() {
-  if (typeof window !== "undefined" && window.location?.origin) {
-    return `${window.location.origin}${CONTACT_FORM_THANKS_PATH}`;
-  }
-  return `${SITE_CANONICAL_ORIGIN}${CONTACT_FORM_THANKS_PATH}`;
-}
 
 const CONTACT_PAGE_TESTIMONIAL = {
   text: `I'll be honest - I was sceptical. But that one 30-minute call changed everything. I felt heard, I felt understood, and I felt assured. Eleven months later, my reputation is restored, my peace of mind is back, and I can finally move forward. I will be forever grateful to Reputation360`,
@@ -35,216 +17,9 @@ const CONTACT_PAGE_TESTIMONIAL = {
   name: "Martin Luze",
 };
 
-/**
- * Winding road - x spread for ~2.1:1 viewBox so `aspect-ratio` + `w-full`
- * fills wide layouts without empty side gutters.
- */
-const AUTHORITY_ROADMAP_PATH_D =
-  "M 80 400 Q 339 400 512 350 T 944 450 T 1375 300 T 1980 150";
-
-const GROWTH = "#4CAF50";
-const NAVY = "#1F3B64";
-
-/** Milestone geometry - wide layout + `foreignObject` for copy. */
-const AUTHORITY_ROADMAP_MILESTONES = [
-  {
-    n: 1,
-    title: "Discovery & Reputation Assessment",
-    text: "We get on a confidential call to understand your situation - the reputation damage, your goals, and everything we need to know.",
-    green: false,
-    line: { x1: 477, y1: 365, x2: 477, y2: 480 },
-    anchor: { cx: 477, cy: 365 },
-    ring: { cx: 477, cy: 520 },
-    num: { x: 477, y: 532 },
-    fo: { x: 284, y: 582, w: 386, h: 200 },
-  },
-  {
-    n: 2,
-    title: "Digital Reputation Audit",
-    text: "We conduct a thorough audit of your digital footprint, identifying exactly what needs to be addressed.",
-    green: true,
-    line: { x1: 719, y1: 405, x2: 719, y2: 290 },
-    anchor: { cx: 719, cy: 405 },
-    ring: { cx: 719, cy: 250 },
-    num: { x: 719, y: 262 },
-    fo: { x: 526, y: 0, w: 386, h: 188 },
-  },
-  {
-    n: 3,
-    title: "Tailored Reputation Management Strategy & Proposal",
-    text: "We present a clear, personalised plan built around your needs and send a formal proposal for your review.",
-    green: false,
-    line: { x1: 961, y1: 445, x2: 961, y2: 550 },
-    anchor: { cx: 961, cy: 445 },
-    ring: { cx: 961, cy: 590 },
-    num: { x: 961, y: 602 },
-    fo: { x: 768, y: 652, w: 386, h: 220 },
-  },
-  {
-    n: 4,
-    title: "Contract & Onboarding",
-    text: "Once you're happy, we sign the contract, gather everything we need, and set the foundation for your campaign.",
-    green: true,
-    line: { x1: 1220, y1: 360, x2: 1220, y2: 240 },
-    anchor: { cx: 1220, cy: 360 },
-    ring: { cx: 1220, cy: 200 },
-    num: { x: 1220, y: 212 },
-    fo: { x: 1027, y: -50, w: 386, h: 188 },
-  },
-  {
-    n: 5,
-    title: "Reputation Ecosystem Build & Content Creation",
-    text: "We build or rebuild your digital presence - social media profiles, websites, and your full online ecosystem.",
-    green: false,
-    line: { x1: 1479, y1: 260, x2: 1479, y2: 380 },
-    anchor: { cx: 1479, cy: 260 },
-    ring: { cx: 1479, cy: 420 },
-    num: { x: 1479, y: 432 },
-    fo: { x: 1286, y: 482, w: 386, h: 200 },
-  },
-  {
-    n: 6,
-    title: "Active Campaign Execution & Reputation Reporting",
-    text: "Your strategy goes live. We execute across all channels, manage your content, and keep you updated with regular progress reports.",
-    green: true,
-    line: { x1: 1702, y1: 205, x2: 1702, y2: 95 },
-    anchor: { cx: 1702, cy: 205 },
-    ring: { cx: 1702, cy: 50 },
-    num: { x: 1702, y: 62 },
-    fo: { x: 1509, y: -204, w: 386, h: 192 },
-  },
-  {
-    n: 7,
-    title: "Reputation Restored",
-    text: "A stronger, cleaner, and more authoritative digital presence - and a client who moves forward with confidence.",
-    green: false,
-    line: { x1: 1928, y1: 160, x2: 1928, y2: 280 },
-    anchor: { cx: 1928, cy: 160 },
-    ring: { cx: 1928, cy: 320 },
-    num: { x: 1928, y: 332 },
-    fo: { x: 1718, y: 382, w: 382, h: 200 },
-  },
-];
-
-function ContactAuthorityRoadmap() {
-  return (
-    <div className="-mx-4 overflow-x-auto px-4 pb-2 md:mx-0 md:-mt-5 md:overflow-visible md:px-0 md:pb-0 lg:-mt-7">
-      <div className="relative mx-auto w-[min(1120px,140vw)] max-w-none shrink-0 md:aspect-[2100/1120] md:w-full md:min-w-0 md:-mb-14 lg:-mb-20">
-        <svg
-          className="h-auto w-full overflow-visible md:absolute md:inset-0 md:h-full"
-          viewBox="0 -210 2100 1120"
-          preserveAspectRatio="xMidYMid meet"
-          role="img"
-          aria-label="7-step journey roadmap"
-        >
-          <path
-            d={AUTHORITY_ROADMAP_PATH_D}
-            fill="none"
-            stroke="#293040"
-            strokeWidth={56}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d={AUTHORITY_ROADMAP_PATH_D}
-            fill="none"
-            stroke="#f8fafc"
-            strokeWidth={2}
-            strokeDasharray="12 12"
-            strokeOpacity={0.55}
-            strokeLinecap="round"
-          />
-          {AUTHORITY_ROADMAP_MILESTONES.map((m) => {
-            const fill = m.green ? GROWTH : NAVY;
-            const label = String(m.n).padStart(2, "0");
-            return (
-              <g key={m.n} className="group cursor-default">
-                <line
-                  x1={m.line.x1}
-                  y1={m.line.y1}
-                  x2={m.line.x2}
-                  y2={m.line.y2}
-                  stroke={fill}
-                  strokeWidth={2}
-                  className="transition-all duration-300 group-hover:stroke-4"
-                />
-                <circle cx={m.anchor.cx} cy={m.anchor.cy} r={10} fill={fill} className="transition-transform duration-300 group-hover:scale-125" style={{ transformOrigin: `${m.anchor.cx}px ${m.anchor.cy}px` }} />
-                
-                <g 
-                  className="transition-transform duration-300 ease-out group-hover:-translate-y-2 group-hover:scale-110"
-                  style={{ transformOrigin: `${m.ring.cx}px ${m.ring.cy}px` }}
-                >
-                  <circle
-                    cx={m.ring.cx}
-                    cy={m.ring.cy}
-                    r={50}
-                    fill={fill}
-                    className="drop-shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-all duration-300 group-hover:drop-shadow-[0_16px_32px_rgba(0,0,0,0.3)]"
-                  />
-                  <text
-                    x={m.num.x}
-                    y={m.num.y}
-                    fill="#ffffff"
-                    stroke="rgba(15, 23, 42, 0.45)"
-                    strokeWidth={3}
-                    strokeLinejoin="round"
-                    textAnchor="middle"
-                    className="pointer-events-none font-heading text-[30px] font-extrabold md:text-[34px]"
-                    style={{
-                      fontVariantNumeric: "tabular-nums",
-                      paintOrder: "stroke fill",
-                    }}
-                  >
-                    {label}
-                  </text>
-                </g>
-                <foreignObject
-                  x={m.fo.x}
-                  y={m.fo.y}
-                  width={m.fo.w}
-                  height={m.fo.h}
-                  className="transition-transform duration-300 ease-out group-hover:-translate-y-1"
-                >
-                  <div
-                    xmlns="http://www.w3.org/1999/xhtml"
-                    className={`flex h-full min-h-0 flex-col gap-1 px-1 text-center md:px-2 ${
-                      m.green ? "justify-end" : "justify-start"
-                    }`}
-                  >
-                    <h3 className="font-heading text-[17px] font-bold leading-snug text-[#02254d] transition-colors duration-300 group-hover:text-[#4CAF50] md:text-[19px]">
-                      {m.title}
-                    </h3>
-                    <p className="font-heading text-[15px] font-normal leading-relaxed tracking-normal text-[#43474e] transition-colors duration-300 group-hover:text-[#02254d] md:text-[17px]">
-                      {m.text}
-                    </p>
-                  </div>
-                </foreignObject>
-              </g>
-            );
-          })}
-        </svg>
-      </div>
-    </div>
-  );
-}
-
 function ContactPage() {
   const gridPatternId = useId().replace(/:/g, "");
   const seo = useLocalizedSeo("contact");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [briefNote, setBriefNote] = useState("");
-  const [showFormThanks] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return new URLSearchParams(window.location.search).get("thanks") === "1";
-  });
-
-  useEffect(() => {
-    if (new URLSearchParams(window.location.search).get("thanks") === "1") {
-      window.history.replaceState({}, "", "/contact");
-    }
-  }, []);
 
   useEffect(() => {
     function onHash() {
@@ -265,226 +40,70 @@ function ContactPage() {
         description={seo.description}
         canonicalPath={seo.path}
       />
-    <main className="flex-1 bg-[#f9f9ff]">
-      <ContactHero />
+      <main className="flex-1 bg-[#f9f9ff]">
+        <ContactHero />
 
-      <section className="scroll-mt-28 px-4 py-14 md:px-8 md:py-16 md:scroll-mt-32">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-6">
-            {/* Email + form */}
-            <div
-              id="email-inquiry"
-              className="scroll-mt-28 flex flex-col gap-10 rounded-[1.75rem] bg-[#02254d] p-6 text-white md:col-span-12 md:flex-row md:items-center md:gap-12 md:rounded-[2rem] md:p-10 md:scroll-mt-32 lg:p-12"
-            >
-              <div className="md:w-1/3">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 md:mb-6 md:h-14 md:w-14">
-                  <Mail className="h-6 w-6 text-white md:h-7 md:w-7" strokeWidth={2} />
-                </div>
-                <h3 className="font-heading text-xl font-bold md:text-2xl lg:text-3xl">
-                  Email
-                </h3>
-                <a
-                  href={contactMailtoHref()}
-                  onClick={handleMailtoClick}
-                  className="ha-nudge mt-3 block w-fit text-[15px] text-[#8ca6d5] md:mt-4 md:text-lg"
+        <ContactPageTestimonial
+          text={CONTACT_PAGE_TESTIMONIAL.text}
+          role={CONTACT_PAGE_TESTIMONIAL.role}
+          name={CONTACT_PAGE_TESTIMONIAL.name}
+        />
+
+        <ContactPageFaqSection />
+
+        <section className="r360-contact-confidentiality-section scroll-mt-28 px-4 pb-14 pt-8 md:scroll-mt-32 md:px-8 md:pb-16 md:pt-10">
+          <div className="mx-auto max-w-5xl">
+            <div className="relative overflow-hidden rounded-[2rem] bg-[#1f3b64] p-8 text-white shadow-2xl md:rounded-[3rem] md:p-12 lg:p-14">
+              <div
+                className="pointer-events-none absolute inset-0 opacity-10"
+                aria-hidden
+              >
+                <svg
+                  className="h-full w-full"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  {CONTACT_EMAIL}
-                </a>
-                <a
-                  href={contactTelHref()}
-                  className="ha-nudge mt-2 block w-fit text-[15px] text-[#8ca6d5] md:text-lg"
-                >
-                  {formatBusinessPhoneDisplay()}
-                </a>
-                <p className="mt-2 text-xs text-[#8ca6d5] md:text-sm">
-                  Expect a detailed response within 8 hours.
-                </p>
+                  <defs>
+                    <pattern
+                      id={gridPatternId}
+                      width="40"
+                      height="40"
+                      patternUnits="userSpaceOnUse"
+                    >
+                      <path
+                        d="M 40 0 L 0 0 0 40"
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="0.5"
+                      />
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill={`url(#${gridPatternId})`} />
+                </svg>
               </div>
-              <form
-                action={CONTACT_FORM_SUBMIT_URL}
-                method="POST"
-                className="grid w-full grid-cols-1 gap-4 md:w-2/3 md:grid-cols-2"
-              >
-                <div className="hidden" aria-hidden>
-                  <input
-                    type="hidden"
-                    name="_subject"
-                    defaultValue="Contact inquiry - Reputation360"
-                  />
-                  <input type="hidden" name="_template" defaultValue="table" />
-                  <input
-                    type="hidden"
-                    name="_cc"
-                    defaultValue={CONTACT_INQUIRY_CC_EMAIL}
-                  />
-                  <input
-                    type="hidden"
-                    name="_next"
-                    defaultValue={contactFormReturnUrl()}
-                  />
-                  <input
-                    type="hidden"
-                    name="_autoresponse"
-                    defaultValue={CONTACT_FORM_AUTORESPONSE}
-                  />
-                  <input
-                    type="hidden"
-                    name="_replyto"
-                    value={email}
-                    readOnly
-                  />
-                </div>
-                {showFormThanks ? (
-                  <p
-                    role="status"
-                    className="rounded-lg border border-[#78dc77]/40 bg-[#78dc77]/15 px-4 py-3 text-sm leading-relaxed text-[#b8f5b9] md:col-span-2"
-                  >
-                    Thanks - your message was sent. You should receive a
-                    confirmation email from us shortly (check spam if you do not see
-                    it).
-                  </p>
-                ) : null}
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  autoComplete="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Your Name *"
-                  className="rounded-t-lg border-b border-white/20 bg-white/5 px-4 py-3.5 text-[15px] text-white outline-none placeholder:text-white/40 focus:border-[#78dc77] md:py-4"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  autoComplete="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email Address *"
-                  className="rounded-t-lg border-b border-white/20 bg-white/5 px-4 py-3.5 text-[15px] text-white outline-none placeholder:text-white/40 focus:border-[#78dc77] md:py-4"
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  autoComplete="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="Phone (optional)"
-                  className="rounded-t-lg border-b border-white/20 bg-white/5 px-4 py-3.5 text-[15px] text-white outline-none placeholder:text-white/40 focus:border-[#78dc77] md:py-4"
-                />
-                <textarea
-                  name="message"
-                  value={briefNote}
-                  onChange={(e) => setBriefNote(e.target.value)}
-                  placeholder="Message"
-                  required
-                  rows={4}
-                  className="h-24 resize-none rounded-t-lg border-b border-white/20 bg-white/5 px-4 py-3.5 text-[15px] text-white outline-none placeholder:text-white/40 focus:border-[#78dc77] md:col-span-2 md:py-4"
-                />
-                <button
-                  type="submit"
-                  className="ha-pill rounded-xl bg-[#78dc77] py-3.5 text-sm font-bold text-white hover:opacity-90 md:col-span-2 md:text-base"
-                >
-                  Send Email Inquiry
-                </button>
-              </form>
-            </div>
-
-            <figure className="mt-10 md:col-span-12 md:mt-14 lg:mt-16">
-              <blockquote className="mx-auto m-0 max-w-4xl text-center">
-                <p className="m-0 font-heading text-[15px] font-normal italic leading-relaxed tracking-normal text-[#43474e] md:text-[17px]">
-                  &ldquo;{CONTACT_PAGE_TESTIMONIAL.text}&rdquo;
-                </p>
-                <p className="mt-5 font-heading text-[15px] font-normal leading-relaxed tracking-normal not-italic text-[#43474e] md:mt-6 md:text-[17px]">
-                  <span className="whitespace-nowrap">
-                    &mdash; {CONTACT_PAGE_TESTIMONIAL.role},{" "}
-                    <cite className="not-italic">{CONTACT_PAGE_TESTIMONIAL.name}</cite>
-                  </span>
-                </p>
-              </blockquote>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      {/* What Happens Next - SVG roadmap (reference layout) */}
-      <section className="bg-[#f9f9ff] px-4 pt-10 pb-14 md:px-8 md:pt-14 md:pb-20">
-        <div className="mx-auto max-w-7xl 2xl:max-w-[min(90rem,calc(100vw-3rem))]">
-          <div className="mb-1 text-center md:mb-2">
-            <h2 className="font-heading text-[28px] font-bold tracking-tight text-[#02254d] md:text-[40px]">
-              What Happens{" "}
-              <span className="text-[#4CAF50]">Next: Your Reputation Management Journey</span>
-            </h2>
-            <p className="mx-auto mt-1.5 max-w-2xl text-[15px] leading-relaxed text-[#43474e] md:text-[16px]">
-              A transparent roadmap of your journey from first contact to a
-              thriving digital reputation.
-            </p>
-          </div>
-
-          <p className="mb-1 text-center text-[11px] text-[#5c6578] md:hidden">
-            Scroll sideways to see the full journey.
-          </p>
-          <ContactAuthorityRoadmap />
-        </div>
-      </section>
-
-      {/* Confidentiality */}
-      <section className="px-4 pt-14 pb-16 md:px-8 md:pt-20 md:pb-20">
-        <div className="mx-auto max-w-5xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-[#1f3b64] p-10 text-white shadow-2xl md:rounded-[3rem] md:p-16 lg:p-20">
-            <div
-              className="pointer-events-none absolute inset-0 opacity-10"
-              aria-hidden
-            >
-              <svg
-                className="h-full w-full"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <pattern
-                    id={gridPatternId}
-                    width="40"
-                    height="40"
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <path
-                      d="M 40 0 L 0 0 0 40"
-                      fill="none"
-                      stroke="white"
-                      strokeWidth="0.5"
+              <div className="relative z-10 flex flex-col items-center gap-8 md:flex-row md:gap-10">
+                <div className="shrink-0">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 md:h-24 md:w-24">
+                    <Lock
+                      className="h-10 w-10 text-[#78dc77] md:h-12 md:w-12"
+                      strokeWidth={2}
                     />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill={`url(#${gridPatternId})`} />
-              </svg>
-            </div>
-            <div className="relative z-10 flex flex-col items-center gap-10 md:flex-row md:gap-12">
-              <div className="shrink-0">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 md:h-24 md:w-24">
-                  <Lock
-                    className="h-10 w-10 text-[#78dc77] md:h-12 md:w-12"
-                    strokeWidth={2}
-                  />
+                  </div>
                 </div>
-              </div>
-              <div>
-                <h2 className="font-heading text-[26px] font-bold md:text-3xl lg:text-4xl">
-                  Your Reputation Management is 100% Confidential
-                </h2>
-                <p className="mt-4 text-[15px] leading-relaxed text-white md:mt-6 md:text-[17px]">
-                  Everything you share with us stays with us - no exceptions. We do
-                  not discuss client situations with third parties, reference
-                  engagements publicly, or share any information you provide. Our
-                  security architecture ensures your data remains protected at all
-                  times. Your privacy is a commitment we stand behind unconditionally.
-                </p>
+                <div className="text-center md:text-left">
+                  <h2 className="font-heading text-[24px] font-bold leading-tight md:text-[28px] lg:text-[32px]">
+                    Your Enquiry Is Handled Confidentially
+                  </h2>
+                  <p className="mt-3 text-[15px] leading-relaxed text-white/95 md:mt-4 md:text-[17px]">
+                    We handle every enquiry with discretion and use the information you provide
+                    only to understand your situation and respond appropriately. We do not
+                    reference client engagements publicly without permission.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
     </>
   );
 }

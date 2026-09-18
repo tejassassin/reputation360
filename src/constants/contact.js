@@ -11,10 +11,29 @@ export const CONTACT_FORM_AUTORESPONSE =
   "Thank you for your message. We have received your information. We'll get back to you ASAP.";
 
 /**
- * Same-origin URL for the email + form block on the contact page.
+ * Contact page hero form anchor (email inquiry block removed; use hero form).
  * Use for UI where `mailto:` is unreliable (e.g. floating dock in embedded or in-app browsers).
  */
-export const CONTACT_PAGE_EMAIL_SECTION_HREF = "/contact#email-inquiry";
+export const CONTACT_PAGE_EMAIL_SECTION_HREF = "/contact#consultation-form";
+
+/** Visible H1 on `/contact` (keep aligned with `SEO.contact.title` primary phrase). */
+export const CONTACT_PAGE_H1 = "Talk to Someone Who Understands Online Reputation";
+
+/** Two-line break for contact hero H1 display. */
+export const CONTACT_PAGE_H1_LINES = [
+  "Talk to Someone Who",
+  "Understands Online Reputation",
+];
+
+/** Contact hero subhead (full string). */
+export const CONTACT_PAGE_SUBHEAD =
+  "Tell us what's concerning you, and we'll help you understand what can realistically be improved.";
+
+/** Two-line break for contact hero subhead display. */
+export const CONTACT_PAGE_SUBHEAD_LINES = [
+  "Tell us what's concerning you,",
+  "and we'll help you understand what can realistically be improved.",
+];
 
 /**
  * Business phone: country code + national number, digits only (no +).
