@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import HomeContactLeadForm from "@/components/HomeContactLeadForm.jsx";
+import { R360_CONTACT_PAGE_LEGAL_DISCLOSURE } from "@/constants/legalEntity.js";
 
 const reassurancePoints = [
   "Discreet 15-minute consultation",
@@ -37,6 +38,10 @@ export function ContactHero() {
             <p className="r360-contact-hero-lead mb-0 font-body font-semibold text-white/95">
               Speak with our reputation management team about what is appearing across Google and
               AI-powered search and what may realistically be improved.
+            </p>
+
+            <p className="r360-contact-page-legal-disclosure mb-0 mt-4 max-w-xl font-body text-xs leading-relaxed text-white/65 sm:text-[13px]">
+              {R360_CONTACT_PAGE_LEGAL_DISCLOSURE}
             </p>
 
             <ul className="r360-contact-hero-reassurance mb-0 list-none p-0">

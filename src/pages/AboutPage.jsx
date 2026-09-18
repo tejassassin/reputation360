@@ -13,6 +13,7 @@ import { AboutOurStandardsSection } from "../components/about/AboutOurStandardsS
 import { AboutClientExperiencesSection } from "../components/about/AboutClientExperiencesSection.jsx";
 import { AboutFaqSection } from "../components/about/AboutFaqSection.jsx";
 import { AboutFinalConsultationSection } from "../components/about/AboutFinalConsultationSection.jsx";
+import { LegalEntityAboutDisclosure } from "../components/legal/LegalEntityAboutDisclosure.jsx";
 import { SeoHead } from "../components/SeoHead.jsx";
 import { useLocalizedSeo } from "../hooks/useLocalizedSeo.js";
 import { StatNumber } from "../components/StatNumber.jsx";
@@ -186,6 +187,10 @@ function AboutPage() {
       </section>
 
       <AboutClientExperiencesSection />
+
+      <div className="r360-about-legal-entity-disclosure-wrap px-4 pb-10 pt-2 md:px-8 md:pb-12">
+        <LegalEntityAboutDisclosure />
+      </div>
 
       <AboutFinalConsultationSection />
 

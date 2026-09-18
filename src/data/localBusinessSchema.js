@@ -6,6 +6,7 @@ import {
   INSTAGRAM_PROFILE_URL,
   LINKEDIN_COMPANY_URL,
 } from "../constants/brandProfiles.js";
+import { R360_LEGAL_ENTITY_NAME } from "../constants/legalEntity.js";
 
 export const ORGANIZATION_ID = `${METADATA_BASE}/#organization`;
 export const PROFESSIONAL_SERVICE_ID = `${METADATA_BASE}/#professional-service`;
@@ -56,6 +57,7 @@ export const PROFESSIONAL_SERVICE_ENTITY = {
   additionalType: "https://schema.org/LocalBusiness",
   "@id": PROFESSIONAL_SERVICE_ID,
   name: "Reputation360",
+  legalName: R360_LEGAL_ENTITY_NAME,
   url: METADATA_BASE,
   logo: `${METADATA_BASE}/android-chrome-512x512.png`,
   image: `${METADATA_BASE}/about-hero-search-mockup.png`,

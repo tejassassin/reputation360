@@ -1,6 +1,11 @@
 import { SeoHead } from "../components/SeoHead.jsx";
 import { BulletList, Prose, Section, Subheading } from "../components/legal/LegalDocPrimitives.jsx";
 import { SEO } from "../data/seoPageMeta.js";
+import {
+  R360_LEGAL_ENTITY_NAME,
+  R360_PUBLIC_BRAND_NAME,
+  R360_TERMS_LEGAL_INTRO,
+} from "../constants/legalEntity.js";
 
 const LINK_CLS =
   "font-semibold text-[#4CAF50] underline decoration-[#4CAF50]/40 underline-offset-2 transition-colors hover:text-[#3db846]";
@@ -105,10 +110,11 @@ export default function TermsOfServicePage() {
           <section className="rounded-2xl border border-slate-200/80 bg-slate-50/60 p-5 md:p-6">
             <h2 className="font-heading mb-3 text-lg font-bold text-navy">Please read carefully</h2>
             <Prose>
+              <p>{R360_TERMS_LEGAL_INTRO}</p>
               <p>
                 This document combines our Terms of Service, Acceptable Use Policy, and Website Terms
                 of Use into a single binding agreement. By purchasing, accessing, or using any
-                Reputation360 services or website, you agree to all parts of this document. If you do
+                {` ${R360_PUBLIC_BRAND_NAME} `}services or website, you agree to all parts of this document. If you do
                 not agree, do not use our services or website.
               </p>
             </Prose>
@@ -147,7 +153,8 @@ export default function TermsOfServicePage() {
             <Prose>
               <p>
                 These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you (&quot;Client&quot;,
-                &quot;you&quot;, or &quot;User&quot;) and Reputation360 (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). These Terms govern:
+                &quot;you&quot;, or &quot;User&quot;) and {R360_LEGAL_ENTITY_NAME} (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), which provides
+                services under the customer-facing brand {R360_PUBLIC_BRAND_NAME}. These Terms govern:
               </p>
             </Prose>
             <BulletList
@@ -155,7 +162,7 @@ export default function TermsOfServicePage() {
                 "Your purchase and use of our Online Reputation Management services",
                 "Your access to our website at https://www.thereputation360.com and related platforms",
                 "Any associated client portals, tools, reports, and communications",
-                "Your relationship with Reputation360",
+                `Your relationship with ${R360_PUBLIC_BRAND_NAME} and ${R360_LEGAL_ENTITY_NAME}`,
               ]}
             />
             <Prose>

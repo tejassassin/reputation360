@@ -1,6 +1,11 @@
 import { SeoHead } from "../components/SeoHead.jsx";
 import { BulletList, Prose, Section, Subheading } from "../components/legal/LegalDocPrimitives.jsx";
 import { SEO } from "../data/seoPageMeta.js";
+import {
+  R360_LEGAL_ENTITY_NAME,
+  R360_PRIVACY_LEGAL_INTRO,
+  R360_PUBLIC_BRAND_NAME,
+} from "../constants/legalEntity.js";
 
 const toc = [
   { id: "about", label: "About Reputation360" },
@@ -42,11 +47,12 @@ export default function PrivacyPolicyPage() {
           <section className="rounded-2xl border border-slate-200/80 bg-slate-50/60 p-5 md:p-6">
             <h2 className="font-heading mb-3 text-lg font-bold text-navy">A quick note about your privacy</h2>
             <Prose>
+              <p>{R360_PRIVACY_LEGAL_INTRO}</p>
               <p>
-                At Reputation360, we believe your privacy is paramount. We have built our reputation management and
+                At {R360_PUBLIC_BRAND_NAME}, we believe your privacy is paramount. We have built our reputation management and
                 negative link suppression services on the foundation of protecting your information. Unlike many digital
                 marketing companies, we do not sell, rent, or lease your personal data to third parties for profit.
-                This Privacy Policy explains how we collect, use, protect, and manage your information when you visit our
+                The sections below describe in more detail how we collect, use, protect, and manage your information when you visit our
                 website at{" "}
                 <a
                   href="https://www.thereputation360.com"
@@ -81,7 +87,8 @@ export default function PrivacyPolicyPage() {
           <Section id="about" n={1} title="About Reputation360">
             <Prose>
               <p>
-                Reputation360 is an Online Reputation Management company headquartered in India and operating across the
+                {R360_PUBLIC_BRAND_NAME} is the customer-facing brand operated by {R360_LEGAL_ENTITY_NAME}, an Online Reputation
+                Management company headquartered in India and operating across the
                 United States, Canada, and Australia. With over 7 years of hands-on experience, we specialize in:
               </p>
             </Prose>
@@ -481,7 +488,11 @@ export default function PrivacyPolicyPage() {
           <Section id="contact" n={13} title="Contact Us">
             <Prose>
               <p>If you have questions, concerns, or requests regarding this Privacy Policy or our privacy practices:</p>
-              <p className="font-semibold text-navy">Reputation360</p>
+              <p className="font-semibold text-navy">{R360_PUBLIC_BRAND_NAME}</p>
+              <p className="text-sm text-slate-600">
+                {R360_LEGAL_ENTITY_NAME} operates the {R360_PUBLIC_BRAND_NAME} brand and processes personal information
+                collected through this website in connection with our Services.
+              </p>
               <p>
                 Email:{" "}
                 <a

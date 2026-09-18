@@ -12,12 +12,14 @@ import {
   PROFESSIONAL_SERVICE_ENTITY,
 } from "./localBusinessSchema.js";
 import { SERVICE_ENTITIES, withServiceOffers } from "./serviceSchema.js";
+import { R360_LEGAL_ENTITY_NAME } from "../constants/legalEntity.js";
 
 /** Organization entity (use inside homepage @graph or standalone with @context). */
 export const ORGANIZATION_ENTITY = {
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
   name: "Reputation360",
+  legalName: R360_LEGAL_ENTITY_NAME,
   url: METADATA_BASE,
   logo: `${METADATA_BASE}/android-chrome-512x512.png`,
   image: `${METADATA_BASE}/about-hero-search-mockup.png`,

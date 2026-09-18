@@ -22,6 +22,7 @@ import {
 import { LOGO_ALT_FOOTER } from "../constants/imageAlt.js";
 import { externalAnchorProps, internalAnchorProps } from "../lib/internalLinkProps.js";
 import { AUDIENCE_PATH } from "../constants/whoWeServePaths.js";
+import { R360_FOOTER_LEGAL_BAR } from "../constants/legalEntity.js";
 
 const FACEBOOK_PROFILE_URL =
   "https://www.facebook.com/profile.php?id=61572090900344&mibextid=ZbWKwL";
@@ -267,12 +268,8 @@ function Footer() {
           </nav>
         </div>
 
-        <div className="r360-footer-legal border-t border-white/10">
-          <div className="r360-footer-legal-inner">
-            <p className="r360-footer-legal-copy m-0 font-body text-left text-xs leading-relaxed">
-              © 2026 Reputation360. All rights reserved.
-            </p>
-          </div>
+        <div className="r360-footer-legal-bar border-t border-white/10">
+          <p className="r360-footer-legal-bar-text m-0 font-body">{R360_FOOTER_LEGAL_BAR}</p>
         </div>
       </div>
     </footer>
