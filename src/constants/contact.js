@@ -18,9 +18,12 @@ export const CONTACT_PAGE_EMAIL_SECTION_HREF = "/contact#email-inquiry";
 
 /**
  * Business phone: country code + national number, digits only (no +).
- * Update when the business line changes.
+ * Display: +91 9548997527 · E.164: +919548997527
  */
 export const BUSINESS_PHONE = "919548997527";
+
+/** schema.org / JSON-LD / tel: E.164 (with +). */
+export const BUSINESS_TELEPHONE = `+${BUSINESS_PHONE}`;
 
 /** Visible mailing address (matches structured data PostalAddress). */
 export const BUSINESS_ADDRESS_DISPLAY =
@@ -105,10 +108,10 @@ export function contactTelHref(phone = BUSINESS_PHONE) {
   return `tel:+${phone}`;
 }
 
-/** Human-readable display for the business phone number. */
+/** Human-readable display for the business phone number (+91 9548997527). */
 export function formatBusinessPhoneDisplay(phone = BUSINESS_PHONE) {
   if (phone.startsWith("91") && phone.length === 12) {
-    return `+91 ${phone.slice(2, 7)} ${phone.slice(7)}`;
+    return `+91 ${phone.slice(2)}`;
   }
   return `+${phone}`;
 }

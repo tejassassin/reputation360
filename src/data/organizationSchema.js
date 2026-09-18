@@ -1,5 +1,5 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
-import { CONTACT_EMAIL } from "../constants/contact.js";
+import { CONTACT_EMAIL, BUSINESS_TELEPHONE } from "../constants/contact.js";
 import {
   FOUNDING_YEAR,
   GOOGLE_REVIEW_URL,
@@ -24,6 +24,16 @@ export const ORGANIZATION_ENTITY = {
   description:
     "Reputation360 is a trusted Online Reputation Management agency with 7+ years of experience. We help individuals and brands suppress negative search results and build credible, resilient digital reputations.",
   email: CONTACT_EMAIL,
+  telephone: BUSINESS_TELEPHONE,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: CONTACT_EMAIL,
+      telephone: BUSINESS_TELEPHONE,
+      availableLanguage: ["English"],
+    },
+  ],
   foundingDate: String(FOUNDING_YEAR),
   areaServed: AREA_SERVED_COUNTRIES,
   knowsAbout: [

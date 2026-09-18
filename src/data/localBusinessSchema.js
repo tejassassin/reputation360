@@ -1,5 +1,5 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
-import { CONTACT_EMAIL, BUSINESS_PHONE } from "../constants/contact.js";
+import { CONTACT_EMAIL, BUSINESS_TELEPHONE } from "../constants/contact.js";
 import {
   FOUNDING_YEAR,
   GOOGLE_REVIEW_URL,
@@ -45,8 +45,7 @@ const PROFILE_SAME_AS = [
   GOOGLE_REVIEW_URL,
 ];
 
-/** E.164 for schema.org telephone. */
-export const BUSINESS_TELEPHONE = `+${BUSINESS_PHONE}`;
+export { BUSINESS_TELEPHONE } from "../constants/contact.js";
 
 /**
  * ProfessionalService (schema.org subtype of LocalBusiness) for Reputation360.

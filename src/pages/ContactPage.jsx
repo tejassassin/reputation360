@@ -6,6 +6,8 @@ import {
   CONTACT_FORM_SUBMIT_URL,
   CONTACT_INQUIRY_CC_EMAIL,
   contactMailtoHref,
+  contactTelHref,
+  formatBusinessPhoneDisplay,
   handleMailtoClick,
 } from "../constants/contact.js";
 import { ContactHero } from "../components/contact/ContactHero.jsx";
@@ -270,6 +272,12 @@ function ContactPage() {
                   className="ha-nudge mt-3 block w-fit text-[15px] text-[#8ca6d5] md:mt-4 md:text-lg"
                 >
                   {CONTACT_EMAIL}
+                </a>
+                <a
+                  href={contactTelHref()}
+                  className="ha-nudge mt-2 block w-fit text-[15px] text-[#8ca6d5] md:text-lg"
+                >
+                  {formatBusinessPhoneDisplay()}
                 </a>
                 <p className="mt-2 text-xs text-[#8ca6d5] md:text-sm">
                   Expect a detailed response within 8 hours.

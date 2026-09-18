@@ -10,6 +10,8 @@ import {
 import {
   CONTACT_EMAIL,
   contactMailtoHref,
+  contactTelHref,
+  formatBusinessPhoneDisplay,
   handleMailtoClick,
 } from "../constants/contact.js";
 import {
@@ -204,6 +206,12 @@ function FooterBrandColumn() {
         className={`${linkClassName} mt-5 block break-all text-[0.9375rem] font-medium`}
       >
         {CONTACT_EMAIL}
+      </a>
+      <a
+        href={contactTelHref()}
+        className={`${linkClassName} mt-2 block text-[0.9375rem] font-medium`}
+      >
+        {formatBusinessPhoneDisplay()}
       </a>
       <div className="mt-5 flex flex-wrap items-center gap-0.5">
         <SocialIconLink href={LINKEDIN_COMPANY_URL} label="LinkedIn">
