@@ -103,17 +103,20 @@ html body section#r3-home-our-services-root {
 }
 
 .r3-service-title-row {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  width: 100%;
-  min-width: 0;
+  width: fit-content;
   max-width: 100%;
+  min-width: 0;
+  margin-inline: auto;
 }
 
 .r3-supporting-service-title {
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
   width: 100%;
   min-width: 0;
   max-width: 100%;
@@ -135,9 +138,10 @@ html body section#r3-home-our-services-root {
 
 .r3-service-title-text {
   min-width: 0;
-  flex: 0 1 auto;
   max-width: 100%;
   text-align: center;
+  white-space: normal;
+  text-wrap: balance;
 }
 
 .r3-service-card-arrow {
@@ -162,9 +166,7 @@ html body section#r3-home-our-services-root {
   }
 
   .r3-supporting-service-card-inner--middle-row .r3-supporting-service-title {
-    display: flex;
     align-items: center;
-    justify-content: center;
     width: 100%;
     min-height: 3.5rem;
   }
