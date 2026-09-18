@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import {
   CONSULTATION_BOTTOM_CTA_CONSULT_LABEL,
-  CONSULTATION_BOTTOM_CTA_LINE_ONE,
-  CONSULTATION_BOTTOM_CTA_LINE_TWO,
+  CONSULTATION_BOTTOM_CTA_HEADING,
   CONSULTATION_BOTTOM_CTA_SCAN_LABEL,
+  CONSULTATION_BOTTOM_CTA_SUPPORTING,
 } from "@/constants/consultationBottomCta.js";
 import { FREE_RISK_SCAN_PATH } from "@/constants/freeRiskScan.js";
 import {
@@ -20,12 +20,13 @@ import {
   trackBottomCtaReputationScanClick,
   trackConsultationFormScrollSuccess,
 } from "@/lib/conversionAnalytics.js";
+import { R360_CTA_CONSULTATION_SOLID } from "@/lib/ctaVariants.js";
 
 const scanButtonClass =
-  "r360-consultation-bottom-cta-scan order-2 inline-flex w-full items-center justify-center gap-2 rounded-lg border-2 border-white/35 bg-white/10 px-5 py-3 text-sm font-heading font-medium text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#072f5f] sm:w-auto md:px-6";
+  "r360-consultation-bottom-cta-scan order-2 ha-pill inline-flex w-full items-center justify-center gap-2 rounded-lg border-2 border-white/35 bg-white/10 px-5 py-3 text-sm font-heading font-medium text-white backdrop-blur-sm transition hover:border-white/55 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#072f5f] sm:w-auto md:px-6";
 
 const consultButtonClass =
-  "r360-consultation-bottom-cta-consult order-1 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-cta-consult px-5 py-3 text-sm font-heading font-medium text-white transition-all duration-200 hover:brightness-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#072f5f] sm:w-auto md:px-6";
+  `r360-consultation-bottom-cta-consult order-1 ha-pill inline-flex w-full items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-heading font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#072f5f] sm:w-auto md:px-6 ${R360_CTA_CONSULTATION_SOLID}`;
 
 /**
  * Compact pre-footer CTA (matches audience-page dark panel): scroll to hero form or Contact.
@@ -60,17 +61,17 @@ export function ConsultationBottomCta() {
     >
       <div className="r360-site-container r360-consultation-bottom-cta-shell">
         <div className="r360-consultation-bottom-cta-panel rounded-2xl border border-white/15 bg-[#072f5f] px-6 py-9 text-center text-white shadow-[0_16px_40px_-20px_rgba(7,47,95,0.45)] md:px-10 md:py-11 lg:py-12">
-          <p
-            id="r360-consultation-bottom-cta-copy"
-            className="mx-auto max-w-3xl font-heading font-semibold leading-snug text-white md:leading-snug"
-          >
-            <span className="block overflow-x-auto whitespace-nowrap text-[19px] [-ms-overflow-style:none] [scrollbar-width:none] md:text-[23px] [&::-webkit-scrollbar]:hidden">
-              {CONSULTATION_BOTTOM_CTA_LINE_ONE}
-            </span>
-            <span className="mt-2 block text-[19px] md:whitespace-nowrap md:text-[23px]">
-              {CONSULTATION_BOTTOM_CTA_LINE_TWO}
-            </span>
-          </p>
+          <div className="mx-auto max-w-3xl text-center">
+            <h2
+              id="r360-consultation-bottom-cta-copy"
+              className="mb-0 font-heading text-[19px] font-semibold leading-snug text-white text-balance md:text-[23px]"
+            >
+              {CONSULTATION_BOTTOM_CTA_HEADING}
+            </h2>
+            <p className="r360-consultation-bottom-cta-supporting mb-0 mt-2 font-body text-base leading-relaxed text-white/90 md:text-lg">
+              {CONSULTATION_BOTTOM_CTA_SUPPORTING}
+            </p>
+          </div>
           <div className="r360-consultation-bottom-cta-actions mt-7 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
             <a
               href={consultHref}

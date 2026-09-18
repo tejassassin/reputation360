@@ -1005,8 +1005,8 @@
   }
 
   .r360-site-container.r360-consultation-bottom-cta-shell {
-    width: calc(100% - 32px);
-    max-width: 1420px;
+    width: calc(100% - var(--r360-layout-inline-inset) - 6rem);
+    max-width: calc(var(--r360-home-inner-max-width) - 3rem);
     margin-inline: auto;
     padding-inline: 0;
     box-sizing: border-box;
@@ -4299,19 +4299,31 @@ button.r360-cta-reputation-scan--nav-solid:focus-visible {
   background-color: #ffffff;
   padding-top: 0.75rem;
   padding-bottom: 1rem;
+  width: calc(100% - 3rem);
+  max-width: none;
+  margin-inline: auto;
+  padding-inline: 0;
 }
 
 @media (min-width: 768px) {
   .r360-consultation-bottom-cta-shell {
     padding-top: 1rem;
     padding-bottom: 1.25rem;
+    width: calc(100% - 4.5rem);
   }
 }
 
 @media (min-width: 1024px) {
   .r360-site-container.r360-consultation-bottom-cta-shell {
-    width: calc(100% - 2.5rem);
-    max-width: min(1420px, calc(var(--r360-home-inner-max-width) + 5rem));
+    width: calc(100% - 7rem);
+    max-width: min(1300px, calc(100% - 7rem));
+  }
+}
+
+@media (min-width: 1280px) {
+  .r360-site-container.r360-consultation-bottom-cta-shell {
+    width: calc(100% - 9rem);
+    max-width: min(1240px, calc(100% - 9rem));
   }
 }
 

@@ -1,7 +1,8 @@
-export const CONSULTATION_BOTTOM_CTA_LINE_ONE =
-  "Your influence should not be limited by what Google shows first.";
+export const CONSULTATION_BOTTOM_CTA_HEADING =
+  "Not sure what people find when they search for you?";
 
-export const CONSULTATION_BOTTOM_CTA_LINE_TWO = "We make sure it isn't.";
+export const CONSULTATION_BOTTOM_CTA_SUPPORTING =
+  "Start with a free scan or speak confidentially with our team.";
 
 export const CONSULTATION_BOTTOM_CTA_SCAN_LABEL = "Free Reputation Scan";
 
