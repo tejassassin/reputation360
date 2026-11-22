@@ -85,6 +85,16 @@ function freeScanEndpoint() {
  * @param {string} raw
  * @returns {{ firstName: string; lastName: string }}
  */
+const SCAN_RETRY_MESSAGE =
+  "We couldn't complete your scan right now. Please try again in a minute, or email us and we'll run it for you.";
+
+/** The browser-only demo report is for local development; never show it to real visitors. */
+function isLocalDevHost() {
+  if (typeof window === "undefined") return false;
+  const h = window.location.hostname;
+  return h === "localhost" || h === "127.0.0.1" || h === "[::1]" || h.endsWith(".localhost");
+}
+
 function splitFullName(raw) {
   const t = raw.trim().replace(/\s+/g, " ");
   if (!t) return { firstName: "", lastName: "" };
@@ -401,6 +411,12 @@ export default function FreeRiskScanPage() {
           code === "TAVILY_NOT_CONFIGURED" ||
           code === "OPENROUTER_NOT_CONFIGURED"
         ) {
+          if (!isLocalDevHost()) {
+            console.error("[free-scan] server reported:", code);
+            setFormError(SCAN_RETRY_MESSAGE);
+            setPhase("form");
+            return;
+          }
           const fallback = buildOfflineFreeScanPayload({
             firstName: fn,
             lastName: ln,
@@ -420,8 +436,14 @@ export default function FreeRiskScanPage() {
             : `Scan could not complete (${res.status}).`;
         setFormError(apiMsg);
         setPhase("form");
-      } catch {
+      } catch (err) {
         clearGenTimers();
+        if (!isLocalDevHost()) {
+          console.error("[free-scan] request failed", err);
+          setFormError(SCAN_RETRY_MESSAGE);
+          setPhase("form");
+          return;
+        }
         const fallback = buildOfflineFreeScanPayload({
           firstName: fn,
           lastName: ln,
