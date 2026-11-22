@@ -294,6 +294,7 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
 
   let scanId = null;
   let userId = null;
+  let dbError = null;
 
   if (env.DATABASE_URL) {
     try {
@@ -322,8 +323,53 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
       scanId = ids.scanId;
       userId = ids.userId;
     } catch (e) {
+      dbError = e instanceof Error ? e.message : "Database write failed";
       console.error("[free-scan] database", e);
     }
+  } else {
+    dbError = "DATABASE_URL is not set.";
+    console.error("[free-scan] database: DATABASE_URL is not set; lead not stored");
+  }
+
+  // Team alert goes first so a failure in the visitor email can never block it.
+  let notificationSent = false;
+  let notificationError = null;
+  if (env.RESEND_API_KEY && env.RESEND_FROM_EMAIL) {
+    try {
+      await sendFreeScanLeadNotificationEmail({
+        firstName,
+        lastName,
+        email,
+        country,
+        consentGiven,
+        searchQueryUsed: base.searchQueryUsed,
+        reportedScore: base.reportedScore,
+        presenceLabel: base.presenceLabel,
+        scoreBand: band.label,
+        scoreBandLabel: band.bandLabel,
+        letterGrade: band.label,
+        reputationStatus: band.label,
+        scanId,
+        userId,
+        summary: base.summary,
+        hurting: base.hurting,
+        improving: base.improving,
+        positive: base.positive,
+        neutral: base.neutral,
+        negative: base.negative,
+      });
+      notificationSent = true;
+      console.info("[free-scan] internal notification email sent", {
+        to: env.FREE_SCAN_NOTIFICATION_EMAIL || "hello@thereputation360.com",
+        scanId,
+        userId,
+      });
+    } catch (e) {
+      notificationError = e instanceof Error ? e.message : "Notification email failed";
+      console.error("[free-scan] internal notification email", e);
+    }
+  } else {
+    notificationError = "RESEND_API_KEY / RESEND_FROM_EMAIL not set.";
   }
 
   let emailSent = false;
@@ -374,40 +420,6 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
       "Email is not configured on the server (set RESEND_API_KEY and RESEND_FROM_EMAIL in Vercel).";
   }
 
-  if (env.RESEND_API_KEY && env.RESEND_FROM_EMAIL) {
-    try {
-      await sendFreeScanLeadNotificationEmail({
-        firstName,
-        lastName,
-        email,
-        country,
-        consentGiven,
-        searchQueryUsed: base.searchQueryUsed,
-        reportedScore: base.reportedScore,
-        presenceLabel: base.presenceLabel,
-        scoreBand: band.label,
-        scoreBandLabel: band.bandLabel,
-        letterGrade: band.label,
-        reputationStatus: band.label,
-        scanId,
-        userId,
-        summary: base.summary,
-        hurting: base.hurting,
-        improving: base.improving,
-        positive: base.positive,
-        neutral: base.neutral,
-        negative: base.negative,
-      });
-      console.info("[free-scan] internal notification email sent", {
-        to: env.FREE_SCAN_NOTIFICATION_EMAIL || "hello@thereputation360.com",
-        scanId,
-        userId,
-      });
-    } catch (e) {
-      console.error("[free-scan] internal notification email", e);
-    }
-  }
-
   return {
     status: 200,
     json: {
@@ -424,6 +436,9 @@ export async function runFreeScanPipeline(body, envExtra = {}) {
       userId,
       emailSent,
       emailError,
+      notificationSent,
+      notificationError,
+      dbError,
       storedInDatabase: Boolean(scanId),
     },
   };
