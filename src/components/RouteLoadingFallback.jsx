@@ -69,7 +69,7 @@ export function RouteLoadingFallback({ label = "Loading your experience" }) {
       </p>
 
       {/* Dev-only troubleshooting advice shown only after 5 seconds in development mode */}
-      {showTroubleshoot && import.meta.env.DEV && (
+      {showTroubleshoot && import.meta.env?.DEV && (
         <div className="mt-10 animate-fade-in rounded-xl border border-amber-200/60 bg-amber-50/50 p-4 text-left max-w-md shadow-sm">
           <h4 className="text-sm font-semibold text-amber-800">Developer Notice</h4>
           <p className="mt-1 text-xs leading-relaxed text-amber-700">

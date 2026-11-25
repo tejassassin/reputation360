@@ -36,7 +36,7 @@ export function formatReputationReportForChat(report, subject) {
 }
 
 function reputationAgentEndpoint() {
-  const base = import.meta.env.VITE_REPUTATION_AGENT_API_URL?.replace(/\/$/, "") ?? "";
+  const base = import.meta.env?.VITE_REPUTATION_AGENT_API_URL?.replace(/\/$/, "") ?? "";
   return base ? `${base}/api/reputation-agent` : "/api/reputation-agent";
 }
 
