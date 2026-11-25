@@ -78,7 +78,13 @@ const SCAN_STAGES = [
 
 function freeScanEndpoint() {
   const base = import.meta.env.VITE_FREE_SCAN_API_URL?.replace(/\/$/, "") ?? "";
-  return base ? `${base}/api/free-scan` : "/api/free-scan";
+  if (base) return `${base}/api/free-scan`;
+  // The bare domain 301-redirects /api/* to www, which browsers reject for a
+  // cross-origin JSON POST (the preflight cannot follow a redirect). Call www directly.
+  if (typeof window !== "undefined" && window.location.hostname === "thereputation360.com") {
+    return "https://www.thereputation360.com/api/free-scan";
+  }
+  return "/api/free-scan";
 }
 
 /**
