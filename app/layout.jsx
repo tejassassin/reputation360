@@ -13,6 +13,7 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="deploy-sha" content={getDeploySha()} />
         <meta name="theme-color" content="#1f3b64" />
+        <meta name="p:domain_verify" content="abc90132d502dbf68ee32c0f0d5a01c1" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
