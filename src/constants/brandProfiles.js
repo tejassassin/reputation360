@@ -39,6 +39,7 @@ export const OFFICIAL_PROFILE_URLS = [
   "https://www.sortlist.co.uk/agency/reputation360",
   "https://techbehemoths.com/company/reputation360",
   "https://selectedfirms.co/agency/reputation360",
+  "https://clutch.co/profile/reputation360",
   "https://themanifest.com/company/reputation360",
   "https://www.designrush.com/agency/profile/reputation360",
   GOOGLE_REVIEW_URL,
