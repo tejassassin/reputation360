@@ -12,6 +12,7 @@ import { AboutHowWeWorkSection } from "../components/about/AboutHowWeWorkSection
 import { AboutOurStandardsSection } from "../components/about/AboutOurStandardsSection.jsx";
 import { AboutClientExperiencesSection } from "../components/about/AboutClientExperiencesSection.jsx";
 import { AboutFaqSection } from "../components/about/AboutFaqSection.jsx";
+import { AboutOfficialProfiles } from "../components/about/AboutOfficialProfiles.jsx";
 import { ConsultationBottomCta } from "../components/ConsultationBottomCta.jsx";
 import {
   CONSULTATION_FORM_ID,
@@ -206,6 +207,7 @@ function AboutPage() {
 
       <div className="bg-white">
         <AboutFaqSection />
+        <AboutOfficialProfiles />
         <p
           id="not-affiliated"
           className="mx-auto max-w-3xl px-6 pb-10 text-center font-body text-sm leading-relaxed text-slate-500"
