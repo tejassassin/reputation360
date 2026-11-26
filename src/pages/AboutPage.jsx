@@ -206,6 +206,14 @@ function AboutPage() {
 
       <div className="bg-white">
         <AboutFaqSection />
+        <p
+          id="not-affiliated"
+          className="mx-auto max-w-3xl px-6 pb-10 text-center font-body text-sm leading-relaxed text-slate-500"
+        >
+          Reputation360 (also written Reputation 360) operates only at thereputation360.com. We are
+          not affiliated with Reputation.com, reputation360.online, reputation360.co, Repute360, or
+          Reputation 360 MD.
+        </p>
         <ConsultationBottomCta />
       </div>
     </main>
