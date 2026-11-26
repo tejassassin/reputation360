@@ -1,10 +1,9 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
 import { CONTACT_EMAIL, BUSINESS_TELEPHONE } from "../constants/contact.js";
 import {
+  BRAND_ALTERNATE_NAMES,
   FOUNDING_YEAR,
-  GOOGLE_REVIEW_URL,
-  INSTAGRAM_PROFILE_URL,
-  LINKEDIN_COMPANY_URL,
+  OFFICIAL_PROFILE_URLS,
 } from "../constants/brandProfiles.js";
 import {
   AREA_SERVED_COUNTRIES,
@@ -19,6 +18,7 @@ export const ORGANIZATION_ENTITY = {
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
   name: "Reputation360",
+  alternateName: BRAND_ALTERNATE_NAMES,
   legalName: R360_LEGAL_ENTITY_NAME,
   url: METADATA_BASE,
   logo: `${METADATA_BASE}/android-chrome-512x512.png`,
@@ -44,19 +44,7 @@ export const ORGANIZATION_ENTITY = {
     "Brand Monitoring",
     "Crisis Management",
   ],
-  sameAs: [
-    LINKEDIN_COMPANY_URL,
-    "https://x.com/Reputation360_",
-    INSTAGRAM_PROFILE_URL,
-    "https://www.youtube.com/@Reputation360",
-    GOOGLE_REVIEW_URL,
-    "https://in.pinterest.com/reputation360/",
-    "https://medium.com/@Reputation360",
-    "https://reputation360online.blogspot.com/",
-    "https://reputation360.wordpress.com",
-    "https://www.behance.net/thereputation360",
-    "https://reputation360.mystrikingly.com",
-  ],
+  sameAs: OFFICIAL_PROFILE_URLS,
 };
 
 export const PROFESSIONAL_SERVICE_WITH_OFFERS = withServiceOffers(

@@ -1,10 +1,10 @@
 import { METADATA_BASE } from "../constants/siteUrl.js";
 import { CONTACT_EMAIL, BUSINESS_TELEPHONE } from "../constants/contact.js";
 import {
+  BRAND_ALTERNATE_NAMES,
   FOUNDING_YEAR,
   GOOGLE_REVIEW_URL,
-  INSTAGRAM_PROFILE_URL,
-  LINKEDIN_COMPANY_URL,
+  OFFICIAL_PROFILE_URLS,
 } from "../constants/brandProfiles.js";
 import { R360_LEGAL_ENTITY_NAME } from "../constants/legalEntity.js";
 
@@ -38,14 +38,6 @@ const KNOWS_ABOUT = [
   "Crisis Management",
 ];
 
-const PROFILE_SAME_AS = [
-  LINKEDIN_COMPANY_URL,
-  "https://x.com/Reputation360_",
-  INSTAGRAM_PROFILE_URL,
-  "https://www.youtube.com/@Reputation360",
-  GOOGLE_REVIEW_URL,
-];
-
 export { BUSINESS_TELEPHONE } from "../constants/contact.js";
 
 /**
@@ -57,6 +49,7 @@ export const PROFESSIONAL_SERVICE_ENTITY = {
   additionalType: "https://schema.org/LocalBusiness",
   "@id": PROFESSIONAL_SERVICE_ID,
   name: "Reputation360",
+  alternateName: BRAND_ALTERNATE_NAMES,
   legalName: R360_LEGAL_ENTITY_NAME,
   url: METADATA_BASE,
   logo: `${METADATA_BASE}/android-chrome-512x512.png`,
@@ -80,5 +73,5 @@ export const PROFESSIONAL_SERVICE_ENTITY = {
       areaServed: ["US", "CA", "AU", "GB", "IN"],
     },
   ],
-  sameAs: PROFILE_SAME_AS,
+  sameAs: OFFICIAL_PROFILE_URLS,
 };
